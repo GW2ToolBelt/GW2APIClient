@@ -25,6 +25,8 @@ recommended.
 
 ## License
 
+#### GW2APIClient
+
 Copyright 2018 Leon Linhart
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -40,6 +42,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 ------------------------------------------------------------------------------------------------------------------------
+
+#### Guild Wars 2
 
 © 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars, Guild Wars Factions,
 Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, Heart of Thorns, and all associated logos and designs
