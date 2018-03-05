@@ -40,8 +40,8 @@ import kotlinx.serialization.*
  * authentication key. (These keys will be referred to as keys or API keys throughout this documentation.) A user
  * must generate an API key by visiting [account.arena.net/applications](https://account.arena.net/applications) and
  * following the instructions on that side.
- * Keys are not passed by request but instead stored in a client instance in order to support
- * [rate controlling][RateController].
+ * Keys are not passed by request but instead stored in a client instance in order to support client side permission
+ * checks.
  * If client side assertions are enabled, querying an endpoint that requires authentication with an unauthenticated
  * receiver client, or, with an client which's api key does not have the permissions required for that endpoint, the
  * query will fail with an exception.
