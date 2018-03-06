@@ -25,7 +25,7 @@ kotlin {
 
 dependencies {
     compile(kotlin("stdlib-common"))
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:0.22.4")
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:0.22.5")
     compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.4.1")
 
     testCompile(kotlin("test-common"))

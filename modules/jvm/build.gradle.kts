@@ -33,7 +33,7 @@ dependencies {
 
     compile(kotlin("stdlib-jdk7"))
     compile(kotlin("reflect"))
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.4")
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5")
     compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.4.1")
 
     compile("com.squareup.okhttp3:okhttp:3.10.0")
