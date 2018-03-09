@@ -26,6 +26,25 @@ Javascript. Using this library from any language other than Kotlin is highly dis
 pure Javascript solution, using [queicherius' Javascript wrapper](https://github.com/queicherius/gw2api-client) is
 recommended.
 
+
+### Versioning
+
+GW2APIClient is strictly following [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html).
+
+> Given a version number MAJOR.MINOR.PATCH, increment the:
+>  
+> - MAJOR version when you make incompatible API changes,
+> - MINOR version when you add functionality in a backwards-compatible manner, and
+> - PATCH version when you make backwards-compatible bug fixes.
+>  
+>
+>  Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+Generally, all additions to the official Guild Wars 2 API should be available in the next minor release of GW2APIClient.
+Keep in mind, that GW2APIClient's version is currently `0.y.z` which means that the API is still an early draft and may
+change (in a breaking manner) without a major release.
+
+
 ## License
 
 #### GW2APIClient
