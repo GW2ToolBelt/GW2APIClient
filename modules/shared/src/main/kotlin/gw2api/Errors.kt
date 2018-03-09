@@ -15,6 +15,25 @@
  */
 package gw2api
 
+/**
+ * An exception indicating that the API key in use is invalid.
+ *
+ * @since   0.1.0
+ */
 class UnauthenticatedException : Exception()
 
+/**
+ * An exception indicating that the API key in use has insufficient permissions.
+ *
+ * @since   0.1.0
+ */
 class InsufficientPermissionsException : Exception()
+
+/**
+ * An exception related to rate limits.
+ *
+ * @see RateController.tryIncrement
+ *
+ * @since   0.1.0
+ */
+class RateLimitException : Exception()
