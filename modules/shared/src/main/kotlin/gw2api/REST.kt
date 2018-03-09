@@ -20,7 +20,7 @@ import kotlinx.coroutines.experimental.*
 import kotlinx.serialization.json.*
 import kotlin.coroutines.experimental.*
 
-internal fun <T> GW2APIView.query(
+internal fun <T> GW2APIClient.query(
     endpoint: String,
     authenticated: Boolean = false,
     params: Map<String, Any> = emptyMap(),
@@ -44,9 +44,8 @@ internal fun <T> GW2APIView.query(
         suspendCoroutine<Response<T>> { continuation ->
             fun invokeQuery() {
                 // TODO query cache
-                // TODO call rate limiter
 
-                continuation.queryNetwork(url, cacheTime * 1000 /* seconds -> millis */, overrideCacheTime, conv) {
+                continuation.queryNetwork(url, endpoint, cacheTime * 1000 /* seconds -> millis */, overrideCacheTime, conv, rateController) {
                     // TODO cache response
                 }
             }
@@ -75,7 +74,15 @@ internal fun <T> GW2APIView.query(
     return Request(url, endpoint, futureResponse)
 }
 
-internal expect fun <T> Continuation<Response<T>>.queryNetwork(url: String, cacheTime: Int, overrideCacheTime: Boolean, conv: (String) -> T, cache: (Response<T>) -> Unit)
+internal expect fun <T> Continuation<Response<T>>.queryNetwork(
+    url: String,
+    endpoint: String,
+    cacheTime: Int,
+    overrideCacheTime: Boolean,
+    conv: (String) -> T,
+    rateController: RateController?,
+    cache: (Response<T>) -> Unit
+)
 internal inline fun <reified T : Any> jsonParser(): (String) -> T = { str -> JSON.parse(str) }
 
 expect class Request<out T> internal constructor(

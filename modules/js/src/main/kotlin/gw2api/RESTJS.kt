@@ -21,8 +21,18 @@ import kotlin.coroutines.experimental.*
 import kotlin.js.*
 import org.w3c.fetch.Request as W3CRequest
 
-internal actual fun <T> Continuation<Response<T>>.queryNetwork(url: String, cacheTime: Int, overrideCacheTime: Boolean, conv: (String) -> T, cache: (Response<T>) -> Unit) {
+internal actual fun <T> Continuation<Response<T>>.queryNetwork(
+    url: String,
+    endpoint: String,
+    cacheTime: Int,
+    overrideCacheTime: Boolean,
+    conv: (String) -> T,
+    rateController: RateController?,
+    cache: (Response<T>) -> Unit
+) {
     val request = W3CRequest(url)
+
+    rateController?.tryIncrement(endpoint)
     window.fetch(request).then(
         onFulfilled = {
             if (it.ok) {

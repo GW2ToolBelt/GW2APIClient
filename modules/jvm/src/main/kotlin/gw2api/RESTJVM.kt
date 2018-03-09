@@ -16,21 +16,31 @@
 package gw2api
 
 import kotlinx.coroutines.experimental.*
+import okhttp3.*
 import java.io.*
 import kotlin.coroutines.experimental.*
-import okhttp3.*
 import okhttp3.Callback as OkHttpCallback
 import okhttp3.Request as OkHttpRequest
 import okhttp3.Response as OkHttpResponse
 
 private val httpClient = OkHttpClient()
 
-internal actual fun <T> Continuation<Response<T>>.queryNetwork(url: String, cacheTime: Int, overrideCacheTime: Boolean, conv: (String) -> T, cache: (Response<T>) -> Unit) {
-    httpClient.newCall(OkHttpRequest.Builder()
+internal actual fun <T> Continuation<Response<T>>.queryNetwork(
+    url: String,
+    endpoint: String,
+    cacheTime: Int,
+    overrideCacheTime: Boolean,
+    conv: (String) -> T,
+    rateController: RateController?,
+    cache: (Response<T>) -> Unit
+) {
+    val request = OkHttpRequest.Builder()
         .url(url)
         .cacheControl(CacheControl.FORCE_NETWORK)
         .build()
-    ).enqueue(object : OkHttpCallback {
+
+    rateController?.tryIncrement(endpoint)
+    httpClient.newCall(request).enqueue(object : OkHttpCallback {
         override fun onResponse(call: Call, httpResponse: okhttp3.Response) {
             if (httpResponse.isSuccessful) {
                 val date = httpResponse.headers().getDate("date")!!.toInstant().toEpochMilli()
