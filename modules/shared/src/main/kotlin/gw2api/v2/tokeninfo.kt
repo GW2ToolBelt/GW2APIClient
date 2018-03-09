@@ -96,6 +96,36 @@ fun GW2APIView.v2TokenInfo(
 )
 
 /**
+ * This resource returns information about the supplied API key.
+ *
+ * ## Example
+ *
+ * ### Request
+ * ```
+ * https://api.guildwars2.com/v2/tokeninfo
+ * Authorization: Bearer <access token>
+ * ```
+ *
+ * ### Response
+ * ```
+ * {
+ *   "id": "ABCDE02B-8888-FEBA-1234-DE98765C7DEF",
+ *   "name": "My API Key",
+ *   "permissions": [
+ *     "account",
+ *     "characters",
+ *     "tradingpost",
+ *     "unlocks",
+ *     "build"
+ *   ]
+ * }
+ * ```
+ *
+ * @param id            the API key that was requested
+ * @param name          the name given to the API key by the account owner. (**Warning**: The value of this field is not
+ *                      escaped and may contain valid HTML, JavaScript, other code. Handle with care.)
+ * @param permissions   array of strings describing which permissions the API key has
+ *
  * @see v2TokenInfo
  *
  * @since   0.1.0 (API: 2015-05-28)
