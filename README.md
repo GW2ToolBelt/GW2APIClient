@@ -13,10 +13,13 @@
 | Feature                                        |   JVM   |   JS    | Native  |
 |------------------------------------------------|---------|---------|---------|
 | Access to all API v2 endpoints                 |    ✔    |    ✔    |    ✘    |
+| Thread-safety                                  |    ✔    |   N.A.  |    ✘    |
 | Client side permission checks                  |    ✔    |    ✔    |    ✘    |
 | Support for Asynchronous calls                 |    ✔    |    ✔    |    ✘    |
 | Rate Limit Controller                          |    ✔    |    ✔    |    ✘    |
 | Caching                                        |    ✔    |    ✔    |    ✘    |
+
+N.A.: Not Applicable
 
 Due to the current limitations of Kotlin multiplatform projects, this API is not designed to be used from Java or
 Javascript. Using this library from any language other than Kotlin is highly discouraged. If you're are looking for a
