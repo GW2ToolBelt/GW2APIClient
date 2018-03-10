@@ -15,4 +15,13 @@
  */
 package gw2api
 
-interface CacheController
+/**
+ *
+ *
+ * @since   0.1.0
+ */
+interface CacheController {
+
+    fun dispose() {}
+
+}

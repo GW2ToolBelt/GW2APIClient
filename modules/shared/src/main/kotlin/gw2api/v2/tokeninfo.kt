@@ -81,19 +81,11 @@ import kotlinx.serialization.*
  * @since   0.1.0 (API: 2015-05-28)
  */
 @Suppress("UNUSED")
-fun GW2APIView.v2TokenInfo(
-    cacheTime: Int = 60,
-    overrideCacheTime: Boolean = false,
-    skipCache: Boolean = false
-): Request<TokenInfo> = query(
+fun gw2v2TokenInfo(): RequestBuilder<TokenInfo> = query(
     endpoint = "/v2/tokeninfo",
-    authenticated = true,
     requiresAuthentication = true,
-    conv = jsonParser(),
-    cacheTime = cacheTime,
-    overrideCacheTime = overrideCacheTime,
-    skipCache = skipCache
-)
+    converter = jsonParser<TokenInfo>()
+).setCacheTime(60, false)
 
 /**
  * This resource returns information about the supplied API key.
@@ -126,7 +118,7 @@ fun GW2APIView.v2TokenInfo(
  *                      escaped and may contain valid HTML, JavaScript, other code. Handle with care.)
  * @param permissions   array of strings describing which permissions the API key has
  *
- * @see v2TokenInfo
+ * @see gw2v2TokenInfo
  *
  * @since   0.1.0 (API: 2015-05-28)
  */

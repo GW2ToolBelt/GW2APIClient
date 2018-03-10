@@ -30,7 +30,7 @@ internal actual fun <T> Continuation<Response<T>>.queryNetwork(
     endpoint: String,
     cacheTime: Int,
     overrideCacheTime: Boolean,
-    conv: (String) -> T,
+    converter: (String) -> T,
     rateController: RateController?,
     cache: (Response<T>) -> Unit
 ) {
@@ -52,7 +52,7 @@ internal actual fun <T> Continuation<Response<T>>.queryNetwork(
                 }
 
                 val response = Response(
-                    data = httpResponse.body()?.let { conv.invoke(it.string()) },
+                    data = httpResponse.body()?.let { converter.invoke(it.string()) },
                     expirationDate = expires
                 )
 
