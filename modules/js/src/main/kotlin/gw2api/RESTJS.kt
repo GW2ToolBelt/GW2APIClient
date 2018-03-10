@@ -45,7 +45,7 @@ internal actual fun <T> Continuation<Response<T>>.queryNetwork(
                 }
 
                 val response = Response(
-                    data = null,
+                    data = conv.invoke(it.body.toString()),
                     expirationDate = expires
                 )
 
