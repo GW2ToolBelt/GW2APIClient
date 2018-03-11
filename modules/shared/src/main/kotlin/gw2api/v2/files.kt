@@ -35,7 +35,7 @@ import kotlinx.serialization.*
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/files
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
  *
  * @return  the request that is used to query the API
  *
@@ -70,7 +70,7 @@ fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/files
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
  *
  * @param id    the id for the file to query
  *
@@ -106,7 +106,7 @@ fun gw2v2FilesById(id: Int): RequestBuilder<File> = query(
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/files
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
  *
  * @param ids   the ids for the files to query
  *
@@ -142,7 +142,7 @@ fun gw2v2FilesByIds(ids: Collection<Int>): RequestBuilder<Collection<File>> = qu
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/files
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
  *
  * @param page      the index of the page
  * @param pageSize  the size of the page (must be in the range `[1,200]`)
@@ -182,7 +182,7 @@ fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>>
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/files
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
  *
  * @return  the request that is used to query the API
  *
@@ -218,7 +218,7 @@ fun gw2v2FilesAll(): RequestBuilder<Collection<File>> = query(
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/files
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
  *
  * @param id    the file identifier
  * @param icon  the URL to the image

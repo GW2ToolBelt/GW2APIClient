@@ -35,7 +35,7 @@ import kotlinx.serialization.*
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/worlds
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
  *
  * @return  the request that is used to query the API
  *
@@ -70,7 +70,7 @@ fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/worlds
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
  *
  * @param id    the id for the world to query
  *
@@ -108,7 +108,7 @@ fun gw2v2WorldsById(id: Int): RequestBuilder<World> = query(
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/worlds
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
  *
  * @param ids   the ids for the worlds to query
  *
@@ -146,7 +146,7 @@ fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<World>> = 
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/worlds
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
  *
  * @param page      the index of the page
  * @param pageSize  the size of the page (must be in the range `[1,200]`)
@@ -188,7 +188,7 @@ fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<World
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/worlds
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
  *
  * @return  the request that is used to query the API
  *
@@ -291,7 +291,7 @@ fun gw2v2WorldsAll(): RequestBuilder<Collection<World>> = query(
  * ```
  *
  *
- * Read more: https://wiki.guildwars2.com/wiki/API:2/worlds
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
  *
  * @param id            the world id
  * @param name          the world name
