@@ -20,14 +20,14 @@ package gw2api
  *
  * @since   0.1.0
  */
-class UnauthenticatedException : Exception()
+class UnauthenticatedException(msg: String) : Exception(msg)
 
 /**
  * An exception indicating that the API key in use has insufficient permissions.
  *
  * @since   0.1.0
  */
-class InsufficientPermissionsException : Exception()
+class InsufficientPermissionsException(msg: String) : Exception(msg)
 
 /**
  * An exception related to rate limits.

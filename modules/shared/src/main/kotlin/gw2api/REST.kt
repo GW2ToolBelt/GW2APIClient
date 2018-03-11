@@ -101,6 +101,7 @@ class RequestBuilder<out T> internal constructor(
      * invalid key or with an api key that does not have the permissions required for that endpoint, the query will fail
      * with an exception.
      *
+     *
      * **Consecutive calls override the previously set value.**
      *
      * @param apiKey    the API key for the request
@@ -264,6 +265,12 @@ class RequestBuilder<out T> internal constructor(
      *
      * @return  the [Request] object
      *
+     * @throws UnauthenticatedException         if client side validation is enabled and the API key is invalid
+     * @throws InsufficientPermissionsException if client side validation is enabled and the API key is valid but does
+     *                                          not have the required permissions
+     * @throws RateLimitException               if a [RateController] has been attached to the request and executing the
+     *                                          request would hit the rate limit
+     *
      * @since   0.1.0
      */
     @Suppress("UNUSED", "MemberVisibilityCanBePrivate")
@@ -286,18 +293,19 @@ class RequestBuilder<out T> internal constructor(
                     }
                 }
 
+                // Make sure that calling /v2/tokeninfo does not run into recursive checks
                 if (isClientAssertive && endpoint == "/v2/tokeninfo") {
                     if (!this@RequestBuilder::apiKey.isInitialized)
-                        continuation.resumeWithException(IllegalStateException("No token has been specified"))
+                        continuation.resumeWithException(UnauthenticatedException("No token has been specified"))
 
                     invokeQuery()
                 } else if (isClientAssertive && (requiresAuthentication || requiredPermissions.isNotEmpty())) {
                     if (requiresAuthentication && !this@RequestBuilder::apiKey.isInitialized)
-                        continuation.resumeWithException(IllegalStateException("No token has been specified"))
+                        continuation.resumeWithException(UnauthenticatedException("No token has been specified"))
 
                     gw2v2TokenInfo().execute().then {
                         if (requiredPermissions.any { perm -> perm !in it.data!!.permissions })
-                            continuation.resumeWithException(IllegalStateException("Client does not have the necessary permissions"))
+                            continuation.resumeWithException(InsufficientPermissionsException("Client does not have the necessary permissions"))
 
                         invokeQuery()
                     }
