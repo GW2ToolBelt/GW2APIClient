@@ -21,9 +21,9 @@ import kotlinx.serialization.*
 /**
  * Queries the `/v2/tokeninfo` endpoint.
  *
- * ## The `/v2/tokeninfo` endpoint
+ * ## The /v2/tokeninfo endpoint
  *
- * > Returns information about the supplied API key.
+ * > This resource returns information about the supplied API key.
  *
  * ```
  * Paginated:           No
@@ -33,7 +33,7 @@ import kotlinx.serialization.*
  * Cache time:          1 minute
  * ```
  *
- * @receiver    the client that will query the endpoint
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/tokeninfo]
  *
  * @return  the request that is used to query the API
  *
@@ -52,12 +52,14 @@ fun gw2v2TokenInfo(): RequestBuilder<TokenInfo> = query(
  * ## Example
  *
  * ### Request
+ *
  * ```
  * https://api.guildwars2.com/v2/tokeninfo
  * Authorization: Bearer <access token>
  * ```
  *
  * ### Response
+ *
  * ```
  * {
  *   "id": "ABCDE02B-8888-FEBA-1234-DE98765C7DEF",
@@ -72,6 +74,9 @@ fun gw2v2TokenInfo(): RequestBuilder<TokenInfo> = query(
  * }
  * ```
  *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/tokeninfo]
+ *
  * @param id            the API key that was requested
  * @param name          the name given to the API key by the account owner. (**Warning**: The value of this field is not
  *                      escaped and may contain valid HTML, JavaScript, other code. Handle with care.)
@@ -84,8 +89,10 @@ fun gw2v2TokenInfo(): RequestBuilder<TokenInfo> = query(
 @Serializable
 data class TokenInfo(
     /** @since  0.1.0 (API: 2015-06-09) */
+    @Suppress("MemberVisibilityCanBePrivate")
     val id: String,
     /** @since  0.1.0 (API: 2015-05-28) */
+    @Suppress("MemberVisibilityCanBePrivate")
     val name: String,
     /** @since  0.1.0 (API: 2015-05-28) */
     val permissions: Collection<String>
