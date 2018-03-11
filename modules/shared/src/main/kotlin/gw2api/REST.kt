@@ -27,7 +27,7 @@ internal fun <T> query(
     requiredPermissions: Collection<String> = emptyList(),
     converter: (String) -> T
 ): RequestBuilder<T> = RequestBuilder(
-    "api.guildwars2.com",
+    "https://api.guildwars2.com",
     endpoint,
     params,
     requiresAuthentication,
