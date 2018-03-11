@@ -15,6 +15,7 @@
  */
 package gw2api
 
+import gw2api.misc.*
 import gw2api.v2.*
 import kotlinx.coroutines.experimental.*
 import kotlinx.serialization.json.*
@@ -25,6 +26,8 @@ internal fun <T> query(
     params: Map<String, Any> = emptyMap(),
     requiresAuthentication: Boolean = false,
     requiredPermissions: Collection<String> = emptyList(),
+    isLocalized: Boolean = false,
+    supportedLanguages: List<Language> = emptyList(),
     converter: (String) -> T
 ): RequestBuilder<T> = RequestBuilder(
     "https://api.guildwars2.com",
@@ -32,6 +35,8 @@ internal fun <T> query(
     params,
     requiresAuthentication,
     requiredPermissions,
+    isLocalized,
+    supportedLanguages,
     converter
 )
 
@@ -78,6 +83,8 @@ class RequestBuilder<out T> internal constructor(
     private val params: Map<String, Any>,
     private val requiresAuthentication: Boolean,
     private val requiredPermissions: Collection<String>,
+    private val isLocalized: Boolean,
+    private val supportedLanguages: List<Language>,
     private val converter: (String) -> T
 ) {
 
@@ -86,6 +93,7 @@ class RequestBuilder<out T> internal constructor(
     private var overrideCacheTime = false
     private var skipCache = false
     private var isClientAssertive = false
+    private var language: Language = Language.ENGLISH
 
     private var cacheController: CacheController? = null
     private var rateController: RateController? = null
@@ -180,6 +188,27 @@ class RequestBuilder<out T> internal constructor(
     }
 
     /**
+     * Sets the [Language] for the request.
+     *
+     * Whether or not an endpoint is localized is documented in the respective method's documentation.
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @return  this builder instance
+     *
+     * @throws IllegalArgumentException if the specified language is not supported by the endpoint
+     *
+     * @since   0.1.0
+     */
+    @Suppress("UNUSED")
+    fun setLanguage(language: Language) {
+        if (language !in supportedLanguages)
+            throw IllegalArgumentException("Language $language not supported by endpoint $endpoint")
+
+        this.language = language
+    }
+
+    /**
      * Sets whether or not the cache should be skipped when querying the API.
      *
      * GW2APIClient supports caching to optimize performance and to reduce load on the remote API.
@@ -271,6 +300,9 @@ class RequestBuilder<out T> internal constructor(
      */
     @Suppress("UNUSED", "MemberVisibilityCanBePrivate")
     fun execute(): Request<T> {
+        val params = this.params.toMutableMap()
+        if (isLocalized) params["lang"] = language.code
+
         val url = "$baseURL$endpoint".let {
             val p = params.map { "${it.key}=${it.value}" }.joinToString("&").let {
                 "?${if (this::apiKey.isInitialized) "access_token=$apiKey" else ""}$it"
