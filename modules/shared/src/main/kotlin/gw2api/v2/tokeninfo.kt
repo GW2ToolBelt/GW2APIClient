@@ -37,9 +37,6 @@ import kotlinx.serialization.*
  *
  * @return  the request that is used to query the API
  *
- * @throws UnauthenticatedException if the client is not authenticated, that is, it has no token or it's token is
- *                                  invalid
- *
  * @since   0.1.0 (API: 2015-05-28)
  */
 @Suppress("UNUSED")
