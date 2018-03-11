@@ -156,14 +156,10 @@ class RequestBuilder<out T> internal constructor(
      *
      * @return  this builder instance
      *
-     * @throws IllegalStateException    if the [CacheController] has not been set yet
-     *
      * @since   0.1.0
      */
     @Suppress("UNUSED")
     fun setCacheTime(cacheTime: Long, overrideCacheTime: Boolean): RequestBuilder<T> = apply {
-        if (cacheController === null) throw IllegalStateException("CacheController has not been set")
-
         this.cacheTime = cacheTime
         this.overrideCacheTime = overrideCacheTime
     }
