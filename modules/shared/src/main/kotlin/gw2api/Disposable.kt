@@ -23,13 +23,9 @@ package gw2api
 interface Disposable {
 
     /**
-     * Disposes all references that would stop the controller from being garbage collected.
+     * Disposes all references that would stop the disposable from being garbage collected.
      *
-     * Due to their implementation and nature some rate-controllers may not be eligible for garbage collection at any
-     * time by default. Thus, providing a vector for potential memory leaks. Depending on whether a rate-controller may
-     * leak memory or not, this method must be implemented to dispose all references that would hinder garbage
-     * collection or as a NO-OP respectively. (This method must **never** throw an exception indicating, that it is not
-     * available for the current controller.)
+     * **This method must never throw an exception indicating, that it is not available for the current disposable.**
      *
      * @throws IllegalStateException    if the controller has already been disposed
      *

@@ -91,17 +91,38 @@ class RequestBuilder<out T> internal constructor(
     private var rateController: RateController? = null
 
     /**
-     * TODO
+     * Sets the API key for the request.
+     *
+     * Some endpoints return data that is specific to a single account, and thus, can only be retrieved by using an
+     * API key. A user must generate an API key by visiting
+     * [account.arena.net/applications](https://account.arena.net/applications) and following the instructions on that
+     * side.
+     * If client side validation is enabled, querying an endpoint that requires authentication without or with an
+     * invalid key or with an api key that does not have the permissions required for that endpoint, the query will fail
+     * with an exception.
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @param apiKey    the API key for the request
+     *
+     * @return  this builder instance
      *
      * @since   0.1.0
      */
     @Suppress("UNUSED")
-    fun setAPIKey(str: String): RequestBuilder<T> = apply {
-        apiKey = str
+    fun setAPIKey(apiKey: String): RequestBuilder<T> = apply {
+        this.apiKey = apiKey
     }
 
     /**
-     * TODO
+     * Sets the base URL for the request.
+     *
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @return url  the base URL for the request
+     *
+     * @return  this builder instance
      *
      * @since   0.1.0
      */
@@ -111,18 +132,48 @@ class RequestBuilder<out T> internal constructor(
     }
 
     /**
-     * TODO
+     * Sets the cache time for the response.
+     *
+     * GW2APIClient supports caching to optimize performance and to reduce load on the remote API.
+     *
+     * The expiration time of a response is determined using the following formula:
+     *
+     * 1. If the remote's response contains an expiration header, the header's expiration time is used, unless the cache
+     *    timeout is explicitly overwritten (by setting [overrideCacheTime] to `true`).
+     * 2. If the remote's response does not contain an expiration header (or the cache timeout is explicitly
+     *    overwritten), the custom cache-time is used instead.
+     * 3. If the cache-time has not been set explicitly, a reasonable default (that is documented in the endpoint's
+     *    query method) will be used instead.
+     *
+     * With [setSkipCache] it is possible to bypass the cache lookup. (The response will still be cached.)
+     *
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @param cacheTime         time the for the response to be cached
+     * @param overrideCacheTime whether or not cache-timeout specified by the remote should be overwritten
+     *
+     * @return  this builder instance
+     *
+     * @throws IllegalStateException    if the [CacheController] has not been set yet
      *
      * @since   0.1.0
      */
     @Suppress("UNUSED")
     fun setCacheTime(cacheTime: Long, overrideCacheTime: Boolean): RequestBuilder<T> = apply {
+        if (cacheController === null) throw IllegalStateException("CacheController has not been set")
+
         this.cacheTime = cacheTime
         this.overrideCacheTime = overrideCacheTime
     }
 
     /**
      * TODO
+     *
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @return  this builder instance
      *
      * @since   0.1.0
      */
@@ -132,17 +183,57 @@ class RequestBuilder<out T> internal constructor(
     }
 
     /**
-     * TODO
+     * Sets whether or not the cache should be skipped when querying the API.
+     *
+     * GW2APIClient supports caching to optimize performance and to reduce load on the remote API.
+     *
+     * The expiration time of a response is determined using the following formula:
+     *
+     * 1. If the remote's response contains an expiration header, the header's expiration time is used, unless the cache
+     *    timeout is explicitly overwritten (by setting [overrideCacheTime] to `true`).
+     * 2. If the remote's response does not contain an expiration header (or the cache timeout is explicitly
+     *    overwritten), the custom cache-time is used instead.
+     * 3. If the cache-time has not been set explicitly, a reasonable default (that is documented in the endpoint's
+     *    query method) will be used instead.
+     *
+     * With [setSkipCache] it is possible to bypass the cache lookup. (The response will still be cached.)
+     *
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @param skipCache whether or not the cache should be skipped when querying the API
+     *
+     * @return  this builder instance
      *
      * @since   0.1.0
      */
-    @Suppress("UNUSED")
+    @Suppress("UNUSED", "MemberVisibilityCanBePrivate")
     fun setSkipCache(skipCache: Boolean): RequestBuilder<T> = apply {
         this.skipCache = skipCache
     }
 
     /**
-     * TODO
+     * Sets the [CacheController] for the request.
+     *
+     * GW2APIClient supports caching to optimize performance and to reduce load on the remote API.
+     *
+     * The expiration time of a response is determined using the following formula:
+     *
+     * 1. If the remote's response contains an expiration header, the header's expiration time is used, unless the cache
+     *    timeout is explicitly overwritten (by setting [overrideCacheTime] to `true`).
+     * 2. If the remote's response does not contain an expiration header (or the cache timeout is explicitly
+     *    overwritten), the custom cache-time is used instead.
+     * 3. If the cache-time has not been set explicitly, a reasonable default (that is documented in the endpoint's
+     *    query method) will be used instead.
+     *
+     * With [setSkipCache] it is possible to bypass the cache lookup. (The response will still be cached.)
+     *
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @param cacheController   the cache-controller for the request
+     *
+     * @return  this builder instance
      *
      * @since   0.1.0
      */
@@ -152,7 +243,14 @@ class RequestBuilder<out T> internal constructor(
     }
 
     /**
-     * TODO
+     * Sets the [RateController] for the request.
+     *
+     *
+     * **Consecutive calls override the previously set value.**
+     *
+     * @param rateController    the rate-controller to be used for the request
+     *
+     * @return  this builder instance
      *
      * @since   0.1.0
      */
@@ -162,11 +260,13 @@ class RequestBuilder<out T> internal constructor(
     }
 
     /**
-     * TODO
+     * Builds a request with the specified settings, executes and returns the [Request] object.
+     *
+     * @return  the [Request] object
      *
      * @since   0.1.0
      */
-    @Suppress("UNUSED")
+    @Suppress("UNUSED", "MemberVisibilityCanBePrivate")
     fun execute(): Request<T> {
         val url = "$baseURL$endpoint".let {
             val p = params.map { "${it.key}=${it.value}" }.joinToString("&").let {

@@ -33,47 +33,9 @@ import kotlinx.serialization.*
  * Cache time:          1 minute
  * ```
  *
+ * @receiver    the client that will query the endpoint
  *
- * ### Authentication
- *
- * Some endpoints return data that is specific to a single account, and thus, can only be retrieved by using an
- * authentication key. (These keys will be referred to as keys or API keys throughout this documentation.) A user
- * must generate an API key by visiting [account.arena.net/applications](https://account.arena.net/applications) and
- * following the instructions on that side.
- * Keys are not passed by request but instead stored in a client instance in order to support client side permission
- * checks.
- * If client side assertions are enabled, querying an endpoint that requires authentication with an unauthenticated
- * receiver client, or, with an client which's api key does not have the permissions required for that endpoint, the
- * query will fail with an exception.
- *
- *
- * ### Caching
- *
- * GW2APIClient supports caching to optimize performance and to reduce load on the remote API. By default, all responses
- * are cached in memory until they expire. This behaviour, can be customized or replaced, as documented in
- * [CacheController].
- *
- * The expiration time of a response is determined using the following formula:
- *
- * 1. If the remote's responds contains an expiration header, the header's expiration time is used, unless the cache
- *    timeout is explicitly overwritten (by setting [overrideCacheTime] to `true`).
- * 2. If the remote's responds does not contain an expiration header, (or the cache timeout is explicitly overwritten),
- *    the [cacheTime] is used instead.
- * 3. If the [cacheTime] has not been set explicitly, a reasonable default (that is documented in the "endpoint
- *    description" section) will be used instead.
- *
- * Unless the [skipCache] is set, all requests will lookup the cache before querying the remote API.
- *
- *
- * @receiver                the client that will query the endpoint
- * @param cacheTime         the amount of seconds the response should be cached. (This has no effect if the response if
- *                          retrieved from cache storage.)
- * @param overrideCacheTime if the remote's responds contains an expiration header, [cacheTime] will be ignored unless
- *                          this is set to `true`
- * @param skipCache         if the local cache should be skipped regardless of cached responses (The received response
- *                          will be written to the cache regardless of what this is set to.)
- *
- * @return the request that is used to query the API
+ * @return  the request that is used to query the API
  *
  * @throws UnauthenticatedException if the client is not authenticated, that is, it has no token or it's token is
  *                                  invalid
