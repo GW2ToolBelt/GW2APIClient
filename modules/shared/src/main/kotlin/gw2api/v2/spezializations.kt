@@ -50,8 +50,6 @@ import kotlinx.serialization.internal.*
 @Suppress("UNUSED")
 fun gw2v2SpecializationsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/specializations",
-    isLocalized = true,
-    supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(IntSerializer)
 ).setCacheTime(60 * 60 * 24, false)
 

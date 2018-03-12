@@ -49,8 +49,6 @@ import kotlinx.serialization.*
 @Suppress("UNUSED")
 fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/worlds",
-    isLocalized = true,
-    supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(JSONIntParser)
 ).setCacheTime(60 * 60 * 24, false)
 

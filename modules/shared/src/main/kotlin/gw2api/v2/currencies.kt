@@ -49,8 +49,6 @@ import kotlinx.serialization.*
 @Suppress("UNUSED")
 fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/currencies",
-    isLocalized = true,
-    supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(JSONIntParser)
 ).setCacheTime(60 * 60 * 24, false)
 
