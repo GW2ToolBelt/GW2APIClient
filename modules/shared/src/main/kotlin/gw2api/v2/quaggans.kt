@@ -199,24 +199,21 @@ fun gw2v2QuaggansAll(): RequestBuilder<Collection<Quaggan>> = query(
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
- * This resource returns commonly requested in-game assets that may be used to enhance API-derived applications.
+ * This resource returns quaggan images
  *
  * ## Examples
  *
- * `https://api.guildwars2.com/v2/files?ids=all`
+ * `https://api.guildwars2.com/v2/quaggans/box`
  *
  * ```
- * [
- *   { "id": "map_complete",
- *     "icon": "https://render.guildwars2.com/file/5A4E663071250EC72668C09E3C082E595A380BF7/528724.png" },
- *   { "id": "map_dungeon",
- *     "icon": "https://render.guildwars2.com/file/943538394A94A491C8632FBEF6203C2013443555/102478.png" },
- *   ...
- * ]
+ * {
+ *   "id": "box",
+ *   "url": "https://static.staticwars.com/quaggans/box.jpg"
+ * }
  * ```
  *
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
  *
  * @param id    the quaggan identifier
  * @param url   the URL to the quaggan image
