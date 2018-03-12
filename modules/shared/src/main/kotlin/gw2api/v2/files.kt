@@ -16,7 +16,6 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.misc.*
 import kotlinx.serialization.*
 
 /**
@@ -49,8 +48,6 @@ import kotlinx.serialization.*
 @Suppress("UNUSED")
 fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/files",
-    isLocalized = true,
-    supportedLanguages = API_V2_LANGS,
     converter = jsonParser<Collection<String>>()
 ).setCacheTime(60 * 60 * 24, false)
 
