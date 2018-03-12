@@ -51,7 +51,7 @@ fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Int>>()
+    converter = jsonArrayParser(JSONIntParser)
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -126,7 +126,7 @@ fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<World>> = 
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<World>>(),
+    converter = jsonArrayParser<World>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -165,7 +165,7 @@ fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<World
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<World>>(),
+    converter = jsonArrayParser<World>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -204,7 +204,7 @@ fun gw2v2WorldsAll(): RequestBuilder<Collection<World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<World>>(),
+    converter = jsonArrayParser<World>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -303,7 +303,7 @@ fun gw2v2WorldsAll(): RequestBuilder<Collection<World>> = query(
  * @see gw2v2WorldsByPage
  * @see gw2v2WorldsAll
  *
- * @since  0.1.0 (API: 2015-08-21)
+ * @since   0.1.0 (API: 2015-08-21)
  */
 @Serializable
 data class World(

@@ -18,6 +18,8 @@ package gw2api
 import gw2api.misc.*
 import gw2api.v2.*
 import kotlinx.coroutines.experimental.*
+import kotlinx.serialization.*
+import kotlinx.serialization.internal.*
 import kotlinx.serialization.json.*
 import kotlin.coroutines.experimental.*
 
@@ -50,7 +52,14 @@ internal expect fun <T> Continuation<Response<T>>.queryNetwork(
     cache: (Response<T>) -> Unit
 )
 
-internal inline fun <reified T : Any> jsonParser(): (String) -> T = { str -> JSON.parse(str) }
+internal typealias JSONIntParser = IntSerializer
+internal typealias JSONStringParser = StringSerializer
+
+internal inline fun <reified T : Any> jsonParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> T = { str ->
+    JSON.parse(serializer, str)
+}
+
+internal inline fun <reified T : Any> jsonArrayParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> Collection<T> = jsonParser(serializer.list)
 
 /**
  * TODO

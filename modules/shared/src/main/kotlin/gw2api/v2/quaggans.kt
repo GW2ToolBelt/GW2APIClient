@@ -49,7 +49,7 @@ import kotlinx.serialization.*
 @Suppress("UNUSED")
 fun gw2v2QuaggansIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonParser<Collection<String>>()
+    converter = jsonArrayParser(JSONStringParser)
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -120,7 +120,7 @@ fun gw2v2QuaggansById(id: String): RequestBuilder<Quaggan> = query(
 @Suppress("UNUSED")
 fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<Quaggan>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonParser<Collection<Quaggan>>(),
+    converter = jsonArrayParser<Quaggan>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -157,7 +157,7 @@ fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<Quagg
 @Suppress("UNUSED")
 fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Quaggan>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonParser<Collection<Quaggan>>(),
+    converter = jsonArrayParser<Quaggan>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -194,7 +194,7 @@ fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Qua
 @Suppress("UNUSED")
 fun gw2v2QuaggansAll(): RequestBuilder<Collection<Quaggan>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonParser<Collection<Quaggan>>(),
+    converter = jsonArrayParser<Quaggan>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)
 

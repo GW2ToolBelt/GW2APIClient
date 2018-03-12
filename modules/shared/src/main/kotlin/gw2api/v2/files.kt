@@ -48,7 +48,7 @@ import kotlinx.serialization.*
 @Suppress("UNUSED")
 fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/files",
-    converter = jsonParser<Collection<String>>()
+    converter = jsonArrayParser(JSONStringParser)
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -119,7 +119,7 @@ fun gw2v2FilesById(id: String): RequestBuilder<File> = query(
 @Suppress("UNUSED")
 fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<File>> = query(
     endpoint = "/v2/files",
-    converter = jsonParser<Collection<File>>(),
+    converter = jsonArrayParser<File>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -156,7 +156,7 @@ fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<File>> =
 @Suppress("UNUSED")
 fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>> = query(
     endpoint = "/v2/files",
-    converter = jsonParser<Collection<File>>(),
+    converter = jsonArrayParser<File>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -193,7 +193,7 @@ fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>>
 @Suppress("UNUSED")
 fun gw2v2FilesAll(): RequestBuilder<Collection<File>> = query(
     endpoint = "/v2/files",
-    converter = jsonParser<Collection<File>>(),
+    converter = jsonArrayParser<File>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -226,7 +226,7 @@ fun gw2v2FilesAll(): RequestBuilder<Collection<File>> = query(
  * @see gw2v2FilesByPage
  * @see gw2v2FilesAll
  *
- * @since  0.1.0 (API: 2015-02-13)
+ * @since   0.1.0 (API: 2015-02-13)
  */
 @Serializable
 data class File(

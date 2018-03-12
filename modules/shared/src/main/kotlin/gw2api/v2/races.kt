@@ -51,7 +51,7 @@ fun gw2v2RacesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Int>>()
+    converter = jsonArrayParser(JSONIntParser)
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -126,7 +126,7 @@ fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<Race>> =
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Race>>(),
+    converter = jsonArrayParser<Race>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -165,7 +165,7 @@ fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Race>>
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Race>>(),
+    converter = jsonArrayParser<Race>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -204,7 +204,7 @@ fun gw2v2RacesAll(): RequestBuilder<Collection<Race>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Race>>(),
+    converter = jsonArrayParser<Race>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)
 

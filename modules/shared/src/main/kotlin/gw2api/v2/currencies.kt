@@ -51,7 +51,7 @@ fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Int>>()
+    converter = jsonArrayParser(JSONIntParser)
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -126,7 +126,7 @@ fun gw2v2CurrenciesByIds(ids: Collection<Int>): RequestBuilder<Collection<Curren
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Currency>>(),
+    converter = jsonArrayParser<Currency>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -165,7 +165,7 @@ fun gw2v2CurrenciesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<C
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Currency>>(),
+    converter = jsonArrayParser<Currency>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -204,7 +204,7 @@ fun gw2v2CurrenciesAll(): RequestBuilder<Collection<Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Collection<Currency>>(),
+    converter = jsonArrayParser<Currency>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)
 
