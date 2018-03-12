@@ -228,7 +228,7 @@ fun gw2v2CurrenciesAll(): RequestBuilder<Collection<Currency>> = query(
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
  *
- * @param id            the currency's ID
+ * @param id            the currency's id
  * @param name          the currency's name
  * @param description   a description of the currency
  * @param order         a number that can be used to sort the list of currencies when ordered from least to greatest (An
