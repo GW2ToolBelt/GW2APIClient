@@ -84,7 +84,7 @@ fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
  * @since   0.1.0 (API: 2015-02-13)
  */
 @Suppress("UNUSED")
-fun gw2v2FilesById(id: Int): RequestBuilder<File> = query(
+fun gw2v2FilesById(id: String): RequestBuilder<File> = query(
     endpoint = "/v2/files",
     converter = jsonParser<File>(),
     params = mapOf("id" to id)
@@ -120,7 +120,7 @@ fun gw2v2FilesById(id: Int): RequestBuilder<File> = query(
  * @since   0.1.0 (API: 2015-02-13)
  */
 @Suppress("UNUSED")
-fun gw2v2FilesByIds(ids: Collection<Int>): RequestBuilder<Collection<File>> = query(
+fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<File>> = query(
     endpoint = "/v2/files",
     converter = jsonParser<Collection<File>>(),
     params = mapOf("ids" to ids.joinToString(","))
