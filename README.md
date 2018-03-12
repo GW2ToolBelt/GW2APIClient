@@ -1,6 +1,5 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-yellowgreen.svg?style=flat-square)](https://github.com/TheMrMilchmann/GW2APIClient/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/travis/TheMrMilchmann/GW2APIClient.svg?style=flat-square)](https://travis-ci.org/TheMrMilchmann/GW2APIClient)
-[![Coverage Status](https://img.shields.io/codecov/c/github/TheMrMilchmann/GW2APIClient/master.svg?style=flat-square)](https://codecov.io/github/TheMrMilchmann/GW2APIClient)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.themrmilchmann.gw2api/gw2api.svg?style=flat-square&label=maven%20central)](https://maven-badges.herokuapp.com/maven-central/com.github.themrmilchmann.gw2api/gw2api)
 
 # GW2APIClient
