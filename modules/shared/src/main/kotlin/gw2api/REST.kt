@@ -26,6 +26,7 @@ import kotlin.coroutines.experimental.*
 internal fun <T> query(
     endpoint: String,
     params: Map<String, Any> = emptyMap(),
+    replaceInPath: Map<String, String> = emptyMap(),
     requiresAuthentication: Boolean = false,
     requiredPermissions: Collection<String> = emptyList(),
     isLocalized: Boolean = false,
@@ -35,6 +36,7 @@ internal fun <T> query(
     "https://api.guildwars2.com",
     endpoint,
     params,
+    replaceInPath,
     requiresAuthentication,
     requiredPermissions,
     isLocalized,
@@ -90,6 +92,7 @@ class RequestBuilder<out T> internal constructor(
     private var baseURL: String,
     private val endpoint: String,
     private val params: Map<String, Any>,
+    private val replaceInPath: Map<String, String> = emptyMap(),
     private val requiresAuthentication: Boolean,
     private val requiredPermissions: Collection<String>,
     private val isLocalized: Boolean,
@@ -312,7 +315,12 @@ class RequestBuilder<out T> internal constructor(
         val params = this.params.toMutableMap()
         if (isLocalized) params["lang"] = language.code
 
-        val url = "$baseURL$endpoint".let {
+        var path = endpoint
+        replaceInPath.forEach {
+            path = path.replace(it.key, it.value)
+        }
+
+        val url = "$baseURL$path".let {
             val p = params.map { "${it.key}=${it.value}" }.joinToString("&").let {
                 "?${if (this::apiKey.isInitialized) "access_token=$apiKey" else ""}$it"
             }
