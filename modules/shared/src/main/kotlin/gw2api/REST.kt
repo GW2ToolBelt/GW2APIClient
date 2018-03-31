@@ -349,7 +349,7 @@ class RequestBuilder<out T> internal constructor(
                         continuation.resumeWithException(UnauthenticatedException("No token has been specified"))
 
                     gw2v2TokenInfo().execute().then {
-                        if (requiredPermissions.any { perm -> perm !in it.data!!.permissions })
+                        if (requiredPermissions.any { perm -> if ("|" in perm) perm.split("|").none { p -> p in it.data!!.permissions } else perm !in it.data!!.permissions })
                             continuation.resumeWithException(InsufficientPermissionsException("Client does not have the necessary permissions"))
 
                         invokeQuery()
