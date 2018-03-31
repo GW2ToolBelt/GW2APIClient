@@ -84,11 +84,11 @@ fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
  * @since   0.1.0 (API: 2015-03-04)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersById(id: String): RequestBuilder<File> = query(
+fun gw2v2CharactersById(id: String): RequestBuilder<Character> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<File>(),
+    converter = jsonParser<Character>(),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 5, false)
 
@@ -122,11 +122,11 @@ fun gw2v2CharactersById(id: String): RequestBuilder<File> = query(
  * @since   0.1.0 (API: 2015-03-04)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<File>> = query(
+fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<File>(),
+    converter = jsonArrayParser<Character>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 5, false)
 
@@ -161,11 +161,11 @@ fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<Fil
  * @since   0.1.0 (API: 2015-03-04)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>> = query(
+fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<File>(),
+    converter = jsonArrayParser<Character>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -280,10 +280,10 @@ data class Character(
     val equipment: Collection<EquipmentSlot>,
     /** @since  0.1.0 (API: 2015-06-18) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val bags: Collection<Bag>,
+    val bags: Collection<Bag?>,
     /** @since  0.1.0 (API: 2015-12-03) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val recipes: Collection<Recipes>,
+    val recipes: Collection<Int>,
     /** @since  0.1.0 (API: 2016-01-15) */
     @Suppress("MemberVisibilityCanBePrivate")
     val skills: Skills,
@@ -292,18 +292,19 @@ data class Character(
     val specializations: Specializations,
     /** @since  0.1.0 (API: 2016-06-01) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val training: Training,
+    val training: Collection<Tree>,
     /** @since  0.1.0 (API: 2016-09-29) */
     @Suppress("MemberVisibilityCanBePrivate")
     @SerialName("wvw_abilities")
-    val wvwAbilities: WvWAbilities,
+    val wvwAbilities: Collection<WvWAbility>,
     /** @since  0.1.0 (API: 2016-03-25) */
     @Suppress("MemberVisibilityCanBePrivate")
     @SerialName("equipment_pvp")
     val equipmentPvP: EquipmentPvP,
     /** @since  0.1.0 (API: 2015-03-04) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val flags: Collection<String>
+    @Optional
+    val flags: Collection<String>? = null
 ) {
 
     /**
@@ -333,10 +334,11 @@ data class Character(
      * @param upgrades  returns an array of upgrade component item ids which can be resolved against /v2/items (Optional)
      * @param skin      skin id for the given equipment piece which can be resolved against /v2/skins (Optional)
      * @param stats     contains information on the stats chosen if the item offers an option for stats/prefix (Optional)
-     * @param binding   describes which kind of binding the item has (Optional)
      * @param charges   the amount of charges remaining on the item (Optional)
+     * @param binding   describes which kind of binding the item has (Optional)
      * @param boundTo   name of the character the item is bound to (Optional - only if character bound)
      * @param dyes      array of selected dyes for the equipment piece (Values default to `null` if no dye is selected)
+     *                  (Optional)
      *
      * @since   0.1.0 (API: 2015-06-18)
      */
@@ -367,11 +369,11 @@ data class Character(
         /** @since  0.1.0 (API: 2015-06-18) */
         @Suppress("MemberVisibilityCanBePrivate")
         @Optional
-        val binding: String? = null,
+        val charges: Int? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
         @Suppress("MemberVisibilityCanBePrivate")
         @Optional
-        val charges: Int? = null,
+        val binding: String? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
         @Suppress("MemberVisibilityCanBePrivate")
         @Optional
@@ -379,7 +381,8 @@ data class Character(
         val boundTo: String? = null,
         /** @since  0.1.0 (API: 2017-04-20) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val dyes: Collection<Int?>
+        @Optional
+        val dyes: Collection<Int?>? = null
     ) {
 
         /**
@@ -407,6 +410,7 @@ data class Character(
              * @param conditionDuration shows the amount of Condition Duration given (Optional)
              * @param healing           shows the amount of Healing Power given (Optional)
              * @param boonDuration      shows the amount of Boon Duration given (Optional)
+             * @param critDamage        shows the amount of Crit Damage given (Optional)
              *
              * @since   0.1.0 (API: 2015-06-18)
              */
@@ -451,7 +455,12 @@ data class Character(
                 @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("BoonDuration")
-                val boonDuration: Int? = null
+                val boonDuration: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("CritDamage")
+                val critDamage: Int? = null
             )
 
         }
@@ -475,7 +484,7 @@ data class Character(
         val size: Int,
         /** @since  0.1.0 (API: 2015-06-18) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val inventory: Collection<Slot>
+        val inventory: Collection<Slot?>
     ) {
 
         /**
@@ -487,6 +496,7 @@ data class Character(
          * @param skin      skin id for the given equipment piece (Optional)
          * @param stats     contains information on the stats chosen if the item offers an option for stats/prefix
          *                  (Optional)
+         * @param charges   the amount of charges remaining on the item (Optional)
          * @param binding   describes which kind of binding the item has (Optional)
          * @param boundTo   name of the character the item is bound to (Optional)
          *
@@ -516,6 +526,10 @@ data class Character(
             @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val stats: Stats? = null,
+            /** @since  0.1.0 (API: 2015-06-18) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val charges: Int? = null,
             /** @since  0.1.0 (API: 2015-10-29) */
             @Suppress("MemberVisibilityCanBePrivate")
             @Optional
@@ -552,6 +566,7 @@ data class Character(
                  * @param conditionDuration shows the amount of Condition Duration given (Optional)
                  * @param healing           shows the amount of Healing Power given (Optional)
                  * @param boonDuration      shows the amount of Boon Duration given (Optional)
+                 * @param critDamage        shows the amount of Crit Damage given (Optional)
                  *
                  * @since   0.1.0 (API: 2015-05-18)
                  */
@@ -596,7 +611,12 @@ data class Character(
                     @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("BoonDuration")
-                    val boonDuration: Int? = null
+                    val boonDuration: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-19) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("CritDamage")
+                    val critDamage: Int? = null
                 )
 
             }
@@ -604,18 +624,6 @@ data class Character(
         }
 
     }
-
-    /**
-     * @param recipes   an array of ids of unlocked recipes
-     *
-     * @since   0.1.0 (API: 2015-12-03)
-     */
-    @Serializable
-    data class Recipes(
-        /** @since  0.1.0 (API: 2015-12-03) */
-        @Suppress("MemberVisibilityCanBePrivate")
-        val recipes: Collection<Int>
-    )
 
     /**
      * @param pve   contains the information on each slotted utility for PvE
@@ -712,7 +720,7 @@ data class Character(
      * @since   0.1.0 (API: 2016-06-01)
      */
     @Serializable
-    data class Training(
+    data class Tree(
         /** @since  0.1.0 (API: 2016-06-01) */
         @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
@@ -731,7 +739,7 @@ data class Character(
      * @since   0.1.0 (API: 2016-09-29)
      */
     @Serializable
-    data class WvWAbilities(
+    data class WvWAbility(
         /** @since  0.1.0 (API: 2016-09-29) */
         @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
@@ -757,7 +765,7 @@ data class Character(
         val rune: Int,
         /** @since  0.1.0 (API: 2016-03-25) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val sigils: Collection<Int>
+        val sigils: Collection<Int?>
     )
 
 }
@@ -785,15 +793,31 @@ data class Character(
  * @since   0.1.0 (API: 2016-05-19)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersBackstory(id: String): RequestBuilder<Collection<String>> = query(
+fun gw2v2CharactersBackstory(id: String): RequestBuilder<CharactersBackstory> = query(
     endpoint = "/v2/characters/:id/backstory",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<String>(),
+    converter = jsonParser<CharactersBackstory>(),
     replaceInPath = mapOf(
         ":id" to id
     )
 ).setCacheTime(60 * 5, false)
+
+/**
+ * Backstory information of a single character.
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
+ *
+ * @param backstory an array of strings representing backstory answer ids pertaining to the questions answered during character creation
+ *
+ * @since   0.1.0 (API: 2016-05-19)
+ */
+@Serializable
+data class CharactersBackstory(
+    /** @since  0.1.0 (API: 2016-05-19) */
+    @Suppress("MemberVisibilityCanBePrivate")
+    val backstory: Collection<String>
+)
 
 /**
  * Queries the `/v2/characters/:id/core` endpoint.
@@ -905,11 +929,11 @@ data class CharactersCore(
  * @since   0.1.0 (API: 2016-05-19)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersCrafting(id: String): RequestBuilder<Collection<CharactersCrafting>> = query(
+fun gw2v2CharactersCrafting(id: String): RequestBuilder<CharactersCrafting> = query(
     endpoint = "/v2/characters/:id/crafting",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<CharactersCrafting>(),
+    converter = jsonParser<CharactersCrafting>(),
     replaceInPath = mapOf(
         ":id" to id
     )
@@ -920,24 +944,36 @@ fun gw2v2CharactersCrafting(id: String): RequestBuilder<Collection<CharactersCra
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
- * @param discipline    the name of the discipline
- * @param rating        the current crafting level for the given discipline and character
- * @param active        describes if the given discipline is currently active or not on the character
+ * @param crafting   a list of crafting disciplines
  *
  * @since  0.1.0 (API: 2016-05-19)
  */
 @Serializable
 data class CharactersCrafting(
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val discipline: String,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val rating: Int,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val active: Boolean
-)
+    val crafting: Collection<Discipline>
+) {
+
+    /**
+     * @param discipline    the name of the discipline
+     * @param rating        the current crafting level for the given discipline and character
+     * @param active        describes if the given discipline is currently active or not on the character
+     *
+     * @since  0.1.0 (API: 2016-05-19)
+     */
+    @Serializable
+    data class Discipline(
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        val discipline: String,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        val rating: Int,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        val active: Boolean
+    )
+
+}
 
 /**
  * Queries the `/v2/characters/:id/equipment` endpoint.
@@ -962,11 +998,11 @@ data class CharactersCrafting(
  * @since   0.1.0 (API: 2016-05-19)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersEquipment(id: String): RequestBuilder<Collection<CharactersEquipment>> = query(
+fun gw2v2CharactersEquipment(id: String): RequestBuilder<CharactersEquipment> = query(
     endpoint = "/v2/characters/:id/equipment",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "builds|inventories"),
-    converter = jsonArrayParser<CharactersEquipment>(),
+    converter = jsonParser<CharactersEquipment>(),
     replaceInPath = mapOf(
         ":id" to id
     )
@@ -977,16 +1013,7 @@ fun gw2v2CharactersEquipment(id: String): RequestBuilder<Collection<CharactersEq
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
- * @param id        the item id, resolvable against `/v2/items`
- * @param slot      the equipment slot in which the item is slotted
- * @param infusions returns an array of infusion item ids which can be resolved against /v2/items (Optional)
- * @param upgrades  returns an array of upgrade component item ids which can be resolved against /v2/items (Optional)
- * @param skin      skin id for the given equipment piece which can be resolved against /v2/skins (Optional)
- * @param stats     contains information on the stats chosen if the item offers an option for stats/prefix (Optional)
- * @param binding   describes which kind of binding the item has (Optional)
- * @param charges   the amount of charges remaining on the item (Optional)
- * @param boundTo   name of the character the item is bound to (Optional - only if character bound)
- * @param dyes      array of selected dyes for the equipment piece (Values default to `null` if no dye is selected)
+ * @param equipment an array containing an entry for each piece of equipment currently on the selected character
  *
  * @since   0.1.0 (API: 2016-05-19)
  */
@@ -994,115 +1021,146 @@ fun gw2v2CharactersEquipment(id: String): RequestBuilder<Collection<CharactersEq
 data class CharactersEquipment(
     /** @since  0.1.0 (API: 2016-05-19) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val id: Int,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val slot: String,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    @Optional
-    val infusions: Collection<Int>? = null,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    @Optional
-    val upgrades: Collection<Int>? = null,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    @Optional
-    val skin: Int? = null,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    @Optional
-    val stats: Stats? = null,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    @Optional
-    val binding: String? = null,
-    /** @since  0.1.0 (API: 2016-06-28) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    @Optional
-    val charges: Int? = null,
-    /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    @Optional
-    @SerialName("bound_to")
-    val boundTo: String? = null,
-    /** @since  0.1.0 (API: 2017-04-20) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val dyes: Collection<Int?>
+    val equipment: Collection<Item>
 ) {
 
     /**
-     * @param id            the itemstat id, can be resolved against `/v2/itemstats`
-     * @param attributes    contains a summary of the stats on the item
+     * @param id        the item id, resolvable against `/v2/items`
+     * @param slot      the equipment slot in which the item is slotted
+     * @param infusions returns an array of infusion item ids which can be resolved against /v2/items (Optional)
+     * @param upgrades  returns an array of upgrade component item ids which can be resolved against /v2/items (Optional)
+     * @param skin      skin id for the given equipment piece which can be resolved against /v2/skins (Optional)
+     * @param stats     contains information on the stats chosen if the item offers an option for stats/prefix (Optional)
+     * @param charges   the amount of charges remaining on the item (Optional)
+     * @param binding   describes which kind of binding the item has (Optional)
+     * @param boundTo   name of the character the item is bound to (Optional - only if character bound)
+     * @param dyes      array of selected dyes for the equipment piece (Values default to `null` if no dye is selected)
+     *                  (Optional)
      *
      * @since   0.1.0 (API: 2016-05-19)
      */
     @Serializable
-    data class Stats(
+    data class Item(
         /** @since  0.1.0 (API: 2016-05-19) */
         @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2016-05-19) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val attributes: Attributes
+        val slot: String,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        val infusions: Collection<Int>? = null,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        val upgrades: Collection<Int>? = null,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        val skin: Int? = null,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        val stats: Stats? = null,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        val binding: String? = null,
+        /** @since  0.1.0 (API: 2016-06-28) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        val charges: Int? = null,
+        /** @since  0.1.0 (API: 2016-05-19) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        @SerialName("bound_to")
+        val boundTo: String? = null,
+        /** @since  0.1.0 (API: 2017-04-20) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        @Optional
+        val dyes: Collection<Int?>? = null
     ) {
 
         /**
-         * @param power             shows the amount of power given (Optional)
-         * @param precision         shows the amount of Precision given (Optional)
-         * @param toughness         shows the amount of Toughness given (Optional)
-         * @param vitality          shows the amount of Vitality given (Optional)
-         * @param conditionDamage   shows the amount of Condition Damage given (Optional)
-         * @param conditionDuration shows the amount of Condition Duration given (Optional)
-         * @param healing           shows the amount of Healing Power given (Optional)
-         * @param boonDuration      shows the amount of Boon Duration given (Optional)
+         * @param id            the itemstat id, can be resolved against `/v2/itemstats`
+         * @param attributes    contains a summary of the stats on the item
          *
          * @since   0.1.0 (API: 2016-05-19)
          */
         @Serializable
-        data class Attributes(
+        data class Stats(
             /** @since  0.1.0 (API: 2016-05-19) */
             @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("Power")
-            val power: Int? = null,
+            val id: Int,
             /** @since  0.1.0 (API: 2016-05-19) */
             @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("Precision")
-            val precision: Int? = null,
-            /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("Toughness")
-            val toughness: Int? = null,
-            /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("Vitality")
-            val vitality: Int? = null,
-            /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("Condition Damage")
-            val conditionDamage: Int? = null,
-            /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("Condition Duration")
-            val conditionDuration: Int? = null,
-            /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("Healing")
-            val healing: Int? = null,
-            /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
-            @Optional
-            @SerialName("BoonDuration")
-            val boonDuration: Int? = null
-        )
+            val attributes: Attributes
+        ) {
+
+            /**
+             * @param power             shows the amount of power given (Optional)
+             * @param precision         shows the amount of Precision given (Optional)
+             * @param toughness         shows the amount of Toughness given (Optional)
+             * @param vitality          shows the amount of Vitality given (Optional)
+             * @param conditionDamage   shows the amount of Condition Damage given (Optional)
+             * @param conditionDuration shows the amount of Condition Duration given (Optional)
+             * @param healing           shows the amount of Healing Power given (Optional)
+             * @param boonDuration      shows the amount of Boon Duration given (Optional)
+             * @param critDamage        shows the amount of Crit Damage given (Optional)
+             *
+             * @since   0.1.0 (API: 2016-05-19)
+             */
+            @Serializable
+            data class Attributes(
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("Power")
+                val power: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("Precision")
+                val precision: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("Toughness")
+                val toughness: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("Vitality")
+                val vitality: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("Condition Damage")
+                val conditionDamage: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("Condition Duration")
+                val conditionDuration: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("Healing")
+                val healing: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("BoonDuration")
+                val boonDuration: Int? = null,
+                /** @since  0.1.0 (API: 2016-05-19) */
+                @Suppress("MemberVisibilityCanBePrivate")
+                @Optional
+                @SerialName("CritDamage")
+                val critDamage: Int? = null
+            )
+
+        }
 
     }
 
@@ -1135,7 +1193,7 @@ fun gw2v2CharactersHeropoints(id: String): RequestBuilder<Collection<String>> = 
     endpoint = "/v2/characters/:id/heropoints",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "progression"),
-    converter = jsonArrayParser<String>(),
+    converter = jsonArrayParser(JSONStringParser),
     replaceInPath = mapOf(
         ":id" to id
     )
@@ -1164,11 +1222,11 @@ fun gw2v2CharactersHeropoints(id: String): RequestBuilder<Collection<String>> = 
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersInventory(id: String): RequestBuilder<Collection<CharactersBag>> = query(
+fun gw2v2CharactersInventory(id: String): RequestBuilder<CharactersInventory> = query(
     endpoint = "/v2/characters/:id/inventory",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "inventories"),
-    converter = jsonArrayParser<CharactersBag>(),
+    converter = jsonParser<CharactersInventory>(),
     replaceInPath = mapOf(
         ":id" to id
     )
@@ -1179,145 +1237,169 @@ fun gw2v2CharactersInventory(id: String): RequestBuilder<Collection<CharactersBa
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
- * @param id        the bag's item id which can be resolved against `/v2/items`
- * @param size      the amount of slots available with this bag
- * @param inventory contains one object structure per item, object is `null` if no item is in the given bag slot
+ * @param bags  contains one object structure per bag in the character's inventory
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Serializable
-data class CharactersBag(
+data class CharactersInventory(
     /** @since  0.1.0 (API: 2016-05-16) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val id: Int,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val size: Int,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val inventory: Collection<Slot>
+    val bags: Collection<Bag?>
 ) {
 
     /**
-     * @param id        the item id which can be resolved against `/v2/items`
-     * @param count     amount of item in the stack. (In range [1,250])
-     * @param infusions returns an array of infusion item ids which can be resolved against `/v2/items` (Optional)
-     * @param upgrades  returns an array of upgrade component item ids which can be resolved against `/v2/items`
-     *                  (Optional)
-     * @param skin      skin id for the given equipment piece (Optional)
-     * @param stats     contains information on the stats chosen if the item offers an option for stats/prefix
-     *                  (Optional)
-     * @param binding   describes which kind of binding the item has (Optional)
-     * @param boundTo   name of the character the item is bound to (Optional)
+     * @param id        the bag's item id which can be resolved against `/v2/items`
+     * @param size      the amount of slots available with this bag
+     * @param inventory contains one object structure per item, object is `null` if no item is in the given bag slot
      *
      * @since   0.1.0 (API: 2016-05-16)
      */
     @Serializable
-    data class Slot(
+    data class Bag(
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val count: Int,
+        val size: Int,
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
-        @Optional
-        val infusions: Collection<Int>? = null,
-        /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
-        @Optional
-        val upgrades: Collection<Int>? = null,
-        /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
-        @Optional
-        val skin: Int? = null,
-        /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
-        @Optional
-        val stats: Stats? = null,
-        /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
-        @Optional
-        val binding: String? = null,
-        /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
-        @Optional
-        @SerialName("bound_to")
-        val boundTo: String? = null
+        val inventory: Collection<Slot?>
     ) {
 
         /**
-         * @param id            the itemstat id, can be resolved against `/v2/itemstats`
-         * @param attributes    contains a summary of the stats on the item
+         * @param id        the item id which can be resolved against `/v2/items`
+         * @param count     amount of item in the stack. (In range [1,250])
+         * @param infusions returns an array of infusion item ids which can be resolved against `/v2/items` (Optional)
+         * @param upgrades  returns an array of upgrade component item ids which can be resolved against `/v2/items`
+         *                  (Optional)
+         * @param skin      skin id for the given equipment piece (Optional)
+         * @param stats     contains information on the stats chosen if the item offers an option for stats/prefix
+         *                  (Optional)
+         * @param binding   describes which kind of binding the item has (Optional)
+         * @param boundTo   name of the character the item is bound to (Optional)
          *
          * @since   0.1.0 (API: 2016-05-16)
          */
         @Serializable
-        data class Stats(
+        data class Slot(
             /** @since  0.1.0 (API: 2016-05-16) */
             @Suppress("MemberVisibilityCanBePrivate")
             val id: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
             @Suppress("MemberVisibilityCanBePrivate")
-            val attributes: Attributes
+            val count: Int,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val infusions: Collection<Int>? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val upgrades: Collection<Int>? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val skin: Int? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val stats: Stats? = null,
+            /** @since  0.1.0 (API: 2015-06-18) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val charges: Int? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val binding: String? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            @SerialName("bound_to")
+            val boundTo: String? = null
         ) {
 
             /**
-             * @param power             shows the amount of power given (Optional)
-             * @param precision         shows the amount of Precision given (Optional)
-             * @param toughness         shows the amount of Toughness given (Optional)
-             * @param vitality          shows the amount of Vitality given (Optional)
-             * @param conditionDamage   shows the amount of Condition Damage given (Optional)
-             * @param conditionDuration shows the amount of Condition Duration given (Optional)
-             * @param healing           shows the amount of Healing Power given (Optional)
-             * @param boonDuration      shows the amount of Boon Duration given (Optional)
+             * @param id            the itemstat id, can be resolved against `/v2/itemstats`
+             * @param attributes    contains a summary of the stats on the item
              *
              * @since   0.1.0 (API: 2016-05-16)
              */
             @Serializable
-            data class Attributes(
+            data class Stats(
                 /** @since  0.1.0 (API: 2016-05-16) */
                 @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("Power")
-                val power: Int? = null,
+                val id: Int,
                 /** @since  0.1.0 (API: 2016-05-16) */
                 @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("Precision")
-                val precision: Int? = null,
-                /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("Toughness")
-                val toughness: Int? = null,
-                /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("Vitality")
-                val vitality: Int? = null,
-                /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("Condition Damage")
-                val conditionDamage: Int? = null,
-                /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("Condition Duration")
-                val conditionDuration: Int? = null,
-                /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("Healing")
-                val healing: Int? = null,
-                /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
-                @Optional
-                @SerialName("BoonDuration")
-                val boonDuration: Int? = null
-            )
+                val attributes: Attributes
+            ) {
+
+                /**
+                 * @param power             shows the amount of power given (Optional)
+                 * @param precision         shows the amount of Precision given (Optional)
+                 * @param toughness         shows the amount of Toughness given (Optional)
+                 * @param vitality          shows the amount of Vitality given (Optional)
+                 * @param conditionDamage   shows the amount of Condition Damage given (Optional)
+                 * @param conditionDuration shows the amount of Condition Duration given (Optional)
+                 * @param healing           shows the amount of Healing Power given (Optional)
+                 * @param boonDuration      shows the amount of Boon Duration given (Optional)
+                 * @param critDamage        shows the amount of Crit Damage given (Optional)
+                 *
+                 * @since   0.1.0 (API: 2016-05-16)
+                 */
+                @Serializable
+                data class Attributes(
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("Power")
+                    val power: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("Precision")
+                    val precision: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("Toughness")
+                    val toughness: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("Vitality")
+                    val vitality: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("Condition Damage")
+                    val conditionDamage: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("Condition Duration")
+                    val conditionDuration: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("Healing")
+                    val healing: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-16) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("BoonDuration")
+                    val boonDuration: Int? = null,
+                    /** @since  0.1.0 (API: 2016-05-19) */
+                    @Suppress("MemberVisibilityCanBePrivate")
+                    @Optional
+                    @SerialName("CritDamage")
+                    val critDamage: Int? = null
+                )
+
+            }
 
         }
 
@@ -1551,9 +1633,7 @@ fun gw2v2CharactersSkills(id: String): RequestBuilder<CharactersSkills> = query(
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
- * @param pve   contains the information on each slotted utility for PvE
- * @param pvp   contains the information on each slotted utility for PvP
- * @param wvw   contains the information on each slotted utility for WvW
+ * @param skills    contains the pve, pvp, and wvw objects for the current utilities equipped
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
@@ -1561,41 +1641,57 @@ fun gw2v2CharactersSkills(id: String): RequestBuilder<CharactersSkills> = query(
 data class CharactersSkills(
     /** @since  0.1.0 (API: 2016-05-16) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val pve: SkillSet,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val pvp: SkillSet,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val wvw: SkillSet
+    val skills: Skills
 ) {
 
     /**
-     * @param heal      contains the skill id for the heal skill, resolvable against `/v2/skills`
-     * @param utilities each integer corresponds to a skill id for the equipped utilities, resolvable against
-     *                  `/v2/skills`
-     * @param elite     contains the skill id for the elite skill, resolvable against `/v2/skills`
-     * @param legends   each string corresponds to a Revenant legend, resolvable against `/v2/legends` (Optional -
-     *                  revenant only)
+     * @param pve   contains the information on each slotted utility for PvE
+     * @param pvp   contains the information on each slotted utility for PvP
+     * @param wvw   contains the information on each slotted utility for WvW
      *
      * @since   0.1.0 (API: 2016-05-16)
      */
     @Serializable
-    data class SkillSet(
+    data class Skills(
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val heal: Int,
+        val pve: SkillSet,
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val utilities: Collection<Int>,
+        val pvp: SkillSet,
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val elite: Int,
-        /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
-        @Optional
-        val legends: Collection<Int>? = null
-    )
+        val wvw: SkillSet
+    ) {
+
+        /**
+         * @param heal      contains the skill id for the heal skill, resolvable against `/v2/skills`
+         * @param utilities each integer corresponds to a skill id for the equipped utilities, resolvable against
+         *                  `/v2/skills`
+         * @param elite     contains the skill id for the elite skill, resolvable against `/v2/skills`
+         * @param legends   each string corresponds to a Revenant legend, resolvable against `/v2/legends` (Optional -
+         *                  revenant only)
+         *
+         * @since   0.1.0 (API: 2016-05-16)
+         */
+        @Serializable
+        data class SkillSet(
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            val heal: Int,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            val utilities: Collection<Int>,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            val elite: Int,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            @Optional
+            val legends: Collection<Int>? = null
+        )
+
+    }
 
 }
 
@@ -1637,9 +1733,7 @@ fun gw2v2CharactersSpecializations(id: String): RequestBuilder<CharactersSpecial
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
- * @param pve   contains the information on each slotted specialization and trait for PvE
- * @param pvp   contains the information on each slotted specialization and trait for PvP
- * @param wvw   contains the information on each slotted specialization and trait for WvW
+ * @param specializations   contains the pve, pvp, and wvw objects for the current specializations and traits equipped
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
@@ -1647,30 +1741,46 @@ fun gw2v2CharactersSpecializations(id: String): RequestBuilder<CharactersSpecial
 data class CharactersSpecializations(
     /** @since  0.1.0 (API: 2016-05-16) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val pve: Collection<Specialization>,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val pvp: Collection<Specialization>,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val wvw: Collection<Specialization>
+    val specializations: Specializations
 ) {
 
     /**
-     * @param id        specialization id
-     * @param traits    returns ids for each selected trait
+     * @param pve   contains the information on each slotted specialization and trait for PvE
+     * @param pvp   contains the information on each slotted specialization and trait for PvP
+     * @param wvw   contains the information on each slotted specialization and trait for WvW
      *
      * @since   0.1.0 (API: 2016-05-16)
      */
     @Serializable
-    data class Specialization(
+    data class Specializations(
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val id: Int,
+        val pve: Collection<Specialization>,
         /** @since  0.1.0 (API: 2016-05-16) */
         @Suppress("MemberVisibilityCanBePrivate")
-        val traits: Collection<Int>
-    )
+        val pvp: Collection<Specialization>,
+        /** @since  0.1.0 (API: 2016-05-16) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        val wvw: Collection<Specialization>
+    ) {
+
+        /**
+         * @param id        specialization id
+         * @param traits    returns ids for each selected trait
+         *
+         * @since   0.1.0 (API: 2016-05-16)
+         */
+        @Serializable
+        data class Specialization(
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            val id: Int,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Suppress("MemberVisibilityCanBePrivate")
+            val traits: Collection<Int>
+        )
+
+    }
 
 }
 
@@ -1697,11 +1807,11 @@ data class CharactersSpecializations(
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Suppress("UNUSED")
-fun gw2v2CharactersTraining(id: String): RequestBuilder<Collection<CharactersTraining>> = query(
+fun gw2v2CharactersTraining(id: String): RequestBuilder<CharactersTraining> = query(
     endpoint = "/v2/characters/:id/training",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "builds", "characters"),
-    converter = jsonArrayParser<CharactersTraining>(),
+    converter = jsonParser<CharactersTraining>(),
     replaceInPath = mapOf(
         ":id" to id
     )
@@ -1712,9 +1822,7 @@ fun gw2v2CharactersTraining(id: String): RequestBuilder<Collection<CharactersTra
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
- * @param id    skill tree id, can be compared against the training section for each /v2/professions
- * @param spent shows how many hero points have been spent in this tree
- * @param done  states whether or not the tree is fully trained
+ * @param training  contains objects for each skill tree trained
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
@@ -1722,11 +1830,27 @@ fun gw2v2CharactersTraining(id: String): RequestBuilder<Collection<CharactersTra
 data class CharactersTraining(
     /** @since  0.1.0 (API: 2016-05-16) */
     @Suppress("MemberVisibilityCanBePrivate")
-    val id: Int,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val spent: Int,
-    /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val done: Boolean
-)
+    val training: Collection<Tree>
+) {
+
+    /**
+     * @param id    skill tree id, can be compared against the training section for each /v2/professions
+     * @param spent shows how many hero points have been spent in this tree
+     * @param done  states whether or not the tree is fully trained
+     *
+     * @since   0.1.0 (API: 2016-05-16)
+     */
+    @Serializable
+    data class Tree(
+        /** @since  0.1.0 (API: 2016-05-16) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        val id: Int,
+        /** @since  0.1.0 (API: 2016-05-16) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        val spent: Int,
+        /** @since  0.1.0 (API: 2016-05-16) */
+        @Suppress("MemberVisibilityCanBePrivate")
+        val done: Boolean
+    )
+
+}
