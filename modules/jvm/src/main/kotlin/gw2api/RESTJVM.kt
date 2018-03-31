@@ -18,6 +18,7 @@ package gw2api
 import kotlinx.coroutines.experimental.*
 import okhttp3.*
 import java.io.*
+import java.util.*
 import kotlin.coroutines.experimental.*
 import okhttp3.Callback as OkHttpCallback
 import okhttp3.Request as OkHttpRequest
@@ -42,7 +43,7 @@ internal actual fun <T> Continuation<Response<T>>.queryNetwork(
     rateController?.tryIncrement(endpoint)
     httpClient.newCall(request).enqueue(object : OkHttpCallback {
         override fun onResponse(call: Call, httpResponse: okhttp3.Response) {
-            if (httpResponse.isSuccessful) {
+            val response = if (httpResponse.isSuccessful) {
                 val date = httpResponse.headers().getDate("date")!!.toInstant().toEpochMilli()
                 val expires = httpResponse.headers().getDate("expires").let {
                     if (it === null || overrideCacheTime)
@@ -51,16 +52,18 @@ internal actual fun <T> Continuation<Response<T>>.queryNetwork(
                         it.toInstant().toEpochMilli()
                 }
 
-                val response = Response(
+                Response(
                     data = httpResponse.body()?.let { converter.invoke(it.string()) },
                     expirationDate = expires
-                )
-
-                cache.invoke(response)
-                resume(response)
+                ).also(cache)
             } else {
-                resumeWithException(IllegalStateException(httpResponse.message()))
+                Response(
+                    data = null,
+                    expirationDate = 0L
+                )
             }
+
+            resume(response)
         }
 
         override fun onFailure(call: Call, e: IOException) {
@@ -68,6 +71,14 @@ internal actual fun <T> Continuation<Response<T>>.queryNetwork(
         }
     })
 }
+
+internal actual fun String.toQueryUrl(path: String, params: Map<String, Any>) = HttpUrl.Builder()
+    .scheme("https")
+    .host(this)
+    .addPathSegments(path)
+    .apply { params.forEach { k, v -> addQueryParameter(k, Objects.toString(v)) } }
+    .build()
+    .toString()
 
 actual class Request<out T> internal actual constructor(
     actual val url: String,

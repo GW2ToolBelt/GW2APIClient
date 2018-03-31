@@ -33,7 +33,7 @@ internal fun <T> query(
     supportedLanguages: List<Language> = emptyList(),
     converter: (String) -> T
 ): RequestBuilder<T> = RequestBuilder(
-    "https://api.guildwars2.com",
+    "api.guildwars2.com",
     endpoint,
     params,
     replaceInPath,
@@ -62,6 +62,8 @@ internal inline fun <reified T : Any> jsonParser(serializer: KSerializer<T> = T:
 }
 
 internal inline fun <reified T : Any> jsonArrayParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> Collection<T> = jsonParser(serializer.list)
+
+internal expect fun String.toQueryUrl(path: String, params: Map<String, Any>): String
 
 /**
  * TODO
@@ -312,21 +314,16 @@ class RequestBuilder<out T> internal constructor(
      */
     @Suppress("UNUSED", "MemberVisibilityCanBePrivate")
     fun execute(): Request<T> {
-        val params = this.params.toMutableMap()
-        if (isLocalized) params["lang"] = language.code
-
         var path = endpoint
         replaceInPath.forEach {
             path = path.replace(it.key, it.value)
         }
 
-        val url = "$baseURL$path".let {
-            val p = params.map { "${it.key}=${it.value}" }.joinToString("&").let {
-                "?${if (this::apiKey.isInitialized) "access_token=$apiKey" else ""}$it"
-            }
+        val params = this.params.toMutableMap()
+        if (this::apiKey.isInitialized) params["access_token"] = apiKey
+        if (isLocalized) params["lang"] = language.code
 
-            "$it${if (p.isEmpty()) "" else p}"
-        }
+        val url = baseURL.toQueryUrl(path, params)
 
         val futureResponse = async {
             suspendCoroutine<Response<T>> { continuation ->

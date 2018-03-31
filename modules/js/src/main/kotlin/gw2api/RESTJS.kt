@@ -61,6 +61,12 @@ internal actual fun <T> Continuation<Response<T>>.queryNetwork(
     )
 }
 
+internal actual fun String.toQueryUrl(path: String, params: Map<String, Any>): String {
+    return "$this${path.split("/").map(::encodeURIComponent).joinToString(separator = "/")}${params.map { "${it.key}=${encodeURIComponent(it.value.toString())}" }.joinToString("&")}"
+}
+
+internal external fun encodeURIComponent(str: String): String
+
 actual class Request<out T> internal actual constructor(
     actual val url: String,
     actual val endpoint: String,
