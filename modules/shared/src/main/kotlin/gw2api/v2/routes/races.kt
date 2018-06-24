@@ -205,33 +205,3 @@ fun gw2v2RacesAll(): RequestBuilder<Collection<Race>> = query(
     converter = jsonArrayParser<Race>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)
-
-/**
- * Information about races and their available skills.
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
- *
- * @param id        the id of the race
- * @param name      the name of the race
- * @param skills    an array of skill ids resolvable against /v2/skills
- *
- * @see gw2v2RacesIds
- * @see gw2v2RacesById
- * @see gw2v2RacesByIds
- * @see gw2v2RacesByPage
- * @see gw2v2RacesAll
- *
- * @since   0.1.0 (API: 2017-01-20)
- */
-@Serializable
-data class Race(
-    /** @since  0.1.0 (API: 2017-20-01) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val id: String,
-    /** @since  0.1.0 (API: 2017-20-01) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val name: String,
-    /** @since  0.1.0 (API: 2017-20-01) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val skills: Collection<Int>
-)

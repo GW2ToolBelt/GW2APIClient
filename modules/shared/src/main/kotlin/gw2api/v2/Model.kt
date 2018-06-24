@@ -15,198 +15,36 @@
  */
 package gw2api.v2
 
-import gw2api.*
 import kotlinx.serialization.*
 
 /**
- * Queries the `/v2/characters` endpoint.
+ * This resource returns the current build id of the game. This can be used, for example, to register when event timers
+ * reset due to server restarts.
  *
- * ## The /v2/characters endpoint
+ * ## Example
  *
- * > This resource returns information about characters attached to a specific account.
+ * `https://api.guildwars2.com/v2/build`
  *
  * ```
- * Paginated:           Yes
- * Bulk expanded:       Yes
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
+ * {
+ *   "id": 45075
+ * }
  * ```
  *
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/build]
  *
- * @return  the request that is used to query the API
+ * @param id    the current build id as number
  *
- * @see gw2v2CharactersById
- * @see gw2v2CharactersByIds
- * @see gw2v2CharactersByPage
- * @see gw2v2CharactersAll
+ * @see gw2v2Build
  *
- * @since   0.1.0 (API:  2015-03-04)
+ * @since   0.1.0 (API: 2015-02-13)
  */
-@Suppress("UNUSED")
-fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
-    endpoint = "/v2/files",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser(JSONStringParser)
-).setCacheTime(60 * 5, false)
-
-
-/**
- * Queries the `/v2/characters` endpoint.
- *
- * ## The /v2/characters endpoint
- *
- * > This resource returns information about characters attached to a specific account.
- *
- * ```
- * Paginated:           Yes
- * Bulk expanded:       Yes
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @param id    the id for the file to query
- *
- * @return  the request that is used to query the API
- *
- * @see gw2v2FilesIds
- * @see gw2v2FilesByIds
- * @see gw2v2FilesByPage
- * @see gw2v2FilesAll
- *
- * @since   0.1.0 (API: 2015-03-04)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersById(id: String): RequestBuilder<Character> = query(
-    endpoint = "/v2/characters",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<Character>(),
-    params = mapOf("id" to id)
-).setCacheTime(60 * 5, false)
-
-/**
- * Queries the `/v2/characters` endpoint.
- *
- * ## The /v2/characters endpoint
- *
- * > This resource returns information about characters attached to a specific account.
- *
- * ```
- * Paginated:           Yes
- * Bulk expanded:       Yes
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @param ids   the ids for the files to query
- *
- * @return  the request that is used to query the API
- *
- * @see gw2v2FilesIds
- * @see gw2v2FilesById
- * @see gw2v2FilesByPage
- * @see gw2v2FilesAll
- *
- * @since   0.1.0 (API: 2015-03-04)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<Character>> = query(
-    endpoint = "/v2/characters",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<Character>(),
-    params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 5, false)
-
-/**
- * Queries the `/v2/characters` endpoint.
- *
- * ## The /v2/characters endpoint
- *
- * > This resource returns information about characters attached to a specific account.
- *
- * ```
- * Paginated:           Yes
- * Bulk expanded:       Yes
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @param page      the index of the page
- * @param pageSize  the size of the page (must be in the range `[1,200]`)
- *
- * @return  the request that is used to query the API
- *
- * @see gw2v2FilesIds
- * @see gw2v2FilesById
- * @see gw2v2FilesByIds
- * @see gw2v2FilesAll
- *
- * @since   0.1.0 (API: 2015-03-04)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Character>> = query(
-    endpoint = "/v2/characters",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<Character>(),
-    params = mapOf(
-        "page" to page,
-        "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
-    )
-).setCacheTime(60 * 5, false)
-
-/**
- * Queries the `/v2/characters` endpoint.
- *
- * ## The /v2/characters endpoint
- *
- * > This resource returns information about characters attached to a specific account.
- *
- * ```
- * Paginated:           Yes
- * Bulk expanded:       Yes
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @see gw2v2FilesIds
- * @see gw2v2FilesById
- * @see gw2v2FilesByIds
- * @see gw2v2FilesByPage
- *
- * @since   0.1.0 (API: 2015-03-04)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersAll(): RequestBuilder<Collection<Character>> = query(
-    endpoint = "/v2/characters",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<Character>(),
-    params = mapOf("ids" to "all")
-).setCacheTime(60 * 5, false)
+@Serializable
+data class Build(
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val id: Int
+)
 
 /**
  * This resource returns information about characters attached to a specific account.
@@ -238,71 +76,50 @@ fun gw2v2CharactersAll(): RequestBuilder<Collection<Character>> = query(
 @Serializable
 data class Character(
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val name: String,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val race: String,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val gender: String,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val profession: String,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val level: Int,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Suppress("MemberVisibilityCanBePrivate")
     @Optional
     val guild: String? = null,
     /** @since  0.1.0 (API: 2015-06-12) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val age: Int,
     /** @since  0.1.0 (API: 2015-06-12) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val created: String,
     /** @since  0.1.0 (API: 2015-06-12) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val deaths: Int,
     /** @since  0.1.0 (API: 2016-04-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
     @Optional
     val title: Int? = null,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val backstory: Collection<String>,
     /** @since  0.1.0 (API: 2015-07-01) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val crafting: Collection<CraftingDiscipline>,
     /** @since  0.1.0 (API: 2015-06-18) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val equipment: Collection<EquipmentSlot>,
     /** @since  0.1.0 (API: 2015-06-18) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val bags: Collection<Bag?>,
     /** @since  0.1.0 (API: 2015-12-03) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val recipes: Collection<Int>,
     /** @since  0.1.0 (API: 2016-01-15) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val skills: Skills,
     /** @since  0.1.0 (API: 2015-08-22) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val specializations: Specializations,
     /** @since  0.1.0 (API: 2016-06-01) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val training: Collection<Tree>,
     /** @since  0.1.0 (API: 2016-09-29) */
-    @Suppress("MemberVisibilityCanBePrivate")
     @SerialName("wvw_abilities")
     val wvwAbilities: Collection<WvWAbility>,
     /** @since  0.1.0 (API: 2016-03-25) */
-    @Suppress("MemberVisibilityCanBePrivate")
     @SerialName("equipment_pvp")
     val equipmentPvP: EquipmentPvP,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Suppress("MemberVisibilityCanBePrivate")
     @Optional
     val flags: Collection<String>? = null
 ) {
@@ -317,13 +134,10 @@ data class Character(
     @Serializable
     data class CraftingDiscipline(
         /** @since  0.1.0 (API: 2015-07-01) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val discipline: String,
         /** @since  0.1.0 (API: 2015-07-01) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val rating: Int,
         /** @since  0.1.0 (API: 2015-07-01) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val active: Boolean
     )
 
@@ -345,42 +159,32 @@ data class Character(
     @Serializable
     data class EquipmentSlot(
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val slot: String,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val infusions: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val upgrades: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val skin: Int? = null,
         /** @since  0.1.0 (API: 2016-05-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val stats: Stats? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val charges: Int? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val binding: String? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         @SerialName("bound_to")
         val boundTo: String? = null,
         /** @since  0.1.0 (API: 2017-04-20) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val dyes: Collection<Int?>? = null
     ) {
@@ -394,10 +198,8 @@ data class Character(
         @Serializable
         data class Stats(
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val id: Int,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val attributes: Attributes
         ) {
 
@@ -417,47 +219,38 @@ data class Character(
             @Serializable
             data class Attributes(
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Power")
                 val power: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Precision")
                 val precision: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Toughness")
                 val toughness: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Vitality")
                 val vitality: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Condition Damage")
                 val conditionDamage: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Condition Duration")
                 val conditionDuration: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Healing")
                 val healing: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("BoonDuration")
                 val boonDuration: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("CritDamage")
                 val critDamage: Int? = null
@@ -477,13 +270,10 @@ data class Character(
     @Serializable
     data class Bag(
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val size: Int,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val inventory: Collection<Slot?>
     ) {
 
@@ -505,37 +295,28 @@ data class Character(
         @Serializable
         data class Slot(
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val id: Int,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val count: Int,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val infusions: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val upgrades: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val skin: Int? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val stats: Stats? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val charges: Int? = null,
             /** @since  0.1.0 (API: 2015-10-29) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val binding: String? = null,
             /** @since  0.1.0 (API: 2015-10-29) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             @SerialName("bound_to")
             val boundTo: String? = null
@@ -550,10 +331,8 @@ data class Character(
             @Serializable
             data class Stats(
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 val id: Int,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 val attributes: Attributes
             ) {
 
@@ -573,47 +352,38 @@ data class Character(
                 @Serializable
                 data class Attributes(
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Power")
                     val power: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Precision")
                     val precision: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Toughness")
                     val toughness: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Vitality")
                     val vitality: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Condition Damage")
                     val conditionDamage: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Condition Duration")
                     val conditionDuration: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Healing")
                     val healing: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("BoonDuration")
                     val boonDuration: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-19) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("CritDamage")
                     val critDamage: Int? = null
@@ -635,13 +405,10 @@ data class Character(
     @Serializable
     data class Skills(
         /** @since  0.1.0 (API: 2016-01-15) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pve: SkillSet,
         /** @since  0.1.0 (API: 2016-01-15) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pvp: SkillSet,
         /** @since  0.1.0 (API: 2016-01-15) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val wvw: SkillSet
     ) {
 
@@ -658,16 +425,12 @@ data class Character(
         @Serializable
         data class SkillSet(
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val heal: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val utilities: Collection<Int>,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val elite: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val legends: Collection<Int>? = null
         )
@@ -684,13 +447,10 @@ data class Character(
     @Serializable
     data class Specializations(
         /** @since  0.1.0 (API: 2015-08-22) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pve: Collection<Specialization>,
         /** @since  0.1.0 (API: 2015-08-22) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pvp: Collection<Specialization>,
         /** @since  0.1.0 (API: 2015-08-22) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val wvw: Collection<Specialization>
     ) {
 
@@ -703,10 +463,8 @@ data class Character(
         @Serializable
         data class Specialization(
             /** @since  0.1.0 (API: 2015-08-22) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val id: Int,
             /** @since  0.1.0 (API: 2015-08-22) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val traits: Collection<Int>
         )
 
@@ -722,13 +480,10 @@ data class Character(
     @Serializable
     data class Tree(
         /** @since  0.1.0 (API: 2016-06-01) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2016-06-01) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val spent: Int,
         /** @since  0.1.0 (API: 2016-06-01) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val done: Boolean
     )
 
@@ -741,10 +496,8 @@ data class Character(
     @Serializable
     data class WvWAbility(
         /** @since  0.1.0 (API: 2016-09-29) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2016-09-29) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val rank: Int
     )
 
@@ -758,50 +511,14 @@ data class Character(
     @Serializable
     data class EquipmentPvP(
         /** @since  0.1.0 (API: 2016-03-25) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val amulet: Int,
         /** @since  0.1.0 (API: 2016-03-25) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val rune: Int,
         /** @since  0.1.0 (API: 2016-03-25) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val sigils: Collection<Int?>
     )
 
 }
-
-/**
- * Queries the `/v2/characters/:id/backstory` endpoint.
- *
- * ## The /v2/characters/:id/backstory endpoint
- *
- * > Backstory information of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-19)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersBackstory(id: String): RequestBuilder<CharactersBackstory> = query(
-    endpoint = "/v2/characters/:id/backstory",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<CharactersBackstory>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Backstory information of a single character.
@@ -815,42 +532,8 @@ fun gw2v2CharactersBackstory(id: String): RequestBuilder<CharactersBackstory> = 
 @Serializable
 data class CharactersBackstory(
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val backstory: Collection<String>
 )
-
-/**
- * Queries the `/v2/characters/:id/core` endpoint.
- *
- * ## The /v2/characters/:id/core endpoint
- *
- * > Core information (name, race, ...) of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-19)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersCore(id: String): RequestBuilder<CharactersCore> = query(
-    endpoint = "/v2/characters/:id/core",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<CharactersCore>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Core information (name, race, ...) of a single character.
@@ -873,71 +556,28 @@ fun gw2v2CharactersCore(id: String): RequestBuilder<CharactersCore> = query(
 @Serializable
 data class CharactersCore(
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val name: String,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val race: String,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val gender: String,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val profession: String,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val level: Int,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     @Optional
     val guild: String? = null,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val age: Int,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val created: String,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val deaths: Int,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     @Optional
     val title: Int? = null
 )
-
-/**
- * Queries the `/v2/characters/:id/crafting` endpoint.
- *
- * ## The /v2/characters/:id/crafting endpoint
- *
- * > Crafting disciplines of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-19)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersCrafting(id: String): RequestBuilder<CharactersCrafting> = query(
-    endpoint = "/v2/characters/:id/crafting",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<CharactersCrafting>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Crafting disciplines of a single character.
@@ -963,50 +603,14 @@ data class CharactersCrafting(
     @Serializable
     data class Discipline(
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val discipline: String,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val rating: Int,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val active: Boolean
     )
 
 }
-
-/**
- * Queries the `/v2/characters/:id/equipment` endpoint.
- *
- * ## The /v2/characters/:id/equipment endpoint
- *
- * > Equipment of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-19)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersEquipment(id: String): RequestBuilder<CharactersEquipment> = query(
-    endpoint = "/v2/characters/:id/equipment",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters", "builds|inventories"),
-    converter = jsonParser<CharactersEquipment>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Equipment of a single character.
@@ -1020,7 +624,6 @@ fun gw2v2CharactersEquipment(id: String): RequestBuilder<CharactersEquipment> = 
 @Serializable
 data class CharactersEquipment(
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val equipment: Collection<Item>
 ) {
 
@@ -1042,42 +645,32 @@ data class CharactersEquipment(
     @Serializable
     data class Item(
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val slot: String,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val infusions: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val upgrades: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val skin: Int? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val stats: Stats? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val binding: String? = null,
         /** @since  0.1.0 (API: 2016-06-28) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val charges: Int? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         @SerialName("bound_to")
         val boundTo: String? = null,
         /** @since  0.1.0 (API: 2017-04-20) */
-        @Suppress("MemberVisibilityCanBePrivate")
         @Optional
         val dyes: Collection<Int?>? = null
     ) {
@@ -1091,10 +684,8 @@ data class CharactersEquipment(
         @Serializable
         data class Stats(
             /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val id: Int,
             /** @since  0.1.0 (API: 2016-05-19) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val attributes: Attributes
         ) {
 
@@ -1114,47 +705,38 @@ data class CharactersEquipment(
             @Serializable
             data class Attributes(
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Power")
                 val power: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Precision")
                 val precision: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Toughness")
                 val toughness: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Vitality")
                 val vitality: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Condition Damage")
                 val conditionDamage: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Condition Duration")
                 val conditionDuration: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("Healing")
                 val healing: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("BoonDuration")
                 val boonDuration: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 @Optional
                 @SerialName("CritDamage")
                 val critDamage: Int? = null
@@ -1165,72 +747,6 @@ data class CharactersEquipment(
     }
 
 }
-
-/**
- * Queries the `/v2/characters/:id/heropoints` endpoint.
- *
- * ## The /v2/characters/:id/heropoints endpoint
- *
- * > Heropoint information of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2017-04-20)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersHeropoints(id: String): RequestBuilder<Collection<String>> = query(
-    endpoint = "/v2/characters/:id/heropoints",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters", "progression"),
-    converter = jsonArrayParser(JSONStringParser),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
-
-/**
- * Queries the `/v2/characters/:id/inventory` endpoint.
- *
- * ## The /v2/characters/:id/inventory endpoint
- *
- * > Inventory of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-16)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersInventory(id: String): RequestBuilder<CharactersInventory> = query(
-    endpoint = "/v2/characters/:id/inventory",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters", "inventories"),
-    converter = jsonParser<CharactersInventory>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Inventory of a single character.
@@ -1244,7 +760,6 @@ fun gw2v2CharactersInventory(id: String): RequestBuilder<CharactersInventory> = 
 @Serializable
 data class CharactersInventory(
     /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val bags: Collection<Bag?>
 ) {
 
@@ -1258,13 +773,10 @@ data class CharactersInventory(
     @Serializable
     data class Bag(
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val size: Int,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val inventory: Collection<Slot?>
     ) {
 
@@ -1285,37 +797,28 @@ data class CharactersInventory(
         @Serializable
         data class Slot(
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val id: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val count: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val infusions: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val upgrades: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val skin: Int? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val stats: Stats? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val charges: Int? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val binding: String? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             @SerialName("bound_to")
             val boundTo: String? = null
@@ -1330,10 +833,8 @@ data class CharactersInventory(
             @Serializable
             data class Stats(
                 /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 val id: Int,
                 /** @since  0.1.0 (API: 2016-05-16) */
-                @Suppress("MemberVisibilityCanBePrivate")
                 val attributes: Attributes
             ) {
 
@@ -1353,47 +854,38 @@ data class CharactersInventory(
                 @Serializable
                 data class Attributes(
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Power")
                     val power: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Precision")
                     val precision: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Toughness")
                     val toughness: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Vitality")
                     val vitality: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Condition Damage")
                     val conditionDamage: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Condition Duration")
                     val conditionDuration: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("Healing")
                     val healing: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("BoonDuration")
                     val boonDuration: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-19) */
-                    @Suppress("MemberVisibilityCanBePrivate")
                     @Optional
                     @SerialName("CritDamage")
                     val critDamage: Int? = null
@@ -1408,39 +900,6 @@ data class CharactersInventory(
 }
 
 /**
- * Queries the `/v2/characters/:id/recipes` endpoint.
- *
- * ## The /v2/characters/:id/recipes endpoint
- *
- * > Unlocked recipes of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-16)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersRecipes(id: String): RequestBuilder<CharactersRecipes> = query(
-    endpoint = "/v2/characters/:id/recipes",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "characters", "inventories"),
-    converter = jsonParser<CharactersRecipes>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
-
-/**
  * Unlocked recipes of a single character.
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
@@ -1452,42 +911,8 @@ fun gw2v2CharactersRecipes(id: String): RequestBuilder<CharactersRecipes> = quer
 @Serializable
 data class CharactersRecipes(
     /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val recipes: Collection<Int>
 )
-
-/**
- * Queries the `/v2/characters/:id/sab` endpoint.
- *
- * ## The /v2/characters/:id/sab endpoint
- *
- * > Zone progress and unlocks in the SAB for this character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2017-04-11)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersSAB(id: String): RequestBuilder<CharactersSAB> = query(
-    endpoint = "/v2/characters/:id/sab",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "progression"),
-    converter = jsonParser<CharactersSAB>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Zone progress and unlocks in the SAB for this character.
@@ -1527,13 +952,10 @@ fun gw2v2CharactersSAB(id: String): RequestBuilder<CharactersSAB> = query(
 @Serializable
 data class CharactersSAB(
     /** @since  0.1.0 (API: 2017-04-11) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val zones: Collection<Zone>,
     /** @since  0.1.0 (API: 2017-04-11) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val unlocks: Collection<Unlock>,
     /** @since  0.1.0 (API: 2017-04-11) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val songs: Collection<Song>
 ) {
 
@@ -1548,16 +970,12 @@ data class CharactersSAB(
     @Serializable
     data class Zone(
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val mode: String,
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val world: Int,
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val zone: Int
     )
 
@@ -1570,10 +988,8 @@ data class CharactersSAB(
     @Serializable
     data class Unlock(
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val name: String
     )
 
@@ -1586,47 +1002,12 @@ data class CharactersSAB(
     @Serializable
     data class Song(
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2017-04-11) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val name: String
     )
 
 }
-
-/**
- * Queries the `/v2/characters/:id/skills` endpoint.
- *
- * ## The /v2/characters/:id/skills endpoint
- *
- * > Skills in use by a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-16)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersSkills(id: String): RequestBuilder<CharactersSkills> = query(
-    endpoint = "/v2/characters/:id/skills",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "builds", "characters"),
-    converter = jsonParser<CharactersSkills>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Skills in use by a single character.
@@ -1640,7 +1021,6 @@ fun gw2v2CharactersSkills(id: String): RequestBuilder<CharactersSkills> = query(
 @Serializable
 data class CharactersSkills(
     /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val skills: Skills
 ) {
 
@@ -1654,13 +1034,10 @@ data class CharactersSkills(
     @Serializable
     data class Skills(
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pve: SkillSet,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pvp: SkillSet,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val wvw: SkillSet
     ) {
 
@@ -1677,16 +1054,12 @@ data class CharactersSkills(
         @Serializable
         data class SkillSet(
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val heal: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val utilities: Collection<Int>,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val elite: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             @Optional
             val legends: Collection<Int>? = null
         )
@@ -1694,39 +1067,6 @@ data class CharactersSkills(
     }
 
 }
-
-/**
- * Queries the `/v2/characters/:id/specializations` endpoint.
- *
- * ## The /v2/characters/:id/specializations endpoint
- *
- * > Specialization information of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-16)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersSpecializations(id: String): RequestBuilder<CharactersSpecializations> = query(
-    endpoint = "/v2/characters/:id/specializations",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "builds", "characters"),
-    converter = jsonParser<CharactersSpecializations>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Specialization information of a single character.
@@ -1740,7 +1080,6 @@ fun gw2v2CharactersSpecializations(id: String): RequestBuilder<CharactersSpecial
 @Serializable
 data class CharactersSpecializations(
     /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val specializations: Specializations
 ) {
 
@@ -1754,13 +1093,10 @@ data class CharactersSpecializations(
     @Serializable
     data class Specializations(
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pve: Collection<Specialization>,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val pvp: Collection<Specialization>,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val wvw: Collection<Specialization>
     ) {
 
@@ -1773,49 +1109,14 @@ data class CharactersSpecializations(
         @Serializable
         data class Specialization(
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val id: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Suppress("MemberVisibilityCanBePrivate")
             val traits: Collection<Int>
         )
 
     }
 
 }
-
-/**
- * Queries the `/v2/characters/:id/training` endpoint.
- *
- * ## The /v2/characters/:id/training endpoint
- *
- * > Training information of a single character.
- *
- * ```
- * Paginated:           No
- * Bulk expanded:       No
- * Authenticated:       Yes
- * Localized:           No
- * Cache time:          5 minutes
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
- *
- * @return  the request that is used to query the API
- *
- * @since   0.1.0 (API: 2016-05-16)
- */
-@Suppress("UNUSED")
-fun gw2v2CharactersTraining(id: String): RequestBuilder<CharactersTraining> = query(
-    endpoint = "/v2/characters/:id/training",
-    requiresAuthentication = true,
-    requiredPermissions = setOf("account", "builds", "characters"),
-    converter = jsonParser<CharactersTraining>(),
-    replaceInPath = mapOf(
-        ":id" to id
-    )
-).setCacheTime(60 * 5, false)
 
 /**
  * Specialization information of a single character.
@@ -1829,7 +1130,6 @@ fun gw2v2CharactersTraining(id: String): RequestBuilder<CharactersTraining> = qu
 @Serializable
 data class CharactersTraining(
     /** @since  0.1.0 (API: 2016-05-16) */
-    @Suppress("MemberVisibilityCanBePrivate")
     val training: Collection<Tree>
 ) {
 
@@ -1843,14 +1143,547 @@ data class CharactersTraining(
     @Serializable
     data class Tree(
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val id: Int,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val spent: Int,
         /** @since  0.1.0 (API: 2016-05-16) */
-        @Suppress("MemberVisibilityCanBePrivate")
         val done: Boolean
     )
 
 }
+
+/**
+ * This resource returns a list of the currencies contained in the account wallet.
+ *
+ * ## Example
+ *
+ * `https://api.guildwars2.com/v2/currencies/1`
+ *
+ * ```
+ * {
+ *   "id": 1,
+ *   "name": "Coin",
+ *   "description": "The primary currency of Tyria. Spent at vendors throughout the world.",
+ *   "order": 10,
+ *   "icon": "https://render.guildwars2.com/file/98457F504BA2FAC8457F532C4B30EDC23929ACF9/619316.png"
+ * }
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
+ *
+ * @param id            the currency's id
+ * @param name          the currency's name
+ * @param description   a description of the currency
+ * @param order         a number that can be used to sort the list of currencies when ordered from least to greatest (An
+ *                      arbitrary number indicating what order the currencies are sorted in-game; lowest currencies come
+ *                      first.)
+ * @param icon          a URL to an icon for the currency
+ *
+ * @see gw2v2CurrenciesIds
+ * @see gw2v2CurrenciesById
+ * @see gw2v2CurrenciesByIds
+ * @see gw2v2CurrenciesByPage
+ * @see gw2v2CurrenciesAll
+ *
+ * @since   0.1.0 (API: 2015-08-21)
+ */
+@Serializable
+data class Currency(
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val name: String,
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val description: String,
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val order: Int,
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val icon: String
+)
+
+/**
+ * This resource returns commonly requested in-game assets that may be used to enhance API-derived applications.
+ *
+ * ## Examples
+ *
+ * `https://api.guildwars2.com/v2/files?ids=all`
+ *
+ * ```
+ * [
+ *   { "id": "map_complete",
+ *     "icon": "https://render.guildwars2.com/file/5A4E663071250EC72668C09E3C082E595A380BF7/528724.png" },
+ *   { "id": "map_dungeon",
+ *     "icon": "https://render.guildwars2.com/file/943538394A94A491C8632FBEF6203C2013443555/102478.png" },
+ *   ...
+ * ]
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
+ *
+ * @param id    the file identifier
+ * @param icon  the URL to the image
+ *
+ * @see gw2v2FilesIds
+ * @see gw2v2FilesById
+ * @see gw2v2FilesByIds
+ * @see gw2v2FilesByPage
+ * @see gw2v2FilesAll
+ *
+ * @since   0.1.0 (API: 2015-02-13)
+ */
+@Serializable
+data class File(
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val id: String,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val icon: String
+)
+
+/**
+ * This resource returns quaggan images
+ *
+ * ## Examples
+ *
+ * `https://api.guildwars2.com/v2/quaggans/box`
+ *
+ * ```
+ * {
+ *   "id": "box",
+ *   "url": "https://static.staticwars.com/quaggans/box.jpg"
+ * }
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
+ *
+ * @param id    the quaggan identifier
+ * @param url   the URL to the quaggan image
+ *
+ * @see gw2v2QuaggansIds
+ * @see gw2v2QuaggansById
+ * @see gw2v2QuaggansByIds
+ * @see gw2v2QuaggansByPage
+ * @see gw2v2QuaggansAll
+ *
+ * @since   0.1.0 (API: 2014-07-16)
+ */
+@Serializable
+data class Quaggan(
+    /** @since  0.1.0 (API: 2014-07-16) */
+    val id: String,
+    /** @since  0.1.0 (API: 2014-07-16) */
+    val url: String
+)
+
+/**
+ * Information about races and their available skills.
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
+ *
+ * @param id        the id of the race
+ * @param name      the name of the race
+ * @param skills    an array of skill ids resolvable against /v2/skills
+ *
+ * @see gw2v2RacesIds
+ * @see gw2v2RacesById
+ * @see gw2v2RacesByIds
+ * @see gw2v2RacesByPage
+ * @see gw2v2RacesAll
+ *
+ * @since   0.1.0 (API: 2017-01-20)
+ */
+@Serializable
+data class Race(
+    /** @since  0.1.0 (API: 2017-20-01) */
+    val id: String,
+    /** @since  0.1.0 (API: 2017-20-01) */
+    val name: String,
+    /** @since  0.1.0 (API: 2017-20-01) */
+    val skills: Collection<Int>
+)
+
+/**
+ * This resource returns details about each raid and it's associated wings.
+ *
+ * ## Examples
+ *
+ * `https://api.guildwars2.com/v2/files?id=forsaken_thicket`
+ *
+ * ```
+ * {
+ *   "id": "forsaken_thicket",
+ *   "wings": [
+ *     {
+ *       "id": "spirit_vale",
+ *       "events": [
+ *         {
+ *           "id": "vale_guardian",
+ *           "type": "Boss"
+ *         },
+ *         {
+ *           "id": "spirit_woods",
+ *           "type": "Checkpoint"
+ *         },
+ *         {
+ *           "id": "gorseval",
+ *           "type": "Boss"
+ *         },
+ *         {
+ *           "id": "sabetha",
+ *           "type": "Boss"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "id": "salvation_pass",
+ *       "events": [
+ *         {
+ *           "id": "slothasor",
+ *           "type": "Boss"
+ *         },
+ *         {
+ *           "id": "bandit_trio",
+ *           "type": "Boss"
+ *         },
+ *         {
+ *           "id": "matthias",
+ *           "type": "Boss"
+ *         }
+ *       ]
+ *     },
+ *     {
+ *       "id": "stronghold_of_the_faithful",
+ *       "events": [
+ *         {
+ *           "id": "escort",
+ *           "type": "Boss"
+ *         },
+ *         {
+ *           "id": "keep_construct",
+ *           "type": "Boss"
+ *         },
+ *         {
+ *           "id": "twisted_castle",
+ *           "type": "Checkpoint"
+ *         },
+ *         {
+ *           "id": "xera",
+ *           "type": "Boss"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/raids]
+ *
+ * @param id    the name of the raid
+ * @param wings an array of the raid's wings
+ *
+ * @see gw2v2RaidsIds
+ * @see gw2v2RaidsById
+ * @see gw2v2RaidsByIds
+ * @see gw2v2RaidsByPage
+ * @see gw2v2RaidsAll
+ *
+ * @since   0.1.0 (API: 2017-02-13)
+ */
+@Serializable
+data class Raid(
+    /** @since  0.1.0 (API: 2017-02-13) */
+    val id: String,
+    /** @since  0.1.0 (API: 2014-07-16) */
+    val wings: Collection<Wing>
+) {
+
+    /**
+     * @param id        the given name for the raid wing
+     * @param events    array of the wing's events
+     *
+     * @since   0.1.0 (API: 2017-02-13)
+     */
+    @Serializable
+    data class Wing(
+        /** @since  0.1.0 (API: 2017-02-13) */
+        val id: String,
+        /** @since  0.1.0 (API: 2017-02-13) */
+        val events: Collection<Event>
+    ) {
+
+        /**
+         * @param id    the event/encounter name
+         * @param type  the type of the event (One of: "Checkpoint", "Boss")
+         *
+         * @since   0.1.0 (API: 2017-02-13)
+         */
+        @Serializable
+        data class Event(
+            /** @since  0.1.0 (API: 2017-02-13) */
+            val id: String,
+            /** @since  0.1.0 (API: 2017-02-13) */
+            val type: String
+        )
+
+    }
+
+}
+
+/**
+ * This resource returns information on currently released specializations.
+ *
+ * ## Notes
+ *
+ * - The first digit of the id indicates the world's region. `1` is North America, `2` is Europe.
+ * - The second digit of the id currently correlates with the world's assigned language: `1` means French, `2` means
+ *   German, and `3` means Spanish.
+ *
+ *
+ * ## Examples
+ *
+ * `https://api.guildwars2.com/v2/specializations/1`
+ *
+ * ```
+ * {
+ *   "id": 1,
+ *   "name": "Dueling",
+ *   "profession": "Mesmer",
+ *   "elite": false,
+ *   "minor_traits": [
+ *     706,
+ *     710,
+ *     707
+ *     ],
+ *   "major_traits": [
+ *     701,
+ *     705,
+ *     700,
+ *     1889,
+ *     1960,
+ *     708,
+ *     692,
+ *     1950,
+ *     704
+ *   ],
+ *   "icon": "https://render.guildwars2.com/file/43C5400906A104C60F30DFE0A145D1E767353573/1012003.png",
+ *   "background": "https://render.guildwars2.com/file/992D53319C5FCD4AE841C592DC2AE91D5906AECF/1012057.png"
+ * }
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/specializations]
+ *
+ * @param id                the specialization's id
+ * @param name              the name of the specialization
+ * @param profession        the profession that this specialization belongs to
+ * @param elite             `true` if this specialization is an Elite specialization, `false` otherwise
+ * @param icon              a URL to an icon of the specialization
+ * @param background        a URL to the background image of the specialization
+ * @param minorTraits       contains a list of IDs specifying the minor traits in the specialization
+ * @param majorTraits       contains a list of IDs specifying the major traits in the specialization
+ * @param weaponTrait       the weapon trait of the specialization (Optional - Elite specialization only)
+ * @param professionIcon    the profession icon that overrides the default profession icon (Optional - Elite
+ *                          specialization only)
+ * @param professionIconBig a bigger version of [professionIcon] (Optional - Elite specialization only)
+ *
+ * @see gw2v2SpecializationsIds
+ * @see gw2v2SpecializationsById
+ * @see gw2v2SpecializationsByIds
+ * @see gw2v2SpecializationsByPage
+ * @see gw2v2SpecializationsAll
+ *
+ * @since  0.1.0 (API: 2015-06-24)
+ */
+@Serializable
+data class Specialization(
+    /** @since  0.1.0 (API: 2015-06-24) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2015-06-24) */
+    val name: String,
+    /** @since  0.1.0 (API: 2015-06-24) */
+    val profession: String,
+    /** @since  0.1.0 (API: 2015-06-24) */
+    val elite: Boolean,
+    /** @since  0.1.0 (API: 2015-06-24) */
+    val icon: String,
+    /** @since  0.1.0 (API: 2015-05-08) */
+    val background: String,
+    /** @since  0.1.0 (API: 2015-06-24) */
+    @SerialName("minor_traits")
+    val minorTraits: Collection<Int>,
+    /** @since  0.1.0 (API: 2015-06-24) */
+    @SerialName("major_traits")
+    val majorTraits: Collection<Int>,
+    /** @since  0.1.0 (API: 2016-04-13) */
+    @Optional
+    @SerialName("weapon_trait")
+    val weaponTrait: Int? = null,
+    /** @since  0.1.0 (API: 2016-03-14) */
+    @Optional
+    @SerialName("profession_icon")
+    val professionIcon: String? = null,
+    /** @since  0.1.0 (API: 2016-03-14) */
+    @Optional
+    @SerialName("profession_icon_big")
+    val professionIconBig: String? = null
+)
+
+/**
+ * This resource returns information about the supplied API key.
+ *
+ * ## Example
+ *
+ * ### Request
+ *
+ * ```
+ * https://api.guildwars2.com/v2/tokeninfo
+ * Authorization: Bearer <access token>
+ * ```
+ *
+ * ### Response
+ *
+ * ```
+ * {
+ *   "id": "ABCDE02B-8888-FEBA-1234-DE98765C7DEF",
+ *   "name": "My API Key",
+ *   "permissions": [
+ *     "account",
+ *     "characters",
+ *     "tradingpost",
+ *     "unlocks",
+ *     "build"
+ *   ]
+ * }
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/tokeninfo]
+ *
+ * @param id            the API key that was requested
+ * @param name          the name given to the API key by the account owner. (**Warning**: The value of this field is not
+ *                      escaped and may contain valid HTML, JavaScript, other code. Handle with care.)
+ * @param permissions   array of strings describing which permissions the API key has
+ *
+ * @see gw2v2TokenInfo
+ *
+ * @since   0.1.0 (API: 2015-05-28)
+ */
+@Serializable
+data class TokenInfo(
+    /** @since  0.1.0 (API: 2015-06-09) */
+    val id: String,
+    /** @since  0.1.0 (API: 2015-05-28) */
+    val name: String,
+    /** @since  0.1.0 (API: 2015-05-28) */
+    val permissions: Collection<String>
+)
+
+/**
+ * This resource returns information about the available worlds, or servers.
+ *
+ * ## Notes
+ *
+ * - The first digit of the id indicates the world's region. `1` is North America, `2` is Europe.
+ * - The second digit of the id currently correlates with the world's assigned language: `1` means French, `2` means
+ *   German, and `3` means Spanish.
+ *
+ *
+ * ## Examples
+ *
+ * `https://api.guildwars2.com/v2/worlds?ids=1001,1002,1003`
+ *
+ * ```
+ * [
+ *   { "id": 1001, "name": "Anvil Rock", "population": "Medium" },
+ *   { "id": 1002, "name": "Borlis Pass", "population": "Medium" },
+ *   { "id": 1003, "name": "Yak's Bend", "population": "Full" }
+ * ]
+ * ```
+ *
+ * **Querying all worlds**
+ *
+ * `https://api.guildwars2.com/v2/worlds?ids=all`
+ *
+ * ```
+ * [
+ *   { "id": 1001, "name": "Anvil Rock", "population": "Medium" },
+ *   { "id": 1002, "name": "Borlis Pass", "population": "Medium" },
+ *   { "id": 1003, "name": "Yak's Bend", "population": "Full" },
+ *   { "id": 1004, "name": "Henge of Denravi", "population": "High" },
+ *   { "id": 1005, "name": "Maguuma", "population": "VeryHigh" },
+ *   { "id": 1006, "name": "Sorrow's Furnace", "population": "Medium" },
+ *   { "id": 1007, "name": "Gate of Madness", "population": "Medium" },
+ *   { "id": 1008, "name": "Jade Quarry", "population": "Full" },
+ *   { "id": 1009, "name": "Fort Aspenwood", "population": "VeryHigh" },
+ *   { "id": 1010, "name": "Ehmry Bay", "population": "Medium" },
+ *   { "id": 1011, "name": "Stormbluff Isle", "population": "VeryHigh" },
+ *   { "id": 1012, "name": "Darkhaven", "population": "High" },
+ *   { "id": 1013, "name": "Sanctum of Rall", "population": "Medium" },
+ *   { "id": 1014, "name": "Crystal Desert", "population": "VeryHigh" },
+ *   { "id": 1015, "name": "Isle of Janthir", "population": "Medium" },
+ *   { "id": 1016, "name": "Sea of Sorrows", "population": "High" },
+ *   { "id": 1017, "name": "Tarnished Coast", "population": "Full" },
+ *   { "id": 1018, "name": "Northern Shiverpeaks", "population": "High" },
+ *   { "id": 1019, "name": "Blackgate", "population": "Full" },
+ *   { "id": 1020, "name": "Ferguson's Crossing", "population": "Medium" },
+ *   { "id": 1021, "name": "Dragonbrand", "population": "High" },
+ *   { "id": 1022, "name": "Kaineng", "population": "Medium" },
+ *   { "id": 1023, "name": "Devona's Rest", "population": "Medium" },
+ *   { "id": 1024, "name": "Eredon Terrace", "population": "Medium" },
+ *   { "id": 2001, "name": "Fissure of Woe", "population": "Medium" },`
+ *   { "id": 2002, "name": "Desolation", "population": "VeryHigh" },
+ *   { "id": 2003, "name": "Gandara", "population": "VeryHigh" },
+ *   { "id": 2004, "name": "Blacktide", "population": "Medium" },
+ *   { "id": 2005, "name": "Ring of Fire", "population": "Medium" },
+ *   { "id": 2006, "name": "Underworld", "population": "Medium" },
+ *   { "id": 2007, "name": "Far Shiverpeaks", "population": "VeryHigh" },
+ *   { "id": 2008, "name": "Whiteside Ridge", "population": "Medium" },
+ *   { "id": 2009, "name": "Ruins of Surmia", "population": "Medium" },
+ *   { "id": 2010, "name": "Seafarer's Rest", "population": "Full" },
+ *   { "id": 2011, "name": "Vabbi", "population": "Medium" },
+ *   { "id": 2012, "name": "Piken Square", "population": "VeryHigh" },
+ *   { "id": 2013, "name": "Aurora Glade", "population": "High" },
+ *   { "id": 2014, "name": "Gunnar's Hold", "population": "High" },
+ *   { "id": 2101, "name": "Jade Sea [FR]", "population": "VeryHigh" },
+ *   { "id": 2102, "name": "Fort Ranik [FR]", "population": "Medium" },
+ *   { "id": 2103, "name": "Augury Rock [FR]", "population": "High" },
+ *   { "id": 2104, "name": "Vizunah Square [FR]", "population": "VeryHigh" },
+ *   { "id": 2105, "name": "Arborstone [FR]", "population": "Medium" },
+ *   { "id": 2201, "name": "Kodash [DE]", "population": "Full" },
+ *   { "id": 2202, "name": "Riverside [DE]", "population": "VeryHigh" },
+ *   { "id": 2203, "name": "Elona Reach [DE]", "population": "VeryHigh" },
+ *   { "id": 2204, "name": "Abaddon's Mouth [DE]", "population": "VeryHigh" },
+ *   { "id": 2205, "name": "Drakkar Lake [DE]", "population": "VeryHigh" },
+ *   { "id": 2206, "name": "Miller's Sound [DE]", "population": "Medium" },
+ *   { "id": 2207, "name": "Dzagonur [DE]", "population": "Medium" },
+ *   { "id": 2301, "name": "Baruch Bay [SP]", "population": "VeryHigh" }
+ * ]
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
+ *
+ * @param id            the world id
+ * @param name          the world name
+ * @param population    the world population level (One of: "Low", "Medium", "High", "VeryHigh", "Full")
+ *
+ * @see gw2v2WorldsIds
+ * @see gw2v2WorldsById
+ * @see gw2v2WorldsByIds
+ * @see gw2v2WorldsByPage
+ * @see gw2v2WorldsAll
+ *
+ * @since   0.1.0 (API: 2015-08-21)
+ */
+@Serializable
+data class World(
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val name: String,
+    /** @since  0.1.0 (API: 2015-08-21) */
+    val population: String
+)

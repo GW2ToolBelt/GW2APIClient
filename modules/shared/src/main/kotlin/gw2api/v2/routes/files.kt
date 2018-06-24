@@ -16,7 +16,6 @@
 package gw2api.v2
 
 import gw2api.*
-import kotlinx.serialization.*
 
 /**
  * Queries the `/v2/files` endpoint.
@@ -196,44 +195,3 @@ fun gw2v2FilesAll(): RequestBuilder<Collection<File>> = query(
     converter = jsonArrayParser<File>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)
-
-/**
- * This resource returns commonly requested in-game assets that may be used to enhance API-derived applications.
- *
- * ## Examples
- *
- * `https://api.guildwars2.com/v2/files?ids=all`
- *
- * ```
- * [
- *   { "id": "map_complete",
- *     "icon": "https://render.guildwars2.com/file/5A4E663071250EC72668C09E3C082E595A380BF7/528724.png" },
- *   { "id": "map_dungeon",
- *     "icon": "https://render.guildwars2.com/file/943538394A94A491C8632FBEF6203C2013443555/102478.png" },
- *   ...
- * ]
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
- *
- * @param id    the file identifier
- * @param icon  the URL to the image
- *
- * @see gw2v2FilesIds
- * @see gw2v2FilesById
- * @see gw2v2FilesByIds
- * @see gw2v2FilesByPage
- * @see gw2v2FilesAll
- *
- * @since   0.1.0 (API: 2015-02-13)
- */
-@Serializable
-data class File(
-    /** @since  0.1.0 (API: 2015-02-13) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val id: String,
-    /** @since  0.1.0 (API: 2015-02-13) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val icon: String
-)

@@ -16,7 +16,6 @@
 package gw2api.v2
 
 import gw2api.*
-import kotlinx.serialization.*
 
 /**
  * Queries the `/v2/build` endpoint.
@@ -45,33 +44,3 @@ fun gw2v2Build(): RequestBuilder<Build> = query(
     endpoint = "/v2/build",
     converter = jsonParser<Build>()
 ).setCacheTime(60, false)
-
-/**
- * This resource returns the current build id of the game. This can be used, for example, to register when event timers
- * reset due to server restarts.
- *
- * ## Example
- *
- * `https://api.guildwars2.com/v2/build`
- *
- * ```
- * {
- *   "id": 45075
- * }
- * ```
- *
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/build]
- *
- * @param id    the current build id as number
- *
- * @see gw2v2Build
- *
- * @since   0.1.0 (API: 2015-02-13)
- */
-@Serializable
-data class Build(
-    /** @since  0.1.0 (API: 2015-02-13) */
-    @Suppress("MemberVisibilityCanBePrivate")
-    val id: Int
-)
