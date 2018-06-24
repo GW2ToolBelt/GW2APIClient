@@ -36,8 +36,8 @@ dependencies {
     expectedBy(project(":shared"))
 
     compile(kotlin("stdlib-js"))
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:0.23.3")
-    compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.5.1")
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${rootProject.extra["kotlinxCoroutinesVersion"]}")
+    compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:${rootProject.extra["kotlinxSerializationVersion"]}")
 
     testCompile(kotlin("test-js"))
 }

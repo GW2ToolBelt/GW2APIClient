@@ -33,10 +33,10 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
-                "kotlin-platform-common" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
-                "kotlin-platform-js" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
-                "kotlin-platform-jvm" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
-                "kotlinx-serialization" -> useModule("org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:${requested.version}")
+                "kotlin-platform-common" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
+                "kotlin-platform-js" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
+                "kotlin-platform-jvm" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
+                "kotlinx-serialization" -> useModule("org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:${gradle.rootProject.extra["kotlinxSerializationVersion"]}")
             }
         }
     }

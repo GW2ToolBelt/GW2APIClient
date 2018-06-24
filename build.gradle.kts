@@ -13,13 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-    id("kotlin-platform-common") version "1.2.50" apply false
-    id("kotlin-platform-js") version "1.2.50" apply false
-    id("kotlin-platform-jvm") version "1.2.50" apply false
-    id("kotlinx-serialization") version "0.5.1" apply false
-}
-
 allprojects {
     repositories {
         mavenCentral()

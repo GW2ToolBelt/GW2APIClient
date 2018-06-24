@@ -25,8 +25,8 @@ kotlin {
 
 dependencies {
     compile(kotlin("stdlib-common"))
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:0.23.3")
-    compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.5.1")
+    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${rootProject.extra["kotlinxCoroutinesVersion"]}")
+    compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${rootProject.extra["kotlinxSerializationVersion"]}")
 
     testCompile(kotlin("test-common"))
     testCompile(kotlin("test-annotations-common"))
