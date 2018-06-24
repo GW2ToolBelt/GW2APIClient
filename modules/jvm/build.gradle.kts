@@ -20,6 +20,11 @@ plugins {
     id("kotlinx-serialization")
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
 kotlin {
     experimental.coroutines = Coroutines.ENABLE
 }
@@ -36,8 +41,10 @@ dependencies {
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.extra["kotlinxCoroutinesVersion"]}")
     compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${rootProject.extra["kotlinxSerializationVersion"]}")
 
-    compile("com.squareup.okhttp3:okhttp:3.10.0")
+    compile("com.squareup.okhttp3:okhttp:${rootProject.extra["okhttpVersion"]}")
 
     testCompile(kotlin("test"))
     testCompile(kotlin("test-testng"))
+
+    testCompile("org.testng:testng:${rootProject.extra["testngVersion"]}")
 }
