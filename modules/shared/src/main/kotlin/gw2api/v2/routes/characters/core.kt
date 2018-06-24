@@ -39,7 +39,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-19)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersCore(id: String): RequestBuilder<CharactersCore> = query(
     endpoint = "/v2/characters/:id/core",
     requiresAuthentication = true,

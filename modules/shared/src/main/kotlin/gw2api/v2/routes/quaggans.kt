@@ -46,7 +46,6 @@ import kotlinx.serialization.*
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
-@Suppress("UNUSED")
 fun gw2v2QuaggansIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser(JSONStringParser)
@@ -81,7 +80,6 @@ fun gw2v2QuaggansIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
-@Suppress("UNUSED")
 fun gw2v2QuaggansById(id: String): RequestBuilder<Quaggan> = query(
     endpoint = "/v2/quaggans",
     converter = jsonParser<Quaggan>(),
@@ -117,7 +115,6 @@ fun gw2v2QuaggansById(id: String): RequestBuilder<Quaggan> = query(
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
-@Suppress("UNUSED")
 fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<Quaggan>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser<Quaggan>(),
@@ -154,7 +151,6 @@ fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<Quagg
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
-@Suppress("UNUSED")
 fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Quaggan>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser<Quaggan>(),
@@ -191,7 +187,6 @@ fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Qua
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
-@Suppress("UNUSED")
 fun gw2v2QuaggansAll(): RequestBuilder<Collection<Quaggan>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser<Quaggan>(),

@@ -39,7 +39,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2017-04-20)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersHeropoints(id: String): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/characters/:id/heropoints",
     requiresAuthentication = true,

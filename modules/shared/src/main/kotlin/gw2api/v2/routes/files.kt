@@ -44,7 +44,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser(JSONStringParser)
@@ -79,7 +78,6 @@ fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2FilesById(id: String): RequestBuilder<File> = query(
     endpoint = "/v2/files",
     converter = jsonParser<File>(),
@@ -115,7 +113,6 @@ fun gw2v2FilesById(id: String): RequestBuilder<File> = query(
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<File>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser<File>(),
@@ -152,7 +149,6 @@ fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<File>> =
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser<File>(),
@@ -189,7 +185,6 @@ fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>>
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2FilesAll(): RequestBuilder<Collection<File>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser<File>(),

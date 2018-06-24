@@ -39,7 +39,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-19)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersCrafting(id: String): RequestBuilder<CharactersCrafting> = query(
     endpoint = "/v2/characters/:id/crafting",
     requiresAuthentication = true,

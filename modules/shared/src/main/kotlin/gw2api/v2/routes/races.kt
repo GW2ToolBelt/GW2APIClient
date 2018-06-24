@@ -46,7 +46,6 @@ import kotlinx.serialization.*
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-@Suppress("UNUSED")
 fun gw2v2RacesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -83,7 +82,6 @@ fun gw2v2RacesIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-@Suppress("UNUSED")
 fun gw2v2RacesById(id: String): RequestBuilder<Race> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -121,7 +119,6 @@ fun gw2v2RacesById(id: String): RequestBuilder<Race> = query(
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-@Suppress("UNUSED")
 fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<Race>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -160,7 +157,6 @@ fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<Race>> =
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-@Suppress("UNUSED")
 fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Race>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -199,7 +195,6 @@ fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Race>>
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-@Suppress("UNUSED")
 fun gw2v2RacesAll(): RequestBuilder<Collection<Race>> = query(
     endpoint = "/v2/races",
     converter = jsonArrayParser<Race>(),

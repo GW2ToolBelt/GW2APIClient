@@ -38,7 +38,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2015-05-28)
  */
-@Suppress("UNUSED")
 fun gw2v2TokenInfo(): RequestBuilder<TokenInfo> = query(
     endpoint = "/v2/tokeninfo",
     requiresAuthentication = true,

@@ -47,7 +47,6 @@ import kotlinx.serialization.internal.*
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
-@Suppress("UNUSED")
 fun gw2v2SpecializationsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/specializations",
     converter = jsonArrayParser(IntSerializer)
@@ -82,7 +81,6 @@ fun gw2v2SpecializationsIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
-@Suppress("UNUSED")
 fun gw2v2SpecializationsById(id: Int): RequestBuilder<Specialization> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
@@ -120,7 +118,6 @@ fun gw2v2SpecializationsById(id: Int): RequestBuilder<Specialization> = query(
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
-@Suppress("UNUSED")
 fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
@@ -159,7 +156,6 @@ fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<S
  *
  * @since  0.1.0 (API: 2015-06-24)
  */
-@Suppress("UNUSED")
 fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
@@ -198,7 +194,6 @@ fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collect
  *
  * @since  0.1.0 (API: 2015-06-24)
  */
-@Suppress("UNUSED")
 fun gw2v2SpecializationsAll(): RequestBuilder<Collection<Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,

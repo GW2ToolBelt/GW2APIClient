@@ -46,7 +46,6 @@ import kotlinx.serialization.*
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/currencies",
     converter = jsonArrayParser(JSONIntParser)
@@ -81,7 +80,6 @@ fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2CurrenciesById(id: Int): RequestBuilder<Currency> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
@@ -119,7 +117,6 @@ fun gw2v2CurrenciesById(id: Int): RequestBuilder<Currency> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2CurrenciesByIds(ids: Collection<Int>): RequestBuilder<Collection<Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
@@ -158,7 +155,6 @@ fun gw2v2CurrenciesByIds(ids: Collection<Int>): RequestBuilder<Collection<Curren
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2CurrenciesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
@@ -197,7 +193,6 @@ fun gw2v2CurrenciesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<C
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2CurrenciesAll(): RequestBuilder<Collection<Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,

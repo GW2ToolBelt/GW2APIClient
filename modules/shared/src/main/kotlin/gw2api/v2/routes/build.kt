@@ -39,7 +39,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2Build(): RequestBuilder<Build> = query(
     endpoint = "/v2/build",
     converter = jsonParser<Build>()

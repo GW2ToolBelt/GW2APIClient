@@ -39,7 +39,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersTraining(id: String): RequestBuilder<CharactersTraining> = query(
     endpoint = "/v2/characters/:id/training",
     requiresAuthentication = true,

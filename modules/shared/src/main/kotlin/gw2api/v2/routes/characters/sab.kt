@@ -39,7 +39,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2017-04-11)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersSAB(id: String): RequestBuilder<CharactersSAB> = query(
     endpoint = "/v2/characters/:id/sab",
     requiresAuthentication = true,

@@ -45,7 +45,6 @@ import kotlinx.serialization.*
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2RaidsIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser(JSONStringParser)
@@ -80,7 +79,6 @@ fun gw2v2RaidsIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2RaidsById(id: String): RequestBuilder<Raid> = query(
     endpoint = "/v2/raids",
     converter = jsonParser<Raid>(),
@@ -116,7 +114,6 @@ fun gw2v2RaidsById(id: String): RequestBuilder<Raid> = query(
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2RaidsByIds(ids: Collection<String>): RequestBuilder<Collection<Raid>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser<Raid>(),
@@ -153,7 +150,6 @@ fun gw2v2RaidsByIds(ids: Collection<String>): RequestBuilder<Collection<Raid>> =
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2RaidsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Raid>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser<Raid>(),
@@ -190,7 +186,6 @@ fun gw2v2RaidsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Raid>>
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
-@Suppress("UNUSED")
 fun gw2v2RaidsAll(): RequestBuilder<Collection<Raid>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser<Raid>(),

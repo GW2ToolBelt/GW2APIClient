@@ -44,7 +44,6 @@ import gw2api.*
  *
  * @since   0.1.0 (API:  2015-03-04)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/files",
     requiresAuthentication = true,
@@ -82,7 +81,6 @@ fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersById(id: String): RequestBuilder<Character> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
@@ -120,7 +118,6 @@ fun gw2v2CharactersById(id: String): RequestBuilder<Character> = query(
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
@@ -159,7 +156,6 @@ fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<Cha
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
@@ -198,7 +194,6 @@ fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<C
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-@Suppress("UNUSED")
 fun gw2v2CharactersAll(): RequestBuilder<Collection<Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,

@@ -45,7 +45,6 @@ import gw2api.misc.*
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/worlds",
     converter = jsonArrayParser(JSONIntParser)
@@ -80,7 +79,6 @@ fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2WorldsById(id: Int): RequestBuilder<World> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
@@ -118,7 +116,6 @@ fun gw2v2WorldsById(id: Int): RequestBuilder<World> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
@@ -157,7 +154,6 @@ fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<World>> = 
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
@@ -196,7 +192,6 @@ fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<World
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-@Suppress("UNUSED")
 fun gw2v2WorldsAll(): RequestBuilder<Collection<World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
