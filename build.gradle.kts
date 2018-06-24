@@ -17,7 +17,7 @@ plugins {
     id("kotlin-platform-common") version "1.2.50" apply false
     id("kotlin-platform-js") version "1.2.50" apply false
     id("kotlin-platform-jvm") version "1.2.50" apply false
-    id("kotlinx-serialization") version "0.4.1" apply false
+    id("kotlinx-serialization") version "0.5.1" apply false
 }
 
 allprojects {

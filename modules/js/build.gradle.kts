@@ -37,7 +37,7 @@ dependencies {
 
     compile(kotlin("stdlib-js"))
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:0.22.5")
-    compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.4.1")
+    compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.5.1")
 
     testCompile(kotlin("test-js"))
 }
