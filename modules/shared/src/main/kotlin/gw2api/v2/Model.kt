@@ -18,6 +18,66 @@ package gw2api.v2
 import kotlinx.serialization.*
 
 /**
+ * This resource returns information about player accounts. This endpoint is only accessible with a valid API key.
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account]
+ *
+ * @param id            the unique persistent account GUID
+ * @param age           the age of the account in seconds
+ * @param name          the unique account name with numerical suffix
+ * @param world         the id of the home world the account is assigned to (can be resolved via /v2/worlds)
+ * @param commander     true if the player has bought a commander tag
+ * @param guilds        a list of guilds assigned to the given account
+ * @param access        a list of what content this account has access to
+ * @param fractalLevel  the account's personal fractal reward level (requires the additional progression scope)
+ * @param dailyAP       the daily AP the account has (requires the additional progression scope)
+ * @param monthlyAP     the monthly AP the account has (requires the additional progression scope)
+ * @param wvwRank       the account's personal wvw rank (requires the additional progression scope)
+ *
+ * @see gw2v2Account
+ *
+ * @since   0.1.0 (API: 2015-02-24)
+ */
+@Serializable
+data class Account(
+    /** @since  0.1.0 (API: 2015-02-24) */
+    val id: String,
+    /** @since  0.1.0 (API: 2016-12-09) */
+    val age: Long,
+    /** @since  0.1.0 (API: 2015-02-24) */
+    val name: String,
+    /** @since  0.1.0 (API: 2015-02-24) */
+    val world: Int,
+    /** @since  0.1.0 (API: 2015-06-18) */
+    val commander: Boolean,
+    /** @since  0.1.0 (API: 2015-03-27) */
+    val guilds: Collection<String>,
+    /** @since  0.1.0 (API: 2015-10-13) */
+    val access: Collection<String>,
+    /** @since  0.1.0 (API: 2015-06-12) */
+    val created: String,
+    /** @since  0.1.0 (API: 2015-11-29) */
+    @SerialName("guild_leader")
+    val guildLeader: Collection<String>,
+    /** @since  0.1.0 (API: 2016-06-18) */
+    @Optional
+    @SerialName("fractal_level")
+    val fractalLevel: Int? = null,
+    /** @since  0.1.0 (API: 2015-12-22) */
+    @Optional
+    @SerialName("daily_ap")
+    val dailyAP: Int? = null,
+    /** @since  0.1.0 (API: 2015-12-22) */
+    @Optional
+    @SerialName("monthly_ap")
+    val monthlyAP: Int? = null,
+    /** @since  0.1.0 (API: 2016-03-05) */
+    @Optional
+    @SerialName("wvw_rank")
+    val wvwRank: Int? = null
+)
+
+/**
  * This resource returns the current build id of the game. This can be used, for example, to register when event timers
  * reset due to server restarts.
  *
