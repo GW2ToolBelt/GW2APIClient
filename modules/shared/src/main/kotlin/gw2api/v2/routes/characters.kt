@@ -45,7 +45,7 @@ import gw2api.*
  * @since   0.1.0 (API:  2015-03-04)
  */
 fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
-    endpoint = "/v2/files",
+    endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
     converter = jsonArrayParser(JSONStringParser)
