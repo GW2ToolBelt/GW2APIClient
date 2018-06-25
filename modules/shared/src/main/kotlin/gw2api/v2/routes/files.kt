@@ -78,9 +78,9 @@ fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-fun gw2v2FilesById(id: String): RequestBuilder<File> = query(
+fun gw2v2FilesById(id: String): RequestBuilder<GW2v2File> = query(
     endpoint = "/v2/files",
-    converter = jsonParser<File>(),
+    converter = jsonParser<GW2v2File>(),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -113,9 +113,9 @@ fun gw2v2FilesById(id: String): RequestBuilder<File> = query(
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<File>> = query(
+fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
-    converter = jsonArrayParser<File>(),
+    converter = jsonArrayParser<GW2v2File>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -149,9 +149,9 @@ fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<File>> =
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>> = query(
+fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
-    converter = jsonArrayParser<File>(),
+    converter = jsonArrayParser<GW2v2File>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -185,8 +185,8 @@ fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<File>>
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-fun gw2v2FilesAll(): RequestBuilder<Collection<File>> = query(
+fun gw2v2FilesAll(): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
-    converter = jsonArrayParser<File>(),
+    converter = jsonArrayParser<GW2v2File>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

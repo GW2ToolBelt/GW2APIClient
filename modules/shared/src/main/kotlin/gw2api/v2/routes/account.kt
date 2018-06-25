@@ -38,9 +38,9 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2015-02-24)
  */
-fun gw2v2Account(): RequestBuilder<Account> = query(
+fun gw2v2Account(): RequestBuilder<GW2v2Account> = query(
     endpoint = "/v2/account",
     requiresAuthentication = true,
     requiredPermissions = setOf("account"),
-    converter = jsonParser<Account>()
+    converter = jsonParser<GW2v2Account>()
 ).setCacheTime(60 * 5, false)

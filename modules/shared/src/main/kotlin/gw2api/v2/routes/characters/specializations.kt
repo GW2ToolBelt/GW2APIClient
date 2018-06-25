@@ -22,7 +22,7 @@ import gw2api.*
  *
  * ## The /v2/characters/:id/specializations endpoint
  *
- * > Specialization information of a single character.
+ * > GW2v2Specialization information of a single character.
  *
  * ```
  * Paginated:           No
@@ -39,11 +39,11 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
-fun gw2v2CharactersSpecializations(id: String): RequestBuilder<CharactersSpecializations> = query(
+fun gw2v2CharactersSpecializations(id: String): RequestBuilder<GW2v2CharactersSpecializations> = query(
     endpoint = "/v2/characters/:id/specializations",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "builds", "characters"),
-    converter = jsonParser<CharactersSpecializations>(),
+    converter = jsonParser<GW2v2CharactersSpecializations>(),
     replaceInPath = mapOf(
         ":id" to id
     )

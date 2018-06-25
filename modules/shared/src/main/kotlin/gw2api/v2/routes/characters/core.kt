@@ -39,11 +39,11 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-19)
  */
-fun gw2v2CharactersCore(id: String): RequestBuilder<CharactersCore> = query(
+fun gw2v2CharactersCore(id: String): RequestBuilder<GW2v2CharactersCore> = query(
     endpoint = "/v2/characters/:id/core",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<CharactersCore>(),
+    converter = jsonParser<GW2v2CharactersCore>(),
     replaceInPath = mapOf(
         ":id" to id
     )

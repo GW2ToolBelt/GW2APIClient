@@ -81,11 +81,11 @@ fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-fun gw2v2CharactersById(id: String): RequestBuilder<Character> = query(
+fun gw2v2CharactersById(id: String): RequestBuilder<GW2v2Character> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<Character>(),
+    converter = jsonParser<GW2v2Character>(),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 5, false)
 
@@ -118,11 +118,11 @@ fun gw2v2CharactersById(id: String): RequestBuilder<Character> = query(
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<Character>> = query(
+fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<Character>(),
+    converter = jsonArrayParser<GW2v2Character>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 5, false)
 
@@ -156,11 +156,11 @@ fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<Cha
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Character>> = query(
+fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<Character>(),
+    converter = jsonArrayParser<GW2v2Character>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -194,10 +194,10 @@ fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<C
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
-fun gw2v2CharactersAll(): RequestBuilder<Collection<Character>> = query(
+fun gw2v2CharactersAll(): RequestBuilder<Collection<GW2v2Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<Character>(),
+    converter = jsonArrayParser<GW2v2Character>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 5, false)

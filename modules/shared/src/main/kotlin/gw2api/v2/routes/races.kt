@@ -17,7 +17,6 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.misc.*
-import kotlinx.serialization.*
 
 /**
  * Queries the `/v2/races` endpoint.
@@ -82,11 +81,11 @@ fun gw2v2RacesIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-fun gw2v2RacesById(id: String): RequestBuilder<Race> = query(
+fun gw2v2RacesById(id: String): RequestBuilder<GW2v2Race> = query(
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Race>(),
+    converter = jsonParser<GW2v2Race>(),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -119,11 +118,11 @@ fun gw2v2RacesById(id: String): RequestBuilder<Race> = query(
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<Race>> = query(
+fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Race>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<Race>(),
+    converter = jsonArrayParser<GW2v2Race>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -157,11 +156,11 @@ fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<Race>> =
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Race>> = query(
+fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Race>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<Race>(),
+    converter = jsonArrayParser<GW2v2Race>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -195,8 +194,8 @@ fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Race>>
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
-fun gw2v2RacesAll(): RequestBuilder<Collection<Race>> = query(
+fun gw2v2RacesAll(): RequestBuilder<Collection<GW2v2Race>> = query(
     endpoint = "/v2/races",
-    converter = jsonArrayParser<Race>(),
+    converter = jsonArrayParser<GW2v2Race>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

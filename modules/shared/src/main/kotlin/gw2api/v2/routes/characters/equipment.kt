@@ -39,11 +39,11 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-19)
  */
-fun gw2v2CharactersEquipment(id: String): RequestBuilder<CharactersEquipment> = query(
+fun gw2v2CharactersEquipment(id: String): RequestBuilder<GW2v2CharactersEquipment> = query(
     endpoint = "/v2/characters/:id/equipment",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "builds|inventories"),
-    converter = jsonParser<CharactersEquipment>(),
+    converter = jsonParser<GW2v2CharactersEquipment>(),
     replaceInPath = mapOf(
         ":id" to id
     )

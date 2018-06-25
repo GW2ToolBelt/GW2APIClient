@@ -39,7 +39,7 @@ import kotlinx.serialization.*
  * @since   0.1.0 (API: 2015-02-24)
  */
 @Serializable
-data class Account(
+data class GW2v2Account(
     /** @since  0.1.0 (API: 2015-02-24) */
     val id: String,
     /** @since  0.1.0 (API: 2016-12-09) */
@@ -101,7 +101,7 @@ data class Account(
  * @since   0.1.0 (API: 2015-02-13)
  */
 @Serializable
-data class Build(
+data class GW2v2Build(
     /** @since  0.1.0 (API: 2015-02-13) */
     val id: Int
 )
@@ -134,7 +134,7 @@ data class Build(
  * @since   0.1.0 (API: 2015-03-04)
  */
 @Serializable
-data class Character(
+data class GW2v2Character(
     /** @since  0.1.0 (API: 2015-03-04) */
     val name: String,
     /** @since  0.1.0 (API: 2015-03-04) */
@@ -590,7 +590,7 @@ data class Character(
  * @since   0.1.0 (API: 2016-05-19)
  */
 @Serializable
-data class CharactersBackstory(
+data class GW2v2CharactersBackstory(
     /** @since  0.1.0 (API: 2016-05-19) */
     val backstory: Collection<String>
 )
@@ -614,7 +614,7 @@ data class CharactersBackstory(
  * @since   0.1.0 (API: 2016-05-19)
  */
 @Serializable
-data class CharactersCore(
+data class GW2v2CharactersCore(
     /** @since  0.1.0 (API: 2016-05-19) */
     val name: String,
     /** @since  0.1.0 (API: 2016-05-19) */
@@ -649,7 +649,7 @@ data class CharactersCore(
  * @since  0.1.0 (API: 2016-05-19)
  */
 @Serializable
-data class CharactersCrafting(
+data class GW2v2CharactersCrafting(
     val crafting: Collection<Discipline>
 ) {
 
@@ -682,7 +682,7 @@ data class CharactersCrafting(
  * @since   0.1.0 (API: 2016-05-19)
  */
 @Serializable
-data class CharactersEquipment(
+data class GW2v2CharactersEquipment(
     /** @since  0.1.0 (API: 2016-05-19) */
     val equipment: Collection<Item>
 ) {
@@ -818,7 +818,7 @@ data class CharactersEquipment(
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Serializable
-data class CharactersInventory(
+data class GW2v2CharactersInventory(
     /** @since  0.1.0 (API: 2016-05-16) */
     val bags: Collection<Bag?>
 ) {
@@ -969,7 +969,7 @@ data class CharactersInventory(
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Serializable
-data class CharactersRecipes(
+data class GW2v2CharactersRecipes(
     /** @since  0.1.0 (API: 2016-05-16) */
     val recipes: Collection<Int>
 )
@@ -1010,7 +1010,7 @@ data class CharactersRecipes(
  * @since   0.1.0 (API: 2017-04-11)
  */
 @Serializable
-data class CharactersSAB(
+data class GW2v2CharactersSAB(
     /** @since  0.1.0 (API: 2017-04-11) */
     val zones: Collection<Zone>,
     /** @since  0.1.0 (API: 2017-04-11) */
@@ -1079,7 +1079,7 @@ data class CharactersSAB(
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Serializable
-data class CharactersSkills(
+data class GW2v2CharactersSkills(
     /** @since  0.1.0 (API: 2016-05-16) */
     val skills: Skills
 ) {
@@ -1129,7 +1129,7 @@ data class CharactersSkills(
 }
 
 /**
- * Specialization information of a single character.
+ * GW2v2Specialization information of a single character.
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
@@ -1138,7 +1138,7 @@ data class CharactersSkills(
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Serializable
-data class CharactersSpecializations(
+data class GW2v2CharactersSpecializations(
     /** @since  0.1.0 (API: 2016-05-16) */
     val specializations: Specializations
 ) {
@@ -1179,7 +1179,7 @@ data class CharactersSpecializations(
 }
 
 /**
- * Specialization information of a single character.
+ * GW2v2Specialization information of a single character.
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
  *
@@ -1188,7 +1188,7 @@ data class CharactersSpecializations(
  * @since   0.1.0 (API: 2016-05-16)
  */
 @Serializable
-data class CharactersTraining(
+data class GW2v2CharactersTraining(
     /** @since  0.1.0 (API: 2016-05-16) */
     val training: Collection<Tree>
 ) {
@@ -1249,7 +1249,7 @@ data class CharactersTraining(
  * @since   0.1.0 (API: 2015-08-21)
  */
 @Serializable
-data class Currency(
+data class GW2v2Currency(
     /** @since  0.1.0 (API: 2015-08-21) */
     val id: Int,
     /** @since  0.1.0 (API: 2015-08-21) */
@@ -1294,7 +1294,7 @@ data class Currency(
  * @since   0.1.0 (API: 2015-02-13)
  */
 @Serializable
-data class File(
+data class GW2v2File(
     /** @since  0.1.0 (API: 2015-02-13) */
     val id: String,
     /** @since  0.1.0 (API: 2015-02-13) */
@@ -1330,7 +1330,7 @@ data class File(
  * @since   0.1.0 (API: 2014-07-16)
  */
 @Serializable
-data class Quaggan(
+data class GW2v2Quaggan(
     /** @since  0.1.0 (API: 2014-07-16) */
     val id: String,
     /** @since  0.1.0 (API: 2014-07-16) */
@@ -1355,7 +1355,7 @@ data class Quaggan(
  * @since   0.1.0 (API: 2017-01-20)
  */
 @Serializable
-data class Race(
+data class GW2v2Race(
     /** @since  0.1.0 (API: 2017-20-01) */
     val id: String,
     /** @since  0.1.0 (API: 2017-20-01) */
@@ -1453,7 +1453,7 @@ data class Race(
  * @since   0.1.0 (API: 2017-02-13)
  */
 @Serializable
-data class Raid(
+data class GW2v2Raid(
     /** @since  0.1.0 (API: 2017-02-13) */
     val id: String,
     /** @since  0.1.0 (API: 2014-07-16) */
@@ -1558,7 +1558,7 @@ data class Raid(
  * @since  0.1.0 (API: 2015-06-24)
  */
 @Serializable
-data class Specialization(
+data class GW2v2Specialization(
     /** @since  0.1.0 (API: 2015-06-24) */
     val id: Int,
     /** @since  0.1.0 (API: 2015-06-24) */
@@ -1632,7 +1632,7 @@ data class Specialization(
  * @since   0.1.0 (API: 2015-05-28)
  */
 @Serializable
-data class TokenInfo(
+data class GW2v2TokenInfo(
     /** @since  0.1.0 (API: 2015-06-09) */
     val id: String,
     /** @since  0.1.0 (API: 2015-05-28) */
@@ -1739,7 +1739,7 @@ data class TokenInfo(
  * @since   0.1.0 (API: 2015-08-21)
  */
 @Serializable
-data class World(
+data class GW2v2World(
     /** @since  0.1.0 (API: 2015-08-21) */
     val id: Int,
     /** @since  0.1.0 (API: 2015-08-21) */

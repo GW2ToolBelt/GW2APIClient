@@ -38,8 +38,8 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2015-05-28)
  */
-fun gw2v2TokenInfo(): RequestBuilder<TokenInfo> = query(
+fun gw2v2TokenInfo(): RequestBuilder<GW2v2TokenInfo> = query(
     endpoint = "/v2/tokeninfo",
     requiresAuthentication = true,
-    converter = jsonParser<TokenInfo>()
+    converter = jsonParser<GW2v2TokenInfo>()
 ).setCacheTime(60, false)

@@ -39,11 +39,11 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
-fun gw2v2CharactersSkills(id: String): RequestBuilder<CharactersSkills> = query(
+fun gw2v2CharactersSkills(id: String): RequestBuilder<GW2v2CharactersSkills> = query(
     endpoint = "/v2/characters/:id/skills",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "builds", "characters"),
-    converter = jsonParser<CharactersSkills>(),
+    converter = jsonParser<GW2v2CharactersSkills>(),
     replaceInPath = mapOf(
         ":id" to id
     )

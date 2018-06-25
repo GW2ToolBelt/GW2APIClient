@@ -39,7 +39,7 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
-fun gw2v2Build(): RequestBuilder<Build> = query(
+fun gw2v2Build(): RequestBuilder<GW2v2Build> = query(
     endpoint = "/v2/build",
-    converter = jsonParser<Build>()
+    converter = jsonParser<GW2v2Build>()
 ).setCacheTime(60, false)

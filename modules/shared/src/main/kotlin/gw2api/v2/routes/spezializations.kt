@@ -17,7 +17,6 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.misc.*
-import kotlinx.serialization.*
 import kotlinx.serialization.internal.*
 
 /**
@@ -81,11 +80,11 @@ fun gw2v2SpecializationsIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
-fun gw2v2SpecializationsById(id: Int): RequestBuilder<Specialization> = query(
+fun gw2v2SpecializationsById(id: Int): RequestBuilder<GW2v2Specialization> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<Specialization>(),
+    converter = jsonParser<GW2v2Specialization>(),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -118,11 +117,11 @@ fun gw2v2SpecializationsById(id: Int): RequestBuilder<Specialization> = query(
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
-fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<Specialization>> = query(
+fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<Specialization>(),
+    converter = jsonArrayParser<GW2v2Specialization>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -156,11 +155,11 @@ fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<S
  *
  * @since  0.1.0 (API: 2015-06-24)
  */
-fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<Specialization>> = query(
+fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<Specialization>(),
+    converter = jsonArrayParser<GW2v2Specialization>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -194,10 +193,10 @@ fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collect
  *
  * @since  0.1.0 (API: 2015-06-24)
  */
-fun gw2v2SpecializationsAll(): RequestBuilder<Collection<Specialization>> = query(
+fun gw2v2SpecializationsAll(): RequestBuilder<Collection<GW2v2Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<Specialization>(),
+    converter = jsonArrayParser<GW2v2Specialization>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

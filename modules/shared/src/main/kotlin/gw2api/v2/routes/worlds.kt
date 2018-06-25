@@ -79,11 +79,11 @@ fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-fun gw2v2WorldsById(id: Int): RequestBuilder<World> = query(
+fun gw2v2WorldsById(id: Int): RequestBuilder<GW2v2World> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<World>(),
+    converter = jsonParser<GW2v2World>(),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -116,11 +116,11 @@ fun gw2v2WorldsById(id: Int): RequestBuilder<World> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<World>> = query(
+fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<World>(),
+    converter = jsonArrayParser<GW2v2World>(),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -154,11 +154,11 @@ fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<World>> = 
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<World>> = query(
+fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<World>(),
+    converter = jsonArrayParser<GW2v2World>(),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -192,10 +192,10 @@ fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<World
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
-fun gw2v2WorldsAll(): RequestBuilder<Collection<World>> = query(
+fun gw2v2WorldsAll(): RequestBuilder<Collection<GW2v2World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<World>(),
+    converter = jsonArrayParser<GW2v2World>(),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

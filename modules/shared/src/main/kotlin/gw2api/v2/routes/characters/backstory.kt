@@ -39,11 +39,11 @@ import gw2api.*
  *
  * @since   0.1.0 (API: 2016-05-19)
  */
-fun gw2v2CharactersBackstory(id: String): RequestBuilder<CharactersBackstory> = query(
+fun gw2v2CharactersBackstory(id: String): RequestBuilder<GW2v2CharactersBackstory> = query(
     endpoint = "/v2/characters/:id/backstory",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<CharactersBackstory>(),
+    converter = jsonParser<GW2v2CharactersBackstory>(),
     replaceInPath = mapOf(
         ":id" to id
     )
