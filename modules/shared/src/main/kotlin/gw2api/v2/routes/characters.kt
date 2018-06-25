@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:JvmName("GW2v2")
+@file:JvmMultifileClass
 package gw2api.v2
 
 import gw2api.*
+import kotlin.jvm.*
 
 /**
  * Queries the `/v2/characters` endpoint.
@@ -50,7 +53,6 @@ fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
     requiredPermissions = setOf("account", "characters"),
     converter = jsonArrayParser(JSONStringParser)
 ).setCacheTime(60 * 5, false)
-
 
 /**
  * Queries the `/v2/characters` endpoint.

@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@file:JvmName("GW2v2")
+@file:JvmMultifileClass
 package gw2api.v2
 
 import gw2api.*
+import kotlin.jvm.*
 
 /**
  * Queries the `/v2/characters/:id/inventory` endpoint.
