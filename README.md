@@ -18,6 +18,8 @@
 | Rate Limit Controller                          |    ✔    |    ✔    |    ✘    |
 | Caching                                        |    ✔    |    ✔    |    ✘    |
 
+> Note that GW2APIClient is WIP and this feature table is inaccurate until the initial release `0.1.0`.
+
 N.A.: Not Applicable
 
 Due to the current limitations of Kotlin multiplatform projects, this API is not designed to be used from Java or
