@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -47,6 +48,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API:  2015-03-04)
  */
+@GW2APIv2DataIds("characters")
 fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
@@ -83,6 +85,7 @@ fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
+@GW2APIv2DataById("characters")
 fun gw2v2CharactersById(id: String): RequestBuilder<GW2v2Character> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
@@ -120,6 +123,7 @@ fun gw2v2CharactersById(id: String): RequestBuilder<GW2v2Character> = query(
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
+@GW2APIv2DataByIds("characters")
 fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
@@ -158,6 +162,7 @@ fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<GW2
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
+@GW2APIv2DataByPage("characters")
 fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
@@ -196,6 +201,7 @@ fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<G
  *
  * @since   0.1.0 (API: 2015-03-04)
  */
+@GW2APIv2DataAll("characters")
 fun gw2v2CharactersAll(): RequestBuilder<Collection<GW2v2Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,

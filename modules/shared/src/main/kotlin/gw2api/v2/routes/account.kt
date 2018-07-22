@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -41,6 +42,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2015-02-24)
  */
+@GW2APIv2Data("account")
 fun gw2v2Account(): RequestBuilder<GW2v2Account> = query(
     endpoint = "/v2/account",
     requiresAuthentication = true,

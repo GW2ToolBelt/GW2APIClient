@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -42,6 +43,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2016-05-16)
  */
+@GW2APIv2Data("characters/:id/inventory")
 fun gw2v2CharactersInventory(id: String): RequestBuilder<GW2v2CharactersInventory> = query(
     endpoint = "/v2/characters/:id/inventory",
     requiresAuthentication = true,

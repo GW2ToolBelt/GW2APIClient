@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -41,6 +42,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2015-05-28)
  */
+@GW2APIv2Data("tokeninfo")
 fun gw2v2TokenInfo(): RequestBuilder<GW2v2TokenInfo> = query(
     endpoint = "/v2/tokeninfo",
     requiresAuthentication = true,

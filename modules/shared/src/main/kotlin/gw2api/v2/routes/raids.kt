@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -47,6 +48,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
+@GW2APIv2DataIds("raids")
 fun gw2v2RaidsIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser(JSONStringParser)
@@ -81,6 +83,7 @@ fun gw2v2RaidsIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
+@GW2APIv2DataById("raids")
 fun gw2v2RaidsById(id: String): RequestBuilder<GW2v2Raid> = query(
     endpoint = "/v2/raids",
     converter = jsonParser<GW2v2Raid>(),
@@ -116,6 +119,7 @@ fun gw2v2RaidsById(id: String): RequestBuilder<GW2v2Raid> = query(
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
+@GW2APIv2DataByIds("raids")
 fun gw2v2RaidsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Raid>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser<GW2v2Raid>(),
@@ -152,6 +156,7 @@ fun gw2v2RaidsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Rai
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
+@GW2APIv2DataByPage("raids")
 fun gw2v2RaidsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Raid>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser<GW2v2Raid>(),
@@ -188,6 +193,7 @@ fun gw2v2RaidsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2R
  *
  * @since   0.1.0 (API: 2017-02-13)
  */
+@GW2APIv2DataAll("raids")
 fun gw2v2RaidsAll(): RequestBuilder<Collection<GW2v2Raid>> = query(
     endpoint = "/v2/raids",
     converter = jsonArrayParser<GW2v2Raid>(),

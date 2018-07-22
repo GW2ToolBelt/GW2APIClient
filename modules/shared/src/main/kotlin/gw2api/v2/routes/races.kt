@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import gw2api.misc.*
 import kotlin.jvm.*
 
@@ -48,6 +49,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
+@GW2APIv2DataIds("races")
 fun gw2v2RacesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -84,6 +86,7 @@ fun gw2v2RacesIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
+@GW2APIv2DataById("races")
 fun gw2v2RacesById(id: String): RequestBuilder<GW2v2Race> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -121,6 +124,7 @@ fun gw2v2RacesById(id: String): RequestBuilder<GW2v2Race> = query(
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
+@GW2APIv2DataByIds("races")
 fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Race>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -159,6 +163,7 @@ fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Rac
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
+@GW2APIv2DataByPage("races")
 fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Race>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
@@ -197,6 +202,7 @@ fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2R
  *
  * @since   0.1.0 (API: 2017-01-20)
  */
+@GW2APIv2DataAll("races")
 fun gw2v2RacesAll(): RequestBuilder<Collection<GW2v2Race>> = query(
     endpoint = "/v2/races",
     converter = jsonArrayParser<GW2v2Race>(),

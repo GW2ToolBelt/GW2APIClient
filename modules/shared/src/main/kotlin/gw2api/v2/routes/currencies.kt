@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import gw2api.misc.*
 import kotlin.jvm.*
 
@@ -48,6 +49,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataIds("currencies")
 fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/currencies",
     converter = jsonArrayParser(JSONIntParser)
@@ -82,6 +84,7 @@ fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataById("currencies")
 fun gw2v2CurrenciesById(id: Int): RequestBuilder<GW2v2Currency> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
@@ -119,6 +122,7 @@ fun gw2v2CurrenciesById(id: Int): RequestBuilder<GW2v2Currency> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataByIds("currencies")
 fun gw2v2CurrenciesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
@@ -157,6 +161,7 @@ fun gw2v2CurrenciesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2C
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataByPage("currencies")
 fun gw2v2CurrenciesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
@@ -195,6 +200,7 @@ fun gw2v2CurrenciesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<G
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataAll("currencies")
 fun gw2v2CurrenciesAll(): RequestBuilder<Collection<GW2v2Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,

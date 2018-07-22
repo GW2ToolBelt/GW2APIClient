@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -42,6 +43,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
+@GW2APIv2Data("build")
 fun gw2v2Build(): RequestBuilder<GW2v2Build> = query(
     endpoint = "/v2/build",
     converter = jsonParser<GW2v2Build>()

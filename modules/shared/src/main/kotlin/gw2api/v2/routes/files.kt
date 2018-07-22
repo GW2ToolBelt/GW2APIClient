@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -47,6 +48,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
+@GW2APIv2DataIds("files")
 fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser(JSONStringParser)
@@ -81,6 +83,7 @@ fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
+@GW2APIv2DataById("files")
 fun gw2v2FilesById(id: String): RequestBuilder<GW2v2File> = query(
     endpoint = "/v2/files",
     converter = jsonParser<GW2v2File>(),
@@ -116,6 +119,7 @@ fun gw2v2FilesById(id: String): RequestBuilder<GW2v2File> = query(
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
+@GW2APIv2DataByIds("files")
 fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser<GW2v2File>(),
@@ -152,6 +156,7 @@ fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Fil
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
+@GW2APIv2DataByPage("files")
 fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser<GW2v2File>(),
@@ -188,6 +193,7 @@ fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2F
  *
  * @since   0.1.0 (API: 2015-02-13)
  */
+@GW2APIv2DataAll("files")
 fun gw2v2FilesAll(): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
     converter = jsonArrayParser<GW2v2File>(),

@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -42,6 +43,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2017-04-20)
  */
+@GW2APIv2Data("characters/:id/heropoints")
 fun gw2v2CharactersHeropoints(id: String): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/characters/:id/heropoints",
     requiresAuthentication = true,

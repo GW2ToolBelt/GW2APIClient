@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import gw2api.misc.*
 import kotlinx.serialization.internal.*
 import kotlin.jvm.*
@@ -49,6 +50,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
+@GW2APIv2DataIds("specializations")
 fun gw2v2SpecializationsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/specializations",
     converter = jsonArrayParser(IntSerializer)
@@ -83,6 +85,7 @@ fun gw2v2SpecializationsIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
+@GW2APIv2DataById("specializations")
 fun gw2v2SpecializationsById(id: Int): RequestBuilder<GW2v2Specialization> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
@@ -120,6 +123,7 @@ fun gw2v2SpecializationsById(id: Int): RequestBuilder<GW2v2Specialization> = que
  *
  * @since   0.1.0 (API: 2015-06-24)
  */
+@GW2APIv2DataByIds("specializations")
 fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
@@ -158,6 +162,7 @@ fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<G
  *
  * @since  0.1.0 (API: 2015-06-24)
  */
+@GW2APIv2DataByPage("specializations")
 fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,
@@ -196,6 +201,7 @@ fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collect
  *
  * @since  0.1.0 (API: 2015-06-24)
  */
+@GW2APIv2DataAll("specializations")
 fun gw2v2SpecializationsAll(): RequestBuilder<Collection<GW2v2Specialization>> = query(
     endpoint = "/v2/specializations",
     isLocalized = true,

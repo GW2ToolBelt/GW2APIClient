@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -47,6 +48,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
+@GW2APIv2DataIds("quaggans")
 fun gw2v2QuaggansIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser(JSONStringParser)
@@ -81,6 +83,7 @@ fun gw2v2QuaggansIds(): RequestBuilder<Collection<String>> = query(
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
+@GW2APIv2DataById("quaggans")
 fun gw2v2QuaggansById(id: String): RequestBuilder<GW2v2Quaggan> = query(
     endpoint = "/v2/quaggans",
     converter = jsonParser<GW2v2Quaggan>(),
@@ -116,6 +119,7 @@ fun gw2v2QuaggansById(id: String): RequestBuilder<GW2v2Quaggan> = query(
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
+@GW2APIv2DataByIds("quaggans")
 fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Quaggan>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser<GW2v2Quaggan>(),
@@ -152,6 +156,7 @@ fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
+@GW2APIv2DataByPage("quaggans")
 fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Quaggan>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser<GW2v2Quaggan>(),
@@ -188,6 +193,7 @@ fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2
  *
  * @since   0.1.0 (API: 2014-07-16)
  */
+@GW2APIv2DataAll("quaggans")
 fun gw2v2QuaggansAll(): RequestBuilder<Collection<GW2v2Quaggan>> = query(
     endpoint = "/v2/quaggans",
     converter = jsonArrayParser<GW2v2Quaggan>(),

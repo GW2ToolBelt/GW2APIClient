@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import kotlin.jvm.*
 
 /**
@@ -42,6 +43,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2016-05-19)
  */
+@GW2APIv2Data("characters/:id/core")
 fun gw2v2CharactersCore(id: String): RequestBuilder<GW2v2CharactersCore> = query(
     endpoint = "/v2/characters/:id/core",
     requiresAuthentication = true,

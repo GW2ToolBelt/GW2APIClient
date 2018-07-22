@@ -18,6 +18,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.extra.*
 import gw2api.misc.*
 import kotlin.jvm.*
 
@@ -48,6 +49,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataIds("worlds")
 fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/worlds",
     converter = jsonArrayParser(JSONIntParser)
@@ -82,6 +84,7 @@ fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataById("worlds")
 fun gw2v2WorldsById(id: Int): RequestBuilder<GW2v2World> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
@@ -119,6 +122,7 @@ fun gw2v2WorldsById(id: Int): RequestBuilder<GW2v2World> = query(
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataByIds("worlds")
 fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
@@ -157,6 +161,7 @@ fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2World
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataByPage("worlds")
 fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
@@ -195,6 +200,7 @@ fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2
  *
  * @since   0.1.0 (API: 2015-08-21)
  */
+@GW2APIv2DataAll("worlds")
 fun gw2v2WorldsAll(): RequestBuilder<Collection<GW2v2World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
