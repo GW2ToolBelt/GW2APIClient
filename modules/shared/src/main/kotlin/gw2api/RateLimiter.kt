@@ -13,20 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import gw2apiclient.build.*
+package gw2api
 
-allprojects {
-    val nextVersion = "0.1.0"
+/**
+ * TODO doc
+ *
+ * @since   0.1.0
+ *
+ * @author  Leon Linhart
+ */
+interface RateLimiter {
 
-    group = "com.github.themrmilchmann.gw2api"
-    version = when (deployment.type) {
-        gw2apiclient.build.BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
-        else -> nextVersion
-    }
+    suspend fun acquire(tokens: Int, timeout: Long = 0L): Boolean
 
-    repositories {
-        mavenCentral()
-        maven("https://kotlin.bintray.com/kotlinx")
-        maven("https://dl.bintray.com/kotlin/ktor")
-    }
+    fun schedule(tokens: Int, timeout: Long = 0L)
+
+    fun tryAcquire(tokens: Int, timeout: Long = 0L): Boolean
+
 }

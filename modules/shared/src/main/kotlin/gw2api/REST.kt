@@ -16,6 +16,64 @@
 package gw2api
 
 import gw2api.misc.*
+import kotlinx.serialization.*
+import kotlinx.serialization.internal.*
+import kotlinx.serialization.json.*
+
+internal fun <T> query(
+    endpoint: String,
+    params: Map<String, Any> = emptyMap(),
+    replaceInPath: Map<String, String> = emptyMap(),
+    requiresAuthentication: Boolean = false,
+    requiredPermissions: Collection<String> = emptyList(),
+    isLocalized: Boolean = false,
+    supportedLanguages: List<Language> = emptyList(),
+    converter: (String) -> T
+): RequestBuilder<T> = RequestBuilder(
+    "api.guildwars2.com",
+    endpoint,
+    params.mapValues { (_, v) -> v.toString() },
+    replaceInPath,
+    requiresAuthentication,
+    requiredPermissions,
+    isLocalized,
+    supportedLanguages,
+    converter
+)
+
+internal typealias JSONIntParser = IntSerializer
+internal typealias JSONStringParser = StringSerializer
+
+internal inline fun <reified T : Any> jsonParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> T = { str ->
+    JSON.parse(serializer, str)
+}
+
+internal inline fun <reified T : Any> jsonArrayParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> Collection<T> = jsonParser(serializer.list)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+import gw2api.misc.*
 import gw2api.v2.*
 import kotlinx.coroutines.experimental.*
 import kotlinx.serialization.*
@@ -50,7 +108,7 @@ internal expect fun <T> Continuation<Response<T>>.queryNetwork(
     cacheTime: Int,
     overrideCacheTime: Boolean,
     converter: (String) -> T,
-    rateController: RateController?,
+    rateLimiter: RateLimiter?,
     cache: (Response<T>) -> Unit
 )
 
@@ -110,7 +168,7 @@ class RequestBuilder<out T> internal constructor(
     private var language: Language = Language.ENGLISH
 
     private var cacheController: CacheController? = null
-    private var rateController: RateController? = null
+    private var rateLimiter: RateLimiter? = null
 
     /**
      * Sets the API key for the request.
@@ -295,8 +353,8 @@ class RequestBuilder<out T> internal constructor(
      * @since   0.1.0
      */
     @Suppress("UNUSED")
-    fun setRateController(rateController: RateController): RequestBuilder<T> = apply {
-        this.rateController = rateController
+    fun setRateController(rateLimiter: RateLimiter): RequestBuilder<T> = apply {
+        this.rateLimiter = rateLimiter
     }
 
     /**
@@ -330,7 +388,7 @@ class RequestBuilder<out T> internal constructor(
                 fun invokeQuery() {
                     // TODO query cache
 
-                    continuation.queryNetwork(url, endpoint, cacheTime.toInt() * 1000 /* seconds -> millis */, overrideCacheTime, converter, rateController) {
+                    continuation.queryNetwork(url, endpoint, cacheTime.toInt() * 1000 /* seconds -> millis */, overrideCacheTime, converter, rateLimiter) {
                         // TODO cache response
                     }
                 }
@@ -362,21 +420,4 @@ class RequestBuilder<out T> internal constructor(
 
 }
 
-/**
- * TODO
- *
- * @since   0.1.0
- */
-data class Response<out T>(
-    val data: T?,
-    val expirationDate: Long
-) {
-
-    /**
-     * TODO
-     *
-     * @since   0.1.0
-     */
-    val hasExpired: Boolean get() = TODO()
-
-}
+} */

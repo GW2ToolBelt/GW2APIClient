@@ -145,11 +145,10 @@ dependencies {
     compile(kotlin("reflect"))
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.extra["kotlinxCoroutinesVersion"]}")
     compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${rootProject.extra["kotlinxSerializationVersion"]}")
-
-    compile("com.squareup.okhttp3:okhttp:${rootProject.extra["okhttpVersion"]}")
+    compile("io.ktor:ktor-client-core-jvm:${rootProject.extra["ktorVersion"]}")
+    compile("io.ktor:ktor-client-apache:${rootProject.extra["ktorVersion"]}")
 
     testCompile(kotlin("test"))
     testCompile(kotlin("test-testng"))
-
     testCompile("org.testng:testng:${rootProject.extra["testngVersion"]}")
 }

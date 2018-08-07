@@ -13,20 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import gw2apiclient.build.*
+package gw2api
 
-allprojects {
-    val nextVersion = "0.1.0"
+import kotlinx.coroutines.experimental.*
 
-    group = "com.github.themrmilchmann.gw2api"
-    version = when (deployment.type) {
-        gw2apiclient.build.BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
-        else -> nextVersion
-    }
-
-    repositories {
-        mavenCentral()
-        maven("https://kotlin.bintray.com/kotlinx")
-        maven("https://dl.bintray.com/kotlin/ktor")
-    }
-}
+fun <T> Request<T>.await(): Response<T> = runBlocking { response.await() }

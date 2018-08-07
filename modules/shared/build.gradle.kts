@@ -90,6 +90,7 @@ dependencies {
     compile(kotlin("stdlib-common"))
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${rootProject.extra["kotlinxCoroutinesVersion"]}")
     compile("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${rootProject.extra["kotlinxSerializationVersion"]}")
+    compile("io.ktor:ktor-client:${rootProject.extra["ktorVersion"]}")
 
     testCompile(kotlin("test-common"))
     testCompile(kotlin("test-annotations-common"))
