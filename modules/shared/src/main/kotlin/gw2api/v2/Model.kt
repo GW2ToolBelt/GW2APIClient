@@ -574,9 +574,9 @@ data class GW2v2Character(
     @Serializable
     data class EquipmentPvP(
         /** @since  0.1.0 (API: 2016-03-25) */
-        val amulet: Int,
+        val amulet: Int?,
         /** @since  0.1.0 (API: 2016-03-25) */
-        val rune: Int,
+        val rune: Int?,
         /** @since  0.1.0 (API: 2016-03-25) */
         val sigils: Collection<Int?>
     )
