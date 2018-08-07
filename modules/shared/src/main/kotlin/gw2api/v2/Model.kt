@@ -379,7 +379,10 @@ data class GW2v2Character(
             /** @since  0.1.0 (API: 2015-10-29) */
             @Optional
             @SerialName("bound_to")
-            val boundTo: String? = null
+            val boundTo: String? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Optional
+            val dyes: Collection<Int?>? = null
         ) {
 
             /**
@@ -881,7 +884,10 @@ data class GW2v2CharactersInventory(
             /** @since  0.1.0 (API: 2016-05-16) */
             @Optional
             @SerialName("bound_to")
-            val boundTo: String? = null
+            val boundTo: String? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Optional
+            val dyes: Collection<Int?>? = null
         ) {
 
             /**
