@@ -296,11 +296,11 @@ data class GW2v2Character(
                 val vitality: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
                 @Optional
-                @SerialName("Condition Damage")
+                @SerialName("ConditionDamage")
                 val conditionDamage: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
                 @Optional
-                @SerialName("Condition Duration")
+                @SerialName("ConditionDuration")
                 val conditionDuration: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
                 @Optional
@@ -429,11 +429,11 @@ data class GW2v2Character(
                     val vitality: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
                     @Optional
-                    @SerialName("Condition Damage")
+                    @SerialName("ConditionDamage")
                     val conditionDamage: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
                     @Optional
-                    @SerialName("Condition Duration")
+                    @SerialName("ConditionDuration")
                     val conditionDuration: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
                     @Optional
@@ -782,11 +782,11 @@ data class GW2v2CharactersEquipment(
                 val vitality: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
                 @Optional
-                @SerialName("Condition Damage")
+                @SerialName("ConditionDamage")
                 val conditionDamage: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
                 @Optional
-                @SerialName("Condition Duration")
+                @SerialName("ConditionDuration")
                 val conditionDuration: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
                 @Optional
@@ -931,11 +931,11 @@ data class GW2v2CharactersInventory(
                     val vitality: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
                     @Optional
-                    @SerialName("Condition Damage")
+                    @SerialName("ConditionDamage")
                     val conditionDamage: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
                     @Optional
-                    @SerialName("Condition Duration")
+                    @SerialName("ConditionDuration")
                     val conditionDuration: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
                     @Optional
