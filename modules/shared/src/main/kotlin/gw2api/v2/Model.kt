@@ -488,15 +488,34 @@ data class GW2v2Character(
         @Serializable
         data class SkillSet(
             /** @since  0.1.0 (API: 2016-05-16) */
-            val heal: Int,
+            val heal: Int?,
             /** @since  0.1.0 (API: 2016-05-16) */
-            val utilities: Collection<Int>,
+            val utilities: Collection<Int?>,
             /** @since  0.1.0 (API: 2016-05-16) */
-            val elite: Int,
+            val elite: Int?,
             /** @since  0.1.0 (API: 2016-05-16) */
             @Optional
-            val legends: Collection<Int>? = null
-        )
+            val legends: Collection<String>? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Optional
+            val pets: Pets? = null
+        ) {
+
+            /**
+             * @param terrestrial   terrestrial pets
+             * @param aquatic       aquatic pets
+             *
+             * @since   0.1.0 (API: 2016-05-16)
+             */
+            @Serializable
+            data class Pets(
+                /** @since  0.1.0 (API: 2016-05-16) */
+                val terrestrial: Collection<Int?>,
+                /** @since  0.1.0 (API: 2016-05-16) */
+                val aquatic: Collection<Int?>
+            )
+
+        }
 
     }
 
@@ -1120,15 +1139,34 @@ data class GW2v2CharactersSkills(
         @Serializable
         data class SkillSet(
             /** @since  0.1.0 (API: 2016-05-16) */
-            val heal: Int,
+            val heal: Int?,
             /** @since  0.1.0 (API: 2016-05-16) */
-            val utilities: Collection<Int>,
+            val utilities: Collection<Int?>,
             /** @since  0.1.0 (API: 2016-05-16) */
-            val elite: Int,
+            val elite: Int?,
             /** @since  0.1.0 (API: 2016-05-16) */
             @Optional
-            val legends: Collection<Int>? = null
-        )
+            val legends: Collection<String>? = null,
+            /** @since  0.1.0 (API: 2016-05-16) */
+            @Optional
+            val pets: Pets? = null
+        ) {
+
+            /**
+             * @param terrestrial   terrestrial pets
+             * @param aquatic       aquatic pets
+             *
+             * @since   0.1.0 (API: 2016-05-16)
+             */
+            @Serializable
+            data class Pets(
+                /** @since  0.1.0 (API: 2016-05-16) */
+                val terrestrial: Collection<Int?>,
+                /** @since  0.1.0 (API: 2016-05-16) */
+                val aquatic: Collection<Int?>
+            )
+
+        }
 
     }
 
