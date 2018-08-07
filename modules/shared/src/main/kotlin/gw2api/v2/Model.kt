@@ -507,11 +507,11 @@ data class GW2v2Character(
     @Serializable
     data class Specializations(
         /** @since  0.1.0 (API: 2015-08-22) */
-        val pve: Collection<Specialization>,
+        val pve: Collection<Specialization?>,
         /** @since  0.1.0 (API: 2015-08-22) */
-        val pvp: Collection<Specialization>,
+        val pvp: Collection<Specialization?>,
         /** @since  0.1.0 (API: 2015-08-22) */
-        val wvw: Collection<Specialization>
+        val wvw: Collection<Specialization?>
     ) {
 
         /**
@@ -525,7 +525,7 @@ data class GW2v2Character(
             /** @since  0.1.0 (API: 2015-08-22) */
             val id: Int,
             /** @since  0.1.0 (API: 2015-08-22) */
-            val traits: Collection<Int>
+            val traits: Collection<Int?>
         )
 
     }
@@ -1153,11 +1153,11 @@ data class GW2v2CharactersSpecializations(
     @Serializable
     data class Specializations(
         /** @since  0.1.0 (API: 2016-05-16) */
-        val pve: Collection<Specialization>,
+        val pve: Collection<Specialization?>,
         /** @since  0.1.0 (API: 2016-05-16) */
-        val pvp: Collection<Specialization>,
+        val pvp: Collection<Specialization?>,
         /** @since  0.1.0 (API: 2016-05-16) */
-        val wvw: Collection<Specialization>
+        val wvw: Collection<Specialization?>
     ) {
 
         /**
@@ -1171,7 +1171,7 @@ data class GW2v2CharactersSpecializations(
             /** @since  0.1.0 (API: 2016-05-16) */
             val id: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            val traits: Collection<Int>
+            val traits: Collection<Int?>
         )
 
     }
