@@ -33,7 +33,7 @@ tasks.withType<Kotlin2JsCompile> {
 }
 
 dependencies {
-    expectedBy(project(":shared"))
+    expectedBy(project(":"))
 
     compile(kotlin("stdlib-js"))
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${rootProject.extra["kotlinxCoroutinesVersion"]}")

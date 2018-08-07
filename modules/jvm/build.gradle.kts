@@ -139,7 +139,7 @@ val signMavenJavaPublication by tasks.getting {
 }
 
 dependencies {
-    expectedBy(project(":shared"))
+    expectedBy(project(":"))
 
     compile(kotlin("stdlib-jdk7"))
     compile(kotlin("reflect"))
