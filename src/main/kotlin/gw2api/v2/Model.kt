@@ -1386,6 +1386,39 @@ data class GW2v2Currency(
 )
 
 /**
+ * This resource returns details about each dungeon and it's associated paths.
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/dungeons]
+ *
+ * @see gw2v2DungeonsIds
+ * @see gw2v2DungeonsById
+ * @see gw2v2DungeonsByIds
+ * @see gw2v2DungeonsByPage
+ * @see gw2v2DungeonsAll
+ *
+ * @since   0.1.0 (API: 2017-03-01)
+ */
+@Serializable
+data class GW2v2Dungeon(
+    /** @since  0.1.0 (API: 2017-03-01) */
+    val id: String,
+    /** @since  0.1.0 (API: 2017-03-01) */
+    val paths: Collection<Path>
+) {
+
+    /** @since  0.1.0 (API: 2017-03-01) */
+    @Serializable
+    data class Path(
+        /** @since  0.1.0 (API: 2017-03-01) */
+        val id: String,
+        /** @since  0.1.0 (API: 2017-03-01) */
+        val type: String
+    )
+
+}
+
+/**
  * This resource returns commonly requested in-game assets that may be used to enhance API-derived applications.
  *
  * ## Examples
