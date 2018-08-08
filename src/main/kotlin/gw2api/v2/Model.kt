@@ -1936,3 +1936,31 @@ data class GW2v2World(
     /** @since  0.1.0 (API: 2015-08-21) */
     val population: String
 )
+
+/**
+ * This resource returns information about the available ranks in the World versus World game mode.
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/ranks]
+ *
+ * @param id        the id of this rank
+ * @param title     the title of this rank
+ * @param minRank   the minimal WvW level required for this rank
+ *
+ * @see gw2v2WvWRanksIds
+ * @see gw2v2WvWRanksById
+ * @see gw2v2WvWRanksByIds
+ * @see gw2v2WvWRanksByPage
+ * @see gw2v2WvWRanksAll
+ *
+ * @since   0.1.0 (API: 2016-09-19)
+ */
+@Serializable
+data class GW2v2WvWRanks(
+    /** @since  0.1.0 (API: 2016-09-19) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2016-09-19) */
+    val title: String,
+    /** @since  0.1.0 (API: 2016-09-19) */
+    @SerialName("min_rank")
+    val minRank: Int
+)
