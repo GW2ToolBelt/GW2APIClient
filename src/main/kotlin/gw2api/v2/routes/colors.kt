@@ -83,7 +83,7 @@ fun gw2v2ColorsIds(): RequestBuilder<Collection<Int>> = query(
  * @since   0.1.0 (API:  2015-02-13)
  */
 @GW2APIv2DataById("colors")
-fun gw2v2ColorsById(id: String): RequestBuilder<GW2v2Color> = query(
+fun gw2v2ColorsById(id: Int): RequestBuilder<GW2v2Color> = query(
     endpoint = "/v2/colors",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
@@ -119,7 +119,7 @@ fun gw2v2ColorsById(id: String): RequestBuilder<GW2v2Color> = query(
  * @since   0.1.0 (API:  2015-02-13)
  */
 @GW2APIv2DataByIds("colors")
-fun gw2v2ColorsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Color>> = query(
+fun gw2v2ColorsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Color>> = query(
     endpoint = "/v2/colors",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
