@@ -46,7 +46,7 @@ import kotlin.jvm.*
  * @see gw2v2CatsByPage
  * @see gw2v2CatsAll
  *
- * @since   0.1.0 (API:  2017-05-26)
+ * @since   0.1.0 (API: 2017-05-26)
  */
 @GW2APIv2DataIds("cats")
 fun gw2v2CatsIds(): RequestBuilder<Collection<Int>> = query(
@@ -79,7 +79,7 @@ fun gw2v2CatsIds(): RequestBuilder<Collection<Int>> = query(
  * @see gw2v2CatsByPage
  * @see gw2v2CatsAll
  *
- * @since   0.1.0 (API:  2017-05-26)
+ * @since   0.1.0 (API: 2017-05-26)
  */
 @GW2APIv2DataById("cats")
 fun gw2v2CatsById(id: Int): RequestBuilder<GW2v2Cat> = query(
@@ -113,7 +113,7 @@ fun gw2v2CatsById(id: Int): RequestBuilder<GW2v2Cat> = query(
  * @see gw2v2CatsByPage
  * @see gw2v2CatsAll
  *
- * @since   0.1.0 (API:  2017-05-26)
+ * @since   0.1.0 (API: 2017-05-26)
  */
 @GW2APIv2DataByIds("cats")
 fun gw2v2CatsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Cat>> = query(
@@ -147,7 +147,7 @@ fun gw2v2CatsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Cat>> =
  * @see gw2v2CatsByIds
  * @see gw2v2CatsAll
  *
- * @since   0.1.0 (API:  2017-05-26)
+ * @since   0.1.0 (API: 2017-05-26)
  */
 @GW2APIv2DataByPage("cats")
 fun gw2v2CatsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Cat>> = query(
@@ -184,7 +184,7 @@ fun gw2v2CatsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Ca
  * @see gw2v2CatsByIds
  * @see gw2v2CatsByPage
  *
- * @since   0.1.0 (API:  2017-05-26)
+ * @since   0.1.0 (API: 2017-05-26)
  */
 @GW2APIv2DataAll("cats")
 fun gw2v2CatsAll(): RequestBuilder<Collection<GW2v2Cat>> = query(

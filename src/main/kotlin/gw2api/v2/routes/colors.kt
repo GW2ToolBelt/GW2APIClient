@@ -47,7 +47,7 @@ import kotlin.jvm.*
  * @see gw2v2ColorsByPage
  * @see gw2v2ColorsAll
  *
- * @since   0.1.0 (API:  2015-02-13)
+ * @since   0.1.0 (API: 2015-02-13)
  */
 @GW2APIv2DataIds("colors")
 fun gw2v2ColorsIds(): RequestBuilder<Collection<Int>> = query(
@@ -80,7 +80,7 @@ fun gw2v2ColorsIds(): RequestBuilder<Collection<Int>> = query(
  * @see gw2v2ColorsByPage
  * @see gw2v2ColorsAll
  *
- * @since   0.1.0 (API:  2015-02-13)
+ * @since   0.1.0 (API: 2015-02-13)
  */
 @GW2APIv2DataById("colors")
 fun gw2v2ColorsById(id: Int): RequestBuilder<GW2v2Color> = query(
@@ -116,7 +116,7 @@ fun gw2v2ColorsById(id: Int): RequestBuilder<GW2v2Color> = query(
  * @see gw2v2ColorsByPage
  * @see gw2v2ColorsAll
  *
- * @since   0.1.0 (API:  2015-02-13)
+ * @since   0.1.0 (API: 2015-02-13)
  */
 @GW2APIv2DataByIds("colors")
 fun gw2v2ColorsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Color>> = query(
@@ -152,7 +152,7 @@ fun gw2v2ColorsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Color
  * @see gw2v2ColorsByIds
  * @see gw2v2ColorsAll
  *
- * @since   0.1.0 (API:  2015-02-13)
+ * @since   0.1.0 (API: 2015-02-13)
  */
 @GW2APIv2DataByPage("colors")
 fun gw2v2ColorsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Color>> = query(
@@ -191,7 +191,7 @@ fun gw2v2ColorsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2
  * @see gw2v2ColorsByIds
  * @see gw2v2ColorsByPage
  *
- * @since   0.1.0 (API:  2015-02-13)
+ * @since   0.1.0 (API: 2015-02-13)
  */
 @GW2APIv2DataAll("colors")
 fun gw2v2ColorsAll(): RequestBuilder<Collection<GW2v2Color>> = query(

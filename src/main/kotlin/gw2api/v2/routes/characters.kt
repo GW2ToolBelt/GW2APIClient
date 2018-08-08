@@ -46,7 +46,7 @@ import kotlin.jvm.*
  * @see gw2v2CharactersByPage
  * @see gw2v2CharactersAll
  *
- * @since   0.1.0 (API:  2015-03-04)
+ * @since   0.1.0 (API: 2015-03-04)
  */
 @GW2APIv2DataIds("characters")
 fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
