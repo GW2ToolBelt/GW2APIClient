@@ -86,7 +86,7 @@ fun gw2v2CatsById(id: String): RequestBuilder<GW2v2Cat> = query(
     endpoint = "/v2/cats",
     converter = jsonParser<GW2v2Cat>(),
     params = mapOf("id" to id)
-).setCacheTime(60 * 5, false)
+).setCacheTime(60 * 60 * 24, false)
 
 /**
  * Queries the `/v2/cats` endpoint.
@@ -120,7 +120,7 @@ fun gw2v2CatsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Cat>
     endpoint = "/v2/cats",
     converter = jsonArrayParser<GW2v2Cat>(),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 5, false)
+).setCacheTime(60 * 60 * 24, false)
 
 /**
  * Queries the `/v2/cats` endpoint.
@@ -157,7 +157,7 @@ fun gw2v2CatsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Ca
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 5, false)
+).setCacheTime(60 * 60 * 24, false)
 
 /**
  * Queries the `/v2/cats` endpoint.
@@ -191,4 +191,4 @@ fun gw2v2CatsAll(): RequestBuilder<Collection<GW2v2Cat>> = query(
     endpoint = "/v2/cats",
     converter = jsonArrayParser<GW2v2Cat>(),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 5, false)
+).setCacheTime(60 * 60 * 24, false)
