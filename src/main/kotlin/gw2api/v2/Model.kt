@@ -1938,6 +1938,55 @@ data class GW2v2World(
 )
 
 /**
+ * This resource returns information about the available abilities in the World versus World game mode.
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/abilities]
+ *
+ * @param id            the id of this ability
+ * @param name          the name of this ability
+ * @param description   the description of this ability
+ * @param icon          the icon of this ability
+ * @param ranks         the ranks of this ability
+ *
+ * @see gw2v2WvWAbilitiesIds
+ * @see gw2v2WvWAbilitiesById
+ * @see gw2v2WvWAbilitiesByIds
+ * @see gw2v2WvWAbilitiesByPage
+ * @see gw2v2WvWAbilitiesAll
+ *
+ * @since   0.1.0 (API: 2016-09-29)
+ */
+@Serializable
+data class GW2v2WvWAbilities(
+    /** @since  0.1.0 (API: 2016-09-29) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2016-09-29) */
+    val name: String,
+    /** @since  0.1.0 (API: 2016-09-29) */
+    val description: String,
+    /** @since  0.1.0 (API: 2016-09-29) */
+    val icon: String,
+    /** @since  0.1.0 (API: 2016-09-29) */
+    val ranks: Collection<Rank>
+) {
+
+    /**
+     * @param cost      the cost for this rank of the ability
+     * @param effect    the effect for this rank of the ability
+     *
+     * @since   0.1.0 (API: 2016-09-29)
+     */
+    @Serializable
+    data class Rank(
+        /** @since  0.1.0 (API: 2016-09-29) */
+        val cost: Int,
+        /** @since  0.1.0 (API: 2016-09-29) */
+        val effect: String
+    )
+
+}
+
+/**
  * This resource returns information about the available ranks in the World versus World game mode.
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/ranks]
