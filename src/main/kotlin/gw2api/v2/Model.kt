@@ -107,6 +107,30 @@ data class GW2v2Build(
 )
 
 /**
+ * This resource returns information about cats.
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/build]
+ *
+ * @param id    the id of the cat
+ * @param hint  the hint for the cat
+ *
+ * @see gw2v2CatsIds
+ * @see gw2v2CatsById
+ * @see gw2v2CatsByIds
+ * @see gw2v2CatsByPage
+ * @see gw2v2CatsAll
+ *
+ * @since   0.1.0 (API: 2017-05-26)
+ */
+@Serializable
+data class GW2v2Cat(
+    /** @since  0.1.0 (API: 2017-05-26) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2017-05-26) */
+    val hint: String
+)
+
+/**
  * This resource returns information about characters attached to a specific account.
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
