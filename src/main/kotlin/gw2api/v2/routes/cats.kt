@@ -82,7 +82,7 @@ fun gw2v2CatsIds(): RequestBuilder<Collection<Int>> = query(
  * @since   0.1.0 (API:  2017-05-26)
  */
 @GW2APIv2DataById("cats")
-fun gw2v2CatsById(id: String): RequestBuilder<GW2v2Cat> = query(
+fun gw2v2CatsById(id: Int): RequestBuilder<GW2v2Cat> = query(
     endpoint = "/v2/cats",
     converter = jsonParser<GW2v2Cat>(),
     params = mapOf("id" to id)
@@ -116,7 +116,7 @@ fun gw2v2CatsById(id: String): RequestBuilder<GW2v2Cat> = query(
  * @since   0.1.0 (API:  2017-05-26)
  */
 @GW2APIv2DataByIds("cats")
-fun gw2v2CatsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Cat>> = query(
+fun gw2v2CatsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Cat>> = query(
     endpoint = "/v2/cats",
     converter = jsonArrayParser<GW2v2Cat>(),
     params = mapOf("ids" to ids.joinToString(","))
