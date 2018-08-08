@@ -1336,6 +1336,54 @@ data class GW2v2Color(
 }
 
 /**
+ * This resource returns current aggregated buy and sell listing information from the trading post.
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/prices]
+ *
+ * @param id            the id of the listed item
+ * @param whitelisted   whether or not this item is available for free-to-play accounts
+ * @param buys          the "buys" information for this item
+ * @param sells         the "sells" information for this item
+ *
+ * @see gw2v2CommercePricesIds
+ * @see gw2v2CommercePricesById
+ * @see gw2v2CommercePricesByIds
+ * @see gw2v2CommercePricesByPage
+ * @see gw2v2CommercePricesAll
+ *
+ * @since   0.1.0 (API: 2014-09-10)
+ */
+@Serializable
+data class GW2v2CommercePrices(
+    /** @since  0.1.0 (API: 2014-09-10) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2014-09-10) */
+    val whitelisted: Boolean,
+    /** @since  0.1.0 (API: 2014-09-10) */
+    val buys: Listings,
+    /** @since  0.1.0 (API: 2014-09-10) */
+    val sells: Listings
+) {
+
+    /**
+     * @param unitPrice the price per unit (in coppers)
+     * @param quantity  the quantity of the item at this price
+     *
+     * @since   0.1.0 (API: 2014-09-10)
+     */
+    @Serializable
+    data class Listings(
+        /** @since  0.1.0 (API: 2014-09-10) */
+        @SerialName("unit_price")
+        val unitPrice: Int,
+        /** @since  0.1.0 (API: 2014-09-10) */
+        val quantity: Int
+    )
+
+}
+
+/**
  * This resource returns a list of the currencies contained in the account wallet.
  *
  * ## Example
