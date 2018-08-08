@@ -1281,6 +1281,61 @@ data class GW2v2CharactersTraining(
 }
 
 /**
+ * This resource returns all dye colors in the game, including localized names and their color component information.
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/colors]
+ *
+ * @see gw2v2ColorsIds
+ * @see gw2v2ColorsById
+ * @see gw2v2ColorsByIds
+ * @see gw2v2ColorsByPage
+ * @see gw2v2ColorsAll
+ *
+ * @since   0.1.0 (API: 2015-02-13)
+ */
+@Serializable
+data class GW2v2Color(
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val name: String,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    @SerialName("base_rgb")
+    val baseRGB: Collection<Int>,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val cloth: DetailedInformationObject,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val leather: DetailedInformationObject,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val metal: DetailedInformationObject,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    @Optional
+    val item: Int? = null,
+    /** @since  0.1.0 (API: 2015-02-13) */
+    val categories: Collection<String>
+) {
+
+    /** @since  0.1.0 (API: 2015-02-13) */
+    @Serializable
+    data class DetailedInformationObject(
+        /** @since  0.1.0 (API: 2015-02-13) */
+        val brightness: Double,
+        /** @since  0.1.0 (API: 2015-02-13) */
+        val contrast: Double,
+        /** @since  0.1.0 (API: 2015-02-13) */
+        val hue: Double,
+        /** @since  0.1.0 (API: 2015-02-13) */
+        val saturation: Double,
+        /** @since  0.1.0 (API: 2015-02-13) */
+        val lightness: Double,
+        /** @since  0.1.0 (API: 2015-02-13) */
+        val rgb: Collection<Int>
+    )
+
+}
+
+/**
  * This resource returns a list of the currencies contained in the account wallet.
  *
  * ## Example
