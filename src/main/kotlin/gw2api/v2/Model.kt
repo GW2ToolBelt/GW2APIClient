@@ -1748,6 +1748,39 @@ data class GW2v2Specialization(
 )
 
 /**
+ * This resource returns information about the titles that are in the game.
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/titles]
+ *
+ * @see gw2v2TitlesIds
+ * @see gw2v2TitlesById
+ * @see gw2v2TitlesByIds
+ * @see gw2v2TitlesByPage
+ * @see gw2v2TitlesAll
+ *
+ * @since   0.1.0 (API: 2016-04-12)
+ */
+@Serializable
+data class GW2v2Title(
+    /** @since  0.1.0 (API: 2016-04-12) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2016-04-12) */
+    val name: String,
+    /** @since  0.1.0 (API: 2016-04-12) */
+    @Optional
+    @Deprecated("", replaceWith = ReplaceWith("achievements"))
+    val achievement: Int? = null,
+    /** @since  0.1.0 (API: 2016-04-12) */
+    @Optional
+    val achievements: Collection<Int>? = null,
+    /** @since  0.1.0 (API: 2016-04-12) */
+    @Optional
+    @SerialName("ap_required")
+    val apRequired: Int? = null
+)
+
+/**
  * This resource returns information about the supplied API key.
  *
  * ## Example
