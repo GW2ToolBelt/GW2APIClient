@@ -1336,6 +1336,55 @@ data class GW2v2Color(
 }
 
 /**
+ * This resource returns current buy and sell listings from the trading post.
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/listings]
+ *
+ * @param id            the id of the listed item
+ * @param buys          a list of all buy listings, ascending from lowest buy order
+ * @param sells         a list of all sell listings, ascending from lowest sell offer
+ *
+ * @see gw2v2CommerceListingsIds
+ * @see gw2v2CommerceListingsById
+ * @see gw2v2CommerceListingsByIds
+ * @see gw2v2CommerceListingsByPage
+ * @see gw2v2CommerceListingsAll
+ *
+ * @since   0.1.0 (API: 2014-09-08)
+ */
+@Serializable
+data class GW2v2CommerceListings(
+    /** @since  0.1.0 (API: 2014-09-08) */
+    val id: Int,
+    /** @since  0.1.0 (API: 2014-09-08) */
+    val buys: Collection<Listing>,
+    /** @since  0.1.0 (API: 2014-09-08) */
+    val sells: Collection<Listing>
+) {
+
+    /**
+     * @param listings  the number of individual listings this object refers to (e.g. two players selling at the same
+     *                  price will end up in the same listing)
+     * @param unitPrice the price per unit (in coppers)
+     * @param quantity  the quantity of the item at this price
+     *
+     * @since   0.1.0 (API: 2014-09-08)
+     */
+    @Serializable
+    data class Listing(
+        /** @since  0.1.0 (API: 2014-09-08) */
+        val listings: Int,
+        /** @since  0.1.0 (API: 2014-09-08) */
+        @SerialName("unit_price")
+        val unitPrice: Int,
+        /** @since  0.1.0 (API: 2014-09-08) */
+        val quantity: Int
+    )
+
+}
+
+/**
  * This resource returns current aggregated buy and sell listing information from the trading post.
  *
  *
