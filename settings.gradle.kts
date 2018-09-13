@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import java.io.*
+
 rootProject.name = "GW2APIClient"
 
 fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
 
-file("modules").listFiles(File::isDirectory).filter(this::hasBuildscript).forEach {
+file("modules").listFiles(FileFilter { it.isDirectory }).filter(this::hasBuildscript).forEach {
     val projectName = it.name
 
     include(projectName)
@@ -36,6 +38,7 @@ pluginManagement {
                 "kotlin-platform-common" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
                 "kotlin-platform-js" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
                 "kotlin-platform-jvm" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
+                "kotlin-platform-native" -> useModule("org.jetbrains.kotlin:kotlin-native-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
                 "kotlinx-serialization" -> useModule("org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:${gradle.rootProject.extra["kotlinxSerializationVersion"]}")
             }
         }

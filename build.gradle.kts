@@ -56,7 +56,7 @@ publishing {
         }
     }
     (publications) {
-        "mavenJava"(MavenPublication::class) {
+        create<MavenPublication>("mavenJava") {
             from(components["java"])
 
             artifactId = artifactName
