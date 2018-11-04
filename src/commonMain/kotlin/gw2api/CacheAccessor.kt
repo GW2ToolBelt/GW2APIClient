@@ -16,24 +16,29 @@
 package gw2api
 
 /**
- * An exception indicating that the API key in use is invalid.
+ * An accessor providing basic read and write access to a cache.
+ *
+ * GW2APIClient supports caching to reduce load on remote API servers. However, GW2APIClient does not come with any
+ * cache implementations by default.
  *
  * @since   0.1.0
  */
-class UnauthenticatedException(msg: String) : Exception(msg)
+interface CacheAccessor {
 
-/**
- * An exception indicating that the API key in use has insufficient permissions.
- *
- * @since   0.1.0
- */
-class InsufficientPermissionsException(msg: String) : Exception(msg)
+    /**
+     * TODO doc
+     *
+     * @since   0.1.0
+     */
+    fun <T> memoize(response: Response<T>)
 
-/**
- * An exception related to rate limits.
- *
- * @see RateController.tryIncrement
- *
- * @since   0.1.0
- */
-class RateLimitException : Exception()
+    /**
+     * Attempts to lookup a cached response for the given [request].
+     *
+     * @return  the cached response or `null`
+     *
+     * @since   0.1.0
+     */
+    fun <T> query(request: Request<T>): Response<T>?
+
+}

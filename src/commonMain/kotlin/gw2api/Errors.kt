@@ -16,18 +16,15 @@
 package gw2api
 
 /**
- * TODO doc
+ * An exception indicating that the API key in use is invalid.
  *
  * @since   0.1.0
- *
- * @author  Leon Linhart
  */
-interface RateLimiter {
+class UnauthenticatedException(msg: String) : Exception(msg)
 
-    suspend fun acquire(tokens: Int, timeout: Long = 0L): Boolean
-
-    fun schedule(tokens: Int, timeout: Long = 0L)
-
-    fun tryAcquire(tokens: Int, timeout: Long = 0L): Boolean
-
-}
+/**
+ * An exception indicating that the API key in use has insufficient permissions.
+ *
+ * @since   0.1.0
+ */
+class InsufficientPermissionsException(msg: String) : Exception(msg)

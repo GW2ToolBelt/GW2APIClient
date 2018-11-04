@@ -15,7 +15,17 @@
  */
 package gw2api
 
-data class Response<out T> internal constructor(
-    val data: T?,
-    val expirationTime: Long
-)
+import kotlinx.coroutines.*
+
+/**
+ * TODO doc
+ *
+ * @since   0.1.0
+ *
+ * @author  Leon Linhart
+ */
+interface RateLimiter {
+
+    suspend fun <T> execute(deferred: Deferred<T>): T
+
+}

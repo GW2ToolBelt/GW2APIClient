@@ -13,22 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-rootProject.name = "GW2APIClient"
+package gw2api
 
-// Does not work with ktor yet.
-//enableFeaturePreview("GRADLE_METADATA")
-
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-    }
-
-    resolutionStrategy {
-        eachPlugin {
-            when (requested.id.id) {
-                "kotlinx-serialization" -> useModule("org.jetbrains.kotlin:kotlin-serialization:${gradle.rootProject.extra["kotlinVersion"]}")
-            }
-        }
-    }
-}
+/**
+ * TODO doc
+ *
+ * @since   0.1.0
+ */
+data class Response<out T> internal constructor(
+    val data: T?
+)
