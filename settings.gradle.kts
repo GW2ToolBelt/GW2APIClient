@@ -29,7 +29,7 @@ file("modules").listFiles(FileFilter { it.isDirectory }).filter(this::hasBuildsc
 pluginManagement {
     repositories {
         gradlePluginPortal()
-        maven("https://kotlin.bintray.com/kotlinx")
+        mavenCentral()
     }
 
     resolutionStrategy {
@@ -39,7 +39,7 @@ pluginManagement {
                 "kotlin-platform-js" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
                 "kotlin-platform-jvm" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
                 "kotlin-platform-native" -> useModule("org.jetbrains.kotlin:kotlin-native-gradle-plugin:${gradle.rootProject.extra["kotlinVersion"]}")
-                "kotlinx-serialization" -> useModule("org.jetbrains.kotlinx:kotlinx-gradle-serialization-plugin:${gradle.rootProject.extra["kotlinxSerializationVersion"]}")
+                "kotlinx-serialization" -> useModule("org.jetbrains.kotlin:kotlin-serialization:${gradle.rootProject.extra["kotlinVersion"]}")
             }
         }
     }
