@@ -20,7 +20,7 @@ import org.jetbrains.kotlin.gradle.plugin.*
 plugins {
     signing
     `maven-publish`
-    kotlin("multiplatform") version "1.3.0"
+    kotlin("multiplatform") version "1.3.10"
     id("kotlinx-serialization")
 }
 
@@ -93,7 +93,7 @@ kotlin {
         getByName("commonMain").dependencies {
             implementation("io.ktor:ktor-client:${rootProject.extra["ktorVersion"]}")
             implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.0.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${rootProject.extra["kotlinxCoroutinesVersion"]}")
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${rootProject.extra["kotlinxSerializationVersion"]}")
         }
 
@@ -112,7 +112,7 @@ kotlin {
 
         getByName("jvmMain").dependencies {
             implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.extra["kotlinxCoroutinesVersion"]}")
         }
 
         getByName("jvmTest").dependencies {
