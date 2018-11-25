@@ -148,8 +148,6 @@ tasks.withType<Sign> {
 repositories {
     mavenCentral()
     maven("https://kotlin.bintray.com/kotlinx")
-    maven("https://dl.bintray.com/kotlin/kotlin-eap")
-    maven("https://dl.bintray.com/kotlin/ktor")
 }
 
 fun <T : KotlinTarget> NamedDomainObjectCollection<KotlinTarget>.fromPreset(preset: KotlinTargetPreset<T>, name: String, configureAction: T.() -> Unit = {}): T {
