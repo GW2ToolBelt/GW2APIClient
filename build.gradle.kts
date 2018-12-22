@@ -20,7 +20,7 @@ import org.jetbrains.kotlin.gradle.plugin.*
 plugins {
     signing
     `maven-publish`
-    kotlin("multiplatform") version "1.3.10"
+    kotlin("multiplatform") version "1.3.11"
     id("kotlinx-serialization")
 }
 
