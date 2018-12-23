@@ -1555,6 +1555,66 @@ data class GW2v2File(
 )
 
 /**
+ * This resource returns information about the Revenant Legends that are in the game.
+ *
+ * ## Examples
+ *
+ * `https://api.guildwars2.com/v2/legends?ids=all`
+ *
+ * ```
+ * [
+ *   {
+ *      "id": "Legend1",
+ *      "swap": 28229,
+ *      "heal": 27220,
+ *      "elite": 27760,
+ *      "utilities": [
+ *        28379,
+ *        27014,
+ *        26644
+ *      ],
+ *    },
+ *    {
+ *      "id": "Legend2",
+ *      "swap": 27659,
+ *      "heal": 26937,
+ *      "elite": 28406,
+ *      "utilities": [
+ *        29209,
+ *        28231,
+ *        27107
+ *      ]
+ *    },
+ *    ...
+ *  ]
+ * ```
+ *
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
+ *
+ * @see gw2v2LegendsIds
+ * @see gw2v2LegendsById
+ * @see gw2v2LegendsByIds
+ * @see gw2v2LegendsByPage
+ * @see gw2v2LegendsAll
+ *
+ * @since   0.1.0 (API: 2016-04-22)
+ */
+@Serializable
+data class GW2v2Legend(
+    /** @since  0.1.0 (API: 2016-04-22) */
+    val id: String,
+    /** @since  0.1.0 (API: 2016-04-22) */
+    val swap: Int,
+    /** @since  0.1.0 (API: 2016-04-22) */
+    val heal: Int,
+    /** @since  0.1.0 (API: 2016-04-22) */
+    val elite: Int,
+    /** @since  0.1.0 (API: 2016-04-22) */
+    val utilities: Collection<Int>
+)
+
+/**
  * This resource returns quaggan images
  *
  * ## Examples
