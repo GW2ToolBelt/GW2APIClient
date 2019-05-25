@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// FIXME: file name should be just "mapchests" (KT-12756)
 @file:JvmName("GW2v2")
 @file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch")
