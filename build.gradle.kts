@@ -21,7 +21,7 @@ plugins {
     signing
     `maven-publish`
     kotlin("multiplatform") version "1.3.31"
-    id("kotlinx-serialization")
+    id("kotlinx-serialization") version "1.3.31"
 }
 
 val nextVersion = "0.1.0"

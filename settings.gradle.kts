@@ -27,7 +27,7 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             when (requested.id.id) {
-                "kotlinx-serialization" -> useModule("org.jetbrains.kotlin:kotlin-serialization:${gradle.rootProject.extra["kotlinVersion"]}")
+                "kotlinx-serialization" -> useModule("org.jetbrains.kotlin:kotlin-serialization:${requested.version}")
             }
         }
     }
