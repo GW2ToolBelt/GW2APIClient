@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import gw2apiclient.build.*
+import com.github.themrmilchmann.build.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import org.jetbrains.kotlin.gradle.plugin.*
 
@@ -29,7 +29,7 @@ val nextVersion = "0.1.0"
 group = "com.github.themrmilchmann.gw2api"
 val artifactName = "gw2api-client"
 version = when (deployment.type) {
-    gw2apiclient.build.BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
+    com.github.themrmilchmann.build.BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
     else -> nextVersion
 }
 
@@ -143,7 +143,7 @@ signing {
 }
 
 tasks.withType<Sign> {
-    onlyIf { deployment.type === gw2apiclient.build.BuildType.RELEASE }
+    onlyIf { deployment.type === com.github.themrmilchmann.build.BuildType.RELEASE }
 }
 
 repositories {
