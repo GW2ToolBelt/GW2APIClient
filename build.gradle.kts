@@ -89,10 +89,10 @@ kotlin {
         }
 
         getByName("commonMain").dependencies {
-            implementation("io.ktor:ktor-client-core:${rootProject.extra["ktorVersion"]}")
+            implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
             implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${rootProject.extra["kotlinxCoroutinesVersion"]}")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${rootProject.extra["kotlinxSerializationVersion"]}")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Dependencies.kotlinxCoroutinesVersion}")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Dependencies.kotlinxSerializationVersion}")
         }
 
         getByName("commonTest").dependencies {
@@ -111,16 +111,16 @@ kotlin {
         getByName("jvmMain").dependencies {
             implementation("io.ktor:ktor-client-core-jvm:${rootProject.extra["ktorVersion"]}")
             implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${rootProject.extra["kotlinxCoroutinesVersion"]}")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${rootProject.extra["kotlinxSerializationVersion"]}")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Dependencies.kotlinxSerializationVersion}")
         }
 
         getByName("jvmTest").dependencies {
             implementation("org.jetbrains.kotlin:kotlin-test-testng")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${rootProject.extra["kotlinxSerializationVersion"]}")
-            implementation("org.testng:testng:${rootProject.extra["testngVersion"]}")
-            implementation("io.ktor:ktor-client-mock-jvm:${rootProject.extra["ktorVersion"]}")
-            implementation("io.ktor:ktor-client-apache:${rootProject.extra["ktorVersion"]}")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Dependencies.kotlinxSerializationVersion}")
+            implementation("org.testng:testng:${Dependencies.testngVersion}")
+            implementation("io.ktor:ktor-client-mock-jvm:${Dependencies.ktorVersion}")
+            implementation("io.ktor:ktor-client-apache:${Dependencies.ktorVersion}")
         }
     }
 }
