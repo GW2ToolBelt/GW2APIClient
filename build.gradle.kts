@@ -120,6 +120,7 @@ kotlin {
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${rootProject.extra["kotlinxSerializationVersion"]}")
             implementation("org.testng:testng:${rootProject.extra["testngVersion"]}")
             implementation("io.ktor:ktor-client-mock-jvm:${rootProject.extra["ktorVersion"]}")
+            implementation("io.ktor:ktor-client-apache:${rootProject.extra["ktorVersion"]}")
         }
     }
 }
