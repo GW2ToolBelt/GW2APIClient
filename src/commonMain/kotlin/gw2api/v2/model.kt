@@ -74,6 +74,25 @@ data class GW2v2Account(
 )
 
 /**
+ * This resource returns the total amount of luck unlocked by an account. This endpoint is only accessible with a valid
+ * API key.
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/luck]
+ *
+ * @param id    the id
+ * @param value the total amount of luck unlocked
+ *
+ * @since   0.1.0 (API: 2019-04-08)
+ */
+@Serializable
+data class GW2v2AccountLuck(
+    /** @since  0.1.0 (API: 2019-04-08) */
+    val id: String,
+    /** @since  0.1.0 (API: 2019-04-08) */
+    val value: Int
+)
+
+/**
  * This resource returns the current build id of the game. This can be used, for example, to register when event timers
  * reset due to server restarts.
  *
