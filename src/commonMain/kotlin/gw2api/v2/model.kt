@@ -60,19 +60,15 @@ data class GW2v2Account(
     @SerialName("guild_leader")
     val guildLeader: Collection<String>,
     /** @since  0.1.0 (API: 2016-06-18) */
-    @Optional
     @SerialName("fractal_level")
     val fractalLevel: Int? = null,
     /** @since  0.1.0 (API: 2015-12-22) */
-    @Optional
     @SerialName("daily_ap")
     val dailyAP: Int? = null,
     /** @since  0.1.0 (API: 2015-12-22) */
-    @Optional
     @SerialName("monthly_ap")
     val monthlyAP: Int? = null,
     /** @since  0.1.0 (API: 2016-03-05) */
-    @Optional
     @SerialName("wvw_rank")
     val wvwRank: Int? = null
 )
@@ -170,7 +166,6 @@ data class GW2v2Character(
     /** @since  0.1.0 (API: 2015-03-04) */
     val level: Int,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Optional
     val guild: String? = null,
     /** @since  0.1.0 (API: 2015-06-12) */
     val age: Int,
@@ -179,7 +174,6 @@ data class GW2v2Character(
     /** @since  0.1.0 (API: 2015-06-12) */
     val deaths: Int,
     /** @since  0.1.0 (API: 2016-04-16) */
-    @Optional
     val title: Int? = null,
     /** @since  0.1.0 (API: 2016-05-19) */
     val backstory: Collection<String>,
@@ -204,7 +198,6 @@ data class GW2v2Character(
     @SerialName("equipment_pvp")
     val equipmentPvP: EquipmentPvP,
     /** @since  0.1.0 (API: 2015-03-04) */
-    @Optional
     val flags: Collection<String>? = null
 ) {
 
@@ -247,29 +240,21 @@ data class GW2v2Character(
         /** @since  0.1.0 (API: 2015-06-18) */
         val slot: String,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Optional
         val infusions: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Optional
         val upgrades: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Optional
         val skin: Int? = null,
         /** @since  0.1.0 (API: 2016-05-18) */
-        @Optional
         val stats: Stats? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Optional
         val charges: Int? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Optional
         val binding: String? = null,
         /** @since  0.1.0 (API: 2015-06-18) */
-        @Optional
         @SerialName("bound_to")
         val boundTo: String? = null,
         /** @since  0.1.0 (API: 2017-04-20) */
-        @Optional
         val dyes: Collection<Int?>? = null
     ) {
 
@@ -303,39 +288,30 @@ data class GW2v2Character(
             @Serializable
             data class Attributes(
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("Power")
                 val power: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("Precision")
                 val precision: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("Toughness")
                 val toughness: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("Vitality")
                 val vitality: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("ConditionDamage")
                 val conditionDamage: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("ConditionDuration")
                 val conditionDuration: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("Healing")
                 val healing: Int? = null,
                 /** @since  0.1.0 (API: 2015-06-18) */
-                @Optional
                 @SerialName("BoonDuration")
                 val boonDuration: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("CritDamage")
                 val critDamage: Int? = null
             )
@@ -383,29 +359,21 @@ data class GW2v2Character(
             /** @since  0.1.0 (API: 2015-06-18) */
             val count: Int,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Optional
             val infusions: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Optional
             val upgrades: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Optional
             val skin: Int? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Optional
             val stats: Stats? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Optional
             val charges: Int? = null,
             /** @since  0.1.0 (API: 2015-10-29) */
-            @Optional
             val binding: String? = null,
             /** @since  0.1.0 (API: 2015-10-29) */
-            @Optional
             @SerialName("bound_to")
             val boundTo: String? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val dyes: Collection<Int?>? = null
         ) {
 
@@ -439,39 +407,30 @@ data class GW2v2Character(
                 @Serializable
                 data class Attributes(
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("Power")
                     val power: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("Precision")
                     val precision: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("Toughness")
                     val toughness: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("Vitality")
                     val vitality: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("ConditionDamage")
                     val conditionDamage: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("ConditionDuration")
                     val conditionDuration: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("Healing")
                     val healing: Int? = null,
                     /** @since  0.1.0 (API: 2015-06-18) */
-                    @Optional
                     @SerialName("BoonDuration")
                     val boonDuration: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-19) */
-                    @Optional
                     @SerialName("CritDamage")
                     val critDamage: Int? = null
                 )
@@ -518,10 +477,8 @@ data class GW2v2Character(
             /** @since  0.1.0 (API: 2016-05-16) */
             val elite: Int?,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val legends: Collection<String>? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val pets: Pets? = null
         ) {
 
@@ -672,7 +629,6 @@ data class GW2v2CharactersCore(
     /** @since  0.1.0 (API: 2016-05-19) */
     val level: Int,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Optional
     val guild: String? = null,
     /** @since  0.1.0 (API: 2016-05-19) */
     val age: Int,
@@ -681,7 +637,6 @@ data class GW2v2CharactersCore(
     /** @since  0.1.0 (API: 2016-05-19) */
     val deaths: Int,
     /** @since  0.1.0 (API: 2016-05-19) */
-    @Optional
     val title: Int? = null
 )
 
@@ -755,29 +710,21 @@ data class GW2v2CharactersEquipment(
         /** @since  0.1.0 (API: 2016-05-19) */
         val slot: String,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Optional
         val infusions: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Optional
         val upgrades: Collection<Int>? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Optional
         val skin: Int? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Optional
         val stats: Stats? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Optional
         val binding: String? = null,
         /** @since  0.1.0 (API: 2016-06-28) */
-        @Optional
         val charges: Int? = null,
         /** @since  0.1.0 (API: 2016-05-19) */
-        @Optional
         @SerialName("bound_to")
         val boundTo: String? = null,
         /** @since  0.1.0 (API: 2017-04-20) */
-        @Optional
         val dyes: Collection<Int?>? = null
     ) {
 
@@ -811,39 +758,30 @@ data class GW2v2CharactersEquipment(
             @Serializable
             data class Attributes(
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("Power")
                 val power: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("Precision")
                 val precision: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("Toughness")
                 val toughness: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("Vitality")
                 val vitality: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("ConditionDamage")
                 val conditionDamage: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("ConditionDuration")
                 val conditionDuration: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("Healing")
                 val healing: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("BoonDuration")
                 val boonDuration: Int? = null,
                 /** @since  0.1.0 (API: 2016-05-19) */
-                @Optional
                 @SerialName("CritDamage")
                 val critDamage: Int? = null
             )
@@ -907,29 +845,21 @@ data class GW2v2CharactersInventory(
             /** @since  0.1.0 (API: 2016-05-16) */
             val count: Int,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val infusions: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val upgrades: Collection<Int>? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val skin: Int? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val stats: Stats? = null,
             /** @since  0.1.0 (API: 2015-06-18) */
-            @Optional
             val charges: Int? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val binding: String? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             @SerialName("bound_to")
             val boundTo: String? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val dyes: Collection<Int?>? = null
         ) {
 
@@ -963,39 +893,30 @@ data class GW2v2CharactersInventory(
                 @Serializable
                 data class Attributes(
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("Power")
                     val power: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("Precision")
                     val precision: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("Toughness")
                     val toughness: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("Vitality")
                     val vitality: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("ConditionDamage")
                     val conditionDamage: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("ConditionDuration")
                     val conditionDuration: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("Healing")
                     val healing: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-16) */
-                    @Optional
                     @SerialName("BoonDuration")
                     val boonDuration: Int? = null,
                     /** @since  0.1.0 (API: 2016-05-19) */
-                    @Optional
                     @SerialName("CritDamage")
                     val critDamage: Int? = null
                 )
@@ -1169,10 +1090,8 @@ data class GW2v2CharactersSkills(
             /** @since  0.1.0 (API: 2016-05-16) */
             val elite: Int?,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val legends: Collection<String>? = null,
             /** @since  0.1.0 (API: 2016-05-16) */
-            @Optional
             val pets: Pets? = null
         ) {
 
@@ -1310,7 +1229,6 @@ data class GW2v2Color(
     /** @since  0.1.0 (API: 2015-02-13) */
     val metal: DetailedInformationObject,
     /** @since  0.1.0 (API: 2015-02-13) */
-    @Optional
     val item: Int? = null,
     /** @since  0.1.0 (API: 2015-02-13) */
     val categories: Collection<String>
@@ -1891,15 +1809,12 @@ data class GW2v2Specialization(
     @SerialName("major_traits")
     val majorTraits: Collection<Int>,
     /** @since  0.1.0 (API: 2016-04-13) */
-    @Optional
     @SerialName("weapon_trait")
     val weaponTrait: Int? = null,
     /** @since  0.1.0 (API: 2016-03-14) */
-    @Optional
     @SerialName("profession_icon")
     val professionIcon: String? = null,
     /** @since  0.1.0 (API: 2016-03-14) */
-    @Optional
     @SerialName("profession_icon_big")
     val professionIconBig: String? = null
 )
@@ -1925,14 +1840,11 @@ data class GW2v2Title(
     /** @since  0.1.0 (API: 2016-04-12) */
     val name: String,
     /** @since  0.1.0 (API: 2016-04-12) */
-    @Optional
     @Deprecated("", replaceWith = ReplaceWith("achievements"))
     val achievement: Int? = null,
     /** @since  0.1.0 (API: 2016-04-12) */
-    @Optional
     val achievements: Collection<Int>? = null,
     /** @since  0.1.0 (API: 2016-04-12) */
-    @Optional
     @SerialName("ap_required")
     val apRequired: Int? = null
 )
