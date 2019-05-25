@@ -15,6 +15,7 @@
  */
 @file:JvmName("GW2v2")
 @file:JvmMultifileClass
+@file:Suppress("PackageDirectoryMismatch")
 package gw2api.v2
 
 import gw2api.*
