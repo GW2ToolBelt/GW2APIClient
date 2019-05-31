@@ -45,7 +45,7 @@ internal typealias JSONStringParser = StringSerializer
 
 @UseExperimental(ImplicitReflectionSerializer::class)
 internal inline fun <reified T : Any> jsonParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> T = { str ->
-    JSON.parse(serializer, str)
+    Json.parse(serializer, str)
 }
 
 @UseExperimental(ImplicitReflectionSerializer::class)
