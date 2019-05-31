@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import com.github.themrmilchmann.build.*
-import org.jetbrains.kotlin.gradle.dsl.*
 import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
@@ -71,7 +70,7 @@ kotlin {
 
 //        fromPreset(presets.getByName("js"), "js")
 
-        fromPreset(presets.getByName("jvm"), "jvm") {
+        jvm {
             mavenPublication {
                 artifactId = artifactName
             }
@@ -109,7 +108,7 @@ kotlin {
 //        }
 
         getByName("jvmMain").dependencies {
-            implementation("io.ktor:ktor-client-core-jvm:${rootProject.extra["ktorVersion"]}")
+            implementation("io.ktor:ktor-client-core-jvm:${Dependencies.ktorVersion}")
             implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
             implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Dependencies.kotlinxSerializationVersion}")
