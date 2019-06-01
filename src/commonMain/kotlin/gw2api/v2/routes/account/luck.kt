@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlin.jvm.*
 
 /**
@@ -50,4 +51,4 @@ fun gw2v2AccountLuck(): RequestBuilder<Collection<GW2v2AccountLuck>> = query(
     requiresAuthentication = true,
     requiredPermissions = setOf("progression", "unlocks"),
     converter = jsonArrayParser(GW2v2AccountLuck.serializer())
-).setCacheTime(60 * 5, false)
+).withCacheTime(5u, TimeUnit.MINUTES)

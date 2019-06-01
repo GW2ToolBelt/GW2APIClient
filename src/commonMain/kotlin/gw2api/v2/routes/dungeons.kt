@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlin.jvm.*
 
@@ -54,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2DungeonsIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/dungeons",
     converter = jsonArrayParser(String.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/dungeons` endpoint.
@@ -88,7 +89,7 @@ fun gw2v2DungeonsById(id: String): RequestBuilder<GW2v2Dungeon> = query(
     endpoint = "/v2/dungeons",
     converter = jsonParser(GW2v2Dungeon.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/dungeons` endpoint.
@@ -122,7 +123,7 @@ fun gw2v2DungeonsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2
     endpoint = "/v2/dungeons",
     converter = jsonArrayParser(GW2v2Dungeon.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/dungeons` endpoint.
@@ -159,7 +160,7 @@ fun gw2v2DungeonsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/dungeons` endpoint.
@@ -193,4 +194,4 @@ fun gw2v2DungeonsAll(): RequestBuilder<Collection<GW2v2Dungeon>> = query(
     endpoint = "/v2/dungeons",
     converter = jsonArrayParser(GW2v2Dungeon.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)

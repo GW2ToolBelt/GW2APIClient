@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlin.jvm.*
 
 /**
@@ -48,4 +49,4 @@ fun gw2v2TokenInfo(): RequestBuilder<GW2v2TokenInfo> = query(
     endpoint = "/v2/tokeninfo",
     requiresAuthentication = true,
     converter = jsonParser(GW2v2TokenInfo.serializer())
-).setCacheTime(60, false)
+).withCacheTime(1u, TimeUnit.MINUTES)

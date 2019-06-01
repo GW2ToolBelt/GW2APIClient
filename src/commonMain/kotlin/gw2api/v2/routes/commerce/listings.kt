@@ -36,7 +36,7 @@ import kotlin.jvm.*
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           No
- * Cache time:          24 hours
+ * Cache time:          2 minutes
  * ```
  *
  *
@@ -55,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2CommerceListingsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/commerce/listings",
     converter = jsonArrayParser(Int.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(2u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/listings` endpoint.
@@ -69,7 +69,7 @@ fun gw2v2CommerceListingsIds(): RequestBuilder<Collection<Int>> = query(
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          2 minutes
  * ```
  *
  *
@@ -91,7 +91,7 @@ fun gw2v2CommerceListingsById(id: Int): RequestBuilder<GW2v2CommerceListings> = 
     supportedLanguages = API_V2_LANGS,
     converter = jsonParser(GW2v2CommerceListings.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(2u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/listings` endpoint.
@@ -105,7 +105,7 @@ fun gw2v2CommerceListingsById(id: Int): RequestBuilder<GW2v2CommerceListings> = 
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          2 minutes
  * ```
  *
  *
@@ -127,7 +127,7 @@ fun gw2v2CommerceListingsByIds(ids: Collection<Int>): RequestBuilder<Collection<
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2CommerceListings.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(2u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/listings` endpoint.
@@ -141,7 +141,7 @@ fun gw2v2CommerceListingsByIds(ids: Collection<Int>): RequestBuilder<Collection<
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          2 minutes
  * ```
  *
  *
@@ -166,7 +166,7 @@ fun gw2v2CommerceListingsByPage(page: Int, pageSize: Int): RequestBuilder<Collec
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(2u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/listings` endpoint.
@@ -180,7 +180,7 @@ fun gw2v2CommerceListingsByPage(page: Int, pageSize: Int): RequestBuilder<Collec
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          2 minutes
  * ```
  *
  *
@@ -202,4 +202,4 @@ fun gw2v2CommerceListingsAll(): RequestBuilder<Collection<GW2v2CommerceListings>
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2CommerceListings.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(2u, TimeUnit.MINUTES)

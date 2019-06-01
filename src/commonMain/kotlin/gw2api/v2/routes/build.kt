@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlin.jvm.*
 
 /**
@@ -48,4 +49,4 @@ import kotlin.jvm.*
 fun gw2v2Build(): RequestBuilder<GW2v2Build> = query(
     endpoint = "/v2/build",
     converter = jsonParser(GW2v2Build.serializer())
-).setCacheTime(60, false)
+).withCacheTime(1u, TimeUnit.MINUTES)

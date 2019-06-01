@@ -55,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/currencies",
     converter = jsonArrayParser(Int.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/currencies` endpoint.
@@ -93,7 +93,7 @@ fun gw2v2CurrenciesById(id: Int): RequestBuilder<GW2v2Currency> = query(
     supportedLanguages = API_V2_LANGS,
     converter = jsonParser(GW2v2Currency.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/currencies` endpoint.
@@ -131,7 +131,7 @@ fun gw2v2CurrenciesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2C
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2Currency.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/currencies` endpoint.
@@ -173,7 +173,7 @@ fun gw2v2CurrenciesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<G
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/currencies` endpoint.
@@ -209,4 +209,4 @@ fun gw2v2CurrenciesAll(): RequestBuilder<Collection<GW2v2Currency>> = query(
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2Currency.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)

@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlin.jvm.*
 
@@ -54,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2CatsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/cats",
     converter = jsonArrayParser(Int.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/cats` endpoint.
@@ -88,7 +89,7 @@ fun gw2v2CatsById(id: Int): RequestBuilder<GW2v2Cat> = query(
     endpoint = "/v2/cats",
     converter = jsonParser(GW2v2Cat.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/cats` endpoint.
@@ -122,7 +123,7 @@ fun gw2v2CatsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Cat>> =
     endpoint = "/v2/cats",
     converter = jsonArrayParser(GW2v2Cat.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/cats` endpoint.
@@ -159,7 +160,7 @@ fun gw2v2CatsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Ca
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/cats` endpoint.
@@ -193,4 +194,4 @@ fun gw2v2CatsAll(): RequestBuilder<Collection<GW2v2Cat>> = query(
     endpoint = "/v2/cats",
     converter = jsonArrayParser(GW2v2Cat.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)

@@ -55,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2ColorsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/colors",
     converter = jsonArrayParser(Int.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/colors` endpoint.
@@ -91,7 +91,7 @@ fun gw2v2ColorsById(id: Int): RequestBuilder<GW2v2Color> = query(
     supportedLanguages = API_V2_LANGS,
     converter = jsonParser(GW2v2Color.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/colors` endpoint.
@@ -127,7 +127,7 @@ fun gw2v2ColorsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Color
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2Color.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/colors` endpoint.
@@ -166,7 +166,7 @@ fun gw2v2ColorsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/colors` endpoint.
@@ -202,4 +202,4 @@ fun gw2v2ColorsAll(): RequestBuilder<Collection<GW2v2Color>> = query(
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2Color.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)

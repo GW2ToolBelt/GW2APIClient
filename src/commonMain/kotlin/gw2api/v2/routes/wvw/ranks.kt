@@ -55,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2WvWRanksIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/wvw/ranks",
     converter = jsonArrayParser(Int.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/wvw/ranks` endpoint.
@@ -91,7 +91,7 @@ fun gw2v2WvWRanksById(id: Int): RequestBuilder<GW2v2WvWRanks> = query(
     supportedLanguages = API_V2_LANGS,
     converter = jsonParser(GW2v2WvWRanks.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/wvw/ranks` endpoint.
@@ -127,7 +127,7 @@ fun gw2v2WvWRanksByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2WvW
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2WvWRanks.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/wvw/ranks` endpoint.
@@ -166,7 +166,7 @@ fun gw2v2WvWRanksByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/wvw/ranks` endpoint.
@@ -202,4 +202,4 @@ fun gw2v2WvWRanksAll(): RequestBuilder<Collection<GW2v2WvWRanks>> = query(
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2WvWRanks.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)

@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlin.jvm.*
 
 /**
@@ -53,4 +54,4 @@ fun gw2v2CharactersCrafting(id: String): RequestBuilder<GW2v2CharactersCrafting>
     replaceInPath = mapOf(
         ":id" to id
     )
-).setCacheTime(60 * 5, false)
+).withCacheTime(5u, TimeUnit.MINUTES)

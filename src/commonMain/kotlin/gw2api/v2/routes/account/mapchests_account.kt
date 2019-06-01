@@ -21,6 +21,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlin.jvm.*
 
@@ -52,4 +53,4 @@ fun gw2v2AccountMapchests(): RequestBuilder<Collection<String>> = query(
     requiresAuthentication = true,
     requiredPermissions = setOf("progression", "unlocks"),
     converter = jsonArrayParser(String.serializer())
-).setCacheTime(60 * 5, false)
+).withCacheTime(5u, TimeUnit.MINUTES)

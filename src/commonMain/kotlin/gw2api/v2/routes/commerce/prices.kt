@@ -36,7 +36,7 @@ import kotlin.jvm.*
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           No
- * Cache time:          24 hours
+ * Cache time:          1 minute
  * ```
  *
  *
@@ -55,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2CommercePricesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/commerce/prices",
     converter = jsonArrayParser(Int.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(1u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/prices` endpoint.
@@ -69,7 +69,7 @@ fun gw2v2CommercePricesIds(): RequestBuilder<Collection<Int>> = query(
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          1 minute
  * ```
  *
  *
@@ -91,7 +91,7 @@ fun gw2v2CommercePricesById(id: Int): RequestBuilder<GW2v2CommercePrices> = quer
     supportedLanguages = API_V2_LANGS,
     converter = jsonParser(GW2v2CommercePrices.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(1u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/prices` endpoint.
@@ -105,7 +105,7 @@ fun gw2v2CommercePricesById(id: Int): RequestBuilder<GW2v2CommercePrices> = quer
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          1 minute
  * ```
  *
  *
@@ -127,7 +127,7 @@ fun gw2v2CommercePricesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2CommercePrices.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(1u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/prices` endpoint.
@@ -141,7 +141,7 @@ fun gw2v2CommercePricesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          1 minute
  * ```
  *
  *
@@ -166,7 +166,7 @@ fun gw2v2CommercePricesByPage(page: Int, pageSize: Int): RequestBuilder<Collecti
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(1u, TimeUnit.MINUTES)
 
 /**
  * Queries the `/v2/commerce/prices` endpoint.
@@ -180,7 +180,7 @@ fun gw2v2CommercePricesByPage(page: Int, pageSize: Int): RequestBuilder<Collecti
  * Bulk expanded:       Yes
  * Authenticated:       No
  * Localized:           Yes
- * Cache time:          24 hours
+ * Cache time:          1 minute
  * ```
  *
  *
@@ -202,4 +202,4 @@ fun gw2v2CommercePricesAll(): RequestBuilder<Collection<GW2v2CommercePrices>> = 
     supportedLanguages = API_V2_LANGS,
     converter = jsonArrayParser(GW2v2CommercePrices.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(1u, TimeUnit.MINUTES)

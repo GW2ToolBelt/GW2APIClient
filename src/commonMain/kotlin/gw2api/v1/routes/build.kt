@@ -15,10 +15,12 @@
  */
 @file:JvmName("GW2v1")
 @file:JvmMultifileClass
+@file:Suppress("PackageDirectoryMismatch")
 package gw2api.v1
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlin.jvm.*
 
 /**
@@ -47,4 +49,4 @@ import kotlin.jvm.*
 fun gw2v1Build(): RequestBuilder<GW2v1Build> = query(
     endpoint = "/v1/build",
     converter = jsonParser(GW2v1Build.serializer())
-).setCacheTime(60, false)
+).withCacheTime(1u, TimeUnit.MINUTES)

@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlin.jvm.*
 
@@ -54,7 +55,7 @@ import kotlin.jvm.*
 fun gw2v2LegendsIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/legends",
     converter = jsonArrayParser(String.serializer())
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/legends` endpoint.
@@ -90,7 +91,7 @@ fun gw2v2LegendsById(id: String): RequestBuilder<GW2v2Legend> = query(
     endpoint = "/v2/legends",
     converter = jsonParser(GW2v2Legend.serializer()),
     params = mapOf("id" to id)
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/legends` endpoint.
@@ -126,7 +127,7 @@ fun gw2v2LegendsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2L
     endpoint = "/v2/legends",
     converter = jsonArrayParser(GW2v2Legend.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/legends` endpoint.
@@ -166,7 +167,7 @@ fun gw2v2LegendsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
     )
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)
 
 /**
  * Queries the `/v2/legends` endpoint.
@@ -200,4 +201,4 @@ fun gw2v2LegendsAll(): RequestBuilder<Collection<GW2v2Legend>> = query(
     endpoint = "/v2/legends",
     converter = jsonArrayParser(GW2v2Legend.serializer()),
     params = mapOf("ids" to "all")
-).setCacheTime(60 * 60 * 24, false)
+).withCacheTime(24u, TimeUnit.HOURS)

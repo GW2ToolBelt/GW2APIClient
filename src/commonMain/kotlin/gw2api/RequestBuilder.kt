@@ -26,7 +26,6 @@ import kotlin.jvm.*
  *
  * @since   0.1.0
  */
-@ExperimentalUnsignedTypes
 class RequestBuilder<out T> internal constructor(
     private val endpoint: String,
     private val params: Map<String, String>,
@@ -122,13 +121,10 @@ class RequestBuilder<out T> internal constructor(
      * @since   0.1.0
      */
     @JvmOverloads
-    fun withCacheTime(value: ULong, override: Boolean = false): RequestBuilder<T> = apply {
-        cacheTime = value
+    fun withCacheTime(value: ULong, unit: TimeUnit, override: Boolean = false): RequestBuilder<T> = apply {
+        cacheTime = unit.toSeconds(value.toLong()).toULong()
         overrideCacheTime = override
     }
-
-    @Deprecated("", replaceWith = ReplaceWith("RequestBuilder#withCacheTime"))
-    internal fun setCacheTime(value: Long, override: Boolean) = withCacheTime(value.toULong(), override)
 
     // Rate Limiting
 

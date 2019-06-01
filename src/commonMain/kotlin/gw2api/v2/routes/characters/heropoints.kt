@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlin.jvm.*
 
@@ -54,4 +55,4 @@ fun gw2v2CharactersHeropoints(id: String): RequestBuilder<Collection<String>> = 
     replaceInPath = mapOf(
         ":id" to id
     )
-).setCacheTime(60 * 5, false)
+).withCacheTime(5u, TimeUnit.MINUTES)
