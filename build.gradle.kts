@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import com.github.themrmilchmann.build.*
-import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
     signing
@@ -34,7 +33,14 @@ version = when (deployment.type) {
 
 kotlin {
     targets {
-        configureEach {
+        all {
+            compilations.all {
+                kotlinOptions {
+                    languageVersion = "1.3"
+                    apiVersion = "1.3"
+                }
+            }
+
             mavenPublication {
                 pom {
                     name.set(project.name)
@@ -78,12 +84,9 @@ kotlin {
     }
 
     sourceSets {
-        configureEach {
+        all {
             languageSettings.apply {
-                languageVersion = "1.3"
-                apiVersion = "1.3"
-
-                useExperimentalAnnotation("kotlin.Experimental")
+                useExperimentalAnnotation("kotlin.ExperimentalUnsignedTypes")
             }
         }
 
@@ -148,11 +151,4 @@ tasks.withType<Sign> {
 repositories {
     mavenCentral()
     maven("https://kotlin.bintray.com/kotlinx")
-}
-
-fun <T : KotlinTarget> NamedDomainObjectCollection<KotlinTarget>.fromPreset(preset: KotlinTargetPreset<T>, name: String, configureAction: T.() -> Unit = {}): T {
-    val target = preset.createTarget(name)
-    add(target)
-    target.run(configureAction)
-    return target
 }
