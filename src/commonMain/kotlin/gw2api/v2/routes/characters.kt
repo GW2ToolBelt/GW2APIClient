@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -54,7 +55,7 @@ fun gw2v2CharactersIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser(JSONStringParser)
+    converter = jsonArrayParser(String.serializer())
 ).setCacheTime(60 * 5, false)
 
 /**
@@ -91,7 +92,7 @@ fun gw2v2CharactersById(id: String): RequestBuilder<GW2v2Character> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<GW2v2Character>(),
+    converter = jsonParser(GW2v2Character.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 5, false)
 
@@ -129,7 +130,7 @@ fun gw2v2CharactersByIds(ids: Collection<String>): RequestBuilder<Collection<GW2
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<GW2v2Character>(),
+    converter = jsonArrayParser(GW2v2Character.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 5, false)
 
@@ -168,7 +169,7 @@ fun gw2v2CharactersByPage(page: Int, pageSize: Int): RequestBuilder<Collection<G
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<GW2v2Character>(),
+    converter = jsonArrayParser(GW2v2Character.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -207,6 +208,6 @@ fun gw2v2CharactersAll(): RequestBuilder<Collection<GW2v2Character>> = query(
     endpoint = "/v2/characters",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonArrayParser<GW2v2Character>(),
+    converter = jsonArrayParser(GW2v2Character.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 5, false)

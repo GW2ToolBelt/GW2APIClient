@@ -49,7 +49,7 @@ fun gw2v2CharactersInventory(id: String): RequestBuilder<GW2v2CharactersInventor
     endpoint = "/v2/characters/:id/inventory",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "inventories"),
-    converter = jsonParser<GW2v2CharactersInventory>(),
+    converter = jsonParser(GW2v2CharactersInventory.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

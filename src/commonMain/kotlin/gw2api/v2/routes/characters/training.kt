@@ -49,7 +49,7 @@ fun gw2v2CharactersTraining(id: String): RequestBuilder<GW2v2CharactersTraining>
     endpoint = "/v2/characters/:id/training",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "builds", "characters"),
-    converter = jsonParser<GW2v2CharactersTraining>(),
+    converter = jsonParser(GW2v2CharactersTraining.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

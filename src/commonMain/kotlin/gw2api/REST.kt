@@ -17,7 +17,6 @@ package gw2api
 
 import gw2api.misc.*
 import kotlinx.serialization.*
-import kotlinx.serialization.internal.*
 import kotlinx.serialization.json.*
 
 internal fun <T> query(
@@ -40,13 +39,9 @@ internal fun <T> query(
     converter
 )
 
-internal typealias JSONIntParser = IntSerializer
-internal typealias JSONStringParser = StringSerializer
-
-@UseExperimental(ImplicitReflectionSerializer::class)
-internal inline fun <reified T : Any> jsonParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> T = { str ->
+internal inline fun <reified T : Any> jsonParser(serializer: KSerializer<T>): (String) -> T = { str ->
     Json.parse(serializer, str)
 }
 
-@UseExperimental(ImplicitReflectionSerializer::class)
-internal inline fun <reified T : Any> jsonArrayParser(serializer: KSerializer<T> = T::class.serializer()): (String) -> Collection<T> = jsonParser(serializer.list)
+internal inline fun <reified T : Any> jsonArrayParser(serializer: KSerializer<T>): (String) -> Collection<T> =
+    jsonParser(serializer.list)

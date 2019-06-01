@@ -48,5 +48,5 @@ fun gw2v2Account(): RequestBuilder<GW2v2Account> = query(
     endpoint = "/v2/account",
     requiresAuthentication = true,
     requiredPermissions = setOf("account"),
-    converter = jsonParser<GW2v2Account>()
+    converter = jsonParser(GW2v2Account.serializer())
 ).setCacheTime(60 * 5, false)

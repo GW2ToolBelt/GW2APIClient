@@ -49,7 +49,7 @@ fun gw2v2CharactersBackstory(id: String): RequestBuilder<GW2v2CharactersBackstor
     endpoint = "/v2/characters/:id/backstory",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<GW2v2CharactersBackstory>(),
+    converter = jsonParser(GW2v2CharactersBackstory.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

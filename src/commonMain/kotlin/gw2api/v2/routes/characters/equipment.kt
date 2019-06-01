@@ -49,7 +49,7 @@ fun gw2v2CharactersEquipment(id: String): RequestBuilder<GW2v2CharactersEquipmen
     endpoint = "/v2/characters/:id/equipment",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "builds|inventories"),
-    converter = jsonParser<GW2v2CharactersEquipment>(),
+    converter = jsonParser(GW2v2CharactersEquipment.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -52,7 +53,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("quaggans")
 fun gw2v2QuaggansIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonArrayParser(JSONStringParser)
+    converter = jsonArrayParser(String.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -87,7 +88,7 @@ fun gw2v2QuaggansIds(): RequestBuilder<Collection<String>> = query(
 @GW2APIv2DataById("quaggans")
 fun gw2v2QuaggansById(id: String): RequestBuilder<GW2v2Quaggan> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonParser<GW2v2Quaggan>(),
+    converter = jsonParser(GW2v2Quaggan.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -123,7 +124,7 @@ fun gw2v2QuaggansById(id: String): RequestBuilder<GW2v2Quaggan> = query(
 @GW2APIv2DataByIds("quaggans")
 fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Quaggan>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonArrayParser<GW2v2Quaggan>(),
+    converter = jsonArrayParser(GW2v2Quaggan.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -160,7 +161,7 @@ fun gw2v2QuaggansByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2
 @GW2APIv2DataByPage("quaggans")
 fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Quaggan>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonArrayParser<GW2v2Quaggan>(),
+    converter = jsonArrayParser(GW2v2Quaggan.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -197,6 +198,6 @@ fun gw2v2QuaggansByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2
 @GW2APIv2DataAll("quaggans")
 fun gw2v2QuaggansAll(): RequestBuilder<Collection<GW2v2Quaggan>> = query(
     endpoint = "/v2/quaggans",
-    converter = jsonArrayParser<GW2v2Quaggan>(),
+    converter = jsonArrayParser(GW2v2Quaggan.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

@@ -20,7 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
-import gw2api.misc.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -53,7 +53,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("dungeons")
 fun gw2v2DungeonsIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/dungeons",
-    converter = jsonArrayParser(JSONStringParser)
+    converter = jsonArrayParser(String.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -86,7 +86,7 @@ fun gw2v2DungeonsIds(): RequestBuilder<Collection<String>> = query(
 @GW2APIv2DataById("dungeons")
 fun gw2v2DungeonsById(id: String): RequestBuilder<GW2v2Dungeon> = query(
     endpoint = "/v2/dungeons",
-    converter = jsonParser<GW2v2Dungeon>(),
+    converter = jsonParser(GW2v2Dungeon.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -120,7 +120,7 @@ fun gw2v2DungeonsById(id: String): RequestBuilder<GW2v2Dungeon> = query(
 @GW2APIv2DataByIds("dungeons")
 fun gw2v2DungeonsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Dungeon>> = query(
     endpoint = "/v2/dungeons",
-    converter = jsonArrayParser<GW2v2Dungeon>(),
+    converter = jsonArrayParser(GW2v2Dungeon.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -154,7 +154,7 @@ fun gw2v2DungeonsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2
 @GW2APIv2DataByPage("dungeons")
 fun gw2v2DungeonsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Dungeon>> = query(
     endpoint = "/v2/dungeons",
-    converter = jsonArrayParser<GW2v2Dungeon>(),
+    converter = jsonArrayParser(GW2v2Dungeon.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -191,6 +191,6 @@ fun gw2v2DungeonsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2
 @GW2APIv2DataAll("dungeons")
 fun gw2v2DungeonsAll(): RequestBuilder<Collection<GW2v2Dungeon>> = query(
     endpoint = "/v2/dungeons",
-    converter = jsonArrayParser<GW2v2Dungeon>(),
+    converter = jsonArrayParser(GW2v2Dungeon.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

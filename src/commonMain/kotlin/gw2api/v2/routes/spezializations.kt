@@ -21,7 +21,7 @@ package gw2api.v2
 import gw2api.*
 import gw2api.extra.*
 import gw2api.misc.*
-import kotlinx.serialization.internal.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("specializations")
 fun gw2v2SpecializationsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/specializations",
-    converter = jsonArrayParser(IntSerializer)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -91,7 +91,7 @@ fun gw2v2SpecializationsById(id: Int): RequestBuilder<GW2v2Specialization> = que
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<GW2v2Specialization>(),
+    converter = jsonParser(GW2v2Specialization.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -129,7 +129,7 @@ fun gw2v2SpecializationsByIds(ids: Collection<Int>): RequestBuilder<Collection<G
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Specialization>(),
+    converter = jsonArrayParser(GW2v2Specialization.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -168,7 +168,7 @@ fun gw2v2SpecializationsByPage(page: Int, pageSize: Int): RequestBuilder<Collect
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Specialization>(),
+    converter = jsonArrayParser(GW2v2Specialization.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -207,6 +207,6 @@ fun gw2v2SpecializationsAll(): RequestBuilder<Collection<GW2v2Specialization>> =
     endpoint = "/v2/specializations",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Specialization>(),
+    converter = jsonArrayParser(GW2v2Specialization.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

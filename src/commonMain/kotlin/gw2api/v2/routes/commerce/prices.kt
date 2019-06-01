@@ -21,6 +21,7 @@ package gw2api.v2
 import gw2api.*
 import gw2api.extra.*
 import gw2api.misc.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -53,7 +54,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("commerce/prices")
 fun gw2v2CommercePricesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/commerce/prices",
-    converter = jsonArrayParser(JSONIntParser)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -88,7 +89,7 @@ fun gw2v2CommercePricesById(id: Int): RequestBuilder<GW2v2CommercePrices> = quer
     endpoint = "/v2/commerce/prices",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<GW2v2CommercePrices>(),
+    converter = jsonParser(GW2v2CommercePrices.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -124,7 +125,7 @@ fun gw2v2CommercePricesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW
     endpoint = "/v2/commerce/prices",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2CommercePrices>(),
+    converter = jsonArrayParser(GW2v2CommercePrices.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -160,7 +161,7 @@ fun gw2v2CommercePricesByPage(page: Int, pageSize: Int): RequestBuilder<Collecti
     endpoint = "/v2/commerce/prices",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2CommercePrices>(),
+    converter = jsonArrayParser(GW2v2CommercePrices.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -199,6 +200,6 @@ fun gw2v2CommercePricesAll(): RequestBuilder<Collection<GW2v2CommercePrices>> = 
     endpoint = "/v2/commerce/prices",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2CommercePrices>(),
+    converter = jsonArrayParser(GW2v2CommercePrices.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

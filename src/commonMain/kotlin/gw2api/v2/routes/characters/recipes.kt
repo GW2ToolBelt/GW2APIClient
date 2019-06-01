@@ -49,7 +49,7 @@ fun gw2v2CharactersRecipes(id: String): RequestBuilder<GW2v2CharactersRecipes> =
     endpoint = "/v2/characters/:id/recipes",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "inventories"),
-    converter = jsonParser<GW2v2CharactersRecipes>(),
+    converter = jsonParser(GW2v2CharactersRecipes.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

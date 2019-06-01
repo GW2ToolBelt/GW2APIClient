@@ -21,6 +21,7 @@ package gw2api.v2
 import gw2api.*
 import gw2api.extra.*
 import gw2api.misc.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -55,7 +56,7 @@ fun gw2v2RacesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser(JSONIntParser)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -92,7 +93,7 @@ fun gw2v2RacesById(id: String): RequestBuilder<GW2v2Race> = query(
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<GW2v2Race>(),
+    converter = jsonParser(GW2v2Race.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -130,7 +131,7 @@ fun gw2v2RacesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Rac
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Race>(),
+    converter = jsonArrayParser(GW2v2Race.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -169,7 +170,7 @@ fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2R
     endpoint = "/v2/races",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Race>(),
+    converter = jsonArrayParser(GW2v2Race.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -206,6 +207,6 @@ fun gw2v2RacesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2R
 @GW2APIv2DataAll("races")
 fun gw2v2RacesAll(): RequestBuilder<Collection<GW2v2Race>> = query(
     endpoint = "/v2/races",
-    converter = jsonArrayParser<GW2v2Race>(),
+    converter = jsonArrayParser(GW2v2Race.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

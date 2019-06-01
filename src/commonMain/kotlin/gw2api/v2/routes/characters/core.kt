@@ -49,7 +49,7 @@ fun gw2v2CharactersCore(id: String): RequestBuilder<GW2v2CharactersCore> = query
     endpoint = "/v2/characters/:id/core",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters"),
-    converter = jsonParser<GW2v2CharactersCore>(),
+    converter = jsonParser(GW2v2CharactersCore.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

@@ -21,6 +21,7 @@ package gw2api.v2
 import gw2api.*
 import gw2api.extra.*
 import gw2api.misc.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -53,7 +54,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("currencies")
 fun gw2v2CurrenciesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/currencies",
-    converter = jsonArrayParser(JSONIntParser)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -90,7 +91,7 @@ fun gw2v2CurrenciesById(id: Int): RequestBuilder<GW2v2Currency> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<GW2v2Currency>(),
+    converter = jsonParser(GW2v2Currency.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -128,7 +129,7 @@ fun gw2v2CurrenciesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2C
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Currency>(),
+    converter = jsonArrayParser(GW2v2Currency.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -167,7 +168,7 @@ fun gw2v2CurrenciesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<G
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Currency>(),
+    converter = jsonArrayParser(GW2v2Currency.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -206,6 +207,6 @@ fun gw2v2CurrenciesAll(): RequestBuilder<Collection<GW2v2Currency>> = query(
     endpoint = "/v2/currencies",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Currency>(),
+    converter = jsonArrayParser(GW2v2Currency.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

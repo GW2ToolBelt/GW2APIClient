@@ -20,8 +20,8 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
-import gw2api.jsonArrayParser
 import gw2api.query
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -49,5 +49,5 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("worldbosses")
 fun gw2v2WorldBosses(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/worldbosses",
-    converter = jsonArrayParser(JSONStringParser)
+    converter = jsonArrayParser(String.serializer())
 ).setCacheTime(60 * 60 * 24, false)

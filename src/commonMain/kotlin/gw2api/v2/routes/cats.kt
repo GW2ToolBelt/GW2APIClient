@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -52,7 +53,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("cats")
 fun gw2v2CatsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/cats",
-    converter = jsonArrayParser(JSONIntParser)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -85,7 +86,7 @@ fun gw2v2CatsIds(): RequestBuilder<Collection<Int>> = query(
 @GW2APIv2DataById("cats")
 fun gw2v2CatsById(id: Int): RequestBuilder<GW2v2Cat> = query(
     endpoint = "/v2/cats",
-    converter = jsonParser<GW2v2Cat>(),
+    converter = jsonParser(GW2v2Cat.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -119,7 +120,7 @@ fun gw2v2CatsById(id: Int): RequestBuilder<GW2v2Cat> = query(
 @GW2APIv2DataByIds("cats")
 fun gw2v2CatsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Cat>> = query(
     endpoint = "/v2/cats",
-    converter = jsonArrayParser<GW2v2Cat>(),
+    converter = jsonArrayParser(GW2v2Cat.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -153,7 +154,7 @@ fun gw2v2CatsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Cat>> =
 @GW2APIv2DataByPage("cats")
 fun gw2v2CatsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Cat>> = query(
     endpoint = "/v2/cats",
-    converter = jsonArrayParser<GW2v2Cat>(),
+    converter = jsonArrayParser(GW2v2Cat.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -190,6 +191,6 @@ fun gw2v2CatsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Ca
 @GW2APIv2DataAll("cats")
 fun gw2v2CatsAll(): RequestBuilder<Collection<GW2v2Cat>> = query(
     endpoint = "/v2/cats",
-    converter = jsonArrayParser<GW2v2Cat>(),
+    converter = jsonArrayParser(GW2v2Cat.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

@@ -49,5 +49,5 @@ fun gw2v2AccountLuck(): RequestBuilder<Collection<GW2v2AccountLuck>> = query(
     endpoint = "/v2/account/luck",
     requiresAuthentication = true,
     requiredPermissions = setOf("progression", "unlocks"),
-    converter = jsonArrayParser<GW2v2AccountLuck>()
+    converter = jsonArrayParser(GW2v2AccountLuck.serializer())
 ).setCacheTime(60 * 5, false)

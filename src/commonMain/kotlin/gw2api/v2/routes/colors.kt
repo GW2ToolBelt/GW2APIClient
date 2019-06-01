@@ -21,6 +21,7 @@ package gw2api.v2
 import gw2api.*
 import gw2api.extra.*
 import gw2api.misc.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -53,7 +54,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("colors")
 fun gw2v2ColorsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/colors",
-    converter = jsonArrayParser(JSONIntParser)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -88,7 +89,7 @@ fun gw2v2ColorsById(id: Int): RequestBuilder<GW2v2Color> = query(
     endpoint = "/v2/colors",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<GW2v2Color>(),
+    converter = jsonParser(GW2v2Color.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -124,7 +125,7 @@ fun gw2v2ColorsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Color
     endpoint = "/v2/colors",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Color>(),
+    converter = jsonArrayParser(GW2v2Color.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -160,7 +161,7 @@ fun gw2v2ColorsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2
     endpoint = "/v2/colors",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Color>(),
+    converter = jsonArrayParser(GW2v2Color.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -199,6 +200,6 @@ fun gw2v2ColorsAll(): RequestBuilder<Collection<GW2v2Color>> = query(
     endpoint = "/v2/colors",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Color>(),
+    converter = jsonArrayParser(GW2v2Color.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

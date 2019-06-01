@@ -21,6 +21,7 @@ package gw2api.v2
 import gw2api.*
 import gw2api.extra.*
 import gw2api.misc.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -53,7 +54,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("titles")
 fun gw2v2TitlesIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/titles",
-    converter = jsonArrayParser(JSONIntParser)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -88,7 +89,7 @@ fun gw2v2TitlesById(id: Int): RequestBuilder<GW2v2Title> = query(
     endpoint = "/v2/titles",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<GW2v2Title>(),
+    converter = jsonParser(GW2v2Title.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -124,7 +125,7 @@ fun gw2v2TitlesByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2Title
     endpoint = "/v2/titles",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Title>(),
+    converter = jsonArrayParser(GW2v2Title.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -160,7 +161,7 @@ fun gw2v2TitlesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2
     endpoint = "/v2/titles",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Title>(),
+    converter = jsonArrayParser(GW2v2Title.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -199,6 +200,6 @@ fun gw2v2TitlesAll(): RequestBuilder<Collection<GW2v2Title>> = query(
     endpoint = "/v2/titles",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2Title>(),
+    converter = jsonArrayParser(GW2v2Title.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

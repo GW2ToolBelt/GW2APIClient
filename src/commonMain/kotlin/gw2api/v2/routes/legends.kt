@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -52,7 +53,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("legends")
 fun gw2v2LegendsIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/legends",
-    converter = jsonArrayParser(JSONStringParser)
+    converter = jsonArrayParser(String.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -87,7 +88,7 @@ fun gw2v2LegendsIds(): RequestBuilder<Collection<String>> = query(
 @GW2APIv2DataById("legends")
 fun gw2v2LegendsById(id: String): RequestBuilder<GW2v2Legend> = query(
     endpoint = "/v2/legends",
-    converter = jsonParser<GW2v2Legend>(),
+    converter = jsonParser(GW2v2Legend.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -123,7 +124,7 @@ fun gw2v2LegendsById(id: String): RequestBuilder<GW2v2Legend> = query(
 @GW2APIv2DataByIds("legends")
 fun gw2v2LegendsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Legend>> = query(
     endpoint = "/v2/legends",
-    converter = jsonArrayParser<GW2v2Legend>(),
+    converter = jsonArrayParser(GW2v2Legend.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -160,7 +161,7 @@ fun gw2v2LegendsByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2L
 @GW2APIv2DataByPage("legends")
 fun gw2v2LegendsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2Legend>> = query(
     endpoint = "/v2/legends",
-    converter = jsonArrayParser<GW2v2Legend>(),
+    converter = jsonArrayParser(GW2v2Legend.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -197,6 +198,6 @@ fun gw2v2LegendsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v
 @GW2APIv2DataAll("legends")
 fun gw2v2LegendsAll(): RequestBuilder<Collection<GW2v2Legend>> = query(
     endpoint = "/v2/legends",
-    converter = jsonArrayParser<GW2v2Legend>(),
+    converter = jsonArrayParser(GW2v2Legend.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

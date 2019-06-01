@@ -46,5 +46,5 @@ import kotlin.jvm.*
 @GW2APIv1Data("build")
 fun gw2v1Build(): RequestBuilder<GW2v1Build> = query(
     endpoint = "/v1/build",
-    converter = jsonParser<GW2v1Build>()
+    converter = jsonParser(GW2v1Build.serializer())
 ).setCacheTime(60, false)

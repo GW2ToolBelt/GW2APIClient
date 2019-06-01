@@ -21,6 +21,7 @@ package gw2api.v2
 import gw2api.*
 import gw2api.extra.*
 import gw2api.misc.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -53,7 +54,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("worlds")
 fun gw2v2WorldsIds(): RequestBuilder<Collection<Int>> = query(
     endpoint = "/v2/worlds",
-    converter = jsonArrayParser(JSONIntParser)
+    converter = jsonArrayParser(Int.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -90,7 +91,7 @@ fun gw2v2WorldsById(id: Int): RequestBuilder<GW2v2World> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonParser<GW2v2World>(),
+    converter = jsonParser(GW2v2World.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -128,7 +129,7 @@ fun gw2v2WorldsByIds(ids: Collection<Int>): RequestBuilder<Collection<GW2v2World
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2World>(),
+    converter = jsonArrayParser(GW2v2World.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -167,7 +168,7 @@ fun gw2v2WorldsByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2World>(),
+    converter = jsonArrayParser(GW2v2World.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -206,6 +207,6 @@ fun gw2v2WorldsAll(): RequestBuilder<Collection<GW2v2World>> = query(
     endpoint = "/v2/worlds",
     isLocalized = true,
     supportedLanguages = API_V2_LANGS,
-    converter = jsonArrayParser<GW2v2World>(),
+    converter = jsonArrayParser(GW2v2World.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

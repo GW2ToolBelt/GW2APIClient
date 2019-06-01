@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -52,7 +53,7 @@ import kotlin.jvm.*
 @GW2APIv2DataIds("files")
 fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
     endpoint = "/v2/files",
-    converter = jsonArrayParser(JSONStringParser)
+    converter = jsonArrayParser(String.serializer())
 ).setCacheTime(60 * 60 * 24, false)
 
 /**
@@ -87,7 +88,7 @@ fun gw2v2FilesIds(): RequestBuilder<Collection<String>> = query(
 @GW2APIv2DataById("files")
 fun gw2v2FilesById(id: String): RequestBuilder<GW2v2File> = query(
     endpoint = "/v2/files",
-    converter = jsonParser<GW2v2File>(),
+    converter = jsonParser(GW2v2File.serializer()),
     params = mapOf("id" to id)
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -123,7 +124,7 @@ fun gw2v2FilesById(id: String): RequestBuilder<GW2v2File> = query(
 @GW2APIv2DataByIds("files")
 fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
-    converter = jsonArrayParser<GW2v2File>(),
+    converter = jsonArrayParser(GW2v2File.serializer()),
     params = mapOf("ids" to ids.joinToString(","))
 ).setCacheTime(60 * 60 * 24, false)
 
@@ -160,7 +161,7 @@ fun gw2v2FilesByIds(ids: Collection<String>): RequestBuilder<Collection<GW2v2Fil
 @GW2APIv2DataByPage("files")
 fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
-    converter = jsonArrayParser<GW2v2File>(),
+    converter = jsonArrayParser(GW2v2File.serializer()),
     params = mapOf(
         "page" to page,
         "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }
@@ -197,6 +198,6 @@ fun gw2v2FilesByPage(page: Int, pageSize: Int): RequestBuilder<Collection<GW2v2F
 @GW2APIv2DataAll("files")
 fun gw2v2FilesAll(): RequestBuilder<Collection<GW2v2File>> = query(
     endpoint = "/v2/files",
-    converter = jsonArrayParser<GW2v2File>(),
+    converter = jsonArrayParser(GW2v2File.serializer()),
     params = mapOf("ids" to "all")
 ).setCacheTime(60 * 60 * 24, false)

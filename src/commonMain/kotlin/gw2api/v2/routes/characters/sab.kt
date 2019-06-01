@@ -49,7 +49,7 @@ fun gw2v2CharactersSAB(id: String): RequestBuilder<GW2v2CharactersSAB> = query(
     endpoint = "/v2/characters/:id/sab",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "progression"),
-    converter = jsonParser<GW2v2CharactersSAB>(),
+    converter = jsonParser(GW2v2CharactersSAB.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

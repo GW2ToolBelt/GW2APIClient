@@ -20,6 +20,7 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
+import kotlinx.serialization.*
 import kotlin.jvm.*
 
 /**
@@ -49,7 +50,7 @@ fun gw2v2CharactersHeropoints(id: String): RequestBuilder<Collection<String>> = 
     endpoint = "/v2/characters/:id/heropoints",
     requiresAuthentication = true,
     requiredPermissions = setOf("account", "characters", "progression"),
-    converter = jsonArrayParser(JSONStringParser),
+    converter = jsonArrayParser(String.serializer()),
     replaceInPath = mapOf(
         ":id" to id
     )

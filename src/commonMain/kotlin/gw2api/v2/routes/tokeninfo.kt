@@ -47,5 +47,5 @@ import kotlin.jvm.*
 fun gw2v2TokenInfo(): RequestBuilder<GW2v2TokenInfo> = query(
     endpoint = "/v2/tokeninfo",
     requiresAuthentication = true,
-    converter = jsonParser<GW2v2TokenInfo>()
+    converter = jsonParser(GW2v2TokenInfo.serializer())
 ).setCacheTime(60, false)
