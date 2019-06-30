@@ -19,7 +19,7 @@ object Dependencies {
 
     // Shared depencencies
     val kotlinxCoroutinesVersion = "1.2.1"
-    val kotlinxSerializationVersion = "0.11.0"
+    val kotlinxSerializationVersion = "0.11.1"
     val ktorVersion = "1.2.0"
 
     // JVM dependencies
