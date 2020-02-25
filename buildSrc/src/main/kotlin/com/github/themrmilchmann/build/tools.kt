@@ -45,4 +45,4 @@ fun Project.getProperty(k: String): String =
     if (extra.has(k))
         extra[k] as String
     else
-        System.getenv(k)
+        System.getenv(k) ?: ""
