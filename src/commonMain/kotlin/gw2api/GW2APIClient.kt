@@ -17,6 +17,7 @@ package gw2api
 
 import gw2api.misc.*
 import io.ktor.client.*
+import io.ktor.utils.io.core.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
@@ -32,7 +33,7 @@ public class GW2APIClient(
     private val rateLimiter: RateLimiter? = null,
     public val checkPermissions: Boolean = false,
     public val json: Json = Json(JsonConfiguration.Stable)
-) {
+) : Closeable by httpClient {
 
     public companion object {
         /**
