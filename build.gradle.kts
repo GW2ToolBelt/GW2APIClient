@@ -16,10 +16,10 @@
 import com.github.themrmilchmann.build.*
 
 plugins {
-    signing
+    kotlin("multiplatform") version "1.3.70"
+    kotlin("plugin.serialization") version "1.3.70"
     `maven-publish`
-    kotlin("multiplatform") version "1.3.40"
-    id("kotlinx-serialization") version "1.3.40"
+    signing
 }
 
 val nextVersion = "0.1.0"
