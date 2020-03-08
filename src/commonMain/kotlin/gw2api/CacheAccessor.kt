@@ -16,10 +16,7 @@
 package gw2api
 
 /**
- * An accessor providing basic read and write access to a cache.
- *
- * GW2APIClient supports caching to reduce load on remote API servers. However, GW2APIClient does not come with any
- * cache implementations by default.
+ * TODO doc
  *
  * @since   0.1.0
  */
@@ -33,9 +30,7 @@ interface CacheAccessor {
     fun <T> memoize(response: Response<T>)
 
     /**
-     * Attempts to lookup a cached response for the given [request].
-     *
-     * @return  the cached response or `null`
+     * TODO doc
      *
      * @since   0.1.0
      */
