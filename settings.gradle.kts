@@ -14,21 +14,3 @@
  * limitations under the License.
  */
 rootProject.name = "GW2APIClient"
-
-// Does not work with ktor yet.
-//enableFeaturePreview("GRADLE_METADATA")
-
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-    }
-
-    resolutionStrategy {
-        eachPlugin {
-            when (requested.id.id) {
-                "kotlinx-serialization" -> useModule("org.jetbrains.kotlin:kotlin-serialization:${requested.version}")
-            }
-        }
-    }
-}

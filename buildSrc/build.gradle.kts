@@ -19,4 +19,9 @@ plugins {
 
 repositories {
     mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation("com.github.gw2toolbelt.apigen:api-generator:0.1.0")
 }

@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 import com.github.themrmilchmann.build.*
+import com.github.themrmilchmann.build.apigen.*
 
 plugins {
     kotlin("multiplatform") version "1.3.70"
     kotlin("plugin.serialization") version "1.3.70"
-    `maven-publish`
     signing
+    `maven-publish`
 }
 
 val nextVersion = "0.1.0"
@@ -33,7 +34,7 @@ version = when (deployment.type) {
 
 kotlin {
     targets {
-        all {
+        this@kotlin.targets.all {
             compilations.all {
                 kotlinOptions {
                     languageVersion = "1.3"
@@ -90,11 +91,15 @@ kotlin {
             }
         }
 
-        getByName("commonMain").dependencies {
-            implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
-            implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Dependencies.kotlinxCoroutinesVersion}")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Dependencies.kotlinxSerializationVersion}")
+        getByName("commonMain") {
+            kotlin.srcDir("src/commonMain-generated/kotlin")
+
+            dependencies {
+                implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
+                implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Dependencies.kotlinxCoroutinesVersion}")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Dependencies.kotlinxSerializationVersion}")
+            }
         }
 
         getByName("commonTest").dependencies {
@@ -127,6 +132,12 @@ kotlin {
     }
 }
 
+tasks {
+    create<Generate>("generate") {
+        outputDirectory = file("src/commonMain-generated")
+    }
+}
+
 publishing {
     repositories {
         maven {
@@ -141,11 +152,8 @@ publishing {
 }
 
 signing {
+    isRequired = (deployment.type === com.github.themrmilchmann.build.BuildType.RELEASE)
     sign(publishing.publications)
-}
-
-tasks.withType<Sign> {
-    onlyIf { deployment.type === com.github.themrmilchmann.build.BuildType.RELEASE }
 }
 
 repositories {
