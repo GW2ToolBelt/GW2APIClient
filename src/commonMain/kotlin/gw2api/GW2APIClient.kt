@@ -60,6 +60,7 @@ public class GW2APIClient(
         configure: (RequestBuilder<T>.() -> Unit)?
     ): RequestBuilder<T> {
         val builder = RequestBuilder(
+            this,
             host = host,
             path = path,
             parameters = parameters,

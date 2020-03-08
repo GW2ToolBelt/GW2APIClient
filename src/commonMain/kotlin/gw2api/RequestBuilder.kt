@@ -16,6 +16,7 @@
 package gw2api
 
 import gw2api.misc.*
+import gw2api.v2.*
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
@@ -31,6 +32,7 @@ import kotlin.jvm.*
  * @since   0.1.0
  */
 public class RequestBuilder<out T> internal constructor(
+    private val client: GW2APIClient,
     private val host: String,
     private val path: String,
     private val parameters: Map<String, String>,
@@ -109,8 +111,6 @@ public class RequestBuilder<out T> internal constructor(
                 cacheAccessor?.let { cache -> cache.query(request)?.let { cached -> return@async cached } }
 
                 /*
-
-                /*
                  * Perform basic client-side permission checks to avoid flooding the remote API with "bad requests".
                  *
                  * This check only occurs if
@@ -121,8 +121,10 @@ public class RequestBuilder<out T> internal constructor(
                  * (*) The "/v2/tokeninfo" requires authentication and would qualify for client-side permission checks. In
                  *     order to avoid running into recursive calls it is therefor explicitly handled separately.
                  */
-                if (checkPermissions && requiresAuthentication && endpoint != "/v2/tokeninfo") {
-                    val perm = gw2v2TokenInfo().execute(scope).get()
+                if (checkPermissions && requiresAuthentication && path != "/v2/tokeninfo") {
+                    val perm = client.gw2v2TokenInfo {
+                        this@RequestBuilder.apiKey = apiKey
+                    }.execute(scope).get()
 
                     if (perm.data != null) {
                         if (!perm.data.permissions.containsAll(requiredPermissions)) {
@@ -132,7 +134,6 @@ public class RequestBuilder<out T> internal constructor(
                         throw UnauthenticatedException("") // TODO
                     }
                 }
-                 */
 
                 val httpCall = scope.async(start = CoroutineStart.LAZY) {
                     val httpResponse = httpClient.get<HttpResponse>(url)
