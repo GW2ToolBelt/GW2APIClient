@@ -20,4 +20,3 @@ fun GW2APIClient.gw2v2AccountEmotes(configure: (RequestBuilder<List<Int>>.() -> 
     serializer = Int.serializer().list,
     configure = configure
 )
-

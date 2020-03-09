@@ -20,4 +20,3 @@ fun GW2APIClient.gw2v2AccountMinis(configure: (RequestBuilder<List<Int>>.() -> U
     serializer = Int.serializer().list,
     configure = configure
 )
-

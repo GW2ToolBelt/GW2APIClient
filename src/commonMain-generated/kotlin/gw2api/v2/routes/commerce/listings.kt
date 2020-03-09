@@ -14,7 +14,7 @@ fun GW2APIClient.gw2v2CommerceListingsIds(configure: (RequestBuilder<List<Int>>.
     path = "/commerce/listings",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = Int.serializer().list,
@@ -25,7 +25,7 @@ fun GW2APIClient.gw2v2CommerceListingsById(id: Int, configure: (RequestBuilder<G
     path = "/commerce/listings",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = GW2v2CommerceListings.serializer(),
@@ -36,7 +36,7 @@ fun GW2APIClient.gw2v2CommerceListingsByIds(ids: Collection<Int>, configure: (Re
     path = "/commerce/listings",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = GW2v2CommerceListings.serializer().list,
@@ -47,7 +47,7 @@ fun GW2APIClient.gw2v2CommerceListingsByPage(page: Int, pageSize: Int, configure
     path = "/commerce/listings",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = GW2v2CommerceListings.serializer().list,
@@ -68,6 +68,7 @@ data class GW2v2CommerceListings(
         val unitPrice: Int,
         val quantity: Int
     )
+
     @Serializable
     data class Sells(
         val listings: Int,

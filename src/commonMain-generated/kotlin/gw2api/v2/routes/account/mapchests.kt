@@ -20,4 +20,3 @@ fun GW2APIClient.gw2v2AccountMapChests(configure: (RequestBuilder<List<String>>.
     serializer = String.serializer().list,
     configure = configure
 )
-

@@ -78,15 +78,16 @@ open class Generate : DefaultTask() {
                     parameters: String,
                     serializer: String,
                     replaceInPath: String = "emptyMap()",
-                    requiredPermissions: String = "emptySet()"
+                    requiredPermissions: String = "emptySet()",
+                    isIdsEndpoint: Boolean = false
                 ) =
                     """
                     path = "${endpoint.route.toLowerCase(Locale.ENGLISH)}",
                     parameters = $parameters,
                     replaceInPath = emptyMap(),
-                    requiresAuthentication = true,
+                    requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
                     requiredPermissions = emptySet(),
-                    supportedLanguages = emptySet(),
+                    supportedLanguages = ${if (endpoint.isLocalized && !isIdsEndpoint) "API_V2_LANGS" else "emptySet()"},
                     serializer = $serializer,
                     configure = configure
                     """.trimIndent().lines().joinToString(separator = "\n") { "$t$it" }
@@ -104,7 +105,8 @@ open class Generate : DefaultTask() {
                             |fun GW2APIClient.gw2v2${routeTitleCase}Ids(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
                             |${requestBody(
                                 parameters = "emptyMap()",
-                                serializer = idType.listSerializer
+                                serializer = idType.listSerializer,
+                                isIdsEndpoint = true
                             )}
                             |)
                             """.trimMargin()
@@ -130,8 +132,8 @@ open class Generate : DefaultTask() {
                                             parameters = """mapOf("ids" to ids.joinToString(","))""",
                                             serializer = dataClassType.listSerializer
                                         )}
-                                    |)
-                                    """.trimMargin()
+                                        |)
+                                        """.trimMargin()
                                     )
 
                                     if (queryType.supportsAll) yield(
@@ -141,8 +143,8 @@ open class Generate : DefaultTask() {
                                             parameters = """mapOf("ids" to "all")""",
                                             serializer = dataClassType.listSerializer
                                         )}
-                                    |)
-                                    """.trimMargin()
+                                        |)
+                                        """.trimMargin()
                                     )
                                 }
                                 is QueryType.ByPage -> yield(
@@ -191,7 +193,7 @@ open class Generate : DefaultTask() {
                     |)${if (dataClasses.isNotEmpty()) """
                     | {
                     |
-                    |${dataClasses.map { (name, schema) -> schema.createDataClass(name, t) }.joinToString(separator = "\n")}
+                    |${dataClasses.map { (name, schema) -> schema.createDataClass(name, t) }.joinToString(separator = "\n\n")}
                     |
                     |}
                     """.trimMargin() else ""}
@@ -214,9 +216,7 @@ import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
-${functions.joinToString(separator = "\n\n")}
-
-${rootDataClassSchema.let { if (it !== null) it.createDataClass("GW2v2$routeTitleCase") else "" }}
+${functions.joinToString(separator = "\n\n")}${rootDataClassSchema.let { if (it !== null) "\n\n" + it.createDataClass("GW2v2$routeTitleCase") else "" }}
 """.trimIndent()
                     )
                 }

@@ -14,7 +14,7 @@ fun GW2APIClient.gw2v2WvWObjectivesIds(configure: (RequestBuilder<List<String>>.
     path = "/wvw/objectives",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = String.serializer().list,
@@ -25,9 +25,9 @@ fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: (RequestBuilder<G
     path = "/wvw/objectives",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2WvWObjectives.serializer(),
     configure = configure
 )
@@ -36,9 +36,9 @@ fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: Collection<String>, configure: (Re
     path = "/wvw/objectives",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2WvWObjectives.serializer().list,
     configure = configure
 )
@@ -47,9 +47,9 @@ fun GW2APIClient.gw2v2WvWObjectivesAll(configure: (RequestBuilder<List<GW2v2WvWO
     path = "/wvw/objectives",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2WvWObjectives.serializer().list,
     configure = configure
 )
@@ -58,9 +58,9 @@ fun GW2APIClient.gw2v2WvWObjectivesByPage(page: Int, pageSize: Int, configure: (
     path = "/wvw/objectives",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2WvWObjectives.serializer().list,
     configure = configure
 )

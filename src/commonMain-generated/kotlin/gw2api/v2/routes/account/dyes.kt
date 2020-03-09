@@ -20,4 +20,3 @@ fun GW2APIClient.gw2v2AccountDyes(configure: (RequestBuilder<List<Int>>.() -> Un
     serializer = Int.serializer().list,
     configure = configure
 )
-

@@ -14,7 +14,7 @@ fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> Unit)? 
     path = "/build",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = GW2v2Build.serializer(),

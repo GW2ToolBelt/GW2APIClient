@@ -14,7 +14,7 @@ fun GW2APIClient.gw2v2ColorsIds(configure: (RequestBuilder<List<Int>>.() -> Unit
     path = "/colors",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = Int.serializer().list,
@@ -25,9 +25,9 @@ fun GW2APIClient.gw2v2ColorsById(id: Int, configure: (RequestBuilder<GW2v2Colors
     path = "/colors",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Colors.serializer(),
     configure = configure
 )
@@ -36,9 +36,9 @@ fun GW2APIClient.gw2v2ColorsByIds(ids: Collection<Int>, configure: (RequestBuild
     path = "/colors",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Colors.serializer().list,
     configure = configure
 )
@@ -47,9 +47,9 @@ fun GW2APIClient.gw2v2ColorsAll(configure: (RequestBuilder<List<GW2v2Colors>>.()
     path = "/colors",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Colors.serializer().list,
     configure = configure
 )
@@ -58,9 +58,9 @@ fun GW2APIClient.gw2v2ColorsByPage(page: Int, pageSize: Int, configure: (Request
     path = "/colors",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Colors.serializer().list,
     configure = configure
 )
@@ -88,6 +88,7 @@ data class GW2v2Colors(
         val lightness: Double,
         val rbg: List<Int>
     )
+
     @Serializable
     data class Leather(
         val brightness: Int,
@@ -97,6 +98,7 @@ data class GW2v2Colors(
         val lightness: Double,
         val rbg: List<Int>
     )
+
     @Serializable
     data class Metal(
         val brightness: Int,
@@ -106,6 +108,7 @@ data class GW2v2Colors(
         val lightness: Double,
         val rbg: List<Int>
     )
+
     @Serializable
     data class Fur(
         val brightness: Int,

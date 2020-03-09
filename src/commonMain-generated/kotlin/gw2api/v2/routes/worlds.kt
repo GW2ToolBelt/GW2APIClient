@@ -14,7 +14,7 @@ fun GW2APIClient.gw2v2WorldsIds(configure: (RequestBuilder<List<Int>>.() -> Unit
     path = "/worlds",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = Int.serializer().list,
@@ -25,9 +25,9 @@ fun GW2APIClient.gw2v2WorldsById(id: Int, configure: (RequestBuilder<GW2v2Worlds
     path = "/worlds",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Worlds.serializer(),
     configure = configure
 )
@@ -36,9 +36,9 @@ fun GW2APIClient.gw2v2WorldsByIds(ids: Collection<Int>, configure: (RequestBuild
     path = "/worlds",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Worlds.serializer().list,
     configure = configure
 )
@@ -47,9 +47,9 @@ fun GW2APIClient.gw2v2WorldsAll(configure: (RequestBuilder<List<GW2v2Worlds>>.()
     path = "/worlds",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Worlds.serializer().list,
     configure = configure
 )
@@ -58,9 +58,9 @@ fun GW2APIClient.gw2v2WorldsByPage(page: Int, pageSize: Int, configure: (Request
     path = "/worlds",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Worlds.serializer().list,
     configure = configure
 )

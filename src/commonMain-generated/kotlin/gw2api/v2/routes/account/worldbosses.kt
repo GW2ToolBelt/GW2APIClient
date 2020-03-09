@@ -20,4 +20,3 @@ fun GW2APIClient.gw2v2AccountWorldBosses(configure: (RequestBuilder<List<String>
     serializer = String.serializer().list,
     configure = configure
 )
-

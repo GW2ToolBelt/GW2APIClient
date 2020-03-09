@@ -20,4 +20,3 @@ fun GW2APIClient.gw2v2AccountPvPHeroes(configure: (RequestBuilder<List<Int>>.() 
     serializer = Int.serializer().list,
     configure = configure
 )
-

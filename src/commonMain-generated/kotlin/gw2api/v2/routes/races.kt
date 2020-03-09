@@ -14,7 +14,7 @@ fun GW2APIClient.gw2v2RacesIds(configure: (RequestBuilder<List<String>>.() -> Un
     path = "/races",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = String.serializer().list,
@@ -25,9 +25,9 @@ fun GW2APIClient.gw2v2RacesById(id: String, configure: (RequestBuilder<GW2v2Race
     path = "/races",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Races.serializer(),
     configure = configure
 )
@@ -36,9 +36,9 @@ fun GW2APIClient.gw2v2RacesByIds(ids: Collection<String>, configure: (RequestBui
     path = "/races",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Races.serializer().list,
     configure = configure
 )
@@ -47,9 +47,9 @@ fun GW2APIClient.gw2v2RacesAll(configure: (RequestBuilder<List<GW2v2Races>>.() -
     path = "/races",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Races.serializer().list,
     configure = configure
 )
@@ -58,9 +58,9 @@ fun GW2APIClient.gw2v2RacesByPage(page: Int, pageSize: Int, configure: (RequestB
     path = "/races",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
+    supportedLanguages = API_V2_LANGS,
     serializer = GW2v2Races.serializer().list,
     configure = configure
 )

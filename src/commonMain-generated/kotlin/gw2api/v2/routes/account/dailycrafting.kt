@@ -20,4 +20,3 @@ fun GW2APIClient.gw2v2AccountDailyCrafting(configure: (RequestBuilder<List<Strin
     serializer = String.serializer().list,
     configure = configure
 )
-
