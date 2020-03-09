@@ -87,7 +87,7 @@ kotlin {
     sourceSets {
         all {
             languageSettings.apply {
-                useExperimentalAnnotation("kotlin.ExperimentalUnsignedTypes")
+                useExperimentalAnnotation("kotlin.time.ExperimentalTime")
             }
         }
 

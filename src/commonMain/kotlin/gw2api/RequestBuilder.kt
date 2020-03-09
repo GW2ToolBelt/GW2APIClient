@@ -25,6 +25,7 @@ import kotlinx.coroutines.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
+import kotlin.time.*
 
 /**
  * TODO doc
@@ -61,12 +62,13 @@ public class RequestBuilder<out T> internal constructor(
 
     public fun withLanguage(value: Language): RequestBuilder<T> = apply { language = value }
 
-    private var cacheTime: ULong = 0u
+    private var cacheTime: Duration = Duration.ZERO
     private var overrideCacheTime: Boolean = false
 
     @JvmOverloads
-    fun withCacheTime(value: ULong, unit: TimeUnit, override: Boolean = false): RequestBuilder<T> = apply {
-        cacheTime = unit.toSeconds(value.toLong()).toULong()
+    fun withCacheTime(duration: Duration, override: Boolean = false): RequestBuilder<T> = apply {
+        require(duration.isPositive())
+        cacheTime = duration
         overrideCacheTime = override
     }
 
