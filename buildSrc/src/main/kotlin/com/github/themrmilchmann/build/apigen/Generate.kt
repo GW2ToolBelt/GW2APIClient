@@ -30,6 +30,7 @@ import java.io.*
 import java.util.*
 
 private const val t = "    "
+private const val n = "\n"
 
 @CacheableTask
 open class Generate : DefaultTask() {
@@ -93,7 +94,7 @@ open class Generate : DefaultTask() {
                     supportedLanguages = ${if (endpoint.isLocalized && !isIdsEndpoint) "API_V2_LANGS" else "emptySet()"},
                     serializer = $serializer,
                     configure = configure
-                    """.trimIndent().lines().joinToString(separator = "\n") { "$t$it" }
+                    """.trimIndent().lines().joinToString(separator = n) { "$t$it" }
 
                 val functions = endpoint.queryTypes.let { queryTypes -> sequence {
                     if (queryTypes !== null) {
@@ -187,16 +188,16 @@ open class Generate : DefaultTask() {
                     |data class $className(
                     |${properties.map { (_, property) ->
                         StringBuilder().run {
-                            if (property.isDeprecated) append("""$t@Deprecated(message = "")${"\n"}""")
-                            if (property.serialName != property.propertyName) append("""$t@SerialName("${property.serialName}")${"\n"}""")
+                            if (property.isDeprecated) append("""$t@Deprecated(message = "")$n""")
+                            if (property.serialName != property.propertyName) append("""$t@SerialName("${property.serialName}")$n""")
                             append("${t}val ${property.propertyName}: ${property.type.toKotlinType(property.propertyName.let { "${it.toCharArray()[0].toUpperCase()}${it.substring(1)}" }, dataClasses)}")
                             toString()
                         }
-                    }.joinToString(separator = ",\n")}
+                    }.joinToString(separator = ",$n")}
                     |)${if (dataClasses.isNotEmpty()) """
                     | {
                     |
-                    |${dataClasses.map { (name, schema) -> schema.createDataClass(name, t) }.joinToString(separator = "\n\n")}
+                    |${dataClasses.map { (name, schema) -> schema.createDataClass(name, t) }.joinToString(separator = "$n$n")}
                     |
                     |}
                     """.trimMargin() else ""}
@@ -222,7 +223,7 @@ import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
-${functions.joinToString(separator = "\n\n")}${rootDataClassSchema.let { if (it !== null) "\n\n" + it.createDataClass("GW2v2$routeTitleCase") else "" }}
+${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + it.createDataClass("GW2v2$routeTitleCase") else "" }}
 """.trimIndent()
                     )
                 }
