@@ -105,5 +105,5 @@ data class GW2v2WvWObjectives(
     @SerialName("chat_link")
     val chatLink: String,
     @SerialName("upgrade_id")
-    val upgradeId: Int
+    val upgradeId: Int?
 )

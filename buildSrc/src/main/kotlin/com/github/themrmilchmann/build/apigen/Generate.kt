@@ -190,7 +190,7 @@ open class Generate : DefaultTask() {
                         StringBuilder().run {
                             if (property.isDeprecated) append("""$t@Deprecated(message = "")$n""")
                             if (property.serialName != property.propertyName) append("""$t@SerialName("${property.serialName}")$n""")
-                            append("${t}val ${property.propertyName}: ${property.type.toKotlinType(property.propertyName.let { "${it.toCharArray()[0].toUpperCase()}${it.substring(1)}" }, dataClasses)}")
+                            append("${t}val ${property.propertyName}: ${property.type.toKotlinType(property.propertyName.let { "${it.toCharArray()[0].toUpperCase()}${it.substring(1)}" }, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "?" else ""}")
                             toString()
                         }
                     }.joinToString(separator = ",$n")}

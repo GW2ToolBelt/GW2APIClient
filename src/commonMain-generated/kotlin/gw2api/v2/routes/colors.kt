@@ -96,7 +96,7 @@ data class GW2v2Colors(
     val cloth: Cloth,
     val leather: Leather,
     val metal: Metal,
-    val fur: Fur,
+    val fur: Fur?,
     val item: Int,
     val categories: List<String>
 ) {

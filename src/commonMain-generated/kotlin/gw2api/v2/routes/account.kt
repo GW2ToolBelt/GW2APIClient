@@ -51,18 +51,18 @@ data class GW2v2Account(
     val world: Int,
     val guilds: List<String>,
     @SerialName("guild_leader")
-    val guildLeader: List<String>,
+    val guildLeader: List<String>?,
     val created: String,
     val access: List<String>,
     val commander: Boolean,
     @SerialName("fractal_level")
-    val fractalLevel: Int,
+    val fractalLevel: Int?,
     @SerialName("daily_ap")
-    val dailyAP: Int,
+    val dailyAP: Int?,
     @SerialName("monthly_ap")
-    val monthAP: Int,
+    val monthAP: Int?,
     @SerialName("wvw_rank")
-    val wvwRank: Int,
+    val wvwRank: Int?,
     @SerialName("last_modified")
     val lastModified: String
 )
