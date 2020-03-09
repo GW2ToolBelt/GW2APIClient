@@ -23,6 +23,7 @@ package com.github.themrmilchmann.build.apigen
 
 import com.github.gw2toolbelt.apigen.*
 import com.github.gw2toolbelt.apigen.model.*
+import com.github.gw2toolbelt.apigen.model.v2.*
 import com.github.gw2toolbelt.apigen.schema.*
 import org.gradle.api.*
 import org.gradle.api.tasks.*
@@ -71,11 +72,13 @@ open class Generate : DefaultTask() {
     @TaskAction
     fun generate() {
         with(API_V2_DEFINITION) {
+            val schemaVersion = V2SchemaVersion.V2_SCHEMA_2019_12_19T00_00_00_000Z
+
             endpoints.forEach { endpoint ->
                 val routeTitleCase = endpoint.route.replace("/", "")
 
                 val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaMap>()) {
-                    endpoint[endpoint.versions.max()!!].second.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
+                    endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
                 }
 
                 fun requestBody(
@@ -108,7 +111,7 @@ open class Generate : DefaultTask() {
                             """
                             |fun GW2APIClient.gw2v2${routeTitleCase}Ids(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
                             |${requestBody(
-                                parameters = "emptyMap()",
+                                parameters = """mapOf("v" to "${schemaVersion.version!!}")""",
                                 serializer = idType.listSerializer,
                                 isIdsEndpoint = true
                             )}
@@ -122,7 +125,7 @@ open class Generate : DefaultTask() {
                                     """
                                     |fun GW2APIClient.gw2v2${routeTitleCase}ById(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
                                     |${requestBody(
-                                        parameters = """mapOf("id" to id.toString())""",
+                                        parameters = """mapOf("id" to id.toString(), "v" to "${schemaVersion.version!!}")""",
                                         serializer = dataClassType.serializer
                                     )}
                                     |)
@@ -133,7 +136,7 @@ open class Generate : DefaultTask() {
                                         """
                                         |fun GW2APIClient.gw2v2${routeTitleCase}ByIds(ids: Collection<$idType>, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
-                                            parameters = """mapOf("ids" to ids.joinToString(","))""",
+                                            parameters = """mapOf("ids" to ids.joinToString(","), "v" to "${schemaVersion.version!!}")""",
                                             serializer = dataClassType.listSerializer
                                         )}
                                         |)
@@ -144,7 +147,7 @@ open class Generate : DefaultTask() {
                                         """
                                         |fun GW2APIClient.gw2v2${routeTitleCase}All(configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
-                                            parameters = """mapOf("ids" to "all")""",
+                                            parameters = """mapOf("ids" to "all", "v" to "${schemaVersion.version!!}")""",
                                             serializer = dataClassType.listSerializer
                                         )}
                                         |)
@@ -155,7 +158,7 @@ open class Generate : DefaultTask() {
                                     """
                                     |fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                     |${requestBody(
-                                        parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString())""",
+                                        parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "${schemaVersion.version!!}")""",
                                         serializer = dataClassType.listSerializer
                                     )}
                                     |)
@@ -171,7 +174,7 @@ open class Generate : DefaultTask() {
                             """
                             |fun GW2APIClient.gw2v2$routeTitleCase(configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
                             |${requestBody(
-                                parameters = "emptyMap()",
+                                parameters = """mapOf("v" to "${schemaVersion.version!!}")""",
                                 serializer = dataClassType.serializer
                             )}
                             |)

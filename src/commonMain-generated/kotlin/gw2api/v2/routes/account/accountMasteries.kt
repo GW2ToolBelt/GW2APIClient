@@ -34,7 +34,7 @@ import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2AccountMasteries>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMasteries>> = request(
     path = "/v2/account/masteries",
-    parameters = emptyMap(),
+    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),

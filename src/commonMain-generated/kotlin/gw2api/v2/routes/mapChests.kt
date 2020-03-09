@@ -34,7 +34,7 @@ import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2MapChestsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/mapchests",
-    parameters = emptyMap(),
+    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -45,7 +45,7 @@ fun GW2APIClient.gw2v2MapChestsIds(configure: (RequestBuilder<List<Int>>.() -> U
 
 fun GW2APIClient.gw2v2MapChestsById(id: Int, configure: (RequestBuilder<GW2v2MapChests>.() -> Unit)? = null): RequestBuilder<GW2v2MapChests> = request(
     path = "/v2/mapchests",
-    parameters = mapOf("id" to id.toString()),
+    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -56,7 +56,7 @@ fun GW2APIClient.gw2v2MapChestsById(id: Int, configure: (RequestBuilder<GW2v2Map
 
 fun GW2APIClient.gw2v2MapChestsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2MapChests>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChests>> = request(
     path = "/v2/mapchests",
-    parameters = mapOf("ids" to ids.joinToString(",")),
+    parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -67,7 +67,7 @@ fun GW2APIClient.gw2v2MapChestsByIds(ids: Collection<Int>, configure: (RequestBu
 
 fun GW2APIClient.gw2v2MapChestsAll(configure: (RequestBuilder<List<GW2v2MapChests>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChests>> = request(
     path = "/v2/mapchests",
-    parameters = mapOf("ids" to "all"),
+    parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -78,7 +78,7 @@ fun GW2APIClient.gw2v2MapChestsAll(configure: (RequestBuilder<List<GW2v2MapChest
 
 fun GW2APIClient.gw2v2MapChestsByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2MapChests>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChests>> = request(
     path = "/v2/mapchests",
-    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
+    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

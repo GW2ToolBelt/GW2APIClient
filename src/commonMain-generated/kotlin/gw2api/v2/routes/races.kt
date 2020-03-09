@@ -34,7 +34,7 @@ import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2RacesIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/races",
-    parameters = emptyMap(),
+    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -45,7 +45,7 @@ fun GW2APIClient.gw2v2RacesIds(configure: (RequestBuilder<List<String>>.() -> Un
 
 fun GW2APIClient.gw2v2RacesById(id: String, configure: (RequestBuilder<GW2v2Races>.() -> Unit)? = null): RequestBuilder<GW2v2Races> = request(
     path = "/v2/races",
-    parameters = mapOf("id" to id.toString()),
+    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -56,7 +56,7 @@ fun GW2APIClient.gw2v2RacesById(id: String, configure: (RequestBuilder<GW2v2Race
 
 fun GW2APIClient.gw2v2RacesByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Races>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Races>> = request(
     path = "/v2/races",
-    parameters = mapOf("ids" to ids.joinToString(",")),
+    parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -67,7 +67,7 @@ fun GW2APIClient.gw2v2RacesByIds(ids: Collection<String>, configure: (RequestBui
 
 fun GW2APIClient.gw2v2RacesAll(configure: (RequestBuilder<List<GW2v2Races>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Races>> = request(
     path = "/v2/races",
-    parameters = mapOf("ids" to "all"),
+    parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -78,7 +78,7 @@ fun GW2APIClient.gw2v2RacesAll(configure: (RequestBuilder<List<GW2v2Races>>.() -
 
 fun GW2APIClient.gw2v2RacesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2Races>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Races>> = request(
     path = "/v2/races",
-    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
+    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

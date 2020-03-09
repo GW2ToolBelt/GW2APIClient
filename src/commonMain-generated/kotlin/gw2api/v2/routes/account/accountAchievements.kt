@@ -34,7 +34,7 @@ import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountAchievements(configure: (RequestBuilder<List<GW2v2AccountAchievements>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountAchievements>> = request(
     path = "/v2/account/achievements",
-    parameters = emptyMap(),
+    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),

@@ -34,7 +34,7 @@ import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2Account(configure: (RequestBuilder<GW2v2Account>.() -> Unit)? = null): RequestBuilder<GW2v2Account> = request(
     path = "/v2/account",
-    parameters = emptyMap(),
+    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),

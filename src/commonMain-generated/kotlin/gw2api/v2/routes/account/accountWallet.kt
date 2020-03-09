@@ -34,7 +34,7 @@ import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<List<GW2v2AccountWallet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountWallet>> = request(
     path = "/v2/account/wallet",
-    parameters = emptyMap(),
+    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),

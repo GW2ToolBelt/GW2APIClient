@@ -34,7 +34,7 @@ import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2WvWUpgradesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/wvw/upgrades",
-    parameters = emptyMap(),
+    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -45,7 +45,7 @@ fun GW2APIClient.gw2v2WvWUpgradesIds(configure: (RequestBuilder<List<Int>>.() ->
 
 fun GW2APIClient.gw2v2WvWUpgradesById(id: Int, configure: (RequestBuilder<GW2v2WvWUpgrades>.() -> Unit)? = null): RequestBuilder<GW2v2WvWUpgrades> = request(
     path = "/v2/wvw/upgrades",
-    parameters = mapOf("id" to id.toString()),
+    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -56,7 +56,7 @@ fun GW2APIClient.gw2v2WvWUpgradesById(id: Int, configure: (RequestBuilder<GW2v2W
 
 fun GW2APIClient.gw2v2WvWUpgradesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
     path = "/v2/wvw/upgrades",
-    parameters = mapOf("ids" to ids.joinToString(",")),
+    parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -67,7 +67,7 @@ fun GW2APIClient.gw2v2WvWUpgradesByIds(ids: Collection<Int>, configure: (Request
 
 fun GW2APIClient.gw2v2WvWUpgradesAll(configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
     path = "/v2/wvw/upgrades",
-    parameters = mapOf("ids" to "all"),
+    parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -78,7 +78,7 @@ fun GW2APIClient.gw2v2WvWUpgradesAll(configure: (RequestBuilder<List<GW2v2WvWUpg
 
 fun GW2APIClient.gw2v2WvWUpgradesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
     path = "/v2/wvw/upgrades",
-    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
+    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
