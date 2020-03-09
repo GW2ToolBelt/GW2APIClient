@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2TokenInfo(configure: (RequestBuilder<GW2v2TokenInfo>.() -> Unit)? = null): RequestBuilder<GW2v2TokenInfo> = request(
-    path = "/tokeninfo",
+    path = "/v2/tokeninfo",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<List<GW2v2AccountWallet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountWallet>> = request(
-    path = "/account/wallet",
+    path = "/v2/account/wallet",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

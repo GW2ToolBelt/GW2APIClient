@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<List<GW2v2AccountMaterials>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMaterials>> = request(
-    path = "/account/materials",
+    path = "/v2/account/materials",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

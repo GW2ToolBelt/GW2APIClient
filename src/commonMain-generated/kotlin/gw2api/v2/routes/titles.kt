@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2TitlesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/titles",
+    path = "/v2/titles",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -44,7 +44,7 @@ fun GW2APIClient.gw2v2TitlesIds(configure: (RequestBuilder<List<Int>>.() -> Unit
 )
 
 fun GW2APIClient.gw2v2TitlesById(id: Int, configure: (RequestBuilder<GW2v2Titles>.() -> Unit)? = null): RequestBuilder<GW2v2Titles> = request(
-    path = "/titles",
+    path = "/v2/titles",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -55,7 +55,7 @@ fun GW2APIClient.gw2v2TitlesById(id: Int, configure: (RequestBuilder<GW2v2Titles
 )
 
 fun GW2APIClient.gw2v2TitlesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
-    path = "/titles",
+    path = "/v2/titles",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -66,7 +66,7 @@ fun GW2APIClient.gw2v2TitlesByIds(ids: Collection<Int>, configure: (RequestBuild
 )
 
 fun GW2APIClient.gw2v2TitlesAll(configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
-    path = "/titles",
+    path = "/v2/titles",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -77,7 +77,7 @@ fun GW2APIClient.gw2v2TitlesAll(configure: (RequestBuilder<List<GW2v2Titles>>.()
 )
 
 fun GW2APIClient.gw2v2TitlesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
-    path = "/titles",
+    path = "/v2/titles",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,

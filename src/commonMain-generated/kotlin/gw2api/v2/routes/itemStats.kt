@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2ItemStatsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/itemstats",
+    path = "/v2/itemstats",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -44,7 +44,7 @@ fun GW2APIClient.gw2v2ItemStatsIds(configure: (RequestBuilder<List<Int>>.() -> U
 )
 
 fun GW2APIClient.gw2v2ItemStatsById(id: Int, configure: (RequestBuilder<GW2v2ItemStats>.() -> Unit)? = null): RequestBuilder<GW2v2ItemStats> = request(
-    path = "/itemstats",
+    path = "/v2/itemstats",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -55,7 +55,7 @@ fun GW2APIClient.gw2v2ItemStatsById(id: Int, configure: (RequestBuilder<GW2v2Ite
 )
 
 fun GW2APIClient.gw2v2ItemStatsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2ItemStats>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStats>> = request(
-    path = "/itemstats",
+    path = "/v2/itemstats",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -66,7 +66,7 @@ fun GW2APIClient.gw2v2ItemStatsByIds(ids: Collection<Int>, configure: (RequestBu
 )
 
 fun GW2APIClient.gw2v2ItemStatsAll(configure: (RequestBuilder<List<GW2v2ItemStats>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStats>> = request(
-    path = "/itemstats",
+    path = "/v2/itemstats",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -77,7 +77,7 @@ fun GW2APIClient.gw2v2ItemStatsAll(configure: (RequestBuilder<List<GW2v2ItemStat
 )
 
 fun GW2APIClient.gw2v2ItemStatsByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2ItemStats>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStats>> = request(
-    path = "/itemstats",
+    path = "/v2/itemstats",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountAchievements(configure: (RequestBuilder<List<GW2v2AccountAchievements>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountAchievements>> = request(
-    path = "/account/achievements",
+    path = "/v2/account/achievements",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

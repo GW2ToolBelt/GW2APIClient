@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountMinis(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/account/minis",
+    path = "/v2/account/minis",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

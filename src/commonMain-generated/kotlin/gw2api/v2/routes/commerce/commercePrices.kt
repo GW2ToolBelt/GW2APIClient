@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2CommercePricesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/commerce/prices",
+    path = "/v2/commerce/prices",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -44,7 +44,7 @@ fun GW2APIClient.gw2v2CommercePricesIds(configure: (RequestBuilder<List<Int>>.()
 )
 
 fun GW2APIClient.gw2v2CommercePricesById(id: Int, configure: (RequestBuilder<GW2v2CommercePrices>.() -> Unit)? = null): RequestBuilder<GW2v2CommercePrices> = request(
-    path = "/commerce/prices",
+    path = "/v2/commerce/prices",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -55,7 +55,7 @@ fun GW2APIClient.gw2v2CommercePricesById(id: Int, configure: (RequestBuilder<GW2
 )
 
 fun GW2APIClient.gw2v2CommercePricesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2CommercePrices>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
-    path = "/commerce/prices",
+    path = "/v2/commerce/prices",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -66,7 +66,7 @@ fun GW2APIClient.gw2v2CommercePricesByIds(ids: Collection<Int>, configure: (Requ
 )
 
 fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2CommercePrices>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
-    path = "/commerce/prices",
+    path = "/v2/commerce/prices",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> Unit)? = null): RequestBuilder<GW2v2Build> = request(
-    path = "/build",
+    path = "/v2/build",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,

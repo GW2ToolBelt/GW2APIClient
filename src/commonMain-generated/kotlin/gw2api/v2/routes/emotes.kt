@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2EmotesIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/emotes",
+    path = "/v2/emotes",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -44,7 +44,7 @@ fun GW2APIClient.gw2v2EmotesIds(configure: (RequestBuilder<List<String>>.() -> U
 )
 
 fun GW2APIClient.gw2v2EmotesById(id: String, configure: (RequestBuilder<GW2v2Emotes>.() -> Unit)? = null): RequestBuilder<GW2v2Emotes> = request(
-    path = "/emotes",
+    path = "/v2/emotes",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -55,7 +55,7 @@ fun GW2APIClient.gw2v2EmotesById(id: String, configure: (RequestBuilder<GW2v2Emo
 )
 
 fun GW2APIClient.gw2v2EmotesByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Emotes>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Emotes>> = request(
-    path = "/emotes",
+    path = "/v2/emotes",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -66,7 +66,7 @@ fun GW2APIClient.gw2v2EmotesByIds(ids: Collection<String>, configure: (RequestBu
 )
 
 fun GW2APIClient.gw2v2EmotesAll(configure: (RequestBuilder<List<GW2v2Emotes>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Emotes>> = request(
-    path = "/emotes",
+    path = "/v2/emotes",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -77,7 +77,7 @@ fun GW2APIClient.gw2v2EmotesAll(configure: (RequestBuilder<List<GW2v2Emotes>>.()
 )
 
 fun GW2APIClient.gw2v2EmotesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2Emotes>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Emotes>> = request(
-    path = "/emotes",
+    path = "/v2/emotes",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,

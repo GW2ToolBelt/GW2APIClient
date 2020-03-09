@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountMapChests(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/account/mapchests",
+    path = "/v2/account/mapchests",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

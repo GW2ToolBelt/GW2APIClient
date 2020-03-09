@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountMountsTypes(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/account/mounts/types",
+    path = "/v2/account/mounts/types",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

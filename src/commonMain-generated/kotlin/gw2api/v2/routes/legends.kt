@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/legends",
+    path = "/v2/legends",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -44,7 +44,7 @@ fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>.() -> 
 )
 
 fun GW2APIClient.gw2v2LegendsById(id: String, configure: (RequestBuilder<GW2v2Legends>.() -> Unit)? = null): RequestBuilder<GW2v2Legends> = request(
-    path = "/legends",
+    path = "/v2/legends",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -55,7 +55,7 @@ fun GW2APIClient.gw2v2LegendsById(id: String, configure: (RequestBuilder<GW2v2Le
 )
 
 fun GW2APIClient.gw2v2LegendsByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
-    path = "/legends",
+    path = "/v2/legends",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -66,7 +66,7 @@ fun GW2APIClient.gw2v2LegendsByIds(ids: Collection<String>, configure: (RequestB
 )
 
 fun GW2APIClient.gw2v2LegendsAll(configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
-    path = "/legends",
+    path = "/v2/legends",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -77,7 +77,7 @@ fun GW2APIClient.gw2v2LegendsAll(configure: (RequestBuilder<List<GW2v2Legends>>.
 )
 
 fun GW2APIClient.gw2v2LegendsByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
-    path = "/legends",
+    path = "/v2/legends",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,

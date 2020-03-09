@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountEmotes(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/account/emotes",
+    path = "/v2/account/emotes",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2WvWObjectivesIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/wvw/objectives",
+    path = "/v2/wvw/objectives",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -44,7 +44,7 @@ fun GW2APIClient.gw2v2WvWObjectivesIds(configure: (RequestBuilder<List<String>>.
 )
 
 fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: (RequestBuilder<GW2v2WvWObjectives>.() -> Unit)? = null): RequestBuilder<GW2v2WvWObjectives> = request(
-    path = "/wvw/objectives",
+    path = "/v2/wvw/objectives",
     parameters = mapOf("id" to id.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -55,7 +55,7 @@ fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: (RequestBuilder<G
 )
 
 fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
-    path = "/wvw/objectives",
+    path = "/v2/wvw/objectives",
     parameters = mapOf("ids" to ids.joinToString(",")),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -66,7 +66,7 @@ fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: Collection<String>, configure: (Re
 )
 
 fun GW2APIClient.gw2v2WvWObjectivesAll(configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
-    path = "/wvw/objectives",
+    path = "/v2/wvw/objectives",
     parameters = mapOf("ids" to "all"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
@@ -77,7 +77,7 @@ fun GW2APIClient.gw2v2WvWObjectivesAll(configure: (RequestBuilder<List<GW2v2WvWO
 )
 
 fun GW2APIClient.gw2v2WvWObjectivesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
-    path = "/wvw/objectives",
+    path = "/v2/wvw/objectives",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString()),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,

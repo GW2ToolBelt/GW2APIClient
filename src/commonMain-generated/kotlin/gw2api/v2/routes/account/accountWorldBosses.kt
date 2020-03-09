@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountWorldBosses(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/account/worldbosses",
+    path = "/v2/account/worldbosses",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

@@ -85,7 +85,7 @@ open class Generate : DefaultTask() {
                     isIdsEndpoint: Boolean = false
                 ) =
                     """
-                    path = "${endpoint.route.toLowerCase(Locale.ENGLISH)}",
+                    path = "/v2${endpoint.route.toLowerCase(Locale.ENGLISH)}",
                     parameters = $parameters,
                     replaceInPath = emptyMap(),
                     requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},

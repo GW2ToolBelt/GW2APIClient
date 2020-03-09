@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountMountsSkins(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/account/mounts/skins",
+    path = "/v2/account/mounts/skins",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

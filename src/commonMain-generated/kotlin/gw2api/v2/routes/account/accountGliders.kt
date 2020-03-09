@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountGliders(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/account/gliders",
+    path = "/v2/account/gliders",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

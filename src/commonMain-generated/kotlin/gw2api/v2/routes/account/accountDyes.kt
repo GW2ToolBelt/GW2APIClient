@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountDyes(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/account/dyes",
+    path = "/v2/account/dyes",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,

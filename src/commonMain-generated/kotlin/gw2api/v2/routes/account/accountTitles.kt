@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountTitles(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/account/titles",
+    path = "/v2/account/titles",
     parameters = emptyMap(),
     replaceInPath = emptyMap(),
     requiresAuthentication = true,
