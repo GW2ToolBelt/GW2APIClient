@@ -200,7 +200,7 @@ open class Generate : DefaultTask() {
                     """.trimMargin().prependIndent(indent)
                 }
 
-                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoint.route.toLowerCase(Locale.ENGLISH)}.kt").also { outputFile ->
+                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoint.route.toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.let { "${it.toCharArray()[0].toLowerCase()}${it.substring(1)}" }}.kt").also { outputFile ->
                     outputFile.parentFile.mkdirs()
                     outputFile.writeText(
                         """
