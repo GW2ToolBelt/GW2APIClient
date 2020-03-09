@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Leon Linhart
+ * Copyright (c) 2018-2020 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -60,6 +60,9 @@ open class Generate : DefaultTask() {
     ) {
         override fun toString() = name
     }
+
+    @Input
+    lateinit var licenseHeader: String
 
     @OutputDirectory
     lateinit var outputDirectory: File
@@ -204,6 +207,9 @@ open class Generate : DefaultTask() {
                     outputFile.parentFile.mkdirs()
                     outputFile.writeText(
                         """
+/*
+${licenseHeader.prependIndent(" * ")}
+ */
 @file:JvmName("GW2v2")
 @file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
