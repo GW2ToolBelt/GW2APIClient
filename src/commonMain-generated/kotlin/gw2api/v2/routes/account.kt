@@ -62,5 +62,7 @@ data class GW2v2Account(
     @SerialName("monthly_ap")
     val monthAP: Int,
     @SerialName("wvw_rank")
-    val wvwRank: Int
+    val wvwRank: Int,
+    @SerialName("last_modified")
+    val lastModified: String
 )

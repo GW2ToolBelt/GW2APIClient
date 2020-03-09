@@ -47,5 +47,11 @@ fun GW2APIClient.gw2v2TokenInfo(configure: (RequestBuilder<GW2v2TokenInfo>.() ->
 data class GW2v2TokenInfo(
     val id: String,
     val name: String,
-    val permissions: List<String>
+    val permissions: List<String>,
+    val type: String,
+    @SerialName("expires_at")
+    val expiresAt: String,
+    @SerialName("issued_at")
+    val issuedAt: String,
+    val urls: List<String>
 )

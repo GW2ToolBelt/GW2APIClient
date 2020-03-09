@@ -75,7 +75,7 @@ open class Generate : DefaultTask() {
                 val routeTitleCase = endpoint.route.replace("/", "")
 
                 val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaMap>()) {
-                    endpoint.schema!!.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
+                    endpoint[endpoint.versions.max()!!].second.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
                 }
 
                 fun requestBody(
