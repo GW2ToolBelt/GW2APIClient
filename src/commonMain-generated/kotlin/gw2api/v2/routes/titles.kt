@@ -92,8 +92,8 @@ data class GW2v2Titles(
     val id: Int,
     val name: String,
     @Deprecated(message = "")
-    val achievement: Int?,
-    val achievements: List<Int>?,
+    val achievement: Int? = null,
+    val achievements: List<Int>? = null,
     @SerialName("ap_required")
-    val apRequired: Int?
+    val apRequired: Int? = null
 )

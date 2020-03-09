@@ -50,8 +50,8 @@ data class GW2v2TokenInfo(
     val permissions: List<String>,
     val type: String,
     @SerialName("expires_at")
-    val expiresAt: String?,
+    val expiresAt: String? = null,
     @SerialName("issued_at")
-    val issuedAt: String?,
-    val urls: List<String>?
+    val issuedAt: String? = null,
+    val urls: List<String>? = null
 )

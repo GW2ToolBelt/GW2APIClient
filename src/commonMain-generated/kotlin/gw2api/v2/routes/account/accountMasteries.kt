@@ -46,5 +46,5 @@ fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2Acco
 @Serializable
 data class GW2v2AccountMasteries(
     val id: Int,
-    val level: Int?
+    val level: Int? = null
 )

@@ -48,5 +48,5 @@ data class GW2v2AccountMaterials(
     val id: Int,
     val category: Int,
     val count: Int,
-    val binding: String?
+    val binding: String? = null
 )

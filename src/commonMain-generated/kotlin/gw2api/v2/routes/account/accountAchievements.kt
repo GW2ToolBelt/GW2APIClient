@@ -47,9 +47,9 @@ fun GW2APIClient.gw2v2AccountAchievements(configure: (RequestBuilder<List<GW2v2A
 data class GW2v2AccountAchievements(
     val id: Int,
     val done: Boolean,
-    val bits: List<Int>?,
-    val current: Int?,
-    val max: Int?,
-    val repeated: Int?,
-    val unlocked: Boolean?
+    val bits: List<Int>? = null,
+    val current: Int? = null,
+    val max: Int? = null,
+    val repeated: Int? = null,
+    val unlocked: Boolean? = null
 )
