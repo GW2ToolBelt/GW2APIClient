@@ -17,6 +17,7 @@ import com.github.themrmilchmann.build.*
 import com.github.themrmilchmann.build.apigen.*
 
 plugins {
+    id("com.android.library") version "3.6.0"
     kotlin("multiplatform") version "1.3.70"
     kotlin("plugin.serialization") version "1.3.70"
     signing
@@ -32,57 +33,57 @@ version = when (deployment.type) {
     else -> nextVersion
 }
 
+android {
+    compileSdkVersion(27)
+    defaultConfig {
+        minSdkVersion(15)
+    }
+}
+
 kotlin {
-    targets {
-        this@kotlin.targets.all {
-            compilations.all {
-                kotlinOptions {
-                    languageVersion = "1.3"
-                    apiVersion = "1.3"
-                }
-            }
-
-            mavenPublication {
-                pom {
-                    name.set(project.name)
-                    description.set("Kotlin multiplatform client for the official Guild Wars 2 API")
-                    packaging = "jar"
-                    url.set("https://github.com/TheMrMilchmann/GW2APIClient")
-
-                    licenses {
-                        license {
-                            name.set("The Apache License, Version 2.0")
-                            url.set("https://github.com/TheMrMilchmann/GW2APIClient/blob/master/LICENSE")
-                            distribution.set("repo")
-                        }
-                    }
-
-                    developers {
-                        developer {
-                            id.set("TheMrMilchmann")
-                            name.set("Leon Linhart")
-                            email.set("themrmilchmann@gmail.com")
-                            url.set("https://github.com/TheMrMilchmann")
-                        }
-                    }
-
-                    scm {
-                        connection.set("scm:git:git://github.com/TheMrMilchmann/GW2APIClient.git")
-                        developerConnection.set("scm:git:git://github.com/TheMrMilchmann/GW2APIClient.git")
-                        url.set("https://github.com/TheMrMilchmann/GW2APIClient.git")
-                    }
-                }
+    targets.all {
+        compilations.all {
+            kotlinOptions {
+                languageVersion = "1.3"
+                apiVersion = "1.3"
             }
         }
 
-//        fromPreset(presets.getByName("js"), "js")
+        mavenPublication {
+            pom {
+                name.set(project.name)
+                description.set("Kotlin multiplatform client for the official Guild Wars 2 API")
+                packaging = "jar"
+                url.set("https://github.com/TheMrMilchmann/GW2APIClient")
 
-        jvm {
-            mavenPublication {
-                artifactId = artifactName
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("https://github.com/TheMrMilchmann/GW2APIClient/blob/master/LICENSE")
+                        distribution.set("repo")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("TheMrMilchmann")
+                        name.set("Leon Linhart")
+                        email.set("themrmilchmann@gmail.com")
+                        url.set("https://github.com/TheMrMilchmann")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://github.com/TheMrMilchmann/GW2APIClient.git")
+                    developerConnection.set("scm:git:git://github.com/TheMrMilchmann/GW2APIClient.git")
+                    url.set("https://github.com/TheMrMilchmann/GW2APIClient.git")
+                }
             }
         }
     }
+
+    android("androidLib")
+    jvm()
 
     sourceSets {
         all {
@@ -102,9 +103,13 @@ kotlin {
             }
         }
 
-        getByName("commonTest").dependencies {
-            implementation("org.jetbrains.kotlin:kotlin-test-common")
-            implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
+        getByName("commonTest") {
+            kotlin.srcDir("src/commonTest-generated/kotlin")
+
+            dependencies {
+                implementation("org.jetbrains.kotlin:kotlin-test-common")
+                implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
+            }
         }
 
 //        getByName("jsMain").dependencies {
