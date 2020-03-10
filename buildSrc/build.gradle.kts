@@ -23,6 +23,16 @@ plugins {
     `kotlin-dsl`
 }
 
+kotlin {
+    sourceSets {
+        all {
+            languageSettings.apply {
+                useExperimentalAnnotation("kotlin.time.ExperimentalTime")
+            }
+        }
+    }
+}
+
 repositories {
     mavenCentral()
     mavenLocal()
