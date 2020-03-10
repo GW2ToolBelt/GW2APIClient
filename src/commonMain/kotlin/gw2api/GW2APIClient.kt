@@ -21,7 +21,6 @@
  */
 package gw2api
 
-import gw2api.misc.*
 import io.ktor.client.*
 import io.ktor.utils.io.core.*
 import kotlinx.serialization.*

@@ -21,7 +21,6 @@
  */
 package gw2api
 
-import gw2api.misc.*
 import gw2api.v2.*
 import io.ktor.client.*
 import io.ktor.client.request.*

@@ -71,6 +71,37 @@ open class Generate : DefaultTask() {
 
     @TaskAction
     fun generate() {
+        fun writeFile(location: String, content: String) {
+            File(outputDirectory, "kotlin/$location").writeText(
+                """
+                |/*
+                |${licenseHeader.prependIndent(" * ")}
+                | */
+                |$content
+                """.trimMargin()
+            )
+        }
+
+        writeFile(
+            "gw2api/Language.kt",
+            """
+            |package gw2api
+            |
+            |/**
+            | * TODO doc
+            | *
+            | * @since   0.1.0
+            | */
+            |public enum class Language(public val code: String) {
+            |${Language.values().map { language -> """${language.name}("${language.locale.language}")""" }.joinToString(separator = ",$n") { "$t$it" }};
+            |
+            |    companion object {
+            |        val API_V2 = setOf(${API_V2_DEFINITION.supportedLanguages.joinToString(separator = ", ") { it.name }})
+            |    }
+            |}
+            """.trimMargin()
+        )
+
         with(API_V2_DEFINITION) {
             val schemaVersion = V2SchemaVersion.V2_SCHEMA_2019_12_19T00_00_00_000Z
 
@@ -94,7 +125,7 @@ open class Generate : DefaultTask() {
                     replaceInPath = emptyMap(),
                     requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
                     requiredPermissions = emptySet(),
-                    supportedLanguages = ${if (endpoint.isLocalized && !isIdsEndpoint) "API_V2_LANGS" else "emptySet()"},
+                    supportedLanguages = ${if (endpoint.isLocalized && !isIdsEndpoint) "Language.API_V2" else "emptySet()"},
                     serializer = $serializer,
                     configure = configure
                     """.trimIndent().lines().joinToString(separator = n) { "$t$it" }
@@ -221,7 +252,6 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
-import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*

@@ -27,7 +27,6 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
-import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -49,7 +48,7 @@ fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: (RequestBuilder<G
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWObjectives.serializer(),
     configure = configure
 )
@@ -60,7 +59,7 @@ fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: Collection<String>, configure: (Re
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWObjectives.serializer().list,
     configure = configure
 )
@@ -71,7 +70,7 @@ fun GW2APIClient.gw2v2WvWObjectivesAll(configure: (RequestBuilder<List<GW2v2WvWO
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWObjectives.serializer().list,
     configure = configure
 )
@@ -82,7 +81,7 @@ fun GW2APIClient.gw2v2WvWObjectivesByPage(page: Int, pageSize: Int, configure: (
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWObjectives.serializer().list,
     configure = configure
 )

@@ -27,7 +27,6 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
-import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*

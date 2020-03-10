@@ -27,7 +27,6 @@ package gw2api.v2
 
 import gw2api.*
 import gw2api.extra.*
-import gw2api.misc.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -49,7 +48,7 @@ fun GW2APIClient.gw2v2WvWRanksById(id: Int, configure: (RequestBuilder<GW2v2WvWR
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWRanks.serializer(),
     configure = configure
 )
@@ -60,7 +59,7 @@ fun GW2APIClient.gw2v2WvWRanksByIds(ids: Collection<Int>, configure: (RequestBui
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWRanks.serializer().list,
     configure = configure
 )
@@ -71,7 +70,7 @@ fun GW2APIClient.gw2v2WvWRanksAll(configure: (RequestBuilder<List<GW2v2WvWRanks>
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWRanks.serializer().list,
     configure = configure
 )
@@ -82,7 +81,7 @@ fun GW2APIClient.gw2v2WvWRanksByPage(page: Int, pageSize: Int, configure: (Reque
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
-    supportedLanguages = API_V2_LANGS,
+    supportedLanguages = Language.API_V2,
     serializer = GW2v2WvWRanks.serializer().list,
     configure = configure
 )
