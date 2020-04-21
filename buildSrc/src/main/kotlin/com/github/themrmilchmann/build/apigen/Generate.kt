@@ -19,6 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+@file:Suppress("FunctionName", "LocalVariableName")
 package com.github.themrmilchmann.build.apigen
 
 import com.github.gw2toolbelt.apigen.*
