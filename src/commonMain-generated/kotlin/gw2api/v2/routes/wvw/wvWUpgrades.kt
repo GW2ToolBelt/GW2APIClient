@@ -75,7 +75,7 @@ fun GW2APIClient.gw2v2WvWUpgradesAll(configure: (RequestBuilder<List<GW2v2WvWUpg
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
+fun GW2APIClient.gw2v2WvWUpgradesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
     path = "/v2/wvw/upgrades",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),

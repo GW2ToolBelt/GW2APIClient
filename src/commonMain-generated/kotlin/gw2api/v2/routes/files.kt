@@ -75,7 +75,7 @@ fun GW2APIClient.gw2v2FilesAll(configure: (RequestBuilder<List<GW2v2Files>>.() -
     configure = configure
 )
 
-fun GW2APIClient.gw2v2FilesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2Files>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Files>> = request(
+fun GW2APIClient.gw2v2FilesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Files>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Files>> = request(
     path = "/v2/files",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),

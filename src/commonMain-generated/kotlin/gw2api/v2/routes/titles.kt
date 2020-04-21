@@ -75,7 +75,7 @@ fun GW2APIClient.gw2v2TitlesAll(configure: (RequestBuilder<List<GW2v2Titles>>.()
     configure = configure
 )
 
-fun GW2APIClient.gw2v2TitlesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
+fun GW2APIClient.gw2v2TitlesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
     path = "/v2/titles",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),

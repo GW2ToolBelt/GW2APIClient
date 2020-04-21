@@ -64,7 +64,7 @@ fun GW2APIClient.gw2v2CommercePricesByIds(ids: Collection<Int>, configure: (Requ
     configure = configure
 )
 
-fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2CommercePrices>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
+fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommercePrices>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
     path = "/v2/commerce/prices",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),

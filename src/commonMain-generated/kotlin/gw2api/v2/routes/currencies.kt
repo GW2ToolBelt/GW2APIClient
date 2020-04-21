@@ -75,7 +75,7 @@ fun GW2APIClient.gw2v2CurrenciesAll(configure: (RequestBuilder<List<GW2v2Currenc
     configure = configure
 )
 
-fun GW2APIClient.gw2v2CurrenciesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2Currencies>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currencies>> = request(
+fun GW2APIClient.gw2v2CurrenciesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Currencies>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currencies>> = request(
     path = "/v2/currencies",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),

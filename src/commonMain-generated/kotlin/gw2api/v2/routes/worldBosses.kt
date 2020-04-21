@@ -75,7 +75,7 @@ fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v2WorldB
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<GW2v2WorldBosses>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosses>> = request(
+fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WorldBosses>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosses>> = request(
     path = "/v2/worldbosses",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),

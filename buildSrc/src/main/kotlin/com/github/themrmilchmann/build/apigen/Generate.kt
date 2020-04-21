@@ -189,7 +189,7 @@ open class Generate : DefaultTask() {
                                 }
                                 is QueryType.ByPage -> yield(
                                     """
-                                    |fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                    |fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                     |${requestBody(
                                         parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "${schemaVersion.version!!}")""",
                                         serializer = dataClassType.listSerializer
