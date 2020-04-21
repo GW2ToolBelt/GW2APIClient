@@ -132,7 +132,7 @@ open class Generate : DefaultTask() {
                     """.trimIndent().lines().joinToString(separator = n) { "$t$it" }
 
                 val functions = endpoint.queryTypes.let { queryTypes -> sequence {
-                    if (queryTypes !== null) {
+                    if (queryTypes.isNotEmpty()) {
                         val idType = when (endpoint.idType) {
                             is SchemaType.Kind.INTEGER -> "Int"
                             is SchemaType.Kind.STRING -> "String"
