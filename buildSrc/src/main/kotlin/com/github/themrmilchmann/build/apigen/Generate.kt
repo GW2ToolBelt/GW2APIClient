@@ -40,7 +40,7 @@ open class Generate : DefaultTask() {
     private val String.listSerializer get() = "$this.serializer().list"
     private val KotlinTypeInfo.listSerializer get() = "${serializer}.list"
 
-    private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaMap>): KotlinTypeInfo {
+    private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>): KotlinTypeInfo {
         fun KotlinTypeInfo(type: String) = KotlinTypeInfo(type, "$type.serializer()")
 
         return when (this) {
@@ -52,6 +52,7 @@ open class Generate : DefaultTask() {
                 val itemType = items.toKotlinType(titleCaseName, dataClasses)
                 KotlinTypeInfo("List<${itemType.name}>", "${itemType.serializer}.list")
             }
+            is SchemaConditional -> KotlinTypeInfo(titleCaseName).also { dataClasses[titleCaseName] = this }
             is SchemaMap -> KotlinTypeInfo(titleCaseName).also { dataClasses[titleCaseName] = this }
             else -> error("Unsupported SchemaType: $this")
         }
@@ -109,7 +110,7 @@ open class Generate : DefaultTask() {
             endpoints.forEach { endpoint ->
                 val routeTitleCase = endpoint.route.replace("/", "")
 
-                val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaMap>()) {
+                val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaType>()) {
                     endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
                 }
 
@@ -215,31 +216,7 @@ open class Generate : DefaultTask() {
                     }
                 }}
 
-                fun SchemaMap.createDataClass(className: String, indent: String = ""): String {
-                    val dataClasses = mutableMapOf<String, SchemaMap>()
-
-                    return """
-                    |@Serializable
-                    |data class $className(
-                    |${properties.map { (_, property) ->
-                        StringBuilder().run {
-                            if (property.isDeprecated) append("""$t@Deprecated(message = "")$n""")
-                            if (property.serialName != property.propertyName) append("""$t@SerialName("${property.serialName}")$n""")
-                            append("${t}val ${property.propertyName}: ${property.type.toKotlinType(property.propertyName.let { "${it.toCharArray()[0].toUpperCase()}${it.substring(1)}" }, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-                            toString()
-                        }
-                    }.joinToString(separator = ",$n")}
-                    |)${if (dataClasses.isNotEmpty()) """
-                    | {
-                    |
-                    |${dataClasses.map { (name, schema) -> schema.createDataClass(name, t) }.joinToString(separator = "$n$n")}
-                    |
-                    |}
-                    """.trimMargin() else ""}
-                    """.trimMargin().prependIndent(indent)
-                }
-
-                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoint.route.toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.let { "${it.toCharArray()[0].toLowerCase()}${it.substring(1)}" }}.kt").also { outputFile ->
+                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoint.route.toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt").also { outputFile ->
                     outputFile.parentFile.mkdirs()
                     outputFile.writeText(
                         """
@@ -257,12 +234,51 @@ import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
-${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + it.createDataClass("GW2v2$routeTitleCase") else "" }}
+${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaMap).createDataClass("GW2v2$routeTitleCase") else "" }}
 """.trimIndent()
                     )
                 }
             }
         }
+    }
+
+    private fun SchemaConditional.createSealedClass(className: String, indent: String = ""): String {
+        return """
+        |@Serializable
+        |sealed class $className {
+        |
+        |${interpretations.map { (name, schema) -> (schema as SchemaMap).createDataClass(name, indent = t, superClass = className) }.joinToString(separator = "$n$n")}
+        |
+        |}
+        """.trimMargin().prependIndent(indent)
+    }
+
+    private fun SchemaMap.createDataClass(className: String, indent: String = "", serialName: String? = null, superClass: String? = null): String {
+        val dataClasses = mutableMapOf<String, SchemaType>()
+
+        return """
+        |@Serializable${if (serialName !== null) "${n}SerialName($serialName)" else ""}
+        |data class $className(
+        |${properties.map { (_, property) ->
+            StringBuilder().run {
+                if (property.isDeprecated) append("""$t@Deprecated(message = "")$n""")
+                if (property.serialName != property.propertyName) append("""$t@SerialName("${property.serialName}")$n""")
+                append("${t}val ${property.propertyName}: ${property.type.toKotlinType(property.propertyName.firstToUpperCase(), dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                toString()
+            }
+        }.joinToString(separator = ",$n")}
+        |)${if (superClass !== null) " : $superClass()" else "" }${if (dataClasses.isNotEmpty()) """
+        | {
+        |
+        |${dataClasses.map { (name, schema) -> when(schema) {
+            is SchemaConditional -> schema.createSealedClass(name, indent = t)
+            is SchemaMap -> schema.createDataClass(name, indent = t)
+            else -> error("")
+        }}.joinToString(separator = "$n$n")}
+        |
+        |}
+        """.trimMargin() else ""}
+        """.trimMargin().prependIndent(indent)
     }
 
 }
