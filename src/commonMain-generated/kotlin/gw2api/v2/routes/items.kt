@@ -114,7 +114,7 @@ data class GW2v2Items(
     val upgradesInto: List<UpgradesInto>? = null,
     @SerialName("upgrades_from")
     val upgradesFrom: List<UpgradesFrom>? = null,
-    val details: Details
+    val details: Details? = null
 ) {
 
     @Serializable
@@ -188,7 +188,7 @@ data class GW2v2Items(
             @Serializable
             data class InfusionSlots(
                 val flags: List<String>,
-                @SerialName("infusion_type")
+                @SerialName("item_id")
                 val itemId: Int? = null
             )
     
@@ -245,7 +245,7 @@ data class GW2v2Items(
             @Serializable
             data class InfusionSlots(
                 val flags: List<String>,
-                @SerialName("infusion_type")
+                @SerialName("item_id")
                 val itemId: Int? = null
             )
     
@@ -320,7 +320,7 @@ data class GW2v2Items(
             val applyCount: Int? = null,
             val name: String? = null,
             val icon: String? = null,
-            val skin: List<Int>? = null
+            val skins: List<Int>? = null
         ) : Details()
     
         @Suppress("ClassName")
@@ -369,7 +369,7 @@ data class GW2v2Items(
             @SerialName("guild_upgrade_id")
             val guildUpgradeId: Int? = null,
             @SerialName("vendor_ids")
-            val vendorIds: List<Int>
+            val vendorIds: List<Int>? = null
         ) : Details()
     
         @Suppress("ClassName")
@@ -426,13 +426,15 @@ data class GW2v2Items(
             @SerialName("secondary_suffix_item_id")
             val secondarySuffixItemId: String? = null,
             @SerialName("stat_choices")
-            val statChoices: List<Int>? = null
+            val statChoices: List<Int>? = null,
+            @SerialName("attribute_adjustment")
+            val attributeAdjustment: Double? = null
         ) : Details() {
     
             @Serializable
             data class InfusionSlots(
                 val flags: List<String>,
-                @SerialName("infusion_type")
+                @SerialName("item_id")
                 val itemId: Int? = null
             )
     
@@ -479,7 +481,9 @@ data class GW2v2Items(
             val suffix: String,
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
-            val bonuses: List<String>? = null
+            val bonuses: List<String>? = null,
+            @SerialName("attribute_adjustment")
+            val attributeAdjustment: Double? = null
         ) : Details() {
     
             @Serializable
@@ -543,7 +547,7 @@ data class GW2v2Items(
             @Serializable
             data class InfusionSlots(
                 val flags: List<String>,
-                @SerialName("infusion_type")
+                @SerialName("item_id")
                 val itemId: Int? = null
             )
     
