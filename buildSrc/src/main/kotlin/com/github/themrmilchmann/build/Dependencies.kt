@@ -24,7 +24,7 @@ package com.github.themrmilchmann.build
 object Dependencies {
 
     // Shared depencencies
-    val kotlinxCoroutinesVersion = "1.3.4"
+    val kotlinxCoroutinesVersion = "1.3.8"
     val kotlinxSerializationVersion = "0.20.0"
     val ktorVersion = "1.3.2"
 
