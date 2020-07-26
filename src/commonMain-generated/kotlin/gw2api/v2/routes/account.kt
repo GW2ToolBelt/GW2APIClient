@@ -29,6 +29,7 @@ import gw2api.*
 import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2Account(configure: (RequestBuilder<GW2v2Account>.() -> Unit)? = null): RequestBuilder<GW2v2Account> = request(
@@ -59,7 +60,7 @@ data class GW2v2Account(
     @SerialName("daily_ap")
     val dailyAP: Int? = null,
     @SerialName("monthly_ap")
-    val monthAP: Int? = null,
+    val monthlyAP: Int? = null,
     @SerialName("wvw_rank")
     val wvwRank: Int? = null,
     @SerialName("last_modified")

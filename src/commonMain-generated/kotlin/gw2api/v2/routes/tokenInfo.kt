@@ -29,6 +29,7 @@ import gw2api.*
 import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2TokenInfo(configure: (RequestBuilder<GW2v2TokenInfo>.() -> Unit)? = null): RequestBuilder<GW2v2TokenInfo> = request(

@@ -29,6 +29,7 @@ import gw2api.*
 import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2TitlesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
@@ -94,5 +95,5 @@ data class GW2v2Titles(
     val achievement: Int? = null,
     val achievements: List<Int>? = null,
     @SerialName("ap_required")
-    val apRequired: Int? = null
+    val aPRequired: Int? = null
 )

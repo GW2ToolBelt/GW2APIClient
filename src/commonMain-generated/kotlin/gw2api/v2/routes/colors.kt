@@ -29,6 +29,7 @@ import gw2api.*
 import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2ColorsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
@@ -107,7 +108,8 @@ data class GW2v2Colors(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        val rbg: List<Int>
+        @SerialName("rbg")
+        val rBG: List<Int>
     )
 
     @Serializable
@@ -117,7 +119,8 @@ data class GW2v2Colors(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        val rbg: List<Int>
+        @SerialName("rbg")
+        val rBG: List<Int>
     )
 
     @Serializable
@@ -127,7 +130,8 @@ data class GW2v2Colors(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        val rbg: List<Int>
+        @SerialName("rbg")
+        val rBG: List<Int>
     )
 
     @Serializable
@@ -137,7 +141,8 @@ data class GW2v2Colors(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        val rbg: List<Int>
+        @SerialName("rbg")
+        val rBG: List<Int>
     )
 
 }

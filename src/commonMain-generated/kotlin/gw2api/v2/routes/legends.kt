@@ -29,6 +29,7 @@ import gw2api.*
 import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
@@ -44,7 +45,7 @@ fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>.() -> 
 
 fun GW2APIClient.gw2v2LegendsById(id: String, configure: (RequestBuilder<GW2v2Legends>.() -> Unit)? = null): RequestBuilder<GW2v2Legends> = request(
     path = "/v2/legends",
-    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOf("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = emptyMap(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

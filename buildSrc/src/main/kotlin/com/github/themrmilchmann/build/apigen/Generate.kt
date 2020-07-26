@@ -44,10 +44,10 @@ open class Generate : DefaultTask() {
         fun KotlinTypeInfo(type: String) = KotlinTypeInfo(type, "$type.serializer()")
 
         return when (this) {
-            SchemaType.Kind.BOOLEAN -> KotlinTypeInfo("Boolean")
-            SchemaType.Kind.DECIMAL -> KotlinTypeInfo("Double")
-            SchemaType.Kind.INTEGER -> KotlinTypeInfo("Int")
-            SchemaType.Kind.STRING -> KotlinTypeInfo("String")
+            SchemaBoolean -> KotlinTypeInfo("Boolean")
+            SchemaDecimal -> KotlinTypeInfo("Double")
+            SchemaInteger -> KotlinTypeInfo("Int")
+            SchemaString -> KotlinTypeInfo("String")
             is SchemaArray -> {
                 val itemType = items.toKotlinType(titleCaseName, dataClasses)
                 KotlinTypeInfo("List<${itemType.name}>", "${itemType.serializer}.list")
@@ -117,8 +117,6 @@ open class Generate : DefaultTask() {
                 fun requestBody(
                     parameters: String,
                     serializer: String,
-                    replaceInPath: String = "emptyMap()",
-                    requiredPermissions: String = "emptySet()",
                     isIdsEndpoint: Boolean = false
                 ) =
                     """
@@ -135,8 +133,8 @@ open class Generate : DefaultTask() {
                 val functions = endpoint.queryTypes.let { queryTypes -> sequence {
                     if (queryTypes.isNotEmpty()) {
                         val idType = when (endpoint.idType) {
-                            is SchemaType.Kind.INTEGER -> "Int"
-                            is SchemaType.Kind.STRING -> "String"
+                            is SchemaInteger -> "Int"
+                            is SchemaString -> "String"
                             else -> error("Unsupported ID type for endpoint: $endpoint")
                         }
 
@@ -158,7 +156,7 @@ open class Generate : DefaultTask() {
                                     """
                                     |fun GW2APIClient.gw2v2${routeTitleCase}ById(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
                                     |${requestBody(
-                                        parameters = """mapOf("id" to id.toString(), "v" to "${schemaVersion.version!!}")""",
+                                        parameters = """mapOf("id" to id${if (endpoint.idType is SchemaString) "" else ".toString()"}, "v" to "${schemaVersion.version!!}")""",
                                         serializer = dataClassType.serializer
                                     )}
                                     |)
@@ -232,6 +230,7 @@ import gw2api.*
 import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaMap).createDataClass("GW2v2$routeTitleCase") else "" }}
@@ -244,26 +243,52 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
 
     private fun SchemaConditional.createSealedClass(className: String, indent: String = ""): String {
         return """
-        |@Serializable
+        |@Suppress("ClassName")
+        |private object __JsonParametricSerializer_$className : JsonParametricSerializer<$className>($className::class) {
+        |    override fun selectSerializer(element: JsonElement): KSerializer<out $className> {
+        |        return when (element.jsonObject["__virtualType"]!!.content) {
+        |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (name, _) -> """"$name" -> $className.$name.serializer()""" }}
+        |            else -> TODO()
+        |        }
+        |    }
+        |}
+        |
+        |@Serializable(with = __JsonParametricSerializer_$className::class)
         |sealed class $className {
         |
-        |${interpretations.map { (name, schema) -> (schema as SchemaMap).createDataClass(name, indent = t, superClass = className) }.joinToString(separator = "$n$n")}
+        |${interpretations.map { (name, schema) -> (schema as SchemaMap).createDataClass(name, indent = t, superClass = className, isInterpretation = true) }.joinToString(separator = "$n$n")}
         |
         |}
         """.trimMargin().prependIndent(indent)
     }
 
-    private fun SchemaMap.createDataClass(className: String, indent: String = "", serialName: String? = null, superClass: String? = null): String {
+    private fun SchemaMap.createDataClass(className: String, indent: String = "", serialName: String? = null, superClass: String? = null, isInterpretation: Boolean = false): String {
         val dataClasses = mutableMapOf<String, SchemaType>()
 
-        return """
-        |@Serializable${if (serialName !== null) "${n}SerialName($serialName)" else ""}
+        return """${if (properties.values.any { it.type is SchemaConditional } || isInterpretation) """
+        |@Suppress("ClassName")
+        |@Serializer(forClass = $className::class)
+        |private object __${className}GeneratedSerializer : KSerializer<$className>
+        |
+        |@Suppress("ClassName")
+        |private object __${className}Serializer : JsonTransformingSerializer<$className>(__${className}GeneratedSerializer, "__${className}Serializer") {
+        |    override fun readTransform(element: JsonElement): JsonElement =
+        |        JsonObject(element.jsonObject${if (properties.values.any { it.type is SchemaConditional }) """|.mapValues { (key, value) ->
+        |            when (key) {
+        |                ${properties.values.filter { it.type is SchemaConditional }.joinToString(separator = "$n$t$t$t$t") { """"${it.serialName}" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["${(it.type as SchemaConditional).disambiguationBy}"]!!.primitive.content)))""" }}
+        |                else -> value
+        |            }
+        |        }
+        """.trimMargin() else ""}${if (isInterpretation) " - \"__virtualType\"" else ""})
+        |}
+        |
+        |@Serializable(with = __${className}Serializer::class)""".trimMargin() else "@Serializable"}${if (serialName !== null) "${n}SerialName($serialName)" else ""}
         |data class $className(
         |${properties.map { (_, property) ->
             StringBuilder().run {
                 if (property.isDeprecated) append("""$t@Deprecated(message = "")$n""")
-                if (property.serialName != property.propertyName) append("""$t@SerialName("${property.serialName}")$n""")
-                append("${t}val ${property.propertyName}: ${property.type.toKotlinType(property.propertyName.firstToUpperCase(), dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                if (property.serialName != property.camelCaseName) append("""$t@SerialName("${property.serialName}")$n""")
+                append("${t}val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
                 toString()
             }
         }.joinToString(separator = ",$n")}

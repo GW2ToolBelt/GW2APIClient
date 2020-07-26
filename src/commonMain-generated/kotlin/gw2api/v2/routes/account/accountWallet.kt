@@ -29,6 +29,7 @@ import gw2api.*
 import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<List<GW2v2AccountWallet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountWallet>> = request(
