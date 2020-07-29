@@ -35,7 +35,7 @@ import kotlin.jvm.*
 fun GW2APIClient.gw2v2AccountRecipes(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/account/recipes",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

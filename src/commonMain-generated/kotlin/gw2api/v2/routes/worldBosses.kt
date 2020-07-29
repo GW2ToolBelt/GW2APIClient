@@ -32,21 +32,21 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2WorldBossesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+fun GW2APIClient.gw2v2WorldBossesIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/worldbosses",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = Int.serializer().list,
+    serializer = String.serializer().list,
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WorldBossesById(id: Int, configure: (RequestBuilder<GW2v2WorldBosses>.() -> Unit)? = null): RequestBuilder<GW2v2WorldBosses> = request(
+fun GW2APIClient.gw2v2WorldBossesById(id: String, configure: (RequestBuilder<GW2v2WorldBosses>.() -> Unit)? = null): RequestBuilder<GW2v2WorldBosses> = request(
     path = "/v2/worldbosses",
-    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    parameters = mapOf("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -54,10 +54,10 @@ fun GW2APIClient.gw2v2WorldBossesById(id: Int, configure: (RequestBuilder<GW2v2W
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WorldBossesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WorldBosses>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosses>> = request(
+fun GW2APIClient.gw2v2WorldBossesByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2WorldBosses>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosses>> = request(
     path = "/v2/worldbosses",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -68,7 +68,7 @@ fun GW2APIClient.gw2v2WorldBossesByIds(ids: Collection<Int>, configure: (Request
 fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v2WorldBosses>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosses>> = request(
     path = "/v2/worldbosses",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -79,7 +79,7 @@ fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v2WorldB
 fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WorldBosses>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosses>> = request(
     path = "/v2/worldbosses",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -89,5 +89,5 @@ fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int = 200, configur
 
 @Serializable
 data class GW2v2WorldBosses(
-    val id: Int
+    val id: String
 )

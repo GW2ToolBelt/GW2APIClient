@@ -35,7 +35,7 @@ import kotlin.jvm.*
 fun GW2APIClient.gw2v2OutfitsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/outfits",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ fun GW2APIClient.gw2v2OutfitsIds(configure: (RequestBuilder<List<Int>>.() -> Uni
 fun GW2APIClient.gw2v2OutfitsById(id: Int, configure: (RequestBuilder<GW2v2Outfits>.() -> Unit)? = null): RequestBuilder<GW2v2Outfits> = request(
     path = "/v2/outfits",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -57,7 +57,7 @@ fun GW2APIClient.gw2v2OutfitsById(id: Int, configure: (RequestBuilder<GW2v2Outfi
 fun GW2APIClient.gw2v2OutfitsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Outfits>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfits>> = request(
     path = "/v2/outfits",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -68,7 +68,7 @@ fun GW2APIClient.gw2v2OutfitsByIds(ids: Collection<Int>, configure: (RequestBuil
 fun GW2APIClient.gw2v2OutfitsAll(configure: (RequestBuilder<List<GW2v2Outfits>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfits>> = request(
     path = "/v2/outfits",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -79,7 +79,7 @@ fun GW2APIClient.gw2v2OutfitsAll(configure: (RequestBuilder<List<GW2v2Outfits>>.
 fun GW2APIClient.gw2v2OutfitsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Outfits>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfits>> = request(
     path = "/v2/outfits",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,

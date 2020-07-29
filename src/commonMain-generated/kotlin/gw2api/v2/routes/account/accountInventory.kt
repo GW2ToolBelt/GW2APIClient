@@ -32,19 +32,48 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2AccountMasteries>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMasteries>> = request(
-    path = "/v2/account/masteries",
+fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<List<GW2v2AccountInventory>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountInventory>> = request(
+    path = "/v2/account/inventory",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2AccountMasteries.serializer().list,
+    serializer = GW2v2AccountInventory.serializer().list,
     configure = configure
 )
 
 @Serializable
-data class GW2v2AccountMasteries(
+data class GW2v2AccountInventory(
     val id: Int,
-    val level: Int? = null
-)
+    val count: Int,
+    val charges: Int? = null,
+    val skin: Int? = null,
+    val upgrades: List<Int>? = null,
+    val infusions: List<Int>? = null,
+    val stats: Stats? = null,
+    val binding: String? = null
+) {
+
+    @Serializable
+    data class Stats(
+        val id: Int,
+        @SerialName("Power")
+        val power: Int? = null,
+        @SerialName("Precision")
+        val precision: Int? = null,
+        @SerialName("Toughness")
+        val toughness: Int? = null,
+        @SerialName("Vitality")
+        val vitality: Int? = null,
+        @SerialName("ConditionDamage")
+        val conditionDamage: Int? = null,
+        @SerialName("ConditionDuration")
+        val conditionDuration: Int? = null,
+        @SerialName("Healing")
+        val healing: Int? = null,
+        @SerialName("BoonDuration")
+        val boonDuration: Int? = null
+    )
+
+}

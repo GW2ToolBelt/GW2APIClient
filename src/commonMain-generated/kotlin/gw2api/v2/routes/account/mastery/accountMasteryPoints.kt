@@ -35,7 +35,7 @@ import kotlin.jvm.*
 fun GW2APIClient.gw2v2AccountMasteryPoints(configure: (RequestBuilder<GW2v2AccountMasteryPoints>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMasteryPoints> = request(
     path = "/v2/account/mastery/points",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

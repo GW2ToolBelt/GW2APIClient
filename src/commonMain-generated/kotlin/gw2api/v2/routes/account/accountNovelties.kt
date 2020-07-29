@@ -35,7 +35,7 @@ import kotlin.jvm.*
 fun GW2APIClient.gw2v2AccountNovelties(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/account/novelties",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

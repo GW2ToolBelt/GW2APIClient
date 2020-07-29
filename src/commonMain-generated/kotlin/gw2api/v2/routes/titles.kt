@@ -35,7 +35,7 @@ import kotlin.jvm.*
 fun GW2APIClient.gw2v2TitlesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/titles",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ fun GW2APIClient.gw2v2TitlesIds(configure: (RequestBuilder<List<Int>>.() -> Unit
 fun GW2APIClient.gw2v2TitlesById(id: Int, configure: (RequestBuilder<GW2v2Titles>.() -> Unit)? = null): RequestBuilder<GW2v2Titles> = request(
     path = "/v2/titles",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -57,7 +57,7 @@ fun GW2APIClient.gw2v2TitlesById(id: Int, configure: (RequestBuilder<GW2v2Titles
 fun GW2APIClient.gw2v2TitlesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
     path = "/v2/titles",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -68,7 +68,7 @@ fun GW2APIClient.gw2v2TitlesByIds(ids: Collection<Int>, configure: (RequestBuild
 fun GW2APIClient.gw2v2TitlesAll(configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
     path = "/v2/titles",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -79,7 +79,7 @@ fun GW2APIClient.gw2v2TitlesAll(configure: (RequestBuilder<List<GW2v2Titles>>.()
 fun GW2APIClient.gw2v2TitlesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Titles>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Titles>> = request(
     path = "/v2/titles",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -95,5 +95,5 @@ data class GW2v2Titles(
     val achievement: Int? = null,
     val achievements: List<Int>? = null,
     @SerialName("ap_required")
-    val aPRequired: Int? = null
+    val apRequired: Int? = null
 )

@@ -40,20 +40,29 @@ open class Generate : DefaultTask() {
     private val String.listSerializer get() = "$this.serializer().list"
     private val KotlinTypeInfo.listSerializer get() = "${serializer}.list"
 
+    private fun SchemaPrimitive.toKotlinType(): KotlinTypeInfo = when (this) {
+        SchemaBoolean -> "Boolean"
+        SchemaDecimal -> "Double"
+        SchemaInteger -> "Int"
+        SchemaString -> "String"
+    }.let { name -> KotlinTypeInfo(name, "$name.serializer()") }
+
     private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>): KotlinTypeInfo {
         fun KotlinTypeInfo(type: String) = KotlinTypeInfo(type, "$type.serializer()")
 
         return when (this) {
-            SchemaBoolean -> KotlinTypeInfo("Boolean")
-            SchemaDecimal -> KotlinTypeInfo("Double")
-            SchemaInteger -> KotlinTypeInfo("Int")
-            SchemaString -> KotlinTypeInfo("String")
+            is SchemaPrimitive -> toKotlinType()
             is SchemaArray -> {
                 val itemType = items.toKotlinType(titleCaseName, dataClasses)
-                KotlinTypeInfo("List<${itemType.name}>", "${itemType.serializer}.list")
+                KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", "${itemType.serializer}.list")
+            }
+            is SchemaMap -> {
+                val keyType = keys.toKotlinType()
+                val valueType = values.toKotlinType(titleCaseName, dataClasses)
+                KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>")
             }
             is SchemaConditional -> KotlinTypeInfo(titleCaseName).also { dataClasses[titleCaseName] = this }
-            is SchemaMap -> KotlinTypeInfo(titleCaseName).also { dataClasses[titleCaseName] = this }
+            is SchemaRecord -> KotlinTypeInfo(titleCaseName).also { dataClasses[titleCaseName] = this }
             else -> error("Unsupported SchemaType: $this")
         }
     }
@@ -108,7 +117,7 @@ open class Generate : DefaultTask() {
             val schemaVersion = V2SchemaVersion.V2_SCHEMA_2019_12_19T00_00_00_000Z
 
             endpoints.forEach { endpoint ->
-                val routeTitleCase = endpoint.route.replace("/", "")
+                val routeTitleCase = endpoint.route.replace(Regex("\\/:([A-Za-z])*"), "").replace("/", "")
 
                 val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaType>()) {
                     endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
@@ -116,13 +125,14 @@ open class Generate : DefaultTask() {
 
                 fun requestBody(
                     parameters: String,
+                    replaceInPath: Map<String, String>? = null,
                     serializer: String,
                     isIdsEndpoint: Boolean = false
                 ) =
                     """
                     path = "/v2${endpoint.route.toLowerCase(Locale.ENGLISH)}",
                     parameters = $parameters,
-                    replaceInPath = emptyMap(),
+                    replaceInPath = mapOf(${replaceInPath?.entries?.joinToString(separator = ", ") { (key, value) -> "\"$key\" to $value" } ?: ""}),
                     requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
                     requiredPermissions = emptySet(),
                     supportedLanguages = ${if (endpoint.isLocalized && !isIdsEndpoint) "Language.API_V2" else "emptySet()"},
@@ -203,9 +213,10 @@ open class Generate : DefaultTask() {
 
                         yield(
                             """
-                            |fun GW2APIClient.gw2v2$routeTitleCase(configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
+                            |fun GW2APIClient.gw2v2$routeTitleCase(${endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
                             |${requestBody(
                                 parameters = """mapOf("v" to "${schemaVersion.version!!}")""",
+                                replaceInPath = endpoint.pathParameters.map { ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}" }.toMap(),
                                 serializer = dataClassType.serializer
                             )}
                             |)
@@ -214,7 +225,7 @@ open class Generate : DefaultTask() {
                     }
                 }}
 
-                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoint.route.toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt").also { outputFile ->
+                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoint.route.replace(Regex("/:([A-Za-z])*"), "").toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt").also { outputFile ->
                     outputFile.parentFile.mkdirs()
                     outputFile.writeText(
                         """
@@ -233,7 +244,7 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaMap).createDataClass("GW2v2$routeTitleCase") else "" }}
+${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaRecord).createDataClass("GW2v2$routeTitleCase") else "" }}
 """.trimIndent()
                     )
                 }
@@ -256,13 +267,13 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         |@Serializable(with = __JsonParametricSerializer_$className::class)
         |sealed class $className {
         |
-        |${interpretations.map { (name, schema) -> (schema as SchemaMap).createDataClass(name, indent = t, superClass = className, isInterpretation = true) }.joinToString(separator = "$n$n")}
+        |${interpretations.map { (name, schema) -> (schema as SchemaRecord).createDataClass(name, indent = t, superClass = className, isInterpretation = true) }.joinToString(separator = "$n$n")}
         |
         |}
         """.trimMargin().prependIndent(indent)
     }
 
-    private fun SchemaMap.createDataClass(className: String, indent: String = "", serialName: String? = null, superClass: String? = null, isInterpretation: Boolean = false): String {
+    private fun SchemaRecord.createDataClass(className: String, indent: String = "", serialName: String? = null, superClass: String? = null, isInterpretation: Boolean = false): String {
         val dataClasses = mutableMapOf<String, SchemaType>()
 
         return """${if (properties.values.any { it.type is SchemaConditional } || isInterpretation) """
@@ -297,7 +308,7 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         |
         |${dataClasses.map { (name, schema) -> when(schema) {
             is SchemaConditional -> schema.createSealedClass(name, indent = t)
-            is SchemaMap -> schema.createDataClass(name, indent = t)
+            is SchemaRecord -> schema.createDataClass(name, indent = t)
             else -> error("")
         }}.joinToString(separator = "$n$n")}
         |

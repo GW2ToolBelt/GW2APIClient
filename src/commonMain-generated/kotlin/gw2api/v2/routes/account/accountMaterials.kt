@@ -35,7 +35,7 @@ import kotlin.jvm.*
 fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<List<GW2v2AccountMaterials>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMaterials>> = request(
     path = "/v2/account/materials",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

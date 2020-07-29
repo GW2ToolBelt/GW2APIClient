@@ -32,80 +32,120 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2WvWUpgradesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
-    path = "/v2/wvw/upgrades",
+fun GW2APIClient.gw2v2ProfessionsIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+    path = "/v2/professions",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = Int.serializer().list,
+    serializer = String.serializer().list,
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesById(id: Int, configure: (RequestBuilder<GW2v2WvWUpgrades>.() -> Unit)? = null): RequestBuilder<GW2v2WvWUpgrades> = request(
-    path = "/v2/wvw/upgrades",
-    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+fun GW2APIClient.gw2v2ProfessionsById(id: String, configure: (RequestBuilder<GW2v2Professions>.() -> Unit)? = null): RequestBuilder<GW2v2Professions> = request(
+    path = "/v2/professions",
+    parameters = mapOf("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWUpgrades.serializer(),
+    serializer = GW2v2Professions.serializer(),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
-    path = "/v2/wvw/upgrades",
+fun GW2APIClient.gw2v2ProfessionsByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Professions>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Professions>> = request(
+    path = "/v2/professions",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWUpgrades.serializer().list,
+    serializer = GW2v2Professions.serializer().list,
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesAll(configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
-    path = "/v2/wvw/upgrades",
+fun GW2APIClient.gw2v2ProfessionsAll(configure: (RequestBuilder<List<GW2v2Professions>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Professions>> = request(
+    path = "/v2/professions",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWUpgrades.serializer().list,
+    serializer = GW2v2Professions.serializer().list,
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
-    path = "/v2/wvw/upgrades",
+fun GW2APIClient.gw2v2ProfessionsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Professions>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Professions>> = request(
+    path = "/v2/professions",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWUpgrades.serializer().list,
+    serializer = GW2v2Professions.serializer().list,
     configure = configure
 )
 
 @Serializable
-data class GW2v2WvWUpgrades(
-    val id: Int,
-    val tiers: Tiers
+data class GW2v2Professions(
+    val id: String,
+    val name: String,
+    val code: Int,
+    val icon: String,
+    @SerialName("icon_big")
+    val bigIcon: String,
+    val specializations: List<Int>,
+    val weapons: Map<String, Weapons>,
+    val flags: List<String>,
+    val skills: List<Skills>,
+    val training: List<Training>,
+    @SerialName("skills_by_palette")
+    val skillsByPalette: List<List<Int>>
 ) {
 
     @Serializable
-    data class Tiers(
-        val name: String,
-        @SerialName("yaks_required")
-        val yaksRequired: Int,
-        val upgrades: Upgrades
+    data class Weapons(
+        val specialization: Int? = null,
+        val flags: List<String>,
+        val skills: List<Skills>
     ) {
     
         @Serializable
-        data class Upgrades(
-            val name: String,
-            val description: String,
-            val icon: String
+        data class Skills(
+            val id: Int,
+            val slot: String,
+            val attunement: String? = null,
+            val offhand: String? = null
+        )
+    
+    }
+
+    @Serializable
+    data class Skills(
+        val id: Int,
+        val slot: String,
+        val type: String,
+        val attunement: String? = null,
+        val source: String? = null
+    )
+
+    @Serializable
+    data class Training(
+        val id: Int,
+        val category: String,
+        val name: String,
+        val track: List<Track>
+    ) {
+    
+        @Serializable
+        data class Track(
+            val cost: Int,
+            val type: String,
+            @SerialName("skill_id")
+            val skillId: Int? = null,
+            @SerialName("trait_id")
+            val traitId: Int? = null
         )
     
     }

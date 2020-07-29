@@ -35,7 +35,7 @@ import kotlin.jvm.*
 fun GW2APIClient.gw2v2ItemsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/items",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ fun GW2APIClient.gw2v2ItemsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)
 fun GW2APIClient.gw2v2ItemsById(id: Int, configure: (RequestBuilder<GW2v2Items>.() -> Unit)? = null): RequestBuilder<GW2v2Items> = request(
     path = "/v2/items",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -57,7 +57,7 @@ fun GW2APIClient.gw2v2ItemsById(id: Int, configure: (RequestBuilder<GW2v2Items>.
 fun GW2APIClient.gw2v2ItemsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Items>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Items>> = request(
     path = "/v2/items",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -68,7 +68,7 @@ fun GW2APIClient.gw2v2ItemsByIds(ids: Collection<Int>, configure: (RequestBuilde
 fun GW2APIClient.gw2v2ItemsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Items>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Items>> = request(
     path = "/v2/items",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = emptyMap(),
+    replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
