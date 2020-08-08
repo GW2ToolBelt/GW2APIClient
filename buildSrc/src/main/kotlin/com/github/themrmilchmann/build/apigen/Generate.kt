@@ -22,10 +22,10 @@
 @file:Suppress("FunctionName", "LocalVariableName")
 package com.github.themrmilchmann.build.apigen
 
-import com.github.gw2toolbelt.apigen.*
-import com.github.gw2toolbelt.apigen.model.*
-import com.github.gw2toolbelt.apigen.model.v2.*
-import com.github.gw2toolbelt.apigen.schema.*
+import com.gw2tb.apigen.*
+import com.gw2tb.apigen.model.*
+import com.gw2tb.apigen.model.v2.*
+import com.gw2tb.apigen.schema.*
 import org.gradle.api.*
 import org.gradle.api.tasks.*
 import java.io.*
@@ -117,7 +117,7 @@ open class Generate : DefaultTask() {
             val schemaVersion = V2SchemaVersion.V2_SCHEMA_2019_12_19T00_00_00_000Z
 
             endpoints.forEach { endpoint ->
-                val routeTitleCase = endpoint.route.replace(Regex("\\/:([A-Za-z])*"), "").replace("/", "")
+                val routeTitleCase = endpoint.route.replace(Regex("/:([A-Za-z])*"), "").replace("/", "")
 
                 val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaType>()) {
                     endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
@@ -152,7 +152,7 @@ open class Generate : DefaultTask() {
                             """
                             |fun GW2APIClient.gw2v2${routeTitleCase}Ids(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
                             |${requestBody(
-                                parameters = """mapOf("v" to "${schemaVersion.version!!}")""",
+                                parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
                                 serializer = idType.listSerializer,
                                 isIdsEndpoint = true
                             )}
@@ -166,7 +166,7 @@ open class Generate : DefaultTask() {
                                     """
                                     |fun GW2APIClient.gw2v2${routeTitleCase}ById(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
                                     |${requestBody(
-                                        parameters = """mapOf("id" to id${if (endpoint.idType is SchemaString) "" else ".toString()"}, "v" to "${schemaVersion.version!!}")""",
+                                        parameters = """mapOf("id" to id${if (endpoint.idType is SchemaString) "" else ".toString()"}, "v" to "${schemaVersion.identifier!!}")""",
                                         serializer = dataClassType.serializer
                                     )}
                                     |)
@@ -177,7 +177,7 @@ open class Generate : DefaultTask() {
                                         """
                                         |fun GW2APIClient.gw2v2${routeTitleCase}ByIds(ids: Collection<$idType>, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
-                                            parameters = """mapOf("ids" to ids.joinToString(","), "v" to "${schemaVersion.version!!}")""",
+                                            parameters = """mapOf("ids" to ids.joinToString(","), "v" to "${schemaVersion.identifier!!}")""",
                                             serializer = dataClassType.listSerializer
                                         )}
                                         |)
@@ -188,7 +188,7 @@ open class Generate : DefaultTask() {
                                         """
                                         |fun GW2APIClient.gw2v2${routeTitleCase}All(configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
-                                            parameters = """mapOf("ids" to "all", "v" to "${schemaVersion.version!!}")""",
+                                            parameters = """mapOf("ids" to "all", "v" to "${schemaVersion.identifier!!}")""",
                                             serializer = dataClassType.listSerializer
                                         )}
                                         |)
@@ -199,7 +199,7 @@ open class Generate : DefaultTask() {
                                     """
                                     |fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                     |${requestBody(
-                                        parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "${schemaVersion.version!!}")""",
+                                        parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "${schemaVersion.identifier!!}")""",
                                         serializer = dataClassType.listSerializer
                                     )}
                                     |)
@@ -215,7 +215,7 @@ open class Generate : DefaultTask() {
                             """
                             |fun GW2APIClient.gw2v2$routeTitleCase(${endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
                             |${requestBody(
-                                parameters = """mapOf("v" to "${schemaVersion.version!!}")""",
+                                parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
                                 replaceInPath = endpoint.pathParameters.map { ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}" }.toMap(),
                                 serializer = dataClassType.serializer
                             )}
@@ -252,12 +252,33 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         }
     }
 
+    private fun Map<String, SchemaRecord.Property>.ctor(sharedProperties: Map<String, SchemaRecord.Property>, dataClasses: MutableMap<String, SchemaType>): String {
+        return sequence {
+            yieldAll(sharedProperties.values.map { property ->
+                sequence {
+                    if (property.isDeprecated) yield("""@Deprecated(message = "")""")
+                    if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
+                    yield("override val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                }.joinToString(separator = n)
+            })
+            yieldAll(values.map { property ->
+                sequence {
+                    if (property.isDeprecated) yield("""@Deprecated(message = "")""")
+                    if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
+                    yield("val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                }.joinToString(separator = n)
+            })
+        }.map { it.prependIndent(t) }.joinToString(separator = ",$n", prefix = "($n", postfix = "$n)")
+    }
+
     private fun SchemaConditional.createSealedClass(className: String, indent: String = ""): String {
+        val dataClasses = mutableMapOf<String, SchemaType>()
+
         return """
         |@Suppress("ClassName")
         |private object __JsonParametricSerializer_$className : JsonParametricSerializer<$className>($className::class) {
         |    override fun selectSerializer(element: JsonElement): KSerializer<out $className> {
-        |        return when (element.jsonObject["__virtualType"]!!.content) {
+        |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.content) {
         |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (name, _) -> """"$name" -> $className.$name.serializer()""" }}
         |            else -> TODO()
         |        }
@@ -266,17 +287,32 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         |
         |@Serializable(with = __JsonParametricSerializer_$className::class)
         |sealed class $className {
-        |
-        |${interpretations.map { (name, schema) -> (schema as SchemaRecord).createDataClass(name, indent = t, superClass = className, isInterpretation = true) }.joinToString(separator = "$n$n")}
-        |
+        |${sharedProperties.values.joinToString(separator = n) { 
+            "${t}abstract val ${it.camelCaseName}: ${it.type.toKotlinType(it.propertyName, dataClasses)}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
+        }.let { if (it.isNotEmpty()) "$n$it$n" else "" }}
+        |${interpretations.map { (name, schema) ->
+            (schema as SchemaRecord).createDataClass(name, indent = t, superClass = className, isInterpretation = true, sharedProperties = sharedProperties)
+        }.joinToString(separator = "$n$n")}
+        |${dataClasses.map { (name, schema) -> when(schema) {
+            is SchemaConditional -> schema.createSealedClass(name, indent = t)
+            is SchemaRecord -> schema.createDataClass(name, indent = t)
+            else -> error("")
+        }}.joinToString(separator = "$n$n").let { if (dataClasses.isNotEmpty()) "$n$it$n" else "" }}
         |}
         """.trimMargin().prependIndent(indent)
     }
 
-    private fun SchemaRecord.createDataClass(className: String, indent: String = "", serialName: String? = null, superClass: String? = null, isInterpretation: Boolean = false): String {
+    private fun SchemaRecord.createDataClass(
+        className: String,
+        indent: String = "",
+        serialName: String? = null,
+        superClass: String? = null,
+        isInterpretation: Boolean = false,
+        sharedProperties: Map<String, SchemaRecord.Property> = emptyMap()
+    ): String {
         val dataClasses = mutableMapOf<String, SchemaType>()
 
-        return """${if (properties.values.any { it.type is SchemaConditional } || isInterpretation) """
+        return """${if (properties.values.any { it.type is SchemaConditional && (it.type as SchemaConditional).disambiguationBySideProperty } || isInterpretation) """
         |@Suppress("ClassName")
         |@Serializer(forClass = $className::class)
         |private object __${className}GeneratedSerializer : KSerializer<$className>
@@ -294,16 +330,7 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         |}
         |
         |@Serializable(with = __${className}Serializer::class)""".trimMargin() else "@Serializable"}${if (serialName !== null) "${n}SerialName($serialName)" else ""}
-        |data class $className(
-        |${properties.map { (_, property) ->
-            StringBuilder().run {
-                if (property.isDeprecated) append("""$t@Deprecated(message = "")$n""")
-                if (property.serialName != property.camelCaseName) append("""$t@SerialName("${property.serialName}")$n""")
-                append("${t}val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-                toString()
-            }
-        }.joinToString(separator = ",$n")}
-        |)${if (superClass !== null) " : $superClass()" else "" }${if (dataClasses.isNotEmpty()) """
+        |data class $className${properties.ctor(sharedProperties, dataClasses)}${if (superClass !== null) " : $superClass()" else "" }${if (dataClasses.isNotEmpty()) """
         | {
         |
         |${dataClasses.map { (name, schema) -> when(schema) {

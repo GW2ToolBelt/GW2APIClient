@@ -39,5 +39,5 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.gw2toolbelt.apigen:api-generator:0.1.0")
+    implementation("com.gw2tb.api-generator:apigen:0.1.0")
 }
