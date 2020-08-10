@@ -20,17 +20,3 @@
  * SOFTWARE.
  */
 rootProject.name = "GW2APIClient"
-
-pluginManagement {
-    repositories {
-        google()
-        gradlePluginPortal()
-    }
-    resolutionStrategy {
-        eachPlugin {
-            when (requested.id.id) {
-                "com.android.library" -> useModule("com.android.tools.build:gradle:${requested.version}")
-            }
-        }
-    }
-}
