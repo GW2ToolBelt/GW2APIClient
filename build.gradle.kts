@@ -21,10 +21,12 @@
  */
 import com.github.themrmilchmann.build.*
 import com.github.themrmilchmann.build.apigen.*
+import org.jetbrains.dokka.gradle.*
 
 plugins {
     kotlin("multiplatform") version "1.4.0-rc"
     kotlin("plugin.serialization") version "1.4.0-rc"
+    id("org.jetbrains.dokka") version "1.4.0-rc"
     signing
     `maven-publish`
 }
@@ -138,6 +140,19 @@ tasks {
     create<Generate>("generate") {
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
         outputDirectory = file("src/commonMain-generated")
+    }
+
+    withType<DokkaTask> {
+        dokkaSourceSets {
+            register("commonMain") {
+                displayName = "common"
+                platform = "common"
+            }
+            register("jvmMain") {
+                displayName = "jvm"
+                platform = "jvm"
+            }
+        }
     }
 }
 
