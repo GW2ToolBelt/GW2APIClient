@@ -5,6 +5,35 @@
 GW2APIClient is a Kotlin multi-platform client for the official Guild Wars 2
 API with support for Android, JavaScript, JVM and various native targets.
 
+The library uses the [api-generator](https://github.com/GW2Toolbelt/api-generator)
+
+
+## Usage
+
+### Setup
+
+GW2APIClient consists of
+
+### 
+
+
+## Building from source
+
+### Setup
+
+### Building
+
+Once the setup is complete, invoke the respective Gradle tasks using the
+following command on Unix/macOs:
+
+    ./gradlew <tasks>
+    
+or the following command on Windows:
+
+    gradlew <tasks>
+    
+Important Gradle tasks to remember are:
+
 
 ## License
 

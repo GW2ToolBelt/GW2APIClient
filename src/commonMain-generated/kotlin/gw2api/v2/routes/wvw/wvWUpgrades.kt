@@ -26,24 +26,23 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2WvWUpgradesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2WvWUpgradesIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/wvw/upgrades",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = Int.serializer().list,
+    serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesById(id: Int, configure: (RequestBuilder<GW2v2WvWUpgrades>.() -> Unit)? = null): RequestBuilder<GW2v2WvWUpgrades> = request(
+public fun GW2APIClient.gw2v2WvWUpgradesById(id: Int, configure: (RequestBuilder<GW2v2WvWUpgrades>.() -> Unit)? = null): RequestBuilder<GW2v2WvWUpgrades> = request(
     path = "/v2/wvw/upgrades",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -54,47 +53,47 @@ fun GW2APIClient.gw2v2WvWUpgradesById(id: Int, configure: (RequestBuilder<GW2v2W
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
+public fun GW2APIClient.gw2v2WvWUpgradesByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
     path = "/v2/wvw/upgrades",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWUpgrades.serializer().list,
+    serializer = ListSerializer(GW2v2WvWUpgrades.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesAll(configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
+public fun GW2APIClient.gw2v2WvWUpgradesAll(configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
     path = "/v2/wvw/upgrades",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWUpgrades.serializer().list,
+    serializer = ListSerializer(GW2v2WvWUpgrades.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWUpgradesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
+public fun GW2APIClient.gw2v2WvWUpgradesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWUpgrades>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWUpgrades>> = request(
     path = "/v2/wvw/upgrades",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWUpgrades.serializer().list,
+    serializer = ListSerializer(GW2v2WvWUpgrades.serializer()),
     configure = configure
 )
 
 @Serializable
-data class GW2v2WvWUpgrades(
+public data class GW2v2WvWUpgrades(
     val id: Int,
     val tiers: Tiers
 ) {
 
     @Serializable
-    data class Tiers(
+    public data class Tiers(
         val name: String,
         @SerialName("yaks_required")
         val yaksRequired: Int,
@@ -102,7 +101,7 @@ data class GW2v2WvWUpgrades(
     ) {
     
         @Serializable
-        data class Upgrades(
+        public data class Upgrades(
             val name: String,
             val description: String,
             val icon: String

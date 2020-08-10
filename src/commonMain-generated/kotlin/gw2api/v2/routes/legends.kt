@@ -26,24 +26,23 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/legends",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = String.serializer().list,
+    serializer = ListSerializer(String.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2LegendsById(id: String, configure: (RequestBuilder<GW2v2Legends>.() -> Unit)? = null): RequestBuilder<GW2v2Legends> = request(
+public fun GW2APIClient.gw2v2LegendsById(id: String, configure: (RequestBuilder<GW2v2Legends>.() -> Unit)? = null): RequestBuilder<GW2v2Legends> = request(
     path = "/v2/legends",
     parameters = mapOf("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -54,41 +53,41 @@ fun GW2APIClient.gw2v2LegendsById(id: String, configure: (RequestBuilder<GW2v2Le
     configure = configure
 )
 
-fun GW2APIClient.gw2v2LegendsByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
+public fun GW2APIClient.gw2v2LegendsByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
     path = "/v2/legends",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Legends.serializer().list,
+    serializer = ListSerializer(GW2v2Legends.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2LegendsAll(configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
+public fun GW2APIClient.gw2v2LegendsAll(configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
     path = "/v2/legends",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Legends.serializer().list,
+    serializer = ListSerializer(GW2v2Legends.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2LegendsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
+public fun GW2APIClient.gw2v2LegendsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
     path = "/v2/legends",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Legends.serializer().list,
+    serializer = ListSerializer(GW2v2Legends.serializer()),
     configure = configure
 )
 
 @Serializable
-data class GW2v2Legends(
+public data class GW2v2Legends(
     val id: String,
     val swap: Int,
     val heal: Int,

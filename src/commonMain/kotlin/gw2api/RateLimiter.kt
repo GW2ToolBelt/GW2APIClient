@@ -28,8 +28,8 @@ import kotlinx.coroutines.*
  *
  * @since   0.1.0
  */
-interface RateLimiter {
+public interface RateLimiter {
 
-    suspend fun <T> execute(deferred: Deferred<T>): T
+    public suspend fun <T> execute(deferred: Deferred<T>): T
 
 }

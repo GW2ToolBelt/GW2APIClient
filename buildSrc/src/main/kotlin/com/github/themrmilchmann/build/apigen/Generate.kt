@@ -37,8 +37,8 @@ private const val n = "\n"
 @CacheableTask
 open class Generate : DefaultTask() {
 
-    private val String.listSerializer get() = "$this.serializer().list"
-    private val KotlinTypeInfo.listSerializer get() = "${serializer}.list"
+    private val String.listSerializer get() = "ListSerializer($this.serializer())"
+    private val KotlinTypeInfo.listSerializer get() = "ListSerializer($this.serializer())"
 
     private fun SchemaPrimitive.toKotlinType(): KotlinTypeInfo = when (this) {
         SchemaBoolean -> "Boolean"
@@ -54,7 +54,7 @@ open class Generate : DefaultTask() {
             is SchemaPrimitive -> toKotlinType()
             is SchemaArray -> {
                 val itemType = items.toKotlinType(titleCaseName, dataClasses)
-                KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", "${itemType.serializer}.list")
+                KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", itemType.listSerializer)
             }
             is SchemaMap -> {
                 val keyType = keys.toKotlinType()
@@ -106,8 +106,8 @@ open class Generate : DefaultTask() {
             |public enum class Language(public val code: String) {
             |${Language.values().map { language -> """${language.name}("${language.locale.language}")""" }.joinToString(separator = ",$n") { "$t$it" }};
             |
-            |    companion object {
-            |        val API_V2 = setOf(${API_V2_DEFINITION.supportedLanguages.joinToString(separator = ", ") { it.name }})
+            |    public companion object {
+            |        public val API_V2: Set<Language> = setOf(${API_V2_DEFINITION.supportedLanguages.joinToString(separator = ", ") { it.name }})
             |    }
             |}
             """.trimMargin()
@@ -150,7 +150,7 @@ open class Generate : DefaultTask() {
 
                         yield(
                             """
-                            |fun GW2APIClient.gw2v2${routeTitleCase}Ids(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
+                            |public fun GW2APIClient.gw2v2${routeTitleCase}Ids(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
                             |${requestBody(
                                 parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
                                 serializer = idType.listSerializer,
@@ -164,7 +164,7 @@ open class Generate : DefaultTask() {
                             when (queryType) {
                                 is QueryType.ById -> yield(
                                     """
-                                    |fun GW2APIClient.gw2v2${routeTitleCase}ById(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
+                                    |public fun GW2APIClient.gw2v2${routeTitleCase}ById(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
                                     |${requestBody(
                                         parameters = """mapOf("id" to id${if (endpoint.idType is SchemaString) "" else ".toString()"}, "v" to "${schemaVersion.identifier!!}")""",
                                         serializer = dataClassType.serializer
@@ -175,7 +175,7 @@ open class Generate : DefaultTask() {
                                 is QueryType.ByIds -> {
                                     yield(
                                         """
-                                        |fun GW2APIClient.gw2v2${routeTitleCase}ByIds(ids: Collection<$idType>, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByIds(ids: Collection<$idType>, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
                                             parameters = """mapOf("ids" to ids.joinToString(","), "v" to "${schemaVersion.identifier!!}")""",
                                             serializer = dataClassType.listSerializer
@@ -186,7 +186,7 @@ open class Generate : DefaultTask() {
 
                                     if (queryType.supportsAll) yield(
                                         """
-                                        |fun GW2APIClient.gw2v2${routeTitleCase}All(configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                        |public fun GW2APIClient.gw2v2${routeTitleCase}All(configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
                                             parameters = """mapOf("ids" to "all", "v" to "${schemaVersion.identifier!!}")""",
                                             serializer = dataClassType.listSerializer
@@ -197,7 +197,7 @@ open class Generate : DefaultTask() {
                                 }
                                 is QueryType.ByPage -> yield(
                                     """
-                                    |fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                    |public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                     |${requestBody(
                                         parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "${schemaVersion.identifier!!}")""",
                                         serializer = dataClassType.listSerializer
@@ -213,7 +213,7 @@ open class Generate : DefaultTask() {
 
                         yield(
                             """
-                            |fun GW2APIClient.gw2v2$routeTitleCase(${endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
+                            |public fun GW2APIClient.gw2v2$routeTitleCase(${endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
                             |${requestBody(
                                 parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
                                 replaceInPath = endpoint.pathParameters.map { ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}" }.toMap(),
@@ -238,7 +238,6 @@ ${licenseHeader.prependIndent(" * ")}
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
@@ -276,9 +275,9 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
 
         return """
         |@Suppress("ClassName")
-        |private object __JsonParametricSerializer_$className : JsonParametricSerializer<$className>($className::class) {
-        |    override fun selectSerializer(element: JsonElement): KSerializer<out $className> {
-        |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.content) {
+        |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
+        |    override fun selectDeserializer(content: JsonElement): DeserializationStrategy<out $className> {
+        |        return when (content.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
         |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (name, _) -> """"$name" -> $className.$name.serializer()""" }}
         |            else -> TODO()
         |        }
@@ -286,9 +285,9 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         |}
         |
         |@Serializable(with = __JsonParametricSerializer_$className::class)
-        |sealed class $className {
+        |public sealed class $className {
         |${sharedProperties.values.joinToString(separator = n) { 
-            "${t}abstract val ${it.camelCaseName}: ${it.type.toKotlinType(it.propertyName, dataClasses)}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
+            "${t}public abstract val ${it.camelCaseName}: ${it.type.toKotlinType(it.propertyName, dataClasses)}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
         }.let { if (it.isNotEmpty()) "$n$it$n" else "" }}
         |${interpretations.map { (name, schema) ->
             (schema as SchemaRecord).createDataClass(name, indent = t, superClass = className, isInterpretation = true, sharedProperties = sharedProperties)
@@ -318,11 +317,11 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         |private object __${className}GeneratedSerializer : KSerializer<$className>
         |
         |@Suppress("ClassName")
-        |private object __${className}Serializer : JsonTransformingSerializer<$className>(__${className}GeneratedSerializer, "__${className}Serializer") {
-        |    override fun readTransform(element: JsonElement): JsonElement =
+        |private object __${className}Serializer : JsonTransformingSerializer<$className>(__${className}GeneratedSerializer) {
+        |    override fun transformDeserialize(element: JsonElement): JsonElement =
         |        JsonObject(element.jsonObject${if (properties.values.any { it.type is SchemaConditional }) """|.mapValues { (key, value) ->
         |            when (key) {
-        |                ${properties.values.filter { it.type is SchemaConditional }.joinToString(separator = "$n$t$t$t$t") { """"${it.serialName}" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["${(it.type as SchemaConditional).disambiguationBy}"]!!.primitive.content)))""" }}
+        |                ${properties.values.filter { it.type is SchemaConditional }.joinToString(separator = "$n$t$t$t$t") { """"${it.serialName}" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["${(it.type as SchemaConditional).disambiguationBy}"]!!.jsonPrimitive.content)))""" }}
         |                else -> value
         |            }
         |        }
@@ -330,7 +329,7 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         |}
         |
         |@Serializable(with = __${className}Serializer::class)""".trimMargin() else "@Serializable"}${if (serialName !== null) "${n}SerialName($serialName)" else ""}
-        |data class $className${properties.ctor(sharedProperties, dataClasses)}${if (superClass !== null) " : $superClass()" else "" }${if (dataClasses.isNotEmpty()) """
+        |public data class $className${properties.ctor(sharedProperties, dataClasses)}${if (superClass !== null) " : $superClass()" else "" }${if (dataClasses.isNotEmpty()) """
         | {
         |
         |${dataClasses.map { (name, schema) -> when(schema) {

@@ -26,20 +26,20 @@ package gw2api
  *
  * @since   0.1.0
  */
-interface CacheAccessor {
+public interface CacheAccessor {
 
     /**
      * TODO doc
      *
      * @since   0.1.0
      */
-    fun <T> memoize(response: Response<T>)
+    public fun <T> memoize(response: Response<T>)
 
     /**
      * TODO doc
      *
      * @since   0.1.0
      */
-    fun <T> query(request: Request<T>): Response<T>?
+    public fun <T> query(request: Request<T>): Response<T>?
 
 }

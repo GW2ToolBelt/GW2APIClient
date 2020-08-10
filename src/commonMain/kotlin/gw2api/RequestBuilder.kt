@@ -19,6 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+@file:Suppress("RedundantVisibilityModifier", "MemberVisibilityCanBePrivate")
 package gw2api
 
 import gw2api.v2.*
@@ -71,7 +72,7 @@ public class RequestBuilder<out T> internal constructor(
     private var overrideCacheTime: Boolean = false
 
     @JvmOverloads
-    fun withCacheTime(duration: Duration, override: Boolean = false): RequestBuilder<T> = apply {
+    public fun withCacheTime(duration: Duration, override: Boolean = false): RequestBuilder<T> = apply {
         require(duration.isPositive())
         cacheTime = duration
         overrideCacheTime = override
@@ -86,9 +87,8 @@ public class RequestBuilder<out T> internal constructor(
      *
      * @since   0.1.0
      */
-    @JvmOverloads
     public fun execute(
-        scope: CoroutineScope = GlobalScope
+        scope: CoroutineScope
     ): Request<T> {
         val apiKey = apiKey
         val url = URLBuilder(host).apply {
@@ -134,7 +134,7 @@ public class RequestBuilder<out T> internal constructor(
                     }.execute(scope).get()
 
                     if (perm.data != null) {
-                        if (!perm.data.permissions.containsAll(requiredPermissions)) {
+                        if (!perm.data!!.permissions.containsAll(requiredPermissions)) {
                             throw InsufficientPermissionsException("") // TODO
                         }
                     } else {
@@ -149,11 +149,12 @@ public class RequestBuilder<out T> internal constructor(
                     }
 
                     Response(
-                        data = json.parse(serializer, httpResponse.readText())
+                        dataFun = httpResponse.readText().let { text -> { json.decodeFromString(serializer, text) } } // TODO handle parsing errors properly
                     ).also { cacheAccessor?.memoize(it) }
                 }
 
-                rateLimiter.let { rateLimiter -> if (rateLimiter !== null) rateLimiter.execute(httpCall) else httpCall.await() }
+                rateLimiter.also { rateLimiter -> if (rateLimiter !== null) rateLimiter.execute(httpCall) else httpCall.start() }
+                httpCall.await()
             }
         }
     }

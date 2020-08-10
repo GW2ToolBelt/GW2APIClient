@@ -26,13 +26,12 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> Unit)? = null): RequestBuilder<GW2v2Build> = request(
+public fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> Unit)? = null): RequestBuilder<GW2v2Build> = request(
     path = "/v2/build",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -44,6 +43,6 @@ fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> Unit)? 
 )
 
 @Serializable
-data class GW2v2Build(
+public data class GW2v2Build(
     val id: Int
 )

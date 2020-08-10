@@ -26,25 +26,24 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<List<GW2v2AccountMaterials>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMaterials>> = request(
+public fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<List<GW2v2AccountMaterials>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMaterials>> = request(
     path = "/v2/account/materials",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2AccountMaterials.serializer().list,
+    serializer = ListSerializer(GW2v2AccountMaterials.serializer()),
     configure = configure
 )
 
 @Serializable
-data class GW2v2AccountMaterials(
+public data class GW2v2AccountMaterials(
     val id: Int,
     val category: Int,
     val count: Int,

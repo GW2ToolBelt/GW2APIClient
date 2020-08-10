@@ -26,25 +26,24 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2AccountMasteries>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMasteries>> = request(
+public fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2AccountMasteries>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMasteries>> = request(
     path = "/v2/account/masteries",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2AccountMasteries.serializer().list,
+    serializer = ListSerializer(GW2v2AccountMasteries.serializer()),
     configure = configure
 )
 
 @Serializable
-data class GW2v2AccountMasteries(
+public data class GW2v2AccountMasteries(
     val id: Int,
     val level: Int? = null
 )

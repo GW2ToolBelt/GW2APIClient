@@ -23,35 +23,29 @@ import com.github.themrmilchmann.build.*
 import com.github.themrmilchmann.build.apigen.*
 
 plugins {
-    id("com.android.library") version "3.6.0"
-    kotlin("multiplatform") version "1.3.70"
-    kotlin("plugin.serialization") version "1.3.70"
+    kotlin("multiplatform") version "1.4.0-rc"
+    kotlin("plugin.serialization") version "1.4.0-rc"
     signing
     `maven-publish`
 }
 
 val nextVersion = "0.1.0"
 
-group = "com.github.themrmilchmann.gw2api"
-val artifactName = "gw2api-client"
+group = "com.gw2tb.gw2-api-client"
+val artifactName = "gw2-api-client"
 version = when (deployment.type) {
     com.github.themrmilchmann.build.BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
     else -> nextVersion
 }
 
-android {
-    compileSdkVersion(27)
-    defaultConfig {
-        minSdkVersion(15)
-    }
-}
-
 kotlin {
+    explicitApi()
+
     targets.all {
         compilations.all {
             kotlinOptions {
-                languageVersion = "1.3"
-                apiVersion = "1.3"
+                languageVersion = "1.4"
+                apiVersion = "1.4"
             }
         }
 
@@ -88,7 +82,6 @@ kotlin {
         }
     }
 
-    android("androidLib")
     jvm()
 
     sourceSets {
@@ -104,8 +97,8 @@ kotlin {
             dependencies {
                 implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Dependencies.kotlinxCoroutinesVersion}")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Dependencies.kotlinxSerializationVersion}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Dependencies.kotlinxSerializationVersion}")
             }
         }
 
@@ -129,13 +122,11 @@ kotlin {
         getByName("jvmMain").dependencies {
             implementation("io.ktor:ktor-client-core-jvm:${Dependencies.ktorVersion}")
             implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Dependencies.kotlinxSerializationVersion}")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${Dependencies.kotlinxCoroutinesVersion}")
         }
 
         getByName("jvmTest").dependencies {
             implementation("org.jetbrains.kotlin:kotlin-test-testng")
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Dependencies.kotlinxSerializationVersion}")
             implementation("org.testng:testng:${Dependencies.testngVersion}")
             implementation("io.ktor:ktor-client-mock-jvm:${Dependencies.ktorVersion}")
             implementation("io.ktor:ktor-client-apache:${Dependencies.ktorVersion}")
@@ -170,5 +161,6 @@ signing {
 
 repositories {
     mavenCentral()
+    jcenter()
     maven("https://kotlin.bintray.com/kotlinx")
 }

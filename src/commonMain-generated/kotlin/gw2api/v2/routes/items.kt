@@ -26,24 +26,24 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
+import kotlin.js.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2ItemsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2ItemsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/items",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = Int.serializer().list,
+    serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2ItemsById(id: Int, configure: (RequestBuilder<GW2v2Items>.() -> Unit)? = null): RequestBuilder<GW2v2Items> = request(
+public fun GW2APIClient.gw2v2ItemsById(id: Int, configure: (RequestBuilder<GW2v2Items>.() -> Unit)? = null): RequestBuilder<GW2v2Items> = request(
     path = "/v2/items",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -54,25 +54,25 @@ fun GW2APIClient.gw2v2ItemsById(id: Int, configure: (RequestBuilder<GW2v2Items>.
     configure = configure
 )
 
-fun GW2APIClient.gw2v2ItemsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Items>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Items>> = request(
+public fun GW2APIClient.gw2v2ItemsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Items>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Items>> = request(
     path = "/v2/items",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Items.serializer().list,
+    serializer = ListSerializer(GW2v2Items.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2ItemsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Items>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Items>> = request(
+public fun GW2APIClient.gw2v2ItemsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Items>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Items>> = request(
     path = "/v2/items",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Items.serializer().list,
+    serializer = ListSerializer(GW2v2Items.serializer()),
     configure = configure
 )
 
@@ -81,18 +81,18 @@ fun GW2APIClient.gw2v2ItemsByPage(page: Int, pageSize: Int = 200, configure: (Re
 private object __GW2v2ItemsGeneratedSerializer : KSerializer<GW2v2Items>
 
 @Suppress("ClassName")
-private object __GW2v2ItemsSerializer : JsonTransformingSerializer<GW2v2Items>(__GW2v2ItemsGeneratedSerializer, "__GW2v2ItemsSerializer") {
-    override fun readTransform(element: JsonElement): JsonElement =
+private object __GW2v2ItemsSerializer : JsonTransformingSerializer<GW2v2Items>(__GW2v2ItemsGeneratedSerializer) {
+    override fun transformDeserialize(element: JsonElement): JsonElement =
         JsonObject(element.jsonObject.mapValues { (key, value) ->
             when (key) {
-                "details" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["type"]!!.primitive.content)))
+                "details" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["type"]!!.jsonPrimitive.content)))
                 else -> value
             }
         })
 }
 
 @Serializable(with = __GW2v2ItemsSerializer::class)
-data class GW2v2Items(
+public data class GW2v2Items(
     val id: Int,
     val name: String,
     val type: String,
@@ -118,23 +118,23 @@ data class GW2v2Items(
 ) {
 
     @Serializable
-    data class UpgradesInto(
+    public data class UpgradesInto(
         val upgrade: String,
         @SerialName("item_id")
         val itemId: Int
     )
 
     @Serializable
-    data class UpgradesFrom(
+    public data class UpgradesFrom(
         val upgrade: String,
         @SerialName("item_id")
         val itemId: Int
     )
 
     @Suppress("ClassName")
-    private object __JsonParametricSerializer_Details : JsonParametricSerializer<Details>(Details::class) {
-        override fun selectSerializer(element: JsonElement): KSerializer<out Details> {
-            return when (element.jsonObject["__virtualType"]!!.content) {
+    private object __JsonParametricSerializer_Details : JsonContentPolymorphicSerializer<Details>(Details::class) {
+        override fun selectDeserializer(content: JsonElement): DeserializationStrategy<out Details> {
+            return when (content.jsonObject["__virtualType"]!!.jsonPrimitive.content) {
                 "Armor" -> Details.Armor.serializer()
                 "Back" -> Details.Back.serializer()
                 "Bag" -> Details.Bag.serializer()
@@ -153,20 +153,20 @@ data class GW2v2Items(
     }
     
     @Serializable(with = __JsonParametricSerializer_Details::class)
-    sealed class Details {
+    public sealed class Details {
     
         @Suppress("ClassName")
         @Serializer(forClass = Armor::class)
         private object __ArmorGeneratedSerializer : KSerializer<Armor>
     
         @Suppress("ClassName")
-        private object __ArmorSerializer : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer, "__ArmorSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __ArmorSerializer : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __ArmorSerializer::class)
-        data class Armor(
+        public data class Armor(
             val type: String,
             @SerialName("weight_class")
             val weightClass: String,
@@ -186,27 +186,27 @@ data class GW2v2Items(
         ) : Details() {
     
             @Serializable
-            data class InfusionSlots(
+            public data class InfusionSlots(
                 val flags: List<String>,
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
     
             @Serializable
-            data class InfixUpgrade(
+            public data class InfixUpgrade(
                 val id: Int,
                 val attributes: List<Attributes>,
                 val buff: Buff? = null
             ) {
     
                 @Serializable
-                data class Attributes(
+                public data class Attributes(
                     val attribute: String,
                     val modifier: Int
                 )
     
                 @Serializable
-                data class Buff(
+                public data class Buff(
                     @SerialName("skill_id")
                     val skillId: Int,
                     val description: String? = null
@@ -221,13 +221,13 @@ data class GW2v2Items(
         private object __BackGeneratedSerializer : KSerializer<Back>
     
         @Suppress("ClassName")
-        private object __BackSerializer : JsonTransformingSerializer<Back>(__BackGeneratedSerializer, "__BackSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __BackSerializer : JsonTransformingSerializer<Back>(__BackGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __BackSerializer::class)
-        data class Back(
+        public data class Back(
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlots>,
             @SerialName("infix_upgrade")
@@ -243,27 +243,27 @@ data class GW2v2Items(
         ) : Details() {
     
             @Serializable
-            data class InfusionSlots(
+            public data class InfusionSlots(
                 val flags: List<String>,
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
     
             @Serializable
-            data class InfixUpgrade(
+            public data class InfixUpgrade(
                 val id: Int,
                 val attributes: List<Attributes>,
                 val buff: Buff? = null
             ) {
     
                 @Serializable
-                data class Attributes(
+                public data class Attributes(
                     val attribute: String,
                     val modifier: Int
                 )
     
                 @Serializable
-                data class Buff(
+                public data class Buff(
                     @SerialName("skill_id")
                     val skillId: Int,
                     val description: String? = null
@@ -278,13 +278,13 @@ data class GW2v2Items(
         private object __BagGeneratedSerializer : KSerializer<Bag>
     
         @Suppress("ClassName")
-        private object __BagSerializer : JsonTransformingSerializer<Bag>(__BagGeneratedSerializer, "__BagSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __BagSerializer : JsonTransformingSerializer<Bag>(__BagGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __BagSerializer::class)
-        data class Bag(
+        public data class Bag(
             val size: Int,
             @SerialName("no_sell_or_sort")
             val noSellOrSort: Boolean
@@ -295,13 +295,13 @@ data class GW2v2Items(
         private object __ConsumableGeneratedSerializer : KSerializer<Consumable>
     
         @Suppress("ClassName")
-        private object __ConsumableSerializer : JsonTransformingSerializer<Consumable>(__ConsumableGeneratedSerializer, "__ConsumableSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __ConsumableSerializer : JsonTransformingSerializer<Consumable>(__ConsumableGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __ConsumableSerializer::class)
-        data class Consumable(
+        public data class Consumable(
             val type: String,
             val description: String? = null,
             @SerialName("duration_ms")
@@ -328,13 +328,13 @@ data class GW2v2Items(
         private object __ContainerGeneratedSerializer : KSerializer<Container>
     
         @Suppress("ClassName")
-        private object __ContainerSerializer : JsonTransformingSerializer<Container>(__ContainerGeneratedSerializer, "__ContainerSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __ContainerSerializer : JsonTransformingSerializer<Container>(__ContainerGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __ContainerSerializer::class)
-        data class Container(
+        public data class Container(
             val type: String
         ) : Details()
     
@@ -343,13 +343,13 @@ data class GW2v2Items(
         private object __GatheringGeneratedSerializer : KSerializer<Gathering>
     
         @Suppress("ClassName")
-        private object __GatheringSerializer : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer, "__GatheringSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __GatheringSerializer : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __GatheringSerializer::class)
-        data class Gathering(
+        public data class Gathering(
             val type: String
         ) : Details()
     
@@ -358,13 +358,13 @@ data class GW2v2Items(
         private object __GizmoGeneratedSerializer : KSerializer<Gizmo>
     
         @Suppress("ClassName")
-        private object __GizmoSerializer : JsonTransformingSerializer<Gizmo>(__GizmoGeneratedSerializer, "__GizmoSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __GizmoSerializer : JsonTransformingSerializer<Gizmo>(__GizmoGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __GizmoSerializer::class)
-        data class Gizmo(
+        public data class Gizmo(
             val type: String,
             @SerialName("guild_upgrade_id")
             val guildUpgradeId: Int? = null,
@@ -377,13 +377,13 @@ data class GW2v2Items(
         private object __MiniPetGeneratedSerializer : KSerializer<MiniPet>
     
         @Suppress("ClassName")
-        private object __MiniPetSerializer : JsonTransformingSerializer<MiniPet>(__MiniPetGeneratedSerializer, "__MiniPetSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __MiniPetSerializer : JsonTransformingSerializer<MiniPet>(__MiniPetGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __MiniPetSerializer::class)
-        data class MiniPet(
+        public data class MiniPet(
             @SerialName("minipet_id")
             val minipetId: Int
         ) : Details()
@@ -393,13 +393,13 @@ data class GW2v2Items(
         private object __ToolGeneratedSerializer : KSerializer<Tool>
     
         @Suppress("ClassName")
-        private object __ToolSerializer : JsonTransformingSerializer<Tool>(__ToolGeneratedSerializer, "__ToolSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __ToolSerializer : JsonTransformingSerializer<Tool>(__ToolGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __ToolSerializer::class)
-        data class Tool(
+        public data class Tool(
             val type: String,
             val charges: Int
         ) : Details()
@@ -409,13 +409,13 @@ data class GW2v2Items(
         private object __TrinketGeneratedSerializer : KSerializer<Trinket>
     
         @Suppress("ClassName")
-        private object __TrinketSerializer : JsonTransformingSerializer<Trinket>(__TrinketGeneratedSerializer, "__TrinketSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __TrinketSerializer : JsonTransformingSerializer<Trinket>(__TrinketGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __TrinketSerializer::class)
-        data class Trinket(
+        public data class Trinket(
             val type: String,
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlots>,
@@ -432,27 +432,27 @@ data class GW2v2Items(
         ) : Details() {
     
             @Serializable
-            data class InfusionSlots(
+            public data class InfusionSlots(
                 val flags: List<String>,
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
     
             @Serializable
-            data class InfixUpgrade(
+            public data class InfixUpgrade(
                 val id: Int,
                 val attributes: List<Attributes>,
                 val buff: Buff? = null
             ) {
     
                 @Serializable
-                data class Attributes(
+                public data class Attributes(
                     val attribute: String,
                     val modifier: Int
                 )
     
                 @Serializable
-                data class Buff(
+                public data class Buff(
                     @SerialName("skill_id")
                     val skillId: Int,
                     val description: String? = null
@@ -467,13 +467,13 @@ data class GW2v2Items(
         private object __UpgradeComponentGeneratedSerializer : KSerializer<UpgradeComponent>
     
         @Suppress("ClassName")
-        private object __UpgradeComponentSerializer : JsonTransformingSerializer<UpgradeComponent>(__UpgradeComponentGeneratedSerializer, "__UpgradeComponentSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __UpgradeComponentSerializer : JsonTransformingSerializer<UpgradeComponent>(__UpgradeComponentGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __UpgradeComponentSerializer::class)
-        data class UpgradeComponent(
+        public data class UpgradeComponent(
             val type: String,
             val flags: List<String>,
             @SerialName("infusion_upgrade_flags")
@@ -487,20 +487,20 @@ data class GW2v2Items(
         ) : Details() {
     
             @Serializable
-            data class InfixUpgrade(
+            public data class InfixUpgrade(
                 val id: Int,
                 val attributes: List<Attributes>,
                 val buff: Buff? = null
             ) {
     
                 @Serializable
-                data class Attributes(
+                public data class Attributes(
                     val attribute: String,
                     val modifier: Int
                 )
     
                 @Serializable
-                data class Buff(
+                public data class Buff(
                     @SerialName("skill_id")
                     val skillId: Int,
                     val description: String? = null
@@ -515,13 +515,13 @@ data class GW2v2Items(
         private object __WeaponGeneratedSerializer : KSerializer<Weapon>
     
         @Suppress("ClassName")
-        private object __WeaponSerializer : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer, "__WeaponSerializer") {
-            override fun readTransform(element: JsonElement): JsonElement =
+        private object __WeaponSerializer : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
     
         @Serializable(with = __WeaponSerializer::class)
-        data class Weapon(
+        public data class Weapon(
             val type: String,
             @SerialName("min_power")
             val minPower: Int,
@@ -545,27 +545,27 @@ data class GW2v2Items(
         ) : Details() {
     
             @Serializable
-            data class InfusionSlots(
+            public data class InfusionSlots(
                 val flags: List<String>,
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
     
             @Serializable
-            data class InfixUpgrade(
+            public data class InfixUpgrade(
                 val id: Int,
                 val attributes: List<Attributes>,
                 val buff: Buff? = null
             ) {
     
                 @Serializable
-                data class Attributes(
+                public data class Attributes(
                     val attribute: String,
                     val modifier: Int
                 )
     
                 @Serializable
-                data class Buff(
+                public data class Buff(
                     @SerialName("skill_id")
                     val skillId: Int,
                     val description: String? = null

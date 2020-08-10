@@ -37,7 +37,9 @@ public class GW2APIClient(
     private val cacheAccessor: CacheAccessor? = null,
     private val rateLimiter: RateLimiter? = null,
     public val checkPermissions: Boolean = false,
-    public val json: Json = Json(JsonConfiguration.Stable)
+    public val json: Json = Json {
+        encodeDefaults = false
+    }
 ) : Closeable by httpClient {
 
     public companion object {
@@ -46,7 +48,7 @@ public class GW2APIClient(
          *
          * @since   0.1.0
          */
-        public const val OFFICIAL_HOST = "api.guildwars2.com"
+        public const val OFFICIAL_HOST: String = "api.guildwars2.com"
     }
 
     /**

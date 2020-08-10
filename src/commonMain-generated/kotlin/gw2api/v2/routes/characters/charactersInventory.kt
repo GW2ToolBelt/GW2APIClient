@@ -26,13 +26,12 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2CharactersInventory(id: String, configure: (RequestBuilder<GW2v2CharactersInventory>.() -> Unit)? = null): RequestBuilder<GW2v2CharactersInventory> = request(
+public fun GW2APIClient.gw2v2CharactersInventory(id: String, configure: (RequestBuilder<GW2v2CharactersInventory>.() -> Unit)? = null): RequestBuilder<GW2v2CharactersInventory> = request(
     path = "/v2/characters/:id/inventory",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
@@ -44,19 +43,19 @@ fun GW2APIClient.gw2v2CharactersInventory(id: String, configure: (RequestBuilder
 )
 
 @Serializable
-data class GW2v2CharactersInventory(
+public data class GW2v2CharactersInventory(
     val bags: List<Bags>
 ) {
 
     @Serializable
-    data class Bags(
+    public data class Bags(
         val id: Int,
         val size: Int,
         val inventory: List<Inventory?>
     ) {
     
         @Serializable
-        data class Inventory(
+        public data class Inventory(
             val id: Int,
             val count: Int,
             val charges: Int? = null,
@@ -72,7 +71,7 @@ data class GW2v2CharactersInventory(
         ) {
     
             @Serializable
-            data class Stats(
+            public data class Stats(
                 val id: Int,
                 @SerialName("Power")
                 val power: Int? = null,

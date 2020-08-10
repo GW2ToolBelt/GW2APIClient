@@ -26,25 +26,24 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<List<GW2v2AccountInventory>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountInventory>> = request(
+public fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<List<GW2v2AccountInventory>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountInventory>> = request(
     path = "/v2/account/inventory",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2AccountInventory.serializer().list,
+    serializer = ListSerializer(GW2v2AccountInventory.serializer()),
     configure = configure
 )
 
 @Serializable
-data class GW2v2AccountInventory(
+public data class GW2v2AccountInventory(
     val id: Int,
     val count: Int,
     val charges: Int? = null,
@@ -56,7 +55,7 @@ data class GW2v2AccountInventory(
 ) {
 
     @Serializable
-    data class Stats(
+    public data class Stats(
         val id: Int,
         @SerialName("Power")
         val power: Int? = null,

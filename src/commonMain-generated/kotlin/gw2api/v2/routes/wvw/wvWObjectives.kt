@@ -26,24 +26,23 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2WvWObjectivesIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = String.serializer().list,
+    serializer = ListSerializer(String.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: (RequestBuilder<GW2v2WvWObjectives>.() -> Unit)? = null): RequestBuilder<GW2v2WvWObjectives> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: (RequestBuilder<GW2v2WvWObjectives>.() -> Unit)? = null): RequestBuilder<GW2v2WvWObjectives> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOf("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -54,41 +53,41 @@ fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: (RequestBuilder<G
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWObjectives.serializer().list,
+    serializer = ListSerializer(GW2v2WvWObjectives.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWObjectivesAll(configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesAll(configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWObjectives.serializer().list,
+    serializer = ListSerializer(GW2v2WvWObjectives.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWObjectivesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWObjectives>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWObjectives>> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWObjectives.serializer().list,
+    serializer = ListSerializer(GW2v2WvWObjectives.serializer()),
     configure = configure
 )
 
 @Serializable
-data class GW2v2WvWObjectives(
+public data class GW2v2WvWObjectives(
     val id: String,
     val name: String,
     val type: String,

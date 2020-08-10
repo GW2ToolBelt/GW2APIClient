@@ -26,24 +26,23 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2WvWRanksIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2WvWRanksIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = Int.serializer().list,
+    serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWRanksById(id: Int, configure: (RequestBuilder<GW2v2WvWRanks>.() -> Unit)? = null): RequestBuilder<GW2v2WvWRanks> = request(
+public fun GW2APIClient.gw2v2WvWRanksById(id: Int, configure: (RequestBuilder<GW2v2WvWRanks>.() -> Unit)? = null): RequestBuilder<GW2v2WvWRanks> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -54,41 +53,41 @@ fun GW2APIClient.gw2v2WvWRanksById(id: Int, configure: (RequestBuilder<GW2v2WvWR
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWRanksByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WvWRanks>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRanks>> = request(
+public fun GW2APIClient.gw2v2WvWRanksByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WvWRanks>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRanks>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWRanks.serializer().list,
+    serializer = ListSerializer(GW2v2WvWRanks.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWRanksAll(configure: (RequestBuilder<List<GW2v2WvWRanks>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRanks>> = request(
+public fun GW2APIClient.gw2v2WvWRanksAll(configure: (RequestBuilder<List<GW2v2WvWRanks>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRanks>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWRanks.serializer().list,
+    serializer = ListSerializer(GW2v2WvWRanks.serializer()),
     configure = configure
 )
 
-fun GW2APIClient.gw2v2WvWRanksByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWRanks>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRanks>> = request(
+public fun GW2APIClient.gw2v2WvWRanksByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWRanks>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRanks>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWRanks.serializer().list,
+    serializer = ListSerializer(GW2v2WvWRanks.serializer()),
     configure = configure
 )
 
 @Serializable
-data class GW2v2WvWRanks(
+public data class GW2v2WvWRanks(
     val id: Int,
     val title: String,
     @SerialName("min_level")

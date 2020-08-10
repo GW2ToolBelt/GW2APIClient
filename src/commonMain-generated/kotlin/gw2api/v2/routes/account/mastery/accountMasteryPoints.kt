@@ -26,13 +26,12 @@
 package gw2api.v2
 
 import gw2api.*
-import gw2api.extra.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-fun GW2APIClient.gw2v2AccountMasteryPoints(configure: (RequestBuilder<GW2v2AccountMasteryPoints>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMasteryPoints> = request(
+public fun GW2APIClient.gw2v2AccountMasteryPoints(configure: (RequestBuilder<GW2v2AccountMasteryPoints>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMasteryPoints> = request(
     path = "/v2/account/mastery/points",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -44,13 +43,13 @@ fun GW2APIClient.gw2v2AccountMasteryPoints(configure: (RequestBuilder<GW2v2Accou
 )
 
 @Serializable
-data class GW2v2AccountMasteryPoints(
+public data class GW2v2AccountMasteryPoints(
     val totals: List<Totals>,
     val unlocked: List<Int>
 ) {
 
     @Serializable
-    data class Totals(
+    public data class Totals(
         val region: String,
         val spent: Int,
         val earned: Int

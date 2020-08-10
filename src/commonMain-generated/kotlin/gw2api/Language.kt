@@ -34,7 +34,7 @@ public enum class Language(public val code: String) {
     GERMAN("de"),
     SPANISH("es");
 
-    companion object {
-        val API_V2 = setOf(CHINESE, ENGLISH, FRENCH, GERMAN, SPANISH)
+    public companion object {
+        public val API_V2: Set<Language> = setOf(CHINESE, ENGLISH, FRENCH, GERMAN, SPANISH)
     }
 }

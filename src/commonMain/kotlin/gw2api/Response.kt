@@ -26,6 +26,10 @@ package gw2api
  *
  * @since   0.1.0
  */
-data class Response<out T> internal constructor(
-    val data: T?
-)
+public class Response<out T> internal constructor(
+    private val dataFun: () -> T?
+) {
+
+    public val data: T? by lazy { dataFun() }
+
+}

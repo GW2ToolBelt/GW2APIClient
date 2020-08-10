@@ -37,14 +37,14 @@ public class Request<out T> internal constructor(
     func: (Request<T>) -> Deferred<Response<T>>
 ) {
 
-    private val deferred: Deferred<Response<T>> = func(this)
+    internal val deferred: Deferred<Response<T>> = func(this)
 
     /**
      * TODO doc
      *
      * @since   0.1.0
      */
-    suspend fun get(): Response<T> = suspendCoroutine { continuation ->
+    public suspend fun get(): Response<T> = suspendCoroutine { continuation ->
         deferred.invokeOnCompletion { cause ->
             if (cause !== null) {
                 continuation.resumeWithException(cause)
@@ -59,9 +59,13 @@ public class Request<out T> internal constructor(
      *
      * @since   0.1.0
      */
-    fun then(action: (Response<T>) -> Unit) {
-        deferred.invokeOnCompletion {
-            action.invoke(deferred.getCompleted())
+    public fun then(errorHandler: ((Throwable) -> Unit)? = null, action: (Response<T>) -> Unit) {
+        deferred.invokeOnCompletion { cause ->
+            when (cause) {
+                null -> action.invoke(deferred.getCompleted())
+                is CancellationException -> error("Job should not be cancelable") // TODO revisit this
+                else -> errorHandler?.let { errorFun -> errorFun(cause) } ?: throw cause
+            }
         }
     }
 
