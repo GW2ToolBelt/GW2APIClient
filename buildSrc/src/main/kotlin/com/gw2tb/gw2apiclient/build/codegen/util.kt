@@ -19,16 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.themrmilchmann.build
+package com.gw2tb.gw2apiclient.build.codegen
 
-object Dependencies {
+fun String.firstToLowerCase(): String =
+    "${toCharArray()[0].toLowerCase()}${substring(1)}"
 
-    // Shared depencencies
-    val kotlinxCoroutinesVersion = "1.3.8-1.4.0-rc"
-    val kotlinxSerializationVersion = "1.0-M1-1.4.0-rc"
-    val ktorVersion = "1.3.2-1.4.0-rc"
-
-    // JVM dependencies
-    val testngVersion = "6.14.3"
-
-}
+fun String.firstToUpperCase(): String =
+    "${toCharArray()[0].toUpperCase()}${substring(1)}"

@@ -19,11 +19,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.themrmilchmann.build
+package com.gw2tb.gw2apiclient.build
 
-data class Deployment internal constructor(
-    val type: BuildType,
-    val repo: String,
-    val user: String? = null,
-    val password: String? = null
-)
+object Dependencies {
+
+    // Shared depencencies
+    val kotlinxCoroutinesVersion = "1.3.8-1.4.0-rc"
+    val kotlinxSerializationVersion = "1.0-M1-1.4.0-rc"
+    val ktorVersion = "1.3.2-1.4.0-rc"
+
+    // JVM dependencies
+    val testngVersion = "6.14.3"
+
+}

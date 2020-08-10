@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 @file:Suppress("FunctionName", "LocalVariableName")
-package com.github.themrmilchmann.build.apigen
+package com.gw2tb.gw2apiclient.build.codegen
 
 import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*

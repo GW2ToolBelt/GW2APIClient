@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.themrmilchmann.build
+package com.gw2tb.gw2apiclient.build
 
 enum class BuildType {
     LOCAL,

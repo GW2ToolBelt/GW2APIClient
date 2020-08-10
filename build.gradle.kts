@@ -19,8 +19,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import com.github.themrmilchmann.build.*
-import com.github.themrmilchmann.build.apigen.*
+import com.gw2tb.gw2apiclient.build.*
+import com.gw2tb.gw2apiclient.build.BuildType
+import com.gw2tb.gw2apiclient.build.codegen.*
 import org.jetbrains.dokka.gradle.*
 
 plugins {
@@ -36,7 +37,7 @@ val nextVersion = "0.1.0"
 group = "com.gw2tb.gw2-api-client"
 val artifactName = "gw2-api-client"
 version = when (deployment.type) {
-    com.github.themrmilchmann.build.BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
+    BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
     else -> nextVersion
 }
 
@@ -56,12 +57,12 @@ kotlin {
                 name.set(project.name)
                 description.set("Kotlin multiplatform client for the official Guild Wars 2 API")
                 packaging = "jar"
-                url.set("https://github.com/TheMrMilchmann/GW2APIClient")
+                url.set("https://github.com/GW2TB/GW2APIClient")
 
                 licenses {
                     license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("https://github.com/TheMrMilchmann/GW2APIClient/blob/master/LICENSE")
+                        name.set("MIT")
+                        url.set("https://github.com/GW2TB/GW2APIClient/blob/master/LICENSE")
                         distribution.set("repo")
                     }
                 }
@@ -76,9 +77,9 @@ kotlin {
                 }
 
                 scm {
-                    connection.set("scm:git:git://github.com/TheMrMilchmann/GW2APIClient.git")
-                    developerConnection.set("scm:git:git://github.com/TheMrMilchmann/GW2APIClient.git")
-                    url.set("https://github.com/TheMrMilchmann/GW2APIClient.git")
+                    connection.set("scm:git:git://github.com/GW2TB/GW2APIClient.git")
+                    developerConnection.set("scm:git:git://github.com/GW2TB/GW2APIClient.git")
+                    url.set("https://github.com/GW2TB/GW2APIClient.git")
                 }
             }
         }
@@ -112,14 +113,6 @@ kotlin {
                 implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
             }
         }
-
-//        getByName("jsMain").dependencies {
-//
-//        }
-//
-//        getByName("jsTest").dependencies {
-//
-//        }
 
         getByName("jvmMain").dependencies {
             implementation("io.ktor:ktor-client-core-jvm:${Dependencies.ktorVersion}")
@@ -170,7 +163,7 @@ publishing {
 }
 
 signing {
-    isRequired = (deployment.type === com.github.themrmilchmann.build.BuildType.RELEASE)
+    isRequired = (deployment.type === BuildType.RELEASE)
     sign(publishing.publications)
 }
 
