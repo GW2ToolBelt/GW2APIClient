@@ -315,7 +315,7 @@ public data class GW2v2Items(
             @SerialName("extra_recipe_ids")
             val extraRecipeIds: List<Int>? = null,
             @SerialName("guild_upgrade_id")
-            val guildUpgradeId: List<Int>? = null,
+            val guildUpgradeId: Int? = null,
             @SerialName("apply_count")
             val applyCount: Int? = null,
             val name: String? = null,
