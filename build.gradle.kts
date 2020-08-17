@@ -25,8 +25,8 @@ import com.gw2tb.gw2apiclient.build.codegen.*
 import org.jetbrains.dokka.gradle.*
 
 plugins {
-    kotlin("multiplatform") version "1.4.0-rc"
-    kotlin("plugin.serialization") version "1.4.0-rc"
+    kotlin("multiplatform") version "1.4.0"
+    kotlin("plugin.serialization") version "1.4.0"
     id("org.jetbrains.dokka") version "1.4.0-rc"
     signing
     `maven-publish`
