@@ -101,7 +101,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Dependencies.kotlinxSerializationVersion}")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Dependencies.kotlinxSerializationVersion}")
             }
         }
 
