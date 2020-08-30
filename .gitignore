@@ -2,10 +2,13 @@
 !/.idea
 /.idea/*
 !/.idea/copyright
-!/.idea/scopes/
+!/.idea/scopes
 /build
 /out
 
 /buildSrc/.gradle
 /buildSrc/build
 /buildSrc/out
+
+/modules/*/build
+/modules/*/out
