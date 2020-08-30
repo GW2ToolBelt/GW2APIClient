@@ -22,12 +22,11 @@
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 import com.gw2tb.gw2apiclient.build.codegen.*
-import org.jetbrains.dokka.gradle.*
 
 plugins {
     kotlin("multiplatform") version "1.4.0"
     kotlin("plugin.serialization") version "1.4.0"
-    id("org.jetbrains.dokka") version "1.4.0-rc"
+    id("org.jetbrains.dokka") version "1.4.0-dev-62"
     signing
     `maven-publish`
 }
@@ -134,19 +133,6 @@ tasks {
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
         outputDirectory = file("src/commonMain-generated")
     }
-
-    withType<DokkaTask> {
-        dokkaSourceSets {
-            register("commonMain") {
-                displayName = "common"
-                platform = "common"
-            }
-            register("jvmMain") {
-                displayName = "jvm"
-                platform = "jvm"
-            }
-        }
-    }
 }
 
 publishing {
@@ -169,6 +155,7 @@ signing {
 
 repositories {
     mavenCentral()
-    jcenter()
     maven("https://kotlin.bintray.com/kotlinx")
+    maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
+    jcenter()
 }
