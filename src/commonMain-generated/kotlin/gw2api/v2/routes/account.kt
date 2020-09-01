@@ -31,6 +31,26 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about a player's account.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 public fun GW2APIClient.gw2v2Account(configure: (RequestBuilder<GW2v2Account>.() -> Unit)? = null): RequestBuilder<GW2v2Account> = request(
     path = "/v2/account",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
@@ -42,6 +62,24 @@ public fun GW2APIClient.gw2v2Account(configure: (RequestBuilder<GW2v2Account>.()
     configure = configure
 )
 
+/**
+ * Information about a player's account.
+ *
+ * @param id the unique persistent account GUID
+ * @param age the age of the account in seconds
+ * @param name the unique account name
+ * @param world the ID of the home world the account is assigned to
+ * @param guilds an array containing the IDs of all guilds the account is a member in
+ * @param guildLeader an array containing the IDs of all guilds the account is a leader of
+ * @param created the ISO-8601 standard timestamp of when the account was created
+ * @param access an array of what content this account has access to
+ * @param commander a flag indicating whether or not the commander tag is unlocked for the account
+ * @param fractalLevel the account's personal fractal level
+ * @param dailyAP the daily AP the account has
+ * @param monthlyAP the monthly AP the account has
+ * @param wvwRank the account's personal wvw rank
+ * @param lastModified the ISO-8601 standard timestamp of when the account information last changed (as perceived by the API)
+ */
 @Serializable
 public data class GW2v2Account(
     val id: String,

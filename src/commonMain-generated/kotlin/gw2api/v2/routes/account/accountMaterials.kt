@@ -31,19 +31,47 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<List<GW2v2AccountMaterials>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMaterials>> = request(
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about the materials stored in a player's vault.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, INVENTORIES)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/materials]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<List<GW2v2AccountMaterial>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMaterial>> = request(
     path = "/v2/account/materials",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountMaterials.serializer()),
+    serializer = ListSerializer(GW2v2AccountMaterial.serializer()),
     configure = configure
 )
 
+/**
+ * Information about a stack of materials in a player's vault.
+ *
+ * @param id the material's item ID
+ * @param category the material category the item belongs to
+ * @param count the number of the material that is stored in the player's vault
+ * @param binding the binding of the material
+ */
 @Serializable
-public data class GW2v2AccountMaterials(
+public data class GW2v2AccountMaterial(
     val id: Int,
     val category: Int,
     val count: Int,

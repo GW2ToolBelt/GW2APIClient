@@ -31,6 +31,26 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about a player's shared inventory slots.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, INVENTORIES)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/inventory]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 public fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<List<GW2v2AccountInventory>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountInventory>> = request(
     path = "/v2/account/inventory",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
@@ -42,6 +62,18 @@ public fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<List<GW
     configure = configure
 )
 
+/**
+ * Information about a stack of items in a player's shared inventory.
+ *
+ * @param id the item's ID
+ * @param count the amount of items in the stack
+ * @param charges the amount of charges remaining on the item
+ * @param skin the ID of the skin applied to the item
+ * @param upgrades the array of item IDs of runes or sigils applied to the item
+ * @param infusions the array of item IDs of infusions applied to the item
+ * @param stats information about the stats chosen for the item (if the item offers the option to select stats/prefix)
+ * @param binding the binding of the item
+ */
 @Serializable
 public data class GW2v2AccountInventory(
     val id: Int,
@@ -54,6 +86,19 @@ public data class GW2v2AccountInventory(
     val binding: String? = null
 ) {
 
+    /**
+     * Information about an item's stats.
+     *
+     * @param id the itemstat ID
+     * @param power the amount of power given by the item
+     * @param precision the amount of precision given by the item
+     * @param toughness the amount of toughness given by the item
+     * @param vitality the amount of vitality given by the item
+     * @param conditionDamage the amount of condition damage given by the item
+     * @param conditionDuration the amount of condition duration given by the item
+     * @param healing the amount of healing given by the item
+     * @param boonDuration the amount of boon duration given by the item
+     */
     @Serializable
     public data class Stats(
         val id: Int,

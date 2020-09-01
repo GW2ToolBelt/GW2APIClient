@@ -31,6 +31,26 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns which items that can be crafted once per day a player crafted since the most recent daily reset.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PROGRESSION, UNLOCKS)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/dailycrafting]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 public fun GW2APIClient.gw2v2AccountDailyCrafting(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/account/dailycrafting",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),

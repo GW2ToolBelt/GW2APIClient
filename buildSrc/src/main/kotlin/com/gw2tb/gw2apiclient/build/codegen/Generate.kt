@@ -31,8 +31,8 @@ import org.gradle.api.tasks.*
 import java.io.*
 import java.util.*
 
-private const val t = "    "
-private const val n = "\n"
+const val t = "    "
+const val n = "\n"
 
 @CacheableTask
 open class Generate : DefaultTask() {
@@ -47,22 +47,24 @@ open class Generate : DefaultTask() {
         SchemaString -> "String"
     }.let { name -> KotlinTypeInfo(name, "$name.serializer()") }
 
-    private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>): KotlinTypeInfo {
+    private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>, isParentArray: Boolean = false): KotlinTypeInfo {
         fun KotlinTypeInfo(type: String) = KotlinTypeInfo(type, "$type.serializer()")
+
+        val typeName = titleCaseName.let { if (isParentArray) it.removeSuffix("s") else it }
 
         return when (this) {
             is SchemaPrimitive -> toKotlinType()
             is SchemaArray -> {
-                val itemType = items.toKotlinType(titleCaseName, dataClasses)
+                val itemType = items.toKotlinType(typeName, dataClasses, isParentArray = true)
                 KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", itemType.listSerializer)
             }
             is SchemaMap -> {
                 val keyType = keys.toKotlinType()
-                val valueType = values.toKotlinType(titleCaseName, dataClasses)
+                val valueType = values.toKotlinType(typeName, dataClasses)
                 KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>")
             }
-            is SchemaConditional -> KotlinTypeInfo(titleCaseName).also { dataClasses[titleCaseName] = this }
-            is SchemaRecord -> KotlinTypeInfo(titleCaseName).also { dataClasses[titleCaseName] = this }
+            is SchemaConditional -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
+            is SchemaRecord -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
             else -> error("Unsupported SchemaType: $this")
         }
     }
@@ -120,14 +122,21 @@ open class Generate : DefaultTask() {
                 val routeTitleCase = endpoint.route.replace(Regex("/:([A-Za-z])*"), "").replace("/", "")
 
                 val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaType>()) {
-                    endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this) to this.entries.firstOrNull()?.value
+                    endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this, isParentArray = endpoint.queryTypes.isNotEmpty()) to
+                        this.entries.firstOrNull()?.value
+                }
+
+                val dataClassName = when {
+                    endpoint.schema is SchemaRecord && endpoint.queryTypes.isNotEmpty() -> dataClassType.name
+                    endpoint.schema is SchemaArray -> "GW2v2${routeTitleCase}".removeSuffix("s")
+                    else -> "GW2v2${routeTitleCase}"
                 }
 
                 fun requestBody(
                     parameters: String,
                     replaceInPath: Map<String, String>? = null,
                     serializer: String,
-                    isIdsEndpoint: Boolean = false
+                    isIDsEndpoint: Boolean = false
                 ) =
                     """
                     path = "/v2${endpoint.route.toLowerCase(Locale.ENGLISH)}",
@@ -135,7 +144,7 @@ open class Generate : DefaultTask() {
                     replaceInPath = mapOf(${replaceInPath?.entries?.joinToString(separator = ", ") { (key, value) -> "\"$key\" to $value" } ?: ""}),
                     requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
                     requiredPermissions = emptySet(),
-                    supportedLanguages = ${if (endpoint.isLocalized && !isIdsEndpoint) "Language.API_V2" else "emptySet()"},
+                    supportedLanguages = ${if (endpoint.isLocalized && !isIDsEndpoint) "Language.API_V2" else "emptySet()"},
                     serializer = $serializer,
                     configure = configure
                     """.trimIndent().lines().joinToString(separator = n) { "$t$it" }
@@ -150,11 +159,13 @@ open class Generate : DefaultTask() {
 
                         yield(
                             """
-                            |public fun GW2APIClient.gw2v2${routeTitleCase}Ids(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
+                            |${endpoint.dokka(
+                                queryType = "Creates a request used to query the list of available IDs."
+                            )}public fun GW2APIClient.gw2v2${routeTitleCase}IDs(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
                             |${requestBody(
                                 parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
                                 serializer = idType.listSerializer,
-                                isIdsEndpoint = true
+                                isIDsEndpoint = true
                             )}
                             |)
                             """.trimMargin()
@@ -164,7 +175,9 @@ open class Generate : DefaultTask() {
                             when (queryType) {
                                 is QueryType.ById -> yield(
                                     """
-                                    |public fun GW2APIClient.gw2v2${routeTitleCase}ById(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
+                                    |${endpoint.dokka(
+                                        queryType = "Creates a request used to query a single [item]($dataClassType) by its ID."
+                                    )}public fun GW2APIClient.gw2v2${routeTitleCase}ByID(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
                                     |${requestBody(
                                         parameters = """mapOf("id" to id${if (endpoint.idType is SchemaString) "" else ".toString()"}, "v" to "${schemaVersion.identifier!!}")""",
                                         serializer = dataClassType.serializer
@@ -175,7 +188,9 @@ open class Generate : DefaultTask() {
                                 is QueryType.ByIds -> {
                                     yield(
                                         """
-                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByIds(ids: Collection<$idType>, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                        |${endpoint.dokka(
+                                            queryType = "Creates a request used to query one or more [items]($dataClassType) by their IDs."
+                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(ids: Collection<$idType>, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
                                             parameters = """mapOf("ids" to ids.joinToString(","), "v" to "${schemaVersion.identifier!!}")""",
                                             serializer = dataClassType.listSerializer
@@ -186,7 +201,9 @@ open class Generate : DefaultTask() {
 
                                     if (queryType.supportsAll) yield(
                                         """
-                                        |public fun GW2APIClient.gw2v2${routeTitleCase}All(configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                        |${endpoint.dokka(
+                                            queryType = "Creates a request used to query all available [items]($dataClassType)."
+                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}All(configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
                                             parameters = """mapOf("ids" to "all", "v" to "${schemaVersion.identifier!!}")""",
                                             serializer = dataClassType.listSerializer
@@ -197,7 +214,9 @@ open class Generate : DefaultTask() {
                                 }
                                 is QueryType.ByPage -> yield(
                                     """
-                                    |public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                    |${endpoint.dokka(
+                                        queryType = "Creates a request used to query one or more [items]($dataClassType) by page."
+                                    )}public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                     |${requestBody(
                                         parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "${schemaVersion.identifier!!}")""",
                                         serializer = dataClassType.listSerializer
@@ -209,11 +228,13 @@ open class Generate : DefaultTask() {
                             }
                         }
                     } else {
-                        val RequestBuilder = "RequestBuilder<${dataClassType.name}>"
+                        val RequestBuilder = "RequestBuilder<$dataClassType>"
 
                         yield(
                             """
-                            |public fun GW2APIClient.gw2v2$routeTitleCase(${endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
+                            |${endpoint.dokka(
+                                queryType = "Creates a request used to query the resource."
+                            )}public fun GW2APIClient.gw2v2$routeTitleCase(${endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
                             |${requestBody(
                                 parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
                                 replaceInPath = endpoint.pathParameters.map { ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}" }.toMap(),
@@ -243,7 +264,7 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaRecord).createDataClass("GW2v2$routeTitleCase") else "" }}
+${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaRecord).createDataClass(dataClassName, endpoint = endpoint) else "" }}
 """.trimIndent()
                     )
                 }
@@ -276,15 +297,15 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         return """
         |@Suppress("ClassName")
         |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
-        |    override fun selectDeserializer(content: JsonElement): DeserializationStrategy<out $className> {
-        |        return when (content.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
+        |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
+        |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
         |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (name, _) -> """"$name" -> $className.$name.serializer()""" }}
         |            else -> TODO()
         |        }
         |    }
         |}
         |
-        |@Serializable(with = __JsonParametricSerializer_$className::class)
+        |${dokka(header = description)}@Serializable(with = __JsonParametricSerializer_$className::class)
         |public sealed class $className {
         |${sharedProperties.values.joinToString(separator = n) { 
             "${t}public abstract val ${it.camelCaseName}: ${it.type.toKotlinType(it.propertyName, dataClasses)}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
@@ -307,9 +328,11 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         serialName: String? = null,
         superClass: String? = null,
         isInterpretation: Boolean = false,
-        sharedProperties: Map<String, SchemaRecord.Property> = emptyMap()
+        sharedProperties: Map<String, SchemaRecord.Property> = emptyMap(),
+        endpoint: Endpoint? = null
     ): String {
         val dataClasses = mutableMapOf<String, SchemaType>()
+        val docComment = dokka(header = description)
 
         return """${if (properties.values.any { it.type is SchemaConditional && (it.type as SchemaConditional).disambiguationBySideProperty } || isInterpretation) """
         |@Suppress("ClassName")
@@ -328,7 +351,7 @@ ${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it 
         """.trimMargin() else ""}${if (isInterpretation) " - \"__virtualType\"" else ""})
         |}
         |
-        |@Serializable(with = __${className}Serializer::class)""".trimMargin() else "@Serializable"}${if (serialName !== null) "${n}SerialName($serialName)" else ""}
+        |$docComment@Serializable(with = __${className}Serializer::class)""".trimMargin() else "$docComment@Serializable"}${if (serialName !== null) "${n}SerialName($serialName)" else ""}
         |public data class $className${properties.ctor(sharedProperties, dataClasses)}${if (superClass !== null) " : $superClass()" else "" }${if (dataClasses.isNotEmpty()) """
         | {
         |

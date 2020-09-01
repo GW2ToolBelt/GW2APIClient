@@ -31,10 +31,30 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2CharactersInventory(id: String, configure: (RequestBuilder<GW2v2CharactersInventory>.() -> Unit)? = null): RequestBuilder<GW2v2CharactersInventory> = request(
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about a character's inventory.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, CHARACTERS, INVENTORIES)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters/:id/inventory]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2CharactersInventory(iD: String, configure: (RequestBuilder<GW2v2CharactersInventory>.() -> Unit)? = null): RequestBuilder<GW2v2CharactersInventory> = request(
     path = "/v2/characters/:id/inventory",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(":id" to id),
+    replaceInPath = mapOf(":id" to iD),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -42,18 +62,44 @@ public fun GW2APIClient.gw2v2CharactersInventory(id: String, configure: (Request
     configure = configure
 )
 
+/**
+ * Information about a bag in a character's inventory.
+ *
+ * @param bags the character's inventory bags
+ */
 @Serializable
 public data class GW2v2CharactersInventory(
-    val bags: List<Bags>
+    val bags: List<Bag>
 ) {
 
+    /**
+     * Information about an inventory bag.
+     *
+     * @param id the bag's item ID
+     * @param size the bag's size
+     * @param inventory the bag's content
+     */
     @Serializable
-    public data class Bags(
+    public data class Bag(
         val id: Int,
         val size: Int,
         val inventory: List<Inventory?>
     ) {
     
+        /**
+         * Information about an item in a character's inventory.
+         *
+         * @param id the item's ID
+         * @param count the amount of items in the stack
+         * @param charges the amount of charges remaining on the item
+         * @param skin the ID of the skin applied to the item
+         * @param upgrades an array of item IDs for each rune or signet applied to the item
+         * @param upgradeSlotIndices 
+         * @param infusions an array of item IDs for each infusion applied to the item
+         * @param stats contains information on the stats chosen if the item offers an option for stats/prefix
+         * @param binding the binding of the material
+         * @param boundTo name of the character the item is bound to
+         */
         @Serializable
         public data class Inventory(
             val id: Int,
@@ -70,6 +116,19 @@ public data class GW2v2CharactersInventory(
             val boundTo: String? = null
         ) {
     
+            /**
+             * Information about an item's stats.
+             *
+             * @param id the itemstat ID
+             * @param power the amount of power given by the item
+             * @param precision the amount of precision given by the item
+             * @param toughness the amount of toughness given by the item
+             * @param vitality the amount of vitality given by the item
+             * @param conditionDamage the amount of condition damage given by the item
+             * @param conditionDuration the amount of condition duration given by the item
+             * @param healing the amount of healing given by the item
+             * @param boonDuration the amount of boon duration given by the item
+             */
             @Serializable
             public data class Stats(
                 val id: Int,

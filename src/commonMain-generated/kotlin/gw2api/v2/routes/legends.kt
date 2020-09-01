@@ -31,7 +31,27 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+/**
+ * Creates a request used to query the list of available IDs.
+ *
+ * Returns information about the Revenant legends.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2LegendsIDs(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/legends",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -42,52 +62,141 @@ public fun GW2APIClient.gw2v2LegendsIds(configure: (RequestBuilder<List<String>>
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2LegendsById(id: String, configure: (RequestBuilder<GW2v2Legends>.() -> Unit)? = null): RequestBuilder<GW2v2Legends> = request(
+/**
+ * Creates a request used to query a single [item](GW2v2Legend) by its ID.
+ *
+ * Returns information about the Revenant legends.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2LegendsByID(id: String, configure: (RequestBuilder<GW2v2Legend>.() -> Unit)? = null): RequestBuilder<GW2v2Legend> = request(
     path = "/v2/legends",
     parameters = mapOf("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Legends.serializer(),
+    serializer = GW2v2Legend.serializer(),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2LegendsByIds(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2Legend) by their IDs.
+ *
+ * Returns information about the Revenant legends.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2LegendsByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Legend>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legend>> = request(
     path = "/v2/legends",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2Legends.serializer()),
+    serializer = ListSerializer(GW2v2Legend.serializer()),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2LegendsAll(configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
+/**
+ * Creates a request used to query all available [items](GW2v2Legend).
+ *
+ * Returns information about the Revenant legends.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2LegendsAll(configure: (RequestBuilder<List<GW2v2Legend>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legend>> = request(
     path = "/v2/legends",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2Legends.serializer()),
+    serializer = ListSerializer(GW2v2Legend.serializer()),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2LegendsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Legends>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legends>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2Legend) by page.
+ *
+ * Returns information about the Revenant legends.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2LegendsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Legend>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Legend>> = request(
     path = "/v2/legends",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2Legends.serializer()),
+    serializer = ListSerializer(GW2v2Legend.serializer()),
     configure = configure
 )
 
+/**
+ * Information about a Revenant legend.
+ *
+ * @param id the legend's ID
+ * @param swap the ID of the profession (swap Legend) skill
+ * @param heal the ID of the heal skill
+ * @param elite the ID of the elite skills
+ * @param utilities the IDs of the utility skills
+ */
 @Serializable
-public data class GW2v2Legends(
+public data class GW2v2Legend(
     val id: String,
     val swap: Int,
     val heal: Int,

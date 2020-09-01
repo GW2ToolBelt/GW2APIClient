@@ -31,6 +31,26 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns the current build ID.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/build]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 public fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> Unit)? = null): RequestBuilder<GW2v2Build> = request(
     path = "/v2/build",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
@@ -42,6 +62,11 @@ public fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> 
     configure = configure
 )
 
+/**
+ * Information about the current game build.
+ *
+ * @param id the current build ID
+ */
 @Serializable
 public data class GW2v2Build(
     val id: Int

@@ -31,7 +31,27 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2CommerceListingsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+/**
+ * Creates a request used to query the list of available IDs.
+ *
+ * Returns current buy and sell listings from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/listings]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2CommerceListingsIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/commerce/listings",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -42,56 +62,137 @@ public fun GW2APIClient.gw2v2CommerceListingsIds(configure: (RequestBuilder<List
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2CommerceListingsById(id: Int, configure: (RequestBuilder<GW2v2CommerceListings>.() -> Unit)? = null): RequestBuilder<GW2v2CommerceListings> = request(
+/**
+ * Creates a request used to query a single [item](GW2v2CommerceListing) by its ID.
+ *
+ * Returns current buy and sell listings from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/listings]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2CommerceListingsByID(id: Int, configure: (RequestBuilder<GW2v2CommerceListing>.() -> Unit)? = null): RequestBuilder<GW2v2CommerceListing> = request(
     path = "/v2/commerce/listings",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2CommerceListings.serializer(),
+    serializer = GW2v2CommerceListing.serializer(),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2CommerceListingsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2CommerceListings>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceListings>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2CommerceListing) by their IDs.
+ *
+ * Returns current buy and sell listings from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/listings]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2CommerceListingsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2CommerceListing>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
     path = "/v2/commerce/listings",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CommerceListings.serializer()),
+    serializer = ListSerializer(GW2v2CommerceListing.serializer()),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2CommerceListingsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommerceListings>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceListings>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2CommerceListing) by page.
+ *
+ * Returns current buy and sell listings from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/listings]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2CommerceListingsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommerceListing>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
     path = "/v2/commerce/listings",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CommerceListings.serializer()),
+    serializer = ListSerializer(GW2v2CommerceListing.serializer()),
     configure = configure
 )
 
+/**
+ * Information about an item listed in the trading post.
+ *
+ * @param id the item's ID
+ * @param buys list of all buy listings
+ * @param sells list of all sell listings
+ */
 @Serializable
-public data class GW2v2CommerceListings(
+public data class GW2v2CommerceListing(
     val id: Int,
-    val buys: List<Buys>,
-    val sells: List<Sells>
+    val buys: List<Buy>,
+    val sells: List<Sell>
 ) {
 
+    /**
+     * Information about an item's listing.
+     *
+     * @param listings the number of individual listings this object refers to (e.g. two players selling at the same price will end up in the same listing)
+     * @param unitPrice the sell offer or buy order price in coins
+     * @param quantity the amount of items being sold/bought in this listing
+     */
     @Serializable
-    public data class Buys(
+    public data class Buy(
         val listings: Int,
         @SerialName("unit_price")
         val unitPrice: Int,
         val quantity: Int
     )
 
+    /**
+     * Information about an item's listing.
+     *
+     * @param listings the number of individual listings this object refers to (e.g. two players selling at the same price will end up in the same listing)
+     * @param unitPrice the sell offer or buy order price in coins
+     * @param quantity the amount of items being sold/bought in this listing
+     */
     @Serializable
-    public data class Sells(
+    public data class Sell(
         val listings: Int,
         @SerialName("unit_price")
         val unitPrice: Int,

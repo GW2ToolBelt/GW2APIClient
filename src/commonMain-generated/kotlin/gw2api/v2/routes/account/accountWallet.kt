@@ -31,6 +31,26 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about a player's wallet.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, WALLET)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/wallet]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 public fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<List<GW2v2AccountWallet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountWallet>> = request(
     path = "/v2/account/wallet",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
@@ -42,6 +62,12 @@ public fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<List<GW2v2
     configure = configure
 )
 
+/**
+ * Information about a currency in a player's wallet.
+ *
+ * @param id the currency ID that can be resolved against /v2/currencies
+ * @param value the amount of this currency in the player's wallet
+ */
 @Serializable
 public data class GW2v2AccountWallet(
     val id: Int,

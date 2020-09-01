@@ -31,19 +31,50 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2AccountAchievements(configure: (RequestBuilder<List<GW2v2AccountAchievements>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountAchievements>> = request(
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns a player's progress towards all their achievements.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PROGRESSION)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/achievements]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2AccountAchievements(configure: (RequestBuilder<List<GW2v2AccountAchievement>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountAchievement>> = request(
     path = "/v2/account/achievements",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountAchievements.serializer()),
+    serializer = ListSerializer(GW2v2AccountAchievement.serializer()),
     configure = configure
 )
 
+/**
+ * Information about a player's progress towards an achievement.
+ *
+ * @param id the achievement's ID
+ * @param done a flag indicating whether or not the account has completed the achievement
+ * @param bits an array of numbers (whose exact meaning differs) giving information about the progress towards an achievement
+ * @param current the account's current progress towards the achievement
+ * @param max the amount of progress required to complete the achievement
+ * @param repeated the number of times the achievement has been completed (if the achievement is repeatable)
+ * @param unlocked a flag indicating whether or not the achievement is unlocked (if the achievement can be unlocked)
+ */
 @Serializable
-public data class GW2v2AccountAchievements(
+public data class GW2v2AccountAchievement(
     val id: Int,
     val done: Boolean,
     val bits: List<Int>? = null,

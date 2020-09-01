@@ -31,7 +31,27 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2MapChestsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+/**
+ * Creates a request used to query the list of available IDs.
+ *
+ * Returns information about the Hero's Choice Chests that can be acquired once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2MapChestsIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/mapchests",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -42,51 +62,136 @@ public fun GW2APIClient.gw2v2MapChestsIds(configure: (RequestBuilder<List<Int>>.
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2MapChestsById(id: Int, configure: (RequestBuilder<GW2v2MapChests>.() -> Unit)? = null): RequestBuilder<GW2v2MapChests> = request(
+/**
+ * Creates a request used to query a single [item](GW2v2MapChest) by its ID.
+ *
+ * Returns information about the Hero's Choice Chests that can be acquired once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2MapChestsByID(id: Int, configure: (RequestBuilder<GW2v2MapChest>.() -> Unit)? = null): RequestBuilder<GW2v2MapChest> = request(
     path = "/v2/mapchests",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2MapChests.serializer(),
+    serializer = GW2v2MapChest.serializer(),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2MapChestsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2MapChests>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChests>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2MapChest) by their IDs.
+ *
+ * Returns information about the Hero's Choice Chests that can be acquired once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2MapChestsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2MapChest>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChest>> = request(
     path = "/v2/mapchests",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2MapChests.serializer()),
+    serializer = ListSerializer(GW2v2MapChest.serializer()),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2MapChestsAll(configure: (RequestBuilder<List<GW2v2MapChests>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChests>> = request(
+/**
+ * Creates a request used to query all available [items](GW2v2MapChest).
+ *
+ * Returns information about the Hero's Choice Chests that can be acquired once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2MapChestsAll(configure: (RequestBuilder<List<GW2v2MapChest>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChest>> = request(
     path = "/v2/mapchests",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2MapChests.serializer()),
+    serializer = ListSerializer(GW2v2MapChest.serializer()),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2MapChestsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2MapChests>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChests>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2MapChest) by page.
+ *
+ * Returns information about the Hero's Choice Chests that can be acquired once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2MapChestsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2MapChest>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChest>> = request(
     path = "/v2/mapchests",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2MapChests.serializer()),
+    serializer = ListSerializer(GW2v2MapChest.serializer()),
     configure = configure
 )
 
+/**
+ * Information about a Hero's Choice Chests that can be acquired once per day.
+ *
+ * @param id the ID of the mapchest
+ */
 @Serializable
-public data class GW2v2MapChests(
+public data class GW2v2MapChest(
     val id: Int
 )

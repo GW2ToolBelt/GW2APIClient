@@ -31,19 +31,45 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2AccountMasteries>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMasteries>> = request(
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about a player's unlocked masteries.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PROGRESSION)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/masteries]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2AccountMasterie>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMasterie>> = request(
     path = "/v2/account/masteries",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountMasteries.serializer()),
+    serializer = ListSerializer(GW2v2AccountMasterie.serializer()),
     configure = configure
 )
 
+/**
+ * Information about a player's unlocked mastery.
+ *
+ * @param id the mastery's ID
+ * @param level the index of the unlocked mastery level
+ */
 @Serializable
-public data class GW2v2AccountMasteries(
+public data class GW2v2AccountMasterie(
     val id: Int,
     val level: Int? = null
 )

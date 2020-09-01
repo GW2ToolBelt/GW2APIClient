@@ -31,7 +31,27 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
-public fun GW2APIClient.gw2v2OutfitsIds(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+/**
+ * Creates a request used to query the list of available IDs.
+ *
+ * Returns information about outfits.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2OutfitsIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/outfits",
     parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -42,52 +62,140 @@ public fun GW2APIClient.gw2v2OutfitsIds(configure: (RequestBuilder<List<Int>>.()
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2OutfitsById(id: Int, configure: (RequestBuilder<GW2v2Outfits>.() -> Unit)? = null): RequestBuilder<GW2v2Outfits> = request(
+/**
+ * Creates a request used to query a single [item](GW2v2Outfit) by its ID.
+ *
+ * Returns information about outfits.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2OutfitsByID(id: Int, configure: (RequestBuilder<GW2v2Outfit>.() -> Unit)? = null): RequestBuilder<GW2v2Outfit> = request(
     path = "/v2/outfits",
     parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2Outfits.serializer(),
+    serializer = GW2v2Outfit.serializer(),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2OutfitsByIds(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Outfits>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfits>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2Outfit) by their IDs.
+ *
+ * Returns information about outfits.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2OutfitsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Outfit>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfit>> = request(
     path = "/v2/outfits",
     parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Outfits.serializer()),
+    serializer = ListSerializer(GW2v2Outfit.serializer()),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2OutfitsAll(configure: (RequestBuilder<List<GW2v2Outfits>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfits>> = request(
+/**
+ * Creates a request used to query all available [items](GW2v2Outfit).
+ *
+ * Returns information about outfits.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2OutfitsAll(configure: (RequestBuilder<List<GW2v2Outfit>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfit>> = request(
     path = "/v2/outfits",
     parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Outfits.serializer()),
+    serializer = ListSerializer(GW2v2Outfit.serializer()),
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2OutfitsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Outfits>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfits>> = request(
+/**
+ * Creates a request used to query one or more [items](GW2v2Outfit) by page.
+ *
+ * Returns information about outfits.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          60.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2OutfitsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Outfit>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfit>> = request(
     path = "/v2/outfits",
     parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Outfits.serializer()),
+    serializer = ListSerializer(GW2v2Outfit.serializer()),
     configure = configure
 )
 
+/**
+ * Information about an outfit.
+ *
+ * @param id the outfit's ID
+ * @param name the outfit's name
+ * @param icon the outfit's icon
+ * @param unlockItems the IDs of the items that unlock the outfit
+ */
 @Serializable
-public data class GW2v2Outfits(
+public data class GW2v2Outfit(
     val id: Int,
     val name: String,
     val icon: String,
