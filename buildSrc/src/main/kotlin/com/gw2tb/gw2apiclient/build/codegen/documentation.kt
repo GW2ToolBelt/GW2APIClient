@@ -27,7 +27,7 @@ import java.util.*
 import kotlin.time.*
 
 private fun Duration.normalizeCacheTime(): String {
-    require((inSeconds % 60.0) == 0.0)
+    require(isInfinite() || (inSeconds % 60.0) == 0.0)
 
     return when {
         isInfinite() -> "INFINITE"
