@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2LegendsIDs(configure: (RequestBuilder<List<String>>
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2LegendsByID(id: String, configure: (RequestBuilder<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2LegendsByIDs(ids: Collection<String>, configure: (R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2LegendsAll(configure: (RequestBuilder<List<GW2v2Leg
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/legends]

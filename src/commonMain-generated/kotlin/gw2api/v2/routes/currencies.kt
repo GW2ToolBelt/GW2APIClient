@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2CurrenciesIDs(configure: (RequestBuilder<List<Int>>
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2CurrenciesByID(id: Int, configure: (RequestBuilder<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2CurrenciesByIDs(ids: Collection<Int>, configure: (R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2CurrenciesAll(configure: (RequestBuilder<List<GW2v2
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]

@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesIDs(configure: (RequestBuilder<List<Int>
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesByID(id: Int, configure: (RequestBuilder
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesByIDs(ids: Collection<Int>, configure: (
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesAll(configure: (RequestBuilder<List<GW2v
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -212,7 +212,7 @@ public data class GW2v2WvWUpgrade(
         val yaksRequired: Int,
         val upgrades: Upgrades
     ) {
-    
+
         /**
          * Information about an upgrade.
          *
@@ -226,7 +226,7 @@ public data class GW2v2WvWUpgrade(
             val description: String,
             val icon: String
         )
-    
+
     }
 
 }

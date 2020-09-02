@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/traits]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2TraitsIDs(configure: (RequestBuilder<List<Int>>.() 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/traits]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2TraitsByID(id: Int, configure: (RequestBuilder<GW2v
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/traits]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2TraitsByIDs(ids: Collection<Int>, configure: (Reque
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/traits]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2TraitsAll(configure: (RequestBuilder<List<GW2v2Trai
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/traits]
@@ -241,31 +241,31 @@ public data class GW2v2Trait(
             }
         }
     }
-    
+
     /**
      * Information about a trait's fact (i.e. effect/property).
      *
-     * @param type the type of the fact
-     * @param icon the URL for the fact's icon
-     * @param text an arbitrary localized string describing the fact
+     * @property type the type of the fact
+     * @property icon the URL for the fact's icon
+     * @property text an arbitrary localized string describing the fact
      */
     @Serializable(with = __JsonParametricSerializer_Fact::class)
     public sealed class Fact {
-    
+
         public abstract val type: String
         public abstract val icon: String?
         public abstract val text: String?
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = AttributeAdjust::class)
         private object __AttributeAdjustGeneratedSerializer : KSerializer<AttributeAdjust>
-    
+
         @Suppress("ClassName")
         private object __AttributeAdjustSerializer : JsonTransformingSerializer<AttributeAdjust>(__AttributeAdjustGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about an attribute adjustment.
          *
@@ -280,17 +280,17 @@ public data class GW2v2Trait(
             val value: Int? = null,
             val target: String? = null
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Buff::class)
         private object __BuffGeneratedSerializer : KSerializer<Buff>
-    
+
         @Suppress("ClassName")
         private object __BuffSerializer : JsonTransformingSerializer<Buff>(__BuffGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a buff.
          *
@@ -310,17 +310,17 @@ public data class GW2v2Trait(
             @SerialName("apply_count")
             val applyCount: Int? = null
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = BuffConversion::class)
         private object __BuffConversionGeneratedSerializer : KSerializer<BuffConversion>
-    
+
         @Suppress("ClassName")
         private object __BuffConversionSerializer : JsonTransformingSerializer<BuffConversion>(__BuffConversionGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a buff-conversion.
          *
@@ -337,17 +337,17 @@ public data class GW2v2Trait(
             val percent: Int,
             val target: String
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = ComboField::class)
         private object __ComboFieldGeneratedSerializer : KSerializer<ComboField>
-    
+
         @Suppress("ClassName")
         private object __ComboFieldSerializer : JsonTransformingSerializer<ComboField>(__ComboFieldGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a combo-field.
          *
@@ -361,17 +361,17 @@ public data class GW2v2Trait(
             @SerialName("field_type")
             val fieldType: String
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = ComboFinisher::class)
         private object __ComboFinisherGeneratedSerializer : KSerializer<ComboFinisher>
-    
+
         @Suppress("ClassName")
         private object __ComboFinisherSerializer : JsonTransformingSerializer<ComboFinisher>(__ComboFinisherGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a combo-finisher.
          *
@@ -387,17 +387,17 @@ public data class GW2v2Trait(
             val finisherType: String,
             val percent: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Damage::class)
         private object __DamageGeneratedSerializer : KSerializer<Damage>
-    
+
         @Suppress("ClassName")
         private object __DamageSerializer : JsonTransformingSerializer<Damage>(__DamageGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about damage.
          *
@@ -414,17 +414,17 @@ public data class GW2v2Trait(
             @SerialName("dmg_multiplier")
             val damageMultiplier: Double
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Distance::class)
         private object __DistanceGeneratedSerializer : KSerializer<Distance>
-    
+
         @Suppress("ClassName")
         private object __DistanceSerializer : JsonTransformingSerializer<Distance>(__DistanceGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about range.
          *
@@ -437,39 +437,35 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val distance: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = NoData::class)
         private object __NoDataGeneratedSerializer : KSerializer<NoData>
-    
+
         @Suppress("ClassName")
         private object __NoDataSerializer : JsonTransformingSerializer<NoData>(__NoDataGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
-        /**
-         * No (special) additional information.
-         *
-         *
-         */
+
+        /** No (special) additional information. */
         @Serializable(with = __NoDataSerializer::class)
         public data class NoData(
             override val type: String,
             override val icon: String? = null,
             override val text: String? = null
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Number::class)
         private object __NumberGeneratedSerializer : KSerializer<Number>
-    
+
         @Suppress("ClassName")
         private object __NumberSerializer : JsonTransformingSerializer<Number>(__NumberGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * An additional number.
          *
@@ -482,17 +478,17 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val value: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Percent::class)
         private object __PercentGeneratedSerializer : KSerializer<Percent>
-    
+
         @Suppress("ClassName")
         private object __PercentSerializer : JsonTransformingSerializer<Percent>(__PercentGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * An additional percentage value.
          *
@@ -505,17 +501,17 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val percent: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = PrefixedBuff::class)
         private object __PrefixedBuffGeneratedSerializer : KSerializer<PrefixedBuff>
-    
+
         @Suppress("ClassName")
         private object __PrefixedBuffSerializer : JsonTransformingSerializer<PrefixedBuff>(__PrefixedBuffGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a prefixed buff.
          *
@@ -537,7 +533,7 @@ public data class GW2v2Trait(
             val applyCount: Int? = null,
             val prefix: Prefix
         ) : Fact() {
-    
+
             /**
              * Information about a buff's prefix.
              *
@@ -553,19 +549,19 @@ public data class GW2v2Trait(
                 val status: String,
                 val description: String
             )
-    
+
         }
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Radius::class)
         private object __RadiusGeneratedSerializer : KSerializer<Radius>
-    
+
         @Suppress("ClassName")
         private object __RadiusSerializer : JsonTransformingSerializer<Radius>(__RadiusGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a radius.
          *
@@ -578,17 +574,17 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val distance: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Range::class)
         private object __RangeGeneratedSerializer : KSerializer<Range>
-    
+
         @Suppress("ClassName")
         private object __RangeSerializer : JsonTransformingSerializer<Range>(__RangeGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about range.
          *
@@ -601,17 +597,17 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val value: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Recharge::class)
         private object __RechargeGeneratedSerializer : KSerializer<Recharge>
-    
+
         @Suppress("ClassName")
         private object __RechargeSerializer : JsonTransformingSerializer<Recharge>(__RechargeGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about recharge.
          *
@@ -624,17 +620,17 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val value: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Time::class)
         private object __TimeGeneratedSerializer : KSerializer<Time>
-    
+
         @Suppress("ClassName")
         private object __TimeSerializer : JsonTransformingSerializer<Time>(__TimeGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about time.
          *
@@ -647,17 +643,17 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val duration: Int
         ) : Fact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Unblockable::class)
         private object __UnblockableGeneratedSerializer : KSerializer<Unblockable>
-    
+
         @Suppress("ClassName")
         private object __UnblockableSerializer : JsonTransformingSerializer<Unblockable>(__UnblockableGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * A fact, indicating that a trait/skill is unlockable.
          *
@@ -670,7 +666,7 @@ public data class GW2v2Trait(
             override val text: String? = null,
             val value: Boolean
         ) : Fact()
-    
+
     }
 
     @Suppress("ClassName")
@@ -697,35 +693,35 @@ public data class GW2v2Trait(
             }
         }
     }
-    
+
     /**
      * a list of traited facts
      *
-     * @param type the type of the fact
-     * @param icon the URL for the fact's icon
-     * @param text an arbitrary localized string describing the fact
-     * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
-     * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
+     * @property type the type of the fact
+     * @property icon the URL for the fact's icon
+     * @property text an arbitrary localized string describing the fact
+     * @property requiresTrait specifies which trait has to be selected in order for this fact to take effect
+     * @property overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
      */
     @Serializable(with = __JsonParametricSerializer_TraitedFact::class)
     public sealed class TraitedFact {
-    
+
         public abstract val type: String
         public abstract val icon: String?
         public abstract val text: String?
         public abstract val requiresTrait: Int
         public abstract val overrides: Int?
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = AttributeAdjust::class)
         private object __AttributeAdjustGeneratedSerializer : KSerializer<AttributeAdjust>
-    
+
         @Suppress("ClassName")
         private object __AttributeAdjustSerializer : JsonTransformingSerializer<AttributeAdjust>(__AttributeAdjustGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about an attribute adjustment.
          *
@@ -743,17 +739,17 @@ public data class GW2v2Trait(
             val value: Int? = null,
             val target: String? = null
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Buff::class)
         private object __BuffGeneratedSerializer : KSerializer<Buff>
-    
+
         @Suppress("ClassName")
         private object __BuffSerializer : JsonTransformingSerializer<Buff>(__BuffGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a buff.
          *
@@ -776,17 +772,17 @@ public data class GW2v2Trait(
             @SerialName("apply_count")
             val applyCount: Int? = null
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = BuffConversion::class)
         private object __BuffConversionGeneratedSerializer : KSerializer<BuffConversion>
-    
+
         @Suppress("ClassName")
         private object __BuffConversionSerializer : JsonTransformingSerializer<BuffConversion>(__BuffConversionGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a buff-conversion.
          *
@@ -806,17 +802,17 @@ public data class GW2v2Trait(
             val percent: Int,
             val target: String
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = ComboField::class)
         private object __ComboFieldGeneratedSerializer : KSerializer<ComboField>
-    
+
         @Suppress("ClassName")
         private object __ComboFieldSerializer : JsonTransformingSerializer<ComboField>(__ComboFieldGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a combo-field.
          *
@@ -833,17 +829,17 @@ public data class GW2v2Trait(
             @SerialName("field_type")
             val fieldType: String
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = ComboFinisher::class)
         private object __ComboFinisherGeneratedSerializer : KSerializer<ComboFinisher>
-    
+
         @Suppress("ClassName")
         private object __ComboFinisherSerializer : JsonTransformingSerializer<ComboFinisher>(__ComboFinisherGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a combo-finisher.
          *
@@ -862,17 +858,17 @@ public data class GW2v2Trait(
             val finisherType: String,
             val percent: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Damage::class)
         private object __DamageGeneratedSerializer : KSerializer<Damage>
-    
+
         @Suppress("ClassName")
         private object __DamageSerializer : JsonTransformingSerializer<Damage>(__DamageGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about damage.
          *
@@ -892,17 +888,17 @@ public data class GW2v2Trait(
             @SerialName("dmg_multiplier")
             val damageMultiplier: Double
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Distance::class)
         private object __DistanceGeneratedSerializer : KSerializer<Distance>
-    
+
         @Suppress("ClassName")
         private object __DistanceSerializer : JsonTransformingSerializer<Distance>(__DistanceGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about range.
          *
@@ -918,22 +914,18 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val distance: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = NoData::class)
         private object __NoDataGeneratedSerializer : KSerializer<NoData>
-    
+
         @Suppress("ClassName")
         private object __NoDataSerializer : JsonTransformingSerializer<NoData>(__NoDataGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
-        /**
-         * No (special) additional information.
-         *
-         *
-         */
+
+        /** No (special) additional information. */
         @Serializable(with = __NoDataSerializer::class)
         public data class NoData(
             override val type: String,
@@ -943,17 +935,17 @@ public data class GW2v2Trait(
             override val requiresTrait: Int,
             override val overrides: Int? = null
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Number::class)
         private object __NumberGeneratedSerializer : KSerializer<Number>
-    
+
         @Suppress("ClassName")
         private object __NumberSerializer : JsonTransformingSerializer<Number>(__NumberGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * An additional number.
          *
@@ -969,17 +961,17 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val value: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Percent::class)
         private object __PercentGeneratedSerializer : KSerializer<Percent>
-    
+
         @Suppress("ClassName")
         private object __PercentSerializer : JsonTransformingSerializer<Percent>(__PercentGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * An additional percentage value.
          *
@@ -995,17 +987,17 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val percent: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = PrefixedBuff::class)
         private object __PrefixedBuffGeneratedSerializer : KSerializer<PrefixedBuff>
-    
+
         @Suppress("ClassName")
         private object __PrefixedBuffSerializer : JsonTransformingSerializer<PrefixedBuff>(__PrefixedBuffGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a prefixed buff.
          *
@@ -1030,7 +1022,7 @@ public data class GW2v2Trait(
             val applyCount: Int? = null,
             val prefix: Prefix
         ) : TraitedFact() {
-    
+
             /**
              * Information about a buff's prefix.
              *
@@ -1046,19 +1038,19 @@ public data class GW2v2Trait(
                 val status: String,
                 val description: String
             )
-    
+
         }
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Radius::class)
         private object __RadiusGeneratedSerializer : KSerializer<Radius>
-    
+
         @Suppress("ClassName")
         private object __RadiusSerializer : JsonTransformingSerializer<Radius>(__RadiusGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a radius.
          *
@@ -1074,17 +1066,17 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val distance: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Range::class)
         private object __RangeGeneratedSerializer : KSerializer<Range>
-    
+
         @Suppress("ClassName")
         private object __RangeSerializer : JsonTransformingSerializer<Range>(__RangeGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about range.
          *
@@ -1100,17 +1092,17 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val value: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Recharge::class)
         private object __RechargeGeneratedSerializer : KSerializer<Recharge>
-    
+
         @Suppress("ClassName")
         private object __RechargeSerializer : JsonTransformingSerializer<Recharge>(__RechargeGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about recharge.
          *
@@ -1126,17 +1118,17 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val value: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Time::class)
         private object __TimeGeneratedSerializer : KSerializer<Time>
-    
+
         @Suppress("ClassName")
         private object __TimeSerializer : JsonTransformingSerializer<Time>(__TimeGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about time.
          *
@@ -1152,17 +1144,17 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val duration: Int
         ) : TraitedFact()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Unblockable::class)
         private object __UnblockableGeneratedSerializer : KSerializer<Unblockable>
-    
+
         @Suppress("ClassName")
         private object __UnblockableSerializer : JsonTransformingSerializer<Unblockable>(__UnblockableGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * A fact, indicating that a trait/skill is unlockable.
          *
@@ -1178,7 +1170,7 @@ public data class GW2v2Trait(
             override val overrides: Int? = null,
             val value: Boolean
         ) : TraitedFact()
-    
+
     }
 
     /**
@@ -1202,7 +1194,7 @@ public data class GW2v2Trait(
         @SerialName("traited_facts")
         val traitedFacts: List<TraitedFact>? = null
     ) {
-    
+
         @Suppress("ClassName")
         private object __JsonParametricSerializer_Fact : JsonContentPolymorphicSerializer<Fact>(Fact::class) {
             override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Fact> {
@@ -1227,31 +1219,31 @@ public data class GW2v2Trait(
                 }
             }
         }
-    
+
         /**
          * Information about a trait's effects.
          *
-         * @param type the type of the fact
-         * @param icon the URL for the fact's icon
-         * @param text an arbitrary localized string describing the fact
+         * @property type the type of the fact
+         * @property icon the URL for the fact's icon
+         * @property text an arbitrary localized string describing the fact
          */
         @Serializable(with = __JsonParametricSerializer_Fact::class)
         public sealed class Fact {
-    
+
             public abstract val type: String
             public abstract val icon: String?
             public abstract val text: String?
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = AttributeAdjust::class)
             private object __AttributeAdjustGeneratedSerializer : KSerializer<AttributeAdjust>
-    
+
             @Suppress("ClassName")
             private object __AttributeAdjustSerializer : JsonTransformingSerializer<AttributeAdjust>(__AttributeAdjustGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about an attribute adjustment.
              *
@@ -1266,17 +1258,17 @@ public data class GW2v2Trait(
                 val value: Int? = null,
                 val target: String? = null
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Buff::class)
             private object __BuffGeneratedSerializer : KSerializer<Buff>
-    
+
             @Suppress("ClassName")
             private object __BuffSerializer : JsonTransformingSerializer<Buff>(__BuffGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a buff.
              *
@@ -1296,17 +1288,17 @@ public data class GW2v2Trait(
                 @SerialName("apply_count")
                 val applyCount: Int? = null
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = BuffConversion::class)
             private object __BuffConversionGeneratedSerializer : KSerializer<BuffConversion>
-    
+
             @Suppress("ClassName")
             private object __BuffConversionSerializer : JsonTransformingSerializer<BuffConversion>(__BuffConversionGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a buff-conversion.
              *
@@ -1323,17 +1315,17 @@ public data class GW2v2Trait(
                 val percent: Int,
                 val target: String
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = ComboField::class)
             private object __ComboFieldGeneratedSerializer : KSerializer<ComboField>
-    
+
             @Suppress("ClassName")
             private object __ComboFieldSerializer : JsonTransformingSerializer<ComboField>(__ComboFieldGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a combo-field.
              *
@@ -1347,17 +1339,17 @@ public data class GW2v2Trait(
                 @SerialName("field_type")
                 val fieldType: String
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = ComboFinisher::class)
             private object __ComboFinisherGeneratedSerializer : KSerializer<ComboFinisher>
-    
+
             @Suppress("ClassName")
             private object __ComboFinisherSerializer : JsonTransformingSerializer<ComboFinisher>(__ComboFinisherGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a combo-finisher.
              *
@@ -1373,17 +1365,17 @@ public data class GW2v2Trait(
                 val finisherType: String,
                 val percent: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Damage::class)
             private object __DamageGeneratedSerializer : KSerializer<Damage>
-    
+
             @Suppress("ClassName")
             private object __DamageSerializer : JsonTransformingSerializer<Damage>(__DamageGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about damage.
              *
@@ -1400,17 +1392,17 @@ public data class GW2v2Trait(
                 @SerialName("dmg_multiplier")
                 val damageMultiplier: Double
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Distance::class)
             private object __DistanceGeneratedSerializer : KSerializer<Distance>
-    
+
             @Suppress("ClassName")
             private object __DistanceSerializer : JsonTransformingSerializer<Distance>(__DistanceGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about range.
              *
@@ -1423,39 +1415,35 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val distance: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = NoData::class)
             private object __NoDataGeneratedSerializer : KSerializer<NoData>
-    
+
             @Suppress("ClassName")
             private object __NoDataSerializer : JsonTransformingSerializer<NoData>(__NoDataGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
-            /**
-             * No (special) additional information.
-             *
-             *
-             */
+
+            /** No (special) additional information. */
             @Serializable(with = __NoDataSerializer::class)
             public data class NoData(
                 override val type: String,
                 override val icon: String? = null,
                 override val text: String? = null
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Number::class)
             private object __NumberGeneratedSerializer : KSerializer<Number>
-    
+
             @Suppress("ClassName")
             private object __NumberSerializer : JsonTransformingSerializer<Number>(__NumberGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * An additional number.
              *
@@ -1468,17 +1456,17 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val value: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Percent::class)
             private object __PercentGeneratedSerializer : KSerializer<Percent>
-    
+
             @Suppress("ClassName")
             private object __PercentSerializer : JsonTransformingSerializer<Percent>(__PercentGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * An additional percentage value.
              *
@@ -1491,17 +1479,17 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val percent: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = PrefixedBuff::class)
             private object __PrefixedBuffGeneratedSerializer : KSerializer<PrefixedBuff>
-    
+
             @Suppress("ClassName")
             private object __PrefixedBuffSerializer : JsonTransformingSerializer<PrefixedBuff>(__PrefixedBuffGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a prefixed buff.
              *
@@ -1523,7 +1511,7 @@ public data class GW2v2Trait(
                 val applyCount: Int? = null,
                 val prefix: Prefix
             ) : Fact() {
-    
+
                 /**
                  * Information about a buff's prefix.
                  *
@@ -1539,19 +1527,19 @@ public data class GW2v2Trait(
                     val status: String,
                     val description: String
                 )
-    
+
             }
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Radius::class)
             private object __RadiusGeneratedSerializer : KSerializer<Radius>
-    
+
             @Suppress("ClassName")
             private object __RadiusSerializer : JsonTransformingSerializer<Radius>(__RadiusGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a radius.
              *
@@ -1564,17 +1552,17 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val distance: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Range::class)
             private object __RangeGeneratedSerializer : KSerializer<Range>
-    
+
             @Suppress("ClassName")
             private object __RangeSerializer : JsonTransformingSerializer<Range>(__RangeGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about range.
              *
@@ -1587,17 +1575,17 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val value: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Recharge::class)
             private object __RechargeGeneratedSerializer : KSerializer<Recharge>
-    
+
             @Suppress("ClassName")
             private object __RechargeSerializer : JsonTransformingSerializer<Recharge>(__RechargeGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about recharge.
              *
@@ -1610,17 +1598,17 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val value: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Time::class)
             private object __TimeGeneratedSerializer : KSerializer<Time>
-    
+
             @Suppress("ClassName")
             private object __TimeSerializer : JsonTransformingSerializer<Time>(__TimeGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about time.
              *
@@ -1633,17 +1621,17 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val duration: Int
             ) : Fact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Unblockable::class)
             private object __UnblockableGeneratedSerializer : KSerializer<Unblockable>
-    
+
             @Suppress("ClassName")
             private object __UnblockableSerializer : JsonTransformingSerializer<Unblockable>(__UnblockableGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * A fact, indicating that a trait/skill is unlockable.
              *
@@ -1656,9 +1644,9 @@ public data class GW2v2Trait(
                 override val text: String? = null,
                 val value: Boolean
             ) : Fact()
-    
+
         }
-    
+
         @Suppress("ClassName")
         private object __JsonParametricSerializer_TraitedFact : JsonContentPolymorphicSerializer<TraitedFact>(TraitedFact::class) {
             override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out TraitedFact> {
@@ -1683,35 +1671,35 @@ public data class GW2v2Trait(
                 }
             }
         }
-    
+
         /**
          * Information about a fact that overrides a trait's effect.
          *
-         * @param type the type of the fact
-         * @param icon the URL for the fact's icon
-         * @param text an arbitrary localized string describing the fact
-         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
-         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
+         * @property type the type of the fact
+         * @property icon the URL for the fact's icon
+         * @property text an arbitrary localized string describing the fact
+         * @property requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @property overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
          */
         @Serializable(with = __JsonParametricSerializer_TraitedFact::class)
         public sealed class TraitedFact {
-    
+
             public abstract val type: String
             public abstract val icon: String?
             public abstract val text: String?
             public abstract val requiresTrait: Int
             public abstract val overrides: Int?
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = AttributeAdjust::class)
             private object __AttributeAdjustGeneratedSerializer : KSerializer<AttributeAdjust>
-    
+
             @Suppress("ClassName")
             private object __AttributeAdjustSerializer : JsonTransformingSerializer<AttributeAdjust>(__AttributeAdjustGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about an attribute adjustment.
              *
@@ -1729,17 +1717,17 @@ public data class GW2v2Trait(
                 val value: Int? = null,
                 val target: String? = null
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Buff::class)
             private object __BuffGeneratedSerializer : KSerializer<Buff>
-    
+
             @Suppress("ClassName")
             private object __BuffSerializer : JsonTransformingSerializer<Buff>(__BuffGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a buff.
              *
@@ -1762,17 +1750,17 @@ public data class GW2v2Trait(
                 @SerialName("apply_count")
                 val applyCount: Int? = null
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = BuffConversion::class)
             private object __BuffConversionGeneratedSerializer : KSerializer<BuffConversion>
-    
+
             @Suppress("ClassName")
             private object __BuffConversionSerializer : JsonTransformingSerializer<BuffConversion>(__BuffConversionGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a buff-conversion.
              *
@@ -1792,17 +1780,17 @@ public data class GW2v2Trait(
                 val percent: Int,
                 val target: String
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = ComboField::class)
             private object __ComboFieldGeneratedSerializer : KSerializer<ComboField>
-    
+
             @Suppress("ClassName")
             private object __ComboFieldSerializer : JsonTransformingSerializer<ComboField>(__ComboFieldGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a combo-field.
              *
@@ -1819,17 +1807,17 @@ public data class GW2v2Trait(
                 @SerialName("field_type")
                 val fieldType: String
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = ComboFinisher::class)
             private object __ComboFinisherGeneratedSerializer : KSerializer<ComboFinisher>
-    
+
             @Suppress("ClassName")
             private object __ComboFinisherSerializer : JsonTransformingSerializer<ComboFinisher>(__ComboFinisherGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a combo-finisher.
              *
@@ -1848,17 +1836,17 @@ public data class GW2v2Trait(
                 val finisherType: String,
                 val percent: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Damage::class)
             private object __DamageGeneratedSerializer : KSerializer<Damage>
-    
+
             @Suppress("ClassName")
             private object __DamageSerializer : JsonTransformingSerializer<Damage>(__DamageGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about damage.
              *
@@ -1878,17 +1866,17 @@ public data class GW2v2Trait(
                 @SerialName("dmg_multiplier")
                 val damageMultiplier: Double
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Distance::class)
             private object __DistanceGeneratedSerializer : KSerializer<Distance>
-    
+
             @Suppress("ClassName")
             private object __DistanceSerializer : JsonTransformingSerializer<Distance>(__DistanceGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about range.
              *
@@ -1904,22 +1892,18 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val distance: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = NoData::class)
             private object __NoDataGeneratedSerializer : KSerializer<NoData>
-    
+
             @Suppress("ClassName")
             private object __NoDataSerializer : JsonTransformingSerializer<NoData>(__NoDataGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
-            /**
-             * No (special) additional information.
-             *
-             *
-             */
+
+            /** No (special) additional information. */
             @Serializable(with = __NoDataSerializer::class)
             public data class NoData(
                 override val type: String,
@@ -1929,17 +1913,17 @@ public data class GW2v2Trait(
                 override val requiresTrait: Int,
                 override val overrides: Int? = null
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Number::class)
             private object __NumberGeneratedSerializer : KSerializer<Number>
-    
+
             @Suppress("ClassName")
             private object __NumberSerializer : JsonTransformingSerializer<Number>(__NumberGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * An additional number.
              *
@@ -1955,17 +1939,17 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val value: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Percent::class)
             private object __PercentGeneratedSerializer : KSerializer<Percent>
-    
+
             @Suppress("ClassName")
             private object __PercentSerializer : JsonTransformingSerializer<Percent>(__PercentGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * An additional percentage value.
              *
@@ -1981,17 +1965,17 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val percent: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = PrefixedBuff::class)
             private object __PrefixedBuffGeneratedSerializer : KSerializer<PrefixedBuff>
-    
+
             @Suppress("ClassName")
             private object __PrefixedBuffSerializer : JsonTransformingSerializer<PrefixedBuff>(__PrefixedBuffGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a prefixed buff.
              *
@@ -2016,7 +2000,7 @@ public data class GW2v2Trait(
                 val applyCount: Int? = null,
                 val prefix: Prefix
             ) : TraitedFact() {
-    
+
                 /**
                  * Information about a buff's prefix.
                  *
@@ -2032,19 +2016,19 @@ public data class GW2v2Trait(
                     val status: String,
                     val description: String
                 )
-    
+
             }
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Radius::class)
             private object __RadiusGeneratedSerializer : KSerializer<Radius>
-    
+
             @Suppress("ClassName")
             private object __RadiusSerializer : JsonTransformingSerializer<Radius>(__RadiusGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about a radius.
              *
@@ -2060,17 +2044,17 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val distance: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Range::class)
             private object __RangeGeneratedSerializer : KSerializer<Range>
-    
+
             @Suppress("ClassName")
             private object __RangeSerializer : JsonTransformingSerializer<Range>(__RangeGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about range.
              *
@@ -2086,17 +2070,17 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val value: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Recharge::class)
             private object __RechargeGeneratedSerializer : KSerializer<Recharge>
-    
+
             @Suppress("ClassName")
             private object __RechargeSerializer : JsonTransformingSerializer<Recharge>(__RechargeGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about recharge.
              *
@@ -2112,17 +2096,17 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val value: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Time::class)
             private object __TimeGeneratedSerializer : KSerializer<Time>
-    
+
             @Suppress("ClassName")
             private object __TimeSerializer : JsonTransformingSerializer<Time>(__TimeGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * Additional information about time.
              *
@@ -2138,17 +2122,17 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val duration: Int
             ) : TraitedFact()
-    
+
             @Suppress("ClassName")
             @Serializer(forClass = Unblockable::class)
             private object __UnblockableGeneratedSerializer : KSerializer<Unblockable>
-    
+
             @Suppress("ClassName")
             private object __UnblockableSerializer : JsonTransformingSerializer<Unblockable>(__UnblockableGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
-    
+
             /**
              * A fact, indicating that a trait/skill is unlockable.
              *
@@ -2164,9 +2148,9 @@ public data class GW2v2Trait(
                 override val overrides: Int? = null,
                 val value: Boolean
             ) : TraitedFact()
-    
+
         }
-    
+
     }
 
 }

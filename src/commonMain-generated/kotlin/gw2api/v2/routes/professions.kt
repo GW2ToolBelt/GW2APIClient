@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2ProfessionsIDs(configure: (RequestBuilder<List<Stri
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2ProfessionsByID(id: String, configure: (RequestBuil
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2ProfessionsByIDs(ids: Collection<String>, configure
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2ProfessionsAll(configure: (RequestBuilder<List<GW2v
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -231,7 +231,7 @@ public data class GW2v2Profession(
         val flags: List<String>,
         val skills: List<Skill>
     ) {
-    
+
         /**
          * Information about a weapon's skills.
          *
@@ -247,7 +247,7 @@ public data class GW2v2Profession(
             val attunement: String? = null,
             val offhand: String? = null
         )
-    
+
     }
 
     /**
@@ -283,7 +283,7 @@ public data class GW2v2Profession(
         val name: String,
         val track: List<Track>
     ) {
-    
+
         /**
          * Information about a skill/trait in a track.
          *
@@ -301,7 +301,7 @@ public data class GW2v2Profession(
             @SerialName("trait_id")
             val traitId: Int? = null
         )
-    
+
     }
 
 }

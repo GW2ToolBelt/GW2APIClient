@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2DailyCraftingIDs(configure: (RequestBuilder<List<In
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2DailyCraftingByID(id: Int, configure: (RequestBuild
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2DailyCraftingByIDs(ids: Collection<Int>, configure:
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2DailyCraftingAll(configure: (RequestBuilder<List<GW
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]

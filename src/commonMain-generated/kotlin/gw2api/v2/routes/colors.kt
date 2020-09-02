@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/colors]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2ColorsIDs(configure: (RequestBuilder<List<Int>>.() 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/colors]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2ColorsByID(id: Int, configure: (RequestBuilder<GW2v
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/colors]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2ColorsByIDs(ids: Collection<Int>, configure: (Reque
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/colors]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2ColorsAll(configure: (RequestBuilder<List<GW2v2Colo
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/colors]

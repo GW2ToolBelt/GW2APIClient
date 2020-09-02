@@ -34,47 +34,49 @@ import java.util.*
 const val t = "    "
 const val n = "\n"
 
+private val schemaVersion = V2SchemaVersion.V2_SCHEMA_2019_12_19T00_00_00_000Z
+
+private val String.listSerializer get() = "ListSerializer($this.serializer())"
+private val KotlinTypeInfo.listSerializer get() = "ListSerializer($this.serializer())"
+
+private fun SchemaPrimitive.toKotlinType(): KotlinTypeInfo = when (this) {
+    SchemaBoolean -> "Boolean"
+    SchemaDecimal -> "Double"
+    SchemaInteger -> "Int"
+    SchemaString -> "String"
+}.let { name -> KotlinTypeInfo(name, "$name.serializer()") }
+
+private data class KotlinTypeInfo(
+    val name: String,
+    val serializer: String
+) {
+    override fun toString() = name
+}
+
+private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>, isParentArray: Boolean = false): KotlinTypeInfo {
+    fun KotlinTypeInfo(type: String) = KotlinTypeInfo(type, "$type.serializer()")
+
+    val typeName = titleCaseName.let { if (isParentArray) it.removeSuffix("s") else it }
+
+    return when (this) {
+        is SchemaPrimitive -> toKotlinType()
+        is SchemaArray -> {
+            val itemType = items.toKotlinType(typeName, dataClasses, isParentArray = true)
+            KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", itemType.listSerializer)
+        }
+        is SchemaMap -> {
+            val keyType = keys.toKotlinType()
+            val valueType = values.toKotlinType(typeName, dataClasses)
+            KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>")
+        }
+        is SchemaConditional -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
+        is SchemaRecord -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
+        else -> error("Unsupported SchemaType: $this")
+    }
+}
+
 @CacheableTask
 open class Generate : DefaultTask() {
-
-    private val String.listSerializer get() = "ListSerializer($this.serializer())"
-    private val KotlinTypeInfo.listSerializer get() = "ListSerializer($this.serializer())"
-
-    private fun SchemaPrimitive.toKotlinType(): KotlinTypeInfo = when (this) {
-        SchemaBoolean -> "Boolean"
-        SchemaDecimal -> "Double"
-        SchemaInteger -> "Int"
-        SchemaString -> "String"
-    }.let { name -> KotlinTypeInfo(name, "$name.serializer()") }
-
-    private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>, isParentArray: Boolean = false): KotlinTypeInfo {
-        fun KotlinTypeInfo(type: String) = KotlinTypeInfo(type, "$type.serializer()")
-
-        val typeName = titleCaseName.let { if (isParentArray) it.removeSuffix("s") else it }
-
-        return when (this) {
-            is SchemaPrimitive -> toKotlinType()
-            is SchemaArray -> {
-                val itemType = items.toKotlinType(typeName, dataClasses, isParentArray = true)
-                KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", itemType.listSerializer)
-            }
-            is SchemaMap -> {
-                val keyType = keys.toKotlinType()
-                val valueType = values.toKotlinType(typeName, dataClasses)
-                KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>")
-            }
-            is SchemaConditional -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
-            is SchemaRecord -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
-            else -> error("Unsupported SchemaType: $this")
-        }
-    }
-
-    private data class KotlinTypeInfo(
-        val name: String,
-        val serializer: String
-    ) {
-        override fun toString() = name
-    }
 
     @Input
     lateinit var licenseHeader: String
@@ -85,14 +87,10 @@ open class Generate : DefaultTask() {
     @TaskAction
     fun generate() {
         fun writeFile(location: String, content: String) {
-            File(outputDirectory, "kotlin/$location").writeText(
-                """
-                |/*
-                |${licenseHeader.prependIndent(" * ")}
-                | */
-                |$content
-                """.trimMargin()
-            )
+            File(outputDirectory, "kotlin/$location").writeText(buildString {
+                if (licenseHeader.isNotEmpty()) append(licenseHeader.asComment)
+                append(content)
+            })
         }
 
         writeFile(
@@ -116,8 +114,6 @@ open class Generate : DefaultTask() {
         )
 
         with(API_V2_DEFINITION) {
-            val schemaVersion = V2SchemaVersion.V2_SCHEMA_2019_12_19T00_00_00_000Z
-
             endpoints.forEach { endpoint ->
                 val routeTitleCase = endpoint.route.replace(Regex("/:([A-Za-z])*"), "").replace("/", "")
 
@@ -250,120 +246,148 @@ open class Generate : DefaultTask() {
                     outputFile.parentFile.mkdirs()
                     outputFile.writeText(
                         """
-/*
-${licenseHeader.prependIndent(" * ")}
- */
-@file:JvmName("GW2v2")
-@file:JvmMultifileClass
-@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package gw2api.v2
-
-import gw2api.*
-import kotlinx.serialization.*
-import kotlinx.serialization.builtins.*
-import kotlinx.serialization.json.*
-import kotlin.jvm.*
-
-${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaRecord).createDataClass(dataClassName, endpoint = endpoint) else "" }}
-""".trimIndent()
+                        |/*
+                        |${licenseHeader.prependIndent(" * ")}
+                        | */
+                        |@file:JvmName("GW2v2")
+                        |@file:JvmMultifileClass
+                        |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+                        |package gw2api.v2
+                        |
+                        |import gw2api.*
+                        |import kotlinx.serialization.*
+                        |import kotlinx.serialization.builtins.*
+                        |import kotlinx.serialization.json.*
+                        |import kotlin.jvm.*
+                        |
+                        |${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaRecord).createDataClass(dataClassName, endpoint = endpoint) else "" }}
+                        """.trimMargin()
                     )
                 }
             }
         }
     }
 
-    private fun Map<String, SchemaRecord.Property>.ctor(sharedProperties: Map<String, SchemaRecord.Property>, dataClasses: MutableMap<String, SchemaType>): String {
-        return sequence {
-            yieldAll(sharedProperties.values.map { property ->
-                sequence {
-                    if (property.isDeprecated) yield("""@Deprecated(message = "")""")
-                    if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
-                    yield("override val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-                }.joinToString(separator = n)
-            })
-            yieldAll(values.map { property ->
-                sequence {
-                    if (property.isDeprecated) yield("""@Deprecated(message = "")""")
-                    if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
-                    yield("val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-                }.joinToString(separator = n)
-            })
-        }.map { it.prependIndent(t) }.joinToString(separator = ",$n", prefix = "($n", postfix = "$n)")
+}
+
+private fun Map<String, SchemaRecord.Property>.ctor(sharedProperties: Map<String, SchemaRecord.Property>, dataClasses: MutableMap<String, SchemaType>): String {
+    return sequence {
+        yieldAll(sharedProperties.values.map { property ->
+            sequence {
+                if (property.isDeprecated) yield("""@Deprecated(message = "")""")
+                if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
+                yield("override val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+            }.joinToString(separator = n)
+        })
+        yieldAll(values.map { property ->
+            sequence {
+                if (property.isDeprecated) yield("""@Deprecated(message = "")""")
+                if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
+                yield("val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+            }.joinToString(separator = n)
+        })
+    }.map { it.prependIndentNonEmpty(t) }.joinToString(separator = ",$n", prefix = "($n", postfix = "$n)")
+}
+
+private fun SchemaConditional.createSealedClass(className: String): String {
+    val dataClasses = mutableMapOf<String, SchemaType>()
+
+    return buildString {
+        append(
+            """
+            |@Suppress("ClassName")
+            |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
+            |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
+            |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
+            |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (name, _) -> """"$name" -> $className.$name.serializer()""" }}
+            |            else -> TODO()
+            |        }
+            |    }
+            |}
+            |
+            |
+            """.trimMargin()
+        )
+
+        append(dokka())
+        append("@Serializable(with = __JsonParametricSerializer_$className::class)$n")
+        append("public sealed class $className")
+
+        val body = sequence {
+            if (sharedProperties.isNotEmpty()) {
+                yield(sharedProperties.values.joinToString(separator = n) {
+                    "public abstract val ${it.camelCaseName}: ${it.type.toKotlinType(it.propertyName, dataClasses)}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
+                })
+            }
+
+            if (interpretations.isNotEmpty()) {
+                yield(interpretations.map { (name, schema) ->
+                    (schema as SchemaRecord).createDataClass(name, superClass = className, isInterpretation = true, sharedProperties = sharedProperties)
+                }.joinToString(separator = "$n$n"))
+            }
+
+            if (dataClasses.isNotEmpty()) {
+                yield(dataClasses.map { (name, schema) -> when (schema) {
+                    is SchemaConditional -> schema.createSealedClass(name)
+                    is SchemaRecord -> schema.createDataClass(name)
+                    else -> error("Unsupported SchemaType: $schema")
+                }}.joinToString(separator = "$n$n"))
+            }
+        }.joinToString(separator = "$n$n")
+
+
+        if (body.isNotEmpty()) append(" {$n$n${body.prependIndentNonEmpty(t)}$n$n}")
     }
+}
 
-    private fun SchemaConditional.createSealedClass(className: String, indent: String = ""): String {
-        val dataClasses = mutableMapOf<String, SchemaType>()
+private fun SchemaRecord.createDataClass(
+    className: String,
+    serialName: String? = null,
+    superClass: String? = null,
+    isInterpretation: Boolean = false,
+    sharedProperties: Map<String, SchemaRecord.Property> = emptyMap(),
+    endpoint: Endpoint? = null
+): String {
+    val dataClasses = mutableMapOf<String, SchemaType>()
 
-        return """
-        |@Suppress("ClassName")
-        |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
-        |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
-        |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
-        |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (name, _) -> """"$name" -> $className.$name.serializer()""" }}
-        |            else -> TODO()
-        |        }
-        |    }
-        |}
-        |
-        |${dokka(header = description)}@Serializable(with = __JsonParametricSerializer_$className::class)
-        |public sealed class $className {
-        |${sharedProperties.values.joinToString(separator = n) { 
-            "${t}public abstract val ${it.camelCaseName}: ${it.type.toKotlinType(it.propertyName, dataClasses)}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
-        }.let { if (it.isNotEmpty()) "$n$it$n" else "" }}
-        |${interpretations.map { (name, schema) ->
-            (schema as SchemaRecord).createDataClass(name, indent = t, superClass = className, isInterpretation = true, sharedProperties = sharedProperties)
-        }.joinToString(separator = "$n$n")}
-        |${dataClasses.map { (name, schema) -> when(schema) {
-            is SchemaConditional -> schema.createSealedClass(name, indent = t)
-            is SchemaRecord -> schema.createDataClass(name, indent = t)
-            else -> error("")
-        }}.joinToString(separator = "$n$n").let { if (dataClasses.isNotEmpty()) "$n$it$n" else "" }}
-        |}
-        """.trimMargin().prependIndent(indent)
+    return buildString {
+        val requiresCustomPolymorphicSerializer = properties.values.any { it.type is SchemaConditional && (it.type as SchemaConditional).disambiguationBySideProperty } || isInterpretation
+
+        if (requiresCustomPolymorphicSerializer) {
+            append(
+                """
+                |@Suppress("ClassName")
+                |@Serializer(forClass = $className::class)
+                |private object __${className}GeneratedSerializer : KSerializer<$className>
+                |
+                |@Suppress("ClassName")
+                |private object __${className}Serializer : JsonTransformingSerializer<$className>(__${className}GeneratedSerializer) {
+                |    override fun transformDeserialize(element: JsonElement): JsonElement =
+                |        JsonObject(element.jsonObject${if (properties.values.any { it.type is SchemaConditional }) """|.mapValues { (key, value) ->
+                |            when (key) {
+                |                ${properties.values.filter { it.type is SchemaConditional }.joinToString(separator = "$n$t$t$t$t") { """"${it.serialName}" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["${(it.type as SchemaConditional).disambiguationBy}"]!!.jsonPrimitive.content)))""" }}
+                |                else -> value
+                |            }
+                |        }
+                """.trimMargin() else ""}${if (isInterpretation) " - \"__virtualType\"" else ""})
+                |}
+                |
+                |
+                """.trimMargin()
+            )
+        }
+
+        append(dokka())
+        append("${if (requiresCustomPolymorphicSerializer) "@Serializable(with = __${className}Serializer::class)" else "@Serializable"}$n")
+        if (serialName != null) append("@SerialName($serialName)$n")
+        append("public data class $className${properties.ctor(sharedProperties, dataClasses)}")
+        if (superClass != null) append(" : $superClass()")
+
+        val body = dataClasses.map { (name, schema) -> when (schema) {
+            is SchemaConditional -> schema.createSealedClass(name)
+            is SchemaRecord -> schema.createDataClass(name)
+            else -> error("Unsupported SchemaType: $schema")
+        }}.joinToString(separator = "$n$n")
+        if (body.isNotEmpty()) append(" {$n$n${body.prependIndentNonEmpty(t)}$n$n}")
     }
-
-    private fun SchemaRecord.createDataClass(
-        className: String,
-        indent: String = "",
-        serialName: String? = null,
-        superClass: String? = null,
-        isInterpretation: Boolean = false,
-        sharedProperties: Map<String, SchemaRecord.Property> = emptyMap(),
-        endpoint: Endpoint? = null
-    ): String {
-        val dataClasses = mutableMapOf<String, SchemaType>()
-        val docComment = dokka(header = description)
-
-        return """${if (properties.values.any { it.type is SchemaConditional && (it.type as SchemaConditional).disambiguationBySideProperty } || isInterpretation) """
-        |@Suppress("ClassName")
-        |@Serializer(forClass = $className::class)
-        |private object __${className}GeneratedSerializer : KSerializer<$className>
-        |
-        |@Suppress("ClassName")
-        |private object __${className}Serializer : JsonTransformingSerializer<$className>(__${className}GeneratedSerializer) {
-        |    override fun transformDeserialize(element: JsonElement): JsonElement =
-        |        JsonObject(element.jsonObject${if (properties.values.any { it.type is SchemaConditional }) """|.mapValues { (key, value) ->
-        |            when (key) {
-        |                ${properties.values.filter { it.type is SchemaConditional }.joinToString(separator = "$n$t$t$t$t") { """"${it.serialName}" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["${(it.type as SchemaConditional).disambiguationBy}"]!!.jsonPrimitive.content)))""" }}
-        |                else -> value
-        |            }
-        |        }
-        """.trimMargin() else ""}${if (isInterpretation) " - \"__virtualType\"" else ""})
-        |}
-        |
-        |$docComment@Serializable(with = __${className}Serializer::class)""".trimMargin() else "$docComment@Serializable"}${if (serialName !== null) "${n}SerialName($serialName)" else ""}
-        |public data class $className${properties.ctor(sharedProperties, dataClasses)}${if (superClass !== null) " : $superClass()" else "" }${if (dataClasses.isNotEmpty()) """
-        | {
-        |
-        |${dataClasses.map { (name, schema) -> when(schema) {
-            is SchemaConditional -> schema.createSealedClass(name, indent = t)
-            is SchemaRecord -> schema.createDataClass(name, indent = t)
-            else -> error("")
-        }}.joinToString(separator = "$n$n")}
-        |
-        |}
-        """.trimMargin() else ""}
-        """.trimMargin().prependIndent(indent)
-    }
-
 }

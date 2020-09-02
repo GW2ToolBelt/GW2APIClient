@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emotes]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2EmotesIDs(configure: (RequestBuilder<List<String>>.
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emotes]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2EmotesByID(id: String, configure: (RequestBuilder<G
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emotes]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2EmotesByIDs(ids: Collection<String>, configure: (Re
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emotes]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2EmotesAll(configure: (RequestBuilder<List<GW2v2Emot
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emotes]

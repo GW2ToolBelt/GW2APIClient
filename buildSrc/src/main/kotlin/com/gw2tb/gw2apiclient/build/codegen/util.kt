@@ -21,8 +21,18 @@
  */
 package com.gw2tb.gw2apiclient.build.codegen
 
-fun String.firstToLowerCase(): String =
+internal fun String.firstToLowerCase(): String =
     "${toCharArray()[0].toLowerCase()}${substring(1)}"
 
-fun String.firstToUpperCase(): String =
+internal fun String.firstToUpperCase(): String =
     "${toCharArray()[0].toUpperCase()}${substring(1)}"
+
+internal fun String.prependIndentNonEmpty(indent: String = "    "): String =
+    lineSequence()
+        .map {
+            when {
+                it.isBlank() -> it
+                else -> indent + it
+            }
+        }
+        .joinToString("\n")

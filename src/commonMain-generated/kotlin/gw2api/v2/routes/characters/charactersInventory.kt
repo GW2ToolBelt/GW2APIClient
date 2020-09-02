@@ -85,7 +85,7 @@ public data class GW2v2CharactersInventory(
         val size: Int,
         val inventory: List<Inventory?>
     ) {
-    
+
         /**
          * Information about an item in a character's inventory.
          *
@@ -115,7 +115,7 @@ public data class GW2v2CharactersInventory(
             @SerialName("bound_to")
             val boundTo: String? = null
         ) {
-    
+
             /**
              * Information about an item's stats.
              *
@@ -149,9 +149,9 @@ public data class GW2v2CharactersInventory(
                 @SerialName("BoonDuration")
                 val boonDuration: Int? = null
             )
-    
+
         }
-    
+
     }
 
 }

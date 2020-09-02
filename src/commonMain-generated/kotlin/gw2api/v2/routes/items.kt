@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2ItemsIDs(configure: (RequestBuilder<List<Int>>.() -
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2ItemsByID(id: Int, configure: (RequestBuilder<GW2v2
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2ItemsByIDs(ids: Collection<Int>, configure: (Reques
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
@@ -262,21 +262,21 @@ public data class GW2v2Item(
             }
         }
     }
-    
+
     /** Additional information about an item. */
     @Serializable(with = __JsonParametricSerializer_Details::class)
     public sealed class Details {
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Armor::class)
         private object __ArmorGeneratedSerializer : KSerializer<Armor>
-    
+
         @Suppress("ClassName")
         private object __ArmorSerializer : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about an armor item.
          *
@@ -309,7 +309,7 @@ public data class GW2v2Item(
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         ) : Details() {
-    
+
             /**
              * Information about an items infusion slot.
              *
@@ -322,7 +322,7 @@ public data class GW2v2Item(
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
-    
+
             /**
              * Information about an item's infix upgrade.
              *
@@ -336,7 +336,7 @@ public data class GW2v2Item(
                 val attributes: List<Attribute>,
                 val buff: Buff? = null
             ) {
-    
+
                 /**
                  * Information about an infix upgrade's attribute bonuses.
                  *
@@ -348,7 +348,7 @@ public data class GW2v2Item(
                     val attribute: String,
                     val modifier: Int
                 )
-    
+
                 /**
                  * Information about an infix upgrade's buffs.
                  *
@@ -361,21 +361,21 @@ public data class GW2v2Item(
                     val skillId: Int,
                     val description: String? = null
                 )
-    
+
             }
-    
+
         }
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Back::class)
         private object __BackGeneratedSerializer : KSerializer<Back>
-    
+
         @Suppress("ClassName")
         private object __BackSerializer : JsonTransformingSerializer<Back>(__BackGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a backpiece.
          *
@@ -401,7 +401,7 @@ public data class GW2v2Item(
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         ) : Details() {
-    
+
             /**
              * Information about an items infusion slot.
              *
@@ -414,7 +414,7 @@ public data class GW2v2Item(
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
-    
+
             /**
              * Information about an item's infix upgrade.
              *
@@ -428,7 +428,7 @@ public data class GW2v2Item(
                 val attributes: List<Attribute>,
                 val buff: Buff? = null
             ) {
-    
+
                 /**
                  * Information about an infix upgrade's attribute bonuses.
                  *
@@ -440,7 +440,7 @@ public data class GW2v2Item(
                     val attribute: String,
                     val modifier: Int
                 )
-    
+
                 /**
                  * Information about an infix upgrade's buffs.
                  *
@@ -453,21 +453,21 @@ public data class GW2v2Item(
                     val skillId: Int,
                     val description: String? = null
                 )
-    
+
             }
-    
+
         }
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Bag::class)
         private object __BagGeneratedSerializer : KSerializer<Bag>
-    
+
         @Suppress("ClassName")
         private object __BagSerializer : JsonTransformingSerializer<Bag>(__BagGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a bag.
          *
@@ -480,17 +480,17 @@ public data class GW2v2Item(
             @SerialName("no_sell_or_sort")
             val noSellOrSort: Boolean
         ) : Details()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Consumable::class)
         private object __ConsumableGeneratedSerializer : KSerializer<Consumable>
-    
+
         @Suppress("ClassName")
         private object __ConsumableSerializer : JsonTransformingSerializer<Consumable>(__ConsumableGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a consumable item.
          *
@@ -529,17 +529,17 @@ public data class GW2v2Item(
             val icon: String? = null,
             val skins: List<Int>? = null
         ) : Details()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Container::class)
         private object __ContainerGeneratedSerializer : KSerializer<Container>
-    
+
         @Suppress("ClassName")
         private object __ContainerSerializer : JsonTransformingSerializer<Container>(__ContainerGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a container.
          *
@@ -549,17 +549,17 @@ public data class GW2v2Item(
         public data class Container(
             val type: String
         ) : Details()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Gathering::class)
         private object __GatheringGeneratedSerializer : KSerializer<Gathering>
-    
+
         @Suppress("ClassName")
         private object __GatheringSerializer : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a gathering tool.
          *
@@ -569,17 +569,17 @@ public data class GW2v2Item(
         public data class Gathering(
             val type: String
         ) : Details()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Gizmo::class)
         private object __GizmoGeneratedSerializer : KSerializer<Gizmo>
-    
+
         @Suppress("ClassName")
         private object __GizmoSerializer : JsonTransformingSerializer<Gizmo>(__GizmoGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a gizmo.
          *
@@ -595,17 +595,17 @@ public data class GW2v2Item(
             @SerialName("vendor_ids")
             val vendorIds: List<Int>? = null
         ) : Details()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = MiniPet::class)
         private object __MiniPetGeneratedSerializer : KSerializer<MiniPet>
-    
+
         @Suppress("ClassName")
         private object __MiniPetSerializer : JsonTransformingSerializer<MiniPet>(__MiniPetGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a mini unlock item.
          *
@@ -616,17 +616,17 @@ public data class GW2v2Item(
             @SerialName("minipet_id")
             val minipetId: Int
         ) : Details()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Tool::class)
         private object __ToolGeneratedSerializer : KSerializer<Tool>
-    
+
         @Suppress("ClassName")
         private object __ToolSerializer : JsonTransformingSerializer<Tool>(__ToolGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a tool.
          *
@@ -638,17 +638,17 @@ public data class GW2v2Item(
             val type: String,
             val charges: Int
         ) : Details()
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Trinket::class)
         private object __TrinketGeneratedSerializer : KSerializer<Trinket>
-    
+
         @Suppress("ClassName")
         private object __TrinketSerializer : JsonTransformingSerializer<Trinket>(__TrinketGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a trinket.
          *
@@ -676,7 +676,7 @@ public data class GW2v2Item(
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         ) : Details() {
-    
+
             /**
              * Information about an items infusion slot.
              *
@@ -689,7 +689,7 @@ public data class GW2v2Item(
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
-    
+
             /**
              * Information about an item's infix upgrade.
              *
@@ -703,7 +703,7 @@ public data class GW2v2Item(
                 val attributes: List<Attribute>,
                 val buff: Buff? = null
             ) {
-    
+
                 /**
                  * Information about an infix upgrade's attribute bonuses.
                  *
@@ -715,7 +715,7 @@ public data class GW2v2Item(
                     val attribute: String,
                     val modifier: Int
                 )
-    
+
                 /**
                  * Information about an infix upgrade's buffs.
                  *
@@ -728,21 +728,21 @@ public data class GW2v2Item(
                     val skillId: Int,
                     val description: String? = null
                 )
-    
+
             }
-    
+
         }
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = UpgradeComponent::class)
         private object __UpgradeComponentGeneratedSerializer : KSerializer<UpgradeComponent>
-    
+
         @Suppress("ClassName")
         private object __UpgradeComponentSerializer : JsonTransformingSerializer<UpgradeComponent>(__UpgradeComponentGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about an upgrade component.
          *
@@ -767,7 +767,7 @@ public data class GW2v2Item(
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         ) : Details() {
-    
+
             /**
              * Information about an item's infix upgrade.
              *
@@ -781,7 +781,7 @@ public data class GW2v2Item(
                 val attributes: List<Attribute>,
                 val buff: Buff? = null
             ) {
-    
+
                 /**
                  * Information about an infix upgrade's attribute bonuses.
                  *
@@ -793,7 +793,7 @@ public data class GW2v2Item(
                     val attribute: String,
                     val modifier: Int
                 )
-    
+
                 /**
                  * Information about an infix upgrade's buffs.
                  *
@@ -806,21 +806,21 @@ public data class GW2v2Item(
                     val skillId: Int,
                     val description: String? = null
                 )
-    
+
             }
-    
+
         }
-    
+
         @Suppress("ClassName")
         @Serializer(forClass = Weapon::class)
         private object __WeaponGeneratedSerializer : KSerializer<Weapon>
-    
+
         @Suppress("ClassName")
         private object __WeaponSerializer : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
-    
+
         /**
          * Additional information about a weapon.
          *
@@ -859,7 +859,7 @@ public data class GW2v2Item(
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         ) : Details() {
-    
+
             /**
              * Information about an items infusion slot.
              *
@@ -872,7 +872,7 @@ public data class GW2v2Item(
                 @SerialName("item_id")
                 val itemId: Int? = null
             )
-    
+
             /**
              * Information about an item's infix upgrade.
              *
@@ -886,7 +886,7 @@ public data class GW2v2Item(
                 val attributes: List<Attribute>,
                 val buff: Buff? = null
             ) {
-    
+
                 /**
                  * Information about an infix upgrade's attribute bonuses.
                  *
@@ -898,7 +898,7 @@ public data class GW2v2Item(
                     val attribute: String,
                     val modifier: Int
                 )
-    
+
                 /**
                  * Information about an infix upgrade's buffs.
                  *
@@ -911,11 +911,11 @@ public data class GW2v2Item(
                     val skillId: Int,
                     val description: String? = null
                 )
-    
+
             }
-    
+
         }
-    
+
     }
 
 }

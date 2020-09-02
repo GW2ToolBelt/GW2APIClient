@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2WorldsIDs(configure: (RequestBuilder<List<Int>>.() 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
@@ -103,7 +103,7 @@ public fun GW2APIClient.gw2v2WorldsByID(id: Int, configure: (RequestBuilder<GW2v
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
@@ -134,7 +134,7 @@ public fun GW2APIClient.gw2v2WorldsByIDs(ids: Collection<Int>, configure: (Reque
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2WorldsAll(configure: (RequestBuilder<List<GW2v2Worl
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60.0m
+ * Cache time:          60m
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worlds]

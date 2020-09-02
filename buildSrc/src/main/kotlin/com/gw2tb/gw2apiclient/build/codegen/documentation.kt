@@ -27,23 +27,41 @@ import java.util.*
 import kotlin.time.*
 
 private fun Duration.normalizeCacheTime(): String {
-    return toString() // TODO
+    require((inSeconds % 60.0) == 0.0)
+
+    return when {
+        isInfinite() -> "INFINITE"
+        else -> {
+            if ((inMinutes % 60.0) == 0.0 && (inMinutes / 60.0) > 1.0) {
+                "${inHours.toInt()}h"
+            } else {
+                "${inMinutes.toInt()}m"
+            }
+        }
+    }
 }
 
-private fun docComment(action: StringBuilder.() -> Unit): String =
+internal val String.asComment: String get() = comment({
+    append(this@asComment)
+})
+
+private fun comment(action: StringBuilder.() -> Unit, isDocComment: Boolean = false): String =
     StringBuilder().apply(action).toString().lines().let {
+        val start = if (isDocComment) "/**" else "/*"
+
         when (it.size) {
             0 -> ""
-            1 -> "/** ${it[0]} */$n"
-            else -> StringBuilder().apply(action).toString().lines().joinToString(separator = "$n *", prefix = "/**$n *", postfix = "$n */$n") { line ->
+            1 -> "$start ${it[0]} */$n"
+            else -> StringBuilder().apply(action).toString().lines().joinToString(separator = "$n *", prefix = "$start$n *", postfix = "$n */$n") { line ->
                 if (line.isNotBlank()) " $line" else ""
             }
         }
     }
 
+@Suppress("NOTHING_TO_INLINE")
+private inline fun docComment(noinline action: StringBuilder.() -> Unit): String = comment(action, isDocComment = true)
 
-
-fun Endpoint.dokka(queryType: String): String = docComment {
+internal fun Endpoint.dokka(queryType: String): String = docComment {
     append("$queryType$n$n")
     append("$summary$n$n")
     append("""
@@ -61,21 +79,24 @@ fun Endpoint.dokka(queryType: String): String = docComment {
     append("@return  the request that can be executed to query the API")
 }
 
-fun SchemaConditional.dokka(header: String): String = docComment {
-    append(header)
+internal fun SchemaConditional.dokka(): String = docComment {
+    append(description)
 
     if (sharedProperties.isNotEmpty()) {
         append("$n$n")
         append(sharedProperties.values.joinToString(separator = n) { property ->
-            "@param ${property.camelCaseName} ${property.description}"
+            "@property ${property.camelCaseName} ${property.description}"
         })
     }
 }
 
-fun SchemaRecord.dokka(header: String): String = docComment {
-    append(header)
-    append("$n$n")
-    append(properties.values.joinToString(separator = n) { property ->
-        "@param ${property.camelCaseName} ${property.description}"
-    })
+internal fun SchemaRecord.dokka(): String = docComment {
+    append(description)
+
+    if (properties.isNotEmpty()) {
+        append("$n$n")
+        append(properties.values.joinToString(separator = n) { property ->
+            "@param ${property.camelCaseName} ${property.description}"
+        })
+    }
 }
