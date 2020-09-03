@@ -103,7 +103,6 @@ public class RequestBuilder<out T> internal constructor(
             path(modifiedPath.split("/"))
             with (parameters) {
                 this@RequestBuilder.parameters.forEach { (k, v) -> append(k, v) }
-                if (apiKey !== null) append("access_token", apiKey)
                 if (language !== null || supportedLanguages.isNotEmpty()) append("lang", (language ?: Language.ENGLISH).code)
             }
         }.build()
@@ -143,7 +142,9 @@ public class RequestBuilder<out T> internal constructor(
                 }
 
                 val httpCall = scope.async(start = CoroutineStart.LAZY) {
-                    val httpResponse = httpClient.get<HttpResponse>(url)
+                    val httpResponse = httpClient.get<HttpResponse>(url) {
+                        if (apiKey != null) headers.append("Authorization", "Bearer $apiKey")
+                    }
                     if (!httpResponse.status.isSuccess()) {
                         // TODO error handling
                     }
