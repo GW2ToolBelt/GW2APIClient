@@ -35,30 +35,74 @@ import kotlin.jvm.*
 /**
  * Creates a request used to query the resource.
  *
- * Returns which world bosses that can be looted once per day a player has defeated since the most recent daily reset.
+ * Returns information about the gem exchange.
  *
  * ```
- * Authenticated:       Yes (ACCOUNT, PROGRESSION)
+ * Authenticated:       No
  * Paginated:           No
  * Bulk expanded:       No
  * Localized:           No
- * Cache time:          N/A
+ * Cache time:          INFINITE
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/worldbosses]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/exchange]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2AccountWorldBosses(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/v2/account/worldbosses",
+public fun GW2APIClient.gw2v2CommerceExchange(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+    path = "/v2/commerce/exchange",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
-    requiresAuthentication = true,
+    requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
+)
+
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about the gem exchange.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/exchange/:type]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: (RequestBuilder<GW2v2CommerceExchange>.() -> Unit)? = null): RequestBuilder<GW2v2CommerceExchange> = request(
+    path = "/v2/commerce/exchange/:type",
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z", "quantity" to quantity.toString()),
+    replaceInPath = mapOf(":type" to type),
+    requiresAuthentication = false,
+    requiredPermissions = emptySet(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2CommerceExchange.serializer(),
+    configure = configure
+)
+
+/**
+ * Information about an exchange.
+ *
+ * @param coinsPerGem the number of coins received/required for a single gem
+ * @param quantity the number of coins/gems for received for the specified quantity of gems/coins
+ */
+@Serializable
+public data class GW2v2CommerceExchange(
+    @SerialName("coinspergem")
+    val coinsPerGem: Int,
+    val quantity: Int
 )

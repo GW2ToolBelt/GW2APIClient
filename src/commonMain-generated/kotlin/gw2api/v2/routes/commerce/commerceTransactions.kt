@@ -33,29 +33,60 @@ import kotlinx.serialization.json.*
 import kotlin.jvm.*
 
 /**
- * Creates a request used to query the list of available IDs.
+ * Creates a request used to query the resource.
  *
- * Returns commonly requested in-game assets.
+ * Returns information about an account's transactions.
  *
  * ```
- * Authenticated:       No
- * Paginated:           Yes
- * Bulk expanded:       Yes
+ * Authenticated:       Yes (ACCOUNT, TRADINGPOST)
+ * Paginated:           No
+ * Bulk expanded:       No
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          INFINITE
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2FilesIDs(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/v2/files",
+public fun GW2APIClient.gw2v2CommerceTransactions(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+    path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
+    requiresAuthentication = true,
+    requiredPermissions = emptySet(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(String.serializer()),
+    configure = configure
+)
+
+/**
+ * Creates a request used to query the resource.
+ *
+ * Returns information about an account's transactions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          INFINITE
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions/:relevance]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+    path = "/v2/commerce/transactions/:relevance",
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    replaceInPath = mapOf(":relevance" to relevance),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -64,137 +95,84 @@ public fun GW2APIClient.gw2v2FilesIDs(configure: (RequestBuilder<List<String>>.(
 )
 
 /**
- * Creates a request used to query a single [item](GW2v2File) by its ID.
+ * Creates a request used to query all available [items](GW2v2CommerceTransaction).
  *
- * Returns commonly requested in-game assets.
+ * Returns information about an account's transactions.
  *
  * ```
  * Authenticated:       No
  * Paginated:           Yes
- * Bulk expanded:       Yes
+ * Bulk expanded:       No
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1m
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions/:relevance/:type]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2FilesByID(id: String, configure: (RequestBuilder<GW2v2File>.() -> Unit)? = null): RequestBuilder<GW2v2File> = request(
-    path = "/v2/files",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiresAuthentication = false,
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = GW2v2File.serializer(),
-    configure = configure
-)
-
-/**
- * Creates a request used to query one or more [items](GW2v2File) by their IDs.
- *
- * Returns commonly requested in-game assets.
- *
- * ```
- * Authenticated:       No
- * Paginated:           Yes
- * Bulk expanded:       Yes
- * Localized:           No
- * Cache time:          60m
- * ```
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
- *
- * @receiver        the client instance used to make the request
- * @param configure configure action for the request
- *
- * @return  the request that can be executed to query the API
- */
-public fun GW2APIClient.gw2v2FilesByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2File>>.() -> Unit)? = null): RequestBuilder<List<GW2v2File>> = request(
-    path = "/v2/files",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiresAuthentication = false,
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2File.serializer()),
-    configure = configure
-)
-
-/**
- * Creates a request used to query all available [items](GW2v2File).
- *
- * Returns commonly requested in-game assets.
- *
- * ```
- * Authenticated:       No
- * Paginated:           Yes
- * Bulk expanded:       Yes
- * Localized:           No
- * Cache time:          60m
- * ```
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
- *
- * @receiver        the client instance used to make the request
- * @param configure configure action for the request
- *
- * @return  the request that can be executed to query the API
- */
-public fun GW2APIClient.gw2v2FilesAll(configure: (RequestBuilder<List<GW2v2File>>.() -> Unit)? = null): RequestBuilder<List<GW2v2File>> = request(
-    path = "/v2/files",
+public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: String, configure: (RequestBuilder<List<GW2v2CommerceTransaction>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
+    path = "/v2/commerce/transactions/:relevance/:type",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(),
+    replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2File.serializer()),
+    serializer = ListSerializer(GW2v2CommerceTransaction.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2File) by page.
+ * Creates a request used to query one or more [items](GW2v2CommerceTransaction) by page.
  *
- * Returns commonly requested in-game assets.
+ * Returns information about an account's transactions.
  *
  * ```
  * Authenticated:       No
  * Paginated:           Yes
- * Bulk expanded:       Yes
+ * Bulk expanded:       No
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1m
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/files]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions/:relevance/:type]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2FilesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2File>>.() -> Unit)? = null): RequestBuilder<List<GW2v2File>> = request(
-    path = "/v2/files",
+public fun GW2APIClient.gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommerceTransaction>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
+    path = "/v2/commerce/transactions/:relevance/:type",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(),
+    replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2File.serializer()),
+    serializer = ListSerializer(GW2v2CommerceTransaction.serializer()),
     configure = configure
 )
 
 /**
- * Information about an in-game asset.
+ * Information about a transaction.
  *
- * @param id the file identifier
- * @param icon the URL to the image
+ * @param id the transaction's ID
+ * @param itemID the item's ID
+ * @param price the price in coins
+ * @param quantity the quantity of the item
+ * @param created the ISO-8601 standard timestamp of when the transaction was created
+ * @param purchased the ISO-8601 standard timestamp of when the transaction was completed
  */
 @Serializable
-public data class GW2v2File(
-    val id: String,
-    val icon: String
+public data class GW2v2CommerceTransaction(
+    val id: Int,
+    @SerialName("item_id")
+    val itemID: Int,
+    val price: Int,
+    val quantity: Int,
+    val created: String,
+    val purchased: String? = null
 )

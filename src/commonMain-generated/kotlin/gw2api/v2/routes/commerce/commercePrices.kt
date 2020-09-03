@@ -26,6 +26,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.internal.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
@@ -53,7 +54,7 @@ import kotlin.jvm.*
  */
 public fun GW2APIClient.gw2v2CommercePricesIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/commerce/prices",
-    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -84,7 +85,7 @@ public fun GW2APIClient.gw2v2CommercePricesIDs(configure: (RequestBuilder<List<I
  */
 public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: (RequestBuilder<GW2v2CommercePrice>.() -> Unit)? = null): RequestBuilder<GW2v2CommercePrice> = request(
     path = "/v2/commerce/prices",
-    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -115,7 +116,7 @@ public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: (RequestBuil
  */
 public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2CommercePrice>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrice>> = request(
     path = "/v2/commerce/prices",
-    parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -146,7 +147,7 @@ public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: Collection<Int>, configure
  */
 public fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommercePrice>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrice>> = request(
     path = "/v2/commerce/prices",
-    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

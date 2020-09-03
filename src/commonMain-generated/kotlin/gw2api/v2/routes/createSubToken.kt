@@ -35,30 +35,40 @@ import kotlin.jvm.*
 /**
  * Creates a request used to query the resource.
  *
- * Returns which world bosses that can be looted once per day a player has defeated since the most recent daily reset.
+ * Creates a new subtoken.
  *
  * ```
- * Authenticated:       Yes (ACCOUNT, PROGRESSION)
+ * Authenticated:       Yes (ACCOUNT)
  * Paginated:           No
  * Bulk expanded:       No
  * Localized:           No
  * Cache time:          N/A
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/worldbosses]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/createsubtoken]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2AccountWorldBosses(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
-    path = "/v2/account/worldbosses",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: (RequestBuilder<GW2v2CreateSubToken>.() -> Unit)? = null): RequestBuilder<GW2v2CreateSubToken> = request(
+    path = "/v2/createsubtoken",
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z", "expire" to expire, "permissions" to permissions, "urls" to urls),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = GW2v2CreateSubToken.serializer(),
     configure = configure
+)
+
+/**
+ * A created subtoken.
+ *
+ * @param subtoken a JWT which can be used like an API key
+ */
+@Serializable
+public data class GW2v2CreateSubToken(
+    val subtoken: String
 )

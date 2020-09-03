@@ -26,6 +26,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.internal.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
@@ -53,7 +54,7 @@ import kotlin.jvm.*
  */
 public fun GW2APIClient.gw2v2CharactersInventory(iD: String, configure: (RequestBuilder<GW2v2CharactersInventory>.() -> Unit)? = null): RequestBuilder<GW2v2CharactersInventory> = request(
     path = "/v2/characters/:id/inventory",
-    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(":id" to iD),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),

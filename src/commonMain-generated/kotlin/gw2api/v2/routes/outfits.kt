@@ -26,6 +26,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.internal.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
@@ -53,7 +54,7 @@ import kotlin.jvm.*
  */
 public fun GW2APIClient.gw2v2OutfitsIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/outfits",
-    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -84,7 +85,7 @@ public fun GW2APIClient.gw2v2OutfitsIDs(configure: (RequestBuilder<List<Int>>.()
  */
 public fun GW2APIClient.gw2v2OutfitsByID(id: Int, configure: (RequestBuilder<GW2v2Outfit>.() -> Unit)? = null): RequestBuilder<GW2v2Outfit> = request(
     path = "/v2/outfits",
-    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -115,7 +116,7 @@ public fun GW2APIClient.gw2v2OutfitsByID(id: Int, configure: (RequestBuilder<GW2
  */
 public fun GW2APIClient.gw2v2OutfitsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Outfit>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfit>> = request(
     path = "/v2/outfits",
-    parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -146,7 +147,7 @@ public fun GW2APIClient.gw2v2OutfitsByIDs(ids: Collection<Int>, configure: (Requ
  */
 public fun GW2APIClient.gw2v2OutfitsAll(configure: (RequestBuilder<List<GW2v2Outfit>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfit>> = request(
     path = "/v2/outfits",
-    parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -177,7 +178,7 @@ public fun GW2APIClient.gw2v2OutfitsAll(configure: (RequestBuilder<List<GW2v2Out
  */
 public fun GW2APIClient.gw2v2OutfitsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Outfit>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Outfit>> = request(
     path = "/v2/outfits",
-    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

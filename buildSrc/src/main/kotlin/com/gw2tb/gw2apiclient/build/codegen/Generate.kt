@@ -114,135 +114,165 @@ open class Generate : DefaultTask() {
         )
 
         with(API_V2_DEFINITION) {
-            endpoints.forEach { endpoint ->
-                val routeTitleCase = endpoint.route.replace(Regex("/:([A-Za-z])*"), "").replace("/", "")
+            val endpointsByRoute = endpoints.groupBy { endpoint ->
+                endpoint.route.replace(Regex("/:([A-Za-z])*"), "").replace("/", "")
+            }
 
-                val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaType>()) {
-                    endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this, isParentArray = endpoint.queryTypes.isNotEmpty()) to
-                        this.entries.firstOrNull()?.value
-                }
+            endpointsByRoute.forEach { (routeTitleCase, endpoints) ->
+                val functions = mutableListOf<String>()
+                val classes = mutableListOf<String>()
 
-                val dataClassName = when {
-                    endpoint.schema is SchemaRecord && endpoint.queryTypes.isNotEmpty() -> dataClassType.name
-                    endpoint.schema is SchemaArray -> "GW2v2${routeTitleCase}".removeSuffix("s")
-                    else -> "GW2v2${routeTitleCase}"
-                }
+                endpoints.forEach { endpoint ->
+                    val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaType>()) {
+                        endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this, isParentArray = endpoint.queryTypes.isNotEmpty()) to
+                            this.entries.firstOrNull()?.value
+                    }
 
-                fun requestBody(
-                    parameters: String,
-                    replaceInPath: Map<String, String>? = null,
-                    serializer: String,
-                    isIDsEndpoint: Boolean = false
-                ) =
-                    """
-                    path = "/v2${endpoint.route.toLowerCase(Locale.ENGLISH)}",
-                    parameters = $parameters,
-                    replaceInPath = mapOf(${replaceInPath?.entries?.joinToString(separator = ", ") { (key, value) -> "\"$key\" to $value" } ?: ""}),
-                    requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
-                    requiredPermissions = emptySet(),
-                    supportedLanguages = ${if (endpoint.isLocalized && !isIDsEndpoint) "Language.API_V2" else "emptySet()"},
-                    serializer = $serializer,
-                    configure = configure
-                    """.trimIndent().lines().joinToString(separator = n) { "$t$it" }
+                    val dataClassName = when {
+                        endpoint.schema is SchemaRecord && endpoint.queryTypes.isNotEmpty() -> dataClassType.name
+                        endpoint.schema is SchemaArray -> "GW2v2${routeTitleCase}".removeSuffix("s") // TODO this should be baked into apigen
+                        else -> "GW2v2${routeTitleCase}"
+                    }
 
-                val functions = endpoint.queryTypes.let { queryTypes -> sequence {
-                    if (queryTypes.isNotEmpty()) {
-                        val idType = when (endpoint.idType) {
-                            is SchemaInteger -> "Int"
-                            is SchemaString -> "String"
-                            else -> error("Unsupported ID type for endpoint: $endpoint")
-                        }
+                    val replaceInPath = endpoint.pathParameters.map {
+                        ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}"
+                    }.toMap().entries.joinToString(separator = ", ") { (key, value) ->
+                        "\"$key\" to $value"
+                    }
 
-                        yield(
-                            """
-                            |${endpoint.dokka(
-                                queryType = "Creates a request used to query the list of available IDs."
-                            )}public fun GW2APIClient.gw2v2${routeTitleCase}IDs(configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
-                            |${requestBody(
-                                parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
-                                serializer = idType.listSerializer,
-                                isIDsEndpoint = true
-                            )}
-                            |)
-                            """.trimMargin()
-                        )
+                    val pathParameters = endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }
+                    val queryParameters = endpoint.queryParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}${if (it.isOptional) "? = null" else ""}" }.let { if (it.isNotEmpty()) "$it, " else "" }
 
-                        queryTypes.forEach { queryType ->
-                            when (queryType) {
-                                is QueryType.ById -> yield(
+                    fun requestBody(
+                        parameters: Map<String, String> = emptyMap(),
+                        serializer: String,
+                        isIDsEndpoint: Boolean = false
+                    ) =
+                        """
+                        path = "/v2${endpoint.route.toLowerCase(Locale.ENGLISH)}",
+                        parameters = mapOfNonNullValues(${(parameters + ("v" to "\"${schemaVersion.identifier}\"") + endpoint.queryParameters.map { it.key to "${it.key}${if (it.type == SchemaString) "" else ".toString()"}" }).entries.joinToString(separator = ", ") { (key, value) -> "\"$key\" to $value" }}),
+                        replaceInPath = mapOf($replaceInPath),
+                        requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
+                        requiredPermissions = emptySet(),
+                        supportedLanguages = ${if (endpoint.isLocalized && !isIDsEndpoint) "Language.API_V2" else "emptySet()"},
+                        serializer = $serializer,
+                        configure = configure
+                        """.trimIndent().lines().joinToString(separator = n) { "$t$it" }
+
+                    functions.addAll(endpoint.queryTypes.let { queryTypes -> sequence {
+                        if (queryTypes.isNotEmpty()) {
+                            val idType = when (endpoint.idType) {
+                                null -> null
+                                is SchemaInteger -> "Int"
+                                is SchemaString -> "String"
+                                else -> error("Unsupported ID type for endpoint: $endpoint")
+                            }
+
+                            if (idType != null) {
+                                yield(
                                     """
                                     |${endpoint.dokka(
-                                        queryType = "Creates a request used to query a single [item]($dataClassType) by its ID."
-                                    )}public fun GW2APIClient.gw2v2${routeTitleCase}ByID(id: $idType, configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
+                                            queryType = "Creates a request used to query the list of available IDs."
+                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}IDs(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
                                     |${requestBody(
-                                        parameters = """mapOf("id" to id${if (endpoint.idType is SchemaString) "" else ".toString()"}, "v" to "${schemaVersion.identifier!!}")""",
+                                            serializer = idType.listSerializer,
+                                            isIDsEndpoint = true
+                                        )}
+                                    |)
+                                    """.trimMargin()
+                                )
+                            } else {
+                                yield(
+                                    """
+                                    |${endpoint.dokka(
+                                            queryType = "Creates a request used to query all available [items]($dataClassType)."
+                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                    |${requestBody(
+                                            parameters = mapOf("ids" to "\"all\""),
+                                            serializer = dataClassType.listSerializer
+                                        )}
+                                    |)
+                                    """.trimMargin()
+                                )
+                            }
+
+                            queryTypes.forEach { queryType ->
+                                when (queryType) {
+                                    is QueryType.ById -> yield(
+                                        """
+                                        |${endpoint.dokka(
+                                                queryType = "Creates a request used to query a single [item]($dataClassType) by its ID."
+                                            )}public fun GW2APIClient.gw2v2${routeTitleCase}ByID(${pathParameters}id: $idType, ${queryParameters}configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
+                                        |${requestBody(
+                                                parameters = mapOf("id" to "id${if (idType == "String") "" else ".toString()"}"),
+                                                serializer = dataClassType.serializer
+                                            )}
+                                        |)
+                                        """.trimMargin()
+                                    )
+                                    is QueryType.ByIds -> {
+                                        yield(
+                                            """
+                                            |${endpoint.dokka(
+                                                    queryType = "Creates a request used to query one or more [items]($dataClassType) by their IDs."
+                                                )}public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(${pathParameters}ids: Collection<$idType>, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                            |${requestBody(
+                                                    parameters = mapOf("ids" to "ids.joinToString(\",\")"),
+                                                    serializer = dataClassType.listSerializer
+                                                )}
+                                            |)
+                                            """.trimMargin()
+                                        )
+
+                                        if (queryType.supportsAll) yield(
+                                            """
+                                            |${endpoint.dokka(
+                                                    queryType = "Creates a request used to query all available [items]($dataClassType)."
+                                                )}public fun GW2APIClient.gw2v2${routeTitleCase}All(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                            |${requestBody(
+                                                    parameters = mapOf("ids" to "\"all\""),
+                                                    serializer = dataClassType.listSerializer
+                                                )}
+                                            |)
+                                            """.trimMargin()
+                                        )
+                                    }
+                                    is QueryType.ByPage -> yield(
+                                        """
+                                        |${endpoint.dokka(
+                                                queryType = "Creates a request used to query one or more [items]($dataClassType) by page."
+                                            )}public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(${pathParameters}page: Int, pageSize: Int = 200, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                        |${requestBody(
+                                                parameters = mapOf("page" to "page.toString()", "page_size" to "pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException(\"Illegal page size\") else it }.toString()"),
+                                                serializer = dataClassType.listSerializer
+                                            )}
+                                        |)
+                                        """.trimMargin()
+                                    )
+                                    else -> error("Unsupported QueryType: $queryType")
+                                }
+                            }
+                        } else {
+                            val RequestBuilder = "RequestBuilder<$dataClassType>"
+
+                            yield(
+                                """
+                                |${endpoint.dokka(
+                                        queryType = "Creates a request used to query the resource."
+                                    )}public fun GW2APIClient.gw2v2$routeTitleCase(${pathParameters}${queryParameters}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
+                                |${requestBody(
                                         serializer = dataClassType.serializer
                                     )}
-                                    |)
-                                    """.trimMargin()
-                                )
-                                is QueryType.ByIds -> {
-                                    yield(
-                                        """
-                                        |${endpoint.dokka(
-                                            queryType = "Creates a request used to query one or more [items]($dataClassType) by their IDs."
-                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(ids: Collection<$idType>, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
-                                        |${requestBody(
-                                            parameters = """mapOf("ids" to ids.joinToString(","), "v" to "${schemaVersion.identifier!!}")""",
-                                            serializer = dataClassType.listSerializer
-                                        )}
-                                        |)
-                                        """.trimMargin()
-                                    )
-
-                                    if (queryType.supportsAll) yield(
-                                        """
-                                        |${endpoint.dokka(
-                                            queryType = "Creates a request used to query all available [items]($dataClassType)."
-                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}All(configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
-                                        |${requestBody(
-                                            parameters = """mapOf("ids" to "all", "v" to "${schemaVersion.identifier!!}")""",
-                                            serializer = dataClassType.listSerializer
-                                        )}
-                                        |)
-                                        """.trimMargin()
-                                    )
-                                }
-                                is QueryType.ByPage -> yield(
-                                    """
-                                    |${endpoint.dokka(
-                                        queryType = "Creates a request used to query one or more [items]($dataClassType) by page."
-                                    )}public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
-                                    |${requestBody(
-                                        parameters = """mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "${schemaVersion.identifier!!}")""",
-                                        serializer = dataClassType.listSerializer
-                                    )}
-                                    |)
-                                    """.trimMargin()
-                                )
-                                else -> error("Unsupported QueryType: $queryType")
-                            }
+                                |)
+                                """.trimMargin()
+                            )
                         }
-                    } else {
-                        val RequestBuilder = "RequestBuilder<$dataClassType>"
+                    }})
 
-                        yield(
-                            """
-                            |${endpoint.dokka(
-                                queryType = "Creates a request used to query the resource."
-                            )}public fun GW2APIClient.gw2v2$routeTitleCase(${endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
-                            |${requestBody(
-                                parameters = """mapOf("v" to "${schemaVersion.identifier!!}")""",
-                                replaceInPath = endpoint.pathParameters.map { ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}" }.toMap(),
-                                serializer = dataClassType.serializer
-                            )}
-                            |)
-                            """.trimMargin()
-                        )
-                    }
-                }}
+                    if (rootDataClassSchema != null) classes.add((rootDataClassSchema as SchemaRecord).createDataClass(dataClassName, endpoint = endpoint))
+                }
 
-                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoint.route.replace(Regex("/:([A-Za-z])*"), "").toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt").also { outputFile ->
+                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoints[0].route.replace(Regex("/:([A-Za-z])*"), "").toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt").also { outputFile ->
                     outputFile.parentFile.mkdirs()
                     outputFile.writeText(
                         """
@@ -255,12 +285,13 @@ open class Generate : DefaultTask() {
                         |package gw2api.v2
                         |
                         |import gw2api.*
+                        |import gw2api.internal.*
                         |import kotlinx.serialization.*
                         |import kotlinx.serialization.builtins.*
                         |import kotlinx.serialization.json.*
                         |import kotlin.jvm.*
                         |
-                        |${functions.joinToString(separator = "$n$n")}${rootDataClassSchema.let { if (it !== null) "$n$n" + (it as SchemaRecord).createDataClass(dataClassName, endpoint = endpoint) else "" }}
+                        |${functions.joinToString(separator = "$n$n")}${if (classes.isNotEmpty()) "$n$n${classes.joinToString(separator = "$n$n")}" else ""}
                         """.trimMargin()
                     )
                 }

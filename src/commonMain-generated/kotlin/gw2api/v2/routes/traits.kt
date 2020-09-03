@@ -26,6 +26,7 @@
 package gw2api.v2
 
 import gw2api.*
+import gw2api.internal.*
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
@@ -53,7 +54,7 @@ import kotlin.jvm.*
  */
 public fun GW2APIClient.gw2v2TraitsIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/traits",
-    parameters = mapOf("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -84,7 +85,7 @@ public fun GW2APIClient.gw2v2TraitsIDs(configure: (RequestBuilder<List<Int>>.() 
  */
 public fun GW2APIClient.gw2v2TraitsByID(id: Int, configure: (RequestBuilder<GW2v2Trait>.() -> Unit)? = null): RequestBuilder<GW2v2Trait> = request(
     path = "/v2/traits",
-    parameters = mapOf("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -115,7 +116,7 @@ public fun GW2APIClient.gw2v2TraitsByID(id: Int, configure: (RequestBuilder<GW2v
  */
 public fun GW2APIClient.gw2v2TraitsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Trait>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Trait>> = request(
     path = "/v2/traits",
-    parameters = mapOf("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -146,7 +147,7 @@ public fun GW2APIClient.gw2v2TraitsByIDs(ids: Collection<Int>, configure: (Reque
  */
 public fun GW2APIClient.gw2v2TraitsAll(configure: (RequestBuilder<List<GW2v2Trait>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Trait>> = request(
     path = "/v2/traits",
-    parameters = mapOf("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -177,7 +178,7 @@ public fun GW2APIClient.gw2v2TraitsAll(configure: (RequestBuilder<List<GW2v2Trai
  */
 public fun GW2APIClient.gw2v2TraitsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Trait>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Trait>> = request(
     path = "/v2/traits",
-    parameters = mapOf("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -207,7 +208,7 @@ public data class GW2v2Trait(
     val tier: Int,
     val order: Int,
     val name: String,
-    val description: String,
+    val description: String? = null,
     val slot: String,
     val facts: List<Fact>? = null,
     @SerialName("traited_facts")
@@ -235,6 +236,7 @@ public data class GW2v2Trait(
                 "Radius" -> Fact.Radius.serializer()
                 "Range" -> Fact.Range.serializer()
                 "Recharge" -> Fact.Recharge.serializer()
+                "StunBreak" -> Fact.StunBreak.serializer()
                 "Time" -> Fact.Time.serializer()
                 "Unblockable" -> Fact.Unblockable.serializer()
                 else -> TODO()
@@ -499,7 +501,7 @@ public data class GW2v2Trait(
             override val type: String,
             override val icon: String? = null,
             override val text: String? = null,
-            val percent: Int
+            val percent: Double
         ) : Fact()
 
         @Suppress("ClassName")
@@ -526,7 +528,7 @@ public data class GW2v2Trait(
             override val type: String,
             override val icon: String? = null,
             override val text: String? = null,
-            val status: String,
+            val status: String? = null,
             val duration: Int? = null,
             val description: String? = null,
             @SerialName("apply_count")
@@ -546,8 +548,8 @@ public data class GW2v2Trait(
             public data class Prefix(
                 val text: String,
                 val icon: String,
-                val status: String,
-                val description: String
+                val status: String? = null,
+                val description: String? = null
             )
 
         }
@@ -618,7 +620,30 @@ public data class GW2v2Trait(
             override val type: String,
             override val icon: String? = null,
             override val text: String? = null,
-            val value: Int
+            val value: Double
+        ) : Fact()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = StunBreak::class)
+        private object __StunBreakGeneratedSerializer : KSerializer<StunBreak>
+
+        @Suppress("ClassName")
+        private object __StunBreakSerializer : JsonTransformingSerializer<StunBreak>(__StunBreakGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Additional information about a stunbreak.
+         *
+         * @param value always true
+         */
+        @Serializable(with = __StunBreakSerializer::class)
+        public data class StunBreak(
+            override val type: String,
+            override val icon: String? = null,
+            override val text: String? = null,
+            val value: Boolean
         ) : Fact()
 
         @Suppress("ClassName")
@@ -687,6 +712,7 @@ public data class GW2v2Trait(
                 "Radius" -> TraitedFact.Radius.serializer()
                 "Range" -> TraitedFact.Range.serializer()
                 "Recharge" -> TraitedFact.Recharge.serializer()
+                "StunBreak" -> TraitedFact.StunBreak.serializer()
                 "Time" -> TraitedFact.Time.serializer()
                 "Unblockable" -> TraitedFact.Unblockable.serializer()
                 else -> TODO()
@@ -985,7 +1011,7 @@ public data class GW2v2Trait(
             @SerialName("requires_trait")
             override val requiresTrait: Int,
             override val overrides: Int? = null,
-            val percent: Int
+            val percent: Double
         ) : TraitedFact()
 
         @Suppress("ClassName")
@@ -1015,7 +1041,7 @@ public data class GW2v2Trait(
             @SerialName("requires_trait")
             override val requiresTrait: Int,
             override val overrides: Int? = null,
-            val status: String,
+            val status: String? = null,
             val duration: Int? = null,
             val description: String? = null,
             @SerialName("apply_count")
@@ -1035,8 +1061,8 @@ public data class GW2v2Trait(
             public data class Prefix(
                 val text: String,
                 val icon: String,
-                val status: String,
-                val description: String
+                val status: String? = null,
+                val description: String? = null
             )
 
         }
@@ -1116,7 +1142,33 @@ public data class GW2v2Trait(
             @SerialName("requires_trait")
             override val requiresTrait: Int,
             override val overrides: Int? = null,
-            val value: Int
+            val value: Double
+        ) : TraitedFact()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = StunBreak::class)
+        private object __StunBreakGeneratedSerializer : KSerializer<StunBreak>
+
+        @Suppress("ClassName")
+        private object __StunBreakSerializer : JsonTransformingSerializer<StunBreak>(__StunBreakGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Additional information about a stunbreak.
+         *
+         * @param value always true
+         */
+        @Serializable(with = __StunBreakSerializer::class)
+        public data class StunBreak(
+            override val type: String,
+            override val icon: String? = null,
+            override val text: String? = null,
+            @SerialName("requires_trait")
+            override val requiresTrait: Int,
+            override val overrides: Int? = null,
+            val value: Boolean
         ) : TraitedFact()
 
         @Suppress("ClassName")
@@ -1180,6 +1232,9 @@ public data class GW2v2Trait(
      * @param name the skill's name
      * @param description the skill's description
      * @param icon the URL of the skill's icon
+     * @param chatLink the skill's chat link
+     * @param categories 
+     * @param flags 
      * @param facts a list of facts of the skill
      * @param traitedFacts a list of traited facts of the skill
      */
@@ -1190,6 +1245,10 @@ public data class GW2v2Trait(
         val name: String,
         val description: String,
         val icon: String,
+        @SerialName("chat_link")
+        val chatLink: String,
+        val categories: List<String>? = null,
+        val flags: List<String>? = null,
         val facts: List<Fact>? = null,
         @SerialName("traited_facts")
         val traitedFacts: List<TraitedFact>? = null
@@ -1213,6 +1272,7 @@ public data class GW2v2Trait(
                     "Radius" -> Fact.Radius.serializer()
                     "Range" -> Fact.Range.serializer()
                     "Recharge" -> Fact.Recharge.serializer()
+                    "StunBreak" -> Fact.StunBreak.serializer()
                     "Time" -> Fact.Time.serializer()
                     "Unblockable" -> Fact.Unblockable.serializer()
                     else -> TODO()
@@ -1477,7 +1537,7 @@ public data class GW2v2Trait(
                 override val type: String,
                 override val icon: String? = null,
                 override val text: String? = null,
-                val percent: Int
+                val percent: Double
             ) : Fact()
 
             @Suppress("ClassName")
@@ -1504,7 +1564,7 @@ public data class GW2v2Trait(
                 override val type: String,
                 override val icon: String? = null,
                 override val text: String? = null,
-                val status: String,
+                val status: String? = null,
                 val duration: Int? = null,
                 val description: String? = null,
                 @SerialName("apply_count")
@@ -1524,8 +1584,8 @@ public data class GW2v2Trait(
                 public data class Prefix(
                     val text: String,
                     val icon: String,
-                    val status: String,
-                    val description: String
+                    val status: String? = null,
+                    val description: String? = null
                 )
 
             }
@@ -1596,7 +1656,30 @@ public data class GW2v2Trait(
                 override val type: String,
                 override val icon: String? = null,
                 override val text: String? = null,
-                val value: Int
+                val value: Double
+            ) : Fact()
+
+            @Suppress("ClassName")
+            @Serializer(forClass = StunBreak::class)
+            private object __StunBreakGeneratedSerializer : KSerializer<StunBreak>
+
+            @Suppress("ClassName")
+            private object __StunBreakSerializer : JsonTransformingSerializer<StunBreak>(__StunBreakGeneratedSerializer) {
+                override fun transformDeserialize(element: JsonElement): JsonElement =
+                    JsonObject(element.jsonObject - "__virtualType")
+            }
+
+            /**
+             * Additional information about a stunbreak.
+             *
+             * @param value always true
+             */
+            @Serializable(with = __StunBreakSerializer::class)
+            public data class StunBreak(
+                override val type: String,
+                override val icon: String? = null,
+                override val text: String? = null,
+                val value: Boolean
             ) : Fact()
 
             @Suppress("ClassName")
@@ -1665,6 +1748,7 @@ public data class GW2v2Trait(
                     "Radius" -> TraitedFact.Radius.serializer()
                     "Range" -> TraitedFact.Range.serializer()
                     "Recharge" -> TraitedFact.Recharge.serializer()
+                    "StunBreak" -> TraitedFact.StunBreak.serializer()
                     "Time" -> TraitedFact.Time.serializer()
                     "Unblockable" -> TraitedFact.Unblockable.serializer()
                     else -> TODO()
@@ -1963,7 +2047,7 @@ public data class GW2v2Trait(
                 @SerialName("requires_trait")
                 override val requiresTrait: Int,
                 override val overrides: Int? = null,
-                val percent: Int
+                val percent: Double
             ) : TraitedFact()
 
             @Suppress("ClassName")
@@ -1993,7 +2077,7 @@ public data class GW2v2Trait(
                 @SerialName("requires_trait")
                 override val requiresTrait: Int,
                 override val overrides: Int? = null,
-                val status: String,
+                val status: String? = null,
                 val duration: Int? = null,
                 val description: String? = null,
                 @SerialName("apply_count")
@@ -2013,8 +2097,8 @@ public data class GW2v2Trait(
                 public data class Prefix(
                     val text: String,
                     val icon: String,
-                    val status: String,
-                    val description: String
+                    val status: String? = null,
+                    val description: String? = null
                 )
 
             }
@@ -2094,7 +2178,33 @@ public data class GW2v2Trait(
                 @SerialName("requires_trait")
                 override val requiresTrait: Int,
                 override val overrides: Int? = null,
-                val value: Int
+                val value: Double
+            ) : TraitedFact()
+
+            @Suppress("ClassName")
+            @Serializer(forClass = StunBreak::class)
+            private object __StunBreakGeneratedSerializer : KSerializer<StunBreak>
+
+            @Suppress("ClassName")
+            private object __StunBreakSerializer : JsonTransformingSerializer<StunBreak>(__StunBreakGeneratedSerializer) {
+                override fun transformDeserialize(element: JsonElement): JsonElement =
+                    JsonObject(element.jsonObject - "__virtualType")
+            }
+
+            /**
+             * Additional information about a stunbreak.
+             *
+             * @param value always true
+             */
+            @Serializable(with = __StunBreakSerializer::class)
+            public data class StunBreak(
+                override val type: String,
+                override val icon: String? = null,
+                override val text: String? = null,
+                @SerialName("requires_trait")
+                override val requiresTrait: Int,
+                override val overrides: Int? = null,
+                val value: Boolean
             ) : TraitedFact()
 
             @Suppress("ClassName")
