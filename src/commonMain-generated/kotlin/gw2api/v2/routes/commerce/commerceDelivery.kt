@@ -72,7 +72,7 @@ public fun GW2APIClient.gw2v2CommerceDelivery(configure: (RequestBuilder<GW2v2Co
 @Serializable
 public data class GW2v2CommerceDelivery(
     val coins: Int,
-    val items: List<Item>
+    val items: List<Items>
 ) {
 
     /**
@@ -82,7 +82,7 @@ public data class GW2v2CommerceDelivery(
      * @param count the amount of this item ready for pickup
      */
     @Serializable
-    public data class Item(
+    public data class Items(
         val id: Int,
         val count: Int
     )

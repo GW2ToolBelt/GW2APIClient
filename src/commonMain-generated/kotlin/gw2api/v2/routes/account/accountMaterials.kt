@@ -52,14 +52,14 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<List<GW2v2AccountMaterial>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMaterial>> = request(
+public fun GW2APIClient.gw2v2AccountMaterials(configure: (RequestBuilder<GW2v2AccountMaterial>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMaterial> = request(
     path = "/v2/account/materials",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountMaterial.serializer()),
+    serializer = GW2v2AccountMaterial.serializer(),
     configure = configure
 )
 

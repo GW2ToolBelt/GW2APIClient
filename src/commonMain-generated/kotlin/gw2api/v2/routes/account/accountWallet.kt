@@ -52,14 +52,14 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<List<GW2v2AccountWallet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountWallet>> = request(
+public fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<GW2v2AccountWalletCurrency>.() -> Unit)? = null): RequestBuilder<GW2v2AccountWalletCurrency> = request(
     path = "/v2/account/wallet",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountWallet.serializer()),
+    serializer = GW2v2AccountWalletCurrency.serializer(),
     configure = configure
 )
 
@@ -70,7 +70,7 @@ public fun GW2APIClient.gw2v2AccountWallet(configure: (RequestBuilder<List<GW2v2
  * @param value the amount of this currency in the player's wallet
  */
 @Serializable
-public data class GW2v2AccountWallet(
+public data class GW2v2AccountWalletCurrency(
     val id: Int,
     val value: Int
 )

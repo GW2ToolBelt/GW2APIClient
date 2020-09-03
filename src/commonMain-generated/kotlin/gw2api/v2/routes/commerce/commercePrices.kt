@@ -64,7 +64,7 @@ public fun GW2APIClient.gw2v2CommercePricesIDs(configure: (RequestBuilder<List<I
 )
 
 /**
- * Creates a request used to query a single [item](GW2v2CommercePrice) by its ID.
+ * Creates a request used to query a single [item](GW2v2CommercePrices) by its ID.
  *
  * Returns current aggregated buy and sell listing information from the trading post.
  *
@@ -83,19 +83,19 @@ public fun GW2APIClient.gw2v2CommercePricesIDs(configure: (RequestBuilder<List<I
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: (RequestBuilder<GW2v2CommercePrice>.() -> Unit)? = null): RequestBuilder<GW2v2CommercePrice> = request(
+public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: (RequestBuilder<GW2v2CommercePrices>.() -> Unit)? = null): RequestBuilder<GW2v2CommercePrices> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2CommercePrice.serializer(),
+    serializer = GW2v2CommercePrices.serializer(),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2CommercePrice) by their IDs.
+ * Creates a request used to query one or more [items](GW2v2CommercePrices) by their IDs.
  *
  * Returns current aggregated buy and sell listing information from the trading post.
  *
@@ -114,19 +114,19 @@ public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: (RequestBuil
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2CommercePrice>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrice>> = request(
+public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2CommercePrices>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CommercePrice.serializer()),
+    serializer = ListSerializer(GW2v2CommercePrices.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2CommercePrice) by page.
+ * Creates a request used to query one or more [items](GW2v2CommercePrices) by page.
  *
  * Returns current aggregated buy and sell listing information from the trading post.
  *
@@ -145,14 +145,14 @@ public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: Collection<Int>, configure
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommercePrice>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrice>> = request(
+public fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommercePrices>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CommercePrice.serializer()),
+    serializer = ListSerializer(GW2v2CommercePrices.serializer()),
     configure = configure
 )
 
@@ -165,7 +165,7 @@ public fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int = 200
  * @param sells the sell information
  */
 @Serializable
-public data class GW2v2CommercePrice(
+public data class GW2v2CommercePrices(
     val id: Int,
     val whitelisted: Boolean,
     val buys: Buys,

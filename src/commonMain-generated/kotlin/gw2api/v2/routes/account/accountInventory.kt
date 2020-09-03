@@ -52,14 +52,14 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<List<GW2v2AccountInventory>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountInventory>> = request(
+public fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<GW2v2AccountInventorySlot>.() -> Unit)? = null): RequestBuilder<GW2v2AccountInventorySlot> = request(
     path = "/v2/account/inventory",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountInventory.serializer()),
+    serializer = GW2v2AccountInventorySlot.serializer(),
     configure = configure
 )
 
@@ -76,7 +76,7 @@ public fun GW2APIClient.gw2v2AccountInventory(configure: (RequestBuilder<List<GW
  * @param binding the binding of the item
  */
 @Serializable
-public data class GW2v2AccountInventory(
+public data class GW2v2AccountInventorySlot(
     val id: Int,
     val count: Int,
     val charges: Int? = null,

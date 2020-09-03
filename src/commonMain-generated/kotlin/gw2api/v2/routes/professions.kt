@@ -211,7 +211,7 @@ public data class GW2v2Profession(
     @SerialName("icon_big")
     val bigIcon: String,
     val specializations: List<Int>,
-    val weapons: Map<String, Weapons>,
+    val weapons: Map<String, Weapon>,
     val flags: List<String>,
     val skills: List<Skill>,
     val training: List<Training>,
@@ -227,7 +227,7 @@ public data class GW2v2Profession(
      * @param skills the skills for the weapon if wielded by this profession
      */
     @Serializable
-    public data class Weapons(
+    public data class Weapon(
         val specialization: Int? = null,
         val flags: List<String>,
         val skills: List<Skill>

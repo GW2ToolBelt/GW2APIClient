@@ -64,7 +64,7 @@ public fun GW2APIClient.gw2v2CurrenciesIDs(configure: (RequestBuilder<List<Int>>
 )
 
 /**
- * Creates a request used to query a single [item](GW2v2Currencie) by its ID.
+ * Creates a request used to query a single [item](GW2v2Currency) by its ID.
  *
  * Returns information about currencies contained in the account wallet.
  *
@@ -83,19 +83,19 @@ public fun GW2APIClient.gw2v2CurrenciesIDs(configure: (RequestBuilder<List<Int>>
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CurrenciesByID(id: Int, configure: (RequestBuilder<GW2v2Currencie>.() -> Unit)? = null): RequestBuilder<GW2v2Currencie> = request(
+public fun GW2APIClient.gw2v2CurrenciesByID(id: Int, configure: (RequestBuilder<GW2v2Currency>.() -> Unit)? = null): RequestBuilder<GW2v2Currency> = request(
     path = "/v2/currencies",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2Currencie.serializer(),
+    serializer = GW2v2Currency.serializer(),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2Currencie) by their IDs.
+ * Creates a request used to query one or more [items](GW2v2Currency) by their IDs.
  *
  * Returns information about currencies contained in the account wallet.
  *
@@ -114,19 +114,19 @@ public fun GW2APIClient.gw2v2CurrenciesByID(id: Int, configure: (RequestBuilder<
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CurrenciesByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Currencie>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currencie>> = request(
+public fun GW2APIClient.gw2v2CurrenciesByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2Currency>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currency>> = request(
     path = "/v2/currencies",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Currencie.serializer()),
+    serializer = ListSerializer(GW2v2Currency.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query all available [items](GW2v2Currencie).
+ * Creates a request used to query all available [items](GW2v2Currency).
  *
  * Returns information about currencies contained in the account wallet.
  *
@@ -145,19 +145,19 @@ public fun GW2APIClient.gw2v2CurrenciesByIDs(ids: Collection<Int>, configure: (R
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CurrenciesAll(configure: (RequestBuilder<List<GW2v2Currencie>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currencie>> = request(
+public fun GW2APIClient.gw2v2CurrenciesAll(configure: (RequestBuilder<List<GW2v2Currency>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currency>> = request(
     path = "/v2/currencies",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Currencie.serializer()),
+    serializer = ListSerializer(GW2v2Currency.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2Currencie) by page.
+ * Creates a request used to query one or more [items](GW2v2Currency) by page.
  *
  * Returns information about currencies contained in the account wallet.
  *
@@ -176,14 +176,14 @@ public fun GW2APIClient.gw2v2CurrenciesAll(configure: (RequestBuilder<List<GW2v2
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CurrenciesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Currencie>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currencie>> = request(
+public fun GW2APIClient.gw2v2CurrenciesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Currency>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Currency>> = request(
     path = "/v2/currencies",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Currencie.serializer()),
+    serializer = ListSerializer(GW2v2Currency.serializer()),
     configure = configure
 )
 
@@ -197,7 +197,7 @@ public fun GW2APIClient.gw2v2CurrenciesByPage(page: Int, pageSize: Int = 200, co
  * @param order a number that can be used to sort the list of currencies
  */
 @Serializable
-public data class GW2v2Currencie(
+public data class GW2v2Currency(
     val id: Int,
     val name: String,
     val description: String,

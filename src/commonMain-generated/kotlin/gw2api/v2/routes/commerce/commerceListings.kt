@@ -166,8 +166,8 @@ public fun GW2APIClient.gw2v2CommerceListingsByPage(page: Int, pageSize: Int = 2
 @Serializable
 public data class GW2v2CommerceListing(
     val id: Int,
-    val buys: List<Buy>,
-    val sells: List<Sell>
+    val buys: List<Buys>,
+    val sells: List<Sells>
 ) {
 
     /**
@@ -178,7 +178,7 @@ public data class GW2v2CommerceListing(
      * @param quantity the amount of items being sold/bought in this listing
      */
     @Serializable
-    public data class Buy(
+    public data class Buys(
         val listings: Int,
         @SerialName("unit_price")
         val unitPrice: Int,
@@ -193,7 +193,7 @@ public data class GW2v2CommerceListing(
      * @param quantity the amount of items being sold/bought in this listing
      */
     @Serializable
-    public data class Sell(
+    public data class Sells(
         val listings: Int,
         @SerialName("unit_price")
         val unitPrice: Int,

@@ -64,7 +64,7 @@ public fun GW2APIClient.gw2v2ItemStatsIDs(configure: (RequestBuilder<List<Int>>.
 )
 
 /**
- * Creates a request used to query a single [item](GW2v2ItemStat) by its ID.
+ * Creates a request used to query a single [item](GW2v2ItemStatSet) by its ID.
  *
  * Returns information about itemstats.
  *
@@ -83,19 +83,19 @@ public fun GW2APIClient.gw2v2ItemStatsIDs(configure: (RequestBuilder<List<Int>>.
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2ItemStatsByID(id: Int, configure: (RequestBuilder<GW2v2ItemStat>.() -> Unit)? = null): RequestBuilder<GW2v2ItemStat> = request(
+public fun GW2APIClient.gw2v2ItemStatsByID(id: Int, configure: (RequestBuilder<GW2v2ItemStatSet>.() -> Unit)? = null): RequestBuilder<GW2v2ItemStatSet> = request(
     path = "/v2/itemstats",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2ItemStat.serializer(),
+    serializer = GW2v2ItemStatSet.serializer(),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2ItemStat) by their IDs.
+ * Creates a request used to query one or more [items](GW2v2ItemStatSet) by their IDs.
  *
  * Returns information about itemstats.
  *
@@ -114,19 +114,19 @@ public fun GW2APIClient.gw2v2ItemStatsByID(id: Int, configure: (RequestBuilder<G
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2ItemStatsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2ItemStat>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStat>> = request(
+public fun GW2APIClient.gw2v2ItemStatsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2ItemStatSet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStatSet>> = request(
     path = "/v2/itemstats",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2ItemStat.serializer()),
+    serializer = ListSerializer(GW2v2ItemStatSet.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query all available [items](GW2v2ItemStat).
+ * Creates a request used to query all available [items](GW2v2ItemStatSet).
  *
  * Returns information about itemstats.
  *
@@ -145,19 +145,19 @@ public fun GW2APIClient.gw2v2ItemStatsByIDs(ids: Collection<Int>, configure: (Re
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2ItemStatsAll(configure: (RequestBuilder<List<GW2v2ItemStat>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStat>> = request(
+public fun GW2APIClient.gw2v2ItemStatsAll(configure: (RequestBuilder<List<GW2v2ItemStatSet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStatSet>> = request(
     path = "/v2/itemstats",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2ItemStat.serializer()),
+    serializer = ListSerializer(GW2v2ItemStatSet.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2ItemStat) by page.
+ * Creates a request used to query one or more [items](GW2v2ItemStatSet) by page.
  *
  * Returns information about itemstats.
  *
@@ -176,14 +176,14 @@ public fun GW2APIClient.gw2v2ItemStatsAll(configure: (RequestBuilder<List<GW2v2I
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2ItemStatsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2ItemStat>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStat>> = request(
+public fun GW2APIClient.gw2v2ItemStatsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2ItemStatSet>>.() -> Unit)? = null): RequestBuilder<List<GW2v2ItemStatSet>> = request(
     path = "/v2/itemstats",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2ItemStat.serializer()),
+    serializer = ListSerializer(GW2v2ItemStatSet.serializer()),
     configure = configure
 )
 
@@ -195,7 +195,7 @@ public fun GW2APIClient.gw2v2ItemStatsByPage(page: Int, pageSize: Int = 200, con
  * @param attributes the list of attribute bonuses
  */
 @Serializable
-public data class GW2v2ItemStat(
+public data class GW2v2ItemStatSet(
     val id: Int,
     val name: String,
     val attributes: List<Attribute>

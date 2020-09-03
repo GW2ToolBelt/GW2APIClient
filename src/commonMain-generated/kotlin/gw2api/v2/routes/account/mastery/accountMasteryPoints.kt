@@ -52,14 +52,14 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2AccountMasteryPoints(configure: (RequestBuilder<GW2v2AccountMasteryPoints>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMasteryPoints> = request(
+public fun GW2APIClient.gw2v2AccountMasteryPoints(configure: (RequestBuilder<GW2v2AccountMasteryPoint>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMasteryPoint> = request(
     path = "/v2/account/mastery/points",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2AccountMasteryPoints.serializer(),
+    serializer = GW2v2AccountMasteryPoint.serializer(),
     configure = configure
 )
 
@@ -70,8 +70,8 @@ public fun GW2APIClient.gw2v2AccountMasteryPoints(configure: (RequestBuilder<GW2
  * @param unlocked the list of IDs of unlocked mastery points
  */
 @Serializable
-public data class GW2v2AccountMasteryPoints(
-    val totals: List<Total>,
+public data class GW2v2AccountMasteryPoint(
+    val totals: List<Totals>,
     val unlocked: List<Int>
 ) {
 
@@ -83,7 +83,7 @@ public data class GW2v2AccountMasteryPoints(
      * @param earned the amount of mastery points of this region earned for the account
      */
     @Serializable
-    public data class Total(
+    public data class Totals(
         val region: String,
         val spent: Int,
         val earned: Int

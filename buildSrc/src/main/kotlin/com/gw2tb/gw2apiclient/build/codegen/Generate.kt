@@ -53,24 +53,22 @@ private data class KotlinTypeInfo(
     override fun toString() = name
 }
 
-private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>, isParentArray: Boolean = false): KotlinTypeInfo {
+private fun SchemaType.toKotlinType(titleCaseName: String, dataClasses: MutableMap<String, SchemaType>): KotlinTypeInfo {
     fun KotlinTypeInfo(type: String) = KotlinTypeInfo(type, "$type.serializer()")
-
-    val typeName = titleCaseName.let { if (isParentArray) it.removeSuffix("s") else it }
 
     return when (this) {
         is SchemaPrimitive -> toKotlinType()
         is SchemaArray -> {
-            val itemType = items.toKotlinType(typeName, dataClasses, isParentArray = true)
+            val itemType = items.toKotlinType(titleCaseName, dataClasses)
             KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", itemType.listSerializer)
         }
         is SchemaMap -> {
             val keyType = keys.toKotlinType()
-            val valueType = values.toKotlinType(typeName, dataClasses)
+            val valueType = values.toKotlinType(titleCaseName, dataClasses)
             KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>")
         }
-        is SchemaConditional -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
-        is SchemaRecord -> KotlinTypeInfo(typeName).also { dataClasses[typeName] = this }
+        is SchemaConditional -> KotlinTypeInfo(titleCaseName).also { dataClasses[it.name] = this }
+        is SchemaRecord -> KotlinTypeInfo(name ?: titleCaseName).also { dataClasses[it.name] = this }
         else -> error("Unsupported SchemaType: $this")
     }
 }
@@ -123,17 +121,21 @@ open class Generate : DefaultTask() {
                 val classes = mutableListOf<String>()
 
                 endpoints.forEach { endpoint ->
-                    val (dataClassType, rootDataClassSchema) = with (mutableMapOf<String, SchemaType>()) {
-                        endpoint[schemaVersion].second.toKotlinType("GW2v2$routeTitleCase", this, isParentArray = endpoint.queryTypes.isNotEmpty()) to
-                            this.entries.firstOrNull()?.value
+                    var schema: SchemaType? = endpoint[schemaVersion].second
+                    var rootDataClassSchema: SchemaRecord? = null
+
+                    loop@ while (schema != null) {
+                        when (schema) {
+                            is SchemaArray -> schema = schema.items
+                            is SchemaRecord -> {
+                                rootDataClassSchema = schema
+                                break@loop
+                            }
+                            else -> break@loop
+                        }
                     }
 
-                    val dataClassName = when {
-                        endpoint.schema is SchemaRecord && endpoint.queryTypes.isNotEmpty() -> dataClassType.name
-                        endpoint.schema is SchemaArray -> "GW2v2${routeTitleCase}".removeSuffix("s") // TODO this should be baked into apigen
-                        else -> "GW2v2${routeTitleCase}"
-                    }
-
+                    val dataClassType = rootDataClassSchema?.let { KotlinTypeInfo("GW2v2${it.name!!}", "GW2v2${it.name}.serializer()") } ?: endpoint.schema.toKotlinType("", mutableMapOf())
                     val replaceInPath = endpoint.pathParameters.map {
                         ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}"
                     }.toMap().entries.joinToString(separator = ", ") { (key, value) ->
@@ -269,7 +271,7 @@ open class Generate : DefaultTask() {
                         }
                     }})
 
-                    if (rootDataClassSchema != null) classes.add((rootDataClassSchema as SchemaRecord).createDataClass(dataClassName, endpoint = endpoint))
+                    if (rootDataClassSchema != null) classes.add(rootDataClassSchema.createDataClass(dataClassType.name, endpoint = endpoint))
                 }
 
                 File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoints[0].route.replace(Regex("/:([A-Za-z])*"), "").toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt").also { outputFile ->

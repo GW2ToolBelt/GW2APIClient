@@ -52,14 +52,14 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW2v2AccountMasterie>>.() -> Unit)? = null): RequestBuilder<List<GW2v2AccountMasterie>> = request(
+public fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<GW2v2AccountMastery>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMastery> = request(
     path = "/v2/account/masteries",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountMasterie.serializer()),
+    serializer = GW2v2AccountMastery.serializer(),
     configure = configure
 )
 
@@ -70,7 +70,7 @@ public fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<List<GW
  * @param level the index of the unlocked mastery level
  */
 @Serializable
-public data class GW2v2AccountMasterie(
+public data class GW2v2AccountMastery(
     val id: Int,
     val level: Int? = null
 )

@@ -52,14 +52,14 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: (RequestBuilder<GW2v2CreateSubToken>.() -> Unit)? = null): RequestBuilder<GW2v2CreateSubToken> = request(
+public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: (RequestBuilder<GW2v2SubToken>.() -> Unit)? = null): RequestBuilder<GW2v2SubToken> = request(
     path = "/v2/createsubtoken",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z", "expire" to expire, "permissions" to permissions, "urls" to urls),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2CreateSubToken.serializer(),
+    serializer = GW2v2SubToken.serializer(),
     configure = configure
 )
 
@@ -69,6 +69,6 @@ public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String,
  * @param subtoken a JWT which can be used like an API key
  */
 @Serializable
-public data class GW2v2CreateSubToken(
+public data class GW2v2SubToken(
     val subtoken: String
 )

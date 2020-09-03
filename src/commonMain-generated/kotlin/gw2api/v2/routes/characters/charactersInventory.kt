@@ -52,14 +52,14 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2CharactersInventory(iD: String, configure: (RequestBuilder<GW2v2CharactersInventory>.() -> Unit)? = null): RequestBuilder<GW2v2CharactersInventory> = request(
+public fun GW2APIClient.gw2v2CharactersInventory(iD: String, configure: (RequestBuilder<GW2v2CharactersInventorySlot>.() -> Unit)? = null): RequestBuilder<GW2v2CharactersInventorySlot> = request(
     path = "/v2/characters/:id/inventory",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(":id" to iD),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2CharactersInventory.serializer(),
+    serializer = GW2v2CharactersInventorySlot.serializer(),
     configure = configure
 )
 
@@ -69,8 +69,8 @@ public fun GW2APIClient.gw2v2CharactersInventory(iD: String, configure: (Request
  * @param bags the character's inventory bags
  */
 @Serializable
-public data class GW2v2CharactersInventory(
-    val bags: List<Bag>
+public data class GW2v2CharactersInventorySlot(
+    val bags: List<Bags>
 ) {
 
     /**
@@ -81,7 +81,7 @@ public data class GW2v2CharactersInventory(
      * @param inventory the bag's content
      */
     @Serializable
-    public data class Bag(
+    public data class Bags(
         val id: Int,
         val size: Int,
         val inventory: List<Inventory?>

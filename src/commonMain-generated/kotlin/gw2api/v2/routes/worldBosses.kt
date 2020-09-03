@@ -64,7 +64,7 @@ public fun GW2APIClient.gw2v2WorldBossesIDs(configure: (RequestBuilder<List<Stri
 )
 
 /**
- * Creates a request used to query a single [item](GW2v2WorldBosse) by its ID.
+ * Creates a request used to query a single [item](GW2v2WorldBoss) by its ID.
  *
  * Returns information about the worldbosses that reward boss chests that can be opened once a day.
  *
@@ -83,19 +83,19 @@ public fun GW2APIClient.gw2v2WorldBossesIDs(configure: (RequestBuilder<List<Stri
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2WorldBossesByID(id: String, configure: (RequestBuilder<GW2v2WorldBosse>.() -> Unit)? = null): RequestBuilder<GW2v2WorldBosse> = request(
+public fun GW2APIClient.gw2v2WorldBossesByID(id: String, configure: (RequestBuilder<GW2v2WorldBoss>.() -> Unit)? = null): RequestBuilder<GW2v2WorldBoss> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2WorldBosse.serializer(),
+    serializer = GW2v2WorldBoss.serializer(),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2WorldBosse) by their IDs.
+ * Creates a request used to query one or more [items](GW2v2WorldBoss) by their IDs.
  *
  * Returns information about the worldbosses that reward boss chests that can be opened once a day.
  *
@@ -114,19 +114,19 @@ public fun GW2APIClient.gw2v2WorldBossesByID(id: String, configure: (RequestBuil
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2WorldBossesByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2WorldBosse>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosse>> = request(
+public fun GW2APIClient.gw2v2WorldBossesByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2WorldBoss>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBoss>> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WorldBosse.serializer()),
+    serializer = ListSerializer(GW2v2WorldBoss.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query all available [items](GW2v2WorldBosse).
+ * Creates a request used to query all available [items](GW2v2WorldBoss).
  *
  * Returns information about the worldbosses that reward boss chests that can be opened once a day.
  *
@@ -145,19 +145,19 @@ public fun GW2APIClient.gw2v2WorldBossesByIDs(ids: Collection<String>, configure
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v2WorldBosse>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosse>> = request(
+public fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v2WorldBoss>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBoss>> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WorldBosse.serializer()),
+    serializer = ListSerializer(GW2v2WorldBoss.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2WorldBosse) by page.
+ * Creates a request used to query one or more [items](GW2v2WorldBoss) by page.
  *
  * Returns information about the worldbosses that reward boss chests that can be opened once a day.
  *
@@ -176,14 +176,14 @@ public fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v
  *
  * @return  the request that can be executed to query the API
  */
-public fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WorldBosse>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBosse>> = request(
+public fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WorldBoss>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBoss>> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WorldBosse.serializer()),
+    serializer = ListSerializer(GW2v2WorldBoss.serializer()),
     configure = configure
 )
 
@@ -193,6 +193,6 @@ public fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int = 200, c
  * @param id the worldboss's ID
  */
 @Serializable
-public data class GW2v2WorldBosse(
+public data class GW2v2WorldBoss(
     val id: String
 )
