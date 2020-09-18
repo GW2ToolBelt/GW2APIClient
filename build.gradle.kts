@@ -41,7 +41,6 @@ allprojects {
     repositories {
         mavenCentral()
         maven("https://kotlin.bintray.com/kotlinx")
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
         jcenter()
     }
 }
