@@ -21,6 +21,7 @@
  */
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
+import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
     kotlin("multiplatform")
@@ -70,6 +71,10 @@ kotlin {
 }
 
 tasks {
+    withType<KotlinCompile> {
+        dependsOn(project(":").tasks["generate"])
+    }
+
     getByName<org.gradle.jvm.tasks.Jar>("jvmJar") {
         manifest {
             attributes(mapOf(
