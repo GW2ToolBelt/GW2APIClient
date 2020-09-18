@@ -50,6 +50,6 @@ tasks {
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 
         apiClientDirectory = file("modules/api-client/src/commonMain-generated")
-        typesDirectory = file("modules/types/src/commonMain-generated")
+        typesDirectory = file("modules/api-types/src/commonMain-generated")
     }
 }
