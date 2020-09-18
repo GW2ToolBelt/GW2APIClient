@@ -19,22 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+package com.gw2tb.gw2api.client.internal
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
+internal fun <K, V> mapOfNonNullValues(vararg pairs: Pair<K, V?>): Map<K, V> {
+    if (pairs.isEmpty()) return emptyMap()
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
-
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
-    }
+    val map = LinkedHashMap<K, V>(pairs.size)
+    for (pair in pairs) if (pair.second != null) map[pair.first] = pair.second!!
+    return map
 }

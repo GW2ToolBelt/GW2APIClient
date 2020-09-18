@@ -19,22 +19,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+package com.gw2tb.gw2api.client
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
+/**
+ * An exception indicating that the API key in use is invalid.
+ *
+ * @since   0.1.0
+ */
+public class UnauthenticatedException(msg: String) : Exception(msg)
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
-
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
-    }
-}
+/**
+ * An exception indicating that the API key in use has insufficient permissions.
+ *
+ * @since   0.1.0
+ */
+public class InsufficientPermissionsException(msg: String) : Exception(msg)

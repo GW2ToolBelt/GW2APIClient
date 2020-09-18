@@ -80,21 +80,25 @@ open class Generate : DefaultTask() {
     lateinit var licenseHeader: String
 
     @OutputDirectory
-    lateinit var outputDirectory: File
+    lateinit var typesDirectory: File
+
+    @OutputDirectory
+    lateinit var apiClientDirectory: File
 
     @TaskAction
     fun generate() {
-        fun writeFile(location: String, content: String) {
-            File(outputDirectory, "kotlin/$location").writeText(buildString {
+        fun writeFile(directory: File, location: String, content: String) {
+            File(directory, "kotlin/$location").also { it.parentFile.mkdirs() }.writeText(buildString {
                 if (licenseHeader.isNotEmpty()) append(licenseHeader.asComment)
                 append(content)
             })
         }
 
         writeFile(
-            "gw2api/Language.kt",
+            apiClientDirectory,
+            "com/gw2tb/gw2api/client/Language.kt",
             """
-            |package gw2api
+            |package com.gw2tb.gw2api.client
             |
             |/**
             | * TODO doc
@@ -274,26 +278,42 @@ open class Generate : DefaultTask() {
                     if (rootDataClassSchema != null) classes.add(rootDataClassSchema.createDataClass(dataClassType.name, endpoint = endpoint))
                 }
 
-                File(outputDirectory, "kotlin/gw2api/v2/routes/${endpoints[0].route.replace(Regex("/:([A-Za-z])*"), "").toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt").also { outputFile ->
-                    outputFile.parentFile.mkdirs()
-                    outputFile.writeText(
+                val path = "${endpoints[0].route.replace(Regex("/:([A-Za-z])*"), "").toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt"
+
+                if (functions.isNotEmpty()) {
+                    writeFile(
+                        apiClientDirectory,
+                        "com/gw2tb/gw2api/client/v2/$path",
                         """
-                        |/*
-                        |${licenseHeader.prependIndent(" * ")}
-                        | */
                         |@file:JvmName("GW2v2")
                         |@file:JvmMultifileClass
                         |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-                        |package gw2api.v2
+                        |package com.gw2tb.gw2api.client.v2
                         |
-                        |import gw2api.*
-                        |import gw2api.internal.*
+                        |import com.gw2tb.gw2api.client.*
+                        |import com.gw2tb.gw2api.client.internal.*
+                        |import com.gw2tb.gw2api.types.v2.*
+                        |import kotlinx.serialization.builtins.*
+                        |import kotlin.jvm.*
+                        |
+                        |${functions.joinToString(separator = "$n$n")}
+                        """.trimMargin()
+                    )
+                }
+
+                if (classes.isNotEmpty()) {
+                    writeFile(
+                        typesDirectory,
+                        "com/gw2tb/gw2api/types/v2/$path",
+                        """
+                        |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+                        |package com.gw2tb.gw2api.types.v2
+                        |
                         |import kotlinx.serialization.*
                         |import kotlinx.serialization.builtins.*
                         |import kotlinx.serialization.json.*
-                        |import kotlin.jvm.*
                         |
-                        |${functions.joinToString(separator = "$n$n")}${if (classes.isNotEmpty()) "$n$n${classes.joinToString(separator = "$n$n")}" else ""}
+                        |${classes.joinToString(separator = "$n$n")}
                         """.trimMargin()
                     )
                 }

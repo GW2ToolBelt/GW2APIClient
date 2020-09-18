@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2020 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +20,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+package com.gw2tb.gw2api.types.v2
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
+import kotlinx.serialization.*
+import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
+/**
+ * Information about the items and coins currently available for pickup.
+ *
+ * @param coins the amount of coins ready for pickup
+ * @param items the items ready for pickup
+ */
+@Serializable
+public data class GW2v2CommerceDelivery(
+    val coins: Int,
+    val items: List<Item>
+) {
 
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
+    /**
+     * Information about an item ready for pickup.
+     *
+     * @param id the item's ID
+     * @param count the amount of this item ready for pickup
+     */
+    @Serializable
+    public data class Item(
+        val id: Int,
+        val count: Int
+    )
 
-        include(projectName)
-        project(":$projectName").projectDir = dir
-    }
 }

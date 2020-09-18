@@ -22,6 +22,7 @@
 package com.gw2tb.gw2apiclient.build
 
 import org.gradle.api.*
+import org.gradle.api.publish.maven.*
 import org.gradle.kotlin.dsl.*
 
 private const val DEPLOYMENT_KEY = "com.gw2tb.gw2apiclient.build.Deployment"
@@ -52,3 +53,34 @@ fun Project.getProperty(k: String): String =
         extra[k] as String
     else
         System.getenv(k) ?: ""
+
+fun MavenPublication.decorateMavenPom(projectName: String, packaging: String = "jar") {
+    pom {
+        name.set(projectName)
+        this@pom.packaging = packaging
+        url.set("https://github.com/GW2ToolBelt/GW2APIClient")
+
+        licenses {
+            license {
+                name.set("BSD3")
+                url.set("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE")
+                distribution.set("repo")
+            }
+        }
+
+        developers {
+            developer {
+                id.set("TheMrMilchmann")
+                name.set("Leon Linhart")
+                email.set("themrmilchmann@gmail.com")
+                url.set("https://github.com/TheMrMilchmann")
+            }
+        }
+
+        scm {
+            connection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
+            developerConnection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
+            url.set("https://github.com/GW2ToolBelt/GW2APIClient.git")
+        }
+    }
+}

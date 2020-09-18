@@ -19,22 +19,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+package com.gw2tb.gw2api.client
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
+/**
+ * TODO doc
+ *
+ * @since   0.1.0
+ */
+public interface RateLimiter {
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
+    public suspend fun <T> execute(request: Request<T>, starter: () -> Unit): T
 
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
-    }
 }

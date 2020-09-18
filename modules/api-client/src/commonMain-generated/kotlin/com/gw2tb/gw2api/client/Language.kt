@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2020 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+package com.gw2tb.gw2api.client
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
+/**
+ * TODO doc
+ *
+ * @since   0.1.0
+ */
+public enum class Language(public val code: String) {
+    CHINESE("zh"),
+    ENGLISH("en"),
+    FRENCH("fr"),
+    GERMAN("de"),
+    SPANISH("es");
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
-
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
+    public companion object {
+        public val API_V2: Set<Language> = setOf(CHINESE, ENGLISH, FRENCH, GERMAN, SPANISH)
     }
 }

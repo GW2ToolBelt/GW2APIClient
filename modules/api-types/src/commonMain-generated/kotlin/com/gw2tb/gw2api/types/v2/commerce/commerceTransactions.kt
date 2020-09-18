@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2020 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +20,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+package com.gw2tb.gw2api.types.v2
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
+import kotlinx.serialization.*
+import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
-
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
-    }
-}
+/**
+ * Information about a transaction.
+ *
+ * @param id the transaction's ID
+ * @param itemID the item's ID
+ * @param price the price in coins
+ * @param quantity the quantity of the item
+ * @param created the ISO-8601 standard timestamp of when the transaction was created
+ * @param purchased the ISO-8601 standard timestamp of when the transaction was completed
+ */
+@Serializable
+public data class GW2v2CommerceTransaction(
+    val id: Int,
+    @SerialName("item_id")
+    val itemID: Int,
+    val price: Int,
+    val quantity: Int,
+    val created: String,
+    val purchased: String? = null
+)

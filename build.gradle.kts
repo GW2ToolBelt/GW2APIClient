@@ -24,139 +24,33 @@ import com.gw2tb.gw2apiclient.build.BuildType
 import com.gw2tb.gw2apiclient.build.codegen.*
 
 plugins {
-    kotlin("multiplatform") version "1.4.0"
-    kotlin("plugin.serialization") version "1.4.0"
-    id("org.jetbrains.dokka") version "1.4.0-dev-62"
-    signing
-    `maven-publish`
+    kotlin("multiplatform") version "1.4.0" apply false
+    kotlin("plugin.serialization") version "1.4.0" apply false
+    id("org.jetbrains.dokka") version "1.4.0-dev-62" apply false
 }
 
-val nextVersion = "0.1.0"
+allprojects {
+    val nextVersion = "0.1.0"
 
-group = "com.gw2tb.gw2-api-client"
-val artifactName = "gw2-api-client"
-version = when (deployment.type) {
-    BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
-    else -> nextVersion
-}
-
-kotlin {
-    explicitApi()
-
-    targets.all {
-        compilations.all {
-            kotlinOptions {
-                languageVersion = "1.4"
-                apiVersion = "1.4"
-            }
-        }
-
-        mavenPublication {
-            pom {
-                name.set(project.name)
-                description.set("Kotlin multiplatform client for the official Guild Wars 2 API")
-                packaging = "jar"
-                url.set("https://github.com/GW2TB/GW2APIClient")
-
-                licenses {
-                    license {
-                        name.set("MIT")
-                        url.set("https://github.com/GW2TB/GW2APIClient/blob/master/LICENSE")
-                        distribution.set("repo")
-                    }
-                }
-
-                developers {
-                    developer {
-                        id.set("TheMrMilchmann")
-                        name.set("Leon Linhart")
-                        email.set("themrmilchmann@gmail.com")
-                        url.set("https://github.com/TheMrMilchmann")
-                    }
-                }
-
-                scm {
-                    connection.set("scm:git:git://github.com/GW2TB/GW2APIClient.git")
-                    developerConnection.set("scm:git:git://github.com/GW2TB/GW2APIClient.git")
-                    url.set("https://github.com/GW2TB/GW2APIClient.git")
-                }
-            }
-        }
+    group = "com.gw2tb.gw2api"
+    version = when (deployment.type) {
+        BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
+        else -> nextVersion
     }
 
-    jvm()
-
-    sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlin.time.ExperimentalTime")
-                useExperimentalAnnotation("kotlinx.serialization.ExperimentalSerializationApi")
-            }
-        }
-
-        getByName("commonMain") {
-            kotlin.srcDir("src/commonMain-generated/kotlin")
-
-            dependencies {
-                implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
-                implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Dependencies.kotlinxSerializationVersion}")
-            }
-        }
-
-        getByName("commonTest") {
-            kotlin.srcDir("src/commonTest-generated/kotlin")
-
-            dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-test-common")
-                implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
-            }
-        }
-
-        getByName("jvmMain").dependencies {
-            implementation("io.ktor:ktor-client-core-jvm:${Dependencies.ktorVersion}")
-            implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${Dependencies.kotlinxCoroutinesVersion}")
-        }
-
-        getByName("jvmTest").dependencies {
-            implementation("org.jetbrains.kotlin:kotlin-test-testng")
-            implementation("org.testng:testng:${Dependencies.testngVersion}")
-            implementation("io.ktor:ktor-client-mock-jvm:${Dependencies.ktorVersion}")
-            implementation("io.ktor:ktor-client-apache:${Dependencies.ktorVersion}")
-        }
+    repositories {
+        mavenCentral()
+        maven("https://kotlin.bintray.com/kotlinx")
+        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
+        jcenter()
     }
 }
 
 tasks {
     create<Generate>("generate") {
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
-        outputDirectory = file("src/commonMain-generated")
+
+        apiClientDirectory = file("modules/api.client/src/commonMain-generated")
+        typesDirectory = file("modules/types/src/commonMain-generated")
     }
-}
-
-publishing {
-    repositories {
-        maven {
-            url = uri(deployment.repo)
-
-            credentials {
-                username = deployment.user
-                password = deployment.password
-            }
-        }
-    }
-}
-
-signing {
-    isRequired = (deployment.type === BuildType.RELEASE)
-    sign(publishing.publications)
-}
-
-repositories {
-    mavenCentral()
-    maven("https://kotlin.bintray.com/kotlinx")
-    maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-    jcenter()
 }

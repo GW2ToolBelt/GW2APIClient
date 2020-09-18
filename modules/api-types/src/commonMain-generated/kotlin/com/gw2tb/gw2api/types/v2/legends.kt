@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2020 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +20,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+package com.gw2tb.gw2api.types.v2
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
+import kotlinx.serialization.*
+import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
-
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
-    }
-}
+/**
+ * Information about a Revenant legend.
+ *
+ * @param id the legend's ID
+ * @param swap the ID of the profession (swap Legend) skill
+ * @param heal the ID of the heal skill
+ * @param elite the ID of the elite skills
+ * @param utilities the IDs of the utility skills
+ */
+@Serializable
+public data class GW2v2Legend(
+    val id: String,
+    val swap: Int,
+    val heal: Int,
+    val elite: Int,
+    val utilities: List<Int>
+)
