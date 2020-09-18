@@ -49,7 +49,7 @@ tasks {
     create<Generate>("generate") {
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 
-        apiClientDirectory = file("modules/api.client/src/commonMain-generated")
+        apiClientDirectory = file("modules/api-client/src/commonMain-generated")
         typesDirectory = file("modules/types/src/commonMain-generated")
     }
 }
