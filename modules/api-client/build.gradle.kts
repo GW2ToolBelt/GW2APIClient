@@ -41,34 +41,9 @@ kotlin {
         }
 
         mavenPublication {
-            pom {
-                name.set(project.name)
+            decorateMavenPom {
+                name.set("GW2APIClient Query Definitions")
                 description.set("Definitions for the various queries supported by the official Guild Wars 2 API.")
-                packaging = "jar"
-                url.set("https://github.com/GW2ToolBelt/GW2APIClient")
-
-                licenses {
-                    license {
-                        name.set("MIT")
-                        url.set("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE")
-                        distribution.set("repo")
-                    }
-                }
-
-                developers {
-                    developer {
-                        id.set("TheMrMilchmann")
-                        name.set("Leon Linhart")
-                        email.set("themrmilchmann@gmail.com")
-                        url.set("https://github.com/TheMrMilchmann")
-                    }
-                }
-
-                scm {
-                    connection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
-                    developerConnection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
-                    url.set("https://github.com/GW2ToolBelt/GW2APIClient.git")
-                }
             }
         }
     }

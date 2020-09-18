@@ -54,15 +54,14 @@ fun Project.getProperty(k: String): String =
     else
         System.getenv(k) ?: ""
 
-fun MavenPublication.decorateMavenPom(projectName: String, packaging: String = "jar") {
+fun MavenPublication.decorateMavenPom(packaging: String = "jar", configure: MavenPom.() -> Unit) {
     pom {
-        name.set(projectName)
         this@pom.packaging = packaging
         url.set("https://github.com/GW2ToolBelt/GW2APIClient")
 
         licenses {
             license {
-                name.set("BSD3")
+                name.set("MIT")
                 url.set("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE")
                 distribution.set("repo")
             }
@@ -82,5 +81,7 @@ fun MavenPublication.decorateMavenPom(projectName: String, packaging: String = "
             developerConnection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
             url.set("https://github.com/GW2ToolBelt/GW2APIClient.git")
         }
+
+        configure()
     }
 }

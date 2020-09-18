@@ -41,34 +41,9 @@ kotlin {
         }
 
         mavenPublication {
-            pom {
-                name.set(project.name)
+            decorateMavenPom {
+                name.set("GW2APIClient Ktor Implementation")
                 description.set("Ktor HttpClient implementation for GW2APIClient.")
-                packaging = "jar"
-                url.set("https://github.com/GW2ToolBelt/GW2APIClient")
-
-                licenses {
-                    license {
-                        name.set("MIT")
-                        url.set("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE")
-                        distribution.set("repo")
-                    }
-                }
-
-                developers {
-                    developer {
-                        id.set("TheMrMilchmann")
-                        name.set("Leon Linhart")
-                        email.set("themrmilchmann@gmail.com")
-                        url.set("https://github.com/TheMrMilchmann")
-                    }
-                }
-
-                scm {
-                    connection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
-                    developerConnection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
-                    url.set("https://github.com/GW2ToolBelt/GW2APIClient.git")
-                }
             }
         }
     }
