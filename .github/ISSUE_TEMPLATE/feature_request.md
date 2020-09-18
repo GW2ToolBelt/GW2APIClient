@@ -7,7 +7,7 @@ assignees: ''
 ---
 
 <!--
-Requesting a support for a new/missing API endpoint?
+Requesting support for a new/missing API endpoint?
 ----------------------------------------------------
 The implementation for specific API is automatically generated from the
 definitions in https://github.com/GW2ToolBelt/api-generator. Please check the
