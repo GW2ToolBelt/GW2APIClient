@@ -26,7 +26,7 @@ object Dependencies {
     // Shared depencencies
     val kotlinxCoroutinesVersion = "1.3.9"
     val kotlinxSerializationVersion = "1.0.0-RC2"
-    val ktorVersion = "1.4.0"
+    val ktorVersion = "1.4.1"
 
     // JVM dependencies
     val testngVersion = "6.14.3"
