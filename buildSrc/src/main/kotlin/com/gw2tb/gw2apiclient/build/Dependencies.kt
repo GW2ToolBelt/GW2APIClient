@@ -24,7 +24,7 @@ package com.gw2tb.gw2apiclient.build
 object Dependencies {
 
     // Shared depencencies
-    val kotlinxCoroutinesVersion = "1.3.9"
+    val kotlinxCoroutinesVersion = "1.3.9-native-mt-2"
     val kotlinxSerializationVersion = "1.0.0-RC2"
     val ktorVersion = "1.4.1"
 
