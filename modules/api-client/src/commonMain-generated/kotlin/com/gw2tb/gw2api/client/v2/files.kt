@@ -51,6 +51,7 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2FilesIDs(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/files",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
@@ -82,6 +83,7 @@ public fun GW2APIClient.gw2v2FilesIDs(configure: (RequestBuilder<List<String>>.(
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2FilesByID(id: String, configure: (RequestBuilder<GW2v2File>.() -> Unit)? = null): RequestBuilder<GW2v2File> = request(
     path = "/v2/files",
     parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
@@ -113,6 +115,7 @@ public fun GW2APIClient.gw2v2FilesByID(id: String, configure: (RequestBuilder<GW
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2FilesByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2File>>.() -> Unit)? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
@@ -144,6 +147,7 @@ public fun GW2APIClient.gw2v2FilesByIDs(ids: Collection<String>, configure: (Req
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2FilesAll(configure: (RequestBuilder<List<GW2v2File>>.() -> Unit)? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
@@ -175,6 +179,7 @@ public fun GW2APIClient.gw2v2FilesAll(configure: (RequestBuilder<List<GW2v2File>
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2FilesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2File>>.() -> Unit)? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),

@@ -51,6 +51,7 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2AccountMountsTypes(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/account/mounts/types",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),

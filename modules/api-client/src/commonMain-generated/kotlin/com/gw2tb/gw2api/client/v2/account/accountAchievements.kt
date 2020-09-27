@@ -51,6 +51,7 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2AccountAchievements(configure: (RequestBuilder<GW2v2AccountAchievement>.() -> Unit)? = null): RequestBuilder<GW2v2AccountAchievement> = request(
     path = "/v2/account/achievements",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),

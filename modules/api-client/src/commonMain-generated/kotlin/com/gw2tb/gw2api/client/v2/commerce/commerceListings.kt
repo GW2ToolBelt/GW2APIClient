@@ -51,6 +51,7 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
@@ -82,6 +83,7 @@ public fun GW2APIClient.gw2v2CommerceListingsIDs(configure: (RequestBuilder<List
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsByID(id: Int, configure: (RequestBuilder<GW2v2CommerceListing>.() -> Unit)? = null): RequestBuilder<GW2v2CommerceListing> = request(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
@@ -113,6 +115,7 @@ public fun GW2APIClient.gw2v2CommerceListingsByID(id: Int, configure: (RequestBu
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2CommerceListing>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
@@ -144,6 +147,7 @@ public fun GW2APIClient.gw2v2CommerceListingsByIDs(ids: Collection<Int>, configu
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommerceListing>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),

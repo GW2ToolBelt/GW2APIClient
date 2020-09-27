@@ -51,6 +51,7 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WvWRanksIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
@@ -82,6 +83,7 @@ public fun GW2APIClient.gw2v2WvWRanksIDs(configure: (RequestBuilder<List<Int>>.(
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WvWRanksByID(id: Int, configure: (RequestBuilder<GW2v2WvWRank>.() -> Unit)? = null): RequestBuilder<GW2v2WvWRank> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
@@ -113,6 +115,7 @@ public fun GW2APIClient.gw2v2WvWRanksByID(id: Int, configure: (RequestBuilder<GW
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WvWRanksByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2WvWRank>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRank>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
@@ -144,6 +147,7 @@ public fun GW2APIClient.gw2v2WvWRanksByIDs(ids: Collection<Int>, configure: (Req
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WvWRanksAll(configure: (RequestBuilder<List<GW2v2WvWRank>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRank>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
@@ -175,6 +179,7 @@ public fun GW2APIClient.gw2v2WvWRanksAll(configure: (RequestBuilder<List<GW2v2Wv
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WvWRanksByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WvWRank>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WvWRank>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),

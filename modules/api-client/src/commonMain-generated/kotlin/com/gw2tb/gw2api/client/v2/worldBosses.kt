@@ -51,6 +51,7 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WorldBossesIDs(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
@@ -82,6 +83,7 @@ public fun GW2APIClient.gw2v2WorldBossesIDs(configure: (RequestBuilder<List<Stri
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WorldBossesByID(id: String, configure: (RequestBuilder<GW2v2WorldBoss>.() -> Unit)? = null): RequestBuilder<GW2v2WorldBoss> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
@@ -113,6 +115,7 @@ public fun GW2APIClient.gw2v2WorldBossesByID(id: String, configure: (RequestBuil
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WorldBossesByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2WorldBoss>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBoss>> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
@@ -144,6 +147,7 @@ public fun GW2APIClient.gw2v2WorldBossesByIDs(ids: Collection<String>, configure
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v2WorldBoss>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBoss>> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
@@ -175,6 +179,7 @@ public fun GW2APIClient.gw2v2WorldBossesAll(configure: (RequestBuilder<List<GW2v
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2WorldBossesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2WorldBoss>>.() -> Unit)? = null): RequestBuilder<List<GW2v2WorldBoss>> = request(
     path = "/v2/worldbosses",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),

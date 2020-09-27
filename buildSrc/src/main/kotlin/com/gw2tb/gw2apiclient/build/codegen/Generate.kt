@@ -179,7 +179,8 @@ open class Generate : DefaultTask() {
                                     """
                                     |${endpoint.dokka(
                                             queryType = "Creates a request used to query the list of available IDs."
-                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}IDs(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
+                                        )}@JvmOverloads
+                                    |public fun GW2APIClient.gw2v2${routeTitleCase}IDs(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
                                     |${requestBody(
                                             serializer = idType.listSerializer,
                                             isIDsEndpoint = true
@@ -192,7 +193,8 @@ open class Generate : DefaultTask() {
                                     """
                                     |${endpoint.dokka(
                                             queryType = "Creates a request used to query all available [items]($dataClassType)."
-                                        )}public fun GW2APIClient.gw2v2${routeTitleCase}(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                        )}@JvmOverloads
+                                    |public fun GW2APIClient.gw2v2${routeTitleCase}(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                     |${requestBody(
                                             parameters = mapOf("ids" to "\"all\""),
                                             serializer = dataClassType.listSerializer
@@ -208,7 +210,8 @@ open class Generate : DefaultTask() {
                                         """
                                         |${endpoint.dokka(
                                                 queryType = "Creates a request used to query a single [item]($dataClassType) by its ID."
-                                            )}public fun GW2APIClient.gw2v2${routeTitleCase}ByID(${pathParameters}id: $idType, ${queryParameters}configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
+                                            )}@JvmOverloads
+                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByID(${pathParameters}id: $idType, ${queryParameters}configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
                                         |${requestBody(
                                                 parameters = mapOf("id" to "id${if (idType == "String") "" else ".toString()"}"),
                                                 serializer = dataClassType.serializer
@@ -221,7 +224,8 @@ open class Generate : DefaultTask() {
                                             """
                                             |${endpoint.dokka(
                                                     queryType = "Creates a request used to query one or more [items]($dataClassType) by their IDs."
-                                                )}public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(${pathParameters}ids: Collection<$idType>, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                                )}@JvmOverloads
+                                            |public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(${pathParameters}ids: Collection<$idType>, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                             |${requestBody(
                                                     parameters = mapOf("ids" to "ids.joinToString(\",\")"),
                                                     serializer = dataClassType.listSerializer
@@ -234,7 +238,8 @@ open class Generate : DefaultTask() {
                                             """
                                             |${endpoint.dokka(
                                                     queryType = "Creates a request used to query all available [items]($dataClassType)."
-                                                )}public fun GW2APIClient.gw2v2${routeTitleCase}All(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                                )}@JvmOverloads
+                                            |public fun GW2APIClient.gw2v2${routeTitleCase}All(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                             |${requestBody(
                                                     parameters = mapOf("ids" to "\"all\""),
                                                     serializer = dataClassType.listSerializer
@@ -247,7 +252,8 @@ open class Generate : DefaultTask() {
                                         """
                                         |${endpoint.dokka(
                                                 queryType = "Creates a request used to query one or more [items]($dataClassType) by page."
-                                            )}public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(${pathParameters}page: Int, pageSize: Int = 200, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                            )}@JvmOverloads
+                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(${pathParameters}page: Int, pageSize: Int = 200, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
                                                 parameters = mapOf("page" to "page.toString()", "page_size" to "pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException(\"Illegal page size\") else it }.toString()"),
                                                 serializer = dataClassType.listSerializer
@@ -265,7 +271,8 @@ open class Generate : DefaultTask() {
                                 """
                                 |${endpoint.dokka(
                                         queryType = "Creates a request used to query the resource."
-                                    )}public fun GW2APIClient.gw2v2$routeTitleCase(${pathParameters}${queryParameters}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
+                                    )}@JvmOverloads
+                                |public fun GW2APIClient.gw2v2$routeTitleCase(${pathParameters}${queryParameters}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
                                 |${requestBody(
                                         serializer = dataClassType.serializer
                                     )}

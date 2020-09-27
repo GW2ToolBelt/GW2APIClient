@@ -51,6 +51,7 @@ import kotlin.jvm.*
  *
  * @return  the request that can be executed to query the API
  */
+@JvmOverloads
 public fun GW2APIClient.gw2v2AccountMasteries(configure: (RequestBuilder<GW2v2AccountMastery>.() -> Unit)? = null): RequestBuilder<GW2v2AccountMastery> = request(
     path = "/v2/account/masteries",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
