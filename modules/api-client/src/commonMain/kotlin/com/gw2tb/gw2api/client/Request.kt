@@ -23,6 +23,7 @@ package com.gw2tb.gw2api.client
 
 import kotlinx.coroutines.*
 import kotlin.coroutines.*
+import kotlin.jvm.*
 
 /**
  * TODO doc
@@ -59,6 +60,7 @@ public class Request<out T> internal constructor(
      *
      * @since   0.1.0
      */
+    @JvmOverloads
     public fun then(errorHandler: ((Throwable) -> Unit)? = null, action: (Response<T>) -> Unit) {
         deferred.invokeOnCompletion { cause ->
             when (cause) {
