@@ -49,7 +49,7 @@ public class RequestBuilder<out T> internal constructor(
     public var cacheAccessor: CacheAccessor?,
     public var rateLimiter: RateLimiter?,
     public var checkPermissions: Boolean,
-    public var httpClient: IHttpClient
+    private val httpClient: IHttpClient
 ) {
 
     public var apiKey: String? = null
@@ -117,7 +117,7 @@ public class RequestBuilder<out T> internal constructor(
                  */
                 if (checkPermissions && requiresAuthentication && path != "/v2/tokeninfo") {
                     val perm = client.gw2v2TokenInfo {
-                        this@RequestBuilder.apiKey = apiKey
+                        apiKey = this@RequestBuilder.apiKey
                     }.execute(scope).get()
 
                     if (perm.data != null) {
