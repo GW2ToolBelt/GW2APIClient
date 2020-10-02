@@ -52,7 +52,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2MapChestsIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/mapchests",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -84,7 +84,7 @@ public fun GW2APIClient.gw2v2MapChestsIDs(configure: (RequestBuilder<List<Int>>.
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsByID(id: Int, configure: (RequestBuilder<GW2v2MapChest>.() -> Unit)? = null): RequestBuilder<GW2v2MapChest> = request(
+public fun GW2APIClient.gw2v2MapChestsByID(id: Int, configure: RequestConfigurator<GW2v2MapChest>? = null): RequestBuilder<GW2v2MapChest> = request(
     path = "/v2/mapchests",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2MapChestsByID(id: Int, configure: (RequestBuilder<G
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2MapChest>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChest>> = request(
+public fun GW2APIClient.gw2v2MapChestsByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2MapChest>>? = null): RequestBuilder<List<GW2v2MapChest>> = request(
     path = "/v2/mapchests",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -148,7 +148,7 @@ public fun GW2APIClient.gw2v2MapChestsByIDs(ids: Collection<Int>, configure: (Re
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsAll(configure: (RequestBuilder<List<GW2v2MapChest>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChest>> = request(
+public fun GW2APIClient.gw2v2MapChestsAll(configure: RequestConfigurator<List<GW2v2MapChest>>? = null): RequestBuilder<List<GW2v2MapChest>> = request(
     path = "/v2/mapchests",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -180,7 +180,7 @@ public fun GW2APIClient.gw2v2MapChestsAll(configure: (RequestBuilder<List<GW2v2M
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2MapChest>>.() -> Unit)? = null): RequestBuilder<List<GW2v2MapChest>> = request(
+public fun GW2APIClient.gw2v2MapChestsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2MapChest>>? = null): RequestBuilder<List<GW2v2MapChest>> = request(
     path = "/v2/mapchests",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),

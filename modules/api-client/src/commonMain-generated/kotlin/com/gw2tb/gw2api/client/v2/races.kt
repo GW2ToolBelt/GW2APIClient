@@ -52,7 +52,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesIDs(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2RacesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -84,7 +84,7 @@ public fun GW2APIClient.gw2v2RacesIDs(configure: (RequestBuilder<List<String>>.(
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByID(id: String, configure: (RequestBuilder<GW2v2Race>.() -> Unit)? = null): RequestBuilder<GW2v2Race> = request(
+public fun GW2APIClient.gw2v2RacesByID(id: String, configure: RequestConfigurator<GW2v2Race>? = null): RequestBuilder<GW2v2Race> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2RacesByID(id: String, configure: (RequestBuilder<GW
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Race>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Race>> = request(
+public fun GW2APIClient.gw2v2RacesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -148,7 +148,7 @@ public fun GW2APIClient.gw2v2RacesByIDs(ids: Collection<String>, configure: (Req
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesAll(configure: (RequestBuilder<List<GW2v2Race>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Race>> = request(
+public fun GW2APIClient.gw2v2RacesAll(configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -180,7 +180,7 @@ public fun GW2APIClient.gw2v2RacesAll(configure: (RequestBuilder<List<GW2v2Race>
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Race>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Race>> = request(
+public fun GW2APIClient.gw2v2RacesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),

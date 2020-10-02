@@ -52,7 +52,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceExchange(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/commerce/exchange",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -84,7 +84,7 @@ public fun GW2APIClient.gw2v2CommerceExchange(configure: (RequestBuilder<List<St
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: (RequestBuilder<GW2v2CommerceExchange>.() -> Unit)? = null): RequestBuilder<GW2v2CommerceExchange> = request(
+public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurator<GW2v2CommerceExchange>? = null): RequestBuilder<GW2v2CommerceExchange> = request(
     path = "/v2/commerce/exchange/:type",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z", "quantity" to quantity.toString()),
     replaceInPath = mapOf(":type" to type),

@@ -52,7 +52,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesIDs(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2EmotesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -84,7 +84,7 @@ public fun GW2APIClient.gw2v2EmotesIDs(configure: (RequestBuilder<List<String>>.
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesByID(id: String, configure: (RequestBuilder<GW2v2Emote>.() -> Unit)? = null): RequestBuilder<GW2v2Emote> = request(
+public fun GW2APIClient.gw2v2EmotesByID(id: String, configure: RequestConfigurator<GW2v2Emote>? = null): RequestBuilder<GW2v2Emote> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2EmotesByID(id: String, configure: (RequestBuilder<G
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesByIDs(ids: Collection<String>, configure: (RequestBuilder<List<GW2v2Emote>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Emote>> = request(
+public fun GW2APIClient.gw2v2EmotesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Emote>>? = null): RequestBuilder<List<GW2v2Emote>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -148,7 +148,7 @@ public fun GW2APIClient.gw2v2EmotesByIDs(ids: Collection<String>, configure: (Re
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesAll(configure: (RequestBuilder<List<GW2v2Emote>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Emote>> = request(
+public fun GW2APIClient.gw2v2EmotesAll(configure: RequestConfigurator<List<GW2v2Emote>>? = null): RequestBuilder<List<GW2v2Emote>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -180,7 +180,7 @@ public fun GW2APIClient.gw2v2EmotesAll(configure: (RequestBuilder<List<GW2v2Emot
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2Emote>>.() -> Unit)? = null): RequestBuilder<List<GW2v2Emote>> = request(
+public fun GW2APIClient.gw2v2EmotesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Emote>>? = null): RequestBuilder<List<GW2v2Emote>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),

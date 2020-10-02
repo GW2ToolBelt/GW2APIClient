@@ -63,7 +63,7 @@ public class GW2APIClient(
         requiredPermissions: Set<String>,
         supportedLanguages: Set<Language>,
         serializer: KSerializer<T>,
-        configure: (RequestBuilder<T>.() -> Unit)?
+        configure: RequestConfigurator<T>?
     ): RequestBuilder<T> {
         val builder = RequestBuilder(
             this,
@@ -82,7 +82,7 @@ public class GW2APIClient(
             httpClient = httpClient
         )
 
-        if (configure !== null) configure(builder)
+        if (configure !== null) with(configure) { builder.configure() }
 
         return builder
     }

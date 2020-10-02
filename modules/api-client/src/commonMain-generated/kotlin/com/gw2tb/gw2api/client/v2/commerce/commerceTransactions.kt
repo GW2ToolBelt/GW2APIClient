@@ -52,7 +52,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactions(configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2CommerceTransactions(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -84,7 +84,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(configure: (RequestBuilder<Lis
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: (RequestBuilder<List<String>>.() -> Unit)? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/commerce/transactions/:relevance",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(":relevance" to relevance),
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: 
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: String, configure: (RequestBuilder<List<GW2v2CommerceTransaction>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
+public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: String, configure: RequestConfigurator<List<GW2v2CommerceTransaction>>? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
     path = "/v2/commerce/transactions/:relevance/:type",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
@@ -148,7 +148,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: Strin
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2CommerceTransaction>>.() -> Unit)? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
+public fun GW2APIClient.gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2CommerceTransaction>>? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
     path = "/v2/commerce/transactions/:relevance/:type",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(":relevance" to relevance, ":type" to type),

@@ -52,7 +52,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingIDs(configure: (RequestBuilder<List<Int>>.() -> Unit)? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2DailyCraftingIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -84,7 +84,7 @@ public fun GW2APIClient.gw2v2DailyCraftingIDs(configure: (RequestBuilder<List<In
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingByID(id: Int, configure: (RequestBuilder<GW2v2DailyCrafting>.() -> Unit)? = null): RequestBuilder<GW2v2DailyCrafting> = request(
+public fun GW2APIClient.gw2v2DailyCraftingByID(id: Int, configure: RequestConfigurator<GW2v2DailyCrafting>? = null): RequestBuilder<GW2v2DailyCrafting> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2DailyCraftingByID(id: Int, configure: (RequestBuild
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingByIDs(ids: Collection<Int>, configure: (RequestBuilder<List<GW2v2DailyCrafting>>.() -> Unit)? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
+public fun GW2APIClient.gw2v2DailyCraftingByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2DailyCrafting>>? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -148,7 +148,7 @@ public fun GW2APIClient.gw2v2DailyCraftingByIDs(ids: Collection<Int>, configure:
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingAll(configure: (RequestBuilder<List<GW2v2DailyCrafting>>.() -> Unit)? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
+public fun GW2APIClient.gw2v2DailyCraftingAll(configure: RequestConfigurator<List<GW2v2DailyCrafting>>? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
@@ -180,7 +180,7 @@ public fun GW2APIClient.gw2v2DailyCraftingAll(configure: (RequestBuilder<List<GW
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingByPage(page: Int, pageSize: Int = 200, configure: (RequestBuilder<List<GW2v2DailyCrafting>>.() -> Unit)? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
+public fun GW2APIClient.gw2v2DailyCraftingByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2DailyCrafting>>? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),

@@ -125,10 +125,10 @@ open class Generate : DefaultTask() {
                 val classes = mutableListOf<String>()
 
                 endpoints.forEach { endpoint ->
-                    var schema: SchemaType? = endpoint[schemaVersion].second
+                    var schema = endpoint[schemaVersion].second
                     var rootDataClassSchema: SchemaRecord? = null
 
-                    loop@ while (schema != null) {
+                    loop@ while (rootDataClassSchema != null) {
                         when (schema) {
                             is SchemaArray -> schema = schema.items
                             is SchemaRecord -> {
@@ -180,7 +180,7 @@ open class Generate : DefaultTask() {
                                     |${endpoint.dokka(
                                             queryType = "Creates a request used to query the list of available IDs."
                                         )}@JvmOverloads
-                                    |public fun GW2APIClient.gw2v2${routeTitleCase}IDs(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$idType>>.() -> Unit)? = null): RequestBuilder<List<$idType>> = request(
+                                    |public fun GW2APIClient.gw2v2${routeTitleCase}IDs(${pathParameters}${queryParameters}configure: RequestConfigurator<List<$idType>>? = null): RequestBuilder<List<$idType>> = request(
                                     |${requestBody(
                                             serializer = idType.listSerializer,
                                             isIDsEndpoint = true
@@ -194,9 +194,8 @@ open class Generate : DefaultTask() {
                                     |${endpoint.dokka(
                                             queryType = "Creates a request used to query all available [items]($dataClassType)."
                                         )}@JvmOverloads
-                                    |public fun GW2APIClient.gw2v2${routeTitleCase}(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                    |public fun GW2APIClient.gw2v2${routeTitleCase}(${pathParameters}${queryParameters}configure: RequestConfigurator<List<$dataClassType>>? = null): RequestBuilder<List<$dataClassType>> = request(
                                     |${requestBody(
-                                            parameters = mapOf("ids" to "\"all\""),
                                             serializer = dataClassType.listSerializer
                                         )}
                                     |)
@@ -211,7 +210,7 @@ open class Generate : DefaultTask() {
                                         |${endpoint.dokka(
                                                 queryType = "Creates a request used to query a single [item]($dataClassType) by its ID."
                                             )}@JvmOverloads
-                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByID(${pathParameters}id: $idType, ${queryParameters}configure: (RequestBuilder<$dataClassType>.() -> Unit)? = null): RequestBuilder<$dataClassType> = request(
+                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByID(${pathParameters}id: $idType, ${queryParameters}configure: RequestConfigurator<$dataClassType>? = null): RequestBuilder<$dataClassType> = request(
                                         |${requestBody(
                                                 parameters = mapOf("id" to "id${if (idType == "String") "" else ".toString()"}"),
                                                 serializer = dataClassType.serializer
@@ -225,7 +224,7 @@ open class Generate : DefaultTask() {
                                             |${endpoint.dokka(
                                                     queryType = "Creates a request used to query one or more [items]($dataClassType) by their IDs."
                                                 )}@JvmOverloads
-                                            |public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(${pathParameters}ids: Collection<$idType>, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                            |public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(${pathParameters}ids: Collection<$idType>, ${queryParameters}configure: RequestConfigurator<List<$dataClassType>>? = null): RequestBuilder<List<$dataClassType>> = request(
                                             |${requestBody(
                                                     parameters = mapOf("ids" to "ids.joinToString(\",\")"),
                                                     serializer = dataClassType.listSerializer
@@ -239,7 +238,7 @@ open class Generate : DefaultTask() {
                                             |${endpoint.dokka(
                                                     queryType = "Creates a request used to query all available [items]($dataClassType)."
                                                 )}@JvmOverloads
-                                            |public fun GW2APIClient.gw2v2${routeTitleCase}All(${pathParameters}${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                            |public fun GW2APIClient.gw2v2${routeTitleCase}All(${pathParameters}${queryParameters}configure: RequestConfigurator<List<$dataClassType>>? = null): RequestBuilder<List<$dataClassType>> = request(
                                             |${requestBody(
                                                     parameters = mapOf("ids" to "\"all\""),
                                                     serializer = dataClassType.listSerializer
@@ -253,7 +252,7 @@ open class Generate : DefaultTask() {
                                         |${endpoint.dokka(
                                                 queryType = "Creates a request used to query one or more [items]($dataClassType) by page."
                                             )}@JvmOverloads
-                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(${pathParameters}page: Int, pageSize: Int = 200, ${queryParameters}configure: (RequestBuilder<List<$dataClassType>>.() -> Unit)? = null): RequestBuilder<List<$dataClassType>> = request(
+                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(${pathParameters}page: Int, pageSize: Int = 200, ${queryParameters}configure: RequestConfigurator<List<$dataClassType>>? = null): RequestBuilder<List<$dataClassType>> = request(
                                         |${requestBody(
                                                 parameters = mapOf("page" to "page.toString()", "page_size" to "pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException(\"Illegal page size\") else it }.toString()"),
                                                 serializer = dataClassType.listSerializer
@@ -265,14 +264,12 @@ open class Generate : DefaultTask() {
                                 }
                             }
                         } else {
-                            val RequestBuilder = "RequestBuilder<$dataClassType>"
-
                             yield(
                                 """
                                 |${endpoint.dokka(
                                         queryType = "Creates a request used to query the resource."
                                     )}@JvmOverloads
-                                |public fun GW2APIClient.gw2v2$routeTitleCase(${pathParameters}${queryParameters}configure: ($RequestBuilder.() -> Unit)? = null): $RequestBuilder = request(
+                                |public fun GW2APIClient.gw2v2$routeTitleCase(${pathParameters}${queryParameters}configure: RequestConfigurator<$dataClassType>? = null): RequestBuilder<$dataClassType> = request(
                                 |${requestBody(
                                         serializer = dataClassType.serializer
                                     )}

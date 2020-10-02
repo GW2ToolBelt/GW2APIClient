@@ -52,7 +52,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2Build(configure: (RequestBuilder<GW2v2Build>.() -> Unit)? = null): RequestBuilder<GW2v2Build> = request(
+public fun GW2APIClient.gw2v2Build(configure: RequestConfigurator<GW2v2Build>? = null): RequestBuilder<GW2v2Build> = request(
     path = "/v2/build",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
