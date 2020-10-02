@@ -118,7 +118,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: 
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: String, configure: RequestConfigurator<List<GW2v2CommerceTransaction>>? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
     path = "/v2/commerce/transactions/:relevance/:type",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

@@ -68,7 +68,7 @@ internal fun Endpoint.dokka(queryType: String): String = docComment {
                 |```
                 |Authenticated:       ${if (security.isNotEmpty()) "Yes (${security.joinToString()})" else "No"}
                 |Paginated:           ${if (queryTypes.any { it is QueryType.ByPage }) "Yes" else "No"}
-                |Bulk expanded:       ${if (queryTypes.any { it is QueryType.ByIds }) "Yes" else "No"}
+                |Bulk expanded:       ${if (queryTypes.any { it is QueryType.ByIDs }) "Yes" else "No"}
                 |Localized:           ${if (isLocalized) "Yes" else "No"}
                 |Cache time:          ${cache?.normalizeCacheTime() ?: "N/A"}
                 |```

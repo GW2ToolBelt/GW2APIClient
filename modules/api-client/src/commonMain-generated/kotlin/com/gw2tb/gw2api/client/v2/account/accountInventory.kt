@@ -52,13 +52,13 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountInventory(configure: RequestConfigurator<GW2v2AccountInventorySlot>? = null): RequestBuilder<GW2v2AccountInventorySlot> = request(
+public fun GW2APIClient.gw2v2AccountInventory(configure: RequestConfigurator<List<GW2v2AccountInventorySlot>>? = null): RequestBuilder<List<GW2v2AccountInventorySlot>> = request(
     path = "/v2/account/inventory",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2AccountInventorySlot.serializer(),
+    serializer = ListSerializer(GW2v2AccountInventorySlot.serializer()),
     configure = configure
 )
