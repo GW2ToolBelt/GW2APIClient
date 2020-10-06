@@ -21,13 +21,6 @@
  */
 rootProject.name = "GW2APIClient"
 
-pluginManagement {
-    repositories {
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev")
-        gradlePluginPortal()
-    }
-}
-
 file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
     fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
 
