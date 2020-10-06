@@ -114,13 +114,6 @@ tasks {
         }
     }
 
-    create<Jar>("sourcesJar") {
-        archiveClassifier.set("sources")
-
-        // Hook up empty sources-jar to main publication, due to maven central requirements.
-        publishing.publications.withType<MavenPublication>().getByName("kotlinMultiplatform").artifact(this)
-    }
-
     create<Jar>("javadocJar") {
         dependsOn(dokkaJavadoc)
 
