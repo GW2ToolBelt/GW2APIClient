@@ -21,54 +21,20 @@
  */
 package com.gw2tb.gw2api.client
 
-import kotlinx.coroutines.*
-import kotlin.coroutines.*
-import kotlin.jvm.*
-
 /**
  * TODO doc
  *
  * @since   0.1.0
  */
-public class Request<out T> internal constructor(
-    public val host: String,
-    public val path: String,
-    public val parameters: Map<String, String>,
-    public val apiKey: String?,
-    func: (Request<T>) -> Deferred<Response<T>>
-) {
-
-    internal val deferred: Deferred<Response<T>> = func(this)
+public fun interface ErrorHandler {
 
     /**
      * TODO doc
      *
-     * @since   0.1.0
-     */
-    public suspend fun get(): Response<T> = suspendCoroutine { continuation ->
-        deferred.invokeOnCompletion { cause ->
-            if (cause != null) {
-                continuation.resumeWithException(cause)
-            } else {
-                continuation.resume(deferred.getCompleted())
-            }
-        }
-    }
-
-    /**
-     * TODO doc
+     * @param ex    the error to handle
      *
      * @since   0.1.0
      */
-    @JvmOverloads
-    public fun then(errorHandler: ErrorHandler? = null, responseHandler: ResponseHandler<T>) {
-        deferred.invokeOnCompletion { cause ->
-            when (cause) {
-                null -> responseHandler.handle(deferred.getCompleted())
-                is CancellationException -> error("Job should not be cancelable") // TODO revisit this
-                else -> errorHandler?.handle(cause) ?: throw cause
-            }
-        }
-    }
+    public fun handle(ex: Throwable)
 
 }
