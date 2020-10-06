@@ -1,0 +1,16 @@
+name: CI
+on: push
+
+jobs:
+  jdk8:
+    name: OpenJDK 8 (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GW2ToolBelt/checkout@v2
+      - uses: AdoptOpenJDK/install-jdk@v1
+        with:
+          version: '8'
+      - name: Gradle Build
+        run: |
+          ./gradlew --version --console=plain
+          ./gradlew build -Psnapshot --info -S --console=plain
