@@ -40,5 +40,5 @@ repositories {
 dependencies {
     implementation(group = "com.github.javaparser", name = "javaparser-core", version = "3.16.1")
     implementation(group = "com.gw2tb.api-generator", name = "api-generator", version = "0.1.0")
-    implementation(group = "org.ow2.asm", name = "asm", version = "8.0.1")
+    implementation(group = "org.ow2.asm", name = "asm", version = "9.0")
 }
