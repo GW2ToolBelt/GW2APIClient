@@ -51,8 +51,20 @@ binaries are currently only available for the JVM.
 
 ### Setup
 
-A complete build only requires an installation of JDK 8 or later for the Gradle
-wrapper to work.
+A complete build expects multiple JDK installations set up as follows:
+1. JDK 1.8 (used to compile the basic library)
+2. JDK  11 (used to compile the JDK 11 implementation)
+
+These JDKs must be made visible to the build process by setting up
+environment variables (or [Gradle properties](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties))
+for each JDK version as follows:
+
+```
+JAVA_HOME="path to JDK 1.8"
+JDK_8="path to JDK 1.8"
+JDK_11="path to JDK 11"
+```
+
 
 ### Building
 
