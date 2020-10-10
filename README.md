@@ -1,30 +1,63 @@
 # GW2APIClient
-[![License](https://img.shields.io/badge/license-Apache%202.0-yellowgreen.svg?style=flat-square)](https://github.com/GW2Toolbelt/GW2APIClient/blob/master/LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.gw2toolbelt.gw2api/gw2api-client.svg?style=flat-square&label=maven%20central)](https://maven-badges.herokuapp.com/maven-central/com.github.gw2toolbelt.gw2api/gw2api-client)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square&label=License)](https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=Maven%20Central)](https://maven-badges.herokuapp.com/maven-central/com.gw2tb.gw2api/api-client)
+[![JavaDoc](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=JavaDoc&color=blue)](https://javadoc.io/doc/com.gw2tb.gw2api/api-client)
 
-GW2APIClient is a Kotlin multi-platform client for the official Guild Wars 2
-API with support for Android, JavaScript, JVM and various native targets.
+**GW2APIClient** is a cross-platform client for the official Guild Wars 2 API.
+By leveraging [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html),
+GW2APIClient can be used on a large variety of platforms (including Android, the
+JVM, and iOS) and interoperates seamlessly with various popular programming
+languages.
 
-The library uses the [api-generator](https://github.com/GW2Toolbelt/api-generator)
+GW2APIClient provides low-level access to the data provided by Guild Wars 2's
+API. It does not provide higher-level abstractions, visualizations or analytical
+functionality but may be used to build such tools.
+
+The [api-generator](https://github.com/GW2Toolbelt/api-generator) is used to
+generate the types and endpoint definitions for this library. Head over to its
+repository to learn more about the Guild Wars 2's API.
 
 
-## Usage
+## Getting Started
 
-### Setup
+GW2APIClient consists of multiple modules:
 
-GW2APIClient consists of
 
-### 
+### API Types
 
+The `api-types` module provides type-safe definitions for the objects returned
+by the Guild Wars 2 API. [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+is used for built-in support for serialization from and to JSON.
+
+
+### API Client
+
+The `api-client` module provides definitions for the endpoints available as part
+of the Guild Wars 2 API.
+
+The `api-client-{jdk11|ktor}` modules provide implementations using Java 11's
+HttpClient or Ktor's HttpClient respectively.
+
+
+## Supported Platforms
+
+The library is written in platform-independent Kotlin code and can be used on
+Android, JavaScript, the JVM and various native targets. However, prebuilt
+binaries are currently only available for the JVM.
+
+! TODO
 
 ## Building from source
 
 ### Setup
 
+A complete build only requires an installation of JDK 8 or later for the Gradle
+wrapper to work.
+
 ### Building
 
 Once the setup is complete, invoke the respective Gradle tasks using the
-following command on Unix/macOs:
+following command on Unix/macOS:
 
     ./gradlew <tasks>
     
@@ -33,6 +66,12 @@ or the following command on Windows:
     gradlew <tasks>
     
 Important Gradle tasks to remember are:
+- `clean`                   - clean build results
+- `build`                   - assemble and test the Java library
+- `publishToMavenLocal`     - build and install all public artifacts to the
+                              local maven repository
+
+Additionally `tasks` may be used to print a list of all available tasks.
 
 
 ## License
