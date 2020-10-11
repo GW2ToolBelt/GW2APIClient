@@ -26,7 +26,7 @@ package com.gw2tb.gw2api.client
  *
  * @since   0.1.0
  */
-public fun interface ResponseHandler<in T> {
+public fun interface ResponseHandler<T> {
 
     /**
      * TODO doc

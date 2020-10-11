@@ -35,7 +35,7 @@ import kotlin.time.*
  *
  * @since   0.1.0
  */
-public class RequestBuilder<out T> internal constructor(
+public class RequestBuilder<T> internal constructor(
     private val client: GW2APIClient,
     private val host: String,
     private val path: String,

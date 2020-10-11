@@ -21,16 +21,8 @@
  */
 package com.gw2tb.gw2api.client
 
-/**
- * TODO doc
- *
- * @since   0.1.0
- */
-public class Response<T> internal constructor(
-    public val request: Request<T>,
-    private val dataFun: () -> T?
-) {
+public actual interface Closeable {
 
-    public val data: T? by lazy { dataFun() }
+    public actual fun close()
 
 }

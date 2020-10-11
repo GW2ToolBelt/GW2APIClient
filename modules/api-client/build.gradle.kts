@@ -69,13 +69,27 @@ kotlin {
             }
         }
 
-        getByName("commonMain") {
+        val commonMain = getByName("commonMain") {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
             dependencies {
                 api(project(":api-types"))
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
             }
+        }
+
+        getByName("jvmMain") {
+            dependencies {
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${Dependencies.kotlinxCoroutinesVersion}")
+            }
+        }
+
+        val nonJvmMain by creating {
+            dependsOn(commonMain)
+        }
+
+        getByName("jsMain") {
+            dependsOn(nonJvmMain)
         }
     }
 

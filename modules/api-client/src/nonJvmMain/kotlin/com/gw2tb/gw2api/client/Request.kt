@@ -23,62 +23,35 @@ package com.gw2tb.gw2api.client
 
 import kotlinx.coroutines.*
 import kotlin.coroutines.*
-import kotlin.jvm.*
 
-/**
- * TODO doc
- *
- * @since   0.1.0
- */
-public expect class Request<T> internal constructor(
-    host: String,
-    path: String,
-    parameters: Map<String, String>,
-    apiKey: String?,
+public actual class Request<T> internal actual constructor(
+    public actual val host: String,
+    public actual val path: String,
+    public actual val parameters: Map<String, String>,
+    public actual val apiKey: String?,
     func: (Request<T>) -> Deferred<Response<T>>
 ) {
 
-    /**
-     * TODO doc
-     *
-     * @since   0.1.0
-     */
-    public val host: String
+    private val deferred: Deferred<Response<T>> = func(this)
 
-    /**
-     * TODO doc
-     *
-     * @since   0.1.0
-     */
-    public val path: String
+    public actual suspend fun get(): Response<T> = suspendCoroutine { continuation ->
+        deferred.invokeOnCompletion { cause ->
+            if (cause != null) {
+                continuation.resumeWithException(cause)
+            } else {
+                continuation.resume(deferred.getCompleted())
+            }
+        }
+    }
 
-    /**
-     * TODO doc
-     *
-     * @since   0.1.0
-     */
-    public val parameters: Map<String, String>
-
-    /**
-     * TODO doc
-     *
-     * @since   0.1.0
-     */
-    public val apiKey: String?
-
-    /**
-     * TODO doc
-     *
-     * @since   0.1.0
-     */
-    public suspend fun get(): Response<T>
-
-    /**
-     * TODO doc
-     *
-     * @since   0.1.0
-     */
-    @JvmOverloads
-    public fun then(errorHandler: ErrorHandler? = null, responseHandler: ResponseHandler<T>)
+    public actual fun then(errorHandler: ErrorHandler?, responseHandler: ResponseHandler<T>) {
+        deferred.invokeOnCompletion { cause ->
+            when (cause) {
+                null -> responseHandler.handle(deferred.getCompleted())
+                is CancellationException -> error("Job should not be cancelable") // TODO revisit this
+                else -> errorHandler?.handle(cause) ?: throw cause
+            }
+        }
+    }
 
 }
