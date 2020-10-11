@@ -49,6 +49,9 @@ kotlin {
         }
     }
 
+    js(IR) {
+        browser()
+    }
     jvm {
         compilations.all {
             kotlinOptions {

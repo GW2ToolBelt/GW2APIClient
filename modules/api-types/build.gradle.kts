@@ -50,6 +50,9 @@ kotlin {
         }
     }
 
+    js(IR) {
+        browser()
+    }
     jvm()
 
     sourceSets {
