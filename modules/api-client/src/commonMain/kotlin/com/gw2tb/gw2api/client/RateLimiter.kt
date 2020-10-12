@@ -22,12 +22,21 @@
 package com.gw2tb.gw2api.client
 
 /**
- * TODO doc
+ * A _RateLimiter_ is responsible for starting [Request]s at the appropriate
+ * time.
  *
  * @since   0.1.0
  */
 public interface RateLimiter {
 
+    /**
+     * Schedules the given request for execution at some point in the future.
+     *
+     * @param request   the request to start
+     * @param starter   the function to invoke to start the request
+     *
+     * @since   0.1.0
+     */
     public suspend fun execute(request: Request<*>, starter: () -> Unit)
 
 }
