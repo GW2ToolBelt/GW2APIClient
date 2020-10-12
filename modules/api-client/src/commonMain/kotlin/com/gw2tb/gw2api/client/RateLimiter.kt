@@ -28,6 +28,6 @@ package com.gw2tb.gw2api.client
  */
 public interface RateLimiter {
 
-    public suspend fun <T> execute(request: Request<T>, starter: () -> Unit): T
+    public suspend fun execute(request: Request<*>, starter: () -> Unit)
 
 }
