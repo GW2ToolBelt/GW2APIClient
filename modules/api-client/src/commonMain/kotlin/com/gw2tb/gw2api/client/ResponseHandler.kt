@@ -22,14 +22,14 @@
 package com.gw2tb.gw2api.client
 
 /**
- * TODO doc
+ * A _ResponseHandler_ is responsible for handling incoming responses.
  *
  * @since   0.1.0
  */
 public fun interface ResponseHandler<T> {
 
     /**
-     * TODO doc
+     * Handles an incoming [Response].
      *
      * @param response  the response to handle
      *
