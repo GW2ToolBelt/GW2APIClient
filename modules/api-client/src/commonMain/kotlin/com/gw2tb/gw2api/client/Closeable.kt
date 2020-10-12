@@ -21,15 +21,21 @@
  */
 package com.gw2tb.gw2api.client
 
+// Closeable is copied from Java because Kotlin common Stdlib does not have it.
+
 /**
- * TODO doc
+ * A `Closeable` is a source or destination of data that can be closed.
+ *
+ * The [close] method is invoked to release resources that the object is holding
+ * (such as open files).
  *
  * @since   0.1.0
  */
 public expect interface Closeable {
 
     /**
-     * TODO doc
+     * Closes this resource. If it has already been closed, this method has no
+     * effect.
      *
      * @since   0.1.0
      */
