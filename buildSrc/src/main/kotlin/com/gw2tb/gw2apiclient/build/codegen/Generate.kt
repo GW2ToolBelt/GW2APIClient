@@ -319,6 +319,18 @@ open class Generate : DefaultTask() {
                 }
             }
         }
+
+        writeFile(
+            typesDirectory,
+            "com/gw2tb/gw2api/types/mumble/MumbleLinkIdentity.kt",
+            """
+            |package com.gw2tb.gw2api.types.mumble
+            |
+            |import kotlinx.serialization.*
+            |
+            |${MUMBLELINK_IDENTITY_DEFINITION.createDataClass("MumbleLinkIdentity")}
+            """.trimMargin()
+        )
     }
 
 }
