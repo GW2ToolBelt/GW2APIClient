@@ -98,15 +98,15 @@ tasks {
         }
     }
 
-    create<Jar>("javadocJar") {
-        dependsOn(dokkaJavadoc)
-
-        archiveClassifier.set("javadoc")
-        from(dokkaJavadoc.get().outputs)
-
-        // Hook up empty javadoc-jar to main publication, due to maven central requirements.
-        publishing.publications.withType<MavenPublication>().getByName("kotlinMultiplatform").artifact(this)
-    }
+//    create<Jar>("javadocJar") {
+//        dependsOn(dokkaJavadoc)
+//
+//        archiveClassifier.set("javadoc")
+//        from(dokkaJavadoc.get().outputs)
+//
+//        // Hook up empty javadoc-jar to main publication, due to maven central requirements.
+//        publishing.publications.withType<MavenPublication>().getByName("kotlinMultiplatform").artifact(this)
+//    }
 }
 
 publishing {
