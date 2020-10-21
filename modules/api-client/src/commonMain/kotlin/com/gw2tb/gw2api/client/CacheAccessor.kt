@@ -22,21 +22,28 @@
 package com.gw2tb.gw2api.client
 
 /**
- * TODO doc
+ * An accessor for a cache-implementation.
  *
  * @since   0.1.0
  */
 public interface CacheAccessor {
 
     /**
-     * TODO doc
+     * Memoizes the a given [Response].
+     *
+     * @param response  the response to be memoized
      *
      * @since   0.1.0
      */
     public fun <T> memoize(response: Response<T>)
 
     /**
-     * TODO doc
+     * Queries the cache for a given [Request] and returns the cached [Response]
+     * or `null` if no response was cached.
+     *
+     * @param request   the request for which the cache should be checked
+     *
+     * @return  the cached response or `null`
      *
      * @since   0.1.0
      */
