@@ -29,6 +29,12 @@ plugins {
     `maven-publish`
 }
 
+tasks {
+    create<Jar>("javadocJar") {
+        archiveClassifier.set("javadoc")
+    }
+}
+
 kotlin {
     explicitApi()
 
@@ -41,6 +47,8 @@ kotlin {
         }
 
         mavenPublication {
+            artifact(tasks["javadocJar"])
+
             decorateMavenPom {
                 name.set("GW2APIClient Ktor Implementation")
                 description.set("Ktor HttpClient implementation for GW2APIClient.")

@@ -31,6 +31,12 @@ plugins {
     `maven-publish`
 }
 
+tasks {
+    create<Jar>("javadocJar") {
+        archiveClassifier.set("javadoc")
+    }
+}
+
 kotlin {
     explicitApi()
 
@@ -43,6 +49,8 @@ kotlin {
         }
 
         mavenPublication {
+            artifact(tasks["javadocJar"])
+
             decorateMavenPom {
                 name.set("GW2API Type Definitions")
                 description.set("Definitions for the various objects returned by the official Guild Wars 2 API.")
