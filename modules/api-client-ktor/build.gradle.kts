@@ -48,6 +48,10 @@ kotlin {
         }
     }
 
+    js(IR) {
+        browser()
+        nodejs()
+    }
     jvm {
         compilations.all {
             kotlinOptions {
