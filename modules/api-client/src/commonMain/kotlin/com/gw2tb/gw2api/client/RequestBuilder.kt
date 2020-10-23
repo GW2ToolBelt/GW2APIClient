@@ -139,7 +139,7 @@ public class RequestBuilder<T> internal constructor(
                         status = response.status,
                         headers = response.headers,
                         body = response.body,
-                        dataFun = { body -> json.decodeFromString(serializer, body) } // TODO handle parsing errors properly
+                        dataFun = { body -> runCatching { json.decodeFromString(serializer, body) }.getOrNull() }
                     ).also { cacheAccessor?.memoize(it) }
                 }
 
