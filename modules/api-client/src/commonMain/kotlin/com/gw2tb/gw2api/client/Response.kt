@@ -30,9 +30,10 @@ public class Response<T> internal constructor(
     public val request: Request<T>,
     public val status: Int,
     public val headers: Map<String, List<String>>,
-    private val dataFun: () -> T?
+    public val body: String,
+    private val dataFun: (String) -> T?
 ) {
 
-    public val data: T? by lazy { dataFun() }
+    public val data: T? by lazy { dataFun(body) }
 
 }
