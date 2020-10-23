@@ -23,7 +23,9 @@
 package com.gw2tb.gw2api.client
 
 /**
- * TODO doc
+ * A languages supported by the Guild Wars 2 API.
+ *
+ * @param code the code for the language
  *
  * @since   0.1.0
  */
@@ -35,6 +37,11 @@ public enum class Language(public val code: String) {
     SPANISH("es");
 
     public companion object {
+        /**
+         * The languages supported by V2 of the Guild Wars 2 API.
+         *
+         * @since  0.1.0
+         */
         public val API_V2: Set<Language> = setOf(CHINESE, ENGLISH, FRENCH, GERMAN, SPANISH)
     }
 }

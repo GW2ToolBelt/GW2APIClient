@@ -64,7 +64,9 @@ open class Generate : DefaultTask() {
             |package com.gw2tb.gw2api.client
             |
             |/**
-            | * TODO doc
+            | * A languages supported by the Guild Wars 2 API.
+            | *
+            | * @param code the code for the language
             | *
             | * @since   0.1.0
             | */
@@ -72,6 +74,11 @@ open class Generate : DefaultTask() {
             |${Language.values().map { language -> """${language.name}("${language.locale.language}")""" }.joinToString(separator = ",$n") { "$t$it" }};
             |
             |    public companion object {
+            |        /**
+            |         * The languages supported by V2 of the Guild Wars 2 API.
+            |         *
+            |         * @since  0.1.0
+            |         */
             |        public val API_V2: Set<Language> = setOf(${API_V2_DEFINITION.supportedLanguages.joinToString(separator = ", ") { it.name }})
             |    }
             |}
