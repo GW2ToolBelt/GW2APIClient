@@ -27,6 +27,6 @@ import com.gw2tb.gw2api.client.internal.*
 @InternalGW2APIClientApi
 public interface IHttpClient : Closeable {
 
-    public suspend fun send(request: Request<*>): Pair<Map<String, List<String>>, String>
+    public suspend fun send(request: Request<*>): IHttpResponse
 
 }

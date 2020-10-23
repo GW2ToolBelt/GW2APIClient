@@ -19,20 +19,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2api.client
+package com.gw2tb.gw2api.client.http
 
-/**
- * TODO doc
- *
- * @since   0.1.0
- */
-public class Response<T> internal constructor(
-    public val request: Request<T>,
-    public val status: Int,
-    public val headers: Map<String, List<String>>,
-    private val dataFun: () -> T?
-) {
+import com.gw2tb.gw2api.client.internal.*
 
-    public val data: T? by lazy { dataFun() }
-
-}
+@InternalGW2APIClientApi
+public data class IHttpResponse(
+    val status: Int,
+    val headers: Map<String, List<String>>,
+    val body: String
+)

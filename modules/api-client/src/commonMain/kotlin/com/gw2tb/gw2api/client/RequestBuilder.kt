@@ -132,11 +132,13 @@ public class RequestBuilder<T> internal constructor(
                 }
 
                 val httpCall = scope.async(start = CoroutineStart.LAZY) {
-                    val (headers, body) = httpClient.send(request) // TODO error handling
+                    val response = httpClient.send(request) // TODO error handling
 
                     Response(
                         request = request,
-                        dataFun = { json.decodeFromString(serializer, body) } // TODO handle parsing errors properly
+                        status = response.status,
+                        headers = response.headers,
+                        dataFun = { json.decodeFromString(serializer, response.body) } // TODO handle parsing errors properly
                     ).also { cacheAccessor?.memoize(it) }
                 }
 

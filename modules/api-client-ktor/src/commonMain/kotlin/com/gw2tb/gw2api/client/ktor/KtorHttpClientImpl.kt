@@ -43,7 +43,7 @@ public class KtorHttpClientImpl @JvmOverloads constructor(
     private val protocol: URLProtocol = URLProtocol.HTTPS
 ) : IHttpClient {
 
-    override suspend fun send(request: Request<*>): Pair<Map<String, List<String>>, String> {
+    override suspend fun send(request: Request<*>): IHttpResponse {
         val url = URLBuilder().apply {
             protocol = this@KtorHttpClientImpl.protocol
             host = request.host
@@ -59,7 +59,11 @@ public class KtorHttpClientImpl @JvmOverloads constructor(
         val headers = httpResponse.headers.toMap()
         val body = httpResponse.receive<String>()
 
-        return (headers to body)
+        return IHttpResponse(
+            status = httpResponse.status.value,
+            headers = headers,
+            body = body
+        )
     }
 
     override fun close() {

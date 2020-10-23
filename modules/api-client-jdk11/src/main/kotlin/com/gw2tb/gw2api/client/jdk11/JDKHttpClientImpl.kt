@@ -42,7 +42,7 @@ public class JDKHttpClientImpl @JvmOverloads constructor(
 
     private fun encode(query: String): String = URLEncoder.encode(query, StandardCharsets.UTF_8).replace("%2C", ",")
 
-    override suspend fun send(request: Request<*>): Pair<Map<String, List<String>>, String> {
+    override suspend fun send(request: Request<*>): IHttpResponse {
         val deferred = httpClient.sendAsync(
             HttpRequest.newBuilder().run {
                 uri(URI(
@@ -61,10 +61,12 @@ public class JDKHttpClientImpl @JvmOverloads constructor(
         ).asDeferred()
 
         val httpResponse = deferred.await()
-        val headers = httpResponse.headers().map()
-        val body = httpResponse.body()
 
-        return (headers to body)
+        return IHttpResponse(
+            status = httpResponse.statusCode(),
+            headers = httpResponse.headers().map(),
+            body = httpResponse.body()
+        )
     }
 
     override fun close() {}
