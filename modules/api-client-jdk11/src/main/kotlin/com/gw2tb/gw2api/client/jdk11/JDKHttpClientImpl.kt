@@ -38,6 +38,8 @@ public class JDKHttpClientImpl @JvmOverloads constructor(
     private val scheme: String = "https"
 ) : IHttpClient {
 
+    private fun encode(query: String): String = URLEncoder.encode(query, StandardCharsets.UTF_8).replace("%2C", ",")
+
     override suspend fun send(request: Request<*>): Pair<Map<String, List<String>>, String> {
         val deferred = httpClient.sendAsync(
             HttpRequest.newBuilder().run {
@@ -46,12 +48,15 @@ public class JDKHttpClientImpl @JvmOverloads constructor(
                     request.host,
                     request.path,
                     if (request.parameters.isNotEmpty()) request.parameters.entries.joinToString(separator = "&") { (k, v) ->
-                        "${URLEncoder.encode(k, StandardCharsets.UTF_8)}=${URLEncoder.encode(v, StandardCharsets.UTF_8)}"
+                        "${encode(k)}=${encode(v)}"
                     } else null,
                     null
                 ))
                 if (request.apiKey != null) header("Authorization", "Bearer ${request.apiKey}")
                 build()
+            }.also {
+                   println(it.uri())
+
             },
             HttpResponse.BodyHandlers.ofString()
         ).asDeferred()
