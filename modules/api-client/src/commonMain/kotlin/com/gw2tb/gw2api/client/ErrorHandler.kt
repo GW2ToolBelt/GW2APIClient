@@ -22,19 +22,20 @@
 package com.gw2tb.gw2api.client
 
 /**
- * TODO doc
+ * A functional interface that may be used to handle failed requests.
  *
  * @since   0.1.0
  */
 public fun interface ErrorHandler {
 
     /**
-     * TODO doc
+     * Handles a failed request.
      *
-     * @param ex    the error to handle
+     * @param request   the request that failed
+     * @param ex        the exception to handle
      *
      * @since   0.1.0
      */
-    public fun handle(ex: Throwable)
+    public fun handle(request: Request<*>, ex: Throwable)
 
 }

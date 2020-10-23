@@ -49,7 +49,7 @@ public actual class Request<T> internal actual constructor(
             when (cause) {
                 null -> responseHandler.handle(deferred.getCompleted())
                 is CancellationException -> error("Job should not be cancelable") // TODO revisit this
-                else -> errorHandler?.handle(cause) ?: throw cause
+                else -> errorHandler?.handle(this, cause) ?: throw cause
             }
         }
     }
