@@ -43,6 +43,8 @@ kotlin {
             kotlinOptions {
                 languageVersion = "1.4"
                 apiVersion = "1.4"
+
+                freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
             }
         }
 

@@ -22,6 +22,7 @@
 package com.gw2tb.gw2api.client
 
 import com.gw2tb.gw2api.client.http.*
+import com.gw2tb.gw2api.client.internal.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
@@ -30,6 +31,7 @@ import kotlinx.serialization.json.*
  *
  * @since   0.1.0
  */
+@OptIn(InternalGW2APIClientApi::class)
 public class GW2APIClient(
     public val httpClient: IHttpClient,
     public val host: String = OFFICIAL_HOST,

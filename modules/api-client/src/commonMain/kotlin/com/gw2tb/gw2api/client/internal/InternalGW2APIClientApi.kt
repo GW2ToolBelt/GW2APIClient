@@ -19,14 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2api.client.http
+package com.gw2tb.gw2api.client.internal
 
-import com.gw2tb.gw2api.client.*
-import com.gw2tb.gw2api.client.internal.*
-
-@InternalGW2APIClientApi
-public interface IHttpClient : Closeable {
-
-    public suspend fun send(request: Request<*>): Pair<Map<String, List<String>>, String>
-
-}
+/**
+ * Internal Api that is required for implementations (which live in separate modules).
+ *
+ * @since   0.1.0
+ */
+@RequiresOptIn
+public annotation class InternalGW2APIClientApi

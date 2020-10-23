@@ -44,7 +44,13 @@ kotlin {
 
 tasks {
     withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
+        kotlinOptions {
+            languageVersion = "1.4"
+            apiVersion = "1.4"
+            jvmTarget = "11"
+
+            freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
+        }
     }
 
     jar {

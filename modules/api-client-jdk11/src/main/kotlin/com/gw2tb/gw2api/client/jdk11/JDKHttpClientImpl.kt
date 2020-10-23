@@ -23,6 +23,7 @@ package com.gw2tb.gw2api.client.jdk11
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.http.*
+import com.gw2tb.gw2api.client.internal.*
 import kotlinx.coroutines.future.*
 import java.net.*
 import java.net.http.*
@@ -33,6 +34,7 @@ import java.nio.charset.*
  *
  * @since   0.1.0
  */
+@OptIn(InternalGW2APIClientApi::class)
 public class JDKHttpClientImpl @JvmOverloads constructor(
     private val httpClient: HttpClient = HttpClient.newHttpClient(),
     private val scheme: String = "https"

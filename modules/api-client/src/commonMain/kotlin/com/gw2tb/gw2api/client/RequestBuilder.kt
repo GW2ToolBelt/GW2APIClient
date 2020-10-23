@@ -23,6 +23,7 @@
 package com.gw2tb.gw2api.client
 
 import com.gw2tb.gw2api.client.http.*
+import com.gw2tb.gw2api.client.internal.*
 import com.gw2tb.gw2api.client.v2.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
@@ -35,6 +36,7 @@ import kotlin.time.*
  *
  * @since   0.1.0
  */
+@OptIn(InternalGW2APIClientApi::class)
 public class RequestBuilder<T> internal constructor(
     private val client: GW2APIClient,
     private val host: String,

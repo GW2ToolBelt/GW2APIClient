@@ -23,6 +23,7 @@ package com.gw2tb.gw2api.client.ktor
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.http.*
+import com.gw2tb.gw2api.client.internal.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -36,6 +37,7 @@ import kotlin.jvm.*
  *
  * @since   0.1.0
  */
+@OptIn(InternalGW2APIClientApi::class)
 public class KtorHttpClientImpl @JvmOverloads constructor(
     private val httpClient: HttpClient = HttpClient(),
     private val protocol: URLProtocol = URLProtocol.HTTPS
