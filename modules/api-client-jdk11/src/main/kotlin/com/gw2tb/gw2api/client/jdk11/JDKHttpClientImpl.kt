@@ -54,9 +54,6 @@ public class JDKHttpClientImpl @JvmOverloads constructor(
                 ))
                 if (request.apiKey != null) header("Authorization", "Bearer ${request.apiKey}")
                 build()
-            }.also {
-                   println(it.uri())
-
             },
             HttpResponse.BodyHandlers.ofString()
         ).asDeferred()
