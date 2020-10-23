@@ -6,7 +6,7 @@
 **GW2APIClient** is a cross-platform client for the official Guild Wars 2 API.
 By leveraging [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html),
 GW2APIClient can be used on a large variety of platforms (including Android, the
-JVM, and iOS) and interoperates seamlessly with various popular programming
+JVM, and JS) and interoperates seamlessly with various popular programming
 languages.
 
 GW2APIClient provides low-level access to the data provided by Guild Wars 2's
@@ -42,10 +42,10 @@ HttpClient or Ktor's HttpClient respectively.
 ## Supported Platforms
 
 The library is written in platform-independent Kotlin code and can be used on
-Android, JavaScript, the JVM and various native targets. However, prebuilt
-binaries are currently only available for the JVM.
+Android, JavaScript and the JVM and (possibly in the future) various native
+targets. Currently, prebuilt binaries are only available for the JVM (and
+Android) and JS.
 
-! TODO
 
 ## Building from source
 
