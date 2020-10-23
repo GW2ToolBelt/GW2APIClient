@@ -57,8 +57,8 @@ public class RequestBuilder<T> internal constructor(
 
     public var language: Language? = null
         set(value) {
-            check(supportedLanguages.isNotEmpty())
-            check(language in supportedLanguages)
+            check(supportedLanguages.isNotEmpty()) { "Localization is not supported for endpoint $path." }
+            check(value in supportedLanguages) { "Language '$value' is not supported for endpoint $path. (Supported languages are: ${supportedLanguages.joinToString()})" }
 
             field = value
         }
