@@ -38,7 +38,7 @@ public actual class Request<T> internal actual constructor(
     private val deferred: Deferred<Response<T>> = func(this)
 
     /**
-     * TODO doc
+     * Returns this request as [CompletableFuture].
      *
      * @since   0.1.0
      */

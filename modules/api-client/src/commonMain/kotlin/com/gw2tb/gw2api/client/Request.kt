@@ -22,11 +22,10 @@
 package com.gw2tb.gw2api.client
 
 import kotlinx.coroutines.*
-import kotlin.coroutines.*
 import kotlin.jvm.*
 
 /**
- * TODO doc
+ * An API request.
  *
  * @since   0.1.0
  */
@@ -39,42 +38,47 @@ public expect class Request<T> internal constructor(
 ) {
 
     /**
-     * TODO doc
+     * The URL of the API host.
      *
      * @since   0.1.0
      */
     public val host: String
 
     /**
-     * TODO doc
+     * The path of the requested endpoint.
      *
      * @since   0.1.0
      */
     public val path: String
 
     /**
-     * TODO doc
+     * The query parameters used in this request.
      *
      * @since   0.1.0
      */
     public val parameters: Map<String, String>
 
     /**
-     * TODO doc
+     * The API key used in this request.
      *
      * @since   0.1.0
      */
     public val apiKey: String?
 
     /**
-     * TODO doc
+     * Returns the response of this request.
+     *
+     * @return  the response
      *
      * @since   0.1.0
      */
     public suspend fun get(): Response<T>
 
     /**
-     * TODO doc
+     * Registers callbacks to be called when the request was answered.
+     *
+     * @param errorHandler      the function to call on error
+     * @param responseHandler   the function to call on success
      *
      * @since   0.1.0
      */
