@@ -22,14 +22,14 @@
 package com.gw2tb.gw2api.client
 
 /**
- * TODO doc
+ * A functional interface that may be used to configure requests.
  *
  * @since   0.1.0
  */
 public fun interface RequestConfigurator<T> {
 
     /**
-     * TODO doc
+     * Configures a request.
      *
      * @since   0.1.0
      */
