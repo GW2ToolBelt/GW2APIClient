@@ -22,15 +22,23 @@
 package com.gw2tb.gw2api.client
 
 /**
+ * An exception that is thrown if client-side validation is enabled and
+ * insufficient permissions are detected.
+ *
+ * @since   0.1.0
+ */
+public sealed class ClientValidationException(msg: String) : Exception(msg)
+
+/**
  * An exception indicating that the API key in use is invalid.
  *
  * @since   0.1.0
  */
-public class UnauthenticatedException(msg: String) : Exception(msg)
+public class UnauthenticatedException(msg: String) : ClientValidationException(msg)
 
 /**
  * An exception indicating that the API key in use has insufficient permissions.
  *
  * @since   0.1.0
  */
-public class InsufficientPermissionsException(msg: String) : Exception(msg)
+public class InsufficientPermissionsException(msg: String) : ClientValidationException(msg)
