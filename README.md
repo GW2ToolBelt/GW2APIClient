@@ -34,6 +34,26 @@ is used for built-in support for serialization from and to JSON.
 The `api-client` module provides definitions for the endpoints available as part
 of the Guild Wars 2 API.
 
+The following example retrieves the first 1000 items listed in `/v2/items` in
+parallel and prints their ids and names:
+
+```kotlin
+suspend fun main() = coroutineScope {
+    val client = GW2APIClient(/* JDKHttpClientImpl() or KtorHttpClientImpl() */)
+    val itemIds = client.gw2v2ItemsIDs().execute(this).get().data ?: error("Request failed.")
+
+    val items = itemIds.take(1000).chunked(200).map { ids ->
+        async {
+            client.gw2v2ItemsByIDs(ids).execute(this).get().data ?: error("Request failed.")
+        }
+    }.awaitAll().flatten()
+
+    for (item in items) {
+        println("[${item.id}] ${item.name}")
+    }
+}
+```
+
 The `api-client-{jdk11|ktor}` modules provide implementations using Java 11's
 HttpClient or Ktor's HttpClient respectively.
 
