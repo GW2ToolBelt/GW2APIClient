@@ -32,7 +32,14 @@ import kotlin.jvm.*
 import kotlin.time.*
 
 /**
- * TODO doc
+ * A builder for a [Request].
+ *
+ * @param requiresAuthentication    whether or not the endpoint requires authentication
+ * @param requiredPermissions       the permissions required by the endpoint
+ * @param supportedLanguages        the languages supported by the endpoint
+ * @param cacheAccessor             the cache implementation to use
+ * @param rateLimiter               the rate-limiter to use
+ * @param checkPermissions          whether or not to perform client-side permission checks
  *
  * @since   0.1.0
  */
@@ -82,7 +89,11 @@ public class RequestBuilder<T> internal constructor(
     public fun withPermissionChecks(value: Boolean): RequestBuilder<T> = apply { checkPermissions = value }
 
     /**
-     * TODO doc
+     * Executes the request within the given `scope` and returns a [Request] instance.
+     *
+     * @param scope the scope to use
+     *
+     * @return  the request
      *
      * @since   0.1.0
      */
@@ -124,15 +135,15 @@ public class RequestBuilder<T> internal constructor(
 
                     if (perm.data != null) {
                         if (!perm.data!!.permissions.containsAll(requiredPermissions)) {
-                            throw InsufficientPermissionsException("") // TODO
+                            throw InsufficientPermissionsException("Insufficient permissions for endpoint $path: ${perm.data!!.permissions} (Required permissions ${requiredPermissions.joinToString()})")
                         }
                     } else {
-                        throw UnauthenticatedException("") // TODO
+                        throw UnauthenticatedException("Endpoint $path requires authentication but no API key was provided. (Required permissions ${requiredPermissions.joinToString()})")
                     }
                 }
 
                 val httpCall = scope.async(start = CoroutineStart.LAZY) {
-                    val response = httpClient.send(request) // TODO error handling
+                    val response = httpClient.send(request)
 
                     Response(
                         request = request,

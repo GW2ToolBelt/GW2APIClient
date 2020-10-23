@@ -27,7 +27,15 @@ import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
 /**
- * TODO doc
+ * A client that may be used to make requests to the official Guild Wars 2 API
+ * (or a mirror).
+ *
+ * @param httpClient        the HTTP client implementation to use
+ * @param host              the host of the API
+ * @param cacheAccessor     the cache implementation to use
+ * @param rateLimiter       the rate-limiter to use
+ * @param checkPermissions  whether or not to perform client-side permission checks
+ * @param json              the [Json] instance used for deserialization
  *
  * @since   0.1.0
  */
@@ -45,18 +53,13 @@ public class GW2APIClient(
 
     public companion object {
         /**
-         * TODO doc
+         * The host for the official Guild Wars 2 API.
          *
          * @since   0.1.0
          */
         public const val OFFICIAL_HOST: String = "api.guildwars2.com"
     }
 
-    /**
-     * TODO doc
-     *
-     * @since   0.1.0
-     */
     internal fun <T> request(
         path: String,
         parameters: Map<String, String>,
