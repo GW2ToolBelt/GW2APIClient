@@ -22,7 +22,12 @@
 package com.gw2tb.gw2api.client
 
 /**
- * TODO doc
+ * An API response.
+ *
+ * @param request   the request
+ * @param status    the HTTP status code of the response
+ * @param headers   the response headers
+ * @param body      the raw response body
  *
  * @since   0.1.0
  */
@@ -34,6 +39,11 @@ public class Response<T> internal constructor(
     private val dataFun: (String) -> T?
 ) {
 
+    /**
+     * The response data, or `null` if [body] could not be parsed.
+     *
+     * @since   0.1.0
+     */
     public val data: T? by lazy { dataFun(body) }
 
 }
