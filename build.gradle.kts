@@ -26,7 +26,7 @@ import com.gw2tb.gw2apiclient.build.codegen.*
 plugins {
     kotlin("multiplatform") version "1.4.20" apply false
     kotlin("plugin.serialization") version "1.4.20" apply false
-    id("org.jetbrains.dokka") version "1.4.10.2" apply false
+    id("org.jetbrains.dokka") version "1.4.20" apply false
 }
 
 allprojects {
