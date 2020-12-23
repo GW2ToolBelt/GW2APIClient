@@ -34,7 +34,7 @@ import java.util.*
 const val t = "    "
 const val n = "\n"
 
-private val schemaVersion = V2SchemaVersion.V2_SCHEMA_2019_12_19T00_00_00_000Z
+private val schemaVersion = V2SchemaVersion.V2_SCHEMA_2020_11_17T00_30_00_000Z
 
 @CacheableTask
 open class Generate : DefaultTask() {
