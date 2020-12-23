@@ -73,20 +73,11 @@ Android) and JS.
 
 ### Setup
 
-A complete build expects multiple JDK installations set up as follows:
-1. JDK 1.8 (used to compile the basic library)
-2. JDK  11 (used to compile the JDK 11 implementation)
+This project uses [Gradle's toolchain support](https://docs.gradle.org/6.7/userguide/toolchains.html)
+to detect and select the JDKs required to run the build. Please refer to the
+build scripts to find out which toolchains are requested.
 
-These JDKs must be made visible to the build process by setting up
-environment variables (or [Gradle properties](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_configuration_properties))
-for each JDK version as follows:
-
-```
-JAVA_HOME="path to JDK 1.8"
-JDK_8="path to JDK 1.8"
-JDK_11="path to JDK 11"
-```
-
+An installed JDK 1.8 (or later) is required to use Gradle.
 
 ### Building
 

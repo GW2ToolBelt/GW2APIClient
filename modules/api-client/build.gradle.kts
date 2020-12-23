@@ -30,6 +30,12 @@ plugins {
     `maven-publish`
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
+
 tasks {
     create<Jar>("javadocJar") {
         archiveClassifier.set("javadoc")
@@ -127,6 +133,10 @@ tasks {
 }
 
 tasks {
+    withType<JavaCompile> {
+        options.release.set(8)
+    }
+
     withType<KotlinCompile> {
         dependsOn(project(":").tasks["generate"])
     }

@@ -19,6 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+@file:Suppress("UnstableApiUsage")
+
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 
@@ -27,6 +29,12 @@ plugins {
     id("org.jetbrains.dokka")
     signing
     `maven-publish`
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
 }
 
 tasks {
@@ -115,6 +123,10 @@ kotlin {
 }
 
 tasks {
+    withType<JavaCompile> {
+        options.release.set(8)
+    }
+
     getByName<org.gradle.jvm.tasks.Jar>("jvmJar") {
         manifest {
             attributes(mapOf(

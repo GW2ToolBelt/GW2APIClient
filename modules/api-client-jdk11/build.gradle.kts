@@ -20,6 +20,7 @@
  * SOFTWARE.
  */
 @file:Suppress("UnstableApiUsage")
+
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.kotlin.gradle.tasks.*
@@ -32,8 +33,9 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
 
     withSourcesJar()
 }
@@ -43,6 +45,10 @@ kotlin {
 }
 
 tasks {
+    withType<JavaCompile> {
+        options.release.set(11)
+    }
+
     withType<KotlinCompile> {
         kotlinOptions {
             languageVersion = "1.4"
