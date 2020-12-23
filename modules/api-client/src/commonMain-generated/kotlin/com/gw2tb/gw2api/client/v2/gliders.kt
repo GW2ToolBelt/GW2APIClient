@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2GlidersIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/gliders",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -86,7 +86,7 @@ public fun GW2APIClient.gw2v2GlidersIDs(configure: RequestConfigurator<List<Int>
 @JvmOverloads
 public fun GW2APIClient.gw2v2GlidersByID(id: Int, configure: RequestConfigurator<GW2v2Glider>? = null): RequestBuilder<GW2v2Glider> = request(
     path = "/v2/gliders",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -118,7 +118,7 @@ public fun GW2APIClient.gw2v2GlidersByID(id: Int, configure: RequestConfigurator
 @JvmOverloads
 public fun GW2APIClient.gw2v2GlidersByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Glider>>? = null): RequestBuilder<List<GW2v2Glider>> = request(
     path = "/v2/gliders",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -150,7 +150,7 @@ public fun GW2APIClient.gw2v2GlidersByIDs(ids: Collection<Int>, configure: Reque
 @JvmOverloads
 public fun GW2APIClient.gw2v2GlidersAll(configure: RequestConfigurator<List<GW2v2Glider>>? = null): RequestBuilder<List<GW2v2Glider>> = request(
     path = "/v2/gliders",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -182,7 +182,7 @@ public fun GW2APIClient.gw2v2GlidersAll(configure: RequestConfigurator<List<GW2v
 @JvmOverloads
 public fun GW2APIClient.gw2v2GlidersByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Glider>>? = null): RequestBuilder<List<GW2v2Glider>> = request(
     path = "/v2/gliders",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

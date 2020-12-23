@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -86,7 +86,7 @@ public fun GW2APIClient.gw2v2RecipesIDs(configure: RequestConfigurator<List<Stri
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesByID(id: String, configure: RequestConfigurator<GW2v2Recipe>? = null): RequestBuilder<GW2v2Recipe> = request(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id, "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -118,7 +118,7 @@ public fun GW2APIClient.gw2v2RecipesByID(id: String, configure: RequestConfigura
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Recipe>>? = null): RequestBuilder<List<GW2v2Recipe>> = request(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -150,7 +150,7 @@ public fun GW2APIClient.gw2v2RecipesByIDs(ids: Collection<String>, configure: Re
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Recipe>>? = null): RequestBuilder<List<GW2v2Recipe>> = request(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/commerce/listings",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -86,7 +86,7 @@ public fun GW2APIClient.gw2v2CommerceListingsIDs(configure: RequestConfigurator<
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsByID(id: Int, configure: RequestConfigurator<GW2v2CommerceListing>? = null): RequestBuilder<GW2v2CommerceListing> = request(
     path = "/v2/commerce/listings",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -118,7 +118,7 @@ public fun GW2APIClient.gw2v2CommerceListingsByID(id: Int, configure: RequestCon
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2CommerceListing>>? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
     path = "/v2/commerce/listings",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -150,7 +150,7 @@ public fun GW2APIClient.gw2v2CommerceListingsByIDs(ids: Collection<Int>, configu
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceListingsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2CommerceListing>>? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
     path = "/v2/commerce/listings",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

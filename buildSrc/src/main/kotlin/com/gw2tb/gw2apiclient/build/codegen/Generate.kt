@@ -146,13 +146,13 @@ open class Generate : DefaultTask() {
                     }
 
                     val replaceInPath = endpoint.pathParameters.map {
-                        ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.name.firstToLowerCase()}${if (it.type is SchemaString) "" else ".toString()"}"
+                        ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.camelCaseName}${if (it.type is SchemaString) "" else ".toString()"}"
                     }.toMap().entries.joinToString(separator = ", ") { (key, value) ->
                         "\"$key\" to $value"
                     }
 
-                    val pathParameters = endpoint.pathParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }
-                    val queryParameters = endpoint.queryParameters.joinToString(separator = ", ") { "${it.name.firstToLowerCase()}: ${it.type.toKotlinType()}${if (it.isOptional) "? = null" else ""}" }.let { if (it.isNotEmpty()) "$it, " else "" }
+                    val pathParameters = endpoint.pathParameters.joinToString(separator = ", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }
+                    val queryParameters = endpoint.queryParameters.joinToString(separator = ", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}${if (it.isOptional) "? = null" else ""}" }.let { if (it.isNotEmpty()) "$it, " else "" }
 
                     fun requestBody(
                         parameters: Map<String, String> = emptyMap(),
@@ -161,7 +161,7 @@ open class Generate : DefaultTask() {
                     ) =
                         """
                         path = "/v2${endpoint.route.toLowerCase(Locale.ENGLISH)}",
-                        parameters = mapOfNonNullValues(${(parameters + ("v" to "\"${schemaVersion.identifier}\"") + endpoint.queryParameters.map { it.key to "${it.key}${if (it.type == SchemaString) "" else ".toString()"}" }).entries.joinToString(separator = ", ") { (key, value) -> "\"$key\" to $value" }}),
+                        parameters = mapOfNonNullValues(${(parameters + ("v" to "\"${schemaVersion.identifier}\"") + endpoint.queryParameters.map { it.key to "${it.camelCaseName}${if (it.type == SchemaString) "" else ".toString()"}" }).entries.joinToString(separator = ", ") { (key, value) -> "\"$key\" to $value" }}),
                         replaceInPath = mapOf($replaceInPath),
                         requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
                         requiredPermissions = emptySet(),

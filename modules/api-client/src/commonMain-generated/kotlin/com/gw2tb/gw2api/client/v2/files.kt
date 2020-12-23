@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2FilesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -86,7 +86,7 @@ public fun GW2APIClient.gw2v2FilesIDs(configure: RequestConfigurator<List<String
 @JvmOverloads
 public fun GW2APIClient.gw2v2FilesByID(id: String, configure: RequestConfigurator<GW2v2File>? = null): RequestBuilder<GW2v2File> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id, "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -118,7 +118,7 @@ public fun GW2APIClient.gw2v2FilesByID(id: String, configure: RequestConfigurato
 @JvmOverloads
 public fun GW2APIClient.gw2v2FilesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -150,7 +150,7 @@ public fun GW2APIClient.gw2v2FilesByIDs(ids: Collection<String>, configure: Requ
 @JvmOverloads
 public fun GW2APIClient.gw2v2FilesAll(configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -182,7 +182,7 @@ public fun GW2APIClient.gw2v2FilesAll(configure: RequestConfigurator<List<GW2v2F
 @JvmOverloads
 public fun GW2APIClient.gw2v2FilesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

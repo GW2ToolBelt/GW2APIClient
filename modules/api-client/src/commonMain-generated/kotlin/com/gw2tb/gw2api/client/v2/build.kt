@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2Build(configure: RequestConfigurator<GW2v2Build>? = null): RequestBuilder<GW2v2Build> = request(
     path = "/v2/build",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

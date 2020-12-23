@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2AccountBank(configure: RequestConfigurator<List<GW2v2AccountBankSlot>>? = null): RequestBuilder<List<GW2v2AccountBankSlot>> = request(
     path = "/v2/account/bank",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),

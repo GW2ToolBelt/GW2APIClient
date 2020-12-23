@@ -52,10 +52,10 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2Guild(iD: String, configure: RequestConfigurator<GW2v2Guild>? = null): RequestBuilder<GW2v2Guild> = request(
+public fun GW2APIClient.gw2v2Guild(id: String, configure: RequestConfigurator<GW2v2Guild>? = null): RequestBuilder<GW2v2Guild> = request(
     path = "/v2/guild/:id",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(":id" to iD),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
+    replaceInPath = mapOf(":id" to id),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

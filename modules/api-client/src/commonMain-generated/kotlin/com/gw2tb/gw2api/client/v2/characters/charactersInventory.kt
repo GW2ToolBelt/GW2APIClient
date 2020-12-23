@@ -52,10 +52,10 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersInventory(iD: String, configure: RequestConfigurator<GW2v2CharactersInventorySlot>? = null): RequestBuilder<GW2v2CharactersInventorySlot> = request(
+public fun GW2APIClient.gw2v2CharactersInventory(id: String, configure: RequestConfigurator<GW2v2CharactersInventorySlot>? = null): RequestBuilder<GW2v2CharactersInventorySlot> = request(
     path = "/v2/characters/:id/inventory",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(":id" to iD),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
+    replaceInPath = mapOf(":id" to id),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

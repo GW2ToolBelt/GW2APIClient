@@ -54,7 +54,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2ItemStatsIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/itemstats",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -86,7 +86,7 @@ public fun GW2APIClient.gw2v2ItemStatsIDs(configure: RequestConfigurator<List<In
 @JvmOverloads
 public fun GW2APIClient.gw2v2ItemStatsByID(id: Int, configure: RequestConfigurator<GW2v2ItemStatSet>? = null): RequestBuilder<GW2v2ItemStatSet> = request(
     path = "/v2/itemstats",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -118,7 +118,7 @@ public fun GW2APIClient.gw2v2ItemStatsByID(id: Int, configure: RequestConfigurat
 @JvmOverloads
 public fun GW2APIClient.gw2v2ItemStatsByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2ItemStatSet>>? = null): RequestBuilder<List<GW2v2ItemStatSet>> = request(
     path = "/v2/itemstats",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -150,7 +150,7 @@ public fun GW2APIClient.gw2v2ItemStatsByIDs(ids: Collection<Int>, configure: Req
 @JvmOverloads
 public fun GW2APIClient.gw2v2ItemStatsAll(configure: RequestConfigurator<List<GW2v2ItemStatSet>>? = null): RequestBuilder<List<GW2v2ItemStatSet>> = request(
     path = "/v2/itemstats",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -182,7 +182,7 @@ public fun GW2APIClient.gw2v2ItemStatsAll(configure: RequestConfigurator<List<GW
 @JvmOverloads
 public fun GW2APIClient.gw2v2ItemStatsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2ItemStatSet>>? = null): RequestBuilder<List<GW2v2ItemStatSet>> = request(
     path = "/v2/itemstats",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
