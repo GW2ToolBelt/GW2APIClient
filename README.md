@@ -14,12 +14,12 @@ functionality but may be used to build such tools.
 
 The [api-generator](https://github.com/GW2Toolbelt/api-generator) is used to
 generate the types and endpoint definitions for this library. Head over to its
-repository to learn more about the Guild Wars 2's API.
+repository to learn more about Guild Wars 2's API.
 
 
 ## Getting Started
 
-GW2APIClient consists of multiple modules:
+GW2APIClient consists of two primary modules:
 
 
 ### API Types
