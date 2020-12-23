@@ -175,7 +175,7 @@ public data class GW2v2Item(
             @SerialName("suffix_item_id")
             val suffixItemId: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: String? = null,
+            val secondarySuffixItemId: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -267,7 +267,7 @@ public data class GW2v2Item(
             @SerialName("suffix_item_id")
             val suffixItemId: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: String? = null,
+            val secondarySuffixItemId: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -542,7 +542,7 @@ public data class GW2v2Item(
             @SerialName("suffix_item_id")
             val suffixItemId: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: String? = null,
+            val secondarySuffixItemId: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -725,7 +725,7 @@ public data class GW2v2Item(
             @SerialName("suffix_item_id")
             val suffixItemId: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: String? = null,
+            val secondarySuffixItemId: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")

@@ -34,39 +34,7 @@ import kotlin.jvm.*
 /**
  * Creates a request used to query the resource.
  *
- * Returns information about the gem exchange.
- *
- * ```
- * Authenticated:       No
- * Paginated:           No
- * Bulk expanded:       No
- * Localized:           No
- * Cache time:          INFINITE
- * ```
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/exchange]
- *
- * @receiver        the client instance used to make the request
- * @param configure configure action for the request
- *
- * @return  the request that can be executed to query the API
- */
-@JvmOverloads
-public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
-    path = "/v2/commerce/exchange",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiresAuthentication = false,
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
-    configure = configure
-)
-
-/**
- * Creates a request used to query the resource.
- *
- * Returns information about the gem exchange.
+ * Returns information about a guild.
  *
  * ```
  * Authenticated:       No
@@ -76,7 +44,7 @@ public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<Lis
  * Cache time:          N/A
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/exchange/:type]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/:id]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
@@ -84,13 +52,13 @@ public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<Lis
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurator<GW2v2CommerceExchange>? = null): RequestBuilder<GW2v2CommerceExchange> = request(
-    path = "/v2/commerce/exchange/:type",
-    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z", "Quantity" to Quantity.toString()),
-    replaceInPath = mapOf(":type" to type),
+public fun GW2APIClient.gw2v2Guild(iD: String, configure: RequestConfigurator<GW2v2Guild>? = null): RequestBuilder<GW2v2Guild> = request(
+    path = "/v2/guild/:id",
+    parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
+    replaceInPath = mapOf(":id" to iD),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2CommerceExchange.serializer(),
+    serializer = GW2v2Guild.serializer(),
     configure = configure
 )

@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2020 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,26 +20,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-plugins {
-    `kotlin-dsl`
-}
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+package com.gw2tb.gw2api.types.v2
 
-kotlin {
-    sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlin.time.ExperimentalTime")
-            }
-        }
-    }
-}
+import kotlinx.serialization.*
+import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(group = "com.github.javaparser", name = "javaparser-core", version = "3.16.1")
-    implementation(group = "com.gw2tb.api-generator", name = "api-generator", version = "0.2.1")
-    implementation(group = "org.ow2.asm", name = "asm", version = "9.0")
-}
+/**
+ * Information about a continent.
+ *
+ * @param id the continent's ID
+ * @param name the continent's name
+ * @param continentDims the width and height of the continent
+ * @param minZoom the maximum zoom level for use with the map tile service
+ * @param floors the IDs of the continent's floors
+ */
+@Serializable
+public data class GW2v2Continent(
+    val id: Int,
+    val name: String,
+    @SerialName("continent_dims")
+    val continentDims: List<Int>,
+    @SerialName("max_zoom")
+    val minZoom: Int,
+    val floors: List<Int>
+)

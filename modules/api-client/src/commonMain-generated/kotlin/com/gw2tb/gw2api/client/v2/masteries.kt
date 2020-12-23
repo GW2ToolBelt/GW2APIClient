@@ -34,7 +34,7 @@ import kotlin.jvm.*
 /**
  * Creates a request used to query the list of available IDs.
  *
- * Returns information about items in the game.
+ * Returns information about masteries.
  *
  * ```
  * Authenticated:       No
@@ -44,7 +44,7 @@ import kotlin.jvm.*
  * Cache time:          60m
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
@@ -52,8 +52,8 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2ItemsIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
-    path = "/v2/items",
+public fun GW2APIClient.gw2v2MasteriesIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+    path = "/v2/masteries",
     parameters = mapOfNonNullValues("v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
@@ -64,9 +64,9 @@ public fun GW2APIClient.gw2v2ItemsIDs(configure: RequestConfigurator<List<Int>>?
 )
 
 /**
- * Creates a request used to query a single [item](GW2v2Item) by its ID.
+ * Creates a request used to query a single [item](GW2v2Mastery) by its ID.
  *
- * Returns information about items in the game.
+ * Returns information about masteries.
  *
  * ```
  * Authenticated:       No
@@ -76,7 +76,7 @@ public fun GW2APIClient.gw2v2ItemsIDs(configure: RequestConfigurator<List<Int>>?
  * Cache time:          60m
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
@@ -84,21 +84,21 @@ public fun GW2APIClient.gw2v2ItemsIDs(configure: RequestConfigurator<List<Int>>?
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2ItemsByID(id: Int, configure: RequestConfigurator<GW2v2Item>? = null): RequestBuilder<GW2v2Item> = request(
-    path = "/v2/items",
+public fun GW2APIClient.gw2v2MasteriesByID(id: Int, configure: RequestConfigurator<GW2v2Mastery>? = null): RequestBuilder<GW2v2Mastery> = request(
+    path = "/v2/masteries",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2Item.serializer(),
+    serializer = GW2v2Mastery.serializer(),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2Item) by their IDs.
+ * Creates a request used to query one or more [items](GW2v2Mastery) by their IDs.
  *
- * Returns information about items in the game.
+ * Returns information about masteries.
  *
  * ```
  * Authenticated:       No
@@ -108,7 +108,7 @@ public fun GW2APIClient.gw2v2ItemsByID(id: Int, configure: RequestConfigurator<G
  * Cache time:          60m
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
@@ -116,21 +116,21 @@ public fun GW2APIClient.gw2v2ItemsByID(id: Int, configure: RequestConfigurator<G
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2ItemsByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Item>>? = null): RequestBuilder<List<GW2v2Item>> = request(
-    path = "/v2/items",
+public fun GW2APIClient.gw2v2MasteriesByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Mastery>>? = null): RequestBuilder<List<GW2v2Mastery>> = request(
+    path = "/v2/masteries",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Item.serializer()),
+    serializer = ListSerializer(GW2v2Mastery.serializer()),
     configure = configure
 )
 
 /**
- * Creates a request used to query one or more [items](GW2v2Item) by page.
+ * Creates a request used to query all available [items](GW2v2Mastery).
  *
- * Returns information about items in the game.
+ * Returns information about masteries.
  *
  * ```
  * Authenticated:       No
@@ -140,7 +140,7 @@ public fun GW2APIClient.gw2v2ItemsByIDs(ids: Collection<Int>, configure: Request
  * Cache time:          60m
  * ```
  *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
  *
  * @receiver        the client instance used to make the request
  * @param configure configure action for the request
@@ -148,13 +148,45 @@ public fun GW2APIClient.gw2v2ItemsByIDs(ids: Collection<Int>, configure: Request
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2ItemsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Item>>? = null): RequestBuilder<List<GW2v2Item>> = request(
-    path = "/v2/items",
+public fun GW2APIClient.gw2v2MasteriesAll(configure: RequestConfigurator<List<GW2v2Mastery>>? = null): RequestBuilder<List<GW2v2Mastery>> = request(
+    path = "/v2/masteries",
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2019-12-19T00:00:00.000Z"),
+    replaceInPath = mapOf(),
+    requiresAuthentication = false,
+    requiredPermissions = emptySet(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2Mastery.serializer()),
+    configure = configure
+)
+
+/**
+ * Creates a request used to query one or more [items](GW2v2Mastery) by page.
+ *
+ * Returns information about masteries.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          60m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
+ *
+ * @receiver        the client instance used to make the request
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
+@JvmOverloads
+public fun GW2APIClient.gw2v2MasteriesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Mastery>>? = null): RequestBuilder<List<GW2v2Mastery>> = request(
+    path = "/v2/masteries",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2019-12-19T00:00:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Item.serializer()),
+    serializer = ListSerializer(GW2v2Mastery.serializer()),
     configure = configure
 )
