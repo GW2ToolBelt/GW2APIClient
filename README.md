@@ -1,6 +1,7 @@
 # GW2APIClient
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square&label=License)](https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=Maven%20Central)](https://maven-badges.herokuapp.com/maven-central/com.gw2tb.gw2api/api-client)
+[![JavaDoc](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=JavaDoc&color=blue)](https://javadoc.io/doc/com.gw2tb.gw2api/api-client)
 
 > DISCLAIMER: JavaScript support is currently blocked by [KT-43081](https://youtrack.jetbrains.com/issue/KT-43081).
 > Some information about supported platforms in this document are incorrect for the current version.
