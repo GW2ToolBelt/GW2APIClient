@@ -54,15 +54,6 @@ kotlin {
                 freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
             }
         }
-
-        mavenPublication {
-            artifact(tasks["javadocJar"])
-
-            decorateMavenPom {
-                name.set("GW2APIClient Query Definitions")
-                description.set("Definitions for the various queries supported by the official Guild Wars 2 API.")
-            }
-        }
     }
 
 //    js(IR) {
@@ -166,6 +157,15 @@ tasks {
 }
 
 publishing {
+    publications.withType<MavenPublication>().all {
+        artifact(tasks["javadocJar"])
+
+        decorateMavenPom {
+            name.set("GW2APIClient Query Definitions")
+            description.set("Definitions for the various queries supported by the official Guild Wars 2 API.")
+        }
+    }
+
     repositories {
         maven {
             url = uri(deployment.repo)

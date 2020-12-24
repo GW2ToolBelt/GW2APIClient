@@ -55,15 +55,6 @@ kotlin {
                 freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
             }
         }
-
-        mavenPublication {
-            artifact(tasks["javadocJar"])
-
-            decorateMavenPom {
-                name.set("GW2APIClient Ktor Implementation")
-                description.set("Ktor HttpClient implementation for GW2APIClient.")
-            }
-        }
     }
 
 //    js(IR) {
@@ -152,6 +143,15 @@ tasks {
 }
 
 publishing {
+    publications.withType<MavenPublication>().all {
+        artifact(tasks["javadocJar"])
+
+        decorateMavenPom {
+            name.set("GW2APIClient Ktor Implementation")
+            description.set("Ktor HttpClient implementation for GW2APIClient.")
+        }
+    }
+
     repositories {
         maven {
             url = uri(deployment.repo)

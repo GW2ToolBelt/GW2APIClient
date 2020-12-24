@@ -55,15 +55,6 @@ kotlin {
                 apiVersion = "1.4"
             }
         }
-
-        mavenPublication {
-            artifact(tasks["javadocJar"])
-
-            decorateMavenPom {
-                name.set("GW2API Type Definitions")
-                description.set("Definitions for the various objects returned by the official Guild Wars 2 API.")
-            }
-        }
     }
 
 //    js(IR) {
@@ -130,6 +121,15 @@ tasks {
 }
 
 publishing {
+    publications.withType<MavenPublication>().all {
+        artifact(tasks["javadocJar"])
+
+        decorateMavenPom {
+            name.set("GW2API Type Definitions")
+            description.set("Definitions for the various objects returned by the official Guild Wars 2 API.")
+        }
+    }
+
     repositories {
         maven {
             url = uri(deployment.repo)
