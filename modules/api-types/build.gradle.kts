@@ -66,10 +66,10 @@ kotlin {
         }
     }
 
-    js(IR) {
-        browser()
-        nodejs()
-    }
+//    js(IR) {
+//        browser()
+//        nodejs()
+//    }
     jvm {
         compilations.all {
             kotlinOptions {
