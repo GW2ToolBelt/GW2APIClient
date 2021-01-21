@@ -35,7 +35,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CommerceExchange(
-    @SerialName("coinspergem")
+    @SerialName("coins_per_gem")
     val coinsPerGem: Int,
     val quantity: Int
 )

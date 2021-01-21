@@ -53,10 +53,10 @@ public data class GW2v2WvWObjective(
     val mapId: Int,
     @SerialName("map_type")
     val mapType: String,
-    val coord: List<Double>,
+    val coord: List<Double>? = null,
     @SerialName("label_coord")
-    val labelCoord: List<Double>,
-    val marker: String,
+    val labelCoord: List<Double>? = null,
+    val marker: String? = null,
     @SerialName("chat_link")
     val chatLink: String,
     @SerialName("upgrade_id")

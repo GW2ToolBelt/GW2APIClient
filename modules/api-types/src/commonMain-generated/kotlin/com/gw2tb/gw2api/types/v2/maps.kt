@@ -32,6 +32,7 @@ import kotlinx.serialization.json.*
  *
  * @param id the map's ID
  * @param name the map's name
+ * @param type the type of map
  * @param minLevel the minimum level of the map
  * @param maxLevel the maximum level of the map
  * @param defaultFloor the ID of the map's default floor
@@ -47,6 +48,7 @@ import kotlinx.serialization.json.*
 public data class GW2v2Map(
     val id: Int,
     val name: String,
+    val type: String,
     @SerialName("min_level")
     val minLevel: Int,
     @SerialName("max_level")
@@ -63,7 +65,7 @@ public data class GW2v2Map(
     @SerialName("continent_name")
     val continentName: String? = null,
     @SerialName("map_rect")
-    val mapRect: List<Int>,
+    val mapRect: List<List<Int>>,
     @SerialName("continent_rect")
-    val continentRect: List<Int>
+    val continentRect: List<List<Int>>
 )

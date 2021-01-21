@@ -128,12 +128,10 @@ open class Generate : DefaultTask() {
                                 KotlinTypeInfo(name)
                             }
                             is SchemaConditional -> {
-                                TODO()
-//
-//                                val name = "GW2v2${customRootDataClassSchema.name}"
-//                                classes.add(customRootDataClassSchema.createSealedClass(name))
-//
-//                                KotlinTypeInfo(name)
+                                val name = "GW2v2${customRootDataClassSchema.name}"
+                                classes.add(customRootDataClassSchema.createSealedClass(name))
+
+                                KotlinTypeInfo(name)
                             }
                             else -> error("")
                         }
@@ -348,7 +346,7 @@ private fun Map<String, SchemaRecord.Property>.ctor(sharedProperties: Map<String
             sequence {
                 if (property.isDeprecated) yield("""@Deprecated(message = "")""")
                 if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
-                yield("override val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                yield("override val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
             }.joinToString(separator = n)
         })
         yieldAll(values.map { property ->
@@ -394,7 +392,7 @@ private fun SchemaConditional.createSealedClass(className: String): String {
 
             if (interpretations.isNotEmpty()) {
                 yield(interpretations.map { (name, schema) ->
-                    (schema as SchemaRecord).createDataClass(name, superClass = className, isInterpretation = true, sharedProperties = sharedProperties)
+                    (schema.type as SchemaRecord).createDataClass(name, superClass = className, isInterpretation = true, sharedProperties = sharedProperties)
                 }.joinToString(separator = "$n$n"))
             }
 

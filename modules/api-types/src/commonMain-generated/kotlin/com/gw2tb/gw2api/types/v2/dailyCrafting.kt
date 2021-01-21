@@ -34,5 +34,5 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2DailyCrafting(
-    val id: Int
+    val id: String
 )

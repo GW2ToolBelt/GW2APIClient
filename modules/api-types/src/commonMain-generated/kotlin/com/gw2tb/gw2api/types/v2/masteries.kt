@@ -65,9 +65,9 @@ public data class GW2v2Mastery(
         val description: String,
         val instruction: String,
         val icon: String,
-        @SerialName("pointcost")
+        @SerialName("point_cost")
         val pointCost: Int,
-        @SerialName("expcost")
+        @SerialName("exp_cost")
         val expCost: Int
     )
 

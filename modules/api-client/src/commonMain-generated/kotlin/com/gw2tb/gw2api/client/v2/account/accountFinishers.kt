@@ -52,13 +52,13 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountFinishers(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2AccountFinishers(configure: RequestConfigurator<List<GW2v2AccountFinisher>>? = null): RequestBuilder<List<GW2v2AccountFinisher>> = request(
     path = "/v2/account/finishers",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2v2AccountFinisher.serializer()),
     configure = configure
 )

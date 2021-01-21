@@ -50,7 +50,7 @@ public data class GW2v2Color(
     val leather: Leather,
     val metal: Metal,
     val fur: Fur? = null,
-    val item: Int,
+    val item: Int? = null,
     val categories: List<String>
 ) {
 
@@ -62,7 +62,7 @@ public data class GW2v2Color(
      * @param hue the hue in HSL colorspace
      * @param saturation the saturation in HSL colorspace
      * @param lightness the lightness in HSL colorspace
-     * @param rBG a list containing precalculated RGB values
+     * @param rGB a list containing precalculated RGB values
      */
     @Serializable
     public data class Cloth(
@@ -71,8 +71,8 @@ public data class GW2v2Color(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        @SerialName("rbg")
-        val rBG: List<Int>
+        @SerialName("rgb")
+        val rGB: List<Int>
     )
 
     /**
@@ -83,7 +83,7 @@ public data class GW2v2Color(
      * @param hue the hue in HSL colorspace
      * @param saturation the saturation in HSL colorspace
      * @param lightness the lightness in HSL colorspace
-     * @param rBG a list containing precalculated RGB values
+     * @param rGB a list containing precalculated RGB values
      */
     @Serializable
     public data class Leather(
@@ -92,8 +92,8 @@ public data class GW2v2Color(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        @SerialName("rbg")
-        val rBG: List<Int>
+        @SerialName("rgb")
+        val rGB: List<Int>
     )
 
     /**
@@ -104,7 +104,7 @@ public data class GW2v2Color(
      * @param hue the hue in HSL colorspace
      * @param saturation the saturation in HSL colorspace
      * @param lightness the lightness in HSL colorspace
-     * @param rBG a list containing precalculated RGB values
+     * @param rGB a list containing precalculated RGB values
      */
     @Serializable
     public data class Metal(
@@ -113,8 +113,8 @@ public data class GW2v2Color(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        @SerialName("rbg")
-        val rBG: List<Int>
+        @SerialName("rgb")
+        val rGB: List<Int>
     )
 
     /**
@@ -125,7 +125,7 @@ public data class GW2v2Color(
      * @param hue the hue in HSL colorspace
      * @param saturation the saturation in HSL colorspace
      * @param lightness the lightness in HSL colorspace
-     * @param rBG a list containing precalculated RGB values
+     * @param rGB a list containing precalculated RGB values
      */
     @Serializable
     public data class Fur(
@@ -134,8 +134,8 @@ public data class GW2v2Color(
         val hue: Int,
         val saturation: Double,
         val lightness: Double,
-        @SerialName("rbg")
-        val rBG: List<Int>
+        @SerialName("rgb")
+        val rGB: List<Int>
     )
 
 }

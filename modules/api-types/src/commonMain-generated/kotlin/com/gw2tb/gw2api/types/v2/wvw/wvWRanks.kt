@@ -32,12 +32,12 @@ import kotlinx.serialization.json.*
  *
  * @param id the ID of the rank
  * @param title the title of the rank
- * @param minLevel the WvW level required to unlock this rank
+ * @param minRank the WvW level required to unlock this rank
  */
 @Serializable
 public data class GW2v2WvWRank(
     val id: Int,
     val title: String,
-    @SerialName("min_level")
-    val minLevel: Int
+    @SerialName("min_rank")
+    val minRank: Int
 )

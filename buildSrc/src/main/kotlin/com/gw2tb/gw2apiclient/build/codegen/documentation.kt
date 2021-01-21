@@ -27,10 +27,15 @@ import java.util.*
 import kotlin.time.*
 
 private fun Duration.normalizeCacheTime(): String {
-    require(isInfinite() || (inSeconds % 60.0) == 0.0)
+    /*
+     * Duration#isInfinite is not available on API level 1.3 for some reason.
+     * TODO: switch to Duration#isInfinite this after Gradle >7.
+     */
+    val isInfinite = inMilliseconds.isInfinite()
+    require(isInfinite || (inSeconds % 60.0) == 0.0)
 
     return when {
-        isInfinite() -> "INFINITE"
+        isInfinite -> "INFINITE"
         else -> {
             if ((inMinutes % 60.0) == 0.0 && (inMinutes / 60.0) > 1.0) {
                 "${inHours.toInt()}h"

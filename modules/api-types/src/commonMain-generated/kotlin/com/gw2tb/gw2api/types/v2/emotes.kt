@@ -37,7 +37,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Emote(
     val id: String,
-    val commands: List<Int>,
+    val commands: List<String>,
     @SerialName("unlock_items")
     val unlockItems: List<Int>
 )

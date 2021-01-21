@@ -52,14 +52,14 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2MapChestsIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/mapchests",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(String.serializer()),
     configure = configure
 )
 
@@ -84,9 +84,9 @@ public fun GW2APIClient.gw2v2MapChestsIDs(configure: RequestConfigurator<List<In
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsByID(id: Int, configure: RequestConfigurator<GW2v2MapChest>? = null): RequestBuilder<GW2v2MapChest> = request(
+public fun GW2APIClient.gw2v2MapChestsByID(id: String, configure: RequestConfigurator<GW2v2MapChest>? = null): RequestBuilder<GW2v2MapChest> = request(
     path = "/v2/mapchests",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id, "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2MapChestsByID(id: Int, configure: RequestConfigurat
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MapChestsByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2MapChest>>? = null): RequestBuilder<List<GW2v2MapChest>> = request(
+public fun GW2APIClient.gw2v2MapChestsByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2MapChest>>? = null): RequestBuilder<List<GW2v2MapChest>> = request(
     path = "/v2/mapchests",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),

@@ -52,13 +52,13 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountEmotes(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2AccountEmotes(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/account/emotes",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(String.serializer()),
     configure = configure
 )

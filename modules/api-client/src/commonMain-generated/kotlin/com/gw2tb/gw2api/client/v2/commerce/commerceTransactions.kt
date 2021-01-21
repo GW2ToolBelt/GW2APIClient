@@ -69,7 +69,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(configure: RequestConfigurator
  * Returns information about an account's transactions.
  *
  * ```
- * Authenticated:       No
+ * Authenticated:       Yes (ACCOUNT, TRADINGPOST)
  * Paginated:           No
  * Bulk expanded:       No
  * Localized:           No
@@ -88,7 +88,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: 
     path = "/v2/commerce/transactions/:relevance",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(":relevance" to relevance),
-    requiresAuthentication = false,
+    requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
@@ -101,7 +101,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: 
  * Returns information about an account's transactions.
  *
  * ```
- * Authenticated:       No
+ * Authenticated:       Yes (ACCOUNT, TRADINGPOST)
  * Paginated:           Yes
  * Bulk expanded:       No
  * Localized:           No
@@ -120,7 +120,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: Strin
     path = "/v2/commerce/transactions/:relevance/:type",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
-    requiresAuthentication = false,
+    requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(GW2v2CommerceTransaction.serializer()),
@@ -133,7 +133,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: Strin
  * Returns information about an account's transactions.
  *
  * ```
- * Authenticated:       No
+ * Authenticated:       Yes (ACCOUNT, TRADINGPOST)
  * Paginated:           Yes
  * Bulk expanded:       No
  * Localized:           No
@@ -152,7 +152,7 @@ public fun GW2APIClient.gw2v2CommerceTransactionsByPage(relevance: String, type:
     path = "/v2/commerce/transactions/:relevance/:type",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
-    requiresAuthentication = false,
+    requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(GW2v2CommerceTransaction.serializer()),

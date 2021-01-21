@@ -69,13 +69,13 @@ public data class GW2v2Recipe(
     /**
      * Information about a recipe guild ingredient.
      *
-     * @param upgrade_id the guild ingredient's guild upgrade ID
+     * @param upgradeID the guild ingredient's guild upgrade ID
      * @param count the quantity of this guild ingredient
      */
     @Serializable
     public data class Ingredient(
-        @SerialName("upgradeid")
-        val upgrade_id: String,
+        @SerialName("upgrade_id")
+        val upgradeID: String,
         val count: Int
     )
 

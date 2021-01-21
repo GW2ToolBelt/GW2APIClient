@@ -30,9 +30,9 @@ import kotlinx.serialization.json.*
 /**
  * Information about a Hero's Choice Chests that can be acquired once per day.
  *
- * @param id the ID of the mapchest
+ * @param id the ID of the chest
  */
 @Serializable
 public data class GW2v2MapChest(
-    val id: Int
+    val id: String
 )
