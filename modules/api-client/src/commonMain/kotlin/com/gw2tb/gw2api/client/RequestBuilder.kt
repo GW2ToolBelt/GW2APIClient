@@ -77,7 +77,8 @@ public class RequestBuilder<T> internal constructor(
     private var cacheTime: Duration = Duration.ZERO
     private var overrideCacheTime: Boolean = false
 
-    @JvmOverloads
+//    @JvmOverloads Not yet supported
+    @JvmName("withCacheTimeMillis")
     public fun withCacheTime(duration: Duration, override: Boolean = false): RequestBuilder<T> = apply {
         require(duration.isPositive())
         cacheTime = duration
