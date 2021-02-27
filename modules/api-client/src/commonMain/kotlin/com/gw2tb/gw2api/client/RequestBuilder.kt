@@ -74,9 +74,11 @@ public class RequestBuilder<T> internal constructor(
 
     public fun withLanguage(value: Language): RequestBuilder<T> = apply { language = value }
 
+    @ExperimentalTime
     private var cacheTime: Duration = Duration.ZERO
     private var overrideCacheTime: Boolean = false
 
+    @ExperimentalTime
 //    @JvmOverloads Not yet supported
     @JvmName("withCacheTimeMillis")
     public fun withCacheTime(duration: Duration, override: Boolean = false): RequestBuilder<T> = apply {
