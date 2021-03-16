@@ -30,7 +30,7 @@ plugins {
 }
 
 allprojects {
-    val nextVersion = "0.2.0"
+    val nextVersion = "0.3.0"
 
     group = "com.gw2tb.gw2api"
     version = when (deployment.type) {
