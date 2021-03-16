@@ -21,27 +21,6 @@
  */
 rootProject.name = "GW2APIClient"
 
-pluginManagement {
-    /*
-     * Workaround since Dokka is not published under the expected coordinates to Central [1] and not yet published to
-     * the plugin portal again [2].
-     *
-     * [1] https://github.com/Kotlin/dokka/issues/1779
-     * [2] https://github.com/Kotlin/dokka/issues/1775
-     */
-    resolutionStrategy {
-        eachPlugin {
-            if (requested.id.id == "org.jetbrains.dokka") {
-                useModule("org.jetbrains.dokka:dokka-gradle-plugin:${requested.version}")
-            }
-        }
-    }
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-
 file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
     fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
 
