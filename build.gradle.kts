@@ -26,7 +26,7 @@ import com.gw2tb.gw2apiclient.build.codegen.*
 plugins {
     kotlin("multiplatform") version "1.4.31" apply false
     kotlin("plugin.serialization") version "1.4.31" apply false
-    id("org.jetbrains.dokka") version "1.4.20" apply false
+    id("org.jetbrains.dokka") version "1.4.30" apply false
 }
 
 allprojects {
@@ -40,7 +40,6 @@ allprojects {
 
     repositories {
         mavenCentral()
-        maven("https://kotlin.bintray.com/kotlinx")
         jcenter()
     }
 }
