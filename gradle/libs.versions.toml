@@ -1,0 +1,23 @@
+[versions]
+junit = "5.7.1"
+log4j = "2.14.1"
+
+[libraries]
+
+# com.gw2tb.api-generator:api-generator api-generator
+gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version = "0.4.0" }
+
+# org.apache.logging.log4j - Log4j
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
+log4j-bom = { module = "org.apache.logging.log4j:log4j-bom", version.ref = "log4j" }
+
+# com.github.javaparser:javaparser-core - JavaParser
+javaparser-core = { module = "com.github.javaparser:javaparser-core", version = "3.20.2" }
+
+# org.junit - JUnit
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+
+# org.ow2.asm - ASM
+asm = { module = "org.ow2.asm:asm", version = "9.1" }
