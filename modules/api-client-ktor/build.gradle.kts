@@ -81,7 +81,7 @@ kotlin {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
             dependencies {
-                api(project(":api-client"))
+                api(projects.apiClient)
                 implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")

@@ -110,6 +110,6 @@ signing {
 }
 
 dependencies {
-    api(project(":api-client"))
+    api(projects.apiClient)
     implementation(group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-jdk8", version = Dependencies.kotlinxCoroutinesVersion)
 }

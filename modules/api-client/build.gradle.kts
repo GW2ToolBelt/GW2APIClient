@@ -83,7 +83,7 @@ kotlin {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
             dependencies {
-                api(project(":api-types"))
+                api(projects.apiTypes)
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
             }
         }
