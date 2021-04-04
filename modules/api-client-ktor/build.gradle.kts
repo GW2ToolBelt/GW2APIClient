@@ -82,10 +82,7 @@ kotlin {
 
             dependencies {
                 api(projects.apiClient)
-                implementation("io.ktor:ktor-client-core:${Dependencies.ktorVersion}")
-                implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Dependencies.kotlinxSerializationVersion}")
+                implementation(libs.ktor.client.core)
             }
         }
 
@@ -95,20 +92,20 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-test-common")
                 implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
+                implementation(libs.ktor.client.mock)
             }
         }
 
         getByName("jvmMain").dependencies {
-            implementation("io.ktor:ktor-client-core-jvm:${Dependencies.ktorVersion}")
             implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${Dependencies.kotlinxCoroutinesVersion}")
         }
 
         getByName("jvmTest").dependencies {
-            implementation("org.jetbrains.kotlin:kotlin-test-testng")
-            implementation("org.testng:testng:${Dependencies.testngVersion}")
-            implementation("io.ktor:ktor-client-mock-jvm:${Dependencies.ktorVersion}")
-            implementation("io.ktor:ktor-client-apache:${Dependencies.ktorVersion}")
+            implementation("org.jetbrains.kotlin:kotlin-test-junit5")
+            implementation(libs.junit.jupiter.api)
+            implementation(libs.ktor.client.apache)
+
+            runtimeOnly(libs.junit.jupiter.engine)
         }
     }
 }

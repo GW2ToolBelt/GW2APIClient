@@ -84,13 +84,13 @@ kotlin {
 
             dependencies {
                 api(projects.apiTypes)
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Dependencies.kotlinxCoroutinesVersion}")
+                api(libs.kotlinx.coroutines.core)
             }
         }
 
         getByName("jvmMain") {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${Dependencies.kotlinxCoroutinesVersion}")
+                api(libs.kotlinx.coroutines.jdk8)
             }
         }
 

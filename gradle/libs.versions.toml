@@ -1,18 +1,34 @@
 [versions]
 junit = "5.7.1"
+kotlinx-coroutines = "1.4.2-native-mt"
+kotlinx-serialization = "1.1.0"
+ktor = "1.5.2"
 log4j = "2.14.1"
 
 [libraries]
 
+# com.github.javaparser:javaparser-core - JavaParser
+javaparser-core = { module = "com.github.javaparser:javaparser-core", version = "3.20.2" }
+
 # com.gw2tb.api-generator:api-generator api-generator
 gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version = "0.4.0" }
+
+# io.ktor - Ktor
+ktor-client-apache = { module = "io.ktor:ktor-client-apache", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 
 # org.apache.logging.log4j - Log4j
 log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
 log4j-bom = { module = "org.apache.logging.log4j:log4j-bom", version.ref = "log4j" }
 
-# com.github.javaparser:javaparser-core - JavaParser
-javaparser-core = { module = "com.github.javaparser:javaparser-core", version = "3.20.2" }
+# org.jetbrains.kotlinx:kotlinx-coroutines-[...] - kotlinx.coroutines
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-jdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinx-coroutines" }
+
+# org.jetbrains.kotlinx:kotlinx-serialization-[...] - kotlinx.serialization
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
 # org.junit - JUnit
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }

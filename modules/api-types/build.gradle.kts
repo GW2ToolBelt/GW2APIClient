@@ -81,7 +81,7 @@ kotlin {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-serialization-json:${Dependencies.kotlinxSerializationVersion}")
+                api(libs.kotlinx.serialization.json)
             }
         }
     }
