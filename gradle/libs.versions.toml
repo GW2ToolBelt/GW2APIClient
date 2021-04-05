@@ -1,6 +1,6 @@
 [versions]
 junit = "5.7.1"
-kotlinx-coroutines = "1.4.2-native-mt"
+kotlinx-coroutines = "1.4.3-native-mt"
 kotlinx-serialization = "1.1.0"
 ktor = "1.5.2"
 log4j = "2.14.1"
