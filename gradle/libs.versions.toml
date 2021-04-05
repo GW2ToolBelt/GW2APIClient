@@ -10,7 +10,7 @@ ktor = "1.5.3"
 javaparser-core = { module = "com.github.javaparser:javaparser-core", version = "3.20.2" }
 
 # com.gw2tb.api-generator:api-generator - api-generator
-gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version = "0.4.0" }
+gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version = "0.3.0" }
 
 # io.ktor - Ktor
 ktor-client-apache = { module = "io.ktor:ktor-client-apache", version.ref = "ktor" }
