@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2GuildUpgrades(id: String, configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2GuildUpgradesIDs(configure: RequestConfigurator<Lis
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2GuildUpgradesByID(id: Int, configure: RequestConfig
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2GuildUpgradesByIDs(ids: Collection<Int>, configure:
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
@@ -201,7 +201,7 @@ public fun GW2APIClient.gw2v2GuildUpgradesAll(configure: RequestConfigurator<Lis
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]

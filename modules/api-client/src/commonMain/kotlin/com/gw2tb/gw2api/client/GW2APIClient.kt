@@ -76,7 +76,6 @@ public class GW2APIClient(
             path = path,
             parameters = parameters,
             replaceInPath = replaceInPath,
-            requiresAuthentication = requiresAuthentication,
             requiredPermissions = requiredPermissions,
             supportedLanguages = supportedLanguages,
             serializer = serializer,

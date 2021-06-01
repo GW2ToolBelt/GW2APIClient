@@ -82,9 +82,9 @@ public data class GW2v2Item(
     val gameTypes: List<String>,
     val restrictions: List<String>,
     @SerialName("upgrades_into")
-    val upgradesInto: List<UpgradesInto>? = null,
+    val upgradesInto: List<Upgrade>? = null,
     @SerialName("upgrades_from")
-    val upgradesFrom: List<UpgradesFrom>? = null,
+    val upgradesFrom: List<Precursor>? = null,
     val details: Details? = null
 ) {
 
@@ -95,7 +95,7 @@ public data class GW2v2Item(
      * @param itemId the item ID that results from performing the upgrade
      */
     @Serializable
-    public data class UpgradesInto(
+    public data class Upgrade(
         val upgrade: String,
         @SerialName("item_id")
         val itemId: Int
@@ -108,7 +108,7 @@ public data class GW2v2Item(
      * @param itemId the item ID that results from performing the upgrade
      */
     @Serializable
-    public data class UpgradesFrom(
+    public data class Precursor(
         val upgrade: String,
         @SerialName("item_id")
         val itemId: Int
@@ -123,7 +123,7 @@ public data class GW2v2Item(
                 "Bag" -> Details.Bag.serializer()
                 "Consumable" -> Details.Consumable.serializer()
                 "Container" -> Details.Container.serializer()
-                "Gathering" -> Details.Gathering.serializer()
+                "Gathering" -> Details.GatheringTool.serializer()
                 "Gizmo" -> Details.Gizmo.serializer()
                 "MiniPet" -> Details.MiniPet.serializer()
                 "Tool" -> Details.Tool.serializer()
@@ -180,63 +180,7 @@ public data class GW2v2Item(
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
-        ) : Details() {
-
-            /**
-             * Information about an items infusion slot.
-             *
-             * @param flags infusion slot type of infusion upgrades
-             * @param itemId the infusion upgrade in the armor piece
-             */
-            @Serializable
-            public data class InfusionSlot(
-                val flags: List<String>,
-                @SerialName("item_id")
-                val itemId: Int? = null
-            )
-
-            /**
-             * Information about an item's infix upgrade.
-             *
-             * @param id the itemstat ID
-             * @param attributes the list of attribute bonuses granted by this item
-             * @param buff object containing an additional effect
-             */
-            @Serializable
-            public data class InfixUpgrade(
-                val id: Int,
-                val attributes: List<Attribute>,
-                val buff: Buff? = null
-            ) {
-
-                /**
-                 * Information about an infix upgrade's attribute bonuses.
-                 *
-                 * @param attribute the attribute this bonus applies to
-                 * @param modifier the modifier value
-                 */
-                @Serializable
-                public data class Attribute(
-                    val attribute: String,
-                    val modifier: Int
-                )
-
-                /**
-                 * Information about an infix upgrade's buffs.
-                 *
-                 * @param skillId the skill ID of the effect
-                 * @param description the effect's description
-                 */
-                @Serializable
-                public data class Buff(
-                    @SerialName("skill_id")
-                    val skillId: Int,
-                    val description: String? = null
-                )
-
-            }
-
-        }
+        ) : Details()
 
         @Suppress("ClassName")
         @Serializer(forClass = Back::class)
@@ -272,63 +216,7 @@ public data class GW2v2Item(
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
-        ) : Details() {
-
-            /**
-             * Information about an items infusion slot.
-             *
-             * @param flags infusion slot type of infusion upgrades
-             * @param itemId the infusion upgrade in the armor piece
-             */
-            @Serializable
-            public data class InfusionSlot(
-                val flags: List<String>,
-                @SerialName("item_id")
-                val itemId: Int? = null
-            )
-
-            /**
-             * Information about an item's infix upgrade.
-             *
-             * @param id the itemstat ID
-             * @param attributes the list of attribute bonuses granted by this item
-             * @param buff object containing an additional effect
-             */
-            @Serializable
-            public data class InfixUpgrade(
-                val id: Int,
-                val attributes: List<Attribute>,
-                val buff: Buff? = null
-            ) {
-
-                /**
-                 * Information about an infix upgrade's attribute bonuses.
-                 *
-                 * @param attribute the attribute this bonus applies to
-                 * @param modifier the modifier value
-                 */
-                @Serializable
-                public data class Attribute(
-                    val attribute: String,
-                    val modifier: Int
-                )
-
-                /**
-                 * Information about an infix upgrade's buffs.
-                 *
-                 * @param skillId the skill ID of the effect
-                 * @param description the effect's description
-                 */
-                @Serializable
-                public data class Buff(
-                    @SerialName("skill_id")
-                    val skillId: Int,
-                    val description: String? = null
-                )
-
-            }
-
-        }
+        ) : Details()
 
         @Suppress("ClassName")
         @Serializer(forClass = Bag::class)
@@ -423,11 +311,11 @@ public data class GW2v2Item(
         ) : Details()
 
         @Suppress("ClassName")
-        @Serializer(forClass = Gathering::class)
-        private object __GatheringGeneratedSerializer : KSerializer<Gathering>
+        @Serializer(forClass = GatheringTool::class)
+        private object __GatheringToolGeneratedSerializer : KSerializer<GatheringTool>
 
         @Suppress("ClassName")
-        private object __GatheringSerializer : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer) {
+        private object __GatheringToolSerializer : JsonTransformingSerializer<GatheringTool>(__GatheringToolGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -437,8 +325,8 @@ public data class GW2v2Item(
          *
          * @param type the tool type
          */
-        @Serializable(with = __GatheringSerializer::class)
-        public data class Gathering(
+        @Serializable(with = __GatheringToolSerializer::class)
+        public data class GatheringTool(
             val type: String
         ) : Details()
 
@@ -547,63 +435,7 @@ public data class GW2v2Item(
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
-        ) : Details() {
-
-            /**
-             * Information about an items infusion slot.
-             *
-             * @param flags infusion slot type of infusion upgrades
-             * @param itemId the infusion upgrade in the armor piece
-             */
-            @Serializable
-            public data class InfusionSlot(
-                val flags: List<String>,
-                @SerialName("item_id")
-                val itemId: Int? = null
-            )
-
-            /**
-             * Information about an item's infix upgrade.
-             *
-             * @param id the itemstat ID
-             * @param attributes the list of attribute bonuses granted by this item
-             * @param buff object containing an additional effect
-             */
-            @Serializable
-            public data class InfixUpgrade(
-                val id: Int,
-                val attributes: List<Attribute>,
-                val buff: Buff? = null
-            ) {
-
-                /**
-                 * Information about an infix upgrade's attribute bonuses.
-                 *
-                 * @param attribute the attribute this bonus applies to
-                 * @param modifier the modifier value
-                 */
-                @Serializable
-                public data class Attribute(
-                    val attribute: String,
-                    val modifier: Int
-                )
-
-                /**
-                 * Information about an infix upgrade's buffs.
-                 *
-                 * @param skillId the skill ID of the effect
-                 * @param description the effect's description
-                 */
-                @Serializable
-                public data class Buff(
-                    @SerialName("skill_id")
-                    val skillId: Int,
-                    val description: String? = null
-                )
-
-            }
-
-        }
+        ) : Details()
 
         @Suppress("ClassName")
         @Serializer(forClass = UpgradeComponent::class)
@@ -638,50 +470,7 @@ public data class GW2v2Item(
             val bonuses: List<String>? = null,
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
-        ) : Details() {
-
-            /**
-             * Information about an item's infix upgrade.
-             *
-             * @param id the itemstat ID
-             * @param attributes the list of attribute bonuses granted by this item
-             * @param buff object containing an additional effect
-             */
-            @Serializable
-            public data class InfixUpgrade(
-                val id: Int,
-                val attributes: List<Attribute>,
-                val buff: Buff? = null
-            ) {
-
-                /**
-                 * Information about an infix upgrade's attribute bonuses.
-                 *
-                 * @param attribute the attribute this bonus applies to
-                 * @param modifier the modifier value
-                 */
-                @Serializable
-                public data class Attribute(
-                    val attribute: String,
-                    val modifier: Int
-                )
-
-                /**
-                 * Information about an infix upgrade's buffs.
-                 *
-                 * @param skillId the skill ID of the effect
-                 * @param description the effect's description
-                 */
-                @Serializable
-                public data class Buff(
-                    @SerialName("skill_id")
-                    val skillId: Int,
-                    val description: String? = null
-                )
-
-            }
-
-        }
+        ) : Details()
 
         @Suppress("ClassName")
         @Serializer(forClass = Weapon::class)
@@ -730,63 +519,61 @@ public data class GW2v2Item(
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
-        ) : Details() {
+        ) : Details()
+
+        /**
+         * Information about an item's infix upgrade.
+         *
+         * @param id the itemstat ID
+         * @param attributes the list of attribute bonuses granted by this item
+         * @param buff object containing an additional effect
+         */
+        @Serializable
+        public data class InfixUpgrade(
+            val id: Int,
+            val attributes: List<Attribute>,
+            val buff: Buff? = null
+        ) {
 
             /**
-             * Information about an items infusion slot.
+             * Information about an infix upgrade's attribute bonuses.
              *
-             * @param flags infusion slot type of infusion upgrades
-             * @param itemId the infusion upgrade in the armor piece
+             * @param attribute the attribute this bonus applies to
+             * @param modifier the modifier value
              */
             @Serializable
-            public data class InfusionSlot(
-                val flags: List<String>,
-                @SerialName("item_id")
-                val itemId: Int? = null
+            public data class Attribute(
+                val attribute: String,
+                val modifier: Int
             )
 
             /**
-             * Information about an item's infix upgrade.
+             * Information about an infix upgrade's buffs.
              *
-             * @param id the itemstat ID
-             * @param attributes the list of attribute bonuses granted by this item
-             * @param buff object containing an additional effect
+             * @param skillId the skill ID of the effect
+             * @param description the effect's description
              */
             @Serializable
-            public data class InfixUpgrade(
-                val id: Int,
-                val attributes: List<Attribute>,
-                val buff: Buff? = null
-            ) {
-
-                /**
-                 * Information about an infix upgrade's attribute bonuses.
-                 *
-                 * @param attribute the attribute this bonus applies to
-                 * @param modifier the modifier value
-                 */
-                @Serializable
-                public data class Attribute(
-                    val attribute: String,
-                    val modifier: Int
-                )
-
-                /**
-                 * Information about an infix upgrade's buffs.
-                 *
-                 * @param skillId the skill ID of the effect
-                 * @param description the effect's description
-                 */
-                @Serializable
-                public data class Buff(
-                    @SerialName("skill_id")
-                    val skillId: Int,
-                    val description: String? = null
-                )
-
-            }
+            public data class Buff(
+                @SerialName("skill_id")
+                val skillId: Int,
+                val description: String? = null
+            )
 
         }
+
+        /**
+         * Information about an items infusion slot.
+         *
+         * @param flags infusion slot type of infusion upgrades
+         * @param itemId the infusion upgrade in the armor piece
+         */
+        @Serializable
+        public data class InfusionSlot(
+            val flags: List<String>,
+            @SerialName("item_id")
+            val itemId: Int? = null
+        )
 
     }
 

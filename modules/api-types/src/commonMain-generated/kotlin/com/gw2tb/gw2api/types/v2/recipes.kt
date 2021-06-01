@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Recipe(
-    val id: String,
+    val id: Int,
     val type: String,
     @SerialName("output_item_id")
     val outputItemID: Int,
@@ -59,12 +59,25 @@ public data class GW2v2Recipe(
     val flags: List<String>,
     val ingredients: List<Ingredient>,
     @SerialName("guild_ingredients")
-    val guildIngredients: List<Ingredient>? = null,
+    val guildIngredients: List<GuildIngredient>? = null,
     @SerialName("output_upgrade_id")
     val outputUpgradeID: Int? = null,
     @SerialName("chat_link")
     val chatLink: String
 ) {
+
+    /**
+     * Information about a recipe ingredient.
+     *
+     * @param itemID the ingredient's item ID
+     * @param count the quantity of this ingredient
+     */
+    @Serializable
+    public data class Ingredient(
+        @SerialName("item_id")
+        val itemID: String,
+        val count: Int
+    )
 
     /**
      * Information about a recipe guild ingredient.
@@ -73,7 +86,7 @@ public data class GW2v2Recipe(
      * @param count the quantity of this guild ingredient
      */
     @Serializable
-    public data class Ingredient(
+    public data class GuildIngredient(
         @SerialName("upgrade_id")
         val upgradeID: String,
         val count: Int

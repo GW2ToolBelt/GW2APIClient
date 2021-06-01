@@ -35,6 +35,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2EmblemPart(
-    val id: String,
+    val id: Int,
     val layers: List<String>
 )

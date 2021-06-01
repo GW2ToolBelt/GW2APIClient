@@ -46,10 +46,10 @@ public data class GW2v2Color(
     val name: String,
     @SerialName("base_rgb")
     val baseRGB: List<Int>,
-    val cloth: Cloth,
-    val leather: Leather,
-    val metal: Metal,
-    val fur: Fur? = null,
+    val cloth: Appearance,
+    val leather: Appearance,
+    val metal: Appearance,
+    val fur: Appearance? = null,
     val item: Int? = null,
     val categories: List<String>
 ) {
@@ -65,70 +65,7 @@ public data class GW2v2Color(
      * @param rGB a list containing precalculated RGB values
      */
     @Serializable
-    public data class Cloth(
-        val brightness: Int,
-        val contrast: Double,
-        val hue: Int,
-        val saturation: Double,
-        val lightness: Double,
-        @SerialName("rgb")
-        val rGB: List<Int>
-    )
-
-    /**
-     * Information about the appearance of the color.
-     *
-     * @param brightness the brightness
-     * @param contrast the contrast
-     * @param hue the hue in HSL colorspace
-     * @param saturation the saturation in HSL colorspace
-     * @param lightness the lightness in HSL colorspace
-     * @param rGB a list containing precalculated RGB values
-     */
-    @Serializable
-    public data class Leather(
-        val brightness: Int,
-        val contrast: Double,
-        val hue: Int,
-        val saturation: Double,
-        val lightness: Double,
-        @SerialName("rgb")
-        val rGB: List<Int>
-    )
-
-    /**
-     * Information about the appearance of the color.
-     *
-     * @param brightness the brightness
-     * @param contrast the contrast
-     * @param hue the hue in HSL colorspace
-     * @param saturation the saturation in HSL colorspace
-     * @param lightness the lightness in HSL colorspace
-     * @param rGB a list containing precalculated RGB values
-     */
-    @Serializable
-    public data class Metal(
-        val brightness: Int,
-        val contrast: Double,
-        val hue: Int,
-        val saturation: Double,
-        val lightness: Double,
-        @SerialName("rgb")
-        val rGB: List<Int>
-    )
-
-    /**
-     * Information about the appearance of the color.
-     *
-     * @param brightness the brightness
-     * @param contrast the contrast
-     * @param hue the hue in HSL colorspace
-     * @param saturation the saturation in HSL colorspace
-     * @param lightness the lightness in HSL colorspace
-     * @param rGB a list containing precalculated RGB values
-     */
-    @Serializable
-    public data class Fur(
+    public data class Appearance(
         val brightness: Int,
         val contrast: Double,
         val hue: Int,

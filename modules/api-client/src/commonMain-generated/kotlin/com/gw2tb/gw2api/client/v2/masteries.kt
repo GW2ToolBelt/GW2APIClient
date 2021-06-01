@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2MasteriesIDs(configure: RequestConfigurator<List<In
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2MasteriesByID(id: Int, configure: RequestConfigurat
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2MasteriesByIDs(ids: Collection<Int>, configure: Req
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2MasteriesAll(configure: RequestConfigurator<List<GW
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/masteries]

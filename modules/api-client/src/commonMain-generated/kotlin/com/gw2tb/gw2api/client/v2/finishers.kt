@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/finishers]
@@ -52,14 +52,14 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2FinishersIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2FinishersIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/finishers",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2FinishersIDs(configure: RequestConfigurator<List<St
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/finishers]
@@ -84,9 +84,9 @@ public fun GW2APIClient.gw2v2FinishersIDs(configure: RequestConfigurator<List<St
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2FinishersByID(id: String, configure: RequestConfigurator<GW2v2Finisher>? = null): RequestBuilder<GW2v2Finisher> = request(
+public fun GW2APIClient.gw2v2FinishersByID(id: Int, configure: RequestConfigurator<GW2v2Finisher>? = null): RequestBuilder<GW2v2Finisher> = request(
     path = "/v2/finishers",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2020-11-17T00:30:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2FinishersByID(id: String, configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/finishers]
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2FinishersByID(id: String, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2FinishersByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Finisher>>? = null): RequestBuilder<List<GW2v2Finisher>> = request(
+public fun GW2APIClient.gw2v2FinishersByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Finisher>>? = null): RequestBuilder<List<GW2v2Finisher>> = request(
     path = "/v2/finishers",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2FinishersByIDs(ids: Collection<String>, configure: 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/finishers]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2FinishersAll(configure: RequestConfigurator<List<GW
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/finishers]

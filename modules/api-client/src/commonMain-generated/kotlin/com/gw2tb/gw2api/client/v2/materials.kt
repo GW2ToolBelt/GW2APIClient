@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2MaterialsIDs(configure: RequestConfigurator<List<In
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2MaterialsByID(id: Int, configure: RequestConfigurat
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2MaterialsByIDs(ids: Collection<Int>, configure: Req
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2MaterialsAll(configure: RequestConfigurator<List<GW
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]

@@ -39,11 +39,11 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Mini(
-    val id: String,
+    val id: Int,
     val name: String,
     val description: String? = null,
     val icon: String,
     val order: Int,
     @SerialName("item_id")
-    val itemID: String
+    val itemID: Int
 )

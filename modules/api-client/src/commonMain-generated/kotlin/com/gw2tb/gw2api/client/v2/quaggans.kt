@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2QuaggansIDs(configure: RequestConfigurator<List<Str
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2QuaggansByID(id: String, configure: RequestConfigur
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2QuaggansByIDs(ids: Collection<String>, configure: R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2QuaggansAll(configure: RequestConfigurator<List<GW2
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]

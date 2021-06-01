@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2BackstoryQuestionsIDs(configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2BackstoryQuestionsByID(id: Int, configure: RequestC
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2BackstoryQuestionsByIDs(ids: Collection<Int>, confi
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2BackstoryQuestionsAll(configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]

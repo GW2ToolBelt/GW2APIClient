@@ -34,7 +34,7 @@ import java.util.*
 const val t = "    "
 const val n = "\n"
 
-private val schemaVersion = V2SchemaVersion.V2_SCHEMA_2020_11_17T00_30_00_000Z
+internal val schemaVersion = V2SchemaVersion.V2_SCHEMA_2020_11_17T00_30_00_000Z
 
 @CacheableTask
 open class Generate : DefaultTask() {
@@ -48,11 +48,12 @@ open class Generate : DefaultTask() {
     @OutputDirectory
     lateinit var apiClientDirectory: File
 
+    @OptIn(ExperimentalStdlibApi::class)
     @TaskAction
     fun generate() {
         fun writeFile(directory: File, location: String, content: String) {
             File(directory, "kotlin/$location").also { it.parentFile.mkdirs() }.writeText(buildString {
-                if (licenseHeader.isNotEmpty()) append(licenseHeader.asComment)
+                if (licenseHeader.isNotEmpty()) appendLine(licenseHeader.asComment)
                 append(content)
             })
         }
@@ -75,255 +76,262 @@ open class Generate : DefaultTask() {
             |
             |    public companion object {
             |        /**
+            |         * The languages supported by V1 of the Guild Wars 2 API.
+            |         *
+            |         * @since  0.3.0
+            |         */
+            |        public val API_V1: Set<Language> = setOf(${APIVersion.API_V1.supportedLanguages.joinToString(separator = ", ") { it.name }})
+            |        /**
             |         * The languages supported by V2 of the Guild Wars 2 API.
             |         *
             |         * @since  0.1.0
             |         */
-            |        public val API_V2: Set<Language> = setOf(${API_V2_DEFINITION.supportedLanguages.joinToString(separator = ", ") { it.name }})
+            |        public val API_V2: Set<Language> = setOf(${APIVersion.API_V2.supportedLanguages.joinToString(separator = ", ") { it.name }})
             |    }
             |}
             """.trimMargin()
         )
 
-        with(API_V2_DEFINITION) {
-            val endpointsByRoute = endpoints.groupBy { endpoint ->
-                endpoint.route.replace(Regex("/:([A-Za-z])*"), "").replace("/", "")
+        fun SchemaType.firstNonNestedType(): SchemaType = when (this) {
+            is SchemaArray -> items.firstNonNestedType()
+            else -> this
+        }
+
+        fun SchemaType.firstPossiblyNestedClassOrNull(): SchemaClass? = when (this) {
+            is SchemaClass -> this
+            is SchemaArray -> items.firstPossiblyNestedClassOrNull()
+            else -> null
+        }
+
+        fun buildQueryFunction(
+            query: APIQuery.V2,
+            methodName: String,
+            methodParameters: String,
+            dataType: KotlinTypeInfo,
+            path: String,
+            pathParameterMappings: Map<String, String>,
+            queryParameterMappings: Map<String, String>,
+            requiredPermissions: String, // TODO
+            supportedLanguages: String,
+            isAllQuery: Boolean
+        ): String {
+            val schema = query[schemaVersion].data
+
+            return """
+                |${query.dokka(when (val type = query.queryDetails?.queryType) {
+                    null -> "Creates a request used to query the resource."
+                    QueryType.IDs -> "Creates a request used to query the list of available IDs."
+                    is QueryType.ByID -> "Creates a request used to query a single [item](${schema.firstNonNestedType().toKotlinType(titleCaseName = schema.firstPossiblyNestedClassOrNull()?.name?.let { "GW2v2$it" })}) by its ID."
+                    is QueryType.ByIDs -> if (type.supportsAll && isAllQuery)
+                            "Creates a request used to query all available [items](${schema.firstNonNestedType().toKotlinType(titleCaseName = schema.firstPossiblyNestedClassOrNull()?.name?.let { "GW2v2$it" })})."
+                        else
+                            "Creates a request used to query one or more [items](${schema.firstNonNestedType().toKotlinType(titleCaseName = schema.firstPossiblyNestedClassOrNull()?.name?.let { "GW2v2$it" })}) by their IDs."
+                    QueryType.ByPage -> "Creates a request used to query one or more [items](${schema.firstNonNestedType().toKotlinType(titleCaseName = schema.firstPossiblyNestedClassOrNull()?.name?.let { "GW2v2$it" })}) by page."
+                    else -> ""
+                })}
+                |@JvmOverloads
+                |public fun GW2APIClient.$methodName($methodParameters): RequestBuilder<$dataType> = request(
+                |    path = "$path",
+                |    parameters = mapOfNonNullValues(${queryParameterMappings.entries.joinToString(separator = ", ") { (k, v) -> "\"$k\" to $v" }}),
+                |    replaceInPath = mapOf(${pathParameterMappings.entries.joinToString(separator = ", ") { (k, v) -> "\"$k\" to $v" }}),
+                |    requiresAuthentication = ${query.security.isNotEmpty()},
+                |    requiredPermissions = emptySet(),
+                |    supportedLanguages = $supportedLanguages,
+                |    serializer = ${dataType.serializer},
+                |    configure = configure
+                |)
+                """.trimMargin()
+        }
+
+        APIVersion.API_V1.supportedQueries
+            .groupBy { it.route.replace(Regex("/:([A-Za-z])*"), "").let {
+                var res = it
+                while (it.contains("//")) res = it.replace("//", "/")
+                res
+            }}
+            .forEach { (endpoint, queries) ->
+                // TODO ...
             }
 
-            endpointsByRoute.forEach { (routeTitleCase, endpoints) ->
-                val functions = mutableListOf<String>()
-                val classes = mutableListOf<String>()
+        fun APIQuery.V2.toQueryFunctions() = sequence<String> {
+            fun QueryType.toMethodNameSuffix(): String = when (this) {
+                QueryType.IDs -> "IDs"
+                is QueryType.ByID -> "ByID"
+                is QueryType.ByIDs -> "ByIDs"
+                QueryType.ByPage -> "ByPage"
+            }
 
-                endpoints.forEach { endpoint ->
-                    /* The schema for the outmost record or conditional, or null */
-                    val (customRootDataClassSchema, rootDataClassNestingDepth) = let {
-                        var schema: SchemaType? = endpoint[schemaVersion].second
-                        var nestingDepth = 0
+            val schema = this@toQueryFunctions[schemaVersion].data
 
-                        loop@ while (true) {
-                            when (schema) {
-                                is SchemaArray -> {
-                                    nestingDepth++
-                                    schema = schema.items
-                                }
-                                is SchemaConditional, is SchemaRecord -> {
-                                    break@loop
-                                }
-                                else -> {
-                                    schema = null
-                                    break@loop
-                                }
-                            }
-                        }
+            val methodNamePathSegment = endpoint.replace(Regex("/:([A-Za-z])*"), "").replace("/", "")
+            val methodNameSuffix = when {
+                querySuffix != null -> querySuffix
+                queryDetails != null -> queryDetails!!.queryType.toMethodNameSuffix()
+                else -> ""
+            }
 
-                        schema to nestingDepth
-                    }
+            val dataType = schema.toKotlinType(titleCaseName = schema.firstPossiblyNestedClassOrNull()?.name?.let { "GW2v2$it" })
 
-                    val dataType = if (customRootDataClassSchema != null) {
-                        var type: KotlinTypeInfo = when (customRootDataClassSchema) {
-                            is SchemaRecord -> {
-                                val name = "GW2v2${customRootDataClassSchema.name}"
-                                classes.add(customRootDataClassSchema.createDataClass(name, endpoint = endpoint))
+            val queryType = queryDetails?.queryType
 
-                                KotlinTypeInfo(name)
-                            }
-                            is SchemaConditional -> {
-                                val name = "GW2v2${customRootDataClassSchema.name}"
-                                classes.add(customRootDataClassSchema.createSealedClass(name))
+            val pathParameterMappings = pathParameters.map { (_, param) ->
+                ":${param.key.toLowerCase(Locale.ENGLISH)}" to "${param.camelCaseName}${if (param.type is SchemaString) "" else ".toString()"}"
+            }.toMap()
 
-                                KotlinTypeInfo(name)
-                            }
-                            else -> error("")
-                        }
-
-                        for (i in 0 until rootDataClassNestingDepth) type = type.list
-
-                        type
-                    } else {
-                        endpoint[schemaVersion].second.toKotlinType()
-                    }
-
-                    val replaceInPath = endpoint.pathParameters.map {
-                        ":${it.key.toLowerCase(Locale.ENGLISH)}" to "${it.camelCaseName}${if (it.type is SchemaString) "" else ".toString()"}"
-                    }.toMap().entries.joinToString(separator = ", ") { (key, value) ->
-                        "\"$key\" to $value"
-                    }
-
-                    val pathParameters = endpoint.pathParameters.joinToString(separator = ", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" }.let { if (it.isNotEmpty()) "$it, " else "" }
-                    val queryParameters = endpoint.queryParameters.joinToString(separator = ", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}${if (it.isOptional) "? = null" else ""}" }.let { if (it.isNotEmpty()) "$it, " else "" }
-
-                    fun requestBody(
-                        parameters: Map<String, String> = emptyMap(),
-                        serializer: String,
-                        isIDsEndpoint: Boolean = false
-                    ) =
-                        """
-                        path = "/v2${endpoint.route.toLowerCase(Locale.ENGLISH)}",
-                        parameters = mapOfNonNullValues(${(parameters + ("v" to "\"${schemaVersion.identifier}\"") + endpoint.queryParameters.map { it.key to "${it.camelCaseName}${if (it.type == SchemaString) "" else ".toString()"}" }).entries.joinToString(separator = ", ") { (key, value) -> "\"$key\" to $value" }}),
-                        replaceInPath = mapOf($replaceInPath),
-                        requiresAuthentication = ${if (endpoint.security.isNotEmpty()) "true" else "false"},
-                        requiredPermissions = emptySet(),
-                        supportedLanguages = ${if (endpoint.isLocalized && !isIDsEndpoint) "Language.API_V2" else "emptySet()"},
-                        serializer = $serializer,
-                        configure = configure
-                        """.trimIndent().prependIndent(t)
-
-                    functions.addAll(endpoint.queryTypes.let { queryTypes -> sequence {
-                        if (queryTypes.isNotEmpty()) {
-                            val idType = when (endpoint.idType) {
-                                null -> null
-                                is SchemaInteger -> KotlinTypeInfo("Int")
-                                is SchemaString -> KotlinTypeInfo("String")
-                                else -> error("Unsupported ID type for endpoint: $endpoint")
-                            }
-
-                            if (idType != null) {
-                                yield(
-                                    """
-                                    |${endpoint.dokka(
-                                            queryType = "Creates a request used to query the list of available IDs."
-                                        )}@JvmOverloads
-                                    |public fun GW2APIClient.gw2v2${routeTitleCase}IDs(${pathParameters}${queryParameters}configure: RequestConfigurator<List<$idType>>? = null): RequestBuilder<List<$idType>> = request(
-                                    |${requestBody(
-                                            serializer = idType.list.serializer,
-                                            isIDsEndpoint = true
-                                        )}
-                                    |)
-                                    """.trimMargin()
-                                )
-                            } else {
-                                yield(
-                                    """
-                                    |${endpoint.dokka(
-                                            queryType = "Creates a request used to query all available [items]($dataType)."
-                                        )}@JvmOverloads
-                                    |public fun GW2APIClient.gw2v2${routeTitleCase}(${pathParameters}${queryParameters}configure: RequestConfigurator<List<$dataType>>? = null): RequestBuilder<List<$dataType>> = request(
-                                    |${requestBody(
-                                            serializer = dataType.list.serializer
-                                        )}
-                                    |)
-                                    """.trimMargin()
-                                )
-                            }
-
-                            queryTypes.forEach { queryType ->
-                                when (queryType) {
-                                    is QueryType.ByID -> yield(
-                                        """
-                                        |${endpoint.dokka(
-                                                queryType = "Creates a request used to query a single [item]($dataType) by its ID."
-                                            )}@JvmOverloads
-                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByID(${pathParameters}id: $idType, ${queryParameters}configure: RequestConfigurator<$dataType>? = null): RequestBuilder<$dataType> = request(
-                                        |${requestBody(
-                                                parameters = mapOf("id" to "id${if (idType!!.name == "String") "" else ".toString()"}"),
-                                                serializer = dataType.serializer
-                                            )}
-                                        |)
-                                        """.trimMargin()
-                                    )
-                                    is QueryType.ByIDs -> {
-                                        yield(
-                                            """
-                                            |${endpoint.dokka(
-                                                    queryType = "Creates a request used to query one or more [items]($dataType) by their IDs."
-                                                )}@JvmOverloads
-                                            |public fun GW2APIClient.gw2v2${routeTitleCase}ByIDs(${pathParameters}ids: Collection<$idType>, ${queryParameters}configure: RequestConfigurator<List<$dataType>>? = null): RequestBuilder<List<$dataType>> = request(
-                                            |${requestBody(
-                                                    parameters = mapOf("ids" to "ids.joinToString(\",\")"),
-                                                    serializer = dataType.list.serializer
-                                                )}
-                                            |)
-                                            """.trimMargin()
-                                        )
-
-                                        if (queryType.supportsAll) yield(
-                                            """
-                                            |${endpoint.dokka(
-                                                    queryType = "Creates a request used to query all available [items]($dataType)."
-                                                )}@JvmOverloads
-                                            |public fun GW2APIClient.gw2v2${routeTitleCase}All(${pathParameters}${queryParameters}configure: RequestConfigurator<List<$dataType>>? = null): RequestBuilder<List<$dataType>> = request(
-                                            |${requestBody(
-                                                    parameters = mapOf("ids" to "\"all\""),
-                                                    serializer = dataType.list.serializer
-                                                )}
-                                            |)
-                                            """.trimMargin()
-                                        )
-                                    }
-                                    is QueryType.ByPage -> yield(
-                                        """
-                                        |${endpoint.dokka(
-                                                queryType = "Creates a request used to query one or more [items]($dataType) by page."
-                                            )}@JvmOverloads
-                                        |public fun GW2APIClient.gw2v2${routeTitleCase}ByPage(${pathParameters}page: Int, pageSize: Int = 200, ${queryParameters}configure: RequestConfigurator<List<$dataType>>? = null): RequestBuilder<List<$dataType>> = request(
-                                        |${requestBody(
-                                                parameters = mapOf("page" to "page.toString()", "page_size" to "pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException(\"Illegal page size\") else it }.toString()"),
-                                                serializer = dataType.list.serializer
-                                            )}
-                                        |)
-                                        """.trimMargin()
-                                    )
-                                    else -> error("Unsupported QueryType: $queryType")
-                                }
-                            }
-                        } else {
-                            yield(
-                                """
-                                |${endpoint.dokka(
-                                        queryType = "Creates a request used to query the resource."
-                                    )}@JvmOverloads
-                                |public fun GW2APIClient.gw2v2$routeTitleCase(${pathParameters}${queryParameters}configure: RequestConfigurator<$dataType>? = null): RequestBuilder<$dataType> = request(
-                                |${requestBody(
-                                        serializer = dataType.serializer
-                                    )}
-                                |)
-                                """.trimMargin()
-                            )
-                        }
-                    }})
+            val commonParameterMappings = buildMap<String, String> {
+                queryParameters.forEach { (_, param) ->
+                    put(param.key, "${param.camelCaseName}${when (param.type) {
+                        is SchemaString -> ""
+                        is SchemaArray -> ".joinToString(\",\")"
+                        else -> ".toString()"
+                    }}")
                 }
 
-                val path = "${endpoints[0].route.replace(Regex("/:([A-Za-z])*"), "").toLowerCase(Locale.ENGLISH).substringBeforeLast("/")}/${routeTitleCase.firstToLowerCase()}.kt"
+                schemaVersion.identifier?.let { put("v", "\"$it\"") }
+            }
 
-                if (functions.isNotEmpty()) {
-                    writeFile(
-                        apiClientDirectory,
-                        "com/gw2tb/gw2api/client/v2/$path",
-                        """
-                        |@file:JvmName("GW2v2")
-                        |@file:JvmMultifileClass
-                        |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-                        |package com.gw2tb.gw2api.client.v2
-                        |
-                        |import com.gw2tb.gw2api.client.*
-                        |import com.gw2tb.gw2api.client.internal.*
-                        |import com.gw2tb.gw2api.types.v2.*
-                        |import kotlinx.serialization.builtins.*
-                        |import kotlin.jvm.*
-                        |
-                        |${functions.joinToString(separator = "$n$n")}
-                        """.trimMargin()
-                    )
-                }
+            yield(buildQueryFunction(
+                query = this@toQueryFunctions,
+                methodName = "gw2v2$methodNamePathSegment$methodNameSuffix",
+                methodParameters = buildString {
+                    append(pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" })
 
-                if (classes.isNotEmpty()) {
-                    writeFile(
-                        typesDirectory,
-                        "com/gw2tb/gw2api/types/v2/$path",
-                        """
-                        |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-                        |package com.gw2tb.gw2api.types.v2
-                        |
-                        |import kotlinx.serialization.*
-                        |import kotlinx.serialization.builtins.*
-                        |import kotlinx.serialization.json.*
-                        |
-                        |${classes.joinToString(separator = "$n$n")}
-                        """.trimMargin()
-                    )
-                }
+                    for ((_, param) in queryParameters) {
+                        if (isNotEmpty()) append(", ")
+
+                        when {
+                            queryType is QueryType.ByIDs -> append("${queryType.qpCamelCase}: Collection<${(param.type as SchemaArray).items.toKotlinType()}>")
+                            param.key == "page_size" -> append("pageSize: Int = 200")
+                            else -> append("${param.camelCaseName}: ${param.type.toKotlinType()}")
+                        }
+                    }
+
+                    if (isNotEmpty()) append(", ")
+                    append("configure: RequestConfigurator<$dataType>? = null")
+                },
+                dataType = dataType,
+                path = "/v2${route.toLowerCase(Locale.ENGLISH)}",
+                pathParameterMappings = pathParameterMappings,
+                queryParameterMappings = buildMap {
+                    putAll(commonParameterMappings)
+
+                    when (queryType) {
+                        is QueryType.ByID -> put(queryType.qpKey, "${queryType.qpCamelCase}${if (queryDetails!!.idType is SchemaString) "" else ".toString()"}")
+                        is QueryType.ByIDs -> put(queryType.qpKey, "${queryType.qpCamelCase}.joinToString(\",\")")
+                        QueryType.ByPage -> {
+                            put("page", "page.toString()")
+                            put("page_size", "pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException(\"Illegal page size\") else it }.toString()")
+                        }
+                        else -> {}
+                    }
+                },
+                requiredPermissions = security.joinToString(", ") { it.name.toLowerCase(Locale.ENGLISH) },
+                supportedLanguages = if (schema.isLocalized) "Language.API_V2" else "emptySet()",
+                isAllQuery = false
+            ))
+
+            if (queryType is QueryType.ByIDs && queryType.supportsAll) {
+                yield(buildQueryFunction(
+                    query = this@toQueryFunctions,
+                    methodName = "gw2v2${methodNamePathSegment}All",
+                    methodParameters = buildString {
+                        append(pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" })
+
+                        for ((_, param) in queryParameters) {
+                            if (param.key == "ids") continue
+
+                            if (isNotEmpty()) append(", ")
+                            append("${param.camelCaseName}: ${param.type.toKotlinType()}")
+                        }
+
+                        if (isNotEmpty()) append(", ")
+                        append("configure: RequestConfigurator<$dataType>? = null")
+                    },
+                    dataType = dataType,
+                    path = "/v2${route.toLowerCase(Locale.ENGLISH)}",
+                    pathParameterMappings = pathParameterMappings,
+                    queryParameterMappings = buildMap {
+                        putAll(commonParameterMappings)
+
+                        // Overwrite the existing value
+                        put("ids", "\"all\"")
+                    },
+                    requiredPermissions = security.joinToString(", ") { it.name.toLowerCase(Locale.ENGLISH) },
+                    supportedLanguages = if (schema.isLocalized) "Language.API_V2" else "emptySet()",
+                    isAllQuery = true
+                ))
             }
         }
+
+        APIVersion.API_V2.supportedQueries
+            .filter { query -> (query.since?.let { it <= schemaVersion } ?: true ) && (query.until?.let { schemaVersion < it } ?: true) }
+            .groupBy { it.route.replace(Regex("/:([A-Za-z])*"), "").let {
+                var res = it
+                while (it.contains("//")) res = it.replace("//", "/")
+                res
+            }}
+            .forEach { (endpoint, queries) ->
+                val functions = queries.flatMap(APIQuery.V2::toQueryFunctions)
+                if (functions.isEmpty()) return@forEach
+
+                // TODO update fileName in separate commit for better diff
+//                val fileName = endpoint.substringBeforeLast("/").replace("/", "").toLowerCase(Locale.ENGLISH) +
+//                    endpoint.substringAfterLast("/").firstToLowerCase()
+
+                writeFile(
+                    apiClientDirectory,
+                    "com/gw2tb/gw2api/client/v2/${endpoint.substringBeforeLast("/").toLowerCase(Locale.ENGLISH)}/${endpoint.replace("/", "").firstToLowerCase()}.kt",
+                    """
+                    |@file:JvmName("GW2v2")
+                    |@file:JvmMultifileClass
+                    |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+                    |package com.gw2tb.gw2api.client.v2
+                    |
+                    |import com.gw2tb.gw2api.client.*
+                    |import com.gw2tb.gw2api.client.internal.*
+                    |import com.gw2tb.gw2api.types.v2.*
+                    |import kotlinx.serialization.builtins.*
+                    |import kotlin.jvm.*
+                    |
+                    |${functions.joinToString(separator = "$n$n")}
+                    """.trimMargin()
+                )
+            }
+
+        APIVersion.API_V2.supportedTypes
+            .entries.groupBy { (location, _) -> location.endpoint!!.replace(Regex("/:([A-Za-z])*"), "").let { // TODO support null endpoint
+                var res = it
+                while (it.contains("//")) res = it.replace("//", "/")
+                res
+            }}
+            .forEach { (endpoint, entries) ->
+                fun String.nestedTypesToString(): String =
+                    entries.filter { (location, _) -> location.nest == this }
+                        .flatMap { it.value }
+                        .joinToString(separator = "$n$n") { it.createClass(nest = this, nestedClassesFun = String::nestedTypesToString) }
+
+                println(entries)
+                val types = entries.filter { (location, _) -> location.nest.isNullOrEmpty() }.flatMap { it.value }
+
+                val content = types.filter { it.getOrNull(schemaVersion) != null }
+                    .joinToString(separator = "$n$n") { it.createClass("GW2v2", nestedClassesFun = String::nestedTypesToString) }
+                if (content.isEmpty()) return@forEach
+
+                writeFile(
+                    typesDirectory,
+                    "com/gw2tb/gw2api/types/v2/${endpoint.substringBeforeLast("/").toLowerCase(Locale.ENGLISH)}/${endpoint.replace("/", "").firstToLowerCase()}.kt", // TODO support null endpoint
+                    """
+                    |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+                    |package com.gw2tb.gw2api.types.v2
+                    |
+                    |import kotlinx.serialization.*
+                    |import kotlinx.serialization.builtins.*
+                    |import kotlinx.serialization.json.*
+                    |
+                    |$content
+                    """.trimMargin()
+                )
+            }
 
         writeFile(
             typesDirectory,
@@ -333,34 +341,56 @@ open class Generate : DefaultTask() {
             |
             |import kotlinx.serialization.*
             |
-            |${MUMBLELINK_IDENTITY_DEFINITION.createDataClass("MumbleLinkIdentity")}
+            |${MUMBLELINK_IDENTITY_DEFINITION.createDataClass(nestedClassesFun = { "" })}
             """.trimMargin()
         )
     }
 
 }
 
-private fun Map<String, SchemaRecord.Property>.ctor(sharedProperties: Map<String, SchemaRecord.Property>, dataClasses: MutableMap<String, SchemaType>): String {
+private fun APIType.V2.createClass(
+    namePrefix: String? = null,
+    nest: String? = null,
+    nestedClassesFun: (String) -> String,
+) = when (val schema = this[schemaVersion].data) {
+    is SchemaConditional -> schema.createSealedClass(namePrefix, nest = nest, nestedClassesFun = nestedClassesFun)
+    is SchemaRecord -> schema.createDataClass(
+        namePrefix = namePrefix,
+        nest = nest,
+        nestedClassesFun = nestedClassesFun
+    )
+    else -> error("Unsupported SchemaType: $schema")
+}
+
+private fun Map<String, SchemaRecord.Property>.ctor(sharedProperties: Map<String, SchemaRecord.Property>): String {
     return sequence {
         yieldAll(sharedProperties.values.map { property ->
             sequence {
                 if (property.isDeprecated) yield("""@Deprecated(message = "")""")
                 if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
-                yield("override val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                yield("override val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
             }.joinToString(separator = n)
         })
         yieldAll(values.map { property ->
             sequence {
                 if (property.isDeprecated) yield("""@Deprecated(message = "")""")
                 if (property.serialName != property.camelCaseName) yield("""@SerialName("${property.serialName}")""")
-                yield("val ${property.camelCaseName}: ${property.type.toKotlinType(property.propertyName, dataClasses)}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                yield("val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
             }.joinToString(separator = n)
         })
     }.map { it.prependIndentNonEmpty(t) }.joinToString(separator = ",$n", prefix = "($n", postfix = "$n)")
 }
 
-private fun SchemaConditional.createSealedClass(className: String): String {
-    val dataClasses = mutableMapOf<String, SchemaType>()
+private fun SchemaConditional.createSealedClass(
+    namePrefix: String?,
+    nest: String?,
+    nestedClassesFun: (String) -> String
+): String {
+    val className = if (namePrefix != null) "$namePrefix$name" else toKotlinType().name
+    val currentNest = buildString {
+        if (nest != null) append("$nest/")
+        append(name)
+    }
 
     return buildString {
         append(
@@ -369,7 +399,7 @@ private fun SchemaConditional.createSealedClass(className: String): String {
             |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
             |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
             |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
-            |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (name, _) -> """"$name" -> $className.$name.serializer()""" }}
+            |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (key, it) -> """"$key" -> $className.${it.type.toKotlinType().serializer}""" }}
             |            else -> TODO()
             |        }
             |    }
@@ -379,46 +409,52 @@ private fun SchemaConditional.createSealedClass(className: String): String {
             """.trimMargin()
         )
 
-        append(dokka())
-        append("@Serializable(with = __JsonParametricSerializer_$className::class)$n")
+        appendLine(dokka())
+        appendLine("@Serializable(with = __JsonParametricSerializer_$className::class)")
         append("public sealed class $className")
 
         val body = sequence {
             if (sharedProperties.isNotEmpty()) {
                 yield(sharedProperties.values.joinToString(separator = n) {
-                    "public abstract val ${it.camelCaseName}: ${it.type.toKotlinType(it.propertyName, dataClasses)}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
+                    "public abstract val ${it.camelCaseName}: ${it.type.toKotlinType()}${if (it.optionality !== Optionality.REQUIRED) "?" else ""}"
                 })
             }
 
             if (interpretations.isNotEmpty()) {
-                yield(interpretations.map { (name, schema) ->
-                    (schema.type as SchemaRecord).createDataClass(name, superClass = className, isInterpretation = true, sharedProperties = sharedProperties)
+                yield(interpretations.map { (_, schema) ->
+                    (schema.type as SchemaRecord).createDataClass(
+                        nest = currentNest,
+                        superClass = className,
+                        isInterpretation = true,
+                        sharedProperties = sharedProperties,
+                        nestedClassesFun = nestedClassesFun
+                    )
                 }.joinToString(separator = "$n$n"))
             }
 
-            if (dataClasses.isNotEmpty()) {
-                yield(dataClasses.map { (name, schema) -> when (schema) {
-                    is SchemaConditional -> schema.createSealedClass(name)
-                    is SchemaRecord -> schema.createDataClass(name)
-                    else -> error("Unsupported SchemaType: $schema")
-                }}.joinToString(separator = "$n$n"))
-            }
+            val nestedClasses = nestedClassesFun(currentNest)
+            if (nestedClasses.isNotEmpty()) yield(nestedClasses)
         }.joinToString(separator = "$n$n")
-
 
         if (body.isNotEmpty()) append(" {$n$n${body.prependIndentNonEmpty(t)}$n$n}")
     }
 }
 
 private fun SchemaRecord.createDataClass(
-    className: String,
+    namePrefix: String? = null,
+    nest: String? = null,
     serialName: String? = null,
     superClass: String? = null,
     isInterpretation: Boolean = false,
     sharedProperties: Map<String, SchemaRecord.Property> = emptyMap(),
-    endpoint: Endpoint? = null
+    nestedClassesFun: (String) -> String,
+    query: APIQuery? = null,
 ): String {
-    val dataClasses = mutableMapOf<String, SchemaType>()
+    val className = if (namePrefix != null) "$namePrefix$name" else toKotlinType().name
+    val currentNest = buildString {
+        if (nest != null) append("$nest/")
+        append(name)
+    }
 
     return buildString {
         val requiresCustomPolymorphicSerializer = properties.values.any { it.type is SchemaConditional && (it.type as SchemaConditional).disambiguationBySideProperty } || isInterpretation
@@ -447,17 +483,13 @@ private fun SchemaRecord.createDataClass(
             )
         }
 
-        append(dokka())
-        append("${if (requiresCustomPolymorphicSerializer) "@Serializable(with = __${className}Serializer::class)" else "@Serializable"}$n")
-        if (serialName != null) append("@SerialName($serialName)$n")
-        append("public data class $className${properties.ctor(sharedProperties, dataClasses)}")
+        appendLine(dokka())
+        appendLine(if (requiresCustomPolymorphicSerializer) "@Serializable(with = __${className}Serializer::class)" else "@Serializable")
+        if (serialName != null) appendLine("@SerialName($serialName)")
+        append("public data class $className${properties.ctor(sharedProperties)}")
         if (superClass != null) append(" : $superClass()")
 
-        val body = dataClasses.map { (name, schema) -> when (schema) {
-            is SchemaConditional -> schema.createSealedClass(name)
-            is SchemaRecord -> schema.createDataClass(name)
-            else -> error("Unsupported SchemaType: $schema")
-        }}.joinToString(separator = "$n$n")
+        val body = nestedClassesFun(currentNest)
         if (body.isNotEmpty()) append(" {$n$n${body.prependIndentNonEmpty(t)}$n$n}")
     }
 }

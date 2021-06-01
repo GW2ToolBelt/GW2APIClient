@@ -28,14 +28,13 @@ import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 
 /**
- * Information about a finisher.
+ * Information about an image of a quaggan.
  *
  * @param id the quaggans's ID
- * @param URL the URL to the quaggan image
+ * @param url the URL to the quaggan image
  */
 @Serializable
 public data class GW2v2Quaggan(
     val id: String,
-    @SerialName("url")
-    val URL: String
+    val url: String
 )

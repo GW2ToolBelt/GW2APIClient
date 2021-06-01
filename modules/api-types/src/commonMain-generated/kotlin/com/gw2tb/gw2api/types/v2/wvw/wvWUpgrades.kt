@@ -36,7 +36,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvWUpgrade(
     val id: Int,
-    val tiers: List<Tiers>
+    val tiers: List<Tier>
 ) {
 
     /**
@@ -47,11 +47,11 @@ public data class GW2v2WvWUpgrade(
      * @param upgrades the upgrades available at the tier
      */
     @Serializable
-    public data class Tiers(
+    public data class Tier(
         val name: String,
         @SerialName("yaks_required")
         val yaksRequired: Int,
-        val upgrades: List<Upgrades>
+        val upgrades: List<Upgrade>
     ) {
 
         /**
@@ -62,7 +62,7 @@ public data class GW2v2WvWUpgrade(
          * @param icon the icon link
          */
         @Serializable
-        public data class Upgrades(
+        public data class Upgrade(
             val name: String,
             val description: String,
             val icon: String

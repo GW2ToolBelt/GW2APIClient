@@ -48,7 +48,7 @@ public data class GW2v2CharactersInventorySlot(
     public data class Bag(
         val id: Int,
         val size: Int,
-        val inventory: List<Inventory?>
+        val inventory: List<Item?>
     ) {
 
         /**
@@ -66,7 +66,7 @@ public data class GW2v2CharactersInventorySlot(
          * @param boundTo name of the character the item is bound to
          */
         @Serializable
-        public data class Inventory(
+        public data class Item(
             val id: Int,
             val count: Int,
             val charges: Int? = null,

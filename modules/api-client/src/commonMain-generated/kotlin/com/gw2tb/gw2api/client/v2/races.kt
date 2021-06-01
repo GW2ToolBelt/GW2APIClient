@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2RacesIDs(configure: RequestConfigurator<List<String
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2RacesByID(id: String, configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2RacesByIDs(ids: Collection<String>, configure: Requ
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2RacesAll(configure: RequestConfigurator<List<GW2v2R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]

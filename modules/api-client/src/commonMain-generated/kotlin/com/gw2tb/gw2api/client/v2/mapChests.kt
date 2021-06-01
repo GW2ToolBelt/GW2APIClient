@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2MapChestsIDs(configure: RequestConfigurator<List<St
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2MapChestsByID(id: String, configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2MapChestsByIDs(ids: Collection<String>, configure: 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2MapChestsAll(configure: RequestConfigurator<List<GW
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mapchests]

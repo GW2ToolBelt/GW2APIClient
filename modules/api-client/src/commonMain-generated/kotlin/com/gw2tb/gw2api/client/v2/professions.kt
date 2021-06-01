@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2ProfessionsIDs(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2ProfessionsByID(id: String, configure: RequestConfi
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2ProfessionsByIDs(ids: Collection<String>, configure
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2ProfessionsAll(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]

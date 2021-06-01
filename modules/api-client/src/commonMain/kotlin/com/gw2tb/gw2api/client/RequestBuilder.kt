@@ -34,7 +34,6 @@ import kotlin.time.*
 /**
  * A builder for a [Request].
  *
- * @param requiresAuthentication    whether or not the endpoint requires authentication
  * @param requiredPermissions       the permissions required by the endpoint
  * @param supportedLanguages        the languages supported by the endpoint
  * @param cacheAccessor             the cache implementation to use
@@ -50,7 +49,6 @@ public class RequestBuilder<T> internal constructor(
     private val path: String,
     private val parameters: Map<String, String>,
     private val replaceInPath: Map<String, String>,
-    public val requiresAuthentication: Boolean,
     public val requiredPermissions: Collection<String>,
     public val supportedLanguages: Set<Language>,
     private val serializer: KSerializer<T>,
@@ -131,7 +129,7 @@ public class RequestBuilder<T> internal constructor(
                  * (*) The "/v2/tokeninfo" requires authentication and would qualify for client-side permission checks. In
                  *     order to avoid running into recursive calls it is therefore explicitly handled separately.
                  */
-                if (checkPermissions && requiresAuthentication && path != "/v2/tokeninfo") {
+                if (checkPermissions && requiredPermissions.isNotEmpty() && path != "/v2/tokeninfo") {
                     val perm = client.gw2v2TokenInfo {
                         apiKey = this@RequestBuilder.apiKey
                     }.execute(scope).get()

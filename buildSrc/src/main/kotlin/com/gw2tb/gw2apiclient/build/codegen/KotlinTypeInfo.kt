@@ -23,8 +23,8 @@ package com.gw2tb.gw2apiclient.build.codegen
 
 import com.gw2tb.apigen.schema.*
 
-private val String.listSerializer get() = "ListSerializer($this.serializer())"
 private val KotlinTypeInfo.listSerializer get() = "ListSerializer($this.serializer())"
+private val KotlinTypeInfo.nullableListSerializer get() = "ListSerializer($this.serializer().nullable)"
 
 internal fun SchemaPrimitive.toKotlinType(): KotlinTypeInfo = when (this) {
     SchemaBoolean -> "Boolean"
@@ -37,22 +37,23 @@ internal data class KotlinTypeInfo(
     val name: String,
     val serializer: String = "$name.serializer()"
 ) {
-    val list by lazy { KotlinTypeInfo("List<$name>", listSerializer) }
     override fun toString() = name
 }
 
-internal fun SchemaType.toKotlinType(titleCaseName: String? = null, dataClasses: MutableMap<String, SchemaType>? = null): KotlinTypeInfo = when (this) {
+internal fun SchemaType.toKotlinType(titleCaseName: String? = null): KotlinTypeInfo = when (this) {
     is SchemaPrimitive -> toKotlinType()
     is SchemaArray -> {
-        val itemType = items.toKotlinType(titleCaseName, dataClasses)
-        KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", itemType.listSerializer)
+        val itemType = items.toKotlinType(titleCaseName)
+        KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", if (nullableItems) itemType.nullableListSerializer else itemType.listSerializer)
     }
     is SchemaMap -> {
         val keyType = keys.toKotlinType()
-        val valueType = values.toKotlinType(titleCaseName, dataClasses)
+        val valueType = values.toKotlinType(titleCaseName)
         KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>")
     }
-    is SchemaConditional -> KotlinTypeInfo(titleCaseName!!).also { if (dataClasses != null) dataClasses[it.name] = this }
-    is SchemaRecord -> KotlinTypeInfo(name ?: titleCaseName!!).also { if (dataClasses != null) dataClasses[it.name] = this }
+    is SchemaClass -> KotlinTypeInfo(titleCaseName ?: when (name) {
+        "Map" -> "GameMap"
+        else -> name
+    })
     else -> error("Unsupported SchemaType: $this")
 }

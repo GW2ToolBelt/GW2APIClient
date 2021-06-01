@@ -32,8 +32,8 @@ import kotlinx.serialization.json.*
  *
  * @param id the achievement's ID
  * @param icon the URL for the achievement's icon
- * @param name the achievement's name
- * @param description the achievement's description
+ * @param name the achievement's localized name
+ * @param description the achievement's localized description
  * @param requirement the achievement's requirement as listed in-game
  * @param lockedText the achievement's in-game description prior to unlocking it
  * @param type the achievement's type
@@ -57,7 +57,7 @@ public data class GW2v2Achievement(
     val flags: List<String>,
     val tiers: List<Tier>,
     val prerequisites: List<Int>? = null,
-    val rewards: List<Rewards>? = null,
+    val rewards: List<Reward>? = null,
     val bits: List<Bit>? = null,
     @SerialName("point_cap")
     val pointCap: Int? = null
@@ -76,13 +76,13 @@ public data class GW2v2Achievement(
     )
 
     @Suppress("ClassName")
-    private object __JsonParametricSerializer_Rewards : JsonContentPolymorphicSerializer<Rewards>(Rewards::class) {
-        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Rewards> {
+    private object __JsonParametricSerializer_Reward : JsonContentPolymorphicSerializer<Reward>(Reward::class) {
+        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Reward> {
             return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
-                "Coins" -> Rewards.Coins.serializer()
-                "Items" -> Rewards.Items.serializer()
-                "Mastery" -> Rewards.Mastery.serializer()
-                "Title" -> Rewards.Title.serializer()
+                "Coins" -> Reward.Coins.serializer()
+                "Items" -> Reward.Items.serializer()
+                "Mastery" -> Reward.Mastery.serializer()
+                "Title" -> Reward.Title.serializer()
                 else -> TODO()
             }
         }
@@ -93,8 +93,8 @@ public data class GW2v2Achievement(
      *
      * @property type the type of reward
      */
-    @Serializable(with = __JsonParametricSerializer_Rewards::class)
-    public sealed class Rewards {
+    @Serializable(with = __JsonParametricSerializer_Reward::class)
+    public sealed class Reward {
 
         public abstract val type: String
 
@@ -117,7 +117,7 @@ public data class GW2v2Achievement(
         public data class Coins(
             override val type: String,
             val count: Int
-        ) : Rewards()
+        ) : Reward()
 
         @Suppress("ClassName")
         @Serializer(forClass = Items::class)
@@ -140,7 +140,7 @@ public data class GW2v2Achievement(
             override val type: String,
             val id: Int,
             val count: Int
-        ) : Rewards()
+        ) : Reward()
 
         @Suppress("ClassName")
         @Serializer(forClass = Mastery::class)
@@ -163,7 +163,7 @@ public data class GW2v2Achievement(
             override val type: String,
             val id: Int,
             val region: String
-        ) : Rewards()
+        ) : Reward()
 
         @Suppress("ClassName")
         @Serializer(forClass = Title::class)
@@ -184,7 +184,7 @@ public data class GW2v2Achievement(
         public data class Title(
             override val type: String,
             val id: Int
-        ) : Rewards()
+        ) : Reward()
 
     }
 

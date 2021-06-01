@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dungeons]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2DungeonsIDs(configure: RequestConfigurator<List<Str
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dungeons]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2DungeonsByID(id: String, configure: RequestConfigur
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dungeons]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2DungeonsByIDs(ids: Collection<String>, configure: R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dungeons]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2DungeonsAll(configure: RequestConfigurator<List<GW2
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/dungeons]

@@ -39,7 +39,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Finisher(
-    val id: String,
+    val id: Int,
     val name: String,
     val icon: String,
     val order: Int,

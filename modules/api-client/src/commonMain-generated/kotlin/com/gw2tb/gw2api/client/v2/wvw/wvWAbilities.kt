@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/abilities]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2WvWAbilitiesIDs(configure: RequestConfigurator<List
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/abilities]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2WvWAbilitiesByID(id: Int, configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/abilities]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2WvWAbilitiesByIDs(ids: Collection<Int>, configure: 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/abilities]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2WvWAbilitiesAll(configure: RequestConfigurator<List
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/abilities]

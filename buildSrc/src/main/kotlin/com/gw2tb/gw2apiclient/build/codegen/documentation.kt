@@ -21,27 +21,20 @@
  */
 package com.gw2tb.gw2apiclient.build.codegen
 
+import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
 import com.gw2tb.apigen.schema.*
 import java.util.*
 import kotlin.time.*
 
 private fun Duration.normalizeCacheTime(): String {
-    /*
-     * Duration#isInfinite is not available on API level 1.3 for some reason.
-     * TODO: switch to Duration#isInfinite this after Gradle >7.
-     */
-    val isInfinite = inMilliseconds.isInfinite()
-    require(isInfinite || (inSeconds % 60.0) == 0.0)
-
     return when {
-        isInfinite -> "INFINITE"
+        isInfinite() -> "INFINITE"
+        inMinutes % 60.0 == 0.0 -> "${inHours.toInt()}h"
+        inSeconds % 60.0 == 0.0 -> "${inMinutes.toInt()}m"
         else -> {
-            if ((inMinutes % 60.0) == 0.0 && (inMinutes / 60.0) > 1.0) {
-                "${inHours.toInt()}h"
-            } else {
-                "${inMinutes.toInt()}m"
-            }
+            require(inSeconds >= 1.0)
+            "${inSeconds.toInt()}s"
         }
     }
 }
@@ -56,8 +49,8 @@ private fun comment(action: StringBuilder.() -> Unit, isDocComment: Boolean = fa
 
         when (it.size) {
             0 -> ""
-            1 -> "$start ${it[0]} */$n"
-            else -> StringBuilder().apply(action).toString().lines().joinToString(separator = "$n *", prefix = "$start$n *", postfix = "$n */$n") { line ->
+            1 -> "$start ${it[0]} */"
+            else -> StringBuilder().apply(action).toString().lines().joinToString(separator = "$n *", prefix = "$start$n *", postfix = "$n */") { line ->
                 if (line.isNotBlank()) " $line" else ""
             }
         }
@@ -66,14 +59,19 @@ private fun comment(action: StringBuilder.() -> Unit, isDocComment: Boolean = fa
 @Suppress("NOTHING_TO_INLINE")
 private inline fun docComment(noinline action: StringBuilder.() -> Unit): String = comment(action, isDocComment = true)
 
-internal fun Endpoint.dokka(queryType: String): String = docComment {
+internal fun APIQuery.V2.dokka(queryType: String): String = docComment {
+    val siblings = APIVersion.API_V2.supportedQueries.filter { it.endpoint == endpoint }
+    val isPaginated = siblings.any { it.queryDetails?.queryType is QueryType.ByPage }
+    val isBulkSupported = siblings.any { it.queryDetails?.queryType?.let { queryType -> queryType is QueryType.ByIDs } ?: false }
+    val isLocalized = siblings.any { it[schemaVersion].data.isLocalized }
+
     append("$queryType$n$n")
     append("$summary$n$n")
     append("""
                 |```
                 |Authenticated:       ${if (security.isNotEmpty()) "Yes (${security.joinToString()})" else "No"}
-                |Paginated:           ${if (queryTypes.any { it is QueryType.ByPage }) "Yes" else "No"}
-                |Bulk expanded:       ${if (queryTypes.any { it is QueryType.ByIDs }) "Yes" else "No"}
+                |Paginated:           ${if (isPaginated) "Yes" else "No"}
+                |Bulk expanded:       ${if (isBulkSupported) "Yes" else "No"}
                 |Localized:           ${if (isLocalized) "Yes" else "No"}
                 |Cache time:          ${cache?.normalizeCacheTime() ?: "N/A"}
                 |```

@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
@@ -52,14 +52,14 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RecipesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2RecipesIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/recipes",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2RecipesIDs(configure: RequestConfigurator<List<Stri
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
@@ -84,9 +84,9 @@ public fun GW2APIClient.gw2v2RecipesIDs(configure: RequestConfigurator<List<Stri
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RecipesByID(id: String, configure: RequestConfigurator<GW2v2Recipe>? = null): RequestBuilder<GW2v2Recipe> = request(
+public fun GW2APIClient.gw2v2RecipesByID(id: Int, configure: RequestConfigurator<GW2v2Recipe>? = null): RequestBuilder<GW2v2Recipe> = request(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2020-11-17T00:30:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2RecipesByID(id: String, configure: RequestConfigura
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2RecipesByID(id: String, configure: RequestConfigura
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2RecipesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Recipe>>? = null): RequestBuilder<List<GW2v2Recipe>> = request(
+public fun GW2APIClient.gw2v2RecipesByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Recipe>>? = null): RequestBuilder<List<GW2v2Recipe>> = request(
     path = "/v2/recipes",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2RecipesByIDs(ids: Collection<String>, configure: Re
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]

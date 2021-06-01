@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2MountsSkinsIDs(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2MountsSkinsByID(id: Int, configure: RequestConfigur
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2MountsSkinsByIDs(ids: Collection<Int>, configure: R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2MountsSkinsAll(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]

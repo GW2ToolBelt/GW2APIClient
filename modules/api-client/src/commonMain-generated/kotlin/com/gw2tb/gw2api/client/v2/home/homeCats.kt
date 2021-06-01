@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2HomeCatsIDs(configure: RequestConfigurator<List<Int
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2HomeCatsByID(id: Int, configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2HomeCatsByIDs(ids: Collection<Int>, configure: Requ
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2HomeCatsAll(configure: RequestConfigurator<List<GW2
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]

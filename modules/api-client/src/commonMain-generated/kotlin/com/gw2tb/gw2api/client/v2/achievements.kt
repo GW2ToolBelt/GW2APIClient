@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2AchievementsIDs(configure: RequestConfigurator<List
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2AchievementsByID(id: Int, configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2AchievementsByIDs(ids: Collection<Int>, configure: 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements]

@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2Emblem(configure: RequestConfigurator<List<String>>
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emblem/:type]
@@ -84,14 +84,14 @@ public fun GW2APIClient.gw2v2Emblem(configure: RequestConfigurator<List<String>>
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/emblem/:type",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigura
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emblem/:type]
@@ -116,9 +116,9 @@ public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigura
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemByID(type: String, id: String, configure: RequestConfigurator<GW2v2EmblemPart>? = null): RequestBuilder<GW2v2EmblemPart> = request(
+public fun GW2APIClient.gw2v2EmblemByID(type: String, id: Int, configure: RequestConfigurator<GW2v2EmblemPart>? = null): RequestBuilder<GW2v2EmblemPart> = request(
     path = "/v2/emblem/:type",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2020-11-17T00:30:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2EmblemByID(type: String, id: String, configure: Req
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emblem/:type]
@@ -148,7 +148,7 @@ public fun GW2APIClient.gw2v2EmblemByID(type: String, id: String, configure: Req
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: Collection<String>, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
+public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
     path = "/v2/emblem/:type",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(":type" to type),
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: Collection<String>, 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emblem/:type]
@@ -201,7 +201,7 @@ public fun GW2APIClient.gw2v2EmblemAll(type: String, configure: RequestConfigura
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/emblem/:type]

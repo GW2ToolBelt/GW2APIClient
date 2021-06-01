@@ -86,7 +86,7 @@ public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<Lis
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurator<GW2v2CommerceExchange>? = null): RequestBuilder<GW2v2CommerceExchange> = request(
     path = "/v2/commerce/exchange/:type",
-    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z", "Quantity" to quantity.toString()),
+    parameters = mapOfNonNullValues("quantity" to quantity.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),

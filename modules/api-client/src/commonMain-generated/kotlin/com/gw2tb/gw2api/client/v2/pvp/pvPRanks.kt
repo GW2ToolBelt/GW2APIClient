@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2PvPRanksIDs(configure: RequestConfigurator<List<Int
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2PvPRanksByID(id: Int, configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2PvPRanksByIDs(ids: Collection<Int>, configure: Requ
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2PvPRanksAll(configure: RequestConfigurator<List<GW2
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]

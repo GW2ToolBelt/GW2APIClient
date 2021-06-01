@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesIDs(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesByID(id: Int, configure: RequestConfigur
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesByIDs(ids: Collection<Int>, configure: R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2WvWUpgradesAll(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]

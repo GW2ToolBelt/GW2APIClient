@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
@@ -52,14 +52,14 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MinisIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2MinisIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/minis",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2MinisIDs(configure: RequestConfigurator<List<String
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
@@ -84,9 +84,9 @@ public fun GW2APIClient.gw2v2MinisIDs(configure: RequestConfigurator<List<String
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MinisByID(id: String, configure: RequestConfigurator<GW2v2Mini>? = null): RequestBuilder<GW2v2Mini> = request(
+public fun GW2APIClient.gw2v2MinisByID(id: Int, configure: RequestConfigurator<GW2v2Mini>? = null): RequestBuilder<GW2v2Mini> = request(
     path = "/v2/minis",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2020-11-17T00:30:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = false,
     requiredPermissions = emptySet(),
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2MinisByID(id: String, configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
@@ -116,7 +116,7 @@ public fun GW2APIClient.gw2v2MinisByID(id: String, configure: RequestConfigurato
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2MinisByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Mini>>? = null): RequestBuilder<List<GW2v2Mini>> = request(
+public fun GW2APIClient.gw2v2MinisByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Mini>>? = null): RequestBuilder<List<GW2v2Mini>> = request(
     path = "/v2/minis",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2MinisByIDs(ids: Collection<String>, configure: Requ
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2MinisAll(configure: RequestConfigurator<List<GW2v2M
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]

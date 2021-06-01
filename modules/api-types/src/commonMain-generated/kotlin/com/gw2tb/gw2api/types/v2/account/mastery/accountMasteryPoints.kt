@@ -35,7 +35,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountMasteryPoint(
-    val totals: List<Totals>,
+    val totals: List<Total>,
     val unlocked: List<Int>
 ) {
 
@@ -47,7 +47,7 @@ public data class GW2v2AccountMasteryPoint(
      * @param earned the amount of mastery points of this region earned for the account
      */
     @Serializable
-    public data class Totals(
+    public data class Total(
         val region: String,
         val spent: Int,
         val earned: Int

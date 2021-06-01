@@ -52,13 +52,13 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountBank(configure: RequestConfigurator<List<GW2v2AccountBankSlot>>? = null): RequestBuilder<List<GW2v2AccountBankSlot>> = request(
+public fun GW2APIClient.gw2v2AccountBank(configure: RequestConfigurator<List<GW2v2AccountBankSlot?>>? = null): RequestBuilder<List<GW2v2AccountBankSlot?>> = request(
     path = "/v2/account/bank",
     parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountBankSlot.serializer()),
+    serializer = ListSerializer(GW2v2AccountBankSlot.serializer().nullable),
     configure = configure
 )

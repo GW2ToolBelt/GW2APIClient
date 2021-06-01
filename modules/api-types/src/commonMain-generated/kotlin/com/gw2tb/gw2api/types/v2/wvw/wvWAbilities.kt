@@ -31,9 +31,9 @@ import kotlinx.serialization.json.*
  * Information about an ability in the World versus World game mode.
  *
  * @param id the ID of the ability
- * @param name the ability's name
- * @param description the ability's description
- * @param icon a render service URL for the mount ability's icon
+ * @param name the ability's localized name
+ * @param description the ability's localized description
+ * @param icon a render service URL for the ability's icon
  * @param ranks the ability's ranks
  */
 @Serializable
@@ -49,7 +49,7 @@ public data class GW2v2WvWAbility(
      * Information about an ability's rank.
      *
      * @param cost the WvW experience points required to unlock the rank
-     * @param effect the rank's effect
+     * @param effect the rank's localized effect
      */
     @Serializable
     public data class Rank(

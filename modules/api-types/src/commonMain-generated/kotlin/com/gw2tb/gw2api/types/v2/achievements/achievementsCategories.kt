@@ -32,8 +32,8 @@ import kotlinx.serialization.json.*
  *
  * @param id the achievement category's ID
  * @param icon the URL for the achievement category's icon
- * @param name the achievement category's name
- * @param description the achievement category's description
+ * @param name the achievement category's localized name
+ * @param description the achievement category's localized description
  * @param order a number that can be used to sort the list of categories
  * @param achievements an array containing the IDs of the achievements that this category contains
  */

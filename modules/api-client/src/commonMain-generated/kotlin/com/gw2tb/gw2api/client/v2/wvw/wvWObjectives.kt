@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesIDs(configure: RequestConfigurator<Lis
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesByID(id: String, configure: RequestCon
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesByIDs(ids: Collection<String>, configu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesAll(configure: RequestConfigurator<Lis
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]

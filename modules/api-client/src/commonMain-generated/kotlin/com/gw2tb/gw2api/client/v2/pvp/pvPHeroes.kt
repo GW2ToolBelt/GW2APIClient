@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2PvPHeroesIDs(configure: RequestConfigurator<List<St
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2PvPHeroesByID(id: String, configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2PvPHeroesByIDs(ids: Collection<String>, configure: 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2PvPHeroesAll(configure: RequestConfigurator<List<GW
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]

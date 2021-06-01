@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/stories/seasons]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2StoriesSeasonsIDs(configure: RequestConfigurator<Li
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/stories/seasons]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2StoriesSeasonsByID(id: String, configure: RequestCo
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/stories/seasons]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2StoriesSeasonsByIDs(ids: Collection<String>, config
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/stories/seasons]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2StoriesSeasonsAll(configure: RequestConfigurator<Li
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/stories/seasons]

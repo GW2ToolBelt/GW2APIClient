@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/raids]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2RaidsIDs(configure: RequestConfigurator<List<String
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/raids]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2RaidsByID(id: String, configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/raids]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2RaidsByIDs(ids: Collection<String>, configure: Requ
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/raids]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2RaidsAll(configure: RequestConfigurator<List<GW2v2R
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/raids]

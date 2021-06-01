@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2OutfitsIDs(configure: RequestConfigurator<List<Int>
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2OutfitsByID(id: Int, configure: RequestConfigurator
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2OutfitsByIDs(ids: Collection<Int>, configure: Reque
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2OutfitsAll(configure: RequestConfigurator<List<GW2v
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/outfits]

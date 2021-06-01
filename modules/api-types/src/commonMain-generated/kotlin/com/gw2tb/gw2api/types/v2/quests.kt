@@ -38,7 +38,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Quest(
-    val id: String,
+    val id: Int,
     val name: String,
     val level: Int,
     val story: Int,

@@ -39,8 +39,8 @@ import kotlinx.serialization.json.*
 public data class GW2v2CommercePrices(
     val id: Int,
     val whitelisted: Boolean,
-    val buys: Buys,
-    val sells: Sells
+    val buys: BuyListing,
+    val sells: SellListing
 ) {
 
     /**
@@ -50,7 +50,7 @@ public data class GW2v2CommercePrices(
      * @param quantity the amount of items being bought
      */
     @Serializable
-    public data class Buys(
+    public data class BuyListing(
         @SerialName("unit_price")
         val unitPrice: Int,
         val quantity: Int
@@ -63,7 +63,7 @@ public data class GW2v2CommercePrices(
      * @param quantity the amount of items being sold
      */
     @Serializable
-    public data class Sells(
+    public data class SellListing(
         @SerialName("unit_price")
         val unitPrice: Int,
         val quantity: Int

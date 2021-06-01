@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2AchievementsGroupsIDs(configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2AchievementsGroupsByID(id: String, configure: Reque
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2AchievementsGroupsByIDs(ids: Collection<String>, co
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2AchievementsGroupsAll(configure: RequestConfigurato
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]

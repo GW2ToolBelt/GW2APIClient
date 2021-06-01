@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worldbosses]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2WorldBossesIDs(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worldbosses]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2WorldBossesByID(id: String, configure: RequestConfi
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worldbosses]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2WorldBossesByIDs(ids: Collection<String>, configure
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worldbosses]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2WorldBossesAll(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           No
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/worldbosses]

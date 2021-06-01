@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2ItemsIDs(configure: RequestConfigurator<List<Int>>?
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2ItemsByID(id: Int, configure: RequestConfigurator<G
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2ItemsByIDs(ids: Collection<Int>, configure: Request
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/items]

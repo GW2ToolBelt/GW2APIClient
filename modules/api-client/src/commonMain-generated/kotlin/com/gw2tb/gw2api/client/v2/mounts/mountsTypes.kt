@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/types]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2MountsTypesIDs(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/types]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2MountsTypesByID(id: String, configure: RequestConfi
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/types]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2MountsTypesByIDs(ids: Collection<String>, configure
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/types]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2MountsTypesAll(configure: RequestConfigurator<List<
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/types]

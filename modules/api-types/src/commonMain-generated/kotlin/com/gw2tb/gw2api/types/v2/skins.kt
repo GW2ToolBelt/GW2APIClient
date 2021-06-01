@@ -57,7 +57,7 @@ private object __GW2v2SkinSerializer : JsonTransformingSerializer<GW2v2Skin>(__G
  */
 @Serializable(with = __GW2v2SkinSerializer::class)
 public data class GW2v2Skin(
-    val id: String,
+    val id: Int,
     val name: String,
     val type: String,
     val flags: List<String>,
@@ -171,22 +171,7 @@ public data class GW2v2Skin(
                     val sylvariMale: List<DyeSlot?>? = null,
                     @SerialName("sylvarifemale")
                     val sylvariFemale: List<DyeSlot?>? = null
-                ) {
-
-                    /**
-                     * Information about a dye slot.
-                     *
-                     * @param colorID the default color's ID
-                     * @param material the material type
-                     */
-                    @Serializable
-                    public data class DyeSlot(
-                        @SerialName("color_id")
-                        val colorID: Int,
-                        val material: String
-                    )
-
-                }
+                )
 
             }
 

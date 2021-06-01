@@ -31,8 +31,8 @@ import kotlinx.serialization.json.*
  * Information about an achievement group.
  *
  * @param id the achievement group's ID
- * @param name the achievement group's name
- * @param description the achievement group's description
+ * @param name the achievement group's localized name
+ * @param description the achievement group's localized description
  * @param order a number that can be used to sort the list of groups
  * @param categories an array containing the IDs of the categories that this group contains
  */

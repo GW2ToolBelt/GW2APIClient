@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/categories]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2AchievementsCategoriesIDs(configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/categories]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2AchievementsCategoriesByID(id: Int, configure: Requ
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/categories]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2AchievementsCategoriesByIDs(ids: Collection<Int>, c
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/categories]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2AchievementsCategoriesAll(configure: RequestConfigu
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/categories]

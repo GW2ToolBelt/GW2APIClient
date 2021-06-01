@@ -32,6 +32,7 @@ import kotlinx.serialization.json.*
  *
  * @param id the PvP hero's ID
  * @param name the hero's localized name
+ * @param description the hero's localized description
  * @param type the flavor type describing the hero
  * @param stats the hero's stats
  * @param overlay the render service URL for the hero's overlay art
@@ -42,6 +43,7 @@ import kotlinx.serialization.json.*
 public data class GW2v2PvPHero(
     val id: String,
     val name: String,
+    val description: String,
     val type: String,
     val stats: Stats,
     val overlay: String,

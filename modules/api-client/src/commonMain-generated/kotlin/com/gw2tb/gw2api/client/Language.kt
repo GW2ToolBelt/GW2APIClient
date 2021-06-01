@@ -38,6 +38,12 @@ public enum class Language(public val code: String) {
 
     public companion object {
         /**
+         * The languages supported by V1 of the Guild Wars 2 API.
+         *
+         * @since  0.3.0
+         */
+        public val API_V1: Set<Language> = setOf(ENGLISH, FRENCH, GERMAN, SPANISH)
+        /**
          * The languages supported by V2 of the Guild Wars 2 API.
          *
          * @since  0.1.0

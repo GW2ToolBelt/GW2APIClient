@@ -33,7 +33,7 @@ import kotlinx.serialization.json.*
  * @param id the answer's ID
  * @param title the answer's localized title
  * @param description the answer's localized description
- * @param journal the answer's journal entry
+ * @param journal the answer's localized journal entry
  * @param question the ID of the biography question the answer answers
  * @param professions the IDs of the professions that the answer is available for
  * @param races the IDs of the races that the answer is available for

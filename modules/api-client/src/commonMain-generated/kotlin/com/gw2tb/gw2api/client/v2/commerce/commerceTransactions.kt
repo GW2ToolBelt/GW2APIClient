@@ -96,38 +96,6 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: 
 )
 
 /**
- * Creates a request used to query all available [items](GW2v2CommerceTransaction).
- *
- * Returns information about an account's transactions.
- *
- * ```
- * Authenticated:       Yes (ACCOUNT, TRADINGPOST)
- * Paginated:           Yes
- * Bulk expanded:       No
- * Localized:           No
- * Cache time:          1m
- * ```
- *
- * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions/:relevance/:type]
- *
- * @receiver        the client instance used to make the request
- * @param configure configure action for the request
- *
- * @return  the request that can be executed to query the API
- */
-@JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, type: String, configure: RequestConfigurator<List<GW2v2CommerceTransaction>>? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
-    path = "/v2/commerce/transactions/:relevance/:type",
-    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z"),
-    replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
-    requiresAuthentication = true,
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CommerceTransaction.serializer()),
-    configure = configure
-)
-
-/**
  * Creates a request used to query one or more [items](GW2v2CommerceTransaction) by page.
  *
  * Returns information about an account's transactions.

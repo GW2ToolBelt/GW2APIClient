@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2MapsIDs(configure: RequestConfigurator<List<Int>>? 
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2MapsByID(id: Int, configure: RequestConfigurator<GW
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2MapsByIDs(ids: Collection<Int>, configure: RequestC
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2MapsAll(configure: RequestConfigurator<List<GW2v2Ma
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]

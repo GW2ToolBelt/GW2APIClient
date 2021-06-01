@@ -41,7 +41,7 @@ import kotlin.jvm.*
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
@@ -73,7 +73,7 @@ public fun GW2APIClient.gw2v2ContinentsIDs(configure: RequestConfigurator<List<I
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
@@ -105,7 +105,7 @@ public fun GW2APIClient.gw2v2ContinentsByID(id: Int, configure: RequestConfigura
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
@@ -137,7 +137,7 @@ public fun GW2APIClient.gw2v2ContinentsByIDs(ids: Collection<Int>, configure: Re
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
@@ -169,7 +169,7 @@ public fun GW2APIClient.gw2v2ContinentsAll(configure: RequestConfigurator<List<G
  * Paginated:           Yes
  * Bulk expanded:       Yes
  * Localized:           Yes
- * Cache time:          60m
+ * Cache time:          1h
  * ```
  *
  * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]

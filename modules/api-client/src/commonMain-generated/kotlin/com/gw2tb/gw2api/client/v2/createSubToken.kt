@@ -52,9 +52,9 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: RequestConfigurator<GW2v2SubToken>? = null): RequestBuilder<GW2v2SubToken> = request(
+public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String, configure: RequestConfigurator<GW2v2SubToken>? = null): RequestBuilder<GW2v2SubToken> = request(
     path = "/v2/createsubtoken",
-    parameters = mapOfNonNullValues("v" to "2020-11-17T00:30:00.000Z", "Expire" to expire, "Permissions" to permissions, "URLs" to urls),
+    parameters = mapOfNonNullValues("expire" to expire, "permissions" to permissions, "urls" to urls, "v" to "2020-11-17T00:30:00.000Z"),
     replaceInPath = mapOf(),
     requiresAuthentication = true,
     requiredPermissions = emptySet(),
