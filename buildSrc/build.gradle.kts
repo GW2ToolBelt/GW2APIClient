@@ -27,16 +27,6 @@ plugins {
     `kotlin-dsl`
 }
 
-kotlin {
-    sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlin.time.ExperimentalTime")
-            }
-        }
-    }
-}
-
 tasks {
     withType<KotlinCompile> {
         kotlinOptions {
