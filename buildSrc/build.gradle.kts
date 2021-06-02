@@ -19,6 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+@file:Suppress("SuspiciousCollectionReassignment")
+
+import org.jetbrains.kotlin.gradle.tasks.*
+
 plugins {
     `kotlin-dsl`
 }
@@ -29,6 +33,14 @@ kotlin {
             languageSettings.apply {
                 useExperimentalAnnotation("kotlin.time.ExperimentalTime")
             }
+        }
+    }
+}
+
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
         }
     }
 }
