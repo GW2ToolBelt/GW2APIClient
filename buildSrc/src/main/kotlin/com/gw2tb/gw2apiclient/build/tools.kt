@@ -25,7 +25,7 @@ import org.gradle.api.*
 import org.gradle.api.publish.maven.*
 import org.gradle.kotlin.dsl.*
 
-private const val DEPLOYMENT_KEY = "com.gw2tb.gw2apiclient.build.Deployment"
+private const val DEPLOYMENT_KEY = "com.gw2tb.gw2api.build.Deployment"
 
 val Project.deployment: Deployment
     get() =
