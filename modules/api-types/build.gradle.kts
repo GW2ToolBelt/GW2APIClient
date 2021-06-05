@@ -23,7 +23,6 @@
 
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
-import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
     kotlin("multiplatform")
@@ -50,6 +49,10 @@ kotlin {
 
     targets.all {
         compilations.all {
+            compileKotlinTask.apply {
+                dependsOn(project(":").tasks["generate"])
+            }
+
             kotlinOptions {
                 languageVersion = "1.5"
                 apiVersion = "1.5"
@@ -92,10 +95,6 @@ tasks {
         options.release.set(8)
     }
 
-    withType<KotlinCompile> {
-        dependsOn(project(":").tasks["generate"])
-    }
-
     getByName<org.gradle.jvm.tasks.Jar>("jvmJar") {
         manifest {
             attributes(mapOf(
@@ -107,6 +106,10 @@ tasks {
                 "Automatic-Module-Name" to "com.gw2tb.gw2api.types"
             ))
         }
+    }
+
+    sourcesJar {
+        dependsOn(project(":").tasks["generate"])
     }
 
 //    create<Jar>("javadocJar") {

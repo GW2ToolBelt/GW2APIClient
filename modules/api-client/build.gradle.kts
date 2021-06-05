@@ -49,6 +49,10 @@ kotlin {
 
     targets.all {
         compilations.all {
+            compileKotlinTask.apply {
+                dependsOn(project(":").tasks["generate"])
+            }
+
             kotlinOptions {
                 languageVersion = "1.5"
                 apiVersion = "1.5"
@@ -144,6 +148,10 @@ tasks {
                 "Automatic-Module-Name" to "com.gw2tb.gw2api.client"
             ))
         }
+    }
+
+    sourcesJar {
+        dependsOn(project(":").tasks["generate"])
     }
 
 //    create<Jar>("javadocJar") {
