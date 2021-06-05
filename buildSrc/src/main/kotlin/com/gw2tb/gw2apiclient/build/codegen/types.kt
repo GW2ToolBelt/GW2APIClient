@@ -44,10 +44,13 @@ private fun <T : APIType>  Map<TypeLocation, List<T>>.printableTypesSequence(
     entries
         .groupByEndpoint { (loc, _) -> loc.endpoint!! }
         .asSequence()
-        .map { (endpoint, entries) ->
-            PrintableFile(
-                "com/gw2tb/gw2api/types/$apiVersion/${endpoint.removeSuffix("/")}",
-                """
+        .mapNotNull { (endpoint, entries) ->
+            val content = printTypes(entries.asSequence(), "GW2$apiVersion", null)
+
+            if (content.isNotEmpty()) {
+                PrintableFile(
+                    "com/gw2tb/gw2api/types/$apiVersion/${endpoint.removeSuffix("/")}",
+                    """
                     |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
                     |package com.gw2tb.gw2api.types.$apiVersion
                     |
@@ -55,9 +58,11 @@ private fun <T : APIType>  Map<TypeLocation, List<T>>.printableTypesSequence(
                     |import kotlinx.serialization.builtins.*
                     |import kotlinx.serialization.json.*
                     |
-                    |${printTypes(entries.asSequence(), "GW2$apiVersion", null)}
+                    |$content
                     """.trimMargin()
-            )
+                )
+            } else
+                null
         }
 
 private fun Sequence<Map.Entry<TypeLocation, List<APIType.V1>>>.printV1TypesInNest(prefix: String? = null, nest: String? = null): String =

@@ -47,7 +47,7 @@ private fun <Q : APIQuery> Set<Q>.printableQuerySequence(
 ): Sequence<PrintableFile> =
     groupByEndpoint { it.endpoint }
         .asSequence()
-        .map { (endpoint, queries) ->
+        .mapNotNull { (endpoint, queries) ->
             val path = buildString {
                 endpoint.removeSuffix("/").let {
                     append(it.substringBeforeLast("/"))
@@ -55,24 +55,28 @@ private fun <Q : APIQuery> Set<Q>.printableQuerySequence(
                     append(it.replace("/", ""))
                 }
             }
+            val content = printQueries(queries.asSequence())
 
-            PrintableFile(
-                "com/gw2tb/gw2api/client/$apiVersion/$path",
-                """
-                |@file:JvmName("GW2$apiVersion")
-                |@file:JvmMultifileClass
-                |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-                |package com.gw2tb.gw2api.client.$apiVersion
-                |
-                |import com.gw2tb.gw2api.client.*
-                |import com.gw2tb.gw2api.client.internal.*
-                |import com.gw2tb.gw2api.types.$apiVersion.*
-                |import kotlinx.serialization.builtins.*
-                |import kotlin.jvm.*
-                |
-                |${printQueries(queries.asSequence())}
-                """.trimMargin()
-            )
+            if (content.isNotEmpty()) {
+                PrintableFile(
+                    "com/gw2tb/gw2api/client/$apiVersion/$path",
+                    """
+                    |@file:JvmName("GW2$apiVersion")
+                    |@file:JvmMultifileClass
+                    |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+                    |package com.gw2tb.gw2api.client.$apiVersion
+                    |
+                    |import com.gw2tb.gw2api.client.*
+                    |import com.gw2tb.gw2api.client.internal.*
+                    |import com.gw2tb.gw2api.types.$apiVersion.*
+                    |import kotlinx.serialization.builtins.*
+                    |import kotlin.jvm.*
+                    |
+                    |$content
+                    """.trimMargin()
+                )
+            } else
+                null
         }
 
 private fun Sequence<APIQuery.V1>.printV1Queries(): String =
