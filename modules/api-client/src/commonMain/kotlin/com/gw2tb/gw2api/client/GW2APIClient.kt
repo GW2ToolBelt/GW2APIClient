@@ -47,6 +47,8 @@ public class GW2APIClient(
     private val rateLimiter: RateLimiter? = null,
     public val checkPermissions: Boolean = false,
     public val json: Json = Json {
+        /* Disabled by default. See https://github.com/Kotlin/kotlinx.serialization/issues/1512 */
+        useAlternativeNames = false
         encodeDefaults = false
     }
 ) : Closeable by httpClient {
