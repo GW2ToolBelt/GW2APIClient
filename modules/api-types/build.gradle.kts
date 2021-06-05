@@ -75,7 +75,6 @@ kotlin {
     sourceSets {
         all {
             languageSettings.apply {
-                useExperimentalAnnotation("kotlin.time.ExperimentalTime")
                 useExperimentalAnnotation("kotlinx.serialization.ExperimentalSerializationApi")
             }
         }
