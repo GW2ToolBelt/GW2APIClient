@@ -25,6 +25,6 @@ internal fun <K, V> mapOfNonNullValues(vararg pairs: Pair<K, V?>): Map<K, V> {
     if (pairs.isEmpty()) return emptyMap()
 
     val map = LinkedHashMap<K, V>(pairs.size)
-    for (pair in pairs) if (pair.second != null) map[pair.first] = pair.second!!
+    for ((first, second) in pairs) if (second != null) map[first] = second
     return map
 }
