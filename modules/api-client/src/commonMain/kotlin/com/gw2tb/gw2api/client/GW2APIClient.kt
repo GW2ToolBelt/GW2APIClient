@@ -64,7 +64,6 @@ public class GW2APIClient(
         path: String,
         parameters: Map<String, String>,
         replaceInPath: Map<String, String>,
-        requiresAuthentication: Boolean,
         requiredPermissions: Set<String>,
         supportedLanguages: Set<Language>,
         serializer: KSerializer<T>,

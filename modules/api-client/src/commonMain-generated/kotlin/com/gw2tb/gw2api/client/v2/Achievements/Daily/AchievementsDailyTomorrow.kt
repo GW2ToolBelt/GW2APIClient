@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2021 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,32 +20,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build.codegen
+@file:JvmName("GW2v2")
+@file:JvmMultifileClass
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+package com.gw2tb.gw2api.client.v2
 
-const val t = "    "
-const val n = "\n"
+import com.gw2tb.gw2api.client.*
+import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.v2.*
+import kotlinx.serialization.builtins.*
+import kotlin.jvm.*
 
-internal inline fun <T> Iterable<T>.groupByEndpoint(keySelector: (T) -> String): Map<String, List<T>> =
-    groupBy { keySelector(it).replace(Regex("/:([A-Za-z])*"), "").replaceAllIteratively("//", "/") }
-
-internal fun String.firstToLowerCase(): String =
-    "${toCharArray()[0].toLowerCase()}${substring(1)}"
-
-internal fun String.firstToUpperCase(): String =
-    "${toCharArray()[0].toUpperCase()}${substring(1)}"
-
-internal fun String.replaceAllIteratively(old: String, new: String): String {
-    var res = this
-    while (res.contains(old)) res = res.replace(old, new)
-    return res
-}
-
-internal fun String.prependIndentNonEmpty(indent: String = "    "): String =
-    lineSequence()
-        .map {
-            when {
-                it.isBlank() -> it
-                else -> indent + it
-            }
-        }
-        .joinToString("\n")
+@JvmOverloads
+public fun GW2APIClient.gw2v2AchievementsDailyTomorrow(configure: RequestConfigurator<GW2v2AchievementsDailyTomorrow>? = null): RequestBuilder<GW2v2AchievementsDailyTomorrow> = request(
+    path = "/v2/achievements/daily/tomorrow",
+    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    replaceInPath = mapOf(),
+    requiredPermissions = emptySet(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2AchievementsDailyTomorrow.serializer(),
+    configure = configure
+)

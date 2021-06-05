@@ -21,30 +21,7 @@
  */
 package com.gw2tb.gw2apiclient.build.codegen
 
-const val t = "    "
-const val n = "\n"
-
-internal inline fun <T> Iterable<T>.groupByEndpoint(keySelector: (T) -> String): Map<String, List<T>> =
-    groupBy { keySelector(it).replace(Regex("/:([A-Za-z])*"), "").replaceAllIteratively("//", "/") }
-
-internal fun String.firstToLowerCase(): String =
-    "${toCharArray()[0].toLowerCase()}${substring(1)}"
-
-internal fun String.firstToUpperCase(): String =
-    "${toCharArray()[0].toUpperCase()}${substring(1)}"
-
-internal fun String.replaceAllIteratively(old: String, new: String): String {
-    var res = this
-    while (res.contains(old)) res = res.replace(old, new)
-    return res
-}
-
-internal fun String.prependIndentNonEmpty(indent: String = "    "): String =
-    lineSequence()
-        .map {
-            when {
-                it.isBlank() -> it
-                else -> indent + it
-            }
-        }
-        .joinToString("\n")
+data class PrintableFile(
+    val path: String,
+    val content: String
+)

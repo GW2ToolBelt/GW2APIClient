@@ -19,10 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+@file:OptIn(ExperimentalTime::class)
 package com.gw2tb.gw2apiclient.build.codegen
 
 import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
+import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.apigen.schema.*
 import java.util.*
 import kotlin.time.*
@@ -63,7 +65,7 @@ internal fun APIQuery.V2.dokka(queryType: String): String = docComment {
     val siblings = APIVersion.API_V2.supportedQueries.filter { it.endpoint == endpoint }
     val isPaginated = siblings.any { it.queryDetails?.queryType is QueryType.ByPage }
     val isBulkSupported = siblings.any { it.queryDetails?.queryType?.let { queryType -> queryType is QueryType.ByIDs } ?: false }
-    val isLocalized = siblings.any { it[schemaVersion].data.isLocalized }
+    val isLocalized = siblings.any { it[V2SchemaVersion.V2_SCHEMA_2021_04_06T21_00_00_000Z].data.isLocalized } // TODO
 
     append("$queryType$n$n")
     append("$summary$n$n")

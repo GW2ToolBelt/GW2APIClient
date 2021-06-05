@@ -49,7 +49,7 @@ internal fun SchemaType.toKotlinType(titleCaseName: String? = null): KotlinTypeI
     is SchemaMap -> {
         val keyType = keys.toKotlinType()
         val valueType = values.toKotlinType(titleCaseName)
-        KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>")
+        KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>", "MapSerializer(${keyType.serializer}, ${valueType.serializer})")
     }
     is SchemaClass -> KotlinTypeInfo(titleCaseName ?: when (name) {
         "Map" -> "GameMap"

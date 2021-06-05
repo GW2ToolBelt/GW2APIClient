@@ -19,9 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
-import com.gw2tb.gw2apiclient.build.codegen.*
+import com.gw2tb.gw2apiclient.build.tasks.*
 
 plugins {
     kotlin("multiplatform") version "1.5.10" apply false
@@ -45,9 +46,11 @@ allprojects {
 
 tasks {
     create<Generate>("generate") {
+        schemaVersion = V2SchemaVersion.V2_SCHEMA_2021_04_06T21_00_00_000Z
+
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 
-        apiClientDirectory = file("modules/api-client/src/commonMain-generated")
-        typesDirectory = file("modules/api-types/src/commonMain-generated")
+        queriesDirectory = file("modules/api-client/src/commonMain-generated/kotlin")
+        typesDirectory = file("modules/api-types/src/commonMain-generated/kotlin")
     }
 }
