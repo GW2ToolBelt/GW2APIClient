@@ -68,7 +68,7 @@ private fun <T : APIType>  Map<TypeLocation, List<T>>.printableTypesSequence(
 private fun Sequence<Map.Entry<TypeLocation, List<APIType.V1>>>.printV1TypesInNest(prefix: String? = null, nest: String? = null): String =
     filter { (loc, _) -> loc.nest == nest }
         .flatMap { it.value }
-        .joinToString {
+        .joinToString(separator = "$n$n") {
             it.schema.toClassString(nest, { nest -> printV1TypesInNest(nest = nest) }, prefix)
         }
 
