@@ -92,26 +92,26 @@ public data class GW2v2Item(
      * Information about an item's upgrade.
      *
      * @param upgrade describes the method of upgrading
-     * @param itemId the item ID that results from performing the upgrade
+     * @param itemID the ID that results from performing the upgrade
      */
     @Serializable
     public data class Upgrade(
         val upgrade: String,
         @SerialName("item_id")
-        val itemId: Int
+        val itemID: Int
     )
 
     /**
      * Information about an item's precursor.
      *
      * @param upgrade describes the method of upgrading
-     * @param itemId the item ID that results from performing the upgrade
+     * @param itemID the ID of the item that is upgraded into the item
      */
     @Serializable
     public data class Precursor(
         val upgrade: String,
         @SerialName("item_id")
-        val itemId: Int
+        val itemID: Int
     )
 
     @Suppress("ClassName")
@@ -157,30 +157,50 @@ public data class GW2v2Item(
          * @param defense the defense value of the armor piece
          * @param infusionSlots infusion slots of the armor piece
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemId the suffix item ID
-         * @param secondarySuffixItemId the secondary suffix item ID
+         * @param suffixItemID the suffix item ID
+         * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable(with = __ArmorSerializer::class)
         public data class Armor(
-            val type: String,
-            @SerialName("weight_class")
-            val weightClass: String,
-            val defense: Int,
-            @SerialName("infusion_slots")
-            val infusionSlots: List<InfusionSlot>,
-            @SerialName("infix_upgrade")
-            val infixUpgrade: InfixUpgrade? = null,
-            @SerialName("suffix_item_id")
-            val suffixItemId: Int? = null,
-            @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: Int? = null,
-            @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
-            @SerialName("attribute_adjustment")
-            val attributeAdjustment: Double? = null
-        ) : Details()
+            val armor: Armor
+        ) : Details() {
+
+            /**
+             * Additional information about an armor item.
+             *
+             * @param type the armor slot type
+             * @param weightClass the weight class
+             * @param defense the defense value of the armor piece
+             * @param infusionSlots infusion slots of the armor piece
+             * @param infixUpgrade infix upgrade object
+             * @param suffixItemID the suffix item ID
+             * @param secondarySuffixItemID the secondary suffix item ID
+             * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
+             * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
+             */
+            @Serializable
+            public data class Armor(
+                val type: String,
+                @SerialName("weight_class")
+                val weightClass: String,
+                val defense: Int,
+                @SerialName("infusion_slots")
+                val infusionSlots: List<InfusionSlot>,
+                @SerialName("infix_upgrade")
+                val infixUpgrade: InfixUpgrade? = null,
+                @SerialName("suffix_item_id")
+                val suffixItemID: Int? = null,
+                @SerialName("secondary_suffix_item_id")
+                val secondarySuffixItemID: Int? = null,
+                @SerialName("stat_choices")
+                val statChoices: List<Int>? = null,
+                @SerialName("attribute_adjustment")
+                val attributeAdjustment: Double? = null
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Back::class)
@@ -197,26 +217,43 @@ public data class GW2v2Item(
          *
          * @param infusionSlots infusion slots of the back item
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemId the suffix item ID
-         * @param secondarySuffixItemId the secondary suffix item ID
+         * @param suffixItemID the suffix item ID
+         * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable(with = __BackSerializer::class)
         public data class Back(
-            @SerialName("infusion_slots")
-            val infusionSlots: List<InfusionSlot>,
-            @SerialName("infix_upgrade")
-            val infixUpgrade: InfixUpgrade? = null,
-            @SerialName("suffix_item_id")
-            val suffixItemId: Int? = null,
-            @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: Int? = null,
-            @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
-            @SerialName("attribute_adjustment")
-            val attributeAdjustment: Double? = null
-        ) : Details()
+            val back: Back
+        ) : Details() {
+
+            /**
+             * Additional information about a backpiece.
+             *
+             * @param infusionSlots infusion slots of the back item
+             * @param infixUpgrade infix upgrade object
+             * @param suffixItemID the suffix item ID
+             * @param secondarySuffixItemID the secondary suffix item ID
+             * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
+             * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
+             */
+            @Serializable
+            public data class Back(
+                @SerialName("infusion_slots")
+                val infusionSlots: List<InfusionSlot>,
+                @SerialName("infix_upgrade")
+                val infixUpgrade: InfixUpgrade? = null,
+                @SerialName("suffix_item_id")
+                val suffixItemID: Int? = null,
+                @SerialName("secondary_suffix_item_id")
+                val secondarySuffixItemID: Int? = null,
+                @SerialName("stat_choices")
+                val statChoices: List<Int>? = null,
+                @SerialName("attribute_adjustment")
+                val attributeAdjustment: Double? = null
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Bag::class)
@@ -236,10 +273,23 @@ public data class GW2v2Item(
          */
         @Serializable(with = __BagSerializer::class)
         public data class Bag(
-            val size: Int,
-            @SerialName("no_sell_or_sort")
-            val noSellOrSort: Boolean
-        ) : Details()
+            val bag: Bag
+        ) : Details() {
+
+            /**
+             * Additional information about a bag.
+             *
+             * @param size the number of bag slots
+             * @param noSellOrSort whether the bag is invisible
+             */
+            @Serializable
+            public data class Bag(
+                val size: Int,
+                @SerialName("no_sell_or_sort")
+                val noSellOrSort: Boolean
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Consumable::class)
@@ -258,10 +308,10 @@ public data class GW2v2Item(
          * @param description effect description for consumables applying an effect
          * @param durationMs effect duration in milliseconds
          * @param unlockType unlock type for unlock consumables
-         * @param colorId the dye ID for dye unlocks
-         * @param recipeId the recipe ID for recipe unlocks
-         * @param extraRecipeIds additional recipe IDs for recipe unlocks
-         * @param guildUpgradeId the guild upgrade ID for the item
+         * @param colorID the dye ID for dye unlocks
+         * @param recipeID the recipe ID for recipe unlocks
+         * @param extraRecipeIDs additional recipe IDs for recipe unlocks
+         * @param guildUpgradeID the guild upgrade ID for the item
          * @param applyCount the number of stacks of the effect applied by this item
          * @param name the effect type name of the consumable
          * @param icon the icon of the effect
@@ -269,26 +319,49 @@ public data class GW2v2Item(
          */
         @Serializable(with = __ConsumableSerializer::class)
         public data class Consumable(
-            val type: String,
-            val description: String? = null,
-            @SerialName("duration_ms")
-            val durationMs: Int? = null,
-            @SerialName("unlock_type")
-            val unlockType: String? = null,
-            @SerialName("color_id")
-            val colorId: Int? = null,
-            @SerialName("recipe_id")
-            val recipeId: Int? = null,
-            @SerialName("extra_recipe_ids")
-            val extraRecipeIds: List<Int>? = null,
-            @SerialName("guild_upgrade_id")
-            val guildUpgradeId: Int? = null,
-            @SerialName("apply_count")
-            val applyCount: Int? = null,
-            val name: String? = null,
-            val icon: String? = null,
-            val skins: List<Int>? = null
-        ) : Details()
+            val consumable: Consumable
+        ) : Details() {
+
+            /**
+             * Additional information about a consumable item.
+             *
+             * @param type the consumable type
+             * @param description effect description for consumables applying an effect
+             * @param durationMs effect duration in milliseconds
+             * @param unlockType unlock type for unlock consumables
+             * @param colorID the dye ID for dye unlocks
+             * @param recipeID the recipe ID for recipe unlocks
+             * @param extraRecipeIDs additional recipe IDs for recipe unlocks
+             * @param guildUpgradeID the guild upgrade ID for the item
+             * @param applyCount the number of stacks of the effect applied by this item
+             * @param name the effect type name of the consumable
+             * @param icon the icon of the effect
+             * @param skins a list of skin ids which this item unlocks
+             */
+            @Serializable
+            public data class Consumable(
+                val type: String,
+                val description: String? = null,
+                @SerialName("duration_ms")
+                val durationMs: Int? = null,
+                @SerialName("unlock_type")
+                val unlockType: String? = null,
+                @SerialName("color_id")
+                val colorID: Int? = null,
+                @SerialName("recipe_id")
+                val recipeID: Int? = null,
+                @SerialName("extra_recipe_ids")
+                val extraRecipeIDs: List<Int>? = null,
+                @SerialName("guild_upgrade_id")
+                val guildUpgradeID: Int? = null,
+                @SerialName("apply_count")
+                val applyCount: Int? = null,
+                val name: String? = null,
+                val icon: String? = null,
+                val skins: List<Int>? = null
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Container::class)
@@ -307,8 +380,20 @@ public data class GW2v2Item(
          */
         @Serializable(with = __ContainerSerializer::class)
         public data class Container(
-            val type: String
-        ) : Details()
+            val container: Container
+        ) : Details() {
+
+            /**
+             * Additional information about a container.
+             *
+             * @param type the container type
+             */
+            @Serializable
+            public data class Container(
+                val type: String
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = GatheringTool::class)
@@ -327,8 +412,20 @@ public data class GW2v2Item(
          */
         @Serializable(with = __GatheringToolSerializer::class)
         public data class GatheringTool(
-            val type: String
-        ) : Details()
+            val gathering: GatheringTool
+        ) : Details() {
+
+            /**
+             * Additional information about a gathering tool.
+             *
+             * @param type the tool type
+             */
+            @Serializable
+            public data class GatheringTool(
+                val type: String
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Gizmo::class)
@@ -344,17 +441,31 @@ public data class GW2v2Item(
          * Additional information about a gizmo.
          *
          * @param type the gizmo type
-         * @param guildUpgradeId the guild upgrade ID for the item
-         * @param vendorIds the vendor IDs
+         * @param guildUpgradeID the guild upgrade ID for the item
+         * @param vendorIDs the vendor IDs
          */
         @Serializable(with = __GizmoSerializer::class)
         public data class Gizmo(
-            val type: String,
-            @SerialName("guild_upgrade_id")
-            val guildUpgradeId: Int? = null,
-            @SerialName("vendor_ids")
-            val vendorIds: List<Int>? = null
-        ) : Details()
+            val gizmo: Gizmo
+        ) : Details() {
+
+            /**
+             * Additional information about a gizmo.
+             *
+             * @param type the gizmo type
+             * @param guildUpgradeID the guild upgrade ID for the item
+             * @param vendorIDs the vendor IDs
+             */
+            @Serializable
+            public data class Gizmo(
+                val type: String,
+                @SerialName("guild_upgrade_id")
+                val guildUpgradeID: Int? = null,
+                @SerialName("vendor_ids")
+                val vendorIDs: List<Int>? = null
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = MiniPet::class)
@@ -369,13 +480,25 @@ public data class GW2v2Item(
         /**
          * Additional information about a mini unlock item.
          *
-         * @param minipetId the miniature it unlocks
+         * @param minipetID the miniature it unlocks
          */
         @Serializable(with = __MiniPetSerializer::class)
         public data class MiniPet(
-            @SerialName("minipet_id")
-            val minipetId: Int
-        ) : Details()
+            val minipet: MiniPet
+        ) : Details() {
+
+            /**
+             * Additional information about a mini unlock item.
+             *
+             * @param minipetID the miniature it unlocks
+             */
+            @Serializable
+            public data class MiniPet(
+                @SerialName("minipet_id")
+                val minipetID: Int
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Tool::class)
@@ -395,9 +518,22 @@ public data class GW2v2Item(
          */
         @Serializable(with = __ToolSerializer::class)
         public data class Tool(
-            val type: String,
-            val charges: Int
-        ) : Details()
+            val tool: Tool
+        ) : Details() {
+
+            /**
+             * Additional information about a tool.
+             *
+             * @param type the tool type
+             * @param charges the available charges
+             */
+            @Serializable
+            public data class Tool(
+                val type: String,
+                val charges: Int
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Trinket::class)
@@ -415,27 +551,45 @@ public data class GW2v2Item(
          * @param type the trinket type
          * @param infusionSlots infusion slots of the trinket
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemId the suffix item ID
-         * @param secondarySuffixItemId the secondary suffix item ID
+         * @param suffixItemID the suffix item ID
+         * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable(with = __TrinketSerializer::class)
         public data class Trinket(
-            val type: String,
-            @SerialName("infusion_slots")
-            val infusionSlots: List<InfusionSlot>,
-            @SerialName("infix_upgrade")
-            val infixUpgrade: InfixUpgrade? = null,
-            @SerialName("suffix_item_id")
-            val suffixItemId: Int? = null,
-            @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: Int? = null,
-            @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
-            @SerialName("attribute_adjustment")
-            val attributeAdjustment: Double? = null
-        ) : Details()
+            val trinket: Trinket
+        ) : Details() {
+
+            /**
+             * Additional information about a trinket.
+             *
+             * @param type the trinket type
+             * @param infusionSlots infusion slots of the trinket
+             * @param infixUpgrade infix upgrade object
+             * @param suffixItemID the suffix item ID
+             * @param secondarySuffixItemID the secondary suffix item ID
+             * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
+             * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
+             */
+            @Serializable
+            public data class Trinket(
+                val type: String,
+                @SerialName("infusion_slots")
+                val infusionSlots: List<InfusionSlot>,
+                @SerialName("infix_upgrade")
+                val infixUpgrade: InfixUpgrade? = null,
+                @SerialName("suffix_item_id")
+                val suffixItemID: Int? = null,
+                @SerialName("secondary_suffix_item_id")
+                val secondarySuffixItemID: Int? = null,
+                @SerialName("stat_choices")
+                val statChoices: List<Int>? = null,
+                @SerialName("attribute_adjustment")
+                val attributeAdjustment: Double? = null
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = UpgradeComponent::class)
@@ -456,21 +610,39 @@ public data class GW2v2Item(
          * @param suffix the suffix appended to the item name when the component is applied
          * @param infixUpgrade infix upgrade object
          * @param bonuses the bonuses from runes
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable(with = __UpgradeComponentSerializer::class)
         public data class UpgradeComponent(
-            val type: String,
-            val flags: List<String>,
-            @SerialName("infusion_upgrade_flags")
-            val infusionUpgradeFlags: List<String>,
-            val suffix: String,
-            @SerialName("infix_upgrade")
-            val infixUpgrade: InfixUpgrade? = null,
-            val bonuses: List<String>? = null,
-            @SerialName("attribute_adjustment")
-            val attributeAdjustment: Double? = null
-        ) : Details()
+            val upgradecomponent: UpgradeComponent
+        ) : Details() {
+
+            /**
+             * Additional information about an upgrade component.
+             *
+             * @param type the type of the upgrade component
+             * @param flags the items that can be upgraded with the upgrade component
+             * @param infusionUpgradeFlags applicable infusion slot for infusion upgrades
+             * @param suffix the suffix appended to the item name when the component is applied
+             * @param infixUpgrade infix upgrade object
+             * @param bonuses the bonuses from runes
+             * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
+             */
+            @Serializable
+            public data class UpgradeComponent(
+                val type: String,
+                val flags: List<String>,
+                @SerialName("infusion_upgrade_flags")
+                val infusionUpgradeFlags: List<String>,
+                val suffix: String,
+                @SerialName("infix_upgrade")
+                val infixUpgrade: InfixUpgrade? = null,
+                val bonuses: List<String>? = null,
+                @SerialName("attribute_adjustment")
+                val attributeAdjustment: Double? = null
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Weapon::class)
@@ -492,34 +664,56 @@ public data class GW2v2Item(
          * @param defense the defense value of the weapon
          * @param infusionSlots infusion slots of the weapon
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemId the suffix item ID
-         * @param secondarySuffixItemId the secondary suffix item ID
+         * @param suffixItemID the suffix item ID
+         * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable(with = __WeaponSerializer::class)
         public data class Weapon(
-            val type: String,
-            @SerialName("min_power")
-            val minPower: Int,
-            @SerialName("max_power")
-            val maxPower: Int,
-            @SerialName("damage_type")
-            val damageType: String,
-            val defense: Int,
-            @SerialName("infusion_slots")
-            val infusionSlots: List<InfusionSlot>,
-            @SerialName("infix_upgrade")
-            val infixUpgrade: InfixUpgrade? = null,
-            @SerialName("suffix_item_id")
-            val suffixItemId: Int? = null,
-            @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemId: Int? = null,
-            @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
-            @SerialName("attribute_adjustment")
-            val attributeAdjustment: Double? = null
-        ) : Details()
+            val weapon: Weapon
+        ) : Details() {
+
+            /**
+             * Additional information about a weapon.
+             *
+             * @param type the weapon type
+             * @param minPower minimum weapon strength
+             * @param maxPower maximum weapon strength
+             * @param damageType the damage type
+             * @param defense the defense value of the weapon
+             * @param infusionSlots infusion slots of the weapon
+             * @param infixUpgrade infix upgrade object
+             * @param suffixItemID the suffix item ID
+             * @param secondarySuffixItemID the secondary suffix item ID
+             * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
+             * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
+             */
+            @Serializable
+            public data class Weapon(
+                val type: String,
+                @SerialName("min_power")
+                val minPower: Int,
+                @SerialName("max_power")
+                val maxPower: Int,
+                @SerialName("damage_type")
+                val damageType: String,
+                val defense: Int,
+                @SerialName("infusion_slots")
+                val infusionSlots: List<InfusionSlot>,
+                @SerialName("infix_upgrade")
+                val infixUpgrade: InfixUpgrade? = null,
+                @SerialName("suffix_item_id")
+                val suffixItemID: Int? = null,
+                @SerialName("secondary_suffix_item_id")
+                val secondarySuffixItemID: Int? = null,
+                @SerialName("stat_choices")
+                val statChoices: List<Int>? = null,
+                @SerialName("attribute_adjustment")
+                val attributeAdjustment: Double? = null
+            )
+
+        }
 
         /**
          * Information about an item's infix upgrade.
@@ -550,13 +744,13 @@ public data class GW2v2Item(
             /**
              * Information about an infix upgrade's buffs.
              *
-             * @param skillId the skill ID of the effect
+             * @param skillID the skill ID of the effect
              * @param description the effect's description
              */
             @Serializable
             public data class Buff(
                 @SerialName("skill_id")
-                val skillId: Int,
+                val skillID: Int,
                 val description: String? = null
             )
 
@@ -566,13 +760,13 @@ public data class GW2v2Item(
          * Information about an items infusion slot.
          *
          * @param flags infusion slot type of infusion upgrades
-         * @param itemId the infusion upgrade in the armor piece
+         * @param itemID the infusion upgrade in the armor piece
          */
         @Serializable
         public data class InfusionSlot(
             val flags: List<String>,
             @SerialName("item_id")
-            val itemId: Int? = null
+            val itemID: Int? = null
         )
 
     }

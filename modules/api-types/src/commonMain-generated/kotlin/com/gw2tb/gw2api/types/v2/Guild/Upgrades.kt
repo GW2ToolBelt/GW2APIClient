@@ -99,8 +99,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val accumulatingcurrency: AccumulatingCurrency
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about a mine capacity upgrade. */
+        @Serializable
+        public object AccumulatingCurrency
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = BankBag::class)
@@ -132,11 +139,24 @@ public sealed class GW2v2GuildUpgrade {
         override val experience: Int,
         override val prerequisites: List<Int>,
         override val costs: List<Cost>,
-        @SerialName("bag_max_items")
-        val bagMaxItems: Int,
-        @SerialName("bag_max_coins")
-        val bagMaxCoins: Int
-    ) : GW2v2GuildUpgrade()
+        val bankbag: BankBag
+    ) : GW2v2GuildUpgrade() {
+
+        /**
+         * Information about a guild bank upgrades.
+         *
+         * @param bagMaxItems the maximum item slots of the guild bank tab
+         * @param bagMaxCoins the maximum amount of coins that can be stored in the bank tab
+         */
+        @Serializable
+        public data class BankBag(
+            @SerialName("bag_max_items")
+            val bagMaxItems: Int,
+            @SerialName("bag_max_coins")
+            val bagMaxCoins: Int
+        )
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Boost::class)
@@ -162,8 +182,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val boost: Boost
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about a permanent guild buffs upgrade. */
+        @Serializable
+        public object Boost
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Claimable::class)
@@ -189,8 +216,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val claimable: Claimable
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about a guild WvW tactics. */
+        @Serializable
+        public object Claimable
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Consumable::class)
@@ -216,8 +250,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val consumable: Consumable
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about a banners and guild siege. */
+        @Serializable
+        public object Consumable
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Decoration::class)
@@ -243,8 +284,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val decoration: Decoration
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about a decoration that must be crafted by a Scribe. */
+        @Serializable
+        public object Decoration
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = GuildHall::class)
@@ -270,8 +318,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val guildhall: GuildHall
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about claiming a Guild Hall. */
+        @Serializable
+        public object GuildHall
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = GuildHallExpedition::class)
@@ -297,8 +352,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val guildhallexpedition: GuildHallExpedition
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about an expedition unlock. */
+        @Serializable
+        public object GuildHallExpedition
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Hub::class)
@@ -324,8 +386,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val hub: Hub
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about Guild Initiative office unlock. */
+        @Serializable
+        public object Hub
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Queue::class)
@@ -351,8 +420,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val queue: Queue
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about Workshop Restoration 1. */
+        @Serializable
+        public object Queue
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Unlock::class)
@@ -378,8 +454,15 @@ public sealed class GW2v2GuildUpgrade {
         override val requiredLevel: Int,
         override val experience: Int,
         override val prerequisites: List<Int>,
-        override val costs: List<Cost>
-    ) : GW2v2GuildUpgrade()
+        override val costs: List<Cost>,
+        val unlock: Unlock
+    ) : GW2v2GuildUpgrade() {
+
+        /** Information about permanent unlocks, such as merchants and arena decorations. */
+        @Serializable
+        public object Unlock
+
+    }
 
     /**
      * Information about an upgrade's cost.

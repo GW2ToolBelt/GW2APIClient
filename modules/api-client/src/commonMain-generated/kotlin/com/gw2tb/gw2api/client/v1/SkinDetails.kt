@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1SkinDetails(skinID: Int, configure: RequestConfigurator<GW2v1SkinDetails>? = null): RequestBuilder<GW2v1SkinDetails> = request(
+public fun GW2APIClient.gw2v1SkinDetails(skinID: Int, configure: RequestConfigurator<Result<GW2v1SkinDetails>>? = null): RequestBuilder<Result<GW2v1SkinDetails>> = request(
     path = "/v2/skin_details",
     parameters = mapOfNonNullValues("skin_id" to skinID.toString()),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V1,
-    serializer = GW2v1SkinDetails.serializer(),
+    serializer = LenientSerializer(GW2v1SkinDetails.serializer()),
     configure = configure
 )

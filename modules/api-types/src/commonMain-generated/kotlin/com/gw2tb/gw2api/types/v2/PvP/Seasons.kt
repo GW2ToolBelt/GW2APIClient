@@ -164,10 +164,16 @@ public data class GW2v2PvPSeason(
                 /**
                  * Information about a leaderboard's tiers.
                  *
+                 * @param color the tier's color as hex value
+                 * @param type the tier's type
+                 * @param name the tier's name
                  * @param range the tier's scoring range
                  */
                 @Serializable
                 public data class Tier(
+                    val color: String? = null,
+                    val type: String? = null,
+                    val name: String? = null,
                     val range: List<Double>
                 )
 

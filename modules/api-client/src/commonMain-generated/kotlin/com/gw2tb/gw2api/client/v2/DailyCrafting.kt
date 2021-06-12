@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2DailyCraftingIDs(configure: RequestConfigurator<Lis
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingByID(id: String, configure: RequestConfigurator<GW2v2DailyCrafting>? = null): RequestBuilder<GW2v2DailyCrafting> = request(
+public fun GW2APIClient.gw2v2DailyCraftingByID(id: String, configure: RequestConfigurator<Result<GW2v2DailyCrafting>>? = null): RequestBuilder<Result<GW2v2DailyCrafting>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2DailyCrafting.serializer(),
+    serializer = LenientSerializer(GW2v2DailyCrafting.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2DailyCrafting>>? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
+public fun GW2APIClient.gw2v2DailyCraftingByIDs(ids: Collection<String>, configure: RequestConfigurator<List<Result<GW2v2DailyCrafting>>>? = null): RequestBuilder<List<Result<GW2v2DailyCrafting>>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2DailyCrafting.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2DailyCrafting.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingAll(configure: RequestConfigurator<List<GW2v2DailyCrafting>>? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
+public fun GW2APIClient.gw2v2DailyCraftingAll(configure: RequestConfigurator<List<Result<GW2v2DailyCrafting>>>? = null): RequestBuilder<List<Result<GW2v2DailyCrafting>>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2DailyCrafting.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2DailyCrafting.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2DailyCraftingByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2DailyCrafting>>? = null): RequestBuilder<List<GW2v2DailyCrafting>> = request(
+public fun GW2APIClient.gw2v2DailyCraftingByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2DailyCrafting>>>? = null): RequestBuilder<List<Result<GW2v2DailyCrafting>>> = request(
     path = "/v2/dailycrafting",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2DailyCrafting.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2DailyCrafting.serializer())),
     configure = configure
 )

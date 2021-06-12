@@ -103,12 +103,24 @@ public data class GW2v2Skin(
          */
         @Serializable(with = __ArmorSerializer::class)
         public data class Armor(
-            val type: String,
-            @SerialName("weight_class")
-            val weightClass: String,
-            @SerialName("dye_slots")
-            val dyeSlots: DyeSlots
+            val armor: Armor
         ) : Details() {
+
+            /**
+             * Additional information about an armor skin.
+             *
+             * @param type the skin's armor slot
+             * @param weightClass the skin's armor weight
+             * @param dyeSlots the skin's dye slots
+             */
+            @Serializable
+            public data class Armor(
+                val type: String,
+                @SerialName("weight_class")
+                val weightClass: String,
+                @SerialName("dye_slots")
+                val dyeSlots: DyeSlots
+            )
 
             /**
              * Information about a skin's sye slots.
@@ -151,25 +163,25 @@ public data class GW2v2Skin(
                  */
                 @Serializable
                 public data class Overrides(
-                    @SerialName("asuramale")
+                    @SerialName("AsuraMale")
                     val asuraMale: List<DyeSlot?>? = null,
-                    @SerialName("asurafemale")
+                    @SerialName("AsuraFemale")
                     val asuraFemale: List<DyeSlot?>? = null,
-                    @SerialName("charrmale")
+                    @SerialName("CharrMale")
                     val charrMale: List<DyeSlot?>? = null,
-                    @SerialName("charrfemale")
+                    @SerialName("CharrFemale")
                     val charrFemale: List<DyeSlot?>? = null,
-                    @SerialName("humanmale")
+                    @SerialName("HumanMale")
                     val humanMale: List<DyeSlot?>? = null,
-                    @SerialName("humanfemale")
+                    @SerialName("HumanFemale")
                     val humanFemale: List<DyeSlot?>? = null,
-                    @SerialName("nornmale")
+                    @SerialName("NornMale")
                     val nornMale: List<DyeSlot?>? = null,
-                    @SerialName("nornfemale")
+                    @SerialName("NornFemale")
                     val nornFemale: List<DyeSlot?>? = null,
-                    @SerialName("sylvarimale")
+                    @SerialName("SylvariMale")
                     val sylvariMale: List<DyeSlot?>? = null,
-                    @SerialName("sylvarifemale")
+                    @SerialName("SylvariFemale")
                     val sylvariFemale: List<DyeSlot?>? = null
                 )
 
@@ -194,8 +206,20 @@ public data class GW2v2Skin(
          */
         @Serializable(with = __GatheringSerializer::class)
         public data class Gathering(
-            val type: String
-        ) : Details()
+            val gathering: Gathering
+        ) : Details() {
+
+            /**
+             * Additional information about a gathering tool skin.
+             *
+             * @param type the skin's tool type
+             */
+            @Serializable
+            public data class Gathering(
+                val type: String
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Weapon::class)
@@ -215,10 +239,23 @@ public data class GW2v2Skin(
          */
         @Serializable(with = __WeaponSerializer::class)
         public data class Weapon(
-            val type: String,
-            @SerialName("damage_type")
-            val damageType: String
-        ) : Details()
+            val weapon: Weapon
+        ) : Details() {
+
+            /**
+             * Additional information about a weapon skin.
+             *
+             * @param type the skin's weapon type
+             * @param damageType the skin's damage type
+             */
+            @Serializable
+            public data class Weapon(
+                val type: String,
+                @SerialName("damage_type")
+                val damageType: String
+            )
+
+        }
 
     }
 

@@ -23,8 +23,8 @@ package com.gw2tb.gw2apiclient.build.codegen
 
 import com.gw2tb.apigen.schema.*
 
-private val KotlinTypeInfo.listSerializer get() = "ListSerializer($this.serializer())"
-private val KotlinTypeInfo.nullableListSerializer get() = "ListSerializer($this.serializer().nullable)"
+private val KotlinTypeInfo.listSerializer get() = "ListSerializer($serializer)"
+private val KotlinTypeInfo.nullableListSerializer get() = "ListSerializer($serializer.nullable)"
 
 internal fun SchemaPrimitive.toKotlinType(): KotlinTypeInfo = when (this) {
     SchemaBoolean -> "Boolean"
@@ -40,20 +40,28 @@ internal data class KotlinTypeInfo(
     override fun toString() = name
 }
 
-internal fun SchemaType.toKotlinType(titleCaseName: String? = null): KotlinTypeInfo = when (this) {
+internal fun SchemaType.toKotlinType(lenient: Boolean = false, titleCaseName: String? = null): KotlinTypeInfo = when (this) {
     is SchemaPrimitive -> toKotlinType()
     is SchemaArray -> {
-        val itemType = items.toKotlinType(titleCaseName)
+        val itemType = items.toKotlinType(lenient = lenient, titleCaseName = titleCaseName)
         KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", if (nullableItems) itemType.nullableListSerializer else itemType.listSerializer)
     }
     is SchemaMap -> {
         val keyType = keys.toKotlinType()
-        val valueType = values.toKotlinType(titleCaseName)
+        val valueType = values.toKotlinType(lenient = lenient, titleCaseName = titleCaseName)
         KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>", "MapSerializer(${keyType.serializer}, ${valueType.serializer})")
     }
-    is SchemaClass -> KotlinTypeInfo(titleCaseName ?: when (name) {
-        "Map" -> "GameMap"
-        else -> name
-    })
+    is SchemaClass -> {
+        val name = titleCaseName ?: when (name) {
+            "Map" -> "GameMap"
+            else -> name
+        }
+
+        if (lenient)
+            KotlinTypeInfo("Result<$name>", "LenientSerializer($name.serializer())")
+        else
+            KotlinTypeInfo(name)
+
+    }
     else -> error("Unsupported SchemaType: $this")
 }

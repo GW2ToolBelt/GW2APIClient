@@ -43,12 +43,12 @@ public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<Lis
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurator<GW2v2CommerceExchange>? = null): RequestBuilder<GW2v2CommerceExchange> = request(
+public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurator<Result<GW2v2CommerceExchange>>? = null): RequestBuilder<Result<GW2v2CommerceExchange>> = request(
     path = "/v2/commerce/exchange/:type",
     parameters = mapOfNonNullValues("quantity" to quantity.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2CommerceExchange.serializer(),
+    serializer = LenientSerializer(GW2v2CommerceExchange.serializer()),
     configure = configure
 )

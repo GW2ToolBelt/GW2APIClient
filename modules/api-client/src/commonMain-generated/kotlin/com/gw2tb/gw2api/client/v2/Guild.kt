@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2Guild(id: String, configure: RequestConfigurator<GW2v2Guild>? = null): RequestBuilder<GW2v2Guild> = request(
+public fun GW2APIClient.gw2v2Guild(id: String, configure: RequestConfigurator<Result<GW2v2Guild>>? = null): RequestBuilder<Result<GW2v2Guild>> = request(
     path = "/v2/guild/:id",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Guild.serializer(),
+    serializer = LenientSerializer(GW2v2Guild.serializer()),
     configure = configure
 )

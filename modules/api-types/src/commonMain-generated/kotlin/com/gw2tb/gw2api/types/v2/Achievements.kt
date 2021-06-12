@@ -116,8 +116,20 @@ public data class GW2v2Achievement(
         @Serializable(with = __CoinsSerializer::class)
         public data class Coins(
             override val type: String,
-            val count: Int
-        ) : Reward()
+            val coins: Coins
+        ) : Reward() {
+
+            /**
+             * Information about a coin reward.
+             *
+             * @param count the amount of coins
+             */
+            @Serializable
+            public data class Coins(
+                val count: Int
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Items::class)
@@ -138,9 +150,22 @@ public data class GW2v2Achievement(
         @Serializable(with = __ItemsSerializer::class)
         public data class Items(
             override val type: String,
-            val id: Int,
-            val count: Int
-        ) : Reward()
+            val items: Items
+        ) : Reward() {
+
+            /**
+             * Information about an item reward.
+             *
+             * @param id the item's ID
+             * @param count the amount of the item
+             */
+            @Serializable
+            public data class Items(
+                val id: Int,
+                val count: Int
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Mastery::class)
@@ -161,9 +186,22 @@ public data class GW2v2Achievement(
         @Serializable(with = __MasterySerializer::class)
         public data class Mastery(
             override val type: String,
-            val id: Int,
-            val region: String
-        ) : Reward()
+            val mastery: Mastery
+        ) : Reward() {
+
+            /**
+             * Information about a mastery point reward.
+             *
+             * @param id the mastery point's ID
+             * @param region the mastery point's region
+             */
+            @Serializable
+            public data class Mastery(
+                val id: Int,
+                val region: String
+            )
+
+        }
 
         @Suppress("ClassName")
         @Serializer(forClass = Title::class)
@@ -183,8 +221,20 @@ public data class GW2v2Achievement(
         @Serializable(with = __TitleSerializer::class)
         public data class Title(
             override val type: String,
-            val id: Int
-        ) : Reward()
+            val title: Title
+        ) : Reward() {
+
+            /**
+             * Information about a title reward
+             *
+             * @param id the title's ID
+             */
+            @Serializable
+            public data class Title(
+                val id: Int
+            )
+
+        }
 
     }
 

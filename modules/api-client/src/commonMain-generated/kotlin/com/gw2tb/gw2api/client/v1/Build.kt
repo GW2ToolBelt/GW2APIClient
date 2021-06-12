@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1Build(configure: RequestConfigurator<GW2v1Build>? = null): RequestBuilder<GW2v1Build> = request(
+public fun GW2APIClient.gw2v1Build(configure: RequestConfigurator<Result<GW2v1Build>>? = null): RequestBuilder<Result<GW2v1Build>> = request(
     path = "/v2/build",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v1Build.serializer(),
+    serializer = LenientSerializer(GW2v1Build.serializer()),
     configure = configure
 )

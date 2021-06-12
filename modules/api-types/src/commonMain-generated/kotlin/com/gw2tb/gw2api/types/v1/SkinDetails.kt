@@ -94,13 +94,25 @@ public sealed class GW2v1SkinDetails {
         override val iconFileID: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
-        @SerialName("type")
-        val armorType: String,
-        @SerialName("weight_class")
-        val weightClass: String,
-        @SerialName("dye_slots")
-        val dyeSlots: DyeSlots
+        val armor: Armor
     ) : GW2v1SkinDetails() {
+
+        /**
+         * Additional information about an armor skin.
+         *
+         * @param armorType the skin's armor slot
+         * @param weightClass the skin's armor weight
+         * @param dyeSlots the skin's dye slots
+         */
+        @Serializable
+        public data class Armor(
+            @SerialName("type")
+            val armorType: String,
+            @SerialName("weight_class")
+            val weightClass: String,
+            @SerialName("dye_slots")
+            val dyeSlots: DyeSlots
+        )
 
         /**
          * Information about a skin's sye slots.
@@ -180,8 +192,15 @@ public sealed class GW2v1SkinDetails {
         @SerialName("icon_file_id")
         override val iconFileID: String,
         @SerialName("icon_file_signature")
-        override val iconFileSignature: String
-    ) : GW2v1SkinDetails()
+        override val iconFileSignature: String,
+        val back: Back
+    ) : GW2v1SkinDetails() {
+
+        /** Additional information about a backpack skin. */
+        @Serializable
+        public object Back
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Gathering::class)
@@ -206,8 +225,15 @@ public sealed class GW2v1SkinDetails {
         @SerialName("icon_file_id")
         override val iconFileID: String,
         @SerialName("icon_file_signature")
-        override val iconFileSignature: String
-    ) : GW2v1SkinDetails()
+        override val iconFileSignature: String,
+        val gathering: Gathering
+    ) : GW2v1SkinDetails() {
+
+        /** Additional information about a gathering tool skin. */
+        @Serializable
+        public object Gathering
+
+    }
 
     @Suppress("ClassName")
     @Serializer(forClass = Weapon::class)
@@ -238,10 +264,23 @@ public sealed class GW2v1SkinDetails {
         override val iconFileID: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
-        @SerialName("type")
-        val weaponType: String,
-        @SerialName("damage_type")
-        val damageType: String
-    ) : GW2v1SkinDetails()
+        val weapon: Weapon
+    ) : GW2v1SkinDetails() {
+
+        /**
+         * Additional information about a gathering tool skin.
+         *
+         * @param weaponType the skin's weapon type
+         * @param damageType the skin's damage type
+         */
+        @Serializable
+        public data class Weapon(
+            @SerialName("type")
+            val weaponType: String,
+            @SerialName("damage_type")
+            val damageType: String
+        )
+
+    }
 
 }

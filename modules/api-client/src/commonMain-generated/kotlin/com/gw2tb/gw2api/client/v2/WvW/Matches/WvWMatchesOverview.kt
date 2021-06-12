@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2WvWMatchesOverviewIDs(configure: RequestConfigurato
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesOverviewByID(id: String, configure: RequestConfigurator<GW2v2WvWMatchOverview>? = null): RequestBuilder<GW2v2WvWMatchOverview> = request(
+public fun GW2APIClient.gw2v2WvWMatchesOverviewByID(id: String, configure: RequestConfigurator<Result<GW2v2WvWMatchOverview>>? = null): RequestBuilder<Result<GW2v2WvWMatchOverview>> = request(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2WvWMatchOverview.serializer(),
+    serializer = LenientSerializer(GW2v2WvWMatchOverview.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesOverviewByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2WvWMatchOverview>>? = null): RequestBuilder<List<GW2v2WvWMatchOverview>> = request(
+public fun GW2APIClient.gw2v2WvWMatchesOverviewByIDs(ids: Collection<String>, configure: RequestConfigurator<List<Result<GW2v2WvWMatchOverview>>>? = null): RequestBuilder<List<Result<GW2v2WvWMatchOverview>>> = request(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WvWMatchOverview.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2WvWMatchOverview.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesOverviewAll(configure: RequestConfigurator<List<GW2v2WvWMatchOverview>>? = null): RequestBuilder<List<GW2v2WvWMatchOverview>> = request(
+public fun GW2APIClient.gw2v2WvWMatchesOverviewAll(configure: RequestConfigurator<List<Result<GW2v2WvWMatchOverview>>>? = null): RequestBuilder<List<Result<GW2v2WvWMatchOverview>>> = request(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WvWMatchOverview.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2WvWMatchOverview.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesOverviewByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2WvWMatchOverview>>? = null): RequestBuilder<List<GW2v2WvWMatchOverview>> = request(
+public fun GW2APIClient.gw2v2WvWMatchesOverviewByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2WvWMatchOverview>>>? = null): RequestBuilder<List<Result<GW2v2WvWMatchOverview>>> = request(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WvWMatchOverview.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2WvWMatchOverview.serializer())),
     configure = configure
 )

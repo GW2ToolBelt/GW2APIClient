@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1EventDetails(configure: RequestConfigurator<GW2v1EventDetails>? = null): RequestBuilder<GW2v1EventDetails> = request(
+public fun GW2APIClient.gw2v1EventDetails(configure: RequestConfigurator<Result<GW2v1EventDetails>>? = null): RequestBuilder<Result<GW2v1EventDetails>> = request(
     path = "/v2/event_details",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V1,
-    serializer = GW2v1EventDetails.serializer(),
+    serializer = LenientSerializer(GW2v1EventDetails.serializer()),
     configure = configure
 )

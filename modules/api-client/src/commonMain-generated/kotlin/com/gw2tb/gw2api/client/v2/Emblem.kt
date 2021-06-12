@@ -54,45 +54,45 @@ public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigura
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemByID(type: String, id: Int, configure: RequestConfigurator<GW2v2EmblemPart>? = null): RequestBuilder<GW2v2EmblemPart> = request(
+public fun GW2APIClient.gw2v2EmblemByID(type: String, id: Int, configure: RequestConfigurator<Result<GW2v2EmblemPart>>? = null): RequestBuilder<Result<GW2v2EmblemPart>> = request(
     path = "/v2/emblem/:type",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2EmblemPart.serializer(),
+    serializer = LenientSerializer(GW2v2EmblemPart.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
+public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: Collection<Int>, configure: RequestConfigurator<List<Result<GW2v2EmblemPart>>>? = null): RequestBuilder<List<Result<GW2v2EmblemPart>>> = request(
     path = "/v2/emblem/:type",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2EmblemPart.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2EmblemPart.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemAll(type: String, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
+public fun GW2APIClient.gw2v2EmblemAll(type: String, configure: RequestConfigurator<List<Result<GW2v2EmblemPart>>>? = null): RequestBuilder<List<Result<GW2v2EmblemPart>>> = request(
     path = "/v2/emblem/:type",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2EmblemPart.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2EmblemPart.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemByPage(type: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
+public fun GW2APIClient.gw2v2EmblemByPage(type: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2EmblemPart>>>? = null): RequestBuilder<List<Result<GW2v2EmblemPart>>> = request(
     path = "/v2/emblem/:type",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2EmblemPart.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2EmblemPart.serializer())),
     configure = configure
 )

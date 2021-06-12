@@ -44,7 +44,7 @@ public data class GW2v2LeaderboardEntry(
     val id: String? = null,
     val rank: Int,
     val team: Int? = null,
-    @SerialName("teamid")
+    @SerialName("team_id")
     val teamID: Int? = null,
     val date: String,
     val scores: List<Scoring>

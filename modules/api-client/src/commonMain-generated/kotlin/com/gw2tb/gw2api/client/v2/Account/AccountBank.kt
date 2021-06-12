@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountBank(configure: RequestConfigurator<List<GW2v2AccountBankSlot?>>? = null): RequestBuilder<List<GW2v2AccountBankSlot?>> = request(
+public fun GW2APIClient.gw2v2AccountBank(configure: RequestConfigurator<List<Result<GW2v2AccountBankSlot>?>>? = null): RequestBuilder<List<Result<GW2v2AccountBankSlot>?>> = request(
     path = "/v2/account/bank",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "inventories"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountBankSlot.serializer().nullable),
+    serializer = ListSerializer(LenientSerializer(GW2v2AccountBankSlot.serializer()).nullable),
     configure = configure
 )

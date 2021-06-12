@@ -99,11 +99,26 @@ public data class GW2v1EventDetails(
             @Serializable(with = __CylinderSerializer::class)
             public data class Cylinder(
                 override val type: String,
-                val center: List<Double>,
-                val height: Double,
-                val radius: Double,
-                val rotation: Double
-            ) : Location()
+                val cylinder: Cylinder
+            ) : Location() {
+
+                /**
+                 * Information about a cylindrical event location.
+                 *
+                 * @param center the coordinates (x,y,z) of the cylinder's center (in map coordinates)
+                 * @param height the cylinder's height
+                 * @param radius the cylinder's radius
+                 * @param rotation the cylinder's rotation
+                 */
+                @Serializable
+                public data class Cylinder(
+                    val center: List<Double>,
+                    val height: Double,
+                    val radius: Double,
+                    val rotation: Double
+                )
+
+            }
 
             @Suppress("ClassName")
             @Serializer(forClass = Poly::class)
@@ -125,11 +140,25 @@ public data class GW2v1EventDetails(
             @Serializable(with = __PolySerializer::class)
             public data class Poly(
                 override val type: String,
-                val center: List<Double>,
-                @SerialName("z_range")
-                val zRange: List<Double>,
-                val points: List<List<Double>>
-            ) : Location()
+                val poly: Poly
+            ) : Location() {
+
+                /**
+                 * Information about a polygonal event location.
+                 *
+                 * @param center the coordinates (x,y,z) of the polygon's center (in map coordinates)
+                 * @param zRange the polygon's z-range
+                 * @param points the polygon's points
+                 */
+                @Serializable
+                public data class Poly(
+                    val center: List<Double>,
+                    @SerialName("z_range")
+                    val zRange: List<Double>,
+                    val points: List<List<Double>>
+                )
+
+            }
 
             @Suppress("ClassName")
             @Serializer(forClass = Sphere::class)
@@ -151,10 +180,24 @@ public data class GW2v1EventDetails(
             @Serializable(with = __SphereSerializer::class)
             public data class Sphere(
                 override val type: String,
-                val center: List<Double>,
-                val radius: Double,
-                val rotation: Double
-            ) : Location()
+                val sphere: Sphere
+            ) : Location() {
+
+                /**
+                 * Information about a spherical event location.
+                 *
+                 * @param center the coordinates (x,y,z) of the sphere's center (in map coordinates)
+                 * @param radius the sphere's radius
+                 * @param rotation the sphere's rotation
+                 */
+                @Serializable
+                public data class Sphere(
+                    val center: List<Double>,
+                    val radius: Double,
+                    val rotation: Double
+                )
+
+            }
 
         }
 

@@ -130,17 +130,17 @@ public data class GW2v2Profession(
          *
          * @param cost the amount of skill points required to unlock this step
          * @param type the type of the step (e.g. Skill, Trait)
-         * @param skillId the ID of the skill unlocked by this step
-         * @param traitId the ID of the trait unlocked by this step
+         * @param skillID the ID of the skill unlocked by this step
+         * @param traitID the ID of the trait unlocked by this step
          */
         @Serializable
         public data class Track(
             val cost: Int,
             val type: String,
             @SerialName("skill_id")
-            val skillId: Int? = null,
+            val skillID: Int? = null,
             @SerialName("trait_id")
-            val traitId: Int? = null
+            val traitID: Int? = null
         )
 
     }

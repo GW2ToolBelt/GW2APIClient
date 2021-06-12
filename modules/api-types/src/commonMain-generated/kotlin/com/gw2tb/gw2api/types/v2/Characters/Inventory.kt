@@ -59,7 +59,7 @@ public data class GW2v2CharactersInventorySlot(
          * @param charges the amount of charges remaining on the item
          * @param skin the ID of the skin applied to the item
          * @param upgrades an array of item IDs for each rune or signet applied to the item
-         * @param upgradeSlotIndices 
+         * @param upgradeSlotIndices the slot of the corresponding upgrade
          * @param infusions an array of item IDs for each infusion applied to the item
          * @param stats contains information on the stats chosen if the item offers an option for stats/prefix
          * @param binding the binding of the material

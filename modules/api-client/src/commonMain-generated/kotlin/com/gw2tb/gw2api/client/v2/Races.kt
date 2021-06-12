@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2RacesIDs(configure: RequestConfigurator<List<String
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByID(id: String, configure: RequestConfigurator<GW2v2Race>? = null): RequestBuilder<GW2v2Race> = request(
+public fun GW2APIClient.gw2v2RacesByID(id: String, configure: RequestConfigurator<Result<GW2v2Race>>? = null): RequestBuilder<Result<GW2v2Race>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2Race.serializer(),
+    serializer = LenientSerializer(GW2v2Race.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
+public fun GW2APIClient.gw2v2RacesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<Result<GW2v2Race>>>? = null): RequestBuilder<List<Result<GW2v2Race>>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Race.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2Race.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesAll(configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
+public fun GW2APIClient.gw2v2RacesAll(configure: RequestConfigurator<List<Result<GW2v2Race>>>? = null): RequestBuilder<List<Result<GW2v2Race>>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Race.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2Race.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
+public fun GW2APIClient.gw2v2RacesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2Race>>>? = null): RequestBuilder<List<Result<GW2v2Race>>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2Race.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2Race.serializer())),
     configure = configure
 )

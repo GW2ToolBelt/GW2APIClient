@@ -34,7 +34,9 @@ import kotlinx.serialization.json.*
  * @param count the amount of items in the stack
  * @param charges the amount of charges remaining on the item
  * @param skin the ID of the skin applied to the item
+ * @param dyes the IDs of the dyes applied to the item
  * @param upgrades the array of item IDs of runes or sigils applied to the item
+ * @param upgradeSlotIndices the slot of the corresponding upgrade
  * @param infusions the array of item IDs of infusions applied to the item
  * @param stats contains information on the stats chosen if the item offers an option for stats/prefix
  * @param binding the binding of the material
@@ -46,7 +48,10 @@ public data class GW2v2AccountBankSlot(
     val count: Int,
     val charges: Int? = null,
     val skin: Int? = null,
+    val dyes: List<Int>? = null,
     val upgrades: List<Int>? = null,
+    @SerialName("upgrade_slot_indices")
+    val upgradeSlotIndices: List<Int>? = null,
     val infusions: List<Int>? = null,
     val stats: Stats? = null,
     val binding: String? = null,
@@ -58,34 +63,46 @@ public data class GW2v2AccountBankSlot(
      * Information about an item's stats.
      *
      * @param id the itemstat ID
-     * @param power the amount of power given by the item
-     * @param precision the amount of precision given by the item
-     * @param toughness the amount of toughness given by the item
-     * @param vitality the amount of vitality given by the item
-     * @param conditionDamage the amount of condition damage given by the item
-     * @param conditionDuration the amount of condition duration given by the item
-     * @param healing the amount of healing given by the item
-     * @param boonDuration the amount of boon duration given by the item
+     * @param attributes the item's attributes
      */
     @Serializable
     public data class Stats(
         val id: Int,
-        @SerialName("Power")
-        val power: Int? = null,
-        @SerialName("Precision")
-        val precision: Int? = null,
-        @SerialName("Toughness")
-        val toughness: Int? = null,
-        @SerialName("Vitality")
-        val vitality: Int? = null,
-        @SerialName("ConditionDamage")
-        val conditionDamage: Int? = null,
-        @SerialName("ConditionDuration")
-        val conditionDuration: Int? = null,
-        @SerialName("Healing")
-        val healing: Int? = null,
-        @SerialName("BoonDuration")
-        val boonDuration: Int? = null
-    )
+        val attributes: Attributes
+    ) {
+
+        /**
+         * Information about an item's attributes.
+         *
+         * @param power the amount of power given by the item
+         * @param precision the amount of precision given by the item
+         * @param toughness the amount of toughness given by the item
+         * @param vitality the amount of vitality given by the item
+         * @param conditionDamage the amount of condition damage given by the item
+         * @param conditionDuration the amount of condition duration given by the item
+         * @param healing the amount of healing given by the item
+         * @param boonDuration the amount of boon duration given by the item
+         */
+        @Serializable
+        public data class Attributes(
+            @SerialName("Power")
+            val power: Int? = null,
+            @SerialName("Precision")
+            val precision: Int? = null,
+            @SerialName("Toughness")
+            val toughness: Int? = null,
+            @SerialName("Vitality")
+            val vitality: Int? = null,
+            @SerialName("ConditionDamage")
+            val conditionDamage: Int? = null,
+            @SerialName("ConditionDuration")
+            val conditionDuration: Int? = null,
+            @SerialName("Healing")
+            val healing: Int? = null,
+            @SerialName("BoonDuration")
+            val boonDuration: Int? = null
+        )
+
+    }
 
 }

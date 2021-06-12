@@ -135,8 +135,8 @@ public class RequestBuilder<T> internal constructor(
                     }.execute(scope).get()
 
                     if (perm.data != null) {
-                        if (!perm.data!!.permissions.containsAll(requiredPermissions)) {
-                            throw InsufficientPermissionsException("Insufficient permissions for endpoint $path: ${perm.data!!.permissions} (Required permissions ${requiredPermissions.joinToString()})")
+                        if (!perm.data!!.getOrNull()!!.permissions.containsAll(requiredPermissions)) {
+                            throw InsufficientPermissionsException("Insufficient permissions for endpoint $path: ${perm.data!!.getOrNull()!!.permissions} (Required permissions ${requiredPermissions.joinToString()})")
                         }
                     } else {
                         throw UnauthenticatedException("Endpoint $path requires authentication but no API key was provided. (Required permissions ${requiredPermissions.joinToString()})")

@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2ContinentsFloorsIDs(continentID: Int, configure: Re
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2ContinentsFloorsByID(continentID: Int, id: Int, configure: RequestConfigurator<GW2v2ContinentFloor>? = null): RequestBuilder<GW2v2ContinentFloor> = request(
+public fun GW2APIClient.gw2v2ContinentsFloorsByID(continentID: Int, id: Int, configure: RequestConfigurator<Result<GW2v2ContinentFloor>>? = null): RequestBuilder<Result<GW2v2ContinentFloor>> = request(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to continentID.toString()),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2ContinentFloor.serializer(),
+    serializer = LenientSerializer(GW2v2ContinentFloor.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2ContinentsFloorsByIDs(continentID: Int, ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2ContinentFloor>>? = null): RequestBuilder<List<GW2v2ContinentFloor>> = request(
+public fun GW2APIClient.gw2v2ContinentsFloorsByIDs(continentID: Int, ids: Collection<Int>, configure: RequestConfigurator<List<Result<GW2v2ContinentFloor>>>? = null): RequestBuilder<List<Result<GW2v2ContinentFloor>>> = request(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to continentID.toString()),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2ContinentFloor.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2ContinentFloor.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2ContinentsFloorsAll(continentID: Int, configure: RequestConfigurator<List<GW2v2ContinentFloor>>? = null): RequestBuilder<List<GW2v2ContinentFloor>> = request(
+public fun GW2APIClient.gw2v2ContinentsFloorsAll(continentID: Int, configure: RequestConfigurator<List<Result<GW2v2ContinentFloor>>>? = null): RequestBuilder<List<Result<GW2v2ContinentFloor>>> = request(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to continentID.toString()),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2ContinentFloor.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2ContinentFloor.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2ContinentsFloorsByPage(continentID: Int, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2ContinentFloor>>? = null): RequestBuilder<List<GW2v2ContinentFloor>> = request(
+public fun GW2APIClient.gw2v2ContinentsFloorsByPage(continentID: Int, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2ContinentFloor>>>? = null): RequestBuilder<List<Result<GW2v2ContinentFloor>>> = request(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to continentID.toString()),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2ContinentFloor.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2ContinentFloor.serializer())),
     configure = configure
 )

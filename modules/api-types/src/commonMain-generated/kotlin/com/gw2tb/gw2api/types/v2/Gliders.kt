@@ -36,6 +36,7 @@ import kotlinx.serialization.json.*
  * @param icon the URL for the glider's icon
  * @param order a (non-unique) number that can be used as basis to sort the list of gliders
  * @param defaultDyes the IDs of the dyes that are applied to the glider by default
+ * @param unlockItems an array of item IDs used to unlock the glider
  */
 @Serializable
 public data class GW2v2Glider(
@@ -45,5 +46,7 @@ public data class GW2v2Glider(
     val icon: String,
     val order: Int,
     @SerialName("default_dyes")
-    val defaultDyes: List<Int>
+    val defaultDyes: List<Int>,
+    @SerialName("unlock_items")
+    val unlockItems: List<Int>
 )

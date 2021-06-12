@@ -42,7 +42,7 @@ public data class GW2v2ContinentFloor(
     val textureDims: List<Int>,
     @SerialName("clamped_view")
     val clampedView: List<List<Int>>? = null,
-    val regions: Map<String, Region>
+    val regions: Map<Int, Region>
 ) {
 
     /**
@@ -51,6 +51,7 @@ public data class GW2v2ContinentFloor(
      * @param id the region's ID
      * @param name the region's localized name
      * @param labelCoord the coordinate of the region's label
+     * @param continentRect the dimensions of the region, given as the coordinates of the upper-left (NW) and lower-right (SE) corners
      * @param maps the region's maps
      */
     @Serializable
@@ -59,7 +60,9 @@ public data class GW2v2ContinentFloor(
         val name: String,
         @SerialName("label_coord")
         val labelCoord: List<Double>,
-        val maps: Map<String, GameMap>
+        @SerialName("continent_rect")
+        val continentRect: List<List<Int>>,
+        val maps: Map<Int, GameMap>
     ) {
 
         /**
@@ -72,6 +75,7 @@ public data class GW2v2ContinentFloor(
          * @param defaultFloor the ID of the map's default floor
          * @param mapRect the dimensions of the map, given as the coordinates of the lower-left (SW) and upper-right (NE) corners
          * @param continentRect the dimensions of the map within the continent coordinate system, given as the coordinates of the upper-left (NW) and lower-right (SE) corners
+         * @param labelCoord the coordinate of the map's label
          * @param pointsOfInterest the points of interest on the floor (i.e. landmarks, vistas and waypoints)
          * @param godShrines the god shrines on the floor
          * @param tasks the tasks on the floor
@@ -94,14 +98,16 @@ public data class GW2v2ContinentFloor(
             val mapRect: List<List<Int>>,
             @SerialName("continent_rect")
             val continentRect: List<List<Int>>,
+            @SerialName("label_coord")
+            val labelCoord: List<Double>,
             @SerialName("points_of_interest")
-            val pointsOfInterest: Map<String, PointOfInterest>,
+            val pointsOfInterest: Map<Int, PointOfInterest>,
             @SerialName("godshrines")
             val godShrines: List<GodShrine>? = null,
-            val tasks: Map<String, Task>,
+            val tasks: Map<Int, Task>,
             @SerialName("skill_challenges")
             val skillChallenges: List<SkillChallenge>,
-            val sectors: Map<String, Sector>,
+            val sectors: Map<Int, Sector>,
             val adventures: List<Adventure>,
             @SerialName("mastery_points")
             val masteryPoints: List<MasteryPoint>

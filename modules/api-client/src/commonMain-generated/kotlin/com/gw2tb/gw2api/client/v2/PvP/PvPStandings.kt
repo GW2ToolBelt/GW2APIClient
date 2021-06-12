@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPStandings(configure: RequestConfigurator<List<GW2v2PvPStandings>>? = null): RequestBuilder<List<GW2v2PvPStandings>> = request(
+public fun GW2APIClient.gw2v2PvPStandings(configure: RequestConfigurator<List<Result<GW2v2PvPStandings>>>? = null): RequestBuilder<List<Result<GW2v2PvPStandings>>> = request(
     path = "/v2/pvp/standings",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2PvPStandings.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2PvPStandings.serializer())),
     configure = configure
 )

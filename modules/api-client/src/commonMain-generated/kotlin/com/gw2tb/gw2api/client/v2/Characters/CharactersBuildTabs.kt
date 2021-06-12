@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsIDs(id: String, configure: Reque
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsByID(id: String, tab: Int, configure: RequestConfigurator<GW2v2CharactersBuildTab>? = null): RequestBuilder<GW2v2CharactersBuildTab> = request(
+public fun GW2APIClient.gw2v2CharactersBuildTabsByID(id: String, tab: Int, configure: RequestConfigurator<Result<GW2v2CharactersBuildTab>>? = null): RequestBuilder<Result<GW2v2CharactersBuildTab>> = request(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("tab" to tab.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = GW2v2CharactersBuildTab.serializer(),
+    serializer = LenientSerializer(GW2v2CharactersBuildTab.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsByIDs(id: String, tabs: Collection<Int>, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
+public fun GW2APIClient.gw2v2CharactersBuildTabsByIDs(id: String, tabs: Collection<Int>, configure: RequestConfigurator<List<Result<GW2v2CharactersBuildTab>>>? = null): RequestBuilder<List<Result<GW2v2CharactersBuildTab>>> = request(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CharactersBuildTab.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2CharactersBuildTab.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsAll(id: String, tabs: List<Int>, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
+public fun GW2APIClient.gw2v2CharactersBuildTabsAll(id: String, tabs: List<Int>, configure: RequestConfigurator<List<Result<GW2v2CharactersBuildTab>>>? = null): RequestBuilder<List<Result<GW2v2CharactersBuildTab>>> = request(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2021-04-06T21:00:00.000Z", "ids" to "all"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CharactersBuildTab.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2CharactersBuildTab.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsByPage(id: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
+public fun GW2APIClient.gw2v2CharactersBuildTabsByPage(id: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2CharactersBuildTab>>>? = null): RequestBuilder<List<Result<GW2v2CharactersBuildTab>>> = request(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2CharactersBuildTab.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2CharactersBuildTab.serializer())),
     configure = configure
 )

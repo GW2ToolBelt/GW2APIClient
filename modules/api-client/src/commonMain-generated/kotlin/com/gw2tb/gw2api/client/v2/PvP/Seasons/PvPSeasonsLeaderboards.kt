@@ -54,12 +54,12 @@ public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(iD: String, board: String, c
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPSeasonsLeaderboardsByPage(iD: String, board: String, region: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2LeaderboardEntry>>? = null): RequestBuilder<List<GW2v2LeaderboardEntry>> = request(
+public fun GW2APIClient.gw2v2PvPSeasonsLeaderboardsByPage(iD: String, board: String, region: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2LeaderboardEntry>>>? = null): RequestBuilder<List<Result<GW2v2LeaderboardEntry>>> = request(
     path = "/v2/pvp/seasons/:id/leaderboards/:board/:region",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to iD, ":board" to board, ":region" to region),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2LeaderboardEntry.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2LeaderboardEntry.serializer())),
     configure = configure
 )

@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2EmotesIDs(configure: RequestConfigurator<List<Strin
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesByID(id: String, configure: RequestConfigurator<GW2v2Emote>? = null): RequestBuilder<GW2v2Emote> = request(
+public fun GW2APIClient.gw2v2EmotesByID(id: String, configure: RequestConfigurator<Result<GW2v2Emote>>? = null): RequestBuilder<Result<GW2v2Emote>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2Emote.serializer(),
+    serializer = LenientSerializer(GW2v2Emote.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Emote>>? = null): RequestBuilder<List<GW2v2Emote>> = request(
+public fun GW2APIClient.gw2v2EmotesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<Result<GW2v2Emote>>>? = null): RequestBuilder<List<Result<GW2v2Emote>>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2Emote.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2Emote.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesAll(configure: RequestConfigurator<List<GW2v2Emote>>? = null): RequestBuilder<List<GW2v2Emote>> = request(
+public fun GW2APIClient.gw2v2EmotesAll(configure: RequestConfigurator<List<Result<GW2v2Emote>>>? = null): RequestBuilder<List<Result<GW2v2Emote>>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2Emote.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2Emote.serializer())),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmotesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Emote>>? = null): RequestBuilder<List<GW2v2Emote>> = request(
+public fun GW2APIClient.gw2v2EmotesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2Emote>>>? = null): RequestBuilder<List<Result<GW2v2Emote>>> = request(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2Emote.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2Emote.serializer())),
     configure = configure
 )

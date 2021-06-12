@@ -104,6 +104,7 @@ private fun Sequence<APIQuery.V1>.printV1Queries(): String =
                 methodName = buildString {
                     append("gw2v1")
                     append(query.endpoint.replace(Regex("/:([A-Za-z])*"), "").replace("/", ""))
+                    query.querySuffix?.let { append(it) }
                 },
                 methodParameters = buildString {
                     append(query.pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" })
@@ -251,7 +252,8 @@ private fun <Q : APIQuery> Sequence<Q>.printQueryFunctions(
 ) =
     map { query ->
         val schema = schemaSelector(query)
-        val dataType = schema.toKotlinType(titleCaseName = schema.firstPossiblyNestedClassOrNull()?.name?.let { "GW2$apiVersion$it" })
+        val schemaClass = schema.firstPossiblyNestedClassOrNull()
+        val dataType = schema.toKotlinType(lenient = (schemaClass != null), titleCaseName = schemaClass?.name?.let { "GW2$apiVersion$it" })
 
         sequence { queryFunctionsMapper(query, schema, dataType) }
     }

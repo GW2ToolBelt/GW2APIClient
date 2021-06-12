@@ -87,7 +87,9 @@ fun SchemaClass.toClassString(
     serialName: String? = null,
     superClass: String? = null,
     isInterpretation: Boolean = false,
-    inheritedTSharedProperties: Map<String, SchemaRecord.Property> = emptyMap()
+    isNestedInterpretation: Boolean = false,
+    interpretationNest: String? = null,
+    inheritedSharedProperties: Map<String, SchemaRecord.Property> = emptyMap()
 ): String {
     val className = if (prefix != null) "$prefix$name" else toKotlinType().name
     val classNest = buildString {
@@ -103,8 +105,7 @@ fun SchemaClass.toClassString(
                 classNest,
                 nestedTypesToString,
                 superClass = superClass,
-                isInterpretation = isInterpretation,
-                inheritedTSharedProperties = inheritedTSharedProperties
+                inheritedSharedProperties = inheritedSharedProperties
             )
         }
         is SchemaRecord -> toDataClassString(
@@ -114,12 +115,15 @@ fun SchemaClass.toClassString(
             serialName = serialName,
             superClass = superClass,
             isInterpretation = isInterpretation,
-            inheritedTSharedProperties = inheritedTSharedProperties
+            isNestedInterpretation = isNestedInterpretation,
+            interpretationNest = interpretationNest,
+            inheritedSharedProperties = inheritedSharedProperties
         )
         else -> error("")
     }
 }
 
+@OptIn(ExperimentalStdlibApi::class)
 private fun SchemaRecord.toDataClassString(
     className: String,
     nest: String,
@@ -127,7 +131,9 @@ private fun SchemaRecord.toDataClassString(
     serialName: String?,
     superClass: String?,
     isInterpretation: Boolean,
-    inheritedTSharedProperties: Map<String, SchemaRecord.Property>
+    isNestedInterpretation: Boolean,
+    interpretationNest: String?,
+    inheritedSharedProperties: Map<String, SchemaRecord.Property>
 ) = buildString {
     val requiresCustomPolymorphicSerializer = properties.values.any { it.type is SchemaConditional && (it.type as SchemaConditional).disambiguationBySideProperty } || isInterpretation
 
@@ -161,33 +167,53 @@ private fun SchemaRecord.toDataClassString(
         appendLine("@SerialName($serialName)")
 
     appendLine(if (requiresCustomPolymorphicSerializer) "@Serializable(with = __${className}Serializer::class)" else "@Serializable")
-    append("public data class $className")
-    append(sequence {
-        yieldAll(inheritedTSharedProperties.values.map { property -> buildString {
-            if (property.isDeprecated)
-                appendLine("""@Deprecated(message = "")""")
+    if (isNestedInterpretation && properties.isEmpty()) {
+        append("public object $className")
+    } else {
+        append("public data class $className")
+        append(sequence {
+            yieldAll(inheritedSharedProperties.values.map { property -> buildString {
+                if (property.isDeprecated)
+                    appendLine("""@Deprecated(message = "")""")
 
-            if (property.serialName != property.camelCaseName)
-                appendLine("""@SerialName("${property.serialName}")""")
+                if (property.serialName != property.camelCaseName)
+                    appendLine("""@SerialName("${property.serialName}")""")
 
-            append("override val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-        }})
+                append("override val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+            }})
 
-        yieldAll(properties.values.map { property -> buildString {
-            if (property.isDeprecated)
-                appendLine("""@Deprecated(message = "")""")
+            if (interpretationNest == null) {
+                yieldAll(properties.values.map { property -> buildString {
+                    if (property.isDeprecated)
+                        appendLine("""@Deprecated(message = "")""")
 
-            if (property.serialName != property.camelCaseName)
-                appendLine("""@SerialName("${property.serialName}")""")
+                    if (property.serialName != property.camelCaseName)
+                        appendLine("""@SerialName("${property.serialName}")""")
 
-            append("val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-        }})
-    }.map { it.prependIndentNonEmpty(t) }.joinToString(separator = ",$n", prefix = "($n", postfix = "$n)"))
+                    append("val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                }})
+            } else {
+                yield("val $interpretationNest: $className")
+            }
+        }.map { it.prependIndentNonEmpty(t) }.joinToString(separator = ",$n", prefix = "($n", postfix = "$n)"))
+    }
 
     if (superClass != null)
         append(" : $superClass()")
 
-    val body = nestedTypesToString(nest)
+    val body = buildList {
+        if (interpretationNest != null) {
+            add(this@toDataClassString.toClassString(
+                null,
+                { "" },
+                isNestedInterpretation = true
+            ))
+        }
+
+        val nestedTypes = nestedTypesToString(nest)
+        if (nestedTypes.isNotEmpty()) add(nestedTypes)
+    }.joinToString(separator = "$n$n")
+
     if (body.isNotBlank())
         append(" {$n$n${body.prependIndentNonEmpty(t)}$n$n}")
 }
@@ -197,8 +223,7 @@ private fun SchemaConditional.toSealedClassString(
     nest: String,
     nestedTypesToString: (String) -> String,
     superClass: String?,
-    isInterpretation: Boolean,
-    inheritedTSharedProperties: Map<String, SchemaRecord.Property>
+    inheritedSharedProperties: Map<String, SchemaRecord.Property>
 ) = buildString {
     append(
         """
@@ -237,7 +262,8 @@ private fun SchemaConditional.toSealedClassString(
                         nestedTypesToString,
                         superClass = className,
                         isInterpretation = true,
-                        inheritedTSharedProperties = sharedProperties
+                        interpretationNest = schema.interpretationNestProperty,
+                        inheritedSharedProperties = inheritedSharedProperties + sharedProperties
                     )
                     else -> null
                 }

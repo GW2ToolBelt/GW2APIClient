@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1Continents(configure: RequestConfigurator<GW2v1Continents>? = null): RequestBuilder<GW2v1Continents> = request(
+public fun GW2APIClient.gw2v1Continents(configure: RequestConfigurator<Result<GW2v1Continents>>? = null): RequestBuilder<Result<GW2v1Continents>> = request(
     path = "/v2/continents",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V1,
-    serializer = GW2v1Continents.serializer(),
+    serializer = LenientSerializer(GW2v1Continents.serializer()),
     configure = configure
 )
