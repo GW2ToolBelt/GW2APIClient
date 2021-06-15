@@ -51,8 +51,6 @@ kotlin {
             kotlinOptions {
                 languageVersion = "1.5"
                 apiVersion = "1.5"
-
-                freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
             }
         }
     }
@@ -72,8 +70,7 @@ kotlin {
     sourceSets {
         all {
             languageSettings.apply {
-                useExperimentalAnnotation("kotlin.time.ExperimentalTime")
-                useExperimentalAnnotation("kotlinx.serialization.ExperimentalSerializationApi")
+                useExperimentalAnnotation("kotlin.RequiresOptIn")
             }
         }
 
