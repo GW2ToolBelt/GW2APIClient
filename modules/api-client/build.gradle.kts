@@ -82,7 +82,7 @@ kotlin {
             }
         }
 
-        val commonMain = getByName("commonMain") {
+        commonMain {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
             dependencies {
@@ -98,7 +98,7 @@ kotlin {
         }
 
         val nonJvmMain by creating {
-            dependsOn(commonMain)
+            dependsOn(commonMain.get())
         }
 
         getByName("jsMain") {

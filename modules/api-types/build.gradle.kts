@@ -79,7 +79,7 @@ kotlin {
             }
         }
 
-        getByName("commonMain") {
+        commonMain {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
             dependencies {

@@ -77,7 +77,7 @@ kotlin {
             }
         }
 
-        getByName("commonMain") {
+        commonMain {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
             dependencies {
@@ -86,7 +86,7 @@ kotlin {
             }
         }
 
-        getByName("commonTest") {
+        commonTest {
             kotlin.srcDir("src/commonTest-generated/kotlin")
 
             dependencies {
