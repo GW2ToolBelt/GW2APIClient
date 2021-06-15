@@ -60,10 +60,10 @@ kotlin {
         }
     }
 
-//    js(IR) {
-//        browser()
-//        nodejs()
-//    }
+    js(IR) {
+        browser()
+        nodejs()
+    }
     jvm {
         compilations.all {
             kotlinOptions {
@@ -97,13 +97,13 @@ kotlin {
             }
         }
 
-//        val nonJvmMain by creating {
-//            dependsOn(commonMain)
-//        }
-//
-//        getByName("jsMain") {
-//            dependsOn(nonJvmMain)
-//        }
+        val nonJvmMain by creating {
+            dependsOn(commonMain)
+        }
+
+        getByName("jsMain") {
+            dependsOn(nonJvmMain)
+        }
     }
 
 }
