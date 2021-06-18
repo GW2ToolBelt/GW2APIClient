@@ -108,26 +108,6 @@ kotlin {
 }
 
 tasks {
-//    val compileModuleInfo = create<com.gw2tb.gw2apiclient.build.tasks.CompileModuleInfo>("compileModuleInfo") {
-//        source.set(project.file("src/jvmMain/java-jdk9/module-info.java"))
-//        output.set(File(buildDir, "compileModuleInfo/module-info.class"))
-//    }
-//
-//    named<Jar>("jvmJar") {
-//        dependsOn(compileModuleInfo)
-//
-//        into("META-INF/versions/9") {
-//            from(compileModuleInfo.outputs.files)
-//            includeEmptyDirs = false
-//        }
-//
-//        manifest {
-//            attributes(mapOf("Multi-Release" to "true"))
-//        }
-//    }
-}
-
-tasks {
     withType<JavaCompile> {
         options.release.set(8)
     }
