@@ -105,7 +105,7 @@ public sealed class GW2v1ItemDetails {
      * @param suffixItemID the suffix item ID
      * @param secondarySuffixItemID the secondary suffix item ID
      * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment 
+     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
      */
     @Serializable(with = __ArmorSerializer::class)
     public data class Armor(
@@ -144,7 +144,7 @@ public sealed class GW2v1ItemDetails {
          * @param suffixItemID the suffix item ID
          * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable
         public data class Armor(
@@ -186,7 +186,7 @@ public sealed class GW2v1ItemDetails {
      * @param suffixItemID the suffix item ID
      * @param secondarySuffixItemID the secondary suffix item ID
      * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment 
+     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
      */
     @Serializable(with = __BackSerializer::class)
     public data class Back(
@@ -222,7 +222,7 @@ public sealed class GW2v1ItemDetails {
          * @param suffixItemID the suffix item ID
          * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable
         public data class Back(
@@ -688,7 +688,7 @@ public sealed class GW2v1ItemDetails {
      * @param suffixItemID the suffix item ID
      * @param secondarySuffixItemID the secondary suffix item ID
      * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment 
+     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
      */
     @Serializable(with = __TrinketSerializer::class)
     public data class Trinket(
@@ -725,7 +725,7 @@ public sealed class GW2v1ItemDetails {
          * @param suffixItemID the suffix item ID
          * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable
         public data class Trinket(
@@ -765,7 +765,7 @@ public sealed class GW2v1ItemDetails {
      * @param suffix the suffix appended to the item name when the component is applied
      * @param infixUpgrade infix upgrade object
      * @param bonuses the bonuses from runes
-     * @param attributeAdjustment 
+     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
      */
     @Serializable(with = __UpgradeComponentSerializer::class)
     public data class UpgradeComponent(
@@ -802,7 +802,7 @@ public sealed class GW2v1ItemDetails {
          * @param suffix the suffix appended to the item name when the component is applied
          * @param infixUpgrade infix upgrade object
          * @param bonuses the bonuses from runes
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable
         public data class UpgradeComponent(
@@ -843,7 +843,7 @@ public sealed class GW2v1ItemDetails {
      * @param suffixItemID the suffix item ID
      * @param secondarySuffixItemID the secondary suffix item ID
      * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment 
+     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
      */
     @Serializable(with = __WeaponSerializer::class)
     public data class Weapon(
@@ -884,7 +884,7 @@ public sealed class GW2v1ItemDetails {
          * @param suffixItemID the suffix item ID
          * @param secondarySuffixItemID the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-         * @param attributeAdjustment 
+         * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
         @Serializable
         public data class Weapon(
