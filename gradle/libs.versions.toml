@@ -7,7 +7,7 @@ ktor = "1.6.0"
 [libraries]
 
 # com.github.javaparser:javaparser-core - JavaParser
-javaparser-core = { module = "com.github.javaparser:javaparser-core", version = "3.20.2" }
+javaparser-core = { module = "com.github.javaparser:javaparser-core", version = "3.22.1" }
 
 # com.gw2tb.api-generator:api-generator - api-generator
 gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version = "0.4.0" }
