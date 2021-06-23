@@ -37,12 +37,6 @@ java {
     }
 }
 
-tasks {
-    create<Jar>("javadocJar") {
-        archiveClassifier.set("javadoc")
-    }
-}
-
 kotlin {
     explicitApi()
 
@@ -126,9 +120,13 @@ tasks {
     }
 }
 
+val emptyJavadocJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
+}
+
 publishing {
     publications.withType<MavenPublication>().all {
-        artifact(tasks["javadocJar"])
+        artifact(emptyJavadocJar)
 
         decorateMavenPom {
             name.set("GW2APIClient Ktor Implementation")
