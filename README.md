@@ -3,9 +3,6 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=Maven%20Central)](https://maven-badges.herokuapp.com/maven-central/com.gw2tb.gw2api/api-client)
 [![JavaDoc](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=JavaDoc&color=blue)](https://javadoc.io/doc/com.gw2tb.gw2api/api-client)
 
-> DISCLAIMER: JavaScript support is currently blocked by [KT-43081](https://youtrack.jetbrains.com/issue/KT-43081).
-> Some information about supported platforms in this document are incorrect for the current version.
-
 **GW2APIClient** is a cross-platform client for the official Guild Wars 2 API.
 By leveraging [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html),
 GW2APIClient can be used on a large variety of platforms (including Android, the
