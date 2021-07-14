@@ -44,6 +44,7 @@ publishing {
             from(components["javaPlatform"])
             decorateMavenPom(packaging = "pom") {
                 name.set("GW2APIClient BOM")
+                description.set("Bill of Materials for GW2APIClient artifacts.")
             }
         }
     }
