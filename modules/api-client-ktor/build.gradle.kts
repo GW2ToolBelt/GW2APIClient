@@ -120,12 +120,14 @@ tasks {
     }
 }
 
+val emptyJar by tasks.registering(Jar::class)
 val emptyJavadocJar by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
 publishing {
     publications.withType<MavenPublication>().all {
+        if (name == "js") artifact(emptyJar)
         artifact(emptyJavadocJar)
 
         decorateMavenPom {
