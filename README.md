@@ -62,9 +62,8 @@ HttpClient or Ktor's HttpClient respectively.
 ## Supported Platforms
 
 The library is written in platform-independent Kotlin code and can be used on
-Android, JavaScript and the JVM and (possibly in the future) various native
-targets. Currently, prebuilt binaries are only available for the JVM (and
-Android) and JS.
+Android, JavaScript and the JVM and native targets. Currently, prebuilt binaries
+are only available for the JVM (and Android) and JS.
 
 
 ## Building from source
