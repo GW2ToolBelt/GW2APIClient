@@ -1,0 +1,4 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Request support for a missing endpoint
+    url: https://github.com/GW2ToolBelt/api-generator/issues/new/choose
