@@ -8,6 +8,9 @@ jobs:
     steps:
       - uses: GW2ToolBelt/checkout@v2
 
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+
       - uses: AdoptOpenJDK/install-jdk@v1
         with:
           version: '11'
