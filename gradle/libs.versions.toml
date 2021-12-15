@@ -1,4 +1,7 @@
 [versions]
+asm = "9.2"
+api-generator = "0.4.0"
+javaparser = "3.22.1"
 junit = "5.8.2"
 kotlinx-coroutines = "1.5.2-native-mt"
 kotlinx-serialization = "1.3.0-RC"
@@ -7,10 +10,10 @@ ktor = "1.6.3"
 [libraries]
 
 # com.github.javaparser:javaparser-core - JavaParser
-javaparser-core = { module = "com.github.javaparser:javaparser-core", version = "3.22.1" }
+javaparser-core = { module = "com.github.javaparser:javaparser-core", version.ref = "javaparser" }
 
 # com.gw2tb.api-generator:api-generator - api-generator
-gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version = "0.4.0" }
+gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version.ref = "api-generator" }
 
 # io.ktor - Ktor
 ktor-client-apache = { module = "io.ktor:ktor-client-apache", version.ref = "ktor" }
@@ -31,4 +34,4 @@ junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.re
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 
 # org.ow2.asm - ASM
-asm = { module = "org.ow2.asm:asm", version = "9.2" }
+asm = { module = "org.ow2.asm:asm", version.ref = "asm" }
