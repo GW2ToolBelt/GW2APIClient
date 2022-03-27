@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1RecipeDetails(recipeID: Int, configure: RequestConfigurator<Result<GW2v1Recipe>>? = null): RequestBuilder<Result<GW2v1Recipe>> = request(
+public fun GW2APIClient.gw2v1RecipeDetails(recipeID: Int, configure: RequestConfigurator<Result<GW2v1RecipeDetails>>? = null): RequestBuilder<Result<GW2v1RecipeDetails>> = request(
     path = "/v2/recipe_details",
     parameters = mapOfNonNullValues("recipe_id" to recipeID.toString()),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v1Recipe.serializer()),
+    serializer = LenientSerializer(GW2v1RecipeDetails.serializer()),
     configure = configure
 )

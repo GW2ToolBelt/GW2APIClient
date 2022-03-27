@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2TokenInfo(configure: RequestConfigurator<Result<GW2v2TokenInfo>>? = null): RequestBuilder<Result<GW2v2TokenInfo>> = request(
-    path = "/v2/tokeninfo",
+public fun GW2APIClient.gw2v2CharactersSpecializations(id: String, configure: RequestConfigurator<Result<GW2v2CharactersSpecializations>>? = null): RequestBuilder<Result<GW2v2CharactersSpecializations>> = request(
+    path = "/v2/characters/:id/specializations",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOf(":id" to id),
+    requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2TokenInfo.serializer()),
+    serializer = LenientSerializer(GW2v2CharactersSpecializations.serializer()),
     configure = configure
 )

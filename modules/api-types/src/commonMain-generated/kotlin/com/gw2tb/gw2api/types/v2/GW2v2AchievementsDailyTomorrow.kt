@@ -20,24 +20,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:JvmName("GW2v2")
-@file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.client.v2
+package com.gw2tb.gw2api.types.v2
 
-import com.gw2tb.gw2api.client.*
-import com.gw2tb.gw2api.client.internal.*
-import com.gw2tb.gw2api.types.v2.*
+import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
-import kotlin.jvm.*
+import kotlinx.serialization.json.*
 
-@JvmOverloads
-public fun GW2APIClient.gw2v2TokenInfo(configure: RequestConfigurator<Result<GW2v2TokenInfo>>? = null): RequestBuilder<Result<GW2v2TokenInfo>> = request(
-    path = "/v2/tokeninfo",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2TokenInfo.serializer()),
-    configure = configure
+/**
+ * Information about daily achievements.
+ *
+ * @param pve the PvE achievements
+ * @param pvp the PvP achievements
+ * @param wvw the WvW achievements
+ * @param fractals the fractal achievements
+ * @param special the special achievements (e.g. festival dailies)
+ */
+@Serializable
+public data class GW2v2AchievementsDailyTomorrow(
+    val pve: List<GW2v2DailyAchievement>,
+    val pvp: List<GW2v2DailyAchievement>,
+    val wvw: List<GW2v2DailyAchievement>,
+    val fractals: List<GW2v2DailyAchievement>,
+    val special: List<GW2v2DailyAchievement>
 )

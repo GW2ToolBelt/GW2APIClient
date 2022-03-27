@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2TokenInfo(configure: RequestConfigurator<Result<GW2v2TokenInfo>>? = null): RequestBuilder<Result<GW2v2TokenInfo>> = request(
-    path = "/v2/tokeninfo",
+public fun GW2APIClient.gw2v2GuildStash(id: String, configure: RequestConfigurator<List<Result<GW2v2GuildStashSection>>>? = null): RequestBuilder<List<Result<GW2v2GuildStashSection>>> = request(
+    path = "/v2/guild/:id/stash",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOf(":id" to id),
+    requiredPermissions = setOf("account", "guilds"),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2TokenInfo.serializer()),
+    serializer = ListSerializer(LenientSerializer(GW2v2GuildStashSection.serializer())),
     configure = configure
 )

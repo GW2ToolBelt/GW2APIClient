@@ -20,24 +20,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:JvmName("GW2v2")
-@file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.client.v2
+package com.gw2tb.gw2api.types.v2
 
-import com.gw2tb.gw2api.client.*
-import com.gw2tb.gw2api.client.internal.*
-import com.gw2tb.gw2api.types.v2.*
+import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
-import kotlin.jvm.*
+import kotlinx.serialization.json.*
 
-@JvmOverloads
-public fun GW2APIClient.gw2v2TokenInfo(configure: RequestConfigurator<Result<GW2v2TokenInfo>>? = null): RequestBuilder<Result<GW2v2TokenInfo>> = request(
-    path = "/v2/tokeninfo",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2TokenInfo.serializer()),
-    configure = configure
-)
+/**
+ * Information about a character's equipped specializations.
+ *
+ * @param specializations the character's equipped specializations
+ */
+@Serializable
+public data class GW2v2CharactersSpecializations(
+    val specializations: Specializations
+) {
+
+    /**
+     * Information about a character's equipped specializations.
+     *
+     * @param pve the character's PvE specializations
+     * @param pvp the character's PvP specializations
+     * @param wvw the character's WvW specializations
+     */
+    @Serializable
+    public data class Specializations(
+        val pve: List<Specialization>,
+        val pvp: List<Specialization>,
+        val wvw: List<Specialization>
+    ) {
+
+        /**
+         * Information about an equipped specialization.
+         *
+         * @param id the specialization's ID
+         * @param traits the IDs of the selected traits
+         */
+        @Serializable
+        public data class Specialization(
+            val id: Int? = null,
+            val traits: List<Int?>
+        )
+
+    }
+
+}

@@ -40,7 +40,7 @@ import kotlinx.serialization.*
  * @param uISize the selected UI size
  */
 @Serializable
-public data class MumbleLinkIdentity(
+public data class MumbleLink(
     val name: String,
     val profession: Int,
     val spec: Int,

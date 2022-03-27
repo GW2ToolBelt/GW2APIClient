@@ -20,24 +20,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:JvmName("GW2v2")
-@file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.client.v2
+package com.gw2tb.gw2api.types.v2
 
-import com.gw2tb.gw2api.client.*
-import com.gw2tb.gw2api.client.internal.*
-import com.gw2tb.gw2api.types.v2.*
+import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
-import kotlin.jvm.*
+import kotlinx.serialization.json.*
 
-@JvmOverloads
-public fun GW2APIClient.gw2v2TokenInfo(configure: RequestConfigurator<Result<GW2v2TokenInfo>>? = null): RequestBuilder<Result<GW2v2TokenInfo>> = request(
-    path = "/v2/tokeninfo",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2TokenInfo.serializer()),
-    configure = configure
-)
+/**
+ * Information about a section of a guild's vault.
+ *
+ * @param upgradeID the ID of the guild upgrade that granted access to this section of the guild's vault
+ * @param size the number of slots in this section of the guild's vault
+ * @param coins the number of coins deposited in this section of the guild's vault
+ * @param note the description set for this section of the guild's vault
+ * @param inventory the items in this section of the guild's vault
+ */
+@Serializable
+public data class GW2v2GuildStashSection(
+    @SerialName("upgrade_id")
+    val upgradeID: String,
+    val size: Int,
+    val coins: Int,
+    val note: String,
+    val inventory: List<GuildStashSlot?>
+) {
+
+    /**
+     * Information about an item in a guild vault's slot.
+     *
+     * @param id the item's ID
+     * @param count the amount of items in the stack
+     */
+    @Serializable
+    public data class GuildStashSlot(
+        val id: String,
+        val count: String
+    )
+
+}

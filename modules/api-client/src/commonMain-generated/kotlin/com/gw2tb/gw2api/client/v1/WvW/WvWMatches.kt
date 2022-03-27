@@ -32,7 +32,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1WvWMatches(configure: RequestConfigurator<Result<GW2v1WvWMatches>>? = null): RequestBuilder<Result<GW2v1WvWMatches>> = request(
+public fun GW2APIClient.gw2v1wvwmatches(configure: RequestConfigurator<Result<GW2v1WvWMatches>>? = null): RequestBuilder<Result<GW2v1WvWMatches>> = request(
     path = "/v2/wvw/matches",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),

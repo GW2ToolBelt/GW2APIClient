@@ -1,0 +1,277 @@
+/*
+ * Copyright (c) 2018-2021 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+package com.gw2tb.gw2api.types.v2
+
+import kotlinx.serialization.*
+import kotlinx.serialization.builtins.*
+import kotlinx.serialization.json.*
+
+@Suppress("ClassName")
+private object __JsonParametricSerializer_GW2v2GuildLogEntry : JsonContentPolymorphicSerializer<GW2v2GuildLogEntry>(GW2v2GuildLogEntry::class) {
+    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out GW2v2GuildLogEntry> {
+        return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+            "joined" -> GW2v2GuildLogEntry.Joined.serializer()
+            "invited" -> GW2v2GuildLogEntry.Invited.serializer()
+            "kick" -> GW2v2GuildLogEntry.Kick.serializer()
+            "rank_change" -> GW2v2GuildLogEntry.RankChange.serializer()
+            "treasury" -> GW2v2GuildLogEntry.Treasury.serializer()
+            "stash" -> GW2v2GuildLogEntry.Stash.serializer()
+            "motd" -> GW2v2GuildLogEntry.MOTD.serializer()
+            "upgrade" -> GW2v2GuildLogEntry.Upgrade.serializer()
+            else -> TODO()
+        }
+    }
+}
+
+/**
+ * Information about a logged guild event.
+ *
+ * @property id the log entry's ID
+ * @property time ISO-8601 timestamp for when the log entry was created
+ * @property user the account name of the guild member who generated this log entry
+ * @property type the type of log entry
+ */
+@Serializable(with = __JsonParametricSerializer_GW2v2GuildLogEntry::class)
+public sealed class GW2v2GuildLogEntry {
+
+    public abstract val id: Int
+    public abstract val time: String
+    public abstract val user: String?
+    public abstract val type: String
+
+    @Suppress("ClassName")
+    @Serializer(forClass = Joined::class)
+    private object __JoinedGeneratedSerializer : KSerializer<Joined>
+
+    @Suppress("ClassName")
+    private object __JoinedSerializer : JsonTransformingSerializer<Joined>(__JoinedGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /** A log entry indicating that the user joined the guild. */
+    @Serializable(with = __JoinedSerializer::class)
+    public data class Joined(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String
+    ) : GW2v2GuildLogEntry()
+
+    @Suppress("ClassName")
+    @Serializer(forClass = Invited::class)
+    private object __InvitedGeneratedSerializer : KSerializer<Invited>
+
+    @Suppress("ClassName")
+    private object __InvitedSerializer : JsonTransformingSerializer<Invited>(__InvitedGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /**
+     * A log entry indicating that the user has been invited to the guild.
+     *
+     * @param invitedBy the account name of the guild member who invited the user
+     */
+    @Serializable(with = __InvitedSerializer::class)
+    public data class Invited(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String,
+        @SerialName("invited_by")
+        val invitedBy: String
+    ) : GW2v2GuildLogEntry()
+
+    @Suppress("ClassName")
+    @Serializer(forClass = Kick::class)
+    private object __KickGeneratedSerializer : KSerializer<Kick>
+
+    @Suppress("ClassName")
+    private object __KickSerializer : JsonTransformingSerializer<Kick>(__KickGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /**
+     * A log entry indicating that the user has been kicked from the guild.
+     *
+     * @param kickedBy the account name of the guild member who kicked the user
+     */
+    @Serializable(with = __KickSerializer::class)
+    public data class Kick(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String,
+        @SerialName("kicked_by")
+        val kickedBy: String
+    ) : GW2v2GuildLogEntry()
+
+    @Suppress("ClassName")
+    @Serializer(forClass = RankChange::class)
+    private object __RankChangeGeneratedSerializer : KSerializer<RankChange>
+
+    @Suppress("ClassName")
+    private object __RankChangeSerializer : JsonTransformingSerializer<RankChange>(__RankChangeGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /**
+     * A log entry indicating that the rank for the user changed.
+     *
+     * @param changedBy the account name of the guild member who changed the rank of the user
+     * @param oldRank the name of the old rank
+     * @param newRank the name of the new rank
+     */
+    @Serializable(with = __RankChangeSerializer::class)
+    public data class RankChange(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String,
+        @SerialName("changed_by")
+        val changedBy: String,
+        @SerialName("old_rank")
+        val oldRank: String,
+        @SerialName("new_rank")
+        val newRank: String
+    ) : GW2v2GuildLogEntry()
+
+    @Suppress("ClassName")
+    @Serializer(forClass = Treasury::class)
+    private object __TreasuryGeneratedSerializer : KSerializer<Treasury>
+
+    @Suppress("ClassName")
+    private object __TreasurySerializer : JsonTransformingSerializer<Treasury>(__TreasuryGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /**
+     * A log entry indicating that the user has deposited an item into the guild's treasury.
+     *
+     * @param itemID the item's ID
+     * @param count how many of the item was deposited
+     */
+    @Serializable(with = __TreasurySerializer::class)
+    public data class Treasury(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String,
+        @SerialName("item_id")
+        val itemID: Int,
+        val count: Int
+    ) : GW2v2GuildLogEntry()
+
+    @Suppress("ClassName")
+    @Serializer(forClass = Stash::class)
+    private object __StashGeneratedSerializer : KSerializer<Stash>
+
+    @Suppress("ClassName")
+    private object __StashSerializer : JsonTransformingSerializer<Stash>(__StashGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /**
+     * A log entry indicating that the user has deposited/withdrawn an item into the guild stash.
+     *
+     * @param operation the action (may be "deposit", "withdraw" or "move"
+     * @param itemID the item's ID
+     * @param count how many of the item was deposited
+     * @param coins the amount of deposited coins
+     */
+    @Serializable(with = __StashSerializer::class)
+    public data class Stash(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String,
+        val operation: String,
+        @SerialName("item_id")
+        val itemID: Int,
+        val count: Int,
+        val coins: Int
+    ) : GW2v2GuildLogEntry()
+
+    @Suppress("ClassName")
+    @Serializer(forClass = MOTD::class)
+    private object __MOTDGeneratedSerializer : KSerializer<MOTD>
+
+    @Suppress("ClassName")
+    private object __MOTDSerializer : JsonTransformingSerializer<MOTD>(__MOTDGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /**
+     * A log entry indicating that the user has changed the guild's MOTD.
+     *
+     * @param motd the new message of the day
+     */
+    @Serializable(with = __MOTDSerializer::class)
+    public data class MOTD(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String,
+        val motd: String
+    ) : GW2v2GuildLogEntry()
+
+    @Suppress("ClassName")
+    @Serializer(forClass = Upgrade::class)
+    private object __UpgradeGeneratedSerializer : KSerializer<Upgrade>
+
+    @Suppress("ClassName")
+    private object __UpgradeSerializer : JsonTransformingSerializer<Upgrade>(__UpgradeGeneratedSerializer) {
+        override fun transformDeserialize(element: JsonElement): JsonElement =
+            JsonObject(element.jsonObject - "__virtualType")
+    }
+
+    /**
+     * A log entry indicating that the user has interacted with a guild upgrade.
+     *
+     * @param action the action (may be "queued", "cancelled", "completed" or "sped_up"
+     * @param count how many upgrade were added
+     * @param upgradeID the ID of the completed upgrade
+     * @param recipeID the recipe that generated the upgrade
+     */
+    @Serializable(with = __UpgradeSerializer::class)
+    public data class Upgrade(
+        override val id: Int,
+        override val time: String,
+        override val user: String? = null,
+        override val type: String,
+        val action: String,
+        val count: Int? = null,
+        @SerialName("upgrade_id")
+        val upgradeID: Int,
+        @SerialName("recipe_id")
+        val recipeID: Int? = null
+    ) : GW2v2GuildLogEntry()
+
+}

@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1WvWObjectivesNames(configure: RequestConfigurator<List<Result<GW2v1ObjectiveName>>>? = null): RequestBuilder<List<Result<GW2v1ObjectiveName>>> = request(
-    path = "/v2/wvw/objectives_names",
+    path = "/v2/wvw/objective_names",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
