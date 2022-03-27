@@ -22,7 +22,6 @@
 @file:OptIn(ExperimentalTime::class)
 package com.gw2tb.gw2apiclient.build.codegen
 
-import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
 import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.apigen.schema.*
@@ -32,11 +31,11 @@ import kotlin.time.*
 private fun Duration.normalizeCacheTime(): String {
     return when {
         isInfinite() -> "INFINITE"
-        inMinutes % 60.0 == 0.0 -> "${inHours.toInt()}h"
-        inSeconds % 60.0 == 0.0 -> "${inMinutes.toInt()}m"
+        toDouble(DurationUnit.MINUTES) % 60.0 == 0.0 -> "${toDouble(DurationUnit.HOURS).toInt()}h"
+        toDouble(DurationUnit.SECONDS) % 60.0 == 0.0 -> "${toDouble(DurationUnit.MINUTES)}m"
         else -> {
-            require(inSeconds >= 1.0)
-            "${inSeconds.toInt()}s"
+            require(toDouble(DurationUnit.SECONDS) >= 1.0)
+            "${toDouble(DurationUnit.SECONDS).toInt()}s"
         }
     }
 }
@@ -62,7 +61,7 @@ private fun comment(action: StringBuilder.() -> Unit, isDocComment: Boolean = fa
 private inline fun docComment(noinline action: StringBuilder.() -> Unit): String = comment(action, isDocComment = true)
 
 internal fun APIQuery.V2.dokka(queryType: String): String = docComment {
-    val siblings = APIVersion.API_V2.supportedQueries.filter { it.endpoint == endpoint }
+    val siblings = API_V2.supportedQueries.filter { it.endpoint == endpoint }
     val isPaginated = siblings.any { it.queryDetails?.queryType is QueryType.ByPage }
     val isBulkSupported = siblings.any { it.queryDetails?.queryType?.let { queryType -> queryType is QueryType.ByIDs } ?: false }
     val isLocalized = siblings.any { it[V2SchemaVersion.V2_SCHEMA_2021_04_06T21_00_00_000Z].data.isLocalized } // TODO

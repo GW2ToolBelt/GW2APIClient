@@ -27,25 +27,31 @@ import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.apigen.schema.*
 
 fun sequenceOfPrintableV1Types(): Sequence<PrintableFile> =
-    APIVersion.API_V1.supportedTypes.printableTypesSequence(
+    API_V1.supportedTypes.printableTypesSequence(
         "v1",
-        Sequence<Map.Entry<TypeLocation, List<APIType.V1>>>::printV1TypesInNest
+        printTypes = Sequence<Map.Entry<TypeLocation, APIType.V1>>::printV1TypesInNest,
+        declarationSelector = { it.schema }
     )
 
 fun sequenceOfPrintableV2Types(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
-    APIVersion.API_V2.supportedTypes.printableTypesSequence("v2") { entries, prefix, nest ->
-        entries.printV2TypesInNest(schemaVersion, prefix, nest)
-    }
+    API_V2.supportedTypes.printableTypesSequence(
+        "v2",
+        printTypes = { entries, apiVersion, nest, typeLookup -> entries.printV2TypesInNest(schemaVersion, apiVersion, nest, typeLookup) },
+        declarationSelector = { it[schemaVersion].data }
+    )
 
-private fun <T : APIType>  Map<TypeLocation, List<T>>.printableTypesSequence(
+private fun <T : APIType>  Map<TypeLocation, T>.printableTypesSequence(
     apiVersion: String,
-    printTypes: (entries: Sequence<Map.Entry<TypeLocation, List<T>>>, prefix: String, nest: String?) -> String
-): Sequence<PrintableFile> =
-    entries
-        .groupByEndpoint { (loc, _) -> loc.endpoint!! }
+    printTypes: (entries: Sequence<Map.Entry<TypeLocation, T>>, apiVersion: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration) -> String,
+    declarationSelector: (T) -> SchemaTypeDeclaration
+): Sequence<PrintableFile> {
+    val typeLookup: (TypeLocation) -> SchemaTypeDeclaration = { declarationSelector(this[it] ?: error("Could not find type: $it")) }
+
+    return entries
+        .groupByEndpoint { (loc, _) -> (if (loc.nest == null) loc else TypeLocation(null, loc.nest!!.substringBefore('/'))).toKotlinName(apiVersion) }
         .asSequence()
         .mapNotNull { (endpoint, entries) ->
-            val content = printTypes(entries.asSequence(), "GW2$apiVersion", null)
+            val content = printTypes(entries.asSequence(), apiVersion, { it.nest == null && entries.any { (loc, _) -> loc == it } }, typeLookup)
 
             if (content.isNotEmpty()) {
                 PrintableFile(
@@ -64,36 +70,52 @@ private fun <T : APIType>  Map<TypeLocation, List<T>>.printableTypesSequence(
             } else
                 null
         }
+}
 
-private fun Sequence<Map.Entry<TypeLocation, List<APIType.V1>>>.printV1TypesInNest(prefix: String? = null, nest: String? = null): String =
-    filter { (loc, _) -> loc.nest == nest }
-        .flatMap { it.value }
-        .joinToString(separator = "$n$n") {
-            it.schema.toClassString(nest, { nest -> printV1TypesInNest(nest = nest) }, prefix)
+private fun Sequence<Map.Entry<TypeLocation, APIType.V1>>.printV1TypesInNest(apiVersion: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration): String =
+    filter { (location, _) -> filter(location) }
+        .joinToString(separator = "$n$n") { (location, type) ->
+            type.schema.toClassString(
+                location,
+                { nest -> printV1TypesInNest(apiVersion, filter = { it.nest == nest }, typeLookup) },
+                interpretationHint = type.interpretationHint,
+                apiVersion = apiVersion,
+                typeLookup = typeLookup
+            )
         }
 
-private fun Sequence<Map.Entry<TypeLocation, List<APIType.V2>>>.printV2TypesInNest(schemaVersion: V2SchemaVersion, prefix: String? = null, nest: String? = null): String =
-    filter { (loc, _) -> loc.nest == nest }
-        .flatMap { it.value }
-        .mapNotNull { it.getOrNull(schemaVersion) }
-        .joinToString(separator = "$n$n") {
-            it.data.toClassString(nest, { nest -> printV2TypesInNest(schemaVersion, nest = nest) }, prefix)
+private fun Sequence<Map.Entry<TypeLocation, APIType.V2>>.printV2TypesInNest(schemaVersion: V2SchemaVersion, apiVersion: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration): String =
+    filter { (location, _) -> filter(location) }
+        .mapNotNull { (location, type) -> type.getOrNull(schemaVersion)?.let { (location to (type to it)) } }
+        .joinToString(separator = "$n$n") { (location, p) ->
+            val (type, schema) = p
+
+            schema.data.toClassString(
+                location,
+                { nest -> printV2TypesInNest(schemaVersion, apiVersion, filter = { it.nest == nest }, typeLookup) },
+                interpretationHint = type.interpretationHint,
+                apiVersion = apiVersion,
+                typeLookup = typeLookup
+            )
         }
 
-fun SchemaClass.toClassString(
-    nest: String?,
+internal fun SchemaTypeDeclaration.toClassString(
+    location: TypeLocation?,
     nestedTypesToString: (String) -> String,
-    prefix: String? = null,
     serialName: String? = null,
-    superClass: String? = null,
-    isInterpretation: Boolean = false,
+    interpretationHint: InterpretationHint? = null,
     isNestedInterpretation: Boolean = false,
-    interpretationNest: String? = null,
-    inheritedSharedProperties: Map<String, SchemaRecord.Property> = emptyMap()
+    apiVersion: String?,
+    typeLookup: (TypeLocation) -> SchemaTypeDeclaration
 ): String {
-    val className = if (prefix != null) "$prefix$name" else toKotlinType().name
+    val className = location?.toKotlinName(apiVersion) ?: name
+
     val classNest = buildString {
-        if (nest != null) append("$nest/")
+        if (location == null)
+            append("__synthetic__")
+        else
+            if (location.nest != null) append("${location.nest}/")
+
         append(name)
     }
 
@@ -104,8 +126,8 @@ fun SchemaClass.toClassString(
                 className,
                 classNest,
                 nestedTypesToString,
-                superClass = superClass,
-                inheritedSharedProperties = inheritedSharedProperties
+                apiVersion,
+                typeLookup = typeLookup,
             )
         }
         is SchemaRecord -> toDataClassString(
@@ -113,11 +135,10 @@ fun SchemaClass.toClassString(
             classNest,
             nestedTypesToString,
             serialName = serialName,
-            superClass = superClass,
-            isInterpretation = isInterpretation,
+            interpretationHint = interpretationHint,
             isNestedInterpretation = isNestedInterpretation,
-            interpretationNest = interpretationNest,
-            inheritedSharedProperties = inheritedSharedProperties
+            apiVersion = apiVersion,
+            typeLookup = typeLookup
         )
         else -> error("")
     }
@@ -129,15 +150,26 @@ private fun SchemaRecord.toDataClassString(
     nest: String,
     nestedTypesToString: (String) -> String,
     serialName: String?,
-    superClass: String?,
-    isInterpretation: Boolean,
+    interpretationHint: InterpretationHint?,
     isNestedInterpretation: Boolean,
-    interpretationNest: String?,
-    inheritedSharedProperties: Map<String, SchemaRecord.Property>
+    apiVersion: String?,
+    typeLookup: (TypeLocation) -> SchemaTypeDeclaration
 ) = buildString {
-    val requiresCustomPolymorphicSerializer = properties.values.any { it.type is SchemaConditional && (it.type as SchemaConditional).disambiguationBySideProperty } || isInterpretation
+    val conditionalBaseDeclaration = if (interpretationHint != null) typeLookup(interpretationHint.conditionalBase) as SchemaConditional else null
+
+    val requiresCustomPolymorphicSerializer = properties.values.any { property ->
+        val type = property.type
+        if (type !is SchemaTypeReference) return@any false
+
+        val declaration = typeLookup(type.typeLocation)
+        declaration is SchemaConditional && declaration.disambiguationBySideProperty
+    } || (interpretationHint != null)
 
     if (requiresCustomPolymorphicSerializer) {
+        val conditionalProperties = properties.values.mapNotNull { property ->
+            (property.type as? SchemaTypeReference)?.let { typeLookup(it.typeLocation) as? SchemaConditional }?.let { property to it }
+        }
+
         append(
             """
                 |@Suppress("ClassName")
@@ -147,13 +179,13 @@ private fun SchemaRecord.toDataClassString(
                 |@Suppress("ClassName")
                 |private object __${className}Serializer : JsonTransformingSerializer<$className>(__${className}GeneratedSerializer) {
                 |    override fun transformDeserialize(element: JsonElement): JsonElement =
-                |        JsonObject(element.jsonObject${if (properties.values.any { it.type is SchemaConditional }) """|.mapValues { (key, value) ->
+                |        JsonObject(element.jsonObject${if (conditionalProperties.isNotEmpty()) """|.mapValues { (key, value) ->
                 |            when (key) {
-                |                ${properties.values.filter { it.type is SchemaConditional }.joinToString(separator = "$n$t$t$t$t") { """"${it.serialName}" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["${(it.type as SchemaConditional).disambiguationBy}"]!!.jsonPrimitive.content)))""" }}
+                |                ${conditionalProperties.joinToString(separator = "$n$t$t$t$t") { (property, schema) -> """"${property.serialName}" -> JsonObject(value.jsonObject + ("__virtualType" to JsonPrimitive(element.jsonObject["${schema.disambiguationBy}"]!!.jsonPrimitive.content)))""" }}
                 |                else -> value
                 |            }
                 |        }
-                """.trimMargin() else ""}${if (isInterpretation) " - \"__virtualType\"" else ""})
+                """.trimMargin() else ""}${if (interpretationHint != null) " - \"__virtualType\"" else ""})
                 |}
                 |
                 |
@@ -172,17 +204,19 @@ private fun SchemaRecord.toDataClassString(
     } else {
         append("public data class $className")
         append(sequence {
-            yieldAll(inheritedSharedProperties.values.map { property -> buildString {
-                if (property.isDeprecated)
-                    appendLine("""@Deprecated(message = "")""")
+            if (conditionalBaseDeclaration != null) {
+                yieldAll(conditionalBaseDeclaration.sharedProperties.values.map { property -> buildString {
+                    if (property.isDeprecated)
+                        appendLine("""@Deprecated(message = "")""")
 
-                if (property.serialName != property.camelCaseName)
-                    appendLine("""@SerialName("${property.serialName}")""")
+                    if (property.serialName != property.camelCaseName)
+                        appendLine("""@SerialName("${property.serialName}")""")
 
-                append("override val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-            }})
+                    append("override val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                }})
+            }
 
-            if (interpretationNest == null) {
+            if (conditionalBaseDeclaration?.interpretationInNestedProperty != true) {
                 yieldAll(properties.values.map { property -> buildString {
                     if (property.isDeprecated)
                         appendLine("""@Deprecated(message = "")""")
@@ -190,23 +224,26 @@ private fun SchemaRecord.toDataClassString(
                     if (property.serialName != property.camelCaseName)
                         appendLine("""@SerialName("${property.serialName}")""")
 
-                    append("val ${property.camelCaseName}: ${property.type.toKotlinType()}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
+                    append("val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
                 }})
             } else {
-                yield("val $interpretationNest: $className")
+                yield("val ${interpretationHint!!.interpretationNestProperty!!}: $className")
             }
         }.map { it.prependIndentNonEmpty(t) }.joinToString(separator = ",$n", prefix = "($n", postfix = "$n)"))
     }
 
-    if (superClass != null)
-        append(" : $superClass()")
+    if (interpretationHint != null) {
+        append(" : ${interpretationHint.conditionalBase.toKotlinName(apiVersion)}()")
+    }
 
     val body = buildList {
-        if (interpretationNest != null) {
+        if (conditionalBaseDeclaration?.interpretationInNestedProperty == true) {
             add(this@toDataClassString.toClassString(
                 null,
                 { "" },
-                isNestedInterpretation = true
+                isNestedInterpretation = true,
+                apiVersion = apiVersion,
+                typeLookup = typeLookup
             ))
         }
 
@@ -222,22 +259,22 @@ private fun SchemaConditional.toSealedClassString(
     className: String,
     nest: String,
     nestedTypesToString: (String) -> String,
-    superClass: String?,
-    inheritedSharedProperties: Map<String, SchemaRecord.Property>
+    apiVersion: String?,
+    typeLookup: (TypeLocation) -> SchemaTypeDeclaration
 ) = buildString {
     append(
         """
-            |@Suppress("ClassName")
-            |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
-            |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
-            |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
-            |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (key, it) -> """"$key" -> $className.${it.type.toKotlinType().serializer}""" }}
-            |            else -> TODO()
-            |        }
-            |    }
-            |}
-            |
-            |
+        |@Suppress("ClassName")
+        |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
+        |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
+        |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
+        |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (key, it) -> """"$key" -> $className.${it.type.toKotlinType(apiVersion).serializer}""" }}
+        |            else -> TODO()
+        |        }
+        |    }
+        |}
+        |
+        |
         """.trimMargin()
     )
 
@@ -245,29 +282,14 @@ private fun SchemaConditional.toSealedClassString(
     appendLine("@Serializable(with = __JsonParametricSerializer_$className::class)")
     append("public sealed class $className")
 
-    if (superClass != null)
-        append(" : $superClass()")
+//    if (superClass != null)
+//        append(" : $superClass()")
 
     val body = sequence {
         if (sharedProperties.isNotEmpty())
             yield(sharedProperties.values.joinToString(separator = n) {
-                "public abstract val ${it.camelCaseName}: ${it.type.toKotlinType()}${if (it.optionality != Optionality.REQUIRED) "?" else ""}"
+                "public abstract val ${it.camelCaseName}: ${it.type.toKotlinType(apiVersion).name}${if (it.optionality != Optionality.REQUIRED) "?" else ""}"
             })
-
-        if (interpretations.isNotEmpty())
-            yield(interpretations.mapNotNull { (_, schema) ->
-                when (val t = schema.type) {
-                    is SchemaClass -> t.toClassString(
-                        nest,
-                        nestedTypesToString,
-                        superClass = className,
-                        isInterpretation = true,
-                        interpretationNest = schema.interpretationNestProperty,
-                        inheritedSharedProperties = inheritedSharedProperties + sharedProperties
-                    )
-                    else -> null
-                }
-            }.joinToString(separator = "$n$n"))
 
         val nestedTypes = nestedTypesToString(nest)
         if (nestedTypes.isNotBlank()) yield(nestedTypes)

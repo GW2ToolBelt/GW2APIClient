@@ -26,18 +26,17 @@ import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
 import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.apigen.schema.*
-import com.gw2tb.apigen.schema.SchemaType
 import org.gradle.kotlin.dsl.accessors.*
 import java.util.*
 
 fun sequenceOfPrintableV1Queries(): Sequence<PrintableFile> =
-    APIVersion.API_V1.supportedQueries.printableQuerySequence(
+    API_V1.supportedQueries.printableQuerySequence(
         "v1",
         Sequence<APIQuery.V1>::printV1Queries
     )
 
 fun sequenceOfPrintableV2Queries(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
-    APIVersion.API_V2.supportedQueries.printableQuerySequence("v2") { queries ->
+    API_V2.supportedQueries.printableQuerySequence("v2") { queries ->
         queries.printV2Queries(schemaVersion)
     }
 
@@ -107,15 +106,15 @@ private fun Sequence<APIQuery.V1>.printV1Queries(): String =
                     query.querySuffix?.let { append(it) }
                 },
                 methodParameters = buildString {
-                    append(query.pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" })
+                    append(query.pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType().name}" })
 
                     for ((_, param) in query.queryParameters) {
                         if (isNotEmpty()) append(", ")
-                        append("${param.camelCaseName}: ${param.type.toKotlinType()}")
+                        append("${param.camelCaseName}: ${param.type.toKotlinType("v1").name}")
                     }
 
                     if (isNotEmpty()) append(", ")
-                    append("configure: RequestConfigurator<$dataType>? = null")
+                    append("configure: RequestConfigurator<${dataType.name}>? = null")
                 },
                 dataType = dataType,
                 path = "/v2${query.route.lowercase()}",
@@ -178,20 +177,20 @@ private fun Sequence<APIQuery.V2>.printV2Queries(schemaVersion: V2SchemaVersion)
                         }?.let { append(it) }
                     },
                     methodParameters = buildString {
-                        append(query.pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" })
+                        append(query.pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType().name}" })
 
                         for ((_, param) in query.queryParameters) {
                             if (isNotEmpty()) append(", ")
 
                             when {
-                                queryType is QueryType.ByIDs -> append("${queryType.qpCamelCase}: Collection<${(param.type as SchemaArray).items.toKotlinType()}>")
+                                queryType is QueryType.ByIDs -> append("${queryType.qpCamelCase}: Collection<${(param.type as SchemaArray).elements.toKotlinType("v2").name}>")
                                 param.key == "page_size" -> append("pageSize: Int = 200")
-                                else -> append("${param.camelCaseName}: ${param.type.toKotlinType()}")
+                                else -> append("${param.camelCaseName}: ${param.type.toKotlinType("v2").name}")
                             }
                         }
 
                         if (isNotEmpty()) append(", ")
-                        append("configure: RequestConfigurator<$dataType>? = null")
+                        append("configure: RequestConfigurator<${dataType.name}>? = null")
                     },
                     dataType = dataType,
                     path = "/v2${query.route.lowercase()}",
@@ -217,17 +216,17 @@ private fun Sequence<APIQuery.V2>.printV2Queries(schemaVersion: V2SchemaVersion)
                     yield(toKotlinQueryFunctionString(
                         methodName = "${prefixedMethodName}All",
                         methodParameters = buildString {
-                            append(query.pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType()}" })
+                            append(query.pathParameters.values.joinToString(", ") { "${it.camelCaseName}: ${it.type.toKotlinType().name}" })
 
                             for ((_, param) in query.queryParameters) {
                                 if (param.key == "ids") continue
 
                                 if (isNotEmpty()) append(", ")
-                                append("${param.camelCaseName}: ${param.type.toKotlinType()}")
+                                append("${param.camelCaseName}: ${param.type.toKotlinType("v2").name}")
                             }
 
                             if (isNotEmpty()) append(", ")
-                            append("configure: RequestConfigurator<$dataType>? = null")
+                            append("configure: RequestConfigurator<${dataType.name}>? = null")
                         },
                         dataType = dataType,
                         path = "/v2${query.route.lowercase()}",
@@ -247,22 +246,22 @@ private fun Sequence<APIQuery.V2>.printV2Queries(schemaVersion: V2SchemaVersion)
 
 private fun <Q : APIQuery> Sequence<Q>.printQueryFunctions(
     apiVersion: String,
-    schemaSelector: (Q) -> SchemaType,
-    queryFunctionsMapper: suspend SequenceScope<String>.(query: Q, schema: SchemaType, dataType: KotlinTypeInfo) -> Unit
+    schemaSelector: (Q) -> SchemaTypeUse,
+    queryFunctionsMapper: suspend SequenceScope<String>.(query: Q, schema: SchemaTypeUse, dataType: KotlinTypeInfo) -> Unit
 ) =
     map { query ->
         val schema = schemaSelector(query)
         val schemaClass = schema.firstPossiblyNestedClassOrNull()
-        val dataType = schema.toKotlinType(lenient = (schemaClass != null), titleCaseName = schemaClass?.name?.let { "GW2$apiVersion$it" })
+        val dataType = schema.toKotlinType(apiVersion, lenient = (schemaClass != null), titleCaseName = schemaClass?.name?.let { "GW2$apiVersion$it" })
 
         sequence { queryFunctionsMapper(query, schema, dataType) }
     }
         .flatten()
         .joinToString(separator = "$n$n")
 
-private fun SchemaType.firstPossiblyNestedClassOrNull(): SchemaClass? = when (this) {
-    is SchemaClass -> this
-    is SchemaArray -> items.firstPossiblyNestedClassOrNull()
+private fun SchemaTypeUse.firstPossiblyNestedClassOrNull(): SchemaTypeReference? = when (this) {
+    is SchemaTypeReference -> this
+    is SchemaArray -> elements.firstPossiblyNestedClassOrNull()
     is SchemaMap -> values.firstPossiblyNestedClassOrNull()
     else -> null
 }
@@ -279,7 +278,7 @@ private fun toKotlinQueryFunctionString(
 ): String {
     return """
         |@JvmOverloads
-        |public fun GW2APIClient.$methodName($methodParameters): RequestBuilder<$dataType> = request(
+        |public fun GW2APIClient.$methodName($methodParameters): RequestBuilder<${dataType.name}> = request(
         |    path = "$path",
         |    parameters = mapOfNonNullValues(${queryParameterMappings.entries.joinToString(separator = ", ") { (k, v) -> "\"$k\" to $v" }}),
         |    replaceInPath = mapOf(${pathParameterMappings.entries.joinToString(separator = ", ") { (k, v) -> "\"$k\" to $v" }}),

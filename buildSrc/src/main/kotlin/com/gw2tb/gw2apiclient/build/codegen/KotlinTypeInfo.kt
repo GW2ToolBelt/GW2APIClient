@@ -27,41 +27,47 @@ private val KotlinTypeInfo.listSerializer get() = "ListSerializer($serializer)"
 private val KotlinTypeInfo.nullableListSerializer get() = "ListSerializer($serializer.nullable)"
 
 internal fun SchemaPrimitive.toKotlinType(): KotlinTypeInfo = when (this) {
-    SchemaBoolean -> "Boolean"
-    SchemaDecimal -> "Double"
-    SchemaInteger -> "Int"
-    SchemaString -> "String"
+    is SchemaBoolean -> "Boolean"
+    is SchemaDecimal -> "Double"
+    is SchemaInteger -> "Int"
+    is SchemaString -> "String"
 }.let { name -> KotlinTypeInfo(name, "$name.serializer()") }
 
 internal data class KotlinTypeInfo(
     val name: String,
     val serializer: String = "$name.serializer()"
-) {
-    override fun toString() = name
-}
+)
 
-internal fun SchemaType.toKotlinType(lenient: Boolean = false, titleCaseName: String? = null): KotlinTypeInfo = when (this) {
+internal fun SchemaTypeUse.toKotlinType(
+    apiVersion: String?,
+    lenient: Boolean = false,
+    titleCaseName: String? = null
+): KotlinTypeInfo = when (this) {
     is SchemaPrimitive -> toKotlinType()
     is SchemaArray -> {
-        val itemType = items.toKotlinType(lenient = lenient, titleCaseName = titleCaseName)
-        KotlinTypeInfo("List<${itemType.name}${if (nullableItems) "?" else ""}>", if (nullableItems) itemType.nullableListSerializer else itemType.listSerializer)
+        val itemType = elements.toKotlinType(apiVersion, lenient, titleCaseName)
+
+        KotlinTypeInfo(
+            name = "List<${itemType.name}${if (nullableElements) "?" else ""}>",
+            serializer = if (nullableElements) itemType.nullableListSerializer else itemType.listSerializer
+        )
     }
     is SchemaMap -> {
         val keyType = keys.toKotlinType()
-        val valueType = values.toKotlinType(lenient = lenient, titleCaseName = titleCaseName)
-        KotlinTypeInfo("Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>", "MapSerializer(${keyType.serializer}, ${valueType.serializer})")
+        val valueType = values.toKotlinType(apiVersion, lenient, titleCaseName)
+
+        KotlinTypeInfo(
+            name = "Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>",
+            serializer = "MapSerializer(${keyType.serializer}, ${valueType.serializer})"
+        )
     }
-    is SchemaClass -> {
-        val name = titleCaseName ?: when (name) {
-            "Map" -> "GameMap"
-            else -> name
-        }
+    is SchemaTypeReference -> {
+        val name = typeLocation.toKotlinName(apiVersion)
 
         if (lenient)
             KotlinTypeInfo("Result<$name>", "LenientSerializer($name.serializer())")
         else
             KotlinTypeInfo(name)
-
     }
     else -> error("Unsupported SchemaType: $this")
 }

@@ -82,13 +82,13 @@ open class Generate : DefaultTask() {
                 |         *
                 |         * @since  0.3.0
                 |         */
-                |        public val API_V1: Set<Language> = setOf(${APIVersion.API_V1.supportedLanguages.joinToString(separator = ", ") { it.name }})
+                |        public val API_V1: Set<Language> = setOf(${API_V1.supportedLanguages.joinToString(separator = ", ") { it.name }})
                 |        /**
                 |         * The languages supported by V2 of the Guild Wars 2 API.
                 |         *
                 |         * @since  0.1.0
                 |         */
-                |        public val API_V2: Set<Language> = setOf(${APIVersion.API_V2.supportedLanguages.joinToString(separator = ", ") { it.name }})
+                |        public val API_V2: Set<Language> = setOf(${API_V2.supportedLanguages.joinToString(separator = ", ") { it.name }})
                 |    }
                 |}
                 """.trimMargin()
@@ -104,7 +104,7 @@ open class Generate : DefaultTask() {
                 |
                 |import kotlinx.serialization.*
                 |
-                |${MUMBLELINK_IDENTITY_DEFINITION.toClassString(nest = null, nestedTypesToString = { "" })}
+                |${MUMBLELINK_IDENTITY_DEFINITION.toClassString(TypeLocation(null, "MumbleLink"), nestedTypesToString = { "" }, apiVersion = null, typeLookup = { error("") })}
                 """.trimMargin()
         )
 

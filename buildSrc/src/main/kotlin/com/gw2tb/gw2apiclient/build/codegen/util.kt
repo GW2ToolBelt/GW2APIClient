@@ -21,8 +21,23 @@
  */
 package com.gw2tb.gw2apiclient.build.codegen
 
+import com.gw2tb.apigen.*
+import com.gw2tb.apigen.model.*
+
 const val t = "    "
 const val n = "\n"
+
+val API_V1 = APIVersion.getV1()
+val API_V2 = APIVersion.getV2()
+
+fun TypeLocation.toKotlinName(apiVersion: String?): String =
+    if (nest == null)
+        "${if (apiVersion != null) "GW2${apiVersion}" else ""}$name"
+    else
+        when (name) {
+            "Map" -> "GameMap"
+            else -> name
+        }
 
 internal inline fun <T> Iterable<T>.groupByEndpoint(keySelector: (T) -> String): Map<String, List<T>> =
     groupBy { keySelector(it).replace(Regex("/:([A-Za-z])*"), "").replaceAllIteratively("//", "/") }
