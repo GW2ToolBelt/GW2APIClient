@@ -104,7 +104,7 @@ open class Generate : DefaultTask() {
                 |
                 |import kotlinx.serialization.*
                 |
-                |${MUMBLELINK_IDENTITY_DEFINITION.toClassString(TypeLocation(null, "MumbleLink"), nestedTypesToString = { "" }, apiVersion = null, typeLookup = { error("") })}
+                |${MUMBLELINK_IDENTITY_DEFINITION.toClassString(TypeLocation(null, "MumbleLinkIdentity"), nestedTypesToString = { "" }, apiVersion = null, typeLookup = { error("") })}
                 """.trimMargin()
         )
 
