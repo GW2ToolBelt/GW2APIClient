@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1Items(configure: RequestConfigurator<Result<GW2v1ItemIDs>>? = null): RequestBuilder<Result<GW2v1ItemIDs>> = request(
-    path = "/v2/items",
+    path = "/v1/items",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),

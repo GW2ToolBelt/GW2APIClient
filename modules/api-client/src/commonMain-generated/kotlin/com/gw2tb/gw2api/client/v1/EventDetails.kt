@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1EventDetails(configure: RequestConfigurator<Result<GW2v1EventDetails>>? = null): RequestBuilder<Result<GW2v1EventDetails>> = request(
-    path = "/v2/event_details",
+    path = "/v1/event_details",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),

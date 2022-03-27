@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1Colors(configure: RequestConfigurator<Result<GW2v1Colors>>? = null): RequestBuilder<Result<GW2v1Colors>> = request(
-    path = "/v2/colors",
+    path = "/v1/colors",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),

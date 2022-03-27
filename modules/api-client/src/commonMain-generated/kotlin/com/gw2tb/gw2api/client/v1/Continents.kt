@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1Continents(configure: RequestConfigurator<Result<GW2v1Continents>>? = null): RequestBuilder<Result<GW2v1Continents>> = request(
-    path = "/v2/continents",
+    path = "/v1/continents",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),

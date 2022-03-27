@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1MapFloor(continentID: Int, floorID: Int, configure: RequestConfigurator<Result<GW2v1MapFloor>>? = null): RequestBuilder<Result<GW2v1MapFloor>> = request(
-    path = "/v2/map_floor",
+    path = "/v1/map_floor",
     parameters = mapOfNonNullValues("continent_id" to continentID.toString(), "floor" to floorID.toString()),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),

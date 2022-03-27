@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1Files(configure: RequestConfigurator<Map<String, Result<GW2v1File>>>? = null): RequestBuilder<Map<String, Result<GW2v1File>>> = request(
-    path = "/v2/files",
+    path = "/v1/files",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),

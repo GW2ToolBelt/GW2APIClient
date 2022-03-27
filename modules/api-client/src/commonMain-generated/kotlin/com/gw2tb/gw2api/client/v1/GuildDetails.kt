@@ -33,7 +33,7 @@ import kotlin.jvm.*
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1GuildDetailsByID(guildID: String, configure: RequestConfigurator<Result<GW2v1GuildDetails>>? = null): RequestBuilder<Result<GW2v1GuildDetails>> = request(
-    path = "/v2/guild_details",
+    path = "/v1/guild_details",
     parameters = mapOfNonNullValues("guild_id" to guildID),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v1GuildDetailsByID(guildID: String, configure: Reques
 
 @JvmOverloads
 public fun GW2APIClient.gw2v1GuildDetailsByName(guildName: String, configure: RequestConfigurator<Result<GW2v1GuildDetails>>? = null): RequestBuilder<Result<GW2v1GuildDetails>> = request(
-    path = "/v2/guild_details",
+    path = "/v1/guild_details",
     parameters = mapOfNonNullValues("guild_name" to guildName),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),

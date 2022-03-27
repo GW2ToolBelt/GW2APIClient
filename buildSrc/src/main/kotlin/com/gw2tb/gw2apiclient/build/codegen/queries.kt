@@ -117,7 +117,7 @@ private fun Sequence<APIQuery.V1>.printV1Queries(): String =
                     append("configure: RequestConfigurator<${dataType.name}>? = null")
                 },
                 dataType = dataType,
-                path = "/v2${query.route.lowercase()}",
+                path = "/v1${query.route.lowercase()}",
                 pathParameterMappings = pathParameterMappings,
                 queryParameterMappings = parameterMappings,
                 requiredPermissions = "",
