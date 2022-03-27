@@ -73,7 +73,7 @@ are only available for the JVM (and Android) and JS.
 
 ### Setup
 
-This project uses [Gradle's toolchain support](https://docs.gradle.org/7.3.3/userguide/toolchains.html)
+This project uses [Gradle's toolchain support](https://docs.gradle.org/7.4.1/userguide/toolchains.html)
 to detect and select the JDKs required to run the build. Please refer to the
 build scripts to find out which toolchains are requested.
 
