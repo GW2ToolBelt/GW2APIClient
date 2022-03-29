@@ -44,10 +44,15 @@ open class Generate : DefaultTask() {
     @get:OutputDirectory
     lateinit var typesDirectory: File
 
+    @get:OutputDirectory
+    lateinit var typesTestDirectory: File
+
     @TaskAction
     fun generate() {
         project.delete(queriesDirectory)
+
         project.delete(typesDirectory)
+        project.delete(typesTestDirectory)
 
         fun writeFile(directory: File, location: String, content: String) {
             File(directory, "$location.kt").also { it.parentFile.mkdirs() }.writeText(buildString {
@@ -117,6 +122,12 @@ open class Generate : DefaultTask() {
         (sequenceOfPrintableV1Types() + sequenceOfPrintableV2Types(schemaVersion)).forEach { printableFile ->
             printableFile.writeFile(directory = typesDirectory)
         }
+
+        (sequenceOfPrintableV1TypeTests() + sequenceOfPrintableV2TypeTests(schemaVersion)).forEach { printableFile ->
+            printableFile.writeFile(directory = typesTestDirectory)
+        }
+
+        // TODO types tests
     }
 
 }

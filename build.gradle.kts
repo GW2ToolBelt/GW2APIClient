@@ -51,6 +51,8 @@ tasks {
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 
         queriesDirectory = file("modules/api-client/src/commonMain-generated/kotlin")
+
         typesDirectory = file("modules/api-types/src/commonMain-generated/kotlin")
+        typesTestDirectory = file("modules/api-types/src/commonTest-generated/kotlin")
     }
 }

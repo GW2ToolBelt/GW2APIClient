@@ -25,6 +25,8 @@ import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
 import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.apigen.schema.*
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
 
 fun sequenceOfPrintableV1Types(): Sequence<PrintableFile> =
     API_V1.supportedTypes.printableTypesSequence(
@@ -33,6 +35,9 @@ fun sequenceOfPrintableV1Types(): Sequence<PrintableFile> =
         declarationSelector = { it.schema }
     )
 
+fun sequenceOfPrintableV1TypeTests(): Sequence<PrintableFile> =
+    API_V1.printableTypeTestsSequence("v1", schemaVersionSelector = { null })
+
 fun sequenceOfPrintableV2Types(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
     API_V2.supportedTypes.printableTypesSequence(
         "v2",
@@ -40,7 +45,10 @@ fun sequenceOfPrintableV2Types(schemaVersion: V2SchemaVersion): Sequence<Printab
         declarationSelector = { it[schemaVersion].data }
     )
 
-private fun <T : APIType>  Map<TypeLocation, T>.printableTypesSequence(
+fun sequenceOfPrintableV2TypeTests(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
+    API_V2.printableTypeTestsSequence("v2", schemaVersionSelector = { it[schemaVersion].since })
+
+private fun <T : APIType> Map<TypeLocation, T>.printableTypesSequence(
     apiVersion: String,
     printTypes: (entries: Sequence<Map.Entry<TypeLocation, T>>, apiVersion: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration) -> String,
     declarationSelector: (T) -> SchemaTypeDeclaration
@@ -69,6 +77,55 @@ private fun <T : APIType>  Map<TypeLocation, T>.printableTypesSequence(
                 )
             } else
                 null
+        }
+}
+
+private fun <T : APIType> APIVersion<*, T>.printableTypeTestsSequence(apiVersion: String, schemaVersionSelector: (T) -> V2SchemaVersion?): Sequence<PrintableFile> {
+    val json = Json { prettyPrint = true }
+
+    return supportedTypes
+        .entries
+        .asSequence()
+        .filter { (loc, _) -> loc.nest == null }
+        .map { (loc, type) ->
+            val typeName = loc.toKotlinName(apiVersion)
+
+            val content = TestData[this, loc.name, schemaVersionSelector(type)]
+                .mapIndexed { index, it -> (index to it) }
+                .joinToString(separator = "$n$n") { (index, it) ->
+                    """
+                    |@Test
+                    |fun testType_${index.toString().padStart(2, '0')}() {
+                    |    json.decodeFromString<$typeName>(
+                    |        ${"\""}""
+                    |${json.encodeToString(it).prependIndent(t.repeat(2))}
+                    |        ${"\""}"".trimIndent()
+                    |    )
+                    |}
+                    """.trimMargin()
+                }
+                .prependIndent(t)
+
+            PrintableFile(
+                "com/gw2tb/gw2api/types/$apiVersion/$typeName",
+                """
+                |package com.gw2tb.gw2api.types.$apiVersion
+                |
+                |import kotlin.test.*
+                |import kotlinx.serialization.*
+                |import kotlinx.serialization.json.*
+                |
+                |class ${typeName}Test {
+                |
+                |    private val json = Json {
+                |        useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
+                |    }
+                |
+                |$content
+                |
+                |}
+                """.trimMargin()
+            )
         }
 }
 
