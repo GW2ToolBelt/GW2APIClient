@@ -36,7 +36,7 @@ public class Response<T> internal constructor(
     public val status: Int,
     public val headers: Map<String, List<String>>,
     public val body: String,
-    private val dataFun: (String) -> T?
+    private val dataFun: (String) -> DecodingResult<T>
 ) {
 
     /**
@@ -44,6 +44,8 @@ public class Response<T> internal constructor(
      *
      * @since   0.1.0
      */
-    public val data: T? by lazy { dataFun(body) }
+    public val data: DecodingResult<T> by lazy {
+        dataFun(body)
+    }
 
 }

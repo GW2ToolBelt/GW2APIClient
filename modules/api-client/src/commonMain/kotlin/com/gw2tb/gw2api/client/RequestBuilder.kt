@@ -134,9 +134,9 @@ public class RequestBuilder<T> internal constructor(
                         apiKey = this@RequestBuilder.apiKey
                     }.execute(scope).get()
 
-                    if (perm.data != null) {
-                        if (!perm.data!!.getOrNull()!!.permissions.containsAll(requiredPermissions)) {
-                            throw InsufficientPermissionsException("Insufficient permissions for endpoint $path: ${perm.data!!.getOrNull()!!.permissions} (Required permissions ${requiredPermissions.joinToString()})")
+                    if (perm.data.isSuccess) {
+                        if (!perm.data.getOrNull()!!.permissions.containsAll(requiredPermissions)) {
+                            throw InsufficientPermissionsException("Insufficient permissions for endpoint $path: ${perm.data.getOrNull()!!.permissions} (Required permissions ${requiredPermissions.joinToString()})")
                         }
                     } else {
                         throw UnauthenticatedException("Endpoint $path requires authentication but no API key was provided. (Required permissions ${requiredPermissions.joinToString()})")
@@ -151,7 +151,7 @@ public class RequestBuilder<T> internal constructor(
                         status = response.status,
                         headers = response.headers,
                         body = response.body,
-                        dataFun = { body -> runCatching { json.decodeFromString(serializer, body) }.getOrNull() }
+                        dataFun = { body -> json.decodeCatching(serializer, body) }
                     ).also { cacheAccessor?.memoize(it) }
                 }
 

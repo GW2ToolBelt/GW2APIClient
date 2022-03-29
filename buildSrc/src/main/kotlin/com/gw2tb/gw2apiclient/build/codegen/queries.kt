@@ -252,7 +252,7 @@ private fun <Q : APIQuery> Sequence<Q>.printQueryFunctions(
     map { query ->
         val schema = schemaSelector(query)
         val schemaClass = schema.firstPossiblyNestedClassOrNull()
-        val dataType = schema.toKotlinType(apiVersion, lenient = (schemaClass != null), titleCaseName = schemaClass?.name?.let { "GW2$apiVersion$it" })
+        val dataType = schema.toKotlinType(apiVersion, titleCaseName = schemaClass?.name?.let { "GW2$apiVersion$it" })
 
         sequence { queryFunctionsMapper(query, schema, dataType) }
     }

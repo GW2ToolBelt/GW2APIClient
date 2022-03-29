@@ -40,12 +40,11 @@ internal data class KotlinTypeInfo(
 
 internal fun SchemaTypeUse.toKotlinType(
     apiVersion: String?,
-    lenient: Boolean = false,
     titleCaseName: String? = null
 ): KotlinTypeInfo = when (this) {
     is SchemaPrimitive -> toKotlinType()
     is SchemaArray -> {
-        val itemType = elements.toKotlinType(apiVersion, lenient, titleCaseName)
+        val itemType = elements.toKotlinType(apiVersion, titleCaseName)
 
         KotlinTypeInfo(
             name = "List<${itemType.name}${if (nullableElements) "?" else ""}>",
@@ -54,20 +53,13 @@ internal fun SchemaTypeUse.toKotlinType(
     }
     is SchemaMap -> {
         val keyType = keys.toKotlinType()
-        val valueType = values.toKotlinType(apiVersion, lenient, titleCaseName)
+        val valueType = values.toKotlinType(apiVersion, titleCaseName)
 
         KotlinTypeInfo(
             name = "Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>",
             serializer = "MapSerializer(${keyType.serializer}, ${valueType.serializer})"
         )
     }
-    is SchemaTypeReference -> {
-        val name = typeLocation.toKotlinName(apiVersion)
-
-        if (lenient)
-            KotlinTypeInfo("Result<$name>", "LenientSerializer($name.serializer())")
-        else
-            KotlinTypeInfo(name)
-    }
+    is SchemaTypeReference -> KotlinTypeInfo(typeLocation.toKotlinName(apiVersion))
     else -> error("Unsupported SchemaType: $this")
 }
