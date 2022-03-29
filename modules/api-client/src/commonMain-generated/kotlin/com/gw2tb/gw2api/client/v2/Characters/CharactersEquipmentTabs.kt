@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2CharactersEquipmentTabsIDs(id: String, configure: R
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersEquipmentTabsByID(id: String, tab: Int, configure: RequestConfigurator<Result<GW2v2CharactersEquipmentTab>>? = null): RequestBuilder<Result<GW2v2CharactersEquipmentTab>> = request(
+public fun GW2APIClient.gw2v2CharactersEquipmentTabsByID(id: String, tab: Int, configure: RequestConfigurator<GW2v2CharactersEquipmentTab>? = null): RequestBuilder<GW2v2CharactersEquipmentTab> = request(
     path = "/v2/characters/:id/equipmenttabs",
     parameters = mapOfNonNullValues("tab" to tab.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2CharactersEquipmentTab.serializer()),
+    serializer = GW2v2CharactersEquipmentTab.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersEquipmentTabsByIDs(id: String, tabs: Collection<Int>, configure: RequestConfigurator<List<Result<GW2v2CharactersEquipmentTab>>>? = null): RequestBuilder<List<Result<GW2v2CharactersEquipmentTab>>> = request(
+public fun GW2APIClient.gw2v2CharactersEquipmentTabsByIDs(id: String, tabs: Collection<Int>, configure: RequestConfigurator<List<GW2v2CharactersEquipmentTab>>? = null): RequestBuilder<List<GW2v2CharactersEquipmentTab>> = request(
     path = "/v2/characters/:id/equipmenttabs",
     parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2CharactersEquipmentTab.serializer())),
+    serializer = ListSerializer(GW2v2CharactersEquipmentTab.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersEquipmentTabsAll(id: String, tabs: List<Int>, configure: RequestConfigurator<List<Result<GW2v2CharactersEquipmentTab>>>? = null): RequestBuilder<List<Result<GW2v2CharactersEquipmentTab>>> = request(
+public fun GW2APIClient.gw2v2CharactersEquipmentTabsAll(id: String, tabs: List<Int>, configure: RequestConfigurator<List<GW2v2CharactersEquipmentTab>>? = null): RequestBuilder<List<GW2v2CharactersEquipmentTab>> = request(
     path = "/v2/characters/:id/equipmenttabs",
     parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2021-04-06T21:00:00.000Z", "ids" to "all"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2CharactersEquipmentTab.serializer())),
+    serializer = ListSerializer(GW2v2CharactersEquipmentTab.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersEquipmentTabsByPage(id: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2CharactersEquipmentTab>>>? = null): RequestBuilder<List<Result<GW2v2CharactersEquipmentTab>>> = request(
+public fun GW2APIClient.gw2v2CharactersEquipmentTabsByPage(id: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2CharactersEquipmentTab>>? = null): RequestBuilder<List<GW2v2CharactersEquipmentTab>> = request(
     path = "/v2/characters/:id/equipmenttabs",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2CharactersEquipmentTab.serializer())),
+    serializer = ListSerializer(GW2v2CharactersEquipmentTab.serializer()),
     configure = configure
 )

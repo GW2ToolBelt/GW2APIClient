@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1WvWMatchDetails(matchID: String, configure: RequestConfigurator<Result<GW2v1WvWMatchDetails>>? = null): RequestBuilder<Result<GW2v1WvWMatchDetails>> = request(
+public fun GW2APIClient.gw2v1WvWMatchDetails(matchID: String, configure: RequestConfigurator<GW2v1WvWMatchDetails>? = null): RequestBuilder<GW2v1WvWMatchDetails> = request(
     path = "/v1/wvw/match_details",
     parameters = mapOfNonNullValues("match_id" to matchID),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v1WvWMatchDetails.serializer()),
+    serializer = GW2v1WvWMatchDetails.serializer(),
     configure = configure
 )

@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBackstory(id: String, configure: RequestConfigurator<Result<GW2v2CharactersBackstory>>? = null): RequestBuilder<Result<GW2v2CharactersBackstory>> = request(
+public fun GW2APIClient.gw2v2CharactersBackstory(id: String, configure: RequestConfigurator<GW2v2CharactersBackstory>? = null): RequestBuilder<GW2v2CharactersBackstory> = request(
     path = "/v2/characters/:id/backstory",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "characters"),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2CharactersBackstory.serializer()),
+    serializer = GW2v2CharactersBackstory.serializer(),
     configure = configure
 )

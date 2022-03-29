@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1Colors(configure: RequestConfigurator<Result<GW2v1Colors>>? = null): RequestBuilder<Result<GW2v1Colors>> = request(
+public fun GW2APIClient.gw2v1Colors(configure: RequestConfigurator<GW2v1Colors>? = null): RequestBuilder<GW2v1Colors> = request(
     path = "/v1/colors",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V1,
-    serializer = LenientSerializer(GW2v1Colors.serializer()),
+    serializer = GW2v1Colors.serializer(),
     configure = configure
 )

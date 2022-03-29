@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2PvPAmuletsIDs(configure: RequestConfigurator<List<I
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPAmuletsByID(id: Int, configure: RequestConfigurator<Result<GW2v2PvPAmulet>>? = null): RequestBuilder<Result<GW2v2PvPAmulet>> = request(
+public fun GW2APIClient.gw2v2PvPAmuletsByID(id: Int, configure: RequestConfigurator<GW2v2PvPAmulet>? = null): RequestBuilder<GW2v2PvPAmulet> = request(
     path = "/v2/pvp/amulets",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = LenientSerializer(GW2v2PvPAmulet.serializer()),
+    serializer = GW2v2PvPAmulet.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPAmuletsByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<Result<GW2v2PvPAmulet>>>? = null): RequestBuilder<List<Result<GW2v2PvPAmulet>>> = request(
+public fun GW2APIClient.gw2v2PvPAmuletsByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2PvPAmulet>>? = null): RequestBuilder<List<GW2v2PvPAmulet>> = request(
     path = "/v2/pvp/amulets",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(LenientSerializer(GW2v2PvPAmulet.serializer())),
+    serializer = ListSerializer(GW2v2PvPAmulet.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPAmuletsAll(configure: RequestConfigurator<List<Result<GW2v2PvPAmulet>>>? = null): RequestBuilder<List<Result<GW2v2PvPAmulet>>> = request(
+public fun GW2APIClient.gw2v2PvPAmuletsAll(configure: RequestConfigurator<List<GW2v2PvPAmulet>>? = null): RequestBuilder<List<GW2v2PvPAmulet>> = request(
     path = "/v2/pvp/amulets",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(LenientSerializer(GW2v2PvPAmulet.serializer())),
+    serializer = ListSerializer(GW2v2PvPAmulet.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPAmuletsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2PvPAmulet>>>? = null): RequestBuilder<List<Result<GW2v2PvPAmulet>>> = request(
+public fun GW2APIClient.gw2v2PvPAmuletsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2PvPAmulet>>? = null): RequestBuilder<List<GW2v2PvPAmulet>> = request(
     path = "/v2/pvp/amulets",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(LenientSerializer(GW2v2PvPAmulet.serializer())),
+    serializer = ListSerializer(GW2v2PvPAmulet.serializer()),
     configure = configure
 )

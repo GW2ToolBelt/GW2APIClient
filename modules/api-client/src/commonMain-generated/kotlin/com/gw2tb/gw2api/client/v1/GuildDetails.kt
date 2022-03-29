@@ -32,23 +32,23 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1GuildDetailsByID(guildID: String, configure: RequestConfigurator<Result<GW2v1GuildDetails>>? = null): RequestBuilder<Result<GW2v1GuildDetails>> = request(
+public fun GW2APIClient.gw2v1GuildDetailsByID(guildID: String, configure: RequestConfigurator<GW2v1GuildDetails>? = null): RequestBuilder<GW2v1GuildDetails> = request(
     path = "/v1/guild_details",
     parameters = mapOfNonNullValues("guild_id" to guildID),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v1GuildDetails.serializer()),
+    serializer = GW2v1GuildDetails.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1GuildDetailsByName(guildName: String, configure: RequestConfigurator<Result<GW2v1GuildDetails>>? = null): RequestBuilder<Result<GW2v1GuildDetails>> = request(
+public fun GW2APIClient.gw2v1GuildDetailsByName(guildName: String, configure: RequestConfigurator<GW2v1GuildDetails>? = null): RequestBuilder<GW2v1GuildDetails> = request(
     path = "/v1/guild_details",
     parameters = mapOfNonNullValues("guild_name" to guildName),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v1GuildDetails.serializer()),
+    serializer = GW2v1GuildDetails.serializer(),
     configure = configure
 )

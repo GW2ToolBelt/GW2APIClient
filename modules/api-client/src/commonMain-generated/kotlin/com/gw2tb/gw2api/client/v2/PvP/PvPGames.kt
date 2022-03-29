@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2PvPGamesIDs(configure: RequestConfigurator<List<Str
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPGamesByID(id: String, configure: RequestConfigurator<Result<GW2v2PvPGame>>? = null): RequestBuilder<Result<GW2v2PvPGame>> = request(
+public fun GW2APIClient.gw2v2PvPGamesByID(id: String, configure: RequestConfigurator<GW2v2PvPGame>? = null): RequestBuilder<GW2v2PvPGame> = request(
     path = "/v2/pvp/games",
     parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2PvPGame.serializer()),
+    serializer = GW2v2PvPGame.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPGamesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<Result<GW2v2PvPGame>>>? = null): RequestBuilder<List<Result<GW2v2PvPGame>>> = request(
+public fun GW2APIClient.gw2v2PvPGamesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2PvPGame>>? = null): RequestBuilder<List<GW2v2PvPGame>> = request(
     path = "/v2/pvp/games",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2PvPGame.serializer())),
+    serializer = ListSerializer(GW2v2PvPGame.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPGamesAll(configure: RequestConfigurator<List<Result<GW2v2PvPGame>>>? = null): RequestBuilder<List<Result<GW2v2PvPGame>>> = request(
+public fun GW2APIClient.gw2v2PvPGamesAll(configure: RequestConfigurator<List<GW2v2PvPGame>>? = null): RequestBuilder<List<GW2v2PvPGame>> = request(
     path = "/v2/pvp/games",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2PvPGame.serializer())),
+    serializer = ListSerializer(GW2v2PvPGame.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPGamesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2PvPGame>>>? = null): RequestBuilder<List<Result<GW2v2PvPGame>>> = request(
+public fun GW2APIClient.gw2v2PvPGamesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2PvPGame>>? = null): RequestBuilder<List<GW2v2PvPGame>> = request(
     path = "/v2/pvp/games",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2PvPGame.serializer())),
+    serializer = ListSerializer(GW2v2PvPGame.serializer()),
     configure = configure
 )

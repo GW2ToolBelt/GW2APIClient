@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountLegendaryArmory(configure: RequestConfigurator<List<Result<GW2v2AccountLegendaryArmoryUnlock>>>? = null): RequestBuilder<List<Result<GW2v2AccountLegendaryArmoryUnlock>>> = request(
+public fun GW2APIClient.gw2v2AccountLegendaryArmory(configure: RequestConfigurator<List<GW2v2AccountLegendaryArmoryUnlock>>? = null): RequestBuilder<List<GW2v2AccountLegendaryArmoryUnlock>> = request(
     path = "/v2/account/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "inventories", "unlocks"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2AccountLegendaryArmoryUnlock.serializer())),
+    serializer = ListSerializer(GW2v2AccountLegendaryArmoryUnlock.serializer()),
     configure = configure
 )

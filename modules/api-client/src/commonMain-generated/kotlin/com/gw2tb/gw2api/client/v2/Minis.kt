@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2MinisIDs(configure: RequestConfigurator<List<Int>>?
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MinisByID(id: Int, configure: RequestConfigurator<Result<GW2v2Mini>>? = null): RequestBuilder<Result<GW2v2Mini>> = request(
+public fun GW2APIClient.gw2v2MinisByID(id: Int, configure: RequestConfigurator<GW2v2Mini>? = null): RequestBuilder<GW2v2Mini> = request(
     path = "/v2/minis",
     parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = LenientSerializer(GW2v2Mini.serializer()),
+    serializer = GW2v2Mini.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MinisByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<Result<GW2v2Mini>>>? = null): RequestBuilder<List<Result<GW2v2Mini>>> = request(
+public fun GW2APIClient.gw2v2MinisByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Mini>>? = null): RequestBuilder<List<GW2v2Mini>> = request(
     path = "/v2/minis",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(LenientSerializer(GW2v2Mini.serializer())),
+    serializer = ListSerializer(GW2v2Mini.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MinisAll(configure: RequestConfigurator<List<Result<GW2v2Mini>>>? = null): RequestBuilder<List<Result<GW2v2Mini>>> = request(
+public fun GW2APIClient.gw2v2MinisAll(configure: RequestConfigurator<List<GW2v2Mini>>? = null): RequestBuilder<List<GW2v2Mini>> = request(
     path = "/v2/minis",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(LenientSerializer(GW2v2Mini.serializer())),
+    serializer = ListSerializer(GW2v2Mini.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MinisByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2Mini>>>? = null): RequestBuilder<List<Result<GW2v2Mini>>> = request(
+public fun GW2APIClient.gw2v2MinisByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Mini>>? = null): RequestBuilder<List<GW2v2Mini>> = request(
     path = "/v2/minis",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(LenientSerializer(GW2v2Mini.serializer())),
+    serializer = ListSerializer(GW2v2Mini.serializer()),
     configure = configure
 )

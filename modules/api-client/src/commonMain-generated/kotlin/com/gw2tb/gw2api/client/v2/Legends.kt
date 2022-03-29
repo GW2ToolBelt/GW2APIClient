@@ -43,45 +43,45 @@ public fun GW2APIClient.gw2v2LegendsIDs(configure: RequestConfigurator<List<Stri
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2LegendsByID(id: String, configure: RequestConfigurator<Result<GW2v2Legend>>? = null): RequestBuilder<Result<GW2v2Legend>> = request(
+public fun GW2APIClient.gw2v2LegendsByID(id: String, configure: RequestConfigurator<GW2v2Legend>? = null): RequestBuilder<GW2v2Legend> = request(
     path = "/v2/legends",
     parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2Legend.serializer()),
+    serializer = GW2v2Legend.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2LegendsByIDs(ids: Collection<String>, configure: RequestConfigurator<List<Result<GW2v2Legend>>>? = null): RequestBuilder<List<Result<GW2v2Legend>>> = request(
+public fun GW2APIClient.gw2v2LegendsByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Legend>>? = null): RequestBuilder<List<GW2v2Legend>> = request(
     path = "/v2/legends",
     parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2Legend.serializer())),
+    serializer = ListSerializer(GW2v2Legend.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2LegendsAll(configure: RequestConfigurator<List<Result<GW2v2Legend>>>? = null): RequestBuilder<List<Result<GW2v2Legend>>> = request(
+public fun GW2APIClient.gw2v2LegendsAll(configure: RequestConfigurator<List<GW2v2Legend>>? = null): RequestBuilder<List<GW2v2Legend>> = request(
     path = "/v2/legends",
     parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2Legend.serializer())),
+    serializer = ListSerializer(GW2v2Legend.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2LegendsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<Result<GW2v2Legend>>>? = null): RequestBuilder<List<Result<GW2v2Legend>>> = request(
+public fun GW2APIClient.gw2v2LegendsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Legend>>? = null): RequestBuilder<List<GW2v2Legend>> = request(
     path = "/v2/legends",
     parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2Legend.serializer())),
+    serializer = ListSerializer(GW2v2Legend.serializer()),
     configure = configure
 )

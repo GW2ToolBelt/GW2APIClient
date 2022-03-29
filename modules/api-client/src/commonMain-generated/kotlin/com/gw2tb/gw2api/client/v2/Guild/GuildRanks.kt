@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2GuildRanks(id: String, configure: RequestConfigurator<List<Result<GW2v2GuildRank>>>? = null): RequestBuilder<List<Result<GW2v2GuildRank>>> = request(
+public fun GW2APIClient.gw2v2GuildRanks(id: String, configure: RequestConfigurator<List<GW2v2GuildRank>>? = null): RequestBuilder<List<GW2v2GuildRank>> = request(
     path = "/v2/guild/:id/ranks",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "guilds"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(LenientSerializer(GW2v2GuildRank.serializer())),
+    serializer = ListSerializer(GW2v2GuildRank.serializer()),
     configure = configure
 )

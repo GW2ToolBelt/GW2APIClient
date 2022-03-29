@@ -32,12 +32,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsDaily(configure: RequestConfigurator<Result<GW2v2AchievementsDaily>>? = null): RequestBuilder<Result<GW2v2AchievementsDaily>> = request(
+public fun GW2APIClient.gw2v2AchievementsDaily(configure: RequestConfigurator<GW2v2AchievementsDaily>? = null): RequestBuilder<GW2v2AchievementsDaily> = request(
     path = "/v2/achievements/daily",
     parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
-    serializer = LenientSerializer(GW2v2AchievementsDaily.serializer()),
+    serializer = GW2v2AchievementsDaily.serializer(),
     configure = configure
 )
