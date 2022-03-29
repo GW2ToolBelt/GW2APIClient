@@ -3,6 +3,7 @@ asm = "9.2"
 api-generator = "0.5.0"
 javaparser = "3.23.1"
 junit = "5.8.2"
+kotlin = "1.6.10"
 kotlinx-coroutines = "1.6.0"
 kotlinx-serialization = "1.3.2"
 ktor = "1.6.8"
@@ -20,9 +21,15 @@ ktor-client-apache = { module = "io.ktor:ktor-client-apache", version.ref = "kto
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 
+# org.jetbrains.kotlin - Kotlin
+kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
+kotlin-test-js = { module = "org.jetbrains.kotlin:kotlin-test-js", version.ref = "kotlin" }
+kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
+
 # org.jetbrains.kotlinx:kotlinx-coroutines-[...] - kotlinx.coroutines
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-jdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 
 # org.jetbrains.kotlinx:kotlinx-serialization-[...] - kotlinx.serialization
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }

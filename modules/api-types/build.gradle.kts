@@ -80,6 +80,26 @@ kotlin {
                 api(libs.kotlinx.serialization.json)
             }
         }
+
+        commonTest {
+            kotlin.srcDir("src/commonTest-generated/kotlin")
+
+            dependencies {
+                api(libs.kotlin.test.common)
+            }
+        }
+
+        getByName("jsTest") {
+            dependencies {
+                api(libs.kotlin.test.js)
+            }
+        }
+
+        getByName("jvmTest") {
+            dependencies {
+                api(libs.kotlin.test.junit5)
+            }
+        }
     }
 }
 
