@@ -39,7 +39,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2GuildStashSection(
     @SerialName("upgrade_id")
-    val upgradeID: String,
+    val upgradeID: Int,
     val size: Int,
     val coins: Int,
     val note: String,
@@ -54,8 +54,8 @@ public data class GW2v2GuildStashSection(
      */
     @Serializable
     public data class GuildStashSlot(
-        val id: String,
-        val count: String
+        val id: Int,
+        val count: Int
     )
 
 }

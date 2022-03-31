@@ -84,7 +84,7 @@ public data class GW2v2Guild(
          */
         @Serializable
         public data class Background(
-            val id: String,
+            val id: Int,
             val colors: List<Int>
         )
 
@@ -96,7 +96,7 @@ public data class GW2v2Guild(
          */
         @Serializable
         public data class Foreground(
-            val id: String,
+            val id: Int,
             val colors: List<Int>
         )
 

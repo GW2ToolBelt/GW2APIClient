@@ -55,7 +55,7 @@ public data class GW2v2WvWMatchScore(
      */
     @Serializable
     public data class Skirmish(
-        val id: String,
+        val id: Int,
         val scores: Map<String, Int>,
         @SerialName("map_scores")
         val mapScores: List<MapScores>
@@ -84,7 +84,7 @@ public data class GW2v2WvWMatchScore(
      */
     @Serializable
     public data class GameMap(
-        val id: String,
+        val id: Int,
         val type: String,
         val scores: Map<String, Int>
     )

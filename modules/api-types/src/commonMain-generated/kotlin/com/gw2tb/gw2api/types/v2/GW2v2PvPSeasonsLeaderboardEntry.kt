@@ -39,11 +39,11 @@ import kotlinx.serialization.json.*
  * @param scores the entry's scoring values
  */
 @Serializable
-public data class GW2v2LeaderboardEntry(
+public data class GW2v2PvPSeasonsLeaderboardEntry(
     val name: String? = null,
     val id: String? = null,
     val rank: Int,
-    val team: Int? = null,
+    val team: String? = null,
     @SerialName("team_id")
     val teamID: Int? = null,
     val date: String,
@@ -59,7 +59,7 @@ public data class GW2v2LeaderboardEntry(
     @Serializable
     public data class Scoring(
         val id: String,
-        val value: String
+        val value: Int
     )
 
 }

@@ -52,7 +52,7 @@ public data class GW2v2Pet(
      */
     @Serializable
     public data class Skill(
-        val id: String
+        val id: Int
     )
 
 }

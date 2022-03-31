@@ -53,7 +53,7 @@ public data class GW2v2WvWMatchStats(
      */
     @Serializable
     public data class GameMap(
-        val id: String,
+        val id: Int,
         val type: String,
         val deaths: Map<String, Int>,
         val kills: Map<String, Int>

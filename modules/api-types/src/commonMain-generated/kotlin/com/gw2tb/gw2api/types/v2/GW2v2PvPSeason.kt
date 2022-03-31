@@ -156,7 +156,7 @@ public data class GW2v2PvPSeason(
             @Serializable
             public data class Settings(
                 val name: String,
-                val duration: String,
+                val duration: String? = null,
                 val scoring: String,
                 val tiers: List<Tier>
             ) {

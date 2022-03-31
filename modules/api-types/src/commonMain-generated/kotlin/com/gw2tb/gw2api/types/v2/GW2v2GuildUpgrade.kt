@@ -87,7 +87,7 @@ public sealed class GW2v2GuildUpgrade {
     public data class Cost(
         val type: String,
         val name: String,
-        val count: String,
+        val count: Int,
         @SerialName("item_id")
         val itemID: Int? = null
     )
