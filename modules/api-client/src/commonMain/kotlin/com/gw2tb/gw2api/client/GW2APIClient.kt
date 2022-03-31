@@ -34,7 +34,7 @@ import kotlinx.serialization.json.*
  * @param host              the host of the API
  * @param cacheAccessor     the cache implementation to use
  * @param rateLimiter       the rate-limiter to use
- * @param checkPermissions  whether or not to perform client-side permission checks
+ * @param checkPermissions  whether to perform client-side permission checks
  * @param json              the [Json] instance used for deserialization
  *
  * @since   0.1.0
@@ -43,7 +43,7 @@ import kotlinx.serialization.json.*
 public class GW2APIClient(
     public val httpClient: IHttpClient,
     public val host: String = OFFICIAL_HOST,
-    private val cacheAccessor: CacheAccessor? = null,
+    private val cacheAccessor: CacheAccess? = null,
     private val rateLimiter: RateLimiter? = null,
     public val checkPermissions: Boolean = false,
     public val json: Json = Json {

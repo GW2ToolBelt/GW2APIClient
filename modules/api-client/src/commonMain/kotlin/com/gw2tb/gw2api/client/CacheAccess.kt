@@ -22,14 +22,17 @@
 package com.gw2tb.gw2api.client
 
 /**
- * An accessor for a cache-implementation.
+ * Provides basic access to a response caching implementation.
+ *
+ * This interface does not make any guarantees about the caching behavior of its
+ * implementations.
  *
  * @since   0.1.0
  */
-public interface CacheAccessor {
+public interface CacheAccess {
 
     /**
-     * Memoizes the a given [Response].
+     * Memoizes the given [Response].
      *
      * @param response  the response to be memoized
      *
@@ -39,7 +42,7 @@ public interface CacheAccessor {
 
     /**
      * Queries the cache for a given [Request] and returns the cached [Response]
-     * or `null` if no response was cached.
+     * or `null` if no appropriate response was cached.
      *
      * @param request   the request for which the cache should be checked
      *
