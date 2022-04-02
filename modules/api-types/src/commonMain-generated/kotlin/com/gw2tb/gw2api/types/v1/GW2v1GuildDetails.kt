@@ -58,16 +58,16 @@ public data class GW2v1GuildDetails(
     @Serializable
     public data class Emblem(
         @SerialName("background_id")
-        val backgroundID: String,
+        val backgroundID: Int,
         @SerialName("foreground_id")
-        val foregroundID: String,
+        val foregroundID: Int,
         val flags: List<String>,
         @SerialName("background_color_id")
-        val backgroundColorID: String,
+        val backgroundColorID: Int,
         @SerialName("foreground_primary_color_id")
-        val foregroundPrimaryColorID: String,
+        val foregroundPrimaryColorID: Int,
         @SerialName("foreground_secondary_color_id")
-        val foregroundSecondaryColorID: String
+        val foregroundSecondaryColorID: Int
     )
 
 }

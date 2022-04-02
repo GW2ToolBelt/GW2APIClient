@@ -55,7 +55,7 @@ public data class GW2v2MountSkin(
     @Serializable
     public data class DyeSlot(
         @SerialName("color_id")
-        val colorID: String,
+        val colorID: Int,
         val material: String
     )
 

@@ -225,9 +225,9 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: Int? = null,
+            val suffixItemID: String? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: Int? = null,
+            val secondarySuffixItemID: String? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -299,9 +299,9 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: Int? = null,
+            val suffixItemID: String? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: Int? = null,
+            val secondarySuffixItemID: String? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -803,9 +803,9 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: Int? = null,
+            val suffixItemID: String? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: Int? = null,
+            val secondarySuffixItemID: String? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -969,9 +969,9 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: Int? = null,
+            val suffixItemID: String? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: Int? = null,
+            val secondarySuffixItemID: String? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")

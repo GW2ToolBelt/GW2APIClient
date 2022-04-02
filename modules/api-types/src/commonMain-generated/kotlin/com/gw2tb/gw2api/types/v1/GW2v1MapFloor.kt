@@ -137,7 +137,7 @@ public data class GW2v1MapFloor(
                 @Serializable
                 public data class Marker(
                     @SerialName("file_id")
-                    val fileID: String,
+                    val fileID: Int,
                     val signature: String
                 )
 

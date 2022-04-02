@@ -67,7 +67,7 @@ public data class GW2v1WvWMatchDetails(
          */
         @Serializable
         public data class Objective(
-            val id: String,
+            val id: Int,
             val owner: String,
             @SerialName("owner_guild")
             val ownerGuild: String? = null
