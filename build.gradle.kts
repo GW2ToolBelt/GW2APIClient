@@ -23,12 +23,16 @@ import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 import com.gw2tb.gw2apiclient.build.tasks.*
+import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
     kotlin("multiplatform") version "1.6.10" apply false
     kotlin("plugin.serialization") version "1.6.10" apply false
     id("org.jetbrains.dokka") version "1.6.10" apply false
 }
+
+yarn.lockFileName = "kotlin-yarn.lock"
+yarn.lockFileDirectory = rootDir
 
 allprojects {
     val nextVersion = "0.4.0"
