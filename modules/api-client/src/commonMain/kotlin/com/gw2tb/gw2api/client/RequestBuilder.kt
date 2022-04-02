@@ -36,7 +36,7 @@ import kotlin.time.*
  *
  * @param requiredPermissions       the permissions required by the endpoint
  * @param supportedLanguages        the languages supported by the endpoint
- * @param cacheAccessor             the cache implementation to use
+ * @param cacheAccess               the cache implementation to use
  * @param rateLimiter               the rate-limiter to use
  * @param checkPermissions          whether or not to perform client-side permission checks
  *
@@ -53,7 +53,7 @@ public class RequestBuilder<T> internal constructor(
     public val supportedLanguages: Set<Language>,
     private val serializer: KSerializer<T>,
     private val json: Json,
-    public var cacheAccessor: CacheAccessor?,
+    public var cacheAccess: CacheAccess?,
     public var rateLimiter: RateLimiter?,
     public var checkPermissions: Boolean,
     private val httpClient: IHttpClient
@@ -85,7 +85,7 @@ public class RequestBuilder<T> internal constructor(
         overrideCacheTime = override
     }
 
-    public fun withCacheAccessor(value: CacheAccessor?): RequestBuilder<T> = apply { cacheAccessor = value }
+    public fun withCacheAccess(value: CacheAccess?): RequestBuilder<T> = apply { cacheAccess = value }
     public fun withRateLimiter(value: RateLimiter?): RequestBuilder<T> = apply { rateLimiter = value }
     public fun withPermissionChecks(value: Boolean): RequestBuilder<T> = apply { checkPermissions = value }
 
@@ -116,7 +116,7 @@ public class RequestBuilder<T> internal constructor(
             apiKey = apiKey
         ) { request ->
             scope.async {
-                cacheAccessor?.let { cache -> cache.query(request)?.let { cached -> return@async cached } }
+                cacheAccess?.let { cache -> cache.query(request)?.let { cached -> return@async cached } }
 
                 /*
                  * Perform basic client-side permission checks to avoid flooding the remote API with "bad requests".
@@ -152,7 +152,7 @@ public class RequestBuilder<T> internal constructor(
                         headers = response.headers,
                         body = response.body,
                         dataFun = { body -> json.decodeCatching(serializer, body) }
-                    ).also { cacheAccessor?.memoize(it) }
+                    ).also { cacheAccess?.memoize(it) }
                 }
 
                 rateLimiter.also { rateLimiter -> if (rateLimiter !== null) rateLimiter.execute(request) { httpCall.start() } else httpCall.start() }

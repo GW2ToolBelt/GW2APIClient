@@ -32,7 +32,7 @@ import kotlinx.serialization.json.*
  *
  * @param httpClient        the HTTP client implementation to use
  * @param host              the host of the API
- * @param cacheAccessor     the cache implementation to use
+ * @param cacheAccess       the cache implementation to use
  * @param rateLimiter       the rate-limiter to use
  * @param checkPermissions  whether to perform client-side permission checks
  * @param json              the [Json] instance used for deserialization
@@ -41,15 +41,14 @@ import kotlinx.serialization.json.*
  */
 @OptIn(InternalGW2APIClientApi::class)
 public class GW2APIClient(
-    public val httpClient: IHttpClient,
+    private val httpClient: IHttpClient,
     public val host: String = OFFICIAL_HOST,
-    private val cacheAccessor: CacheAccess? = null,
+    private val cacheAccess: CacheAccess? = null,
     private val rateLimiter: RateLimiter? = null,
     public val checkPermissions: Boolean = false,
     public val json: Json = Json {
         /* Disabled by default. See https://github.com/Kotlin/kotlinx.serialization/issues/1512 */
         useAlternativeNames = false
-        encodeDefaults = false
     }
 ) : Closeable by httpClient {
 
@@ -81,7 +80,7 @@ public class GW2APIClient(
             supportedLanguages = supportedLanguages,
             serializer = serializer,
             json = json,
-            cacheAccessor = cacheAccessor,
+            cacheAccess = cacheAccess,
             rateLimiter = rateLimiter,
             checkPermissions = checkPermissions,
             httpClient = httpClient

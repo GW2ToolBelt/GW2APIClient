@@ -44,6 +44,10 @@ public actual class Request<T> internal actual constructor(
      */
     public fun asCompletableFuture(): CompletableFuture<Response<T>> = deferred.asCompletableFuture()
 
+    public fun await(): Response<T> = runBlocking {
+        deferred.await()
+    }
+
     public actual suspend fun get(): Response<T> = suspendCoroutine { continuation ->
         deferred.invokeOnCompletion { cause ->
             if (cause != null) {
