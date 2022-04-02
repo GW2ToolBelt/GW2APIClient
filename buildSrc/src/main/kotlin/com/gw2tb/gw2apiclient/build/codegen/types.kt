@@ -183,8 +183,7 @@ internal fun SchemaTypeDeclaration.toClassString(
                 className,
                 classNest,
                 nestedTypesToString,
-                apiVersion,
-                typeLookup = typeLookup,
+                apiVersion
             )
         }
         is SchemaRecord -> toDataClassString(
@@ -316,8 +315,7 @@ private fun SchemaConditional.toSealedClassString(
     className: String,
     nest: String,
     nestedTypesToString: (String) -> String,
-    apiVersion: String?,
-    typeLookup: (TypeLocation) -> SchemaTypeDeclaration
+    apiVersion: String?
 ) = buildString {
     append(
         """
@@ -338,9 +336,6 @@ private fun SchemaConditional.toSealedClassString(
     appendLine(dokka())
     appendLine("@Serializable(with = __JsonParametricSerializer_$className::class)")
     append("public sealed class $className")
-
-//    if (superClass != null)
-//        append(" : $superClass()")
 
     val body = sequence {
         if (sharedProperties.isNotEmpty())
