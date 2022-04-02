@@ -90,7 +90,7 @@ private fun <T : APIType> APIVersion<*, T>.printableTypeTestsSequence(apiVersion
         .map { (loc, type) ->
             val typeName = loc.toKotlinName(apiVersion)
 
-            val content = TestData[this, loc.name, schemaVersionSelector(type)]
+            val content = TestData[type, schemaVersionSelector(type)]
                 .mapIndexed { index, it -> (index to it) }
                 .joinToString(separator = "$n$n") { (index, it) ->
                     """
