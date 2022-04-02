@@ -59,6 +59,10 @@ tasks {
         }
     }
 
+    test {
+        useJUnitPlatform()
+    }
+
     jar {
         manifest {
             attributes(mapOf(
@@ -111,4 +115,7 @@ signing {
 
 dependencies {
     api(projects.apiClient)
+
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 }
