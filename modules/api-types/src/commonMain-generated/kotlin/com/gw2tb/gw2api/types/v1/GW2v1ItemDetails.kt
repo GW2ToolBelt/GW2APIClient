@@ -225,9 +225,11 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val suffixItemID: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val secondarySuffixItemID: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -299,9 +301,11 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val suffixItemID: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val secondarySuffixItemID: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -803,9 +807,11 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val suffixItemID: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val secondarySuffixItemID: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")
@@ -969,9 +975,11 @@ public sealed class GW2v1ItemDetails {
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
             @SerialName("suffix_item_id")
-            val suffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val suffixItemID: Int? = null,
             @SerialName("secondary_suffix_item_id")
-            val secondarySuffixItemID: String? = null,
+            @Serializable(with = com.gw2tb.gw2api.types.internal.NullableLenientIntTransform::class)
+            val secondarySuffixItemID: Int? = null,
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
             @SerialName("attribute_adjustment")

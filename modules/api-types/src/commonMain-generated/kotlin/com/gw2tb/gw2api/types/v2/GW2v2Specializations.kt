@@ -30,9 +30,27 @@ import kotlinx.serialization.json.*
 /**
  * Information about a character's equipped specializations.
  *
- * @param specializations the character's equipped specializations
+ * @param pve the character's PvE specializations
+ * @param pvp the character's PvP specializations
+ * @param wvw the character's WvW specializations
  */
 @Serializable
-public data class GW2v2CharactersSpecializations(
-    val specializations: GW2v2Specializations
-)
+public data class GW2v2Specializations(
+    val pve: List<Specialization>,
+    val pvp: List<Specialization>,
+    val wvw: List<Specialization>
+) {
+
+    /**
+     * Information about an equipped specialization.
+     *
+     * @param id the specialization's ID
+     * @param traits the IDs of the selected traits
+     */
+    @Serializable
+    public data class Specialization(
+        val id: Int? = null,
+        val traits: List<Int?>
+    )
+
+}

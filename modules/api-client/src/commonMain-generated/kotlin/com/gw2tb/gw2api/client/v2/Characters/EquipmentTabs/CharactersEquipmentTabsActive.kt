@@ -20,19 +20,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+@file:JvmName("GW2v2")
+@file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.types.v2
+package com.gw2tb.gw2api.client.v2
 
-import kotlinx.serialization.*
+import com.gw2tb.gw2api.client.*
+import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
-import kotlinx.serialization.json.*
+import kotlin.jvm.*
 
-/**
- * Information about a character's equipped specializations.
- *
- * @param specializations the character's equipped specializations
- */
-@Serializable
-public data class GW2v2CharactersSpecializations(
-    val specializations: GW2v2Specializations
+@JvmOverloads
+public fun GW2APIClient.gw2v2CharactersEquipmentTabsActive(id: String, configure: RequestConfigurator<GW2v2CharactersEquipmentTab>? = null): RequestBuilder<GW2v2CharactersEquipmentTab> = request(
+    path = "/v2/characters/:id/equipmenttabs/active",
+    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    replaceInPath = mapOf(":id" to id),
+    requiredPermissions = setOf("account", "builds", "characters"),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2CharactersEquipmentTab.serializer(),
+    configure = configure
 )

@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2021 Leon Linhart
+ * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +20,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("FunctionName")
-package com.gw2tb.gw2api.client.internal
+@file:JvmName("GW2v2")
+@file:JvmMultifileClass
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+package com.gw2tb.gw2api.client.v2
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.gw2tb.gw2api.client.*
+import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.v2.*
+import kotlinx.serialization.builtins.*
+import kotlin.jvm.*
 
-internal fun <T> LenientSerializer(resultSerializer: KSerializer<T>): KSerializer<Result<T>> = object : KSerializer<Result<T>> {
-
-    override val descriptor: SerialDescriptor
-        get() = resultSerializer.descriptor
-
-    override fun deserialize(decoder: Decoder): Result<T> = runCatching { resultSerializer.deserialize(decoder) }
-
-    override fun serialize(encoder: Encoder, value: Result<T>) {
-        TODO("Not yet implemented")
-    }
-
-}
+@JvmOverloads
+public fun GW2APIClient.gw2v2CharactersEquipment(id: String, configure: RequestConfigurator<GW2v2CharactersEquipment>? = null): RequestBuilder<GW2v2CharactersEquipment> = request(
+    path = "/v2/characters/:id/equipment",
+    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    replaceInPath = mapOf(":id" to id),
+    requiredPermissions = setOf("account", "builds", "characters"),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2CharactersEquipment.serializer(),
+    configure = configure
+)

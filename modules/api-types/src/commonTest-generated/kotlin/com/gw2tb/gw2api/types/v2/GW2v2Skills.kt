@@ -20,19 +20,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import kotlin.test.*
 import kotlinx.serialization.*
-import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 
-/**
- * Information about a character's equipped specializations.
- *
- * @param specializations the character's equipped specializations
- */
-@Serializable
-public data class GW2v2CharactersSpecializations(
-    val specializations: GW2v2Specializations
-)
+class GW2v2SkillsTest {
+
+    private val json = Json {
+        useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
+    }
+
+    
+
+}
