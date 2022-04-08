@@ -26,8 +26,8 @@ import com.gw2tb.gw2apiclient.build.tasks.*
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    kotlin("multiplatform") version "1.6.10" apply false
-    kotlin("plugin.serialization") version "1.6.10" apply false
+    kotlin("multiplatform") version "1.6.20" apply false
+    kotlin("plugin.serialization") version "1.6.20" apply false
     id("org.jetbrains.dokka") version "1.6.10" apply false
 }
 
@@ -55,6 +55,7 @@ tasks {
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 
         queriesDirectory = file("modules/api-client/src/commonMain-generated/kotlin")
+        queriesTestDirectory = file("modules/api-client/src/commonTest-generated/kotlin")
 
         typesDirectory = file("modules/api-types/src/commonMain-generated/kotlin")
         typesTestDirectory = file("modules/api-types/src/commonTest-generated/kotlin")
