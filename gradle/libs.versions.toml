@@ -1,7 +1,7 @@
 [versions]
 asm = "9.3"
 api-generator = "0.5.0"
-javaparser = "3.23.1"
+javaparser = "3.24.3"
 junit = "5.8.2"
 kotlin = "1.6.20"
 kotlinx-coroutines = "1.6.1"
