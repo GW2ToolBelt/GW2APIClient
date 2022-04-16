@@ -55,8 +55,22 @@ kotlin {
     }
 
     js(IR) {
-        browser()
-        nodejs()
+        browser {
+            testTask {
+                useMocha {
+                    // https://github.com/Kotlin/kotlinx.coroutines/issues/3077
+                    timeout = "10s"
+                }
+            }
+        }
+        nodejs {
+            testTask {
+                useMocha {
+                    // https://github.com/Kotlin/kotlinx.coroutines/issues/3077
+                    timeout = "10s"
+                }
+            }
+        }
     }
     jvm {
         compilations.all {
@@ -84,9 +98,14 @@ kotlin {
             }
         }
 
-        getByName("jvmMain") {
+        commonTest {
+            kotlin.srcDir("src/commonTest-generated/kotlin")
+
             dependencies {
-                api(libs.kotlinx.coroutines.jdk8)
+                implementation(projects.apiClientKtor)
+
+                implementation(libs.kotlin.test.common)
+                implementation(libs.kotlinx.coroutines.test)
             }
         }
 
@@ -97,6 +116,25 @@ kotlin {
         getByName("jsMain") {
             dependsOn(nonJvmMain)
         }
+
+        getByName("jsTest") {
+            dependencies {
+                api(libs.kotlin.test.js)
+            }
+        }
+
+        getByName("jvmMain") {
+            dependencies {
+                api(libs.kotlinx.coroutines.jdk8)
+            }
+        }
+
+        getByName("jvmTest") {
+            dependencies {
+                api(libs.kotlin.test.junit5)
+            }
+        }
+
     }
 
 }
