@@ -27,7 +27,6 @@ import com.gw2tb.gw2api.client.internal.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.util.*
 import kotlin.jvm.*
@@ -47,17 +46,17 @@ public class KtorHttpClientImpl @JvmOverloads constructor(
         val url = URLBuilder().apply {
             protocol = this@KtorHttpClientImpl.protocol
             host = request.host
+            pathSegments = request.path.removePrefix("/").split("/")
 
-            path(request.path.removePrefix("/").split("/"))
             request.parameters.forEach { (k, v) -> parameters.append(k, v) }
         }.build()
 
-        val httpResponse = httpClient.get<HttpResponse>(url) {
+        val httpResponse = httpClient.get(url) {
             if (request.apiKey != null) header("Authorization", "Bearer ${request.apiKey}")
         }
 
         val headers = httpResponse.headers.toMap()
-        val body = httpResponse.receive<String>()
+        val body = httpResponse.body<String>()
 
         return IHttpResponse(
             status = httpResponse.status.value,
