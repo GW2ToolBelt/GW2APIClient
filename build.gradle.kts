@@ -28,7 +28,7 @@ import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 plugins {
     kotlin("multiplatform") version "1.6.20" apply false
     kotlin("plugin.serialization") version "1.6.20" apply false
-    id("org.jetbrains.dokka") version "1.6.10" apply false
+    id("org.jetbrains.dokka") version "1.6.20" apply false
 }
 
 yarn.lockFileName = "kotlin-yarn.lock"
