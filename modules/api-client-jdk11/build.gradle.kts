@@ -55,7 +55,7 @@ tasks {
             apiVersion = "1.6"
             jvmTarget = "11"
 
-            freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
+            freeCompilerArgs = listOf("-opt-in=kotlin.RequiresOptIn")
         }
     }
 
