@@ -27,6 +27,7 @@ import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.*
+import kotlinx.serialization.serializer
 import kotlin.jvm.JvmField
 import kotlin.jvm.JvmInline
 
@@ -48,7 +49,7 @@ public value class DecodingResult<out T> @InternalGW2APIClientApi internal const
      */
     public val isFailure: Boolean get() = value is Failure
 
-    @Suppress("UNCHECKED_CAST")
+    @Suppress("UNCHECKED_CAST", "NOTHING_TO_INLINE")
     public inline fun getOrNull(): T? =
         when {
             isFailure -> null
@@ -62,35 +63,28 @@ public value class DecodingResult<out T> @InternalGW2APIClientApi internal const
         val jsonElement: JsonElement,
         @JvmField
         val exception: SerializationException
-    )
+    ) : Failure()
 
-    internal class DecodingFailure()
+    internal class DecodingFailure(
+        @JvmField
+        val cause: SerializationException
+    ) : Failure()
 
 }
 
 internal inline fun <reified T, R> Json.decodeCatching(string: String): DecodingResult<R> {
-    val jsonElement = try {
-        decodeFromString<JsonElement>(string)
-    } catch (e: SerializationException) {
-        return DecodingResult(DecodingResult.DecodingFailure())
-    }
-
-    return try {
-        DecodingResult(decodeFromJsonElement<T>(jsonElement))
-    } catch (e: SerializationException) {
-        DecodingResult(DecodingResult.SchemaMismatch(jsonElement, exception = e))
-    }
+    return decodeCatching(serializer<T>(), string)
 }
 
 internal fun <T, R> Json.decodeCatching(serializer: DeserializationStrategy<T>, string: String): DecodingResult<R> {
     val jsonElement = try {
         decodeFromString<JsonElement>(string)
     } catch (e: SerializationException) {
-        return DecodingResult(DecodingResult.DecodingFailure())
+        return DecodingResult(DecodingResult.DecodingFailure(cause = e))
     }
 
     return try {
-        DecodingResult(decodeFromJsonElement<T>(serializer, jsonElement))
+        DecodingResult(decodeFromJsonElement(serializer, jsonElement))
     } catch (e: SerializationException) {
         DecodingResult(DecodingResult.SchemaMismatch(jsonElement, exception = e))
     }
@@ -98,6 +92,7 @@ internal fun <T, R> Json.decodeCatching(serializer: DeserializationStrategy<T>, 
 
 public fun <E> DecodingResult<List<E>>.tryDecodePartial(json: Json = Json, deserializer: DeserializationStrategy<E>): List<DecodingResult<E>> {
     return if (isSuccess) {
+        @Suppress("UNCHECKED_CAST")
         (value as List<E>).map { DecodingResult(it) }
     } else if (value is DecodingResult.SchemaMismatch) {
         value.jsonElement.jsonArray.map { element ->
@@ -108,12 +103,13 @@ public fun <E> DecodingResult<List<E>>.tryDecodePartial(json: Json = Json, deser
             }
         }
     } else {
-        TODO("error")
+        error("Cannot decode invalid data")
     }
 }
 
 public fun <K, V> DecodingResult<Map<K, V>>.tryDecodePartial(json: Json = Json, keyDeserializer: DeserializationStrategy<K>, deserializer: DeserializationStrategy<V>): Map<K, DecodingResult<V>> {
     return if (isSuccess) {
+        @Suppress("UNCHECKED_CAST")
         (value as Map<K, V>).mapValues { DecodingResult(it) }
     } else if (value is DecodingResult.SchemaMismatch) {
         value.jsonElement.jsonObject
@@ -126,6 +122,6 @@ public fun <K, V> DecodingResult<Map<K, V>>.tryDecodePartial(json: Json = Json, 
                 }
             }
     } else {
-        TODO("error")
+        error("Cannot decode invalid data")
     }
 }
