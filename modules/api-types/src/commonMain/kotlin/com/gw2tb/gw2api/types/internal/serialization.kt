@@ -23,29 +23,18 @@
 package com.gw2tb.gw2api.types.internal
 
 import kotlinx.serialization.*
+import kotlinx.serialization.builtins.nullable
+import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.descriptors.SerialDescriptor
-import kotlinx.serialization.descriptors.nullable
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
-internal abstract class LenientTransform<T>(private val parser: (String) -> T) : KSerializer<T> {
-
-    override val descriptor: SerialDescriptor
-        get() = PrimitiveSerialDescriptor("com.gw2tb.gw2api.types.internal.LenientTransform", PrimitiveKind.STRING)
-
-    override fun deserialize(decoder: Decoder): T {
-        return parser(decoder.decodeString())
-    }
-
-    override fun serialize(encoder: Encoder, value: T) {
-
-    }
-
-}
-
-internal abstract class NullableLenientTransform<T>(private val parser: (String) -> T) : KSerializer<T?> {
+internal abstract class LenientSerializer<T>(
+    private val parser: (String) -> T,
+    private val serializer: SerializationStrategy<T?>
+) : KSerializer<T?> {
 
     override val descriptor: SerialDescriptor
         get() = PrimitiveSerialDescriptor("com.gw2tb.gw2api.types.internal.LenientTransform", PrimitiveKind.STRING)
@@ -60,11 +49,9 @@ internal abstract class NullableLenientTransform<T>(private val parser: (String)
     }
 
     override fun serialize(encoder: Encoder, value: T?) {
-
+        serializer.serialize(encoder, value)
     }
 
 }
 
-internal object LenientIntTransform : LenientTransform<Int>(String::toInt)
-
-internal object NullableLenientIntTransform : LenientTransform<Int?>(String::toInt)
+internal object LenientIntSerializer : LenientSerializer<Int?>(String::toInt, Int.serializer().nullable)

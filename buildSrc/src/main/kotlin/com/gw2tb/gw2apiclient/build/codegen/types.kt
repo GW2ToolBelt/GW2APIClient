@@ -269,7 +269,7 @@ private fun SchemaRecord.toDataClassString(
                         appendLine("""@SerialName("${property.serialName}")""")
 
                     if (property.isLenient)
-                        appendLine("""@Serializable(with = com.gw2tb.gw2api.types.internal.${if (property.optionality.isOptional) "Nullable" else ""}LenientIntTransform::class)""")
+                        appendLine("""@Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)""")
 
                     append("override val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
                 }})
@@ -284,7 +284,7 @@ private fun SchemaRecord.toDataClassString(
                         appendLine("""@SerialName("${property.serialName}")""")
 
                     if (property.isLenient)
-                        appendLine("""@Serializable(with = com.gw2tb.gw2api.types.internal.${if (property.optionality.isOptional) "Nullable" else ""}LenientIntTransform::class)""")
+                        appendLine("""@Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)""")
 
                     append("val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
                 }})
