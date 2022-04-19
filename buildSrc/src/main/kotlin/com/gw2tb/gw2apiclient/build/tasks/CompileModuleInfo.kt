@@ -27,6 +27,7 @@ import com.github.javaparser.ast.expr.*
 import com.github.javaparser.ast.modules.*
 import org.gradle.api.*
 import org.gradle.api.tasks.*
+import org.gradle.kotlin.dsl.property
 import org.objectweb.asm.*
 import org.objectweb.asm.Opcodes.*
 
@@ -54,6 +55,9 @@ open class CompileModuleInfo : DefaultTask() {
     @get:PathSensitive(PathSensitivity.RELATIVE)
     val source = project.objects.fileProperty()
 
+    @get:Input
+    val version = project.objects.property<String>()
+
     @get:OutputFile
     val output = project.objects.fileProperty()
 
@@ -66,7 +70,7 @@ open class CompileModuleInfo : DefaultTask() {
         classWriter.visit(V9, ACC_MODULE, "module-info", null, null, null)
 
         val moduleAccess: Int = if (decl.isOpen) ACC_SYNTHETIC or ACC_OPEN else ACC_SYNTHETIC
-        val mv: ModuleVisitor = classWriter.visitModule(decl.nameAsString, moduleAccess, null)
+        val mv: ModuleVisitor = classWriter.visitModule(decl.nameAsString, moduleAccess, version.orNull)
 
         decl.findAll(ModuleRequiresDirective::class.java).forEach {
             var mod = 0
