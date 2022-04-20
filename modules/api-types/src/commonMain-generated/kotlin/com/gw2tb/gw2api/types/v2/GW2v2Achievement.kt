@@ -88,14 +88,11 @@ public data class GW2v2Achievement(
         }
     }
 
-    /**
-     * Information about an achievement reward.
-     *
-     * @property type the type of reward
-     */
+    /** Information about an achievement reward. */
     @Serializable(with = __JsonParametricSerializer_Reward::class)
     public sealed class Reward {
 
+        /** This field holds the type of reward. */
         public abstract val type: String
 
         @Suppress("ClassName")

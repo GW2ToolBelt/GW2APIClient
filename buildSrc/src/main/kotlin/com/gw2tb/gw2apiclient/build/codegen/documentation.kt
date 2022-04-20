@@ -85,22 +85,19 @@ internal fun APIQuery.V2.dokka(queryType: String): String = docComment {
 
 internal fun SchemaConditional.dokka(): String = docComment {
     append(description)
-
-    if (sharedProperties.isNotEmpty()) {
-        append("$n$n")
-        append(sharedProperties.values.joinToString(separator = n) { property ->
-            "@property ${property.camelCaseName} ${property.description}"
-        })
-    }
 }
 
-internal fun SchemaRecord.dokka(): String = docComment {
+internal fun SchemaRecord.dokka(interpretationInNestedProperty: Boolean): String = docComment {
     append(description)
 
-    if (properties.isNotEmpty()) {
+    if (!interpretationInNestedProperty && properties.isNotEmpty()) {
         append("$n$n")
         append(properties.values.joinToString(separator = n) { property ->
             "@param ${property.camelCaseName} ${property.description}"
         })
     }
+}
+
+internal fun SchemaProperty.dokka(): String = docComment {
+    append("This field holds ${description}.")
 }

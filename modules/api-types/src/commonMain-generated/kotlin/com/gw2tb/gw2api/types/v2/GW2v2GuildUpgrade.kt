@@ -47,32 +47,29 @@ private object __JsonParametricSerializer_GW2v2GuildUpgrade : JsonContentPolymor
     }
 }
 
-/**
- * Information about a guild upgrade.
- *
- * @property id the upgrade's ID
- * @property name the upgrade's name
- * @property description the upgrade's description
- * @property type the upgrade's type
- * @property icon the URL for the upgrade's icon
- * @property buildTime the time it takes to build the upgrade
- * @property requiredLevel the prerequisite level the guild must be at to build the upgrade
- * @property experience the amount of guild experience that will be awarded upon building the upgrade
- * @property prerequisites an array of upgrade IDs that must be completed before this can be built
- * @property costs an array of objects describing the upgrade's cost
- */
+/** Information about a guild upgrade. */
 @Serializable(with = __JsonParametricSerializer_GW2v2GuildUpgrade::class)
 public sealed class GW2v2GuildUpgrade {
 
+    /** This field holds the upgrade's ID. */
     public abstract val id: Int
+    /** This field holds the upgrade's name. */
     public abstract val name: String
+    /** This field holds the upgrade's description. */
     public abstract val description: String
+    /** This field holds the upgrade's type. */
     public abstract val type: String
+    /** This field holds the URL for the upgrade's icon. */
     public abstract val icon: String
+    /** This field holds the time it takes to build the upgrade. */
     public abstract val buildTime: Int
+    /** This field holds the prerequisite level the guild must be at to build the upgrade. */
     public abstract val requiredLevel: Int
+    /** This field holds the amount of guild experience that will be awarded upon building the upgrade. */
     public abstract val experience: Int
+    /** This field holds an array of upgrade IDs that must be completed before this can be built. */
     public abstract val prerequisites: List<Int>
+    /** This field holds an array of objects describing the upgrade's cost. */
     public abstract val costs: List<Cost>
 
     /**

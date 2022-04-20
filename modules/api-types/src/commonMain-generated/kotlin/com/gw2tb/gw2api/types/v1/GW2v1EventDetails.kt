@@ -68,14 +68,11 @@ public data class GW2v1EventDetails(
             }
         }
 
-        /**
-         * Information about an event's location.
-         *
-         * @property type the type of location
-         */
+        /** Information about an event's location. */
         @Serializable(with = __JsonParametricSerializer_Location::class)
         public sealed class Location {
 
+            /** This field holds the type of location. */
             public abstract val type: String
 
             @Suppress("ClassName")

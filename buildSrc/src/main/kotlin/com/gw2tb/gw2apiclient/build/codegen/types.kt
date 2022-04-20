@@ -249,7 +249,7 @@ private fun SchemaRecord.toDataClassString(
         )
     }
 
-    appendLine(dokka())
+    appendLine(dokka(interpretationInNestedProperty = interpretationHint != null && interpretationHint.interpretationNestProperty == null))
 
     if (serialName != null)
         appendLine("@SerialName($serialName)")
@@ -345,8 +345,12 @@ private fun SchemaConditional.toSealedClassString(
 
     val body = sequence {
         if (sharedProperties.isNotEmpty())
-            yield(sharedProperties.values.joinToString(separator = n) {
-                "public abstract val ${it.camelCaseName}: ${it.type.toKotlinType(apiVersion).name}${if (it.optionality != Optionality.REQUIRED) "?" else ""}"
+            yield(sharedProperties.values.joinToString(separator = n) { property ->
+                buildString {
+                    append(property.dokka())
+                    append(n)
+                    append("public abstract val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality != Optionality.REQUIRED) "?" else ""}")
+                }
             })
 
         val nestedTypes = nestedTypesToString(nest)

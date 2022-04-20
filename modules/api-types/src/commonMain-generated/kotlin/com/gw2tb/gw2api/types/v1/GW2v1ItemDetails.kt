@@ -48,40 +48,37 @@ private object __JsonParametricSerializer_GW2v1ItemDetails : JsonContentPolymorp
     }
 }
 
-/**
- * Information about an item.
- *
- * @property itemID the item's ID
- * @property name the item's name
- * @property type the item's type
- * @property iconFileID the icon's file ID to be used with the render service
- * @property iconFileSignature the icon's file signature to be used with the render service
- * @property description the item's description
- * @property rarity the item's rarity
- * @property level the level required to use the item
- * @property vendorValue the value in coins when selling the item to a vendor
- * @property defaultSkin the ID of the item's default skin
- * @property flags flags applying to the item
- * @property gameTypes the game types in which the item is usable
- * @property restrictions restrictions applied to the item
- * @property upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
- */
+/** Information about an item. */
 @Serializable(with = __JsonParametricSerializer_GW2v1ItemDetails::class)
 public sealed class GW2v1ItemDetails {
 
+    /** This field holds the item's ID. */
     public abstract val itemID: Int
+    /** This field holds the item's name. */
     public abstract val name: String
+    /** This field holds the item's type. */
     public abstract val type: String
+    /** This field holds the icon's file ID to be used with the render service. */
     public abstract val iconFileID: String
+    /** This field holds the icon's file signature to be used with the render service. */
     public abstract val iconFileSignature: String
+    /** This field holds the item's description. */
     public abstract val description: String?
+    /** This field holds the item's rarity. */
     public abstract val rarity: String
+    /** This field holds the level required to use the item. */
     public abstract val level: Int
+    /** This field holds the value in coins when selling the item to a vendor. */
     public abstract val vendorValue: Int
+    /** This field holds the ID of the item's default skin. */
     public abstract val defaultSkin: Int?
+    /** This field holds flags applying to the item. */
     public abstract val flags: List<String>
+    /** This field holds the game types in which the item is usable. */
     public abstract val gameTypes: List<String>
+    /** This field holds restrictions applied to the item. */
     public abstract val restrictions: List<String>
+    /** This field holds lists what items this item can be upgraded from and into, and the method of upgrading. */
     public abstract val upgradeRecipes: List<Upgrade>?
 
     /**

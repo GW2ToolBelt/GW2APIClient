@@ -44,20 +44,17 @@ private object __JsonParametricSerializer_GW2v2GuildLogEntry : JsonContentPolymo
     }
 }
 
-/**
- * Information about a logged guild event.
- *
- * @property id the log entry's ID
- * @property time ISO-8601 timestamp for when the log entry was created
- * @property user the account name of the guild member who generated this log entry
- * @property type the type of log entry
- */
+/** Information about a logged guild event. */
 @Serializable(with = __JsonParametricSerializer_GW2v2GuildLogEntry::class)
 public sealed class GW2v2GuildLogEntry {
 
+    /** This field holds the log entry's ID. */
     public abstract val id: Int
+    /** This field holds ISO-8601 timestamp for when the log entry was created. */
     public abstract val time: String
+    /** This field holds the account name of the guild member who generated this log entry. */
     public abstract val user: String?
+    /** This field holds the type of log entry. */
     public abstract val type: String
 
     @Suppress("ClassName")

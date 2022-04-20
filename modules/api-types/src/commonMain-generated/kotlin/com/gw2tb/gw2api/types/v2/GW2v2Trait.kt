@@ -84,18 +84,15 @@ public data class GW2v2Trait(
         }
     }
 
-    /**
-     * Information about a trait's fact (i.e. effect/property).
-     *
-     * @property type the type of the fact
-     * @property icon the URL for the fact's icon
-     * @property text an arbitrary localized string describing the fact
-     */
+    /** Information about a trait's fact (i.e. effect/property). */
     @Serializable(with = __JsonParametricSerializer_Fact::class)
     public sealed class Fact {
 
+        /** This field holds the type of the fact. */
         public abstract val type: String
+        /** This field holds the URL for the fact's icon. */
         public abstract val icon: String?
+        /** This field holds an arbitrary localized string describing the fact. */
         public abstract val text: String?
 
         @Suppress("ClassName")
@@ -560,22 +557,19 @@ public data class GW2v2Trait(
         }
     }
 
-    /**
-     * a list of traited facts
-     *
-     * @property type the type of the fact
-     * @property icon the URL for the fact's icon
-     * @property text an arbitrary localized string describing the fact
-     * @property requiresTrait specifies which trait has to be selected in order for this fact to take effect
-     * @property overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
-     */
+    /** a list of traited facts */
     @Serializable(with = __JsonParametricSerializer_TraitedFact::class)
     public sealed class TraitedFact {
 
+        /** This field holds the type of the fact. */
         public abstract val type: String
+        /** This field holds the URL for the fact's icon. */
         public abstract val icon: String?
+        /** This field holds an arbitrary localized string describing the fact. */
         public abstract val text: String?
+        /** This field holds specifies which trait has to be selected in order for this fact to take effect. */
         public abstract val requiresTrait: Int
+        /** This field holds the array index of the facts object it will override, if the trait specified in requires_trait is selected. */
         public abstract val overrides: Int?
 
         @Suppress("ClassName")
@@ -1119,18 +1113,15 @@ public data class GW2v2Trait(
             }
         }
 
-        /**
-         * Information about a trait's fact (i.e. effect/property).
-         *
-         * @property type the type of the fact
-         * @property icon the URL for the fact's icon
-         * @property text an arbitrary localized string describing the fact
-         */
+        /** Information about a trait's fact (i.e. effect/property). */
         @Serializable(with = __JsonParametricSerializer_Fact::class)
         public sealed class Fact {
 
+            /** This field holds the type of the fact. */
             public abstract val type: String
+            /** This field holds the URL for the fact's icon. */
             public abstract val icon: String?
+            /** This field holds an arbitrary localized string describing the fact. */
             public abstract val text: String?
 
             @Suppress("ClassName")
@@ -1595,22 +1586,19 @@ public data class GW2v2Trait(
             }
         }
 
-        /**
-         * a list of traited facts
-         *
-         * @property type the type of the fact
-         * @property icon the URL for the fact's icon
-         * @property text an arbitrary localized string describing the fact
-         * @property requiresTrait specifies which trait has to be selected in order for this fact to take effect
-         * @property overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
-         */
+        /** a list of traited facts */
         @Serializable(with = __JsonParametricSerializer_TraitedFact::class)
         public sealed class TraitedFact {
 
+            /** This field holds the type of the fact. */
             public abstract val type: String
+            /** This field holds the URL for the fact's icon. */
             public abstract val icon: String?
+            /** This field holds an arbitrary localized string describing the fact. */
             public abstract val text: String?
+            /** This field holds specifies which trait has to be selected in order for this fact to take effect. */
             public abstract val requiresTrait: Int
+            /** This field holds the array index of the facts object it will override, if the trait specified in requires_trait is selected. */
             public abstract val overrides: Int?
 
             @Suppress("ClassName")

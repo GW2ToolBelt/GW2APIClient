@@ -40,28 +40,25 @@ private object __JsonParametricSerializer_GW2v1SkinDetails : JsonContentPolymorp
     }
 }
 
-/**
- * Information about a skin.
- *
- * @property skinID the skin's ID
- * @property name the skin's localized name
- * @property type the skin's type
- * @property rarity the skin's rarity
- * @property flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
- * @property restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
- * @property iconFileID the icon's file ID to be used with the render service
- * @property iconFileSignature the icon's file signature to be used with the render service
- */
+/** Information about a skin. */
 @Serializable(with = __JsonParametricSerializer_GW2v1SkinDetails::class)
 public sealed class GW2v1SkinDetails {
 
+    /** This field holds the skin's ID. */
     public abstract val skinID: Int
+    /** This field holds the skin's localized name. */
     public abstract val name: String
+    /** This field holds the skin's type. */
     public abstract val type: String
+    /** This field holds the skin's rarity. */
     public abstract val rarity: String
+    /** This field holds additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity). */
     public abstract val flags: List<String>
+    /** This field holds the IDs of the races that can use this skin, or empty if it can be used by any race. */
     public abstract val restrictions: List<String>
+    /** This field holds the icon's file ID to be used with the render service. */
     public abstract val iconFileID: String
+    /** This field holds the icon's file signature to be used with the render service. */
     public abstract val iconFileSignature: String
 
     @Suppress("ClassName")
