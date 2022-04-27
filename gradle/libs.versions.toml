@@ -1,6 +1,7 @@
 [versions]
 asm = "9.3"
 api-generator = "0.5.0"
+dokka = "1.6.20"
 javaparser = "3.24.2"
 junit = "5.8.2"
 kotlin = "1.6.20"
@@ -42,3 +43,13 @@ junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", vers
 
 # org.ow2.asm - ASM
 asm = { module = "org.ow2.asm:asm", version.ref = "asm" }
+
+
+[plugins]
+# org.jetbrains.dokka - dokka
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+
+# org.jetbrains.kotlin - Kotlin Gradle plugin
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

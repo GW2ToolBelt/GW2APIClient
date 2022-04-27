@@ -26,8 +26,8 @@ import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
-    kotlin("multiplatform")
-    id("org.jetbrains.dokka")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.dokka)
     signing
     `maven-publish`
 }
