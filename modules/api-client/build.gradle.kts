@@ -94,6 +94,7 @@ kotlin {
 
             dependencies {
                 api(projects.apiTypes)
+                api(libs.kotlin.atomicfu)
                 api(libs.kotlinx.coroutines.core)
             }
         }
