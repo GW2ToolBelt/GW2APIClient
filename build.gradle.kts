@@ -48,7 +48,7 @@ allprojects {
 
 tasks {
     create<Generate>("generate") {
-        schemaVersion = V2SchemaVersion.V2_SCHEMA_2021_04_06T21_00_00_000Z
+        schemaVersion = V2SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z
 
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 

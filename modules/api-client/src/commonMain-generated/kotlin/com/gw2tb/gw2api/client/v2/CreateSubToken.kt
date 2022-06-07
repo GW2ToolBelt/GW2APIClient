@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String, configure: RequestConfigurator<GW2v2SubToken>? = null): RequestBuilder<GW2v2SubToken> = request(
     path = "/v2/createsubtoken",
-    parameters = mapOfNonNullValues("expire" to expire, "permissions" to permissions, "urls" to urls, "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("expire" to expire, "permissions" to permissions, "urls" to urls, "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account"),
     supportedLanguages = emptySet(),

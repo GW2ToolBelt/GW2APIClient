@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2Emblem(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/emblem",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2Emblem(configure: RequestConfigurator<List<String>>
 @JvmOverloads
 public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/emblem/:type",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -56,7 +56,7 @@ public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigura
 @JvmOverloads
 public fun GW2APIClient.gw2v2EmblemByID(type: String, id: Int, configure: RequestConfigurator<GW2v2EmblemPart>? = null): RequestBuilder<GW2v2EmblemPart> = request(
     path = "/v2/emblem/:type",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -67,7 +67,7 @@ public fun GW2APIClient.gw2v2EmblemByID(type: String, id: Int, configure: Reques
 @JvmOverloads
 public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
     path = "/v2/emblem/:type",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -78,7 +78,7 @@ public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: Collection<Int>, con
 @JvmOverloads
 public fun GW2APIClient.gw2v2EmblemAll(type: String, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
     path = "/v2/emblem/:type",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -89,7 +89,7 @@ public fun GW2APIClient.gw2v2EmblemAll(type: String, configure: RequestConfigura
 @JvmOverloads
 public fun GW2APIClient.gw2v2EmblemByPage(type: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
     path = "/v2/emblem/:type",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPGamesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/pvp/games",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2PvPGamesIDs(configure: RequestConfigurator<List<Str
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPGamesByID(id: String, configure: RequestConfigurator<GW2v2PvPGame>? = null): RequestBuilder<GW2v2PvPGame> = request(
     path = "/v2/pvp/games",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id, "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
@@ -56,7 +56,7 @@ public fun GW2APIClient.gw2v2PvPGamesByID(id: String, configure: RequestConfigur
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPGamesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2PvPGame>>? = null): RequestBuilder<List<GW2v2PvPGame>> = request(
     path = "/v2/pvp/games",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
@@ -67,7 +67,7 @@ public fun GW2APIClient.gw2v2PvPGamesByIDs(ids: Collection<String>, configure: R
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPGamesAll(configure: RequestConfigurator<List<GW2v2PvPGame>>? = null): RequestBuilder<List<GW2v2PvPGame>> = request(
     path = "/v2/pvp/games",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),
@@ -78,7 +78,7 @@ public fun GW2APIClient.gw2v2PvPGamesAll(configure: RequestConfigurator<List<GW2
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPGamesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2PvPGame>>? = null): RequestBuilder<List<GW2v2PvPGame>> = request(
     path = "/v2/pvp/games",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "pvp"),
     supportedLanguages = emptySet(),

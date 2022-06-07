@@ -39,7 +39,6 @@ import kotlinx.serialization.json.*
  * @param minRating the minimum rating required to use the recipe
  * @param flags the flags applying to the recipe
  * @param ingredients the recipe's ingredients
- * @param guildIngredients the recipe's guild ingredients
  * @param outputUpgradeID the ID of the produced guild upgrade
  * @param chatLink the recipe's chat code
  */
@@ -58,26 +57,90 @@ public data class GW2v2Recipe(
     val minRating: Int,
     val flags: List<String>,
     val ingredients: List<Ingredient>,
-    @SerialName("guild_ingredients")
-    val guildIngredients: List<GuildIngredient>? = null,
     @SerialName("output_upgrade_id")
     val outputUpgradeID: Int? = null,
     @SerialName("chat_link")
     val chatLink: String
 ) {
 
-    /**
-     * Information about a recipe ingredient.
-     *
-     * @param itemID the ingredient's item ID
-     * @param count the quantity of this ingredient
-     */
-    @Serializable
-    public data class Ingredient(
-        @SerialName("item_id")
-        val itemID: Int,
-        val count: Int
-    )
+    @Suppress("ClassName")
+    private object __JsonParametricSerializer_Ingredient : JsonContentPolymorphicSerializer<Ingredient>(Ingredient::class) {
+        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Ingredient> {
+            return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+                "Currency" -> Ingredient.Currency.serializer()
+                "GuildUpgrade" -> Ingredient.GuildUpgrade.serializer()
+                "Item" -> Ingredient.Item.serializer()
+                else -> TODO()
+            }
+        }
+    }
+
+    /** Information about a recipe ingredient. */
+    @Serializable(with = __JsonParametricSerializer_Ingredient::class)
+    public sealed class Ingredient {
+
+        /** This field holds the ingredient's type. */
+        public abstract val type: String
+        /** This field holds the ingredient's ID. */
+        public abstract val id: Int
+        /** This field holds the amount. */
+        public abstract val count: Int
+
+        @Suppress("ClassName")
+        @Serializer(forClass = Currency::class)
+        private object __CurrencyGeneratedSerializer : KSerializer<Currency>
+
+        @Suppress("ClassName")
+        private object __CurrencySerializer : JsonTransformingSerializer<Currency>(__CurrencyGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /** A currency ingredient. */
+        @Serializable(with = __CurrencySerializer::class)
+        public data class Currency(
+            override val type: String,
+            override val id: Int,
+            override val count: Int
+        ) : Ingredient()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = GuildUpgrade::class)
+        private object __GuildUpgradeGeneratedSerializer : KSerializer<GuildUpgrade>
+
+        @Suppress("ClassName")
+        private object __GuildUpgradeSerializer : JsonTransformingSerializer<GuildUpgrade>(__GuildUpgradeGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /** A guild upgrade ingredient. */
+        @Serializable(with = __GuildUpgradeSerializer::class)
+        public data class GuildUpgrade(
+            override val type: String,
+            override val id: Int,
+            override val count: Int
+        ) : Ingredient()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = Item::class)
+        private object __ItemGeneratedSerializer : KSerializer<Item>
+
+        @Suppress("ClassName")
+        private object __ItemSerializer : JsonTransformingSerializer<Item>(__ItemGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /** An item ingredient. */
+        @Serializable(with = __ItemSerializer::class)
+        public data class Item(
+            override val type: String,
+            override val id: Int,
+            override val count: Int
+        ) : Ingredient()
+
+    }
 
     /**
      * Information about a recipe guild ingredient.

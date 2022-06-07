@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/commerce/exchange",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<Lis
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurator<GW2v2CommerceExchange>? = null): RequestBuilder<GW2v2CommerceExchange> = request(
     path = "/v2/commerce/exchange/:type",
-    parameters = mapOfNonNullValues("quantity" to quantity.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("quantity" to quantity.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":type" to type),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

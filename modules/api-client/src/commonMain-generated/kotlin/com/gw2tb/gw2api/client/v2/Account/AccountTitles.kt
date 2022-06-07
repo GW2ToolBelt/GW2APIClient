@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2AccountTitles(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/account/titles",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "unlocks"),
     supportedLanguages = emptySet(),

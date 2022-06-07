@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2CharactersBuildTabsIDs(id: String, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/characters/:id/buildtabs",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsIDs(id: String, configure: Reque
 @JvmOverloads
 public fun GW2APIClient.gw2v2CharactersBuildTabsByID(id: String, tab: Int, configure: RequestConfigurator<GW2v2CharactersBuildTab>? = null): RequestBuilder<GW2v2CharactersBuildTab> = request(
     path = "/v2/characters/:id/buildtabs",
-    parameters = mapOfNonNullValues("tab" to tab.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("tab" to tab.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
@@ -56,7 +56,7 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsByID(id: String, tab: Int, confi
 @JvmOverloads
 public fun GW2APIClient.gw2v2CharactersBuildTabsByIDs(id: String, tabs: Collection<Int>, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
     path = "/v2/characters/:id/buildtabs",
-    parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
@@ -67,7 +67,7 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsByIDs(id: String, tabs: Collecti
 @JvmOverloads
 public fun GW2APIClient.gw2v2CharactersBuildTabsAll(id: String, tabs: List<Int>, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
     path = "/v2/characters/:id/buildtabs",
-    parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2021-04-06T21:00:00.000Z", "ids" to "all"),
+    parameters = mapOfNonNullValues("tabs" to tabs.joinToString(","), "v" to "2022-03-09T02:00:00.000Z", "ids" to "all"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
@@ -78,7 +78,7 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsAll(id: String, tabs: List<Int>,
 @JvmOverloads
 public fun GW2APIClient.gw2v2CharactersBuildTabsByPage(id: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
     path = "/v2/characters/:id/buildtabs",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),

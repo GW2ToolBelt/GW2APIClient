@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2CurrenciesIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/currencies",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2CurrenciesIDs(configure: RequestConfigurator<List<I
 @JvmOverloads
 public fun GW2APIClient.gw2v2CurrenciesByID(id: Int, configure: RequestConfigurator<GW2v2Currency>? = null): RequestBuilder<GW2v2Currency> = request(
     path = "/v2/currencies",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -56,7 +56,7 @@ public fun GW2APIClient.gw2v2CurrenciesByID(id: Int, configure: RequestConfigura
 @JvmOverloads
 public fun GW2APIClient.gw2v2CurrenciesByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2Currency>>? = null): RequestBuilder<List<GW2v2Currency>> = request(
     path = "/v2/currencies",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -67,7 +67,7 @@ public fun GW2APIClient.gw2v2CurrenciesByIDs(ids: Collection<Int>, configure: Re
 @JvmOverloads
 public fun GW2APIClient.gw2v2CurrenciesAll(configure: RequestConfigurator<List<GW2v2Currency>>? = null): RequestBuilder<List<GW2v2Currency>> = request(
     path = "/v2/currencies",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -78,7 +78,7 @@ public fun GW2APIClient.gw2v2CurrenciesAll(configure: RequestConfigurator<List<G
 @JvmOverloads
 public fun GW2APIClient.gw2v2CurrenciesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Currency>>? = null): RequestBuilder<List<GW2v2Currency>> = request(
     path = "/v2/currencies",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,

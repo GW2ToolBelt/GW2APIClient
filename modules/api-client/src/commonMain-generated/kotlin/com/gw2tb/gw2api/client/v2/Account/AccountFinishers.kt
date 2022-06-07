@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2AccountFinishers(configure: RequestConfigurator<List<GW2v2AccountFinisher>>? = null): RequestBuilder<List<GW2v2AccountFinisher>> = request(
     path = "/v2/account/finishers",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = setOf("account", "unlocks"),
     supportedLanguages = emptySet(),

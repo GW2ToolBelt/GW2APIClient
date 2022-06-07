@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("input" to input.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("input" to input.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2RecipesSearchByInput(input: Int, configure: Request
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("output" to output.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("output" to output.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

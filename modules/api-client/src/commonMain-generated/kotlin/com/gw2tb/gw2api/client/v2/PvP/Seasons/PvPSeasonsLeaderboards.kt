@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(iD: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/pvp/seasons/:id/leaderboards",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to iD),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(iD: String, configure: Reque
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(iD: String, board: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/pvp/seasons/:id/leaderboards/:board",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to iD, ":board" to board),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -56,7 +56,7 @@ public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(iD: String, board: String, c
 @JvmOverloads
 public fun GW2APIClient.gw2v2PvPSeasonsLeaderboardsByPage(iD: String, board: String, region: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2PvPSeasonsLeaderboardEntry>>? = null): RequestBuilder<List<GW2v2PvPSeasonsLeaderboardEntry>> = request(
     path = "/v2/pvp/seasons/:id/leaderboards/:board/:region",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to iD, ":board" to board, ":region" to region),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),

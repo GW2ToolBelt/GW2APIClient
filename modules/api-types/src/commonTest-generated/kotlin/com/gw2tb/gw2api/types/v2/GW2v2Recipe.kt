@@ -37,128 +37,42 @@ class GW2v2RecipeTest {
         json.decodeFromString<GW2v2Recipe>(
             """
             {
-                "type": "Refinement",
-                "output_item_id": 19713,
+                "id": 13500,
+                "type": "GuildDecoration",
+                "output_item_id": 95400,
                 "output_item_count": 1,
-                "min_rating": 75,
-                "time_to_craft_ms": 2000,
-                "disciplines": [
-                    "Artificer",
-                    "Weaponsmith",
-                    "Scribe",
-                    "Huntsman"
-                ],
-                "flags": [
-                    "AutoLearned"
-                ],
-                "ingredients": [
-                    {
-                        "item_id": 19726,
-                        "count": 2
-                    }
-                ],
-                "id": 1,
-                "chat_link": "[&CQEAAAA=]"
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_01() {
-        json.decodeFromString<GW2v2Recipe>(
-            """
-            {
-                "type": "Insignia",
-                "output_item_id": 19801,
-                "output_item_count": 1,
-                "min_rating": 50,
                 "time_to_craft_ms": 1000,
                 "disciplines": [
-                    "Leatherworker",
-                    "Armorsmith",
-                    "Tailor"
+                    "Scribe"
                 ],
-                "flags": [
-                    "AutoLearned"
-                ],
-                "ingredients": [
-                    {
-                        "item_id": 71307,
-                        "count": 1
-                    },
-                    {
-                        "item_id": 24284,
-                        "count": 8
-                    }
-                ],
-                "id": 50,
-                "chat_link": "[&CTIAAAA=]"
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_02() {
-        json.decodeFromString<GW2v2Recipe>(
-            """
-            {
-                "type": "Speargun",
-                "output_item_id": 14667,
-                "output_item_count": 1,
                 "min_rating": 300,
-                "time_to_craft_ms": 1000,
-                "disciplines": [
-                    "Huntsman"
-                ],
-                "flags": [
-                ],
-                "ingredients": [
-                    {
-                        "item_id": 19786,
-                        "count": 1
-                    },
-                    {
-                        "item_id": 12950,
-                        "count": 1
-                    },
-                    {
-                        "item_id": 13052,
-                        "count": 1
-                    }
-                ],
-                "id": 5042,
-                "chat_link": "[&CbITAAA=]"
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_03() {
-        json.decodeFromString<GW2v2Recipe>(
-            """
-            {
-                "type": "Component",
-                "output_item_id": 13058,
-                "output_item_count": 1,
-                "min_rating": 225,
-                "time_to_craft_ms": 1000,
-                "disciplines": [
-                    "Huntsman"
-                ],
                 "flags": [
                     "AutoLearned"
                 ],
                 "ingredients": [
                     {
-                        "item_id": 19681,
-                        "count": 2
+                        "type": "Item",
+                        "id": 70489,
+                        "count": 1
+                    },
+                    {
+                        "type": "Item",
+                        "id": 48805,
+                        "count": 3
+                    },
+                    {
+                        "type": "Item",
+                        "id": 19681,
+                        "count": 50
+                    },
+                    {
+                        "type": "GuildUpgrade",
+                        "id": 556,
+                        "count": 10
                     }
                 ],
-                "id": 5087,
-                "chat_link": "[&Cd8TAAA=]"
+                "output_upgrade_id": 1194,
+                "chat_link": "[&Cbw0AAA=]"
             }
             """.trimIndent()
         )

@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2WvWObjectivesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesIDs(configure: RequestConfigurator<Lis
 @JvmOverloads
 public fun GW2APIClient.gw2v2WvWObjectivesByID(id: String, configure: RequestConfigurator<GW2v2WvWObjective>? = null): RequestBuilder<GW2v2WvWObjective> = request(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id, "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -56,7 +56,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesByID(id: String, configure: RequestCon
 @JvmOverloads
 public fun GW2APIClient.gw2v2WvWObjectivesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2WvWObjective>>? = null): RequestBuilder<List<GW2v2WvWObjective>> = request(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -67,7 +67,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesByIDs(ids: Collection<String>, configu
 @JvmOverloads
 public fun GW2APIClient.gw2v2WvWObjectivesAll(configure: RequestConfigurator<List<GW2v2WvWObjective>>? = null): RequestBuilder<List<GW2v2WvWObjective>> = request(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -78,7 +78,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesAll(configure: RequestConfigurator<Lis
 @JvmOverloads
 public fun GW2APIClient.gw2v2WvWObjectivesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2WvWObjective>>? = null): RequestBuilder<List<GW2v2WvWObjective>> = request(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,

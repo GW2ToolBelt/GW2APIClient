@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2CharactersEquipment(id: String, configure: RequestConfigurator<GW2v2CharactersEquipment>? = null): RequestBuilder<GW2v2CharactersEquipment> = request(
     path = "/v2/characters/:id/equipment",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(":id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),

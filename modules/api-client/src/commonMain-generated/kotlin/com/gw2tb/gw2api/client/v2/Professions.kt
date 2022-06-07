@@ -34,7 +34,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2ProfessionsIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/professions",
-    parameters = mapOfNonNullValues("v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = emptySet(),
@@ -45,7 +45,7 @@ public fun GW2APIClient.gw2v2ProfessionsIDs(configure: RequestConfigurator<List<
 @JvmOverloads
 public fun GW2APIClient.gw2v2ProfessionsByID(id: String, configure: RequestConfigurator<GW2v2Profession>? = null): RequestBuilder<GW2v2Profession> = request(
     path = "/v2/professions",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("id" to id, "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -56,7 +56,7 @@ public fun GW2APIClient.gw2v2ProfessionsByID(id: String, configure: RequestConfi
 @JvmOverloads
 public fun GW2APIClient.gw2v2ProfessionsByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2Profession>>? = null): RequestBuilder<List<GW2v2Profession>> = request(
     path = "/v2/professions",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -67,7 +67,7 @@ public fun GW2APIClient.gw2v2ProfessionsByIDs(ids: Collection<String>, configure
 @JvmOverloads
 public fun GW2APIClient.gw2v2ProfessionsAll(configure: RequestConfigurator<List<GW2v2Profession>>? = null): RequestBuilder<List<GW2v2Profession>> = request(
     path = "/v2/professions",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
@@ -78,7 +78,7 @@ public fun GW2APIClient.gw2v2ProfessionsAll(configure: RequestConfigurator<List<
 @JvmOverloads
 public fun GW2APIClient.gw2v2ProfessionsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2Profession>>? = null): RequestBuilder<List<GW2v2Profession>> = request(
     path = "/v2/professions",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2021-04-06T21:00:00.000Z"),
+    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOf(),
     requiredPermissions = emptySet(),
     supportedLanguages = Language.API_V2,
