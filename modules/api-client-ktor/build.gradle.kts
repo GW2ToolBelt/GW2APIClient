@@ -43,8 +43,8 @@ kotlin {
     targets.all {
         compilations.all {
             kotlinOptions {
-                languageVersion = "1.6"
-                apiVersion = "1.6"
+                languageVersion = "1.7"
+                apiVersion = "1.7"
             }
         }
     }
