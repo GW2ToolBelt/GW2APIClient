@@ -33,7 +33,7 @@ plugins {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion.set(JavaLanguageVersion.of(11))
     }
 }
 
@@ -56,7 +56,7 @@ kotlin {
     jvm {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "11"
             }
         }
     }
@@ -103,7 +103,7 @@ kotlin {
 
 tasks {
     withType<JavaCompile> {
-        options.release.set(8)
+        options.release.set(11)
     }
 
     getByName<org.gradle.jvm.tasks.Jar>("jvmJar") {
