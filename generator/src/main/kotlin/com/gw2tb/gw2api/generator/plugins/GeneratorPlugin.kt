@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2021 Leon Linhart
+ * Copyright (c) 2022 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build.codegen
+package com.gw2tb.gw2api.generator.plugins
 
-data class PrintableFile(
-    val path: String,
-    val content: String
-)
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+
+public class GeneratorPlugin : Plugin<Project> {
+    override fun apply(target: Project) {}
+}

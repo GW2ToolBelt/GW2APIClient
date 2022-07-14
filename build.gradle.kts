@@ -20,13 +20,14 @@
  * SOFTWARE.
  */
 import com.gw2tb.apigen.model.v2.*
+import com.gw2tb.gw2api.generator.tasks.Generate
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
-import com.gw2tb.gw2apiclient.build.tasks.*
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
+    id("com.gw2tb.gw2api.generator")
 }
 
 yarn.lockFileName = "kotlin-yarn.lock"
@@ -48,13 +49,14 @@ allprojects {
 
 tasks {
     create<Generate>("generate") {
-        schemaVersion = V2SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z
+        schemaVersion.set(V2SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z)
 
-        licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
+        licenseHeader.set(file("docs/LICENSE_HEADER_GEN").readText())
 
-        queriesDirectory = file("modules/api-client/src/commonMain-generated/kotlin")
+        queriesDirectory.set(file("modules/api-client/src/commonMain-generated/kotlin"))
+        queriesTestDirectory.set(file("modules/api-client/src/commonTest-generated/kotlin"))
 
-        typesDirectory = file("modules/api-types/src/commonMain-generated/kotlin")
-        typesTestDirectory = file("modules/api-types/src/commonTest-generated/kotlin")
+        typesDirectory.set(file("modules/api-types/src/commonMain-generated/kotlin"))
+        typesTestDirectory.set(file("modules/api-types/src/commonTest-generated/kotlin"))
     }
 }

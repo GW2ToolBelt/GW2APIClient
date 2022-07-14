@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build.codegen
+package com.gw2tb.gw2api.generator.internal.codegen
 
 import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
@@ -28,24 +28,24 @@ import com.gw2tb.apigen.schema.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-fun sequenceOfPrintableV1Types(): Sequence<PrintableFile> =
+internal fun sequenceOfPrintableV1Types(): Sequence<PrintableFile> =
     API_V1.supportedTypes.printableTypesSequence(
         "v1",
         printTypes = Sequence<Map.Entry<TypeLocation, APIType.V1>>::printV1TypesInNest,
         declarationSelector = { it.schema }
     )
 
-fun sequenceOfPrintableV1TypeTests(): Sequence<PrintableFile> =
+internal fun sequenceOfPrintableV1TypeTests(): Sequence<PrintableFile> =
     API_V1.printableTypeTestsSequence("v1", schemaVersionSelector = { null })
 
-fun sequenceOfPrintableV2Types(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
+internal fun sequenceOfPrintableV2Types(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
     API_V2.supportedTypes.printableTypesSequence(
         "v2",
         printTypes = { entries, apiVersion, nest, typeLookup -> entries.printV2TypesInNest(schemaVersion, apiVersion, nest, typeLookup) },
         declarationSelector = { it[schemaVersion].data }
     )
 
-fun sequenceOfPrintableV2TypeTests(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
+internal fun sequenceOfPrintableV2TypeTests(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
     API_V2.printableTypeTestsSequence("v2", schemaVersionSelector = { it[schemaVersion].since })
 
 private fun <T : APIType> Map<TypeLocation, T>.printableTypesSequence(

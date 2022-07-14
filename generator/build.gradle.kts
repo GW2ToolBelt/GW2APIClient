@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2021 Leon Linhart
+ * Copyright (c) 2022 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,19 +19,52 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+plugins {
+    `kotlin-dsl`
+}
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-includeBuild("generator")
-
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
-
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
     }
+}
+
+kotlin {
+    explicitApi()
+
+    target {
+        compilations.all {
+            kotlinOptions {
+                languageVersion = "1.4"
+                apiVersion = "1.4"
+
+                jvmTarget = "1.8"
+
+                freeCompilerArgs = (freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn")
+            }
+        }
+    }
+}
+
+gradlePlugin {
+    plugins {
+        create("generator") {
+            id = "com.gw2tb.gw2api.generator"
+            implementationClass = "com.gw2tb.gw2api.generator.plugins.GeneratorPlugin"
+        }
+    }
+}
+
+tasks {
+    withType<JavaCompile> {
+        options.release.set(8)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(libs.gw2api.generator)
 }

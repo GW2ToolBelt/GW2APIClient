@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build.codegen
+package com.gw2tb.gw2api.generator.internal.codegen
 
 import com.gw2tb.apigen.schema.*
 

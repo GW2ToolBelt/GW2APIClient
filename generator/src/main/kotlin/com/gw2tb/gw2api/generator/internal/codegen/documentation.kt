@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 @file:OptIn(ExperimentalTime::class)
-package com.gw2tb.gw2apiclient.build.codegen
+package com.gw2tb.gw2api.generator.internal.codegen
 
 import com.gw2tb.apigen.model.*
 import com.gw2tb.apigen.model.v2.*

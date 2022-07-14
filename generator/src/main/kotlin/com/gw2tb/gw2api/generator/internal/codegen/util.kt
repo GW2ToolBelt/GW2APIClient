@@ -19,18 +19,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build.codegen
+package com.gw2tb.gw2api.generator.internal.codegen
 
 import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
 
-const val t = "    "
-const val n = "\n"
+internal const val t = "    "
+internal const val n = "\n"
 
-val API_V1 = APIVersion.getV1()
-val API_V2 = APIVersion.getV2()
+internal val API_V1 = APIVersion.getV1()
+internal val API_V2 = APIVersion.getV2()
 
-fun TypeLocation.toKotlinName(apiVersion: String?): String =
+internal fun TypeLocation.toKotlinName(apiVersion: String?): String =
     if (nest == null)
         "${if (apiVersion != null) "GW2${apiVersion}" else ""}$name"
     else

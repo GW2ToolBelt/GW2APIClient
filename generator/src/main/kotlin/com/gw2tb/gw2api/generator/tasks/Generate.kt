@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2021 Leon Linhart
+ * Copyright (c) 2022 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,38 +19,64 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build.tasks
+package com.gw2tb.gw2api.generator.tasks
 
-import com.gw2tb.apigen.*
-import com.gw2tb.apigen.model.*
-import com.gw2tb.apigen.model.v2.*
-import com.gw2tb.gw2apiclient.build.codegen.*
-import org.gradle.api.*
-import org.gradle.api.tasks.*
-import java.io.*
+import com.gw2tb.apigen.MUMBLELINK_IDENTITY_DEFINITION
+import com.gw2tb.apigen.model.Language
+import com.gw2tb.apigen.model.TypeLocation
+import com.gw2tb.apigen.model.v2.V2SchemaVersion
+import com.gw2tb.gw2api.generator.internal.codegen.*
+import com.gw2tb.gw2api.generator.internal.codegen.asComment
+import org.gradle.api.DefaultTask
+import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.TaskAction
+import org.gradle.kotlin.dsl.property
+import java.io.File
 
 @CacheableTask
-open class Generate : DefaultTask() {
+public open class Generate : DefaultTask() {
 
     @get:Input
-    lateinit var schemaVersion: V2SchemaVersion
+    public val schemaVersion: Property<V2SchemaVersion> = project.objects.property()
 
     @get:Input
-    lateinit var licenseHeader: String
+    public val licenseHeader: Property<String> = project.objects.property()
 
     @get:OutputDirectory
-    lateinit var queriesDirectory: File
+    public val queriesDirectory: DirectoryProperty = project.objects.directoryProperty()
 
     @get:OutputDirectory
-    lateinit var typesDirectory: File
+    public val queriesTestDirectory: DirectoryProperty = project.objects.directoryProperty()
 
     @get:OutputDirectory
-    lateinit var typesTestDirectory: File
+    public val typesDirectory: DirectoryProperty = project.objects.directoryProperty()
+
+    @get:OutputDirectory
+    public val typesTestDirectory: DirectoryProperty = project.objects.directoryProperty()
+
+    init {
+        queriesDirectory.finalizeValueOnRead()
+        queriesTestDirectory.finalizeValueOnRead()
+        typesDirectory.finalizeValueOnRead()
+        typesTestDirectory.finalizeValueOnRead()
+    }
 
     @TaskAction
-    fun generate() {
-        project.delete(queriesDirectory)
+    public fun generate() {
+        val schemaVersion = schemaVersion.get()
+        val licenseHeader = licenseHeader.orNull ?: ""
 
+        val queriesDirectory = queriesDirectory.get().asFile
+        val queriesTestDirectory = queriesTestDirectory.get().asFile
+        project.delete(queriesDirectory)
+        project.delete(queriesTestDirectory)
+
+        val typesDirectory = typesDirectory.get().asFile
+        val typesTestDirectory = typesTestDirectory.get().asFile
         project.delete(typesDirectory)
         project.delete(typesTestDirectory)
 
@@ -68,7 +94,7 @@ open class Generate : DefaultTask() {
             directory = queriesDirectory,
             location = "com/gw2tb/gw2api/client/Language",
             content =
-                """
+            """
                 |package com.gw2tb.gw2api.client
                 |
                 |/**
@@ -104,7 +130,7 @@ open class Generate : DefaultTask() {
             directory = typesDirectory,
             location = "com/gw2tb/gw2api/types/mumble/MumbleLinkIdentity",
             content =
-                """
+            """
                 |package com.gw2tb.gw2api.types.mumble
                 |
                 |import kotlinx.serialization.*
@@ -118,6 +144,10 @@ open class Generate : DefaultTask() {
             printableFile.writeFile(directory = queriesDirectory)
         }
 
+        sequenceOfPrintableQueryTests().forEach { printableFile ->
+            printableFile.writeFile(directory = queriesTestDirectory)
+        }
+
         /* Types */
         (sequenceOfPrintableV1Types() + sequenceOfPrintableV2Types(schemaVersion)).forEach { printableFile ->
             printableFile.writeFile(directory = typesDirectory)
@@ -126,8 +156,6 @@ open class Generate : DefaultTask() {
         (sequenceOfPrintableV1TypeTests() + sequenceOfPrintableV2TypeTests(schemaVersion)).forEach { printableFile ->
             printableFile.writeFile(directory = typesTestDirectory)
         }
-
-        // TODO types tests
     }
 
 }

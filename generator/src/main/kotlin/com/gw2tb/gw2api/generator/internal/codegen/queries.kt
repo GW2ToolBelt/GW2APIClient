@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 @file:OptIn(ExperimentalStdlibApi::class)
-package com.gw2tb.gw2apiclient.build.codegen
+package com.gw2tb.gw2api.generator.internal.codegen
 
 import com.gw2tb.apigen.*
 import com.gw2tb.apigen.model.*
@@ -29,16 +29,19 @@ import com.gw2tb.apigen.schema.*
 import org.gradle.kotlin.dsl.accessors.*
 import java.util.*
 
-fun sequenceOfPrintableV1Queries(): Sequence<PrintableFile> =
+internal fun sequenceOfPrintableV1Queries(): Sequence<PrintableFile> =
     API_V1.supportedQueries.printableQuerySequence(
         "v1",
         Sequence<APIQuery.V1>::printV1Queries
     )
 
-fun sequenceOfPrintableV2Queries(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
+internal fun sequenceOfPrintableV2Queries(schemaVersion: V2SchemaVersion): Sequence<PrintableFile> =
     API_V2.supportedQueries.printableQuerySequence("v2") { queries ->
         queries.printV2Queries(schemaVersion)
     }
+
+internal fun sequenceOfPrintableQueryTests(): Sequence<PrintableFile> =
+    API_V1.supportedQueries.printableQueryTestsSequence("v1") // TODO add v2
 
 private fun <Q : APIQuery> Set<Q>.printableQuerySequence(
     apiVersion: String,
@@ -77,6 +80,63 @@ private fun <Q : APIQuery> Set<Q>.printableQuerySequence(
             } else
                 null
         }
+
+private fun <Q : APIQuery> Set<Q>.printableQueryTestsSequence(apiVersion: String): Sequence<PrintableFile> {
+    fun printV1QueryTest(query: APIQuery.V1): String {
+        return ""
+    }
+
+    val content = this.groupByEndpoint(APIQuery::endpoint)
+        .map { (endpoint, queries) ->
+
+
+            ""
+        }
+        .joinToString(separator = "$n$n")
+
+
+//    val content = this.joinToString(separator = "$n$n") { query ->
+//        val queryName = buildString {
+//            append("gw2$apiVersion")
+//            append(query.endpoint.replace(Regex("/:([A-Za-z])*"), "").replace("/", ""))
+//            query.querySuffix?.let { append(it) }
+//        }
+//
+//        """
+//        |@Test
+//        |fun testQuery_$queryName() = runTest {
+//        |    client.$queryName().execute(this).get()
+//        |}
+//        """.trimMargin()
+//    }.prependIndent(t)
+
+    return sequenceOf(PrintableFile(
+        "com/gw2tb/gw2api/client/queries",
+        """
+        |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
+        |package com.gw2tb.gw2api.client.$apiVersion
+        |
+        |import com.gw2tb.gw2api.client.*
+        |import com.gw2tb.gw2api.client.internal.*
+        |import com.gw2tb.gw2api.client.ktor.*
+        |import com.gw2tb.gw2api.types.$apiVersion.*
+        |import kotlinx.serialization.builtins.*
+        |import kotlin.jvm.*
+        |
+        |class OnlineTest {
+        |
+        |    private val client = GW2APIClient(
+        |        KtorHttpClientImpl(),
+        |        rateLimiter = TestRateLimiter
+        |    )
+        |
+        |$content
+        |
+        |}
+        """.trimMargin()
+    ))
+}
+
 
 private fun Sequence<APIQuery.V1>.printV1Queries(): String =
     printQueryFunctions(
