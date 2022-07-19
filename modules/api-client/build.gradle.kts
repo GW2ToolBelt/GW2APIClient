@@ -128,7 +128,6 @@ kotlin {
         }
 
     }
-
 }
 
 tasks {
@@ -154,6 +153,10 @@ tasks {
     }
 
     sourcesJar {
+        dependsOn(project(":").tasks["generate"])
+    }
+
+    getByName("jsSourcesJar") {
         dependsOn(project(":").tasks["generate"])
     }
 }

@@ -124,6 +124,10 @@ tasks {
     sourcesJar {
         dependsOn(project(":").tasks["generate"])
     }
+
+    getByName("jsSourcesJar") {
+        dependsOn(project(":").tasks["generate"])
+    }
 }
 
 val emptyJar by tasks.registering(Jar::class)
