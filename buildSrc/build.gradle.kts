@@ -21,18 +21,8 @@
  */
 @file:Suppress("SuspiciousCollectionReassignment")
 
-import org.jetbrains.kotlin.gradle.tasks.*
-
 plugins {
     `kotlin-dsl`
-}
-
-tasks {
-    withType<KotlinCompile> {
-        kotlinOptions {
-            freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
-        }
-    }
 }
 
 repositories {
