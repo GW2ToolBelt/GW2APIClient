@@ -41,7 +41,8 @@ internal fun sequenceOfPrintableV2Queries(schemaVersion: V2SchemaVersion): Seque
     }
 
 internal fun sequenceOfPrintableQueryTests(): Sequence<PrintableFile> =
-    API_V1.supportedQueries.printableQueryTestsSequence("v1") // TODO add v2
+//    API_V1.supportedQueries.printableQueryTestsSequence("v1") // TODO add v2
+    emptySequence()
 
 private fun <Q : APIQuery> Set<Q>.printableQuerySequence(
     apiVersion: String,
@@ -127,7 +128,7 @@ private fun <Q : APIQuery> Set<Q>.printableQueryTestsSequence(apiVersion: String
         |
         |    private val client = GW2APIClient(
         |        KtorHttpClientImpl(),
-        |        rateLimiter = TestRateLimiter
+        |        rateLimiter = TokenBucketRateLimiter()
         |    )
         |
         |$content
