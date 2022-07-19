@@ -24,6 +24,7 @@ package com.gw2tb.gw2api.client
 import kotlinx.coroutines.*
 import kotlin.coroutines.*
 
+@OptIn(ExperimentalCoroutinesApi::class)
 public actual class Request<T> internal actual constructor(
     public actual val host: String,
     public actual val path: String,

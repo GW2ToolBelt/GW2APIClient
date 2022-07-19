@@ -27,6 +27,7 @@ import kotlinx.coroutines.future.*
 import java.util.concurrent.*
 import kotlin.coroutines.*
 
+@OptIn(ExperimentalCoroutinesApi::class)
 public actual class Request<T> internal actual constructor(
     public actual val host: String,
     public actual val path: String,

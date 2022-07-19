@@ -81,14 +81,6 @@ kotlin {
     }
 
     sourceSets {
-        all {
-            languageSettings.apply {
-                optIn("kotlin.RequiresOptIn")
-                optIn("kotlin.time.ExperimentalTime")
-                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
-            }
-        }
-
         commonMain {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 
