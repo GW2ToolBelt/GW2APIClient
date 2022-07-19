@@ -72,11 +72,9 @@ public class RequestBuilder<T> internal constructor(
 
     public fun withLanguage(value: Language): RequestBuilder<T> = apply { language = value }
 
-    @ExperimentalTime
     private var cacheTime: Duration = Duration.ZERO
     private var overrideCacheTime: Boolean = false
 
-    @ExperimentalTime
 //    @JvmOverloads Not yet supported
     @JvmName("withCacheTimeMillis")
     public fun withCacheTime(duration: Duration, override: Boolean = false): RequestBuilder<T> = apply {
@@ -101,6 +99,10 @@ public class RequestBuilder<T> internal constructor(
     public fun execute(
         scope: CoroutineScope
     ): Request<T> {
+        val cacheAccess = cacheAccess
+        val rateLimiter = rateLimiter
+        val checkPermissions = checkPermissions
+
         return Request(
             host = host,
             path = path.let {
@@ -116,7 +118,10 @@ public class RequestBuilder<T> internal constructor(
             apiKey = apiKey
         ) { request ->
             scope.async {
-                cacheAccess?.let { cache -> cache.query(request)?.let { cached -> return@async cached } }
+                if (cacheAccess !== null) {
+                    val cachedResponse = cacheAccess.query(request)
+                    if (cachedResponse !== null) return@async cachedResponse
+                }
 
                 /*
                  * Perform basic client-side permission checks to avoid flooding the remote API with "bad requests".
@@ -143,19 +148,27 @@ public class RequestBuilder<T> internal constructor(
                     }
                 }
 
-                val httpCall = scope.async(start = CoroutineStart.LAZY) {
-                    val response = httpClient.send(request)
+                val httpCall = scope.async(start = CoroutineStart.LAZY) httpCall@{
+                    val httpResponse = httpClient.send(request)
 
-                    Response(
+                    val response = Response(
                         request = request,
-                        status = response.status,
-                        headers = response.headers,
-                        body = response.body,
+                        status = httpResponse.status,
+                        headers = httpResponse.headers,
+                        body = httpResponse.body,
                         dataFun = { body -> json.decodeCatching(serializer, body) }
-                    ).also { cacheAccess?.memoize(it) }
+                    )
+
+                    if (response.status == 429 /* = RATE_LIMIT_EXCEEDED */)
+                        rateLimiter?.penalize()
+
+                    if (cacheAccess !== null)
+                        cacheAccess.memoize(response)
+
+                    return@httpCall response
                 }
 
-                rateLimiter.also { rateLimiter -> if (rateLimiter !== null) rateLimiter.execute(request) { httpCall.start() } else httpCall.start() }
+                rateLimiter?.acquire()
                 httpCall.await()
             }
         }

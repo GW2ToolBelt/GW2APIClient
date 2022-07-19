@@ -21,22 +21,122 @@
  */
 package com.gw2tb.gw2api.client
 
+import com.gw2tb.gw2api.client.internal.InternalGW2APIClientApi
+import com.gw2tb.gw2api.client.internal.currentTimeMillis
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlin.math.min
+
 /**
- * A _RateLimiter_ is responsible for starting [Request]s at the appropriate
- * time.
+ * TODO doc
  *
  * @since   0.1.0
  */
 public interface RateLimiter {
 
-    /**
-     * Schedules the given request for execution at some point in the future.
-     *
-     * @param request   the request to start
-     * @param starter   the function to invoke to start the request
-     *
-     * @since   0.1.0
-     */
-    public suspend fun execute(request: Request<*>, starter: () -> Unit)
+    public suspend fun acquire() {
+        acquire(permits = 1)
+            .onEach { permits -> check(permits == 1) { "Unexpected number of permits granted. Expected 1, got $permits" } }
+            .collect()
+    }
+
+    public fun acquire(permits: Int): Flow<Int>
+
+    @InternalGW2APIClientApi
+    public suspend fun penalize()
+
+}
+
+public class TokenBucketRateLimiter(
+    private val bucketSize: Int = 300,
+    private val refillMillis: Long = 1000L * 60
+) : RateLimiter {
+
+    private var currentPermits: Int = 0
+    private var nextInterval: Long = 0L
+    private var inCurrent: Boolean = false
+
+    private val mutex = Mutex()
+    private val penalties: MutableSharedFlow<Long> = MutableSharedFlow()
+
+    override fun acquire(permits: Int): Flow<Int> {
+        require(permits > 0)
+
+        return flow {
+            var remainingPermits: Int = permits
+            var grantedPermits: Int
+
+            val sleepTime = mutex.withLock {
+                val now = currentTimeMillis()
+
+                if (now > nextInterval) {
+                    nextInterval = now + refillMillis
+                    currentPermits = bucketSize
+                    inCurrent = true
+                }
+
+                grantedPermits = min(currentPermits, remainingPermits)
+                remainingPermits -= grantedPermits
+
+                currentPermits -= grantedPermits
+
+                val sleepTime = if (inCurrent) 0L else nextInterval - now
+
+                if (currentPermits == 0) {
+                    if (!inCurrent) nextInterval += refillMillis
+
+                    val requiredIntervals = remainingPermits / bucketSize
+
+                    nextInterval += requiredIntervals * refillMillis
+                    currentPermits = bucketSize - (remainingPermits % bucketSize)
+                    inCurrent = false
+                }
+
+                sleepTime
+            }
+
+            tailrec suspend fun delayWithPenalty(timeMillis: Long) {
+                if (timeMillis == 0L) return
+
+                var penalty = 0L
+
+                withTimeoutOrNull(timeMillis) {
+                    penalties
+                        .onEach { penalty += it }
+                        .launchIn(this)
+                }
+
+                if (penalty > 0L)
+                    delayWithPenalty(penalty)
+            }
+
+            delayWithPenalty(timeMillis = sleepTime)
+            emit(grantedPermits)
+
+            while (remainingPermits > 0) {
+                grantedPermits = min(remainingPermits, bucketSize)
+                remainingPermits -= grantedPermits
+
+                delayWithPenalty(timeMillis = refillMillis)
+                emit(grantedPermits)
+            }
+        }
+    }
+
+    @InternalGW2APIClientApi
+    override suspend fun penalize() {
+        val refillSeconds = refillMillis * 60
+        val refillSecondsPerPermit = refillSeconds / bucketSize
+
+        val penaltySeconds = refillSecondsPerPermit / 2
+        val penaltyMillis = penaltySeconds / 1000
+
+        mutex.withLock {
+            nextInterval += penaltyMillis
+            penalties.emit(penaltyMillis)
+        }
+    }
 
 }
