@@ -62,12 +62,6 @@ kotlin {
     }
 
     sourceSets {
-        all {
-            languageSettings.apply {
-                optIn("kotlin.RequiresOptIn")
-            }
-        }
-
         commonMain {
             kotlin.srcDir("src/commonMain-generated/kotlin")
 

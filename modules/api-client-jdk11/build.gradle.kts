@@ -54,8 +54,6 @@ tasks {
             languageVersion = "1.7"
             apiVersion = "1.7"
             jvmTarget = "11"
-
-            freeCompilerArgs = listOf("-opt-in=kotlin.RequiresOptIn")
         }
     }
 
