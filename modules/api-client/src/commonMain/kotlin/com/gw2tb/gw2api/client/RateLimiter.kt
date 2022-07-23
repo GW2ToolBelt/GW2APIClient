@@ -21,7 +21,6 @@
  */
 package com.gw2tb.gw2api.client
 
-import com.gw2tb.gw2api.client.internal.InternalGW2APIClientApi
 import com.gw2tb.gw2api.client.internal.currentTimeMillis
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
@@ -30,25 +29,52 @@ import kotlinx.coroutines.sync.withLock
 import kotlin.math.min
 
 /**
- * TODO doc
+ * A `RateLimiter` provides logic necessary to limit the rate of execution of any sort of requests. For this purpose, a
+ * rate limiter distributes permits at a configurable rate. Permits can be acquired and do not have to be released.
+ *
+ * `RateLimiter` implementations must specify the algorithms and configurations they use for distributing permits. This
+ * interface does not provide any guarantees about fairness but implementations may choose to.
  *
  * @since   0.1.0
  */
 public interface RateLimiter {
 
+    /**
+     * Suspends the coroutine until a single permit was acquired.
+     *
+     * @since   0.4.0
+     */
     public suspend fun acquire() {
         acquire(permits = 1)
             .onEach { permits -> check(permits == 1) { "Unexpected number of permits granted. Expected 1, got $permits" } }
             .collect()
     }
 
+    /**
+     * Returns a flow that emits the number of granted permits in intervals until all requested [permits] have been
+     * granted.
+     *
+     * @since   0.4.0
+     */
     public fun acquire(permits: Int): Flow<Int>
 
-    @InternalGW2APIClientApi
+    /**
+     * Applies a penalty to this rate limiter for hitting the limit.
+     *
+     * @since   0.4.0
+     */
     public suspend fun penalize()
 
 }
 
+/**
+ * A [RateLimiter] implementation that uses the token bucket algorithm.
+ *
+ * @param bucketSize    the size of the bucket
+ * @param refillMillis  the maximum time (in millis) until the bucket if filled after being fully depleted
+ *
+ * @since   0.4.0
+ */
 public class TokenBucketRateLimiter(
     private val bucketSize: Int = 300,
     private val refillMillis: Long = 1000L * 60
@@ -125,7 +151,6 @@ public class TokenBucketRateLimiter(
         }
     }
 
-    @InternalGW2APIClientApi
     override suspend fun penalize() {
         val refillSeconds = refillMillis * 60
         val refillSecondsPerPermit = refillSeconds / bucketSize
