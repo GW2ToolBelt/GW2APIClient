@@ -7,7 +7,7 @@
 ![Java](https://img.shields.io/badge/Java-11-green.svg?style=flat-square&color=b07219&logo=Java)
 
 **GW2APIClient** is a cross-platform client for the official Guild Wars 2 API.
-By leveraging [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html),
+By leveraging [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html),
 GW2APIClient can be used on a large variety of platforms (including Android, the
 JVM, and JS) and interoperates seamlessly with various popular programming
 languages.
