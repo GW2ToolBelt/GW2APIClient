@@ -21,7 +21,7 @@
  */
 package com.gw2tb.gw2api.client
 
-// Closeable is copied from Java because Kotlin common Stdlib does not have it.
+// Closeable is basically copied from Java because Kotlin common Stdlib does not have it.
 
 /**
  * A `Closeable` is a source or destination of data that can be closed.
