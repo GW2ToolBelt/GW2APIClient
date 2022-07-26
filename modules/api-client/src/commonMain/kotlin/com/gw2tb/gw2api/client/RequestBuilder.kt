@@ -34,57 +34,91 @@ import kotlin.time.*
 /**
  * A builder for a [Request].
  *
- * @param requiredPermissions       the permissions required by the endpoint
- * @param supportedLanguages        the languages supported by the endpoint
- * @param cacheAccess               the cache implementation to use
- * @param rateLimiter               the rate-limiter to use
- * @param checkPermissions          whether or not to perform client-side permission checks
+ * @property host                   the host of the API
+ * @property cacheAccess            the cache implementation to use
+ * @property rateLimiter            the rate-limiter to use
+ * @property checkPermissions       whether to perform client-side permission checks
  *
  * @since   0.1.0
  */
 @OptIn(InternalGW2APIClientApi::class)
 public class RequestBuilder<T> internal constructor(
     private val client: GW2APIClient,
+    private val httpClient: IHttpClient,
     private val host: String,
     private val path: String,
     private val parameters: Map<String, String>,
     private val replaceInPath: Map<String, String>,
-    public val requiredPermissions: Collection<String>,
-    public val supportedLanguages: Set<Language>,
+    private val requiredPermissions: Collection<String>,
+    private val supportedLanguages: Set<Language>,
     private val serializer: KSerializer<T>,
     private val json: Json,
     public var cacheAccess: CacheAccess?,
     public var rateLimiter: RateLimiter?,
-    public var checkPermissions: Boolean,
-    private val httpClient: IHttpClient
+    public var checkPermissions: Boolean
 ) {
 
+    /**
+     * The API key for the request.
+     *
+     * @since   0.4.0
+     */
     public var apiKey: String? = null
+
+    /**
+     * Sets the [apiKey] for the request and returns the receiver.
+     *
+     * @since   0.4.0
+     */
     public fun withAPIKey(value: String?): RequestBuilder<T> = apply { apiKey = value }
 
+    /**
+     * Sets the [cacheAccess] for the request and returns the receiver.
+     *
+     * By default, the [CacheAccess] is inherited from the API client.
+     * Setting this value to `null` disables caching.
+     *
+     * @since   0.4.0
+     */
+    public fun withCacheAccess(value: CacheAccess?): RequestBuilder<T> = apply { cacheAccess = value }
+
+    /**
+     * The language for the request.
+     *
+     * Setting the language to an unsupported value for the endpoint targeted by this request, throws an [IllegalArgumentException].
+     *
+     * @since   0.4.0
+     */
     public var language: Language? = null
         set(value) {
-            check(supportedLanguages.isNotEmpty()) { "Localization is not supported for endpoint $path." }
-            check(value in supportedLanguages) { "Language '$value' is not supported for endpoint $path. (Supported languages are: ${supportedLanguages.joinToString()})" }
+            require(supportedLanguages.isNotEmpty()) { "Localization is not supported for endpoint $path." }
+            require(value in supportedLanguages) { "Language '$value' is not supported for endpoint $path. (Supported languages are: ${supportedLanguages.joinToString()})" }
 
             field = value
         }
 
+    /**
+     * Sets the [rateLimiter] for the request and returns the receiver.
+     *
+     * By default, the [RateLimiter] is inherited from the API client.
+     * Setting this value to `null` disables rate limiting.
+     *
+     * @since   0.4.0
+     */
+    public fun withRateLimiter(value: RateLimiter?): RequestBuilder<T> = apply { rateLimiter = value }
+
+    /**
+     * Sets the [language] for the request and returns the receiver.
+     *
+     * @since   0.4.0
+     */
     public fun withLanguage(value: Language): RequestBuilder<T> = apply { language = value }
 
-    private var cacheTime: Duration = Duration.ZERO
-    private var overrideCacheTime: Boolean = false
-
-//    @JvmOverloads Not yet supported
-    @JvmName("withCacheTimeMillis")
-    public fun withCacheTime(duration: Duration, override: Boolean = false): RequestBuilder<T> = apply {
-        require(duration.isPositive())
-        cacheTime = duration
-        overrideCacheTime = override
-    }
-
-    public fun withCacheAccess(value: CacheAccess?): RequestBuilder<T> = apply { cacheAccess = value }
-    public fun withRateLimiter(value: RateLimiter?): RequestBuilder<T> = apply { rateLimiter = value }
+    /**
+     * Sets whether client-side permissions are enabled for the request and returns the receiver.
+     *
+     * @since   0.4.0
+     */
     public fun withPermissionChecks(value: Boolean): RequestBuilder<T> = apply { checkPermissions = value }
 
     /**
@@ -154,7 +188,7 @@ public class RequestBuilder<T> internal constructor(
                     val response = Response(
                         request = request,
                         status = httpResponse.status,
-                        headers = httpResponse.headers,
+                        headers = ResponseHeaders(httpResponse.headers),
                         body = httpResponse.body,
                         dataFun = { body -> json.decodeCatching(serializer, body) }
                     )

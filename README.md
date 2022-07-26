@@ -72,7 +72,6 @@ but many settings may be tweaked as desired.
 |--------------------|------------------------|-------------------------------------------------------------|
 | `apiKey`           | `withAPIKey`           | The API key to use for the request                          |
 | `cacheAccess`      | `withCacheAccess`      | The cache access to use for the request                     |
-|                    | `withCacheTime`        | Overwrites the cache-time specified by the response headers |
 | `checkPermissions` | `withPermissionChecks` | Whether client-side permission checks are enabled           |
 | `language`         | `withLanguage`         | The language for the request                                |
 | `rateLimiter`      | `withRateLimiter`      | The rate limiter to use for the request                     |
