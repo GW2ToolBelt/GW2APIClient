@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square&label=License)](https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=Maven%20Central)](https://maven-badges.herokuapp.com/maven-central/com.gw2tb.gw2api/api-client)
-[![JavaDoc](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=JavaDoc&color=blue)](https://javadoc.io/doc/com.gw2tb.gw2api/api-client)
+[![Documentation](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=flat-square&label=Documentation&color=blue)](https://gw2toolbelt.github.io/GW2APIClient)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1%2E7-green.svg?style=flat-square&color=a97bff&logo=Kotlin)
 ![Java](https://img.shields.io/badge/Java-11-green.svg?style=flat-square&color=b07219&logo=Java)
 
