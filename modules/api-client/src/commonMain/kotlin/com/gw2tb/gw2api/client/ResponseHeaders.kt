@@ -21,31 +21,50 @@
  */
 package com.gw2tb.gw2api.client
 
+import kotlin.jvm.JvmInline
+
 /**
- * An API response.
+ * The headers of a Response.
  *
- * @param request   the request
- * @param status    the HTTP status code of the response
- * @param headers   the response headers
- * @param body      the raw response body
- *
- * @since   0.1.0
+ * @since   0.4.0
  */
-public class Response<T> internal constructor(
-    public val request: Request<T>,
-    public val status: Int,
-    public val headers: ResponseHeaders,
-    public val body: String,
-    private val dataFun: (String) -> DecodingResult<T>
-) {
+@JvmInline
+public value class ResponseHeaders(
+    private val headers: Map<String, List<String>>
+) : Map<String, List<String>> by headers {
+
+    public companion object {
+
+        /**
+         * The `x-page-size` header.
+         *
+         * @since   0.4.0
+         */
+        public const val X_PAGE_SIZE: String = "x-page-size"
+
+        /**
+         * The `x-page-total` header.
+         *
+         * @since   0.4.0
+         */
+        public const val X_PAGE_TOTAL: String = "x-page-total"
+
+    }
 
     /**
-     * The response data, or `null` if [body] could not be parsed.
+     * Returns the page size or `null` if it could not be parsed from the [X_PAGE_SIZE] header.
      *
-     * @since   0.1.0
+     * @since   0.4.0
      */
-    public val data: DecodingResult<T> by lazy {
-        dataFun(body)
-    }
+    public val pageSizeOrNull: Int?
+        get() = this[X_PAGE_SIZE]?.singleOrNull()?.toIntOrNull()
+
+    /**
+     * Returns the total number of pages or `null` if it could not be parsed from the [X_PAGE_TOTAL] header.
+     *
+     * @since   0.4.0
+     */
+    public val pageTotalOrNull: Int?
+        get() = this[X_PAGE_SIZE]?.singleOrNull()?.toIntOrNull()
 
 }
