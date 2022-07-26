@@ -44,7 +44,7 @@ public class GW2APIClient(
     private val httpClient: IHttpClient,
     public val host: String = OFFICIAL_HOST,
     private val cacheAccess: CacheAccess? = null,
-    private val rateLimiter: RateLimiter? = null,
+    private val rateLimiter: RateLimiter? = TokenBucketRateLimiter(),
     public val checkPermissions: Boolean = false,
     public val json: Json = Json {
         /* Disabled by default. See https://github.com/Kotlin/kotlinx.serialization/issues/1512 */
