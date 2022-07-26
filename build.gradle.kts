@@ -23,10 +23,14 @@ import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.gw2api.generator.tasks.Generate
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
+import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
+import java.net.URL
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.dokka)
     id("com.gw2tb.gw2api.generator")
 }
 
@@ -47,6 +51,24 @@ allprojects {
     }
 }
 
+subprojects {
+    tasks.withType<DokkaTask> {
+        dependsOn(project(":").tasks["generate"])
+
+        dokkaSourceSets.configureEach {
+            reportUndocumented.set(true)
+            skipEmptyPackages.set(true)
+            jdkVersion.set(11)
+
+            sourceLink {
+                localDirectory.set(project.file("src/commonMain/kotlin"))
+                remoteUrl.set(URL("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/modules/${project.name}/src/commonMain/kotlin"))
+                remoteLineSuffix.set("#L")
+            }
+        }
+    }
+}
+
 tasks {
     create<Generate>("generate") {
         schemaVersion.set(V2SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z)
@@ -58,5 +80,10 @@ tasks {
 
         typesDirectory.set(file("modules/api-types/src/commonMain-generated/kotlin"))
         typesTestDirectory.set(file("modules/api-types/src/commonTest-generated/kotlin"))
+    }
+
+    withType<DokkaMultiModuleTask> {
+        outputDirectory.set(layout.buildDirectory.dir("mkdocs/build/sources/api").map { it.asFile })
+        failOnWarning.set(true)
     }
 }
