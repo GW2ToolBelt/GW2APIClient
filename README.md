@@ -32,6 +32,10 @@ The `api-types` module provides type-safe definitions for the objects returned
 by the Guild Wars 2 API. [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
 is used for built-in support for serialization from and to JSON.
 
+A type definition for the `identity` field exposed by the MumbleLink mechanism
+is also available. Check out [GW2ML](https://github.com/GW2ToolBelt/GW2ML) for
+reading MumbleLink data.
+
 
 ### API Client
 
