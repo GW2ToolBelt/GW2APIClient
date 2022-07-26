@@ -83,7 +83,7 @@ tasks {
     }
 
     withType<DokkaMultiModuleTask> {
-        outputDirectory.set(layout.buildDirectory.dir("mkdocs/build/sources/api").map { it.asFile })
+        outputDirectory.set(layout.buildDirectory.dir("mkdocs/sources/api").map { it.asFile })
         failOnWarning.set(true)
     }
 }

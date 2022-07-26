@@ -1,0 +1,80 @@
+site_name: 'GW2APIClient'
+
+# Meta tags (placed in header)
+site_description: 'A Kotlin multi-platform client for the official Guild Wars 2 API with pluggable support for client-side caching and rate-limiting.'
+site_author: 'GW2ToolBelt'
+site_url: 'https://gw2toolbelt.github.io/GW2APIClient'
+
+docs_dir: 'build/mkdocs/sources'
+site_dir: 'build/mkdocs/site'
+
+# Repository
+repo_name: 'GW2APIClient'
+repo_url: 'https://github.com/GW2ToolBelt/GW2APIClient'
+
+# Copyright (shown at the footer)
+copyright: 'Copyright &copy; 2018-2022 Leon Linhart'
+
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  icon:
+    logo: material/hammer-wrench
+  social:
+    - type: 'github'
+      link: 'https://github.com/GW2ToolBelt/GW2APIClient'
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: gw2tb-light
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: 'Roboto'
+    code: 'JetBrains Mono'
+  features:
+    - navigation.expand
+    - navigation.tabs
+    - navigation.instant
+    - navigation.indexes
+    - navigation.top
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - meta
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.smartsymbols
+  - attr_list
+  - md_in_html
+
+
+# Navigation
+nav:
+  - 'Overview': index.md
+  - 'Contributing': contributing.md
+  - 'API Documentation': 'api/'
+
+
+# CSS extensions
+extra_css:
+  - stylesheets/colors.css
