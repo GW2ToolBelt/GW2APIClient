@@ -28,8 +28,6 @@ import com.gw2tb.gw2api.client.v2.*
 import kotlinx.coroutines.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
-import kotlin.jvm.*
-import kotlin.time.*
 
 /**
  * A builder for a [Request].
