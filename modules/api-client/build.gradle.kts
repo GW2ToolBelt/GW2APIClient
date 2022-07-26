@@ -23,6 +23,7 @@
 
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
@@ -126,7 +127,6 @@ kotlin {
                 api(libs.kotlin.test.junit5)
             }
         }
-
     }
 }
 
@@ -157,6 +157,10 @@ tasks {
     }
 
     getByName("jsSourcesJar") {
+        dependsOn(project(":").tasks["generate"])
+    }
+
+    withType<DokkaTask> {
         dependsOn(project(":").tasks["generate"])
     }
 }

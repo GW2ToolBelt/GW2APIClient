@@ -23,6 +23,7 @@
 
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
+import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -126,6 +127,10 @@ tasks {
     }
 
     getByName("jsSourcesJar") {
+        dependsOn(project(":").tasks["generate"])
+    }
+
+    withType<DokkaTask> {
         dependsOn(project(":").tasks["generate"])
     }
 }
