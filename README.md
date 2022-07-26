@@ -42,17 +42,79 @@ reading MumbleLink data.
 The `api-client` module provides definitions for the endpoints available as part
 of the Guild Wars 2 API.
 
+
+#### Configuring the Cache
+
+To configure an API client to use a cache, a `CacheAccess` implementation can be
+specified during construction. This library does not provide a default cache
+implementation yet.
+
+
+#### Configuring the Rate Limiter
+
+By default, a `GW2APIClient` is configured with a `TokenBucketRateLimiter` with
+`bucketSize` set to 300 and `refillMillis` set to 1 second. While this limit is
+usually a good fit as it matches the behavior of the official API, it may be
+desirable to customize rate limiting.
+
+To overwrite the default rate limiter, an `RateLimiter` implementation can be
+passed during the construction of an API client. If the rate limiter is set to
+`null`, the client does not perform any rate limiting.
+
+
+#### Configuring Requests
+
+Before executing a request, it can be configured by using the `RequestBuilder`
+instance. These builders are initialized with the defaults from the API client
+but many settings may be tweaked as desired.
+
+| Property           | "Wither"               | Description                                                 |
+|--------------------|------------------------|-------------------------------------------------------------|
+| `apiKey`           | `withAPIKey`           | The API key to use for the request                          |
+| `cacheAccess`      | `withCacheAccess`      | The cache access to use for the request                     |
+|                    | `withCacheTime`        | Overwrites the cache-time specified by the response headers |
+| `checkPermissions` | `withPermissionChecks` | Whether client-side permission checks are enabled           |
+| `language`         | `withLanguage`         | The language for the request                                |
+| `rateLimiter`      | `withRateLimiter`      | The rate limiter to use for the request                     |
+
+
+#### HttpClient Implementations
+
+The `api-client-{jdk11|ktor}` modules provide implementations using Java 11's
+HttpClient or Ktor's HttpClient respectively.
+
+
+## Example
+
+### Retrieve the Build ID
+
+```kotlin
+suspend fun main() {
+    val client = GW2APIClient(...)
+    val requestBuilder = client.gw2v2Build()
+    
+    val request = coroutineScope { requestBuilder.execute(this) }
+    val response = request.get()
+    
+    val gw2v2Build = response.data.getOrNull() ?: error("Could not decode request")
+    
+    println("Build ID: ${gw2v2Build.id}")    
+}
+```
+
+### Retrieving Items
+
 The following example retrieves the first 1000 items listed in `/v2/items` in
 parallel and prints their ids and names:
 
 ```kotlin
 suspend fun main() = coroutineScope {
     val client = GW2APIClient(/* JDKHttpClientImpl() or KtorHttpClientImpl() */)
-    val itemIds = client.gw2v2ItemsIDs().execute(this).get().data ?: error("Request failed.")
+    val itemIds = client.gw2v2ItemsIDs().execute(this).get().data.getOrNull() ?: error("Failed to fetch item IDs.")
 
     val items = itemIds.take(1000).chunked(200).map { ids ->
         async {
-            client.gw2v2ItemsByIDs(ids).execute(this).get().data ?: error("Request failed.")
+            client.gw2v2ItemsByIDs(ids).execute(this).get().data.getOrNull() ?: error("Request failed.")
         }
     }.awaitAll().flatten()
 
@@ -61,9 +123,6 @@ suspend fun main() = coroutineScope {
     }
 }
 ```
-
-The `api-client-{jdk11|ktor}` modules provide implementations using Java 11's
-HttpClient or Ktor's HttpClient respectively.
 
 
 ## Supported Platforms
