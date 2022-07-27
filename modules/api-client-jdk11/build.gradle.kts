@@ -45,11 +45,11 @@ kotlin {
 }
 
 tasks {
-    withType<JavaCompile> {
+    withType<JavaCompile>().configureEach {
         options.release.set(11)
     }
 
-    withType<KotlinCompile> {
+    withType<KotlinCompile>().configureEach {
         kotlinOptions {
             languageVersion = "1.7"
             apiVersion = "1.7"

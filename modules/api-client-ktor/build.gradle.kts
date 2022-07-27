@@ -40,8 +40,8 @@ java {
 kotlin {
     explicitApi()
 
-    targets.all {
-        compilations.all {
+    targets.configureEach {
+        compilations.configureEach {
             kotlinOptions {
                 languageVersion = "1.7"
                 apiVersion = "1.7"
@@ -54,7 +54,7 @@ kotlin {
         nodejs()
     }
     jvm {
-        compilations.all {
+        compilations.configureEach {
             kotlinOptions {
                 jvmTarget = "11"
             }
@@ -81,26 +81,30 @@ kotlin {
             }
         }
 
-        getByName("jvmMain").dependencies {
-            implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        named("jvmMain") {
+            dependencies {
+                implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+            }
         }
 
-        getByName("jvmTest").dependencies {
-            implementation("org.jetbrains.kotlin:kotlin-test-junit5")
-            implementation(libs.junit.jupiter.api)
-            implementation(libs.ktor.client.apache)
+        named("jvmTest") {
+            dependencies {
+                implementation("org.jetbrains.kotlin:kotlin-test-junit5")
+                implementation(libs.junit.jupiter.api)
+                implementation(libs.ktor.client.apache)
 
-            runtimeOnly(libs.junit.jupiter.engine)
+                runtimeOnly(libs.junit.jupiter.engine)
+            }
         }
     }
 }
 
 tasks {
-    withType<JavaCompile> {
+    withType<JavaCompile>().configureEach {
         options.release.set(11)
     }
 
-    getByName<org.gradle.jvm.tasks.Jar>("jvmJar") {
+    named<org.gradle.jvm.tasks.Jar>("jvmJar") {
         manifest {
             attributes(mapOf(
                 "Name" to project.name,
@@ -120,7 +124,7 @@ val emptyJavadocJar by tasks.registering(Jar::class) {
 }
 
 publishing {
-    publications.withType<MavenPublication>().all {
+    publications.withType<MavenPublication>().configureEach {
         if (name == "js") artifact(emptyJar)
         artifact(emptyJavadocJar)
 
