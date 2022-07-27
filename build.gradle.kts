@@ -23,6 +23,8 @@ import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.gw2api.generator.tasks.Generate
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
+import org.jetbrains.dokka.gradle.AbstractDokkaLeafTask
+import org.jetbrains.dokka.gradle.AbstractDokkaTask
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
@@ -52,18 +54,21 @@ allprojects {
 }
 
 subprojects {
-    tasks.withType<DokkaTask> {
+    tasks.withType<AbstractDokkaLeafTask>().configureEach {
         dependsOn(project(":").tasks["generate"])
 
-        dokkaSourceSets.configureEach {
+        dokkaSourceSets.configureEach sourceSet@{
             reportUndocumented.set(true)
             skipEmptyPackages.set(true)
             jdkVersion.set(11)
 
-            sourceLink {
-                localDirectory.set(project.file("src/commonMain/kotlin"))
-                remoteUrl.set(URL("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/modules/${project.name}/src/commonMain/kotlin"))
-                remoteLineSuffix.set("#L")
+            val sourceDir = project.file("src/${this@sourceSet.name}/kotlin")
+            if (sourceDir.isDirectory) {
+                sourceLink {
+                    localDirectory.set(sourceDir)
+                    remoteUrl.set(URL("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/modules/${project.name}/src/${this@sourceSet.name}/kotlin"))
+                    remoteLineSuffix.set("#L")
+                }
             }
         }
     }
