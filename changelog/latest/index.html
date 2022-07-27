@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#030" class="md-skip">
+        <a href="#040" class="md-skip">
           Skip to content
         </a>
       
@@ -346,16 +346,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#030" class="md-nav__link">
-    0.3.0
+  <a href="#040" class="md-nav__link">
+    0.4.0
   </a>
   
-    <nav class="md-nav" aria-label="0.3.0">
+    <nav class="md-nav" aria-label="0.4.0">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#improvements" class="md-nav__link">
     Improvements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    Breaking Changes
   </a>
   
 </li>
@@ -385,12 +392,33 @@
 
   <h1>Latest</h1>
 
-<h3 id="030">0.3.0<a class="headerlink" href="#030" title="Permanent link">&para;</a></h3>
-<p><em>Released 2021 Jul 14</em></p>
+<h3 id="040">0.4.0<a class="headerlink" href="#040" title="Permanent link">&para;</a></h3>
+<p><em>Released 2022 Jul 27</em></p>
 <h4 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Updated to <a href="https://github.com/GW2ToolBelt/api-generator">api-generator</a> to <a href="https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.4.0">0.4.0</a>.</li>
-<li><code>Result</code> is now used to catch exceptions during deserialization.</li>
+<li>Updated to <a href="https://github.com/GW2ToolBelt/api-generator">api-generator</a> to <a href="https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.6.0">0.6.0</a>.</li>
+<li>Cleaned up caching.<ul>
+<li>Renamed <code>CacheAccessor</code> to <code>CacheAccess</code>.</li>
+<li>Cache time overwrites were removed for now.</li>
+</ul>
+</li>
+<li>Cleaned up the <code>RateLimiter</code> interface and related hooks.<ul>
+<li>A default <code>TokenBucketRateLimiter</code> implementation is now available.</li>
+<li>API clients are now configured to use a rate limiter by default.</li>
+</ul>
+</li>
+<li>Introduced the <code>DecodingResult</code> abstraction to improve error-handling
+  capabilities for malformed data from the API.</li>
+<li>Introduced the <code>ResponseHeaders</code> abstraction that wraps headers of a
+  <code>Response</code> and provides utilities.</li>
+<li>Improved documentation throughout the entire library.</li>
+</ul>
+<h4 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>All modules now require Kotlin 1.7</li>
+<li>JVM modules now require Java 11</li>
+<li>The library was significantly reworked and many things were either renamed or
+  relocated. Detailed migration guidelines are not available for this release.</li>
 </ul>
 
               
