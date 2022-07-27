@@ -42,12 +42,8 @@ java {
 kotlin {
     explicitApi()
 
-    targets.all {
-        compilations.all {
-            compileKotlinTask.apply {
-                dependsOn(project(":").tasks["generate"])
-            }
-
+    targets.configureEach {
+        compilations.configureEach {
             kotlinOptions {
                 languageVersion = "1.7"
                 apiVersion = "1.7"
@@ -74,7 +70,7 @@ kotlin {
         }
     }
     jvm {
-        compilations.all {
+        compilations.configureEach {
             kotlinOptions {
                 jvmTarget = "11"
             }
@@ -110,19 +106,19 @@ kotlin {
             dependsOn(nonJvmMain)
         }
 
-        getByName("jsTest") {
+        named("jsTest") {
             dependencies {
                 api(libs.kotlin.test.js)
             }
         }
 
-        getByName("jvmMain") {
+        named("jvmMain") {
             dependencies {
                 api(libs.kotlinx.coroutines.jdk8)
             }
         }
 
-        getByName("jvmTest") {
+        named("jvmTest") {
             dependencies {
                 api(libs.kotlin.test.junit5)
             }
@@ -131,15 +127,15 @@ kotlin {
 }
 
 tasks {
-    withType<JavaCompile> {
+    withType<JavaCompile>().configureEach {
         options.release.set(11)
     }
 
-    withType<KotlinCompile> {
+    withType<KotlinCompile>().configureEach {
         dependsOn(project(":").tasks["generate"])
     }
 
-    getByName<org.gradle.jvm.tasks.Jar>("jvmJar") {
+    named<org.gradle.jvm.tasks.Jar>("jvmJar") {
         manifest {
             attributes(mapOf(
                 "Name" to project.name,
@@ -156,11 +152,15 @@ tasks {
         dependsOn(project(":").tasks["generate"])
     }
 
-    getByName("jsSourcesJar") {
+    named("jsSourcesJar") {
         dependsOn(project(":").tasks["generate"])
     }
 
-    withType<DokkaTask> {
+    named("jvmSourcesJar") {
+        dependsOn(project(":").tasks["generate"])
+    }
+
+    withType<DokkaTask>().configureEach {
         dependsOn(project(":").tasks["generate"])
     }
 }
@@ -171,7 +171,7 @@ val emptyJavadocJar by tasks.registering(Jar::class) {
 }
 
 publishing {
-    publications.withType<MavenPublication>().all {
+    publications.withType<MavenPublication>().configureEach {
         if (name == "js") artifact(emptyJar)
         artifact(emptyJavadocJar)
 
