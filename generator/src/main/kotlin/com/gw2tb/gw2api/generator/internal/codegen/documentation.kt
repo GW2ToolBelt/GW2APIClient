@@ -93,14 +93,19 @@ internal fun SchemaRecord.dokka(
 ): String = docComment {
     append(description)
 
-    if (!interpretationInNestedProperty && properties.isNotEmpty()) {
+    val paramTags = buildList {
+        for (property in sharedProperties.values)
+            add("@param ${property.camelCaseName} ${property.description}")
+
+        if (!interpretationInNestedProperty) {
+            for (property in properties.values)
+                add("@param ${property.camelCaseName} ${property.description}")
+        }
+    }.joinToString(separator = n)
+
+    if (paramTags.isNotBlank()) {
         append("$n$n")
-        append(sharedProperties.values.joinToString(separator = n) { property ->
-            "@param ${property.camelCaseName} ${property.description}"
-        })
-        append(properties.values.joinToString(separator = n) { property ->
-            "@param ${property.camelCaseName} ${property.description}"
-        })
+        append(paramTags)
     }
 }
 

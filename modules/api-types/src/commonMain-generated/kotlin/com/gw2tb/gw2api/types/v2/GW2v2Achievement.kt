@@ -123,7 +123,8 @@ public data class GW2v2Achievement(
         /**
          * Information about a coin reward.
          *
-         * @param type the type of reward@param count the amount of coins
+         * @param type the type of reward
+         * @param count the amount of coins
          */
         @Serializable(with = __CoinsSerializer::class)
         public data class Coins(
@@ -145,7 +146,8 @@ public data class GW2v2Achievement(
         /**
          * Information about an item reward.
          *
-         * @param type the type of reward@param id the item's ID
+         * @param type the type of reward
+         * @param id the item's ID
          * @param count the amount of the item
          */
         @Serializable(with = __ItemsSerializer::class)
@@ -170,7 +172,8 @@ public data class GW2v2Achievement(
         /**
          * Information about a mastery point reward.
          *
-         * @param type the type of reward@param id the mastery point's ID
+         * @param type the type of reward
+         * @param id the mastery point's ID
          * @param region the mastery point's region
          */
         @Serializable(with = __MasterySerializer::class)
@@ -195,7 +198,8 @@ public data class GW2v2Achievement(
         /**
          * Information about a title reward
          *
-         * @param type the type of reward@param id the title's ID
+         * @param type the type of reward
+         * @param id the title's ID
          */
         @Serializable(with = __TitleSerializer::class)
         public data class Title(

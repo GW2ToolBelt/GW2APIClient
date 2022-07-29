@@ -103,7 +103,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about a mine capacity upgrade. */
+    /**
+     * Information about a mine capacity upgrade.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __AccumulatingCurrencySerializer::class)
     public data class AccumulatingCurrency(
         override val id: Int,
@@ -142,7 +155,8 @@ public sealed class GW2v2GuildUpgrade {
      * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
      * @param experience the amount of guild experience that will be awarded upon building the upgrade
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
-     * @param costs an array of objects describing the upgrade's cost@param bagMaxItems the maximum item slots of the guild bank tab
+     * @param costs an array of objects describing the upgrade's cost
+     * @param bagMaxItems the maximum item slots of the guild bank tab
      * @param bagMaxCoins the maximum amount of coins that can be stored in the bank tab
      */
     @Serializable(with = __BankBagSerializer::class)
@@ -177,7 +191,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about a permanent guild buffs upgrade. */
+    /**
+     * Information about a permanent guild buffs upgrade.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __BoostSerializer::class)
     public data class Boost(
         override val id: Int,
@@ -204,7 +231,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about a guild WvW tactics. */
+    /**
+     * Information about a guild WvW tactics.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __ClaimableSerializer::class)
     public data class Claimable(
         override val id: Int,
@@ -231,7 +271,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about a banners and guild siege. */
+    /**
+     * Information about a banners and guild siege.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __ConsumableSerializer::class)
     public data class Consumable(
         override val id: Int,
@@ -258,7 +311,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about a decoration that must be crafted by a Scribe. */
+    /**
+     * Information about a decoration that must be crafted by a Scribe.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __DecorationSerializer::class)
     public data class Decoration(
         override val id: Int,
@@ -285,7 +351,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about claiming a Guild Hall. */
+    /**
+     * Information about claiming a Guild Hall.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __GuildHallSerializer::class)
     public data class GuildHall(
         override val id: Int,
@@ -312,7 +391,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about an expedition unlock. */
+    /**
+     * Information about an expedition unlock.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __GuildHallExpeditionSerializer::class)
     public data class GuildHallExpedition(
         override val id: Int,
@@ -339,7 +431,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about Guild Initiative office unlock. */
+    /**
+     * Information about Guild Initiative office unlock.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __HubSerializer::class)
     public data class Hub(
         override val id: Int,
@@ -366,7 +471,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about Workshop Restoration 1. */
+    /**
+     * Information about Workshop Restoration 1.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __QueueSerializer::class)
     public data class Queue(
         override val id: Int,
@@ -393,7 +511,20 @@ public sealed class GW2v2GuildUpgrade {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Information about permanent unlocks, such as merchants and arena decorations. */
+    /**
+     * Information about permanent unlocks, such as merchants and arena decorations.
+     *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
+     */
     @Serializable(with = __UnlockSerializer::class)
     public data class Unlock(
         override val id: Int,

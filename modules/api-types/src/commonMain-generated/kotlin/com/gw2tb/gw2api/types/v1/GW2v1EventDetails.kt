@@ -94,7 +94,8 @@ public data class GW2v1EventDetails(
             /**
              * Information about a cylindrical event location.
              *
-             * @param type the type of location@param center the coordinates (x,y,z) of the cylinder's center (in map coordinates)
+             * @param type the type of location
+             * @param center the coordinates (x,y,z) of the cylinder's center (in map coordinates)
              * @param height the cylinder's height
              * @param radius the cylinder's radius
              * @param rotation the cylinder's rotation
@@ -125,7 +126,8 @@ public data class GW2v1EventDetails(
             /**
              * Information about a polygonal event location.
              *
-             * @param type the type of location@param center the coordinates (x,y,z) of the polygon's center (in map coordinates)
+             * @param type the type of location
+             * @param center the coordinates (x,y,z) of the polygon's center (in map coordinates)
              * @param zRange the polygon's z-range
              * @param points the polygon's points
              */
@@ -154,7 +156,8 @@ public data class GW2v1EventDetails(
             /**
              * Information about a spherical event location.
              *
-             * @param type the type of location@param center the coordinates (x,y,z) of the sphere's center (in map coordinates)
+             * @param type the type of location
+             * @param center the coordinates (x,y,z) of the sphere's center (in map coordinates)
              * @param radius the sphere's radius
              * @param rotation the sphere's rotation
              */

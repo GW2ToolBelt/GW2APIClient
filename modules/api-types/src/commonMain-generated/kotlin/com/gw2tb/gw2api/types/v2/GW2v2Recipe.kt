@@ -107,7 +107,13 @@ public data class GW2v2Recipe(
                 JsonObject(element.jsonObject - "__virtualType")
         }
 
-        /** A currency ingredient. */
+        /**
+         * A currency ingredient.
+         *
+         * @param type the ingredient's type
+         * @param id the ingredient's ID
+         * @param count the amount
+         */
         @Serializable(with = __CurrencySerializer::class)
         public data class Currency(
             override val type: String,
@@ -125,7 +131,13 @@ public data class GW2v2Recipe(
                 JsonObject(element.jsonObject - "__virtualType")
         }
 
-        /** A guild upgrade ingredient. */
+        /**
+         * A guild upgrade ingredient.
+         *
+         * @param type the ingredient's type
+         * @param id the ingredient's ID
+         * @param count the amount
+         */
         @Serializable(with = __GuildUpgradeSerializer::class)
         public data class GuildUpgrade(
             override val type: String,
@@ -143,7 +155,13 @@ public data class GW2v2Recipe(
                 JsonObject(element.jsonObject - "__virtualType")
         }
 
-        /** An item ingredient. */
+        /**
+         * An item ingredient.
+         *
+         * @param type the ingredient's type
+         * @param id the ingredient's ID
+         * @param count the amount
+         */
         @Serializable(with = __ItemSerializer::class)
         public data class Item(
             override val type: String,

@@ -71,7 +71,18 @@ public sealed class GW2v1SkinDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about an armor skin. */
+    /**
+     * Additional information about an armor skin.
+     *
+     * @param skinID the skin's ID
+     * @param name the skin's localized name
+     * @param type the skin's type
+     * @param rarity the skin's rarity
+     * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
+     * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     */
     @Serializable(with = __ArmorSerializer::class)
     public data class Armor(
         @SerialName("skin_id")
@@ -185,7 +196,18 @@ public sealed class GW2v1SkinDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a backpack skin. */
+    /**
+     * Additional information about a backpack skin.
+     *
+     * @param skinID the skin's ID
+     * @param name the skin's localized name
+     * @param type the skin's type
+     * @param rarity the skin's rarity
+     * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
+     * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     */
     @Serializable(with = __BackSerializer::class)
     public data class Back(
         @SerialName("skin_id")
@@ -218,7 +240,18 @@ public sealed class GW2v1SkinDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a gathering tool skin. */
+    /**
+     * Additional information about a gathering tool skin.
+     *
+     * @param skinID the skin's ID
+     * @param name the skin's localized name
+     * @param type the skin's type
+     * @param rarity the skin's rarity
+     * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
+     * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     */
     @Serializable(with = __GatheringSerializer::class)
     public data class Gathering(
         @SerialName("skin_id")
@@ -251,7 +284,18 @@ public sealed class GW2v1SkinDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a gathering tool skin. */
+    /**
+     * Additional information about a gathering tool skin.
+     *
+     * @param skinID the skin's ID
+     * @param name the skin's localized name
+     * @param type the skin's type
+     * @param rarity the skin's rarity
+     * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
+     * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     */
     @Serializable(with = __WeaponSerializer::class)
     public data class Weapon(
         @SerialName("skin_id")

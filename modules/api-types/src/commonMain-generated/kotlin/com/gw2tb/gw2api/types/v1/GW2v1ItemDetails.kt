@@ -171,7 +171,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about an armor item. */
+    /**
+     * Additional information about an armor item.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __ArmorSerializer::class)
     public data class Armor(
         @SerialName("item_id")
@@ -254,7 +271,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a backpiece. */
+    /**
+     * Additional information about a backpiece.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __BackSerializer::class)
     public data class Back(
         @SerialName("item_id")
@@ -327,7 +361,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a bag. */
+    /**
+     * Additional information about a bag.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __BagSerializer::class)
     public data class Bag(
         @SerialName("item_id")
@@ -381,7 +432,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a consumable item. */
+    /**
+     * Additional information about a consumable item.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __ConsumableSerializer::class)
     public data class Consumable(
         @SerialName("item_id")
@@ -471,7 +539,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a container. */
+    /**
+     * Additional information about a container.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __ContainerSerializer::class)
     public data class Container(
         @SerialName("item_id")
@@ -521,7 +606,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a gathering tool. */
+    /**
+     * Additional information about a gathering tool.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __GatheringToolSerializer::class)
     public data class GatheringTool(
         @SerialName("item_id")
@@ -571,7 +673,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a gizmo. */
+    /**
+     * Additional information about a gizmo.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __GizmoSerializer::class)
     public data class Gizmo(
         @SerialName("item_id")
@@ -629,7 +748,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a mini unlock item. */
+    /**
+     * Additional information about a mini unlock item.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __MiniPetSerializer::class)
     public data class MiniPet(
         @SerialName("item_id")
@@ -680,7 +816,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a tool. */
+    /**
+     * Additional information about a tool.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __ToolSerializer::class)
     public data class Tool(
         @SerialName("item_id")
@@ -733,7 +886,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a trinket. */
+    /**
+     * Additional information about a trinket.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __TrinketSerializer::class)
     public data class Trinket(
         @SerialName("item_id")
@@ -809,7 +979,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about an upgrade component. */
+    /**
+     * Additional information about an upgrade component.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __UpgradeComponentSerializer::class)
     public data class UpgradeComponent(
         @SerialName("item_id")
@@ -880,7 +1067,24 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** Additional information about a weapon. */
+    /**
+     * Additional information about a weapon.
+     *
+     * @param itemID the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
+     */
     @Serializable(with = __WeaponSerializer::class)
     public data class Weapon(
         @SerialName("item_id")

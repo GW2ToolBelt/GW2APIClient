@@ -67,7 +67,14 @@ public sealed class GW2v2GuildLogEntry {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /** A log entry indicating that the user joined the guild. */
+    /**
+     * A log entry indicating that the user joined the guild.
+     *
+     * @param id the log entry's ID
+     * @param time ISO-8601 timestamp for when the log entry was created
+     * @param user the account name of the guild member who generated this log entry
+     * @param type the type of log entry
+     */
     @Serializable(with = __JoinedSerializer::class)
     public data class Joined(
         override val id: Int,
@@ -92,7 +99,8 @@ public sealed class GW2v2GuildLogEntry {
      * @param id the log entry's ID
      * @param time ISO-8601 timestamp for when the log entry was created
      * @param user the account name of the guild member who generated this log entry
-     * @param type the type of log entry@param invitedBy the account name of the guild member who invited the user
+     * @param type the type of log entry
+     * @param invitedBy the account name of the guild member who invited the user
      */
     @Serializable(with = __InvitedSerializer::class)
     public data class Invited(
@@ -121,7 +129,8 @@ public sealed class GW2v2GuildLogEntry {
      * @param id the log entry's ID
      * @param time ISO-8601 timestamp for when the log entry was created
      * @param user the account name of the guild member who generated this log entry
-     * @param type the type of log entry@param kickedBy the account name of the guild member who kicked the user
+     * @param type the type of log entry
+     * @param kickedBy the account name of the guild member who kicked the user
      */
     @Serializable(with = __KickSerializer::class)
     public data class Kick(
@@ -150,7 +159,8 @@ public sealed class GW2v2GuildLogEntry {
      * @param id the log entry's ID
      * @param time ISO-8601 timestamp for when the log entry was created
      * @param user the account name of the guild member who generated this log entry
-     * @param type the type of log entry@param changedBy the account name of the guild member who changed the rank of the user
+     * @param type the type of log entry
+     * @param changedBy the account name of the guild member who changed the rank of the user
      * @param oldRank the name of the old rank
      * @param newRank the name of the new rank
      */
@@ -187,7 +197,8 @@ public sealed class GW2v2GuildLogEntry {
      * @param id the log entry's ID
      * @param time ISO-8601 timestamp for when the log entry was created
      * @param user the account name of the guild member who generated this log entry
-     * @param type the type of log entry@param itemID the item's ID
+     * @param type the type of log entry
+     * @param itemID the item's ID
      * @param count how many of the item was deposited
      */
     @Serializable(with = __TreasurySerializer::class)
@@ -219,7 +230,8 @@ public sealed class GW2v2GuildLogEntry {
      * @param id the log entry's ID
      * @param time ISO-8601 timestamp for when the log entry was created
      * @param user the account name of the guild member who generated this log entry
-     * @param type the type of log entry@param operation the action (may be "deposit", "withdraw" or "move"
+     * @param type the type of log entry
+     * @param operation the action (may be "deposit", "withdraw" or "move"
      * @param itemID the item's ID
      * @param count how many of the item was deposited
      * @param coins the amount of deposited coins
@@ -257,7 +269,8 @@ public sealed class GW2v2GuildLogEntry {
      * @param id the log entry's ID
      * @param time ISO-8601 timestamp for when the log entry was created
      * @param user the account name of the guild member who generated this log entry
-     * @param type the type of log entry@param motd the new message of the day
+     * @param type the type of log entry
+     * @param motd the new message of the day
      */
     @Serializable(with = __MOTDSerializer::class)
     public data class MOTD(
@@ -285,7 +298,8 @@ public sealed class GW2v2GuildLogEntry {
      * @param id the log entry's ID
      * @param time ISO-8601 timestamp for when the log entry was created
      * @param user the account name of the guild member who generated this log entry
-     * @param type the type of log entry@param action the action (may be "queued", "cancelled", "completed" or "sped_up"
+     * @param type the type of log entry
+     * @param action the action (may be "queued", "cancelled", "completed" or "sped_up"
      * @param count how many upgrade were added
      * @param upgradeID the ID of the completed upgrade
      * @param recipeID the recipe that generated the upgrade
