@@ -40,7 +40,7 @@ yarn.lockFileName = "kotlin-yarn.lock"
 yarn.lockFileDirectory = rootDir
 
 allprojects {
-    val nextVersion = "0.4.0"
+    val nextVersion = "0.5.0"
 
     group = "com.gw2tb.gw2api"
     version = when (deployment.type) {
