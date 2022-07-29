@@ -42,12 +42,6 @@ internal fun TypeLocation.toKotlinName(apiVersion: String?): String =
 internal inline fun <T> Iterable<T>.groupByEndpoint(keySelector: (T) -> String): Map<String, List<T>> =
     groupBy { keySelector(it).replace(Regex("/:([A-Za-z])*"), "").replaceAllIteratively("//", "/") }
 
-internal fun String.firstToLowerCase(): String =
-    "${toCharArray()[0].toLowerCase()}${substring(1)}"
-
-internal fun String.firstToUpperCase(): String =
-    "${toCharArray()[0].toUpperCase()}${substring(1)}"
-
 internal fun String.replaceAllIteratively(old: String, new: String): String {
     var res = this
     while (res.contains(old)) res = res.replace(old, new)
