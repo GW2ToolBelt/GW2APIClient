@@ -159,19 +159,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about an armor item.
-     *
-     * @param type the armor slot type
-     * @param weightClass the weight class
-     * @param defense the defense value of the armor piece
-     * @param infusionSlots infusion slots of the armor piece
-     * @param infixUpgrade infix upgrade object
-     * @param suffixItemID the suffix item ID
-     * @param secondarySuffixItemID the secondary suffix item ID
-     * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
-     */
+    /** Additional information about an armor item. */
     @Serializable(with = __ArmorSerializer::class)
     public data class Armor(
         @SerialName("item_id")
@@ -245,16 +233,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a backpiece.
-     *
-     * @param infusionSlots infusion slots of the back item
-     * @param infixUpgrade infix upgrade object
-     * @param suffixItemID the suffix item ID
-     * @param secondarySuffixItemID the secondary suffix item ID
-     * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
-     */
+    /** Additional information about a backpiece. */
     @Serializable(with = __BackSerializer::class)
     public data class Back(
         @SerialName("item_id")
@@ -321,12 +300,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a bag.
-     *
-     * @param size the number of bag slots
-     * @param noSellOrSort whether the bag is invisible
-     */
+    /** Additional information about a bag. */
     @Serializable(with = __BagSerializer::class)
     public data class Bag(
         @SerialName("item_id")
@@ -378,22 +352,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a consumable item.
-     *
-     * @param type the consumable type
-     * @param description effect description for consumables applying an effect
-     * @param durationMs effect duration in milliseconds
-     * @param unlockType unlock type for unlock consumables
-     * @param colorID the dye ID for dye unlocks
-     * @param recipeID the recipe ID for recipe unlocks
-     * @param extraRecipeIDs additional recipe IDs for recipe unlocks
-     * @param guildUpgradeID the guild upgrade ID for the item
-     * @param applyCount the number of stacks of the effect applied by this item
-     * @param name the effect type name of the consumable
-     * @param icon the icon of the effect
-     * @param skins a list of skin ids which this item unlocks
-     */
+    /** Additional information about a consumable item. */
     @Serializable(with = __ConsumableSerializer::class)
     public data class Consumable(
         @SerialName("item_id")
@@ -471,11 +430,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a container.
-     *
-     * @param type the container type
-     */
+    /** Additional information about a container. */
     @Serializable(with = __ContainerSerializer::class)
     public data class Container(
         @SerialName("item_id")
@@ -524,11 +479,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a gathering tool.
-     *
-     * @param type the tool type
-     */
+    /** Additional information about a gathering tool. */
     @Serializable(with = __GatheringToolSerializer::class)
     public data class GatheringTool(
         @SerialName("item_id")
@@ -577,13 +528,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a gizmo.
-     *
-     * @param type the gizmo type
-     * @param guildUpgradeID the guild upgrade ID for the item
-     * @param vendorIDs the vendor IDs
-     */
+    /** Additional information about a gizmo. */
     @Serializable(with = __GizmoSerializer::class)
     public data class Gizmo(
         @SerialName("item_id")
@@ -638,11 +583,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a mini unlock item.
-     *
-     * @param minipetID the miniature it unlocks
-     */
+    /** Additional information about a mini unlock item. */
     @Serializable(with = __MiniPetSerializer::class)
     public data class MiniPet(
         @SerialName("item_id")
@@ -692,12 +633,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a tool.
-     *
-     * @param type the tool type
-     * @param charges the available charges
-     */
+    /** Additional information about a tool. */
     @Serializable(with = __ToolSerializer::class)
     public data class Tool(
         @SerialName("item_id")
@@ -748,17 +684,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a trinket.
-     *
-     * @param type the trinket type
-     * @param infusionSlots infusion slots of the trinket
-     * @param infixUpgrade infix upgrade object
-     * @param suffixItemID the suffix item ID
-     * @param secondarySuffixItemID the secondary suffix item ID
-     * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
-     */
+    /** Additional information about a trinket. */
     @Serializable(with = __TrinketSerializer::class)
     public data class Trinket(
         @SerialName("item_id")
@@ -827,17 +753,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about an upgrade component.
-     *
-     * @param type the type of the upgrade component
-     * @param flags the items that can be upgraded with the upgrade component
-     * @param infusionUpgradeFlags applicable infusion slot for infusion upgrades
-     * @param suffix the suffix appended to the item name when the component is applied
-     * @param infixUpgrade infix upgrade object
-     * @param bonuses the bonuses from runes
-     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
-     */
+    /** Additional information about an upgrade component. */
     @Serializable(with = __UpgradeComponentSerializer::class)
     public data class UpgradeComponent(
         @SerialName("item_id")
@@ -901,21 +817,7 @@ public sealed class GW2v1ItemDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a weapon.
-     *
-     * @param type the weapon type
-     * @param minPower minimum weapon strength
-     * @param maxPower maximum weapon strength
-     * @param damageType the damage type
-     * @param defense the defense value of the weapon
-     * @param infusionSlots infusion slots of the weapon
-     * @param infixUpgrade infix upgrade object
-     * @param suffixItemID the suffix item ID
-     * @param secondarySuffixItemID the secondary suffix item ID
-     * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
-     * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
-     */
+    /** Additional information about a weapon. */
     @Serializable(with = __WeaponSerializer::class)
     public data class Weapon(
         @SerialName("item_id")

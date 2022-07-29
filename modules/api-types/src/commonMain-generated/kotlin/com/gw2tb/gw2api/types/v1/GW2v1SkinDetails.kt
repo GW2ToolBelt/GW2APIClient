@@ -71,13 +71,7 @@ public sealed class GW2v1SkinDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about an armor skin.
-     *
-     * @param armorType the skin's armor slot
-     * @param weightClass the skin's armor weight
-     * @param dyeSlots the skin's dye slots
-     */
+    /** Additional information about an armor skin. */
     @Serializable(with = __ArmorSerializer::class)
     public data class Armor(
         @SerialName("skin_id")
@@ -242,12 +236,7 @@ public sealed class GW2v1SkinDetails {
             JsonObject(element.jsonObject - "__virtualType")
     }
 
-    /**
-     * Additional information about a gathering tool skin.
-     *
-     * @param weaponType the skin's weapon type
-     * @param damageType the skin's damage type
-     */
+    /** Additional information about a gathering tool skin. */
     @Serializable(with = __WeaponSerializer::class)
     public data class Weapon(
         @SerialName("skin_id")
