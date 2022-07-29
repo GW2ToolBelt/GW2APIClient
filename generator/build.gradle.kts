@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 /*
  * Copyright (c) 2018-2022 Leon Linhart
  *
@@ -35,13 +37,23 @@ kotlin {
     target {
         compilations.all {
             kotlinOptions {
-                languageVersion = "1.4"
-                apiVersion = "1.4"
+                languageVersion = "1.6"
+                apiVersion = "1.6"
 
                 jvmTarget = "1.8"
 
                 freeCompilerArgs = (freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn")
             }
+        }
+    }
+}
+
+afterEvaluate {
+    /* Currently required since the "kotlin-dsl" plugin overrides this at some point. */
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            apiVersion = "1.6"
+            languageVersion = "1.6"
         }
     }
 }
