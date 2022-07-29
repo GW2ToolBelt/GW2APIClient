@@ -49,24 +49,24 @@ internal fun sequenceOfPrintableV2TypeTests(schemaVersion: V2SchemaVersion): Seq
     API_V2.printableTypeTestsSequence("v2", schemaVersionSelector = { it[schemaVersion].since })
 
 private fun <T : APIType> Map<TypeLocation, T>.printableTypesSequence(
-    apiVersion: String,
+    apiVersionInfix: String,
     printTypes: (entries: Sequence<Map.Entry<TypeLocation, T>>, apiVersion: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration) -> String,
     declarationSelector: (T) -> SchemaTypeDeclaration
 ): Sequence<PrintableFile> {
     val typeLookup: (TypeLocation) -> SchemaTypeDeclaration = { declarationSelector(this[it] ?: error("Could not find type: $it")) }
 
     return entries
-        .groupByEndpoint { (loc, _) -> (if (loc.nest == null) loc else TypeLocation(null, loc.nest!!.substringBefore('/'))).toKotlinName(apiVersion) }
+        .groupByEndpoint { (loc, _) -> (if (loc.nest == null) loc else TypeLocation(null, loc.nest!!.substringBefore('/'))).toKotlinName(apiVersionInfix) }
         .asSequence()
         .mapNotNull { (endpoint, entries) ->
-            val content = printTypes(entries.asSequence(), apiVersion, { it.nest == null && entries.any { (loc, _) -> loc == it } }, typeLookup)
+            val content = printTypes(entries.asSequence(), apiVersionInfix, { it.nest == null && entries.any { (loc, _) -> loc == it } }, typeLookup)
 
             if (content.isNotEmpty()) {
                 PrintableFile(
-                    "com/gw2tb/gw2api/types/$apiVersion/${endpoint.removeSuffix("/")}",
+                    "com/gw2tb/gw2api/types/$apiVersionInfix/${endpoint.removeSuffix("/")}",
                     """
                     |@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-                    |package com.gw2tb.gw2api.types.$apiVersion
+                    |package com.gw2tb.gw2api.types.$apiVersionInfix
                     |
                     |import kotlinx.serialization.*
                     |import kotlinx.serialization.builtins.*
@@ -80,7 +80,7 @@ private fun <T : APIType> Map<TypeLocation, T>.printableTypesSequence(
         }
 }
 
-private fun <T : APIType> APIVersion<*, T>.printableTypeTestsSequence(apiVersion: String, schemaVersionSelector: (T) -> V2SchemaVersion?): Sequence<PrintableFile> {
+private fun <T : APIType> APIVersion<*, T>.printableTypeTestsSequence(apiVersionInfix: String, schemaVersionSelector: (T) -> V2SchemaVersion?): Sequence<PrintableFile> {
     val json = Json { prettyPrint = true }
 
     return supportedTypes
@@ -88,7 +88,7 @@ private fun <T : APIType> APIVersion<*, T>.printableTypeTestsSequence(apiVersion
         .asSequence()
         .filter { (loc, _) -> loc.nest == null }
         .map { (loc, type) ->
-            val typeName = loc.toKotlinName(apiVersion)
+            val typeName = loc.toKotlinName(apiVersionInfix)
 
             val content = TestData[type, schemaVersionSelector(type)]
                 .mapIndexed { index, it -> (index to it) }
@@ -107,9 +107,9 @@ private fun <T : APIType> APIVersion<*, T>.printableTypeTestsSequence(apiVersion
                 .prependIndent(t)
 
             PrintableFile(
-                "com/gw2tb/gw2api/types/$apiVersion/$typeName",
+                "com/gw2tb/gw2api/types/$apiVersionInfix/$typeName",
                 """
-                |package com.gw2tb.gw2api.types.$apiVersion
+                |package com.gw2tb.gw2api.types.$apiVersionInfix
                 |
                 |import kotlin.test.*
                 |import kotlinx.serialization.*
@@ -129,19 +129,19 @@ private fun <T : APIType> APIVersion<*, T>.printableTypeTestsSequence(apiVersion
         }
 }
 
-private fun Sequence<Map.Entry<TypeLocation, APIType.V1>>.printV1TypesInNest(apiVersion: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration): String =
+private fun Sequence<Map.Entry<TypeLocation, APIType.V1>>.printV1TypesInNest(apiVersionInfix: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration): String =
     filter { (location, _) -> filter(location) }
         .joinToString(separator = "$n$n") { (location, type) ->
             type.schema.toClassString(
                 location,
-                { nest -> printV1TypesInNest(apiVersion, filter = { it.nest == nest }, typeLookup) },
+                { nest -> printV1TypesInNest(apiVersionInfix, filter = { it.nest == nest }, typeLookup) },
                 interpretationHint = type.interpretationHint,
-                apiVersion = apiVersion,
+                apiVersionInfix = apiVersionInfix,
                 typeLookup = typeLookup
             )
         }
 
-private fun Sequence<Map.Entry<TypeLocation, APIType.V2>>.printV2TypesInNest(schemaVersion: V2SchemaVersion, apiVersion: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration): String =
+private fun Sequence<Map.Entry<TypeLocation, APIType.V2>>.printV2TypesInNest(schemaVersion: V2SchemaVersion, apiVersionInfix: String, filter: (TypeLocation) -> Boolean, typeLookup: (TypeLocation) -> SchemaTypeDeclaration): String =
     filter { (location, _) -> filter(location) }
         .mapNotNull { (location, type) -> type.getOrNull(schemaVersion)?.let { (location to (type to it)) } }
         .joinToString(separator = "$n$n") { (location, p) ->
@@ -149,9 +149,9 @@ private fun Sequence<Map.Entry<TypeLocation, APIType.V2>>.printV2TypesInNest(sch
 
             schema.data.toClassString(
                 location,
-                { nest -> printV2TypesInNest(schemaVersion, apiVersion, filter = { it.nest == nest }, typeLookup) },
+                { nest -> printV2TypesInNest(schemaVersion, apiVersionInfix, filter = { it.nest == nest }, typeLookup) },
                 interpretationHint = type.interpretationHint,
-                apiVersion = apiVersion,
+                apiVersionInfix = apiVersionInfix,
                 typeLookup = typeLookup
             )
         }
@@ -162,10 +162,10 @@ internal fun SchemaTypeDeclaration.toClassString(
     serialName: String? = null,
     interpretationHint: InterpretationHint? = null,
     isNestedInterpretation: Boolean = false,
-    apiVersion: String?,
+    apiVersionInfix: String? = null,
     typeLookup: (TypeLocation) -> SchemaTypeDeclaration
 ): String {
-    val className = location?.toKotlinName(apiVersion) ?: name
+    val className = location?.toKotlinName(apiVersionInfix) ?: name
 
     val classNest = buildString {
         if (location == null)
@@ -183,7 +183,7 @@ internal fun SchemaTypeDeclaration.toClassString(
                 className,
                 classNest,
                 nestedTypesToString,
-                apiVersion
+                apiVersionInfix
             )
         }
         is SchemaRecord -> toDataClassString(
@@ -193,7 +193,7 @@ internal fun SchemaTypeDeclaration.toClassString(
             serialName = serialName,
             interpretationHint = interpretationHint,
             isNestedInterpretation = isNestedInterpretation,
-            apiVersion = apiVersion,
+            apiVersionInfix = apiVersionInfix,
             typeLookup = typeLookup
         )
         else -> error("")
@@ -208,7 +208,7 @@ private fun SchemaRecord.toDataClassString(
     serialName: String?,
     interpretationHint: InterpretationHint?,
     isNestedInterpretation: Boolean,
-    apiVersion: String?,
+    apiVersionInfix: String?,
     typeLookup: (TypeLocation) -> SchemaTypeDeclaration
 ) = buildString {
     val conditionalBaseDeclaration = if (interpretationHint != null) typeLookup(interpretationHint.conditionalBase) as SchemaConditional else null
@@ -261,33 +261,15 @@ private fun SchemaRecord.toDataClassString(
         append("public data class $className")
         append(sequence {
             if (conditionalBaseDeclaration != null) {
-                yieldAll(conditionalBaseDeclaration.sharedProperties.values.map { property -> buildString {
-                    if (property.isDeprecated)
-                        appendLine("""@Deprecated(message = "")""")
-
-                    if (property.serialName != property.camelCaseName)
-                        appendLine("""@SerialName("${property.serialName}")""")
-
-                    if (property.isLenient)
-                        appendLine("""@Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)""")
-
-                    append("override val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-                }})
+                yieldAll(conditionalBaseDeclaration.sharedProperties.values.map { property ->
+                    property.printToString(apiVersionInfix, isOverride = true)
+                })
             }
 
             if (conditionalBaseDeclaration?.interpretationInNestedProperty != true) {
-                yieldAll(properties.values.map { property -> buildString {
-                    if (property.isDeprecated)
-                        appendLine("""@Deprecated(message = "")""")
-
-                    if (property.serialName != property.camelCaseName)
-                        appendLine("""@SerialName("${property.serialName}")""")
-
-                    if (property.isLenient)
-                        appendLine("""@Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)""")
-
-                    append("val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality !== Optionality.REQUIRED) "? = null" else ""}")
-                }})
+                yieldAll(properties.values.map { property ->
+                    property.printToString(apiVersionInfix)
+                })
             } else {
                 yield("val ${interpretationHint!!.interpretationNestProperty!!}: $className")
             }
@@ -295,7 +277,7 @@ private fun SchemaRecord.toDataClassString(
     }
 
     if (interpretationHint != null) {
-        append(" : ${interpretationHint.conditionalBase.toKotlinName(apiVersion)}()")
+        append(" : ${interpretationHint.conditionalBase.toKotlinName(apiVersionInfix)}()")
     }
 
     val body = buildList {
@@ -304,7 +286,7 @@ private fun SchemaRecord.toDataClassString(
                 null,
                 { "" },
                 isNestedInterpretation = true,
-                apiVersion = apiVersion,
+                apiVersionInfix = apiVersionInfix,
                 typeLookup = typeLookup
             ))
         }
@@ -321,7 +303,7 @@ private fun SchemaConditional.toSealedClassString(
     className: String,
     nest: String,
     nestedTypesToString: (String) -> String,
-    apiVersion: String?
+    apiVersionInfix: String?
 ) = buildString {
     append(
         """
@@ -329,7 +311,7 @@ private fun SchemaConditional.toSealedClassString(
         |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
         |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
         |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
-        |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (key, it) -> """"$key" -> $className.${it.type.toKotlinType(apiVersion).serializer}""" }}
+        |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (key, it) -> """"$key" -> $className.${it.type.toKotlinType(apiVersionInfix).serializer}""" }}
         |            else -> TODO()
         |        }
         |    }
@@ -346,11 +328,7 @@ private fun SchemaConditional.toSealedClassString(
     val body = sequence {
         if (sharedProperties.isNotEmpty())
             yield(sharedProperties.values.joinToString(separator = n) { property ->
-                buildString {
-                    append(property.dokka())
-                    append(n)
-                    append("public abstract val ${property.camelCaseName}: ${property.type.toKotlinType(apiVersion).name}${if (property.optionality != Optionality.REQUIRED) "?" else ""}")
-                }
+                property.printToString(apiVersionInfix, isAbstract = true)
             })
 
         val nestedTypes = nestedTypesToString(nest)
@@ -359,4 +337,39 @@ private fun SchemaConditional.toSealedClassString(
 
     if (body.isNotBlank())
         append(" {$n$n${body.prependIndentNonEmpty(t)}$n$n}")
+}
+
+private fun SchemaProperty.printToString(
+    apiVersionInfix: String?,
+    isAbstract: Boolean = false,
+    isOverride: Boolean = false
+): String = buildString {
+    require(!(isAbstract && isOverride))
+
+    if (isAbstract) appendLine(dokka())
+
+    if (isDeprecated) appendLine("""@Deprecated(message = "")""")
+
+    if (!isAbstract) {
+        if (serialName != camelCaseName)
+            appendLine("""@SerialName("$serialName")""")
+
+        if (isLenient)
+            appendLine("""@Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)""")
+    }
+
+    val type = type.toKotlinType(apiVersionInfix).name
+
+    if (isAbstract) append("public abstract ")
+    if (isOverride) append("override ")
+
+    append("val $camelCaseName: $type")
+
+    if (optionality.isOptional) {
+        if (isAbstract) {
+            append("?")
+        } else {
+            append("? = null")
+        }
+    }
 }
