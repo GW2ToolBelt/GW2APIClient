@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountMastery(
+    /** This field holds the mastery's ID. */
     val id: Int,
+    /** This field holds the index of the unlocked mastery level. */
     val level: Int? = null
 )

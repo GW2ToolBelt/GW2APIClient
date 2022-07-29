@@ -35,7 +35,9 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1File(
+    /** This field holds the file identifier. */
     @SerialName("file_id")
     val fileID: Int,
+    /** This field holds the file signature. */
     val signature: String
 )

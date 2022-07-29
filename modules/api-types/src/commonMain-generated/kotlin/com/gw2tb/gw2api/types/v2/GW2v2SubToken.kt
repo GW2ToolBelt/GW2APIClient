@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2SubToken(
+    /** This field holds a JWT which can be used like an API key. */
     val subtoken: String
 )

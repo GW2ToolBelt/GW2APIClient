@@ -36,7 +36,10 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Race(
+    /** This field holds the race's ID. */
     val id: String,
+    /** This field holds the race's localized name. */
     val name: String,
+    /** This field holds an array of racial skill IDs. */
     val skills: List<Int>
 )

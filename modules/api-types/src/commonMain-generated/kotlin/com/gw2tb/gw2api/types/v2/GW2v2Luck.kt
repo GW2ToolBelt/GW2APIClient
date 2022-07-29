@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Luck(
+    /** This field holds the type of luck (always "luck"). */
     val id: String,
+    /** This field holds the amount of luck. */
     val value: Int
 )

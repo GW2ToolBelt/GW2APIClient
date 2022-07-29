@@ -41,13 +41,21 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPHero(
+    /** This field holds the PvP hero's ID. */
     val id: String,
+    /** This field holds the hero's localized name. */
     val name: String,
+    /** This field holds the hero's localized description. */
     val description: String,
+    /** This field holds the flavor type describing the hero. */
     val type: String,
+    /** This field holds the hero's stats. */
     val stats: Stats,
+    /** This field holds the render service URL for the hero's overlay art. */
     val overlay: String,
+    /** This field holds the render service URL for the hero's underlay art. */
     val underlay: String,
+    /** This field holds the hero's skins. */
     val skins: List<Skin>
 ) {
 
@@ -60,8 +68,11 @@ public data class GW2v2PvPHero(
      */
     @Serializable
     public data class Stats(
+        /** This field holds the offense stat. */
         val offense: Int,
+        /** This field holds the defense stat. */
         val defense: Int,
+        /** This field holds the speed stat. */
         val speed: Int
     )
 
@@ -76,10 +87,15 @@ public data class GW2v2PvPHero(
      */
     @Serializable
     public data class Skin(
+        /** This field holds the PvP hero skin's ID. */
         val id: Int,
+        /** This field holds the hero skin's localized name. */
         val name: String,
+        /** This field holds a render service URL for the skin's icon. */
         val icon: String,
+        /** This field holds whether or not the skin is the champion's default skin. */
         val default: Boolean,
+        /** This field holds an array of item IDs used to unlock the skin. */
         @SerialName("unlock_items")
         val unlockItems: List<Int>
     )

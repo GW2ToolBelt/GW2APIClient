@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2WorldBoss(
+    /** This field holds the worldboss's ID. */
     val id: String
 )

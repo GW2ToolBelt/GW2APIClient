@@ -35,7 +35,9 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Raid(
+    /** This field holds the raid's ID. */
     val id: String,
+    /** This field holds the raid's wings. */
     val wings: List<Wing>
 ) {
 
@@ -47,7 +49,9 @@ public data class GW2v2Raid(
      */
     @Serializable
     public data class Wing(
+        /** This field holds the wing's ID. */
         val id: String,
+        /** This field holds the wing's events. */
         val events: List<Event>
     ) {
 
@@ -59,7 +63,9 @@ public data class GW2v2Raid(
          */
         @Serializable
         public data class Event(
+            /** This field holds the event's ID. */
             val id: String,
+            /** This field holds the event's type. */
             val type: String
         )
 

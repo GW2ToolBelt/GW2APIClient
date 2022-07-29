@@ -35,7 +35,9 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2LegendaryArmorySlot(
+    /** This field holds the item's ID. */
     val id: Int,
+    /** This field holds the maximum number of copies of this item that can be stored in the armory for an account. */
     @SerialName("max_count")
     val maxCount: Int
 )

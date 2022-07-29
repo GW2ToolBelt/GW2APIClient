@@ -40,12 +40,19 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2GuildTeam(
+    /** This field holds the team's ID (only unique within the guild). */
     val id: Int,
+    /** This field holds the team's members. */
     val members: List<Member>,
+    /** This field holds the team's name. */
     val name: String,
+    /** This field holds the aggregated statistics. */
     val aggregate: Stats,
+    /** This field holds the stats by ladder (e.g. "ranked", "unranked"). */
     val ladders: Map<String, Stats>,
+    /** This field holds the team's recent PvP games. */
     val games: List<PvPGame>,
+    /** This field holds the team's season-specific stats. */
     val seasons: List<SeasonStats>
 ) {
 
@@ -57,7 +64,9 @@ public data class GW2v2GuildTeam(
      */
     @Serializable
     public data class Member(
+        /** This field holds the member's account name. */
         val name: String,
+        /** This field holds the member's role (i.e. "Captain" or "Member"). */
         val role: String
     )
 
@@ -72,10 +81,15 @@ public data class GW2v2GuildTeam(
      */
     @Serializable
     public data class Stats(
+        /** This field holds the amount of wins. */
         val wins: Int,
+        /** This field holds the amount of losses. */
         val losses: Int,
+        /** This field holds the amount desertions. */
         val desertions: Int,
+        /** This field holds the amount of byes. */
         val byes: Int,
+        /** This field holds the amount of forfeits. */
         val forfeits: Int
     )
 
@@ -95,18 +109,28 @@ public data class GW2v2GuildTeam(
      */
     @Serializable
     public data class PvPGame(
+        /** This field holds the game's ID. */
         val id: String,
+        /** This field holds the map's ID. */
         @SerialName("map_id")
         val mapID: Int,
+        /** This field holds the ISO-8601 standard timestamp of when the game started. */
         val started: String,
+        /** This field holds the ISO-8601 standard timestamp of when the game ended. */
         val ended: String,
+        /** This field holds the game's result for the team ("Victory" or "Defeat"). */
         val result: String,
+        /** This field holds the team's color ("Blue" or "Red"). */
         val team: String,
+        /** This field holds the type of rating of the game. */
         @SerialName("rating_type")
         val ratingType: String,
+        /** This field holds the change in rating for the team. */
         @SerialName("rating_change")
         val ratingChange: Int? = null,
+        /** This field holds the ID of the game's PvP season. */
         val season: String? = null,
+        /** This field holds the game's final scores. */
         val scores: Scores
     ) {
 
@@ -118,7 +142,9 @@ public data class GW2v2GuildTeam(
          */
         @Serializable
         public data class Scores(
+            /** This field holds the red team's score. */
             val red: Int,
+            /** This field holds the blue team's score. */
             val blue: Int
         )
 
@@ -134,9 +160,13 @@ public data class GW2v2GuildTeam(
      */
     @Serializable
     public data class SeasonStats(
+        /** This field holds the season's ID. */
         val id: String,
+        /** This field holds the amount of wins. */
         val wins: Int,
+        /** This field holds the amount of losses. */
         val losses: Int,
+        /** This field holds the team's rating. */
         val rating: Int
     )
 

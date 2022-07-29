@@ -41,13 +41,21 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPSeason(
+    /** This field holds the PvP season's ID. */
     val id: String,
+    /** This field holds the season's localized name. */
     val name: String,
+    /** This field holds the ISO-8601 standard timestamp of when the season started. */
     val start: String,
+    /** This field holds the ISO-8601 standard timestamp of when the season ended. */
     val end: String,
+    /** This field holds whether or not the season is currently active. */
     val active: Boolean,
+    /** This field holds the season's divisions. */
     val divisions: List<Division>,
+    /** This field holds the season's ranks. */
     val ranks: List<Ranks>? = null,
+    /** This field holds the season's leaderboards. */
     val leaderboards: Leaderboards
 ) {
 
@@ -63,14 +71,20 @@ public data class GW2v2PvPSeason(
      */
     @Serializable
     public data class Division(
+        /** This field holds the division's localized name. */
         val name: String,
+        /** This field holds the flags providing additional information about the division. */
         val flags: List<String>,
+        /** This field holds the render service URL for the division's large icon. */
         @SerialName("large_icon")
         val largeIcon: String,
+        /** This field holds the render service URL for the division's small icon. */
         @SerialName("small_icon")
         val smallIcon: String,
+        /** This field holds the render service URL for the division's pip icon. */
         @SerialName("pip_icon")
         val pipIcon: String,
+        /** This field holds the division's tiers. */
         val tiers: List<Tier>
     ) {
 
@@ -81,6 +95,7 @@ public data class GW2v2PvPSeason(
          */
         @Serializable
         public data class Tier(
+            /** This field holds the number of pips in the tier. */
             val points: Int
         )
 
@@ -98,12 +113,18 @@ public data class GW2v2PvPSeason(
      */
     @Serializable
     public data class Ranks(
+        /** This field holds the rank's localized name. */
         val name: String,
+        /** This field holds the rank's localized description. */
         val description: String,
+        /** This field holds the render service URL for the rank's icon. */
         val icon: String,
+        /** This field holds the render service URL for the rank's overlay icon. */
         val overlay: String,
+        /** This field holds the render service URL for the rank's overlay icon. */
         @SerialName("overlay_small")
         val overlaySmall: String,
+        /** This field holds the rank's tiers. */
         val tiers: List<Tier>
     ) {
 
@@ -114,6 +135,7 @@ public data class GW2v2PvPSeason(
          */
         @Serializable
         public data class Tier(
+            /** This field holds the rating required for the tier. */
             val rating: Int
         )
 
@@ -128,8 +150,11 @@ public data class GW2v2PvPSeason(
      */
     @Serializable
     public data class Leaderboards(
+        /** This field holds the season's guild leaderboard. */
         val guild: Leaderboard? = null,
+        /** This field holds the season's leaderboard. */
         val ladder: Leaderboard? = null,
+        /** This field holds the season's legendary rank leaderboard. */
         val legendary: Leaderboard? = null
     ) {
 
@@ -141,7 +166,9 @@ public data class GW2v2PvPSeason(
          */
         @Serializable
         public data class Leaderboard(
+            /** This field holds the leaderboard's settings. */
             val settings: Settings,
+            /** This field holds the leaderboard's scoring information. */
             val scorings: List<Scoring>
         ) {
 
@@ -155,9 +182,13 @@ public data class GW2v2PvPSeason(
              */
             @Serializable
             public data class Settings(
+                /** This field holds the setting's name. */
                 val name: String,
+                /** This field holds the setting's duration (unknown purpose). */
                 val duration: String? = null,
+                /** This field holds the ID of the primary scoring component. */
                 val scoring: String,
+                /** This field holds the tiers. */
                 val tiers: List<Tier>
             ) {
 
@@ -171,9 +202,13 @@ public data class GW2v2PvPSeason(
                  */
                 @Serializable
                 public data class Tier(
+                    /** This field holds the tier's color as hex value. */
                     val color: String? = null,
+                    /** This field holds the tier's type. */
                     val type: String? = null,
+                    /** This field holds the tier's name. */
                     val name: String? = null,
+                    /** This field holds the tier's scoring range. */
                     val range: List<Double>
                 )
 
@@ -190,10 +225,15 @@ public data class GW2v2PvPSeason(
              */
             @Serializable
             public data class Scoring(
+                /** This field holds the scoring's ID. */
                 val id: String,
+                /** This field holds the scoring's type. */
                 val type: String,
+                /** This field holds the scoring's localized description. */
                 val description: String,
+                /** This field holds the scoring's localized name. */
                 val name: String,
+                /** This field holds the scoring's ordering ("MoreIsBetter" or "LessIsBetter"). */
                 val ordering: String
             )
 

@@ -42,15 +42,24 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Color(
+    /** This field holds the color's ID. */
     val id: Int,
+    /** This field holds the color's name. */
     val name: String,
+    /** This field holds the base RGB values. */
     @SerialName("base_rgb")
     val baseRGB: List<Int>,
+    /** This field holds detailed information on its appearance when applied on cloth armor. */
     val cloth: Appearance,
+    /** This field holds detailed information on its appearance when applied on leather armor. */
     val leather: Appearance,
+    /** This field holds detailed information on its appearance when applied on metal armor. */
     val metal: Appearance,
+    /** This field holds detailed information on its appearance when applied on fur armor. */
     val fur: Appearance? = null,
+    /** This field holds the ID of the dye item. */
     val item: Int? = null,
+    /** This field holds the categories of the color. */
     val categories: List<String>
 ) {
 
@@ -66,11 +75,17 @@ public data class GW2v2Color(
      */
     @Serializable
     public data class Appearance(
+        /** This field holds the brightness. */
         val brightness: Int,
+        /** This field holds the contrast. */
         val contrast: Double,
+        /** This field holds the hue in HSL colorspace. */
         val hue: Int,
+        /** This field holds the saturation in HSL colorspace. */
         val saturation: Double,
+        /** This field holds the lightness in HSL colorspace. */
         val lightness: Double,
+        /** This field holds a list containing precalculated RGB values. */
         @SerialName("rgb")
         val rGB: List<Int>
     )

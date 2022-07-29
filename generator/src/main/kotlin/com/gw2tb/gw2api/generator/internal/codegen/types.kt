@@ -346,7 +346,14 @@ private fun SchemaProperty.printToString(
 ): String = buildString {
     require(!(isAbstract && isOverride))
 
-    if (isAbstract) appendLine(dokka())
+    /*
+     * I'm not sure if the current behavior is the intended behavior but dokka does not seem to copy the documentation
+     * from a "param" tag to a property anymore. Thus, we use `!isOverride` here instead of `isAbstract` to generate
+     * property documentation everywhere.
+     *
+     * See https://github.com/Kotlin/dokka/issues/232
+     */
+    if (!isOverride) appendLine(dokka())
 
     if (isDeprecated) appendLine("""@Deprecated(message = "")""")
 

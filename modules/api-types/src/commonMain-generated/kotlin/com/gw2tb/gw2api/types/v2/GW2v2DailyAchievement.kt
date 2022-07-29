@@ -36,8 +36,11 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2DailyAchievement(
+    /** This field holds the achievement's ID. */
     val id: Int,
+    /** This field holds the level requirement for the daily achievement to appear. */
     val level: LevelRequirement,
+    /** This field holds the GW2 campaigns required to see the daily achievement. */
     @SerialName("required_access")
     val requiredAccess: List<String>
 ) {
@@ -50,7 +53,9 @@ public data class GW2v2DailyAchievement(
      */
     @Serializable
     public data class LevelRequirement(
+        /** This field holds the minimum level for a character to the daily achievement. */
         val min: Int,
+        /** This field holds the maximum level for a character to the daily achievement. */
         val max: Int
     )
 

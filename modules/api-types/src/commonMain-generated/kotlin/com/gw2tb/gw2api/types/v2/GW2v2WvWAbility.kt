@@ -38,10 +38,15 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2WvWAbility(
+    /** This field holds the ID of the ability. */
     val id: Int,
+    /** This field holds the ability's localized name. */
     val name: String,
+    /** This field holds the ability's localized description. */
     val description: String,
+    /** This field holds a render service URL for the ability's icon. */
     val icon: String,
+    /** This field holds the ability's ranks. */
     val ranks: List<Rank>
 ) {
 
@@ -53,7 +58,9 @@ public data class GW2v2WvWAbility(
      */
     @Serializable
     public data class Rank(
+        /** This field holds the WvW experience points required to unlock the rank. */
         val cost: Int,
+        /** This field holds the rank's localized effect. */
         val effect: String
     )
 

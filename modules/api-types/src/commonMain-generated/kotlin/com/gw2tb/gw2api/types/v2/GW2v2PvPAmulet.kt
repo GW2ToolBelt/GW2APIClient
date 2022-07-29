@@ -37,9 +37,13 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPAmulet(
+    /** This field holds the amulet's ID. */
     val id: Int,
+    /** This field holds the amulet's localized name. */
     val name: String,
+    /** This field holds a render service URL for the amulet's icon. */
     val icon: String,
+    /** This field holds the amulet's stats. */
     val attributes: Stats
 ) {
 
@@ -59,24 +63,34 @@ public data class GW2v2PvPAmulet(
      */
     @Serializable
     public data class Stats(
+        /** This field holds the amount of agony resistance given by the amulet. */
         @SerialName("AgonyResistance")
         val agonyResistance: Int? = null,
+        /** This field holds the amount of boon duration given by the amulet. */
         @SerialName("BoonDuration")
         val boonDuration: Int? = null,
+        /** This field holds the amount of condition damage given by the amulet. */
         @SerialName("ConditionDamage")
         val conditionDamage: Int? = null,
+        /** This field holds the amount of condition duration given by the amulet. */
         @SerialName("ConditionDuration")
         val conditionDuration: Int? = null,
+        /** This field holds the amount of crit damage given by the amulet. */
         @SerialName("CritDamage")
         val critDamage: Int? = null,
+        /** This field holds the amount of healing given by the amulet. */
         @SerialName("Healing")
         val healing: Int? = null,
+        /** This field holds the amount of power given by the amulet. */
         @SerialName("Power")
         val power: Int? = null,
+        /** This field holds the amount of precision given by the amulet. */
         @SerialName("Precision")
         val precision: Int? = null,
+        /** This field holds the amount of toughness given by the amulet. */
         @SerialName("Toughness")
         val toughness: Int? = null,
+        /** This field holds the amount of vitality given by the amulet. */
         @SerialName("Vitality")
         val vitality: Int? = null
     )

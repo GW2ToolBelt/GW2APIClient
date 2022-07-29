@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2EmblemPart(
+    /** This field holds the emblem part's ID. */
     val id: Int,
+    /** This field holds an array of URLs to images that make up the various parts of the emblem. */
     val layers: List<String>
 )

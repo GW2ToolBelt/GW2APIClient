@@ -40,15 +40,22 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPRank(
+    /** This field holds the PvP rank's ID. */
     val id: Int,
+    /** This field holds the rank finisher's ID. */
     @SerialName("finisher_id")
     val finisherID: Int,
+    /** This field holds the rank's localized name. */
     val name: String,
+    /** This field holds a render service URL for the rank's icon. */
     val icon: String,
+    /** This field holds the minimum PvP level required for the rank. */
     @SerialName("min_rank")
     val minRank: Int,
+    /** This field holds the maximum PvP level for the rank. */
     @SerialName("max_rank")
     val maxRank: Int,
+    /** This field holds the rank's levels. */
     val levels: List<Level>
 ) {
 
@@ -61,10 +68,13 @@ public data class GW2v2PvPRank(
      */
     @Serializable
     public data class Level(
+        /** This field holds the minimum PvP level required for the level. */
         @SerialName("min_rank")
         val minRank: Int,
+        /** This field holds the maximum PvP level for the level. */
         @SerialName("max_rank")
         val maxRank: Int,
+        /** This field holds the amount of PvP experience needed to go from the given minimum rank to maximum rank. */
         val points: Int
     )
 

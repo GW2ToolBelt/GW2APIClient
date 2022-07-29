@@ -37,9 +37,13 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CommercePrices(
+    /** This field holds the item's ID. */
     val id: Int,
+    /** This field holds indicates whether or not a free to play account can purchase or sell this item on the trading post. */
     val whitelisted: Boolean,
+    /** This field holds the buy information. */
     val buys: BuyListing,
+    /** This field holds the sell information. */
     val sells: SellListing
 ) {
 
@@ -51,8 +55,10 @@ public data class GW2v2CommercePrices(
      */
     @Serializable
     public data class BuyListing(
+        /** This field holds the highest buy order price in coins. */
         @SerialName("unit_price")
         val unitPrice: Int,
+        /** This field holds the amount of items being bought. */
         val quantity: Int
     )
 
@@ -64,8 +70,10 @@ public data class GW2v2CommercePrices(
      */
     @Serializable
     public data class SellListing(
+        /** This field holds the lowest sell order price in coins. */
         @SerialName("unit_price")
         val unitPrice: Int,
+        /** This field holds the amount of items being sold. */
         val quantity: Int
     )
 

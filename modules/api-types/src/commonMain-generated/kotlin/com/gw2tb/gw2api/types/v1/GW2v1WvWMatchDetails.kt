@@ -36,9 +36,12 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1WvWMatchDetails(
+    /** This field holds the match's ID. */
     @SerialName("match_id")
     val matchID: String,
+    /** This field holds the total scores. */
     val scores: List<Int>,
+    /** This field holds the map information. */
     val maps: List<GameMap>
 ) {
 
@@ -52,9 +55,13 @@ public data class GW2v1WvWMatchDetails(
      */
     @Serializable
     public data class GameMap(
+        /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
         val type: String,
+        /** This field holds the scores. */
         val scores: List<Int>,
+        /** This field holds the map's objectives. */
         val objectives: List<Objective>,
+        /** This field holds the bonuses granted by this map. */
         val bonuses: List<Bonus>
     ) {
 
@@ -67,8 +74,11 @@ public data class GW2v1WvWMatchDetails(
          */
         @Serializable
         public data class Objective(
+            /** This field holds the objective's ID. */
             val id: Int,
+            /** This field holds the objective's owner (i.e. "Red", "Green", "Blue", or "Neutral"). */
             val owner: String,
+            /** This field holds the guild ID of the guild that currently has claimed this objective. */
             @SerialName("owner_guild")
             val ownerGuild: String? = null
         )
@@ -81,7 +91,9 @@ public data class GW2v1WvWMatchDetails(
          */
         @Serializable
         public data class Bonus(
+            /** This field holds the type of the bonus. */
             val type: String,
+            /** This field holds the owner of the bonus (i.e. "Red", "Green", "Blue"). */
             val owner: String
         )
 

@@ -35,7 +35,9 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountMasteryPoint(
+    /** This field holds information about the total mastery points for a region. */
     val totals: List<Total>,
+    /** This field holds the list of IDs of unlocked mastery points. */
     val unlocked: List<Int>
 ) {
 
@@ -48,8 +50,11 @@ public data class GW2v2AccountMasteryPoint(
      */
     @Serializable
     public data class Total(
+        /** This field holds the mastery region. */
         val region: String,
+        /** This field holds the amount of mastery points of this region spent in mastery tracks. */
         val spent: Int,
+        /** This field holds the amount of mastery points of this region earned for the account. */
         val earned: Int
     )
 

@@ -34,6 +34,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1WvWMatches(
+    /** This field holds the matches. */
     @SerialName("wvw_matches")
     val wvWMatches: List<WvWMatch>
 ) {
@@ -50,16 +51,22 @@ public data class GW2v1WvWMatches(
      */
     @Serializable
     public data class WvWMatch(
+        /** This field holds the match's ID. */
         @SerialName("wvw_match_id")
         val wvWMatchID: String,
+        /** This field holds the ID of the red team's primary server. */
         @SerialName("red_world_id")
         val redWorldID: Int,
+        /** This field holds the ID of the blue team's primary server. */
         @SerialName("blue_world_id")
         val blueWorldID: Int,
+        /** This field holds the ID of the green team's primary server. */
         @SerialName("green_world_id")
         val greenWorldID: Int,
+        /** This field holds the ISO-8601 standard timestamp of when the match's start. */
         @SerialName("start_time")
         val startTime: String,
+        /** This field holds the ISO-8601 standard timestamp of when the match's end. */
         @SerialName("end_time")
         val endTime: String
     )

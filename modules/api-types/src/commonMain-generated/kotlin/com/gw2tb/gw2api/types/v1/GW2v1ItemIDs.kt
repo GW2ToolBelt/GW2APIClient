@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1ItemIDs(
+    /** This field holds the IDs of the available items. */
     val items: List<Int>
 )

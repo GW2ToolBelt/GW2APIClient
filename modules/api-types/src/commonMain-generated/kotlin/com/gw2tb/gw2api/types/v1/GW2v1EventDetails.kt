@@ -34,6 +34,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1EventDetails(
+    /** This field holds the events. */
     val events: Map<String, EventDetails>
 ) {
 
@@ -48,11 +49,16 @@ public data class GW2v1EventDetails(
      */
     @Serializable
     public data class EventDetails(
+        /** This field holds the event's name. */
         val name: String,
+        /** This field holds the event's level. */
         val level: Int,
+        /** This field holds the ID of the map where the event takes place. */
         @SerialName("map_id")
         val mapID: Int,
+        /** This field holds additional information about the event (e.g. group_event, map_wide, meta_event, dungeon_event). */
         val flags: List<String>,
+        /** This field holds the event's location. */
         val location: Location
     ) {
 
@@ -96,9 +102,13 @@ public data class GW2v1EventDetails(
             @Serializable(with = __CylinderSerializer::class)
             public data class Cylinder(
                 override val type: String,
+                /** This field holds the coordinates (x,y,z) of the cylinder's center (in map coordinates). */
                 val center: List<Double>,
+                /** This field holds the cylinder's height. */
                 val height: Double,
+                /** This field holds the cylinder's radius. */
                 val radius: Double,
+                /** This field holds the cylinder's rotation. */
                 val rotation: Double
             ) : Location()
 
@@ -122,9 +132,12 @@ public data class GW2v1EventDetails(
             @Serializable(with = __PolySerializer::class)
             public data class Poly(
                 override val type: String,
+                /** This field holds the coordinates (x,y,z) of the polygon's center (in map coordinates). */
                 val center: List<Double>,
+                /** This field holds the polygon's z-range. */
                 @SerialName("z_range")
                 val zRange: List<Double>,
+                /** This field holds the polygon's points. */
                 val points: List<List<Double>>
             ) : Location()
 
@@ -148,8 +161,11 @@ public data class GW2v1EventDetails(
             @Serializable(with = __SphereSerializer::class)
             public data class Sphere(
                 override val type: String,
+                /** This field holds the coordinates (x,y,z) of the sphere's center (in map coordinates). */
                 val center: List<Double>,
+                /** This field holds the sphere's radius. */
                 val radius: Double,
+                /** This field holds the sphere's rotation. */
                 val rotation: Double
             ) : Location()
 

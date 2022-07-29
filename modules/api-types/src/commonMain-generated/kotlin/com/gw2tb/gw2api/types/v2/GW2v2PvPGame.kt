@@ -44,19 +44,30 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPGame(
+    /** This field holds the game's ID. */
     val id: String,
+    /** This field holds the map's ID. */
     @SerialName("map_id")
     val mapID: Int,
+    /** This field holds the ISO-8601 standard timestamp of when the game started. */
     val started: String,
+    /** This field holds the ISO-8601 standard timestamp of when the game ended. */
     val ended: String,
+    /** This field holds the game's result for the account ("Victory" or "Defeat"). */
     val result: String,
+    /** This field holds the player's team ("Blue" or "Red"). */
     val team: String,
+    /** This field holds the ID of the player's profession. */
     val profession: String,
+    /** This field holds the type of rating of the game. */
     @SerialName("rating_type")
     val ratingType: String,
+    /** This field holds the change in rating for the account. */
     @SerialName("rating_change")
     val ratingChange: Int? = null,
+    /** This field holds the ID of the game's PvP season. */
     val season: String? = null,
+    /** This field holds the game's final scores. */
     val scores: Scores
 ) {
 
@@ -68,7 +79,9 @@ public data class GW2v2PvPGame(
      */
     @Serializable
     public data class Scores(
+        /** This field holds the red team's score. */
         val red: Int,
+        /** This field holds the blue team's score. */
         val blue: Int
     )
 

@@ -82,9 +82,13 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable
     public data class Cost(
+        /** This field holds the cost's type. */
         val type: String,
+        /** This field holds the cost's name. */
         val name: String,
+        /** This field holds the amount needed. */
         val count: Int,
+        /** This field holds the ID of the cost's item. */
         @SerialName("item_id")
         val itemID: Int? = null
     )
@@ -146,8 +150,10 @@ public sealed class GW2v2GuildUpgrade {
         override val experience: Int,
         override val prerequisites: List<Int>,
         override val costs: List<Cost>,
+        /** This field holds the maximum item slots of the guild bank tab. */
         @SerialName("bag_max_items")
         val bagMaxItems: Int,
+        /** This field holds the maximum amount of coins that can be stored in the bank tab. */
         @SerialName("bag_max_coins")
         val bagMaxCoins: Int
     ) : GW2v2GuildUpgrade()

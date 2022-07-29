@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1WorldName(
+    /** This field holds the ID of the world. */
     val id: Int,
+    /** This field holds the name of the world. */
     val name: String
 )

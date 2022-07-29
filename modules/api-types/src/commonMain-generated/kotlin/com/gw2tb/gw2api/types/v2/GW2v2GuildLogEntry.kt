@@ -97,6 +97,7 @@ public sealed class GW2v2GuildLogEntry {
         override val time: String,
         override val user: String? = null,
         override val type: String,
+        /** This field holds the account name of the guild member who invited the user. */
         @SerialName("invited_by")
         val invitedBy: String
     ) : GW2v2GuildLogEntry()
@@ -122,6 +123,7 @@ public sealed class GW2v2GuildLogEntry {
         override val time: String,
         override val user: String? = null,
         override val type: String,
+        /** This field holds the account name of the guild member who kicked the user. */
         @SerialName("kicked_by")
         val kickedBy: String
     ) : GW2v2GuildLogEntry()
@@ -149,10 +151,13 @@ public sealed class GW2v2GuildLogEntry {
         override val time: String,
         override val user: String? = null,
         override val type: String,
+        /** This field holds the account name of the guild member who changed the rank of the user. */
         @SerialName("changed_by")
         val changedBy: String,
+        /** This field holds the name of the old rank. */
         @SerialName("old_rank")
         val oldRank: String,
+        /** This field holds the name of the new rank. */
         @SerialName("new_rank")
         val newRank: String
     ) : GW2v2GuildLogEntry()
@@ -179,8 +184,10 @@ public sealed class GW2v2GuildLogEntry {
         override val time: String,
         override val user: String? = null,
         override val type: String,
+        /** This field holds the item's ID. */
         @SerialName("item_id")
         val itemID: Int,
+        /** This field holds how many of the item was deposited. */
         val count: Int
     ) : GW2v2GuildLogEntry()
 
@@ -208,10 +215,14 @@ public sealed class GW2v2GuildLogEntry {
         override val time: String,
         override val user: String? = null,
         override val type: String,
+        /** This field holds the action (may be "deposit", "withdraw" or "move". */
         val operation: String,
+        /** This field holds the item's ID. */
         @SerialName("item_id")
         val itemID: Int,
+        /** This field holds how many of the item was deposited. */
         val count: Int,
+        /** This field holds the amount of deposited coins. */
         val coins: Int
     ) : GW2v2GuildLogEntry()
 
@@ -236,6 +247,7 @@ public sealed class GW2v2GuildLogEntry {
         override val time: String,
         override val user: String? = null,
         override val type: String,
+        /** This field holds the new message of the day. */
         val motd: String
     ) : GW2v2GuildLogEntry()
 
@@ -263,10 +275,14 @@ public sealed class GW2v2GuildLogEntry {
         override val time: String,
         override val user: String? = null,
         override val type: String,
+        /** This field holds the action (may be "queued", "cancelled", "completed" or "sped_up". */
         val action: String,
+        /** This field holds how many upgrade were added. */
         val count: Int? = null,
+        /** This field holds the ID of the completed upgrade. */
         @SerialName("upgrade_id")
         val upgradeID: Int,
+        /** This field holds the recipe that generated the upgrade. */
         @SerialName("recipe_id")
         val recipeID: Int? = null
     ) : GW2v2GuildLogEntry()

@@ -37,9 +37,13 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2WvWMatchStats(
+    /** This field holds the match's ID. */
     val id: String,
+    /** This field holds the deaths by team color. */
     val deaths: Map<String, Int>,
+    /** This field holds the deaths by team color. */
     val kills: Map<String, Int>,
+    /** This field holds the stats by map. */
     val maps: List<GameMap>
 ) {
 
@@ -53,9 +57,13 @@ public data class GW2v2WvWMatchStats(
      */
     @Serializable
     public data class GameMap(
+        /** This field holds the map's ID. */
         val id: Int,
+        /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
         val type: String,
+        /** This field holds the deaths by team color. */
         val deaths: Map<String, Int>,
+        /** This field holds the deaths by team color. */
         val kills: Map<String, Int>
     )
 

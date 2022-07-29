@@ -48,26 +48,41 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Account(
+    /** This field holds the unique persistent account GUID. */
     val id: String,
+    /** This field holds the age of the account in seconds. */
     val age: Int,
+    /** This field holds the unique account name. */
     val name: String,
+    /** This field holds the ID of the home world the account is assigned to. */
     val world: Int,
+    /** This field holds an array containing the IDs of all guilds the account is a member in. */
     val guilds: List<String>,
+    /** This field holds an array containing the IDs of all guilds the account is a leader of. */
     @SerialName("guild_leader")
     val guildLeader: List<String>? = null,
+    /** This field holds the ISO-8601 standard timestamp of when the account was created. */
     val created: String,
+    /** This field holds an array of what content this account has access to. */
     val access: List<String>,
+    /** This field holds a flag indicating whether or not the commander tag is unlocked for the account. */
     val commander: Boolean,
+    /** This field holds the account's personal fractal level. */
     @SerialName("fractal_level")
     val fractalLevel: Int? = null,
+    /** This field holds the daily AP the account has. */
     @SerialName("daily_ap")
     val dailyAP: Int? = null,
+    /** This field holds the monthly AP the account has. */
     @SerialName("monthly_ap")
     val monthlyAP: Int? = null,
+    /** This field holds the account's personal wvw rank. */
     @SerialName("wvw_rank")
     val wvwRank: Int? = null,
+    /** This field holds the ISO-8601 standard timestamp of when the account information last changed (as perceived by the API). */
     @SerialName("last_modified")
     val lastModified: String,
+    /** This field holds the number of the account's account-wide build storage slots unlocked. */
     @SerialName("build_storage_slots")
     val buildStorageSlots: Int
 )

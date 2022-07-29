@@ -38,10 +38,15 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Pet(
+    /** This field holds the pet's ID. */
     val id: Int,
+    /** This field holds the pet's name. */
     val name: String,
+    /** This field holds the pet's description. */
     val description: String,
+    /** This field holds a render service URL for the pet's icon. */
     val icon: String,
+    /** This field holds the pet's skills. */
     val skills: List<Skill>
 ) {
 
@@ -52,6 +57,7 @@ public data class GW2v2Pet(
      */
     @Serializable
     public data class Skill(
+        /** This field holds the skill's ID. */
         val id: Int
     )
 

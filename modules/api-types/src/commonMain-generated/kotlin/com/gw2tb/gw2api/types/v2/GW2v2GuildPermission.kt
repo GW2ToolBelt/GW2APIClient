@@ -36,7 +36,10 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2GuildPermission(
+    /** This field holds the permission's ID. */
     val id: String,
+    /** This field holds the permission's localized name. */
     val name: String,
+    /** This field holds the permission's localized description. */
     val description: String
 )

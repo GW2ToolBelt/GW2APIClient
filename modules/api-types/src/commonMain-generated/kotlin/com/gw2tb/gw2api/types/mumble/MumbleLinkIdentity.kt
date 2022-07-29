@@ -41,20 +41,31 @@ import kotlinx.serialization.*
  */
 @Serializable
 public data class MumbleLinkIdentity(
+    /** This field holds the name of the currently played character. */
     val name: String,
+    /** This field holds the current profession (class) of the currently played character. */
     val profession: Int,
+    /** This field holds the ID of the current elite-specialization of the currently played character, or 0. */
     val spec: Int,
+    /** This field holds the ID of the race of the currently played character. */
     val race: Int,
+    /** This field holds the ID of the current map. */
     @SerialName("map_id")
     val mapId: Int,
+    /** This field holds the ID of the current world. */
     @SerialName("world_id")
     val worldId: Int,
+    /** This field holds the ID of the current team. */
     @SerialName("team_color_id")
     val teamColorId: Int,
+    /** This field holds whether or not the player currently is commanding a squad. */
     val commander: Boolean,
+    /** This field holds the ID of the current map. */
     val map: Int,
+    /** This field holds the scaling of the FOV. */
     @SerialName("fov")
     val foV: Double,
+    /** This field holds the selected UI size. */
     @SerialName("uisz")
     val uISize: Int
 )

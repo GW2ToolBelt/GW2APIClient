@@ -38,11 +38,16 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2MountType(
+    /** This field holds the mount type's ID. */
     val id: String,
+    /** This field holds the mount type's name. */
     val name: String,
+    /** This field holds the ID of the mount type's default skin. */
     @SerialName("default_skin")
     val defaultSkin: Int,
+    /** This field holds the IDs of the skins available for the mount type. */
     val skins: List<Int>,
+    /** This field holds the mount type's skills. */
     val skills: List<Skill>
 ) {
 
@@ -54,7 +59,9 @@ public data class GW2v2MountType(
      */
     @Serializable
     public data class Skill(
+        /** This field holds the mount skill's ID. */
         val id: Int,
+        /** This field holds the mount skill's slot. */
         val slot: String
     )
 

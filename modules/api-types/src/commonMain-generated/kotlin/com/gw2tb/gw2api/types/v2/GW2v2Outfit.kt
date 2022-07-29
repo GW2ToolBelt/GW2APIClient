@@ -37,9 +37,13 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Outfit(
+    /** This field holds the outfit's ID. */
     val id: Int,
+    /** This field holds the outfit's name. */
     val name: String,
+    /** This field holds the outfit's icon. */
     val icon: String,
+    /** This field holds the IDs of the items that unlock the outfit. */
     @SerialName("unlock_items")
     val unlockItems: List<Int>
 )

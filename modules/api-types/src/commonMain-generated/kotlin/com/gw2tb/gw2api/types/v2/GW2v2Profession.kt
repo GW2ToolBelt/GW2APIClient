@@ -44,17 +44,28 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Profession(
+    /** This field holds the profession's ID. */
     val id: String,
+    /** This field holds the profession's localized name. */
     val name: String,
+    /** This field holds the profession's palette code. */
     val code: Int,
+    /** This field holds a render service URL for the profession's icon. */
     val icon: String,
+    /** This field holds a render service URL for a big version of the profession's icon. */
     @SerialName("icon_big")
     val bigIcon: String,
+    /** This field holds the IDs of the profession's specializations. */
     val specializations: List<Int>,
+    /** This field holds information about the weapons usable by this profession. */
     val weapons: Map<String, Weapon>,
+    /** This field holds additional flags describing this profession's properties (e.g. NoRacialSkills). */
     val flags: List<String>,
+    /** This field holds the profession specific skills. */
     val skills: List<Skill>,
+    /** This field holds array of trainings of this profession. */
     val training: List<Training>,
+    /** This field holds mappings from palette IDs to skill IDs. */
     @SerialName("skills_by_palette")
     val skillsByPalette: List<List<Int>>
 ) {
@@ -68,8 +79,11 @@ public data class GW2v2Profession(
      */
     @Serializable
     public data class Weapon(
+        /** This field holds the ID of the profession's specializations required for this weapon. */
         val specialization: Int? = null,
+        /** This field holds additional flags describing this weapon's properties (e.g. MainHand, OffHand, TwoHand, Aquatic). */
         val flags: List<String>,
+        /** This field holds the skills for the weapon if wielded by this profession. */
         val skills: List<Skill>
     ) {
 
@@ -83,9 +97,13 @@ public data class GW2v2Profession(
          */
         @Serializable
         public data class Skill(
+            /** This field holds the skill's ID. */
             val id: Int,
+            /** This field holds the skill's slot. */
             val slot: String,
+            /** This field holds the elementalist attunement for this skill. */
             val attunement: String? = null,
+            /** This field holds the offhand weapon for this skill. */
             val offhand: String? = null
         )
 
@@ -102,10 +120,15 @@ public data class GW2v2Profession(
      */
     @Serializable
     public data class Skill(
+        /** This field holds the skill's ID. */
         val id: Int,
+        /** This field holds the skill's slot. */
         val slot: String,
+        /** This field holds the skill's type. */
         val type: String,
+        /** This field holds the elementalist attunement for this skill. */
         val attunement: String? = null,
+        /** This field holds the profession ID of the source of the stolen skill. */
         val source: String? = null
     )
 
@@ -119,9 +142,13 @@ public data class GW2v2Profession(
      */
     @Serializable
     public data class Training(
+        /** This field holds the training's ID. */
         val id: Int,
+        /** This field holds the training's category. */
         val category: String,
+        /** This field holds the training's localized name. */
         val name: String,
+        /** This field holds array of skill/trait in the training track. */
         val track: List<Track>
     ) {
 
@@ -135,10 +162,14 @@ public data class GW2v2Profession(
          */
         @Serializable
         public data class Track(
+            /** This field holds the amount of skill points required to unlock this step. */
             val cost: Int,
+            /** This field holds the type of the step (e.g. Skill, Trait). */
             val type: String,
+            /** This field holds the ID of the skill unlocked by this step. */
             @SerialName("skill_id")
             val skillID: Int? = null,
+            /** This field holds the ID of the trait unlocked by this step. */
             @SerialName("trait_id")
             val traitID: Int? = null
         )

@@ -35,7 +35,9 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CommerceDelivery(
+    /** This field holds the amount of coins ready for pickup. */
     val coins: Int,
+    /** This field holds the items ready for pickup. */
     val items: List<Item>
 ) {
 
@@ -47,7 +49,9 @@ public data class GW2v2CommerceDelivery(
      */
     @Serializable
     public data class Item(
+        /** This field holds the item's ID. */
         val id: Int,
+        /** This field holds the amount of this item ready for pickup. */
         val count: Int
     )
 

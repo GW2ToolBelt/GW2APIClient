@@ -36,8 +36,11 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CharactersSAB(
+    /** This field holds the character's completed zones. */
     val zones: List<Zone>,
+    /** This field holds the character's unlocked unlocks. */
     val unlocks: List<Unlock>,
+    /** This field holds the character's unlocked songs. */
     val songs: List<Song>
 ) {
 
@@ -51,9 +54,13 @@ public data class GW2v2CharactersSAB(
      */
     @Serializable
     public data class Zone(
+        /** This field holds the zone's ID. */
         val id: Int,
+        /** This field holds the mode used when completing this zone. */
         val mode: String,
+        /** This field holds the world this zone is in. */
         val world: Int,
+        /** This field holds the zone's number. */
         val zone: Int
     )
 
@@ -65,7 +72,9 @@ public data class GW2v2CharactersSAB(
      */
     @Serializable
     public data class Unlock(
+        /** This field holds the unlock's ID. */
         val id: Int,
+        /** This field holds an unlocalized name describing the unlock. */
         val name: String? = null
     )
 
@@ -77,7 +86,9 @@ public data class GW2v2CharactersSAB(
      */
     @Serializable
     public data class Song(
+        /** This field holds the song's ID. */
         val id: Int,
+        /** This field holds an unlocalized name describing the song. */
         val name: String? = null
     )
 

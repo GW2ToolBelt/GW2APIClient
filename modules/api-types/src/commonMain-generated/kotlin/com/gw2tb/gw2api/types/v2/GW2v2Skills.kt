@@ -36,8 +36,11 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Skills(
+    /** This field holds the character's PvE skills. */
     val pve: Skills,
+    /** This field holds the character's PvP skills. */
     val pvp: Skills,
+    /** This field holds the character's WvW skills. */
     val wvw: Skills
 ) {
 
@@ -51,9 +54,13 @@ public data class GW2v2Skills(
      */
     @Serializable
     public data class Skills(
+        /** This field holds the heal skill's ID. */
         val heal: Int? = null,
+        /** This field holds the IDs of the utility skills. */
         val utilities: List<Int?>,
+        /** This field holds the elite skill's ID. */
         val elite: Int? = null,
+        /** This field holds the legend IDs. */
         val legends: List<String?>? = null
     )
 

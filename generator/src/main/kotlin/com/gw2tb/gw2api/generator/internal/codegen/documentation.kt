@@ -44,7 +44,7 @@ internal val String.asComment: String get() = comment({
     append(this@asComment)
 })
 
-private fun comment(action: StringBuilder.() -> Unit, isDocComment: Boolean = false): String =
+private inline fun comment(action: StringBuilder.() -> Unit, isDocComment: Boolean = false): String =
     StringBuilder().apply(action).toString().lines().let {
         val start = if (isDocComment) "/**" else "/*"
 

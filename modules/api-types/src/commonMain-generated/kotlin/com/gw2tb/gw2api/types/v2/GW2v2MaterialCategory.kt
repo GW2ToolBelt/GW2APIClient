@@ -37,8 +37,12 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2MaterialCategory(
+    /** This field holds the category's ID. */
     val id: Int,
+    /** This field holds the category's name. */
     val name: String,
+    /** This field holds the IDs of this category's items. */
     val items: List<Int>,
+    /** This field holds the category's sorting key. */
     val order: Int
 )

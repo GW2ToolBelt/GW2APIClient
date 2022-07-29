@@ -42,19 +42,28 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1RecipeDetails(
+    /** This field holds the recipe's ID. */
     @SerialName("recipe_id")
     val recipeID: Int,
+    /** This field holds the recipe's type. */
     val type: String,
+    /** This field holds the ID of the produced item. */
     @SerialName("output_item_id")
     val outputItemID: Int,
+    /** This field holds the amount of items produced. */
     @SerialName("output_item_count")
     val outputItemCount: Int,
+    /** This field holds the time in milliseconds it takes to craft the item. */
     @SerialName("time_to_craft_ms")
     val craftTimeMillis: Int,
+    /** This field holds the crafting disciplines that can use the recipe. */
     val disciplines: List<String>,
+    /** This field holds the minimum rating required to use the recipe. */
     @SerialName("min_rating")
     val minRating: Int,
+    /** This field holds the flags applying to the recipe. */
     val flags: List<String>,
+    /** This field holds the recipe's ingredients. */
     val ingredients: List<Ingredient>
 ) {
 
@@ -66,8 +75,10 @@ public data class GW2v1RecipeDetails(
      */
     @Serializable
     public data class Ingredient(
+        /** This field holds the ingredient's item ID. */
         @SerialName("item_id")
         val itemID: Int,
+        /** This field holds the quantity of this ingredient. */
         val count: Int
     )
 

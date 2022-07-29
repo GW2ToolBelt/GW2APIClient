@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1MapName(
+    /** This field holds the map's ID. */
     val id: Int,
+    /** This field holds the map's name. */
     val name: String
 )

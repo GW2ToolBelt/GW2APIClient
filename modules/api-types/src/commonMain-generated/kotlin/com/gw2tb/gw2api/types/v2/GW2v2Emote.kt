@@ -36,8 +36,11 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Emote(
+    /** This field holds the emote's ID. */
     val id: String,
+    /** This field holds the commands that may be used to trigger the emote. */
     val commands: List<String>,
+    /** This field holds the IDs of the items that unlock the emote. */
     @SerialName("unlock_items")
     val unlockItems: List<Int>
 )

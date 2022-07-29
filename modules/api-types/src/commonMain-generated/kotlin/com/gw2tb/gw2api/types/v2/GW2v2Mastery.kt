@@ -40,12 +40,19 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Mastery(
+    /** This field holds the mastery's ID. */
     val id: Int,
+    /** This field holds the mastery's name. */
     val name: String,
+    /** This field holds the written out requirement to unlock the mastery track. */
     val requirement: String,
+    /** This field holds the order in which the mastery track appears in a list. */
     val order: Int,
+    /** This field holds the URL for the mastery track's background graphic. */
     val background: String,
+    /** This field holds the mastery region the track belongs to. */
     val region: String,
+    /** This field holds information about each mastery level. */
     val levels: List<Level>
 ) {
 
@@ -61,12 +68,18 @@ public data class GW2v2Mastery(
      */
     @Serializable
     public data class Level(
+        /** This field holds the mastery level's name. */
         val name: String,
+        /** This field holds the mastery level's description. */
         val description: String,
+        /** This field holds the in-game instruction for the mastery level. */
         val instruction: String,
+        /** This field holds the URL for the mastery level's icon. */
         val icon: String,
+        /** This field holds the amount of mastery points required to unlock the level. */
         @SerialName("point_cost")
         val pointCost: Int,
+        /** This field holds the amount of experience required to unlock the level. */
         @SerialName("exp_cost")
         val expCost: Int
     )

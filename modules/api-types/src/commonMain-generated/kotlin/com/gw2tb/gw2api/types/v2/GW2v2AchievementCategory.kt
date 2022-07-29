@@ -39,10 +39,16 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AchievementCategory(
+    /** This field holds the achievement category's ID. */
     val id: Int,
+    /** This field holds the URL for the achievement category's icon. */
     val icon: String,
+    /** This field holds the achievement category's localized name. */
     val name: String,
+    /** This field holds the achievement category's localized description. */
     val description: String,
+    /** This field holds a number that can be used to sort the list of categories. */
     val order: Int,
+    /** This field holds an array containing the IDs of the achievements that this category contains. */
     val achievements: List<Int>
 )

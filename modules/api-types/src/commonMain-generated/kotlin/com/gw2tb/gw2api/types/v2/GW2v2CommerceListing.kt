@@ -36,7 +36,10 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CommerceListing(
+    /** This field holds the item's ID. */
     val id: Int,
+    /** This field holds list of all buy listings. */
     val buys: List<GW2v2Listing>,
+    /** This field holds list of all sell listings. */
     val sells: List<GW2v2Listing>
 )

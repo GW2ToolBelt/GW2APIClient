@@ -34,6 +34,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1Build(
+    /** This field holds the current build ID. */
     @SerialName("build_id")
     val buildID: Int
 )

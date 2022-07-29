@@ -34,6 +34,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CharactersTraining(
+    /** This field holds the training information for a character's trained skill-trees. */
     val training: List<Training>
 ) {
 
@@ -46,8 +47,11 @@ public data class GW2v2CharactersTraining(
      */
     @Serializable
     public data class Training(
+        /** This field holds the skill tree's ID. */
         val id: Int,
+        /** This field holds the amount of hero points spent in the tree. */
         val spent: Int,
+        /** This field holds a flag indicating whether or not the tree is fully trained. */
         val done: Boolean
     )
 

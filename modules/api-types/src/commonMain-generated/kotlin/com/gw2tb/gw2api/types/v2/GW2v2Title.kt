@@ -38,11 +38,16 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Title(
+    /** This field holds the ID of the title. */
     val id: Int,
+    /** This field holds the display name of the title. */
     val name: String,
+    /** This field holds the ID of the achievement that grants this title. */
     @Deprecated(message = "")
     val achievement: Int? = null,
+    /** This field holds the IDs of the achievements that grant this title. */
     val achievements: List<Int>? = null,
+    /** This field holds the amount of AP required to unlock this title. */
     @SerialName("ap_required")
     val apRequired: Int? = null
 )

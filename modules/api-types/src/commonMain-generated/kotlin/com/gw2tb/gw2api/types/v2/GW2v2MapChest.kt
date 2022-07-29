@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2MapChest(
+    /** This field holds the ID of the chest. */
     val id: String
 )

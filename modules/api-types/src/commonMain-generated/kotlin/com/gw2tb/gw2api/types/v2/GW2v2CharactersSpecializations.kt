@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CharactersSpecializations(
+    /** This field holds the character's equipped specializations. */
     val specializations: GW2v2Specializations
 )

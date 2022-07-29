@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Quaggan(
+    /** This field holds the quaggans's ID. */
     val id: String,
+    /** This field holds the URL to the quaggan image. */
     val url: String
 )

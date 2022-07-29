@@ -36,8 +36,11 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2ItemStatSet(
+    /** This field holds the stat set's ID. */
     val id: Int,
+    /** This field holds the name of the stat set. */
     val name: String,
+    /** This field holds the list of attribute bonuses. */
     val attributes: List<Attribute>
 ) {
 
@@ -50,8 +53,11 @@ public data class GW2v2ItemStatSet(
      */
     @Serializable
     public data class Attribute(
+        /** This field holds the name of the attribute. */
         val attribute: String,
+        /** This field holds the multiplier for that attribute. */
         val multiplier: Double,
+        /** This field holds the default value for that attribute. */
         val value: Int
     )
 

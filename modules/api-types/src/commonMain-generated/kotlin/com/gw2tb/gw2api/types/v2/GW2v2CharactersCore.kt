@@ -44,16 +44,27 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CharactersCore(
+    /** This field holds the character's name. */
     val name: String,
+    /** This field holds the ID of the character's race. */
     val race: String,
+    /** This field holds the character's gender. */
     val gender: String,
+    /** This field holds the ID of the characters's profession. */
     val profession: String,
+    /** This field holds the character's level. */
     val level: Int,
+    /** This field holds the ID of the character's represented guild. */
     val guild: String? = null,
+    /** This field holds the amount of seconds the character was played. */
     val age: Int,
+    /** This field holds the ISO-8601 standard timestamp of when the character was created. */
     val created: String,
+    /** This field holds the ISO-8601 standard timestamp of when the API record of the character was last modified. */
     @SerialName("last_modified")
     val lastModified: String,
+    /** This field holds the amount of times the character has been defeated. */
     val deaths: Int,
+    /** This field holds the ID of the character's selected title. */
     val title: Int? = null
 )

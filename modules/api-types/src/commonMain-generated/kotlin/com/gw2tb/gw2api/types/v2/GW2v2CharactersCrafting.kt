@@ -34,6 +34,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CharactersCrafting(
+    /** This field holds the character's crafting disciplines. */
     val crafting: List<Discipline>
 ) {
 
@@ -46,8 +47,11 @@ public data class GW2v2CharactersCrafting(
      */
     @Serializable
     public data class Discipline(
+        /** This field holds the name of the discipline. */
         val discipline: String,
+        /** This field holds the character's crafting level for the discipline. */
         val rating: Int,
+        /** This field holds a flag indicating whether or not the discipline is currently active on the character. */
         val active: Boolean
     )
 

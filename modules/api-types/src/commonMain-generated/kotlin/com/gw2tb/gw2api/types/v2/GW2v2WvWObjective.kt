@@ -44,21 +44,32 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2WvWObjective(
+    /** This field holds the ID of the objective. */
     val id: String,
+    /** This field holds the name of the objective. */
     val name: String,
+    /** This field holds the type of the objective. */
     val type: String,
+    /** This field holds the map sector the objective can be found in. */
     @SerialName("sector_id")
     val sectorID: Int,
+    /** This field holds the ID of the map the objective can be found on. */
     @SerialName("map_id")
     val mapID: Int,
+    /** This field holds the type of the map the objective can be found on. */
     @SerialName("map_type")
     val mapType: String,
+    /** This field holds an array of three numbers representing the X, Y and Z coordinates of the objectives marker on the map. */
     val coord: List<Double>? = null,
+    /** This field holds an array of two numbers representing the X and Y coordinates of the sector centroid. */
     @SerialName("label_coord")
     val labelCoord: List<Double>? = null,
+    /** This field holds the icon link. */
     val marker: String? = null,
+    /** This field holds the chat code for the objective. */
     @SerialName("chat_link")
     val chatLink: String,
+    /** This field holds the ID of the upgrades available for the objective. */
     @SerialName("upgrade_id")
     val upgradeID: Int? = null
 )

@@ -90,8 +90,11 @@ public sealed class GW2v1ItemDetails {
      */
     @Serializable
     public data class Upgrade(
+        /** This field holds describes the method of upgrading. */
         val type: String,
+        /** This field holds the ID of the item that is upgraded into the item. */
         val from: Int? = null,
+        /** This field holds the ID of the item that results from performing the upgrade. */
         val into: Int? = null
     )
 
@@ -103,7 +106,9 @@ public sealed class GW2v1ItemDetails {
      */
     @Serializable
     public data class InfusionSlot(
+        /** This field holds infusion slot type of infusion upgrades. */
         val flags: List<String>,
+        /** This field holds the infusion upgrade in the armor piece. */
         @SerialName("item_id")
         val itemID: Int? = null
     )
@@ -117,8 +122,11 @@ public sealed class GW2v1ItemDetails {
      */
     @Serializable
     public data class InfixUpgrade(
+        /** This field holds the itemstat ID. */
         val id: Int,
+        /** This field holds the list of attribute bonuses granted by this item. */
         val attributes: List<Attribute>,
+        /** This field holds object containing an additional effect. */
         val buff: Buff? = null
     ) {
 
@@ -130,7 +138,9 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Attribute(
+            /** This field holds the attribute this bonus applies to. */
             val attribute: String,
+            /** This field holds the modifier value. */
             val modifier: Int
         )
 
@@ -142,8 +152,10 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Buff(
+            /** This field holds the skill ID of the effect. */
             @SerialName("skill_id")
             val skillID: Int,
+            /** This field holds the effect's description. */
             val description: String? = null
         )
 
@@ -201,22 +213,31 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Armor(
+            /** This field holds the armor slot type. */
             val type: String,
+            /** This field holds the weight class. */
             @SerialName("weight_class")
             val weightClass: String,
+            /** This field holds the defense value of the armor piece. */
             val defense: Int,
+            /** This field holds infusion slots of the armor piece. */
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlot>,
+            /** This field holds infix upgrade object. */
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
+            /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val suffixItemID: Int? = null,
+            /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val secondarySuffixItemID: Int? = null,
+            /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
+            /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         )
@@ -272,18 +293,24 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Back(
+            /** This field holds infusion slots of the back item. */
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlot>,
+            /** This field holds infix upgrade object. */
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
+            /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val suffixItemID: Int? = null,
+            /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val secondarySuffixItemID: Int? = null,
+            /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
+            /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         )
@@ -335,7 +362,9 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Bag(
+            /** This field holds the number of bag slots. */
             val size: Int,
+            /** This field holds whether the bag is invisible. */
             @SerialName("no_sell_or_sort")
             val noSellOrSort: Boolean
         )
@@ -397,24 +426,36 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Consumable(
+            /** This field holds the consumable type. */
             val type: String,
+            /** This field holds effect description for consumables applying an effect. */
             val description: String? = null,
+            /** This field holds effect duration in milliseconds. */
             @SerialName("duration_ms")
             val durationMs: Int? = null,
+            /** This field holds unlock type for unlock consumables. */
             @SerialName("unlock_type")
             val unlockType: String? = null,
+            /** This field holds the dye ID for dye unlocks. */
             @SerialName("color_id")
             val colorID: Int? = null,
+            /** This field holds the recipe ID for recipe unlocks. */
             @SerialName("recipe_id")
             val recipeID: Int? = null,
+            /** This field holds additional recipe IDs for recipe unlocks. */
             @SerialName("extra_recipe_ids")
             val extraRecipeIDs: List<Int>? = null,
+            /** This field holds the guild upgrade ID for the item. */
             @SerialName("guild_upgrade_id")
             val guildUpgradeID: Int? = null,
+            /** This field holds the number of stacks of the effect applied by this item. */
             @SerialName("apply_count")
             val applyCount: Int? = null,
+            /** This field holds the effect type name of the consumable. */
             val name: String? = null,
+            /** This field holds the icon of the effect. */
             val icon: String? = null,
+            /** This field holds a list of skin ids which this item unlocks. */
             val skins: List<Int>? = null
         )
 
@@ -464,6 +505,7 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Container(
+            /** This field holds the container type. */
             val type: String
         )
 
@@ -513,6 +555,7 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class GatheringTool(
+            /** This field holds the tool type. */
             val type: String
         )
 
@@ -564,9 +607,12 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Gizmo(
+            /** This field holds the gizmo type. */
             val type: String,
+            /** This field holds the guild upgrade ID for the item. */
             @SerialName("guild_upgrade_id")
             val guildUpgradeID: Int? = null,
+            /** This field holds the vendor IDs. */
             @SerialName("vendor_ids")
             val vendorIDs: List<Int>? = null
         )
@@ -617,6 +663,7 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class MiniPet(
+            /** This field holds the miniature it unlocks. */
             @SerialName("minipet_id")
             val minipetID: Int
         )
@@ -668,7 +715,9 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Tool(
+            /** This field holds the tool type. */
             val type: String,
+            /** This field holds the available charges. */
             val charges: Int
         )
 
@@ -724,19 +773,26 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Trinket(
+            /** This field holds the trinket type. */
             val type: String,
+            /** This field holds infusion slots of the trinket. */
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlot>,
+            /** This field holds infix upgrade object. */
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
+            /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val suffixItemID: Int? = null,
+            /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val secondarySuffixItemID: Int? = null,
+            /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
+            /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         )
@@ -793,14 +849,21 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class UpgradeComponent(
+            /** This field holds the type of the upgrade component. */
             val type: String,
+            /** This field holds the items that can be upgraded with the upgrade component. */
             val flags: List<String>,
+            /** This field holds applicable infusion slot for infusion upgrades. */
             @SerialName("infusion_upgrade_flags")
             val infusionUpgradeFlags: List<String>,
+            /** This field holds the suffix appended to the item name when the component is applied. */
             val suffix: String,
+            /** This field holds infix upgrade object. */
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
+            /** This field holds the bonuses from runes. */
             val bonuses: List<String>? = null,
+            /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         )
@@ -861,26 +924,37 @@ public sealed class GW2v1ItemDetails {
          */
         @Serializable
         public data class Weapon(
+            /** This field holds the weapon type. */
             val type: String,
+            /** This field holds minimum weapon strength. */
             @SerialName("min_power")
             val minPower: Int,
+            /** This field holds maximum weapon strength. */
             @SerialName("max_power")
             val maxPower: Int,
+            /** This field holds the damage type. */
             @SerialName("damage_type")
             val damageType: String,
+            /** This field holds the defense value of the weapon. */
             val defense: Int,
+            /** This field holds infusion slots of the weapon. */
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlot>,
+            /** This field holds infix upgrade object. */
             @SerialName("infix_upgrade")
             val infixUpgrade: InfixUpgrade? = null,
+            /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val suffixItemID: Int? = null,
+            /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
             @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
             val secondarySuffixItemID: Int? = null,
+            /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
             val statChoices: List<Int>? = null,
+            /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
         )

@@ -38,10 +38,15 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Quest(
+    /** This field holds the quest's ID. */
     val id: Int,
+    /** This field holds the quest's localized name. */
     val name: String,
+    /** This field holds the minimum level required to begin the quest. */
     val level: Int,
+    /** This field holds the story's ID. */
     val story: Int,
+    /** This field holds the quest's goals. */
     val goals: List<Goal>
 ) {
 
@@ -53,7 +58,9 @@ public data class GW2v2Quest(
      */
     @Serializable
     public data class Goal(
+        /** This field holds the text displayed for the quest step if it is active. */
         val active: String,
+        /** This field holds the text displayed for the quest step if it is complete. */
         val complete: String
     )
 

@@ -44,21 +44,32 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Recipe(
+    /** This field holds the recipe's ID. */
     val id: Int,
+    /** This field holds the recipe's type. */
     val type: String,
+    /** This field holds the ID of the produced item. */
     @SerialName("output_item_id")
     val outputItemID: Int,
+    /** This field holds the amount of items produced. */
     @SerialName("output_item_count")
     val outputItemCount: Int,
+    /** This field holds the time in milliseconds it takes to craft the item. */
     @SerialName("time_to_craft_ms")
     val craftTimeMillis: Int,
+    /** This field holds the crafting disciplines that can use the recipe. */
     val disciplines: List<String>,
+    /** This field holds the minimum rating required to use the recipe. */
     @SerialName("min_rating")
     val minRating: Int,
+    /** This field holds the flags applying to the recipe. */
     val flags: List<String>,
+    /** This field holds the recipe's ingredients. */
     val ingredients: List<Ingredient>,
+    /** This field holds the ID of the produced guild upgrade. */
     @SerialName("output_upgrade_id")
     val outputUpgradeID: Int? = null,
+    /** This field holds the recipe's chat code. */
     @SerialName("chat_link")
     val chatLink: String
 ) {
@@ -150,8 +161,10 @@ public data class GW2v2Recipe(
      */
     @Serializable
     public data class GuildIngredient(
+        /** This field holds the guild ingredient's guild upgrade ID. */
         @SerialName("upgrade_id")
         val upgradeID: String,
+        /** This field holds the quantity of this guild ingredient. */
         val count: Int
     )
 

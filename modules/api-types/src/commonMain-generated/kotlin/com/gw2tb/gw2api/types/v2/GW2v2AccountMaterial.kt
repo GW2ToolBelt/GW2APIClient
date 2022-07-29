@@ -37,8 +37,12 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountMaterial(
+    /** This field holds the material's item ID. */
     val id: Int,
+    /** This field holds the material category the item belongs to. */
     val category: Int,
+    /** This field holds the number of the material that is stored in the player's vault. */
     val count: Int,
+    /** This field holds the binding of the material. */
     val binding: String? = null
 )

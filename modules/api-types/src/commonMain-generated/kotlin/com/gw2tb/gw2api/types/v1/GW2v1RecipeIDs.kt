@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1RecipeIDs(
+    /** This field holds the IDs of the available recipes. */
     val recipes: List<Int>
 )

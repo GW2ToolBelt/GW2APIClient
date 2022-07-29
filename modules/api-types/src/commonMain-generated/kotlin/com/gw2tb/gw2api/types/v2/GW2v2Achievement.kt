@@ -46,19 +46,32 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Achievement(
+    /** This field holds the achievement's ID. */
     val id: Int,
+    /** This field holds the URL for the achievement's icon. */
     val icon: String? = null,
+    /** This field holds the achievement's localized name. */
     val name: String,
+    /** This field holds the achievement's localized description. */
     val description: String,
+    /** This field holds the achievement's requirement as listed in-game. */
     val requirement: String,
+    /** This field holds the achievement's in-game description prior to unlocking it. */
     @SerialName("locked_text")
     val lockedText: String,
+    /** This field holds the achievement's type. */
     val type: String,
+    /** This field holds the achievement's categories. */
     val flags: List<String>,
+    /** This field holds the achievement's tiers. */
     val tiers: List<Tier>,
+    /** This field holds the IDs of the achievements that are required to progress this achievement. */
     val prerequisites: List<Int>? = null,
+    /** This field holds the achievement's rewards. */
     val rewards: List<Reward>? = null,
+    /** This field holds the achievement's bits. */
     val bits: List<Bit>? = null,
+    /** This field holds the maximum number of AP that can be rewarded by an achievement flagged as "Repeatable". */
     @SerialName("point_cap")
     val pointCap: Int? = null
 ) {
@@ -71,7 +84,9 @@ public data class GW2v2Achievement(
      */
     @Serializable
     public data class Tier(
+        /** This field holds the number of "things" (achievement-specific) that must be completed to achieve this tier. */
         val count: Int,
+        /** This field holds the amount of AP awarded for completing this tier. */
         val points: Int
     )
 
@@ -113,6 +128,7 @@ public data class GW2v2Achievement(
         @Serializable(with = __CoinsSerializer::class)
         public data class Coins(
             override val type: String,
+            /** This field holds the amount of coins. */
             val count: Int
         ) : Reward()
 
@@ -135,7 +151,9 @@ public data class GW2v2Achievement(
         @Serializable(with = __ItemsSerializer::class)
         public data class Items(
             override val type: String,
+            /** This field holds the item's ID. */
             val id: Int,
+            /** This field holds the amount of the item. */
             val count: Int
         ) : Reward()
 
@@ -158,7 +176,9 @@ public data class GW2v2Achievement(
         @Serializable(with = __MasterySerializer::class)
         public data class Mastery(
             override val type: String,
+            /** This field holds the mastery point's ID. */
             val id: Int,
+            /** This field holds the mastery point's region. */
             val region: String
         ) : Reward()
 
@@ -180,6 +200,7 @@ public data class GW2v2Achievement(
         @Serializable(with = __TitleSerializer::class)
         public data class Title(
             override val type: String,
+            /** This field holds the title's ID. */
             val id: Int
         ) : Reward()
 
@@ -194,8 +215,11 @@ public data class GW2v2Achievement(
      */
     @Serializable
     public data class Bit(
+        /** This field holds the bit's type. */
         val type: String,
+        /** This field holds the ID of the bit's object. */
         val id: Int? = null,
+        /** This field holds the bit's text. */
         val text: String? = null
     )
 

@@ -40,13 +40,20 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2TokenInfo(
+    /** This field holds the API key that was requested. */
     val id: String,
+    /** This field holds the name given to the API key by the account owner. */
     val name: String,
+    /** This field holds an array of strings describing which permissions the API key has. */
     val permissions: List<String>,
+    /** This field holds the type of the access token given. */
     val type: String,
+    /** This field holds if a subtoken is given, ISO8601 timestamp indicating when the given subtoken expires. */
     @SerialName("expires_at")
     val expiresAt: String? = null,
+    /** This field holds if a subtoken is given, ISO8601 timestamp indicating when the given subtoken was created. */
     @SerialName("issued_at")
     val issuedAt: String? = null,
+    /** This field holds an array of strings describing what endpoints are available to this token (if the given subtoken is restricted to a list of URLs). */
     val urls: List<String>? = null
 )

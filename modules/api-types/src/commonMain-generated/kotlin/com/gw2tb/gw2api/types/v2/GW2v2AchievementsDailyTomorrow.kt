@@ -38,9 +38,14 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AchievementsDailyTomorrow(
+    /** This field holds the PvE achievements. */
     val pve: List<GW2v2DailyAchievement>,
+    /** This field holds the PvP achievements. */
     val pvp: List<GW2v2DailyAchievement>,
+    /** This field holds the WvW achievements. */
     val wvw: List<GW2v2DailyAchievement>,
+    /** This field holds the fractal achievements. */
     val fractals: List<GW2v2DailyAchievement>,
+    /** This field holds the special achievements (e.g. festival dailies). */
     val special: List<GW2v2DailyAchievement>
 )

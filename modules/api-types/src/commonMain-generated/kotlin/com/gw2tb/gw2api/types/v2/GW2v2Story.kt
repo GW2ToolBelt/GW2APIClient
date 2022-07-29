@@ -43,15 +43,25 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Story(
+    /** This field holds the ID of the story. */
     val id: Int,
+    /** This field holds the ID of the story's season. */
     val season: String,
+    /** This field holds the localized name of the story. */
     val name: String,
+    /** This field holds the localized description of the story. */
     val description: String,
+    /** This field holds the in-game date of the story. */
     val timeline: String,
+    /** This field holds the minimum level required to start to begin the story. */
     val level: Int,
+    /** This field holds a number that can be used to sort the list of stories. */
     val order: Int,
+    /** This field holds the story's chapters. */
     val chapters: List<Chapter>,
+    /** This field holds the races eligible to participate in the story. */
     val races: List<String>? = null,
+    /** This field holds additional requirements for a character to participate in the story. */
     val flags: List<String>? = null
 ) {
 
@@ -62,6 +72,7 @@ public data class GW2v2Story(
      */
     @Serializable
     public data class Chapter(
+        /** This field holds the localized name of the chapter. */
         val name: String
     )
 

@@ -35,7 +35,9 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2WvWUpgrade(
+    /** This field holds the ID of the upgrade. */
     val id: Int,
+    /** This field holds the different tiers of the upgrade. */
     val tiers: List<Tier>
 ) {
 
@@ -48,9 +50,12 @@ public data class GW2v2WvWUpgrade(
      */
     @Serializable
     public data class Tier(
+        /** This field holds the name of the upgrade tier. */
         val name: String,
+        /** This field holds the amount of dolyaks required to reach this upgrade tier. */
         @SerialName("yaks_required")
         val yaksRequired: Int,
+        /** This field holds the upgrades available at the tier. */
         val upgrades: List<Upgrade>
     ) {
 
@@ -63,8 +68,11 @@ public data class GW2v2WvWUpgrade(
          */
         @Serializable
         public data class Upgrade(
+            /** This field holds the name of the upgrade. */
             val name: String,
+            /** This field holds the description for the upgrade. */
             val description: String,
+            /** This field holds the icon link. */
             val icon: String
         )
 

@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountWalletCurrency(
+    /** This field holds the currency ID that can be resolved against /v2/currencies. */
     val id: Int,
+    /** This field holds the amount of this currency in the player's wallet. */
     val value: Int
 )

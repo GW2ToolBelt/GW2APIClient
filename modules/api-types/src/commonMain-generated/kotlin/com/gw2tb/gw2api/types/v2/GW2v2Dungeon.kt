@@ -35,7 +35,9 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Dungeon(
+    /** This field holds the dungeon's ID. */
     val id: String,
+    /** This field holds the dungeon's paths. */
     val paths: List<Path>
 ) {
 
@@ -47,7 +49,9 @@ public data class GW2v2Dungeon(
      */
     @Serializable
     public data class Path(
+        /** This field holds the path's ID. */
         val id: String,
+        /** This field holds the path's type. */
         val type: String
     )
 

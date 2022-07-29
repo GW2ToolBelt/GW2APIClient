@@ -39,14 +39,20 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPStats(
+    /** This field holds the account's PvP rank. */
     @SerialName("pvp_rank")
     val pvPRank: Int,
+    /** This field holds the account's PvP rank points. */
     @SerialName("pvp_rank_points")
     val pvPRankPoints: Int,
+    /** This field holds the number of times the account leveled up after reaching rank 80. */
     @SerialName("pvp_rank_rollovers")
     val pvPRankRollovers: Int,
+    /** This field holds the aggregated statistics. */
     val aggregate: Stats,
+    /** This field holds the stats by profession ID. */
     val professions: Map<String, Stats>,
+    /** This field holds the stats by ladder (e.g. "ranked", "unranked"). */
     val ladders: Map<String, Stats>
 ) {
 
@@ -61,10 +67,15 @@ public data class GW2v2PvPStats(
      */
     @Serializable
     public data class Stats(
+        /** This field holds the amount of wins. */
         val wins: Int,
+        /** This field holds the amount of losses. */
         val losses: Int,
+        /** This field holds the amount desertions. */
         val desertions: Int,
+        /** This field holds the amount of byes. */
         val byes: Int,
+        /** This field holds the amount of forfeits. */
         val forfeits: Int
     )
 

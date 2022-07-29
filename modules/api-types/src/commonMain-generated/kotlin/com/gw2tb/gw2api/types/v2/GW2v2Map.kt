@@ -46,26 +46,39 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Map(
+    /** This field holds the map's ID. */
     val id: Int,
+    /** This field holds the map's name. */
     val name: String,
+    /** This field holds the type of map. */
     val type: String,
+    /** This field holds the minimum level of the map. */
     @SerialName("min_level")
     val minLevel: Int,
+    /** This field holds the maximum level of the map. */
     @SerialName("max_level")
     val maxLevel: Int,
+    /** This field holds the ID of the map's default floor. */
     @SerialName("default_floor")
     val defaultFloor: Int,
+    /** This field holds the IDs of the floors available on the map. */
     val floors: List<Int>,
+    /** This field holds the ID of the region the map belongs to. */
     @SerialName("region_id")
     val regionID: Int,
+    /** This field holds the name of the region the map belongs to. */
     @SerialName("region_name")
     val regionName: String? = null,
+    /** This field holds the ID of the continent the map belongs to. */
     @SerialName("continent_id")
     val continentID: Int,
+    /** This field holds the name of the continent the map belongs to. */
     @SerialName("continent_name")
     val continentName: String? = null,
+    /** This field holds the dimensions of the map, given as the coordinates of the lower-left (SW) and upper-right (NE) corners. */
     @SerialName("map_rect")
     val mapRect: List<List<Int>>,
+    /** This field holds the dimensions of the map within the continent coordinate system, given as the coordinates of the upper-left (NW) and lower-right (SE) corners. */
     @SerialName("continent_rect")
     val continentRect: List<List<Int>>
 )

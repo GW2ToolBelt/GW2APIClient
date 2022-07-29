@@ -97,10 +97,13 @@ public sealed class GW2v1SkinDetails {
          */
         @Serializable
         public data class Armor(
+            /** This field holds the skin's armor slot. */
             @SerialName("type")
             val armorType: String,
+            /** This field holds the skin's armor weight. */
             @SerialName("weight_class")
             val weightClass: String,
+            /** This field holds the skin's dye slots. */
             @SerialName("dye_slots")
             val dyeSlots: DyeSlots
         )
@@ -121,24 +124,34 @@ public sealed class GW2v1SkinDetails {
          */
         @Serializable
         public data class DyeSlots(
+            /** This field holds the dye slot overrides for asuarn male characters. */
             @SerialName("asura_male")
             val asuraMale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for asuarn female characters. */
             @SerialName("asura_female")
             val asuraFemale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for charr male characters. */
             @SerialName("charr_male")
             val charrMale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for charr female characters. */
             @SerialName("charr_female")
             val charrFemale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for human male characters. */
             @SerialName("human_male")
             val humanMale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for human female characters. */
             @SerialName("human_female")
             val humanFemale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for norn male characters. */
             @SerialName("norn_male")
             val nornMale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for norn female characters. */
             @SerialName("norn_female")
             val nornFemale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for sylvari male characters. */
             @SerialName("sylvari_male")
             val sylvariMale: List<DyeSlot?>,
+            /** This field holds the dye slot overrides for sylvari female characters. */
             @SerialName("sylvari_female")
             val sylvariFemale: List<DyeSlot?>
         ) {
@@ -151,8 +164,10 @@ public sealed class GW2v1SkinDetails {
              */
             @Serializable
             public data class DyeSlot(
+                /** This field holds the default color's ID. */
                 @SerialName("color_id")
                 val colorID: Int,
+                /** This field holds the material type. */
                 val material: String
             )
 
@@ -261,8 +276,10 @@ public sealed class GW2v1SkinDetails {
          */
         @Serializable
         public data class Weapon(
+            /** This field holds the skin's weapon type. */
             @SerialName("type")
             val weaponType: String,
+            /** This field holds the skin's damage type. */
             @SerialName("damage_type")
             val damageType: String
         )

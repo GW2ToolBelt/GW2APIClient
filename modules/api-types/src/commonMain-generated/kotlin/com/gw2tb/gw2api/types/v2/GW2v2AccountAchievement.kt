@@ -40,11 +40,18 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountAchievement(
+    /** This field holds the achievement's ID. */
     val id: Int,
+    /** This field holds a flag indicating whether or not the account has completed the achievement. */
     val done: Boolean,
+    /** This field holds an array of numbers (whose exact meaning differs) giving information about the progress towards an achievement. */
     val bits: List<Int>? = null,
+    /** This field holds the account's current progress towards the achievement. */
     val current: Int? = null,
+    /** This field holds the amount of progress required to complete the achievement. */
     val max: Int? = null,
+    /** This field holds the number of times the achievement has been completed (if the achievement is repeatable). */
     val repeated: Int? = null,
+    /** This field holds a flag indicating whether or not the achievement is unlocked (if the achievement can be unlocked). */
     val unlocked: Boolean? = null
 )

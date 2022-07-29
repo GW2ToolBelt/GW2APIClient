@@ -34,6 +34,7 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CharactersEquipment(
+    /** This field holds the character's equipment. */
     val equipment: List<EquipmentSlot>
 ) {
 
@@ -55,18 +56,30 @@ public data class GW2v2CharactersEquipment(
      */
     @Serializable
     public data class EquipmentSlot(
+        /** This field holds the equipment piece's item ID. */
         val id: Int,
+        /** This field holds the equipment piece's slot. */
         val slot: String? = null,
+        /** This field holds the ID of the skin transmuted onto the equipment piece. */
         val skin: Int? = null,
+        /** This field holds the IDs of the dyes applied to the item. */
         val dyes: List<Int?>? = null,
+        /** This field holds the IDs of the upgrade components slotted into the item. */
         val upgrades: List<Int>? = null,
+        /** This field holds the IDs of the infusions slotted into the item. */
         val infusions: List<Int>? = null,
+        /** This field holds the amount of charges remaining on the item. */
         val charges: Int? = null,
+        /** This field holds the binding of the item. */
         val binding: String? = null,
+        /** This field holds name of the character the item is bound to. */
         @SerialName("bound_to")
         val boundTo: String? = null,
+        /** This field holds contains information on the stats chosen if the item offers an option for stats/prefix. */
         val stats: Stats? = null,
+        /** This field holds the storage location of the equipment piece. */
         val location: String,
+        /** This field holds the IDs of the tabs in which this item is used. */
         val tabs: List<Int>? = null
     ) {
 
@@ -78,7 +91,9 @@ public data class GW2v2CharactersEquipment(
          */
         @Serializable
         public data class Stats(
+            /** This field holds the itemstat ID. */
             val id: Int,
+            /** This field holds the item's attributes. */
             val attributes: Attributes
         ) {
 
@@ -97,22 +112,31 @@ public data class GW2v2CharactersEquipment(
              */
             @Serializable
             public data class Attributes(
+                /** This field holds the amount of power given by the item. */
                 @SerialName("Power")
                 val power: Int? = null,
+                /** This field holds the amount of precision given by the item. */
                 @SerialName("Precision")
                 val precision: Int? = null,
+                /** This field holds the amount of crit damage given by the item. */
                 @SerialName("CritDamage")
                 val critDamage: Int? = null,
+                /** This field holds the amount of toughness given by the item. */
                 @SerialName("Toughness")
                 val toughness: Int? = null,
+                /** This field holds the amount of vitality given by the item. */
                 @SerialName("Vitality")
                 val vitality: Int? = null,
+                /** This field holds the amount of condition damage given by the item. */
                 @SerialName("ConditionDamage")
                 val conditionDamage: Int? = null,
+                /** This field holds the amount of condition duration given by the item. */
                 @SerialName("ConditionDuration")
                 val conditionDuration: Int? = null,
+                /** This field holds the amount of healing given by the item. */
                 @SerialName("Healing")
                 val healing: Int? = null,
+                /** This field holds the amount of boon duration given by the item. */
                 @SerialName("BoonDuration")
                 val boonDuration: Int? = null
             )

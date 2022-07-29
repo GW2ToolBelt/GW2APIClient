@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountLegendaryArmoryUnlock(
+    /** This field holds the item's ID. */
     val id: Int,
+    /** This field holds the number of copies unlocked. */
     val count: Int
 )

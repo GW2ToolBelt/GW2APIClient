@@ -39,11 +39,17 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Mailcarrier(
+    /** This field holds the mailcarrier's ID. */
     val id: Int,
+    /** This field holds the URL for the mailcarrier's icon. */
     val icon: String,
+    /** This field holds the mailcarrier's name. */
     val name: String,
+    /** This field holds a number that can be used to sort the list of mailcarriers. */
     val order: Int,
+    /** This field holds an array containing the IDs of the items used to unlock the mailcarrier. */
     @SerialName("unlock_items")
     val unlockItems: List<Int>,
+    /** This field holds additional flags describing the mailcarrier. */
     val flags: List<String>
 )

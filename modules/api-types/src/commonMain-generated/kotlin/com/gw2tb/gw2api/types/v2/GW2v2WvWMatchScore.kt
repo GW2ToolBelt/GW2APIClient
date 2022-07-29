@@ -38,11 +38,16 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2WvWMatchScore(
+    /** This field holds the match's ID. */
     val id: String,
+    /** This field holds the total scores by team color. */
     val scores: Map<String, Int>,
+    /** This field holds the victory points by team color. */
     @SerialName("victory_points")
     val victoryPoints: Map<String, Int>,
+    /** This field holds the match's skirmishes. */
     val skirmishes: List<Skirmish>,
+    /** This field holds the total scores by map. */
     val maps: List<GameMap>
 ) {
 
@@ -55,8 +60,11 @@ public data class GW2v2WvWMatchScore(
      */
     @Serializable
     public data class Skirmish(
+        /** This field holds the skirmish's ID. */
         val id: Int,
+        /** This field holds the scores by team color. */
         val scores: Map<String, Int>,
+        /** This field holds the scores by map. */
         @SerialName("map_scores")
         val mapScores: List<MapScores>
     ) {
@@ -69,7 +77,9 @@ public data class GW2v2WvWMatchScore(
          */
         @Serializable
         public data class MapScores(
+            /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
             val type: String,
+            /** This field holds the scores by team color. */
             val scores: Map<String, Int>
         )
 
@@ -84,8 +94,11 @@ public data class GW2v2WvWMatchScore(
      */
     @Serializable
     public data class GameMap(
+        /** This field holds the map's ID. */
         val id: Int,
+        /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
         val type: String,
+        /** This field holds the scores by team color. */
         val scores: Map<String, Int>
     )
 

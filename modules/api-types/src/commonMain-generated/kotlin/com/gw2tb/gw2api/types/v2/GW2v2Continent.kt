@@ -39,13 +39,19 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Continent(
+    /** This field holds the continent's ID. */
     val id: Int,
+    /** This field holds the continent's name. */
     val name: String,
+    /** This field holds the width and height of the continent. */
     @SerialName("continent_dims")
     val continentDims: List<Int>,
+    /** This field holds the minimal zoom level for use with the map tile service. */
     @SerialName("min_zoom")
     val minZoom: Int,
+    /** This field holds the maximum zoom level for use with the map tile service. */
     @SerialName("max_zoom")
     val maxZoom: Int,
+    /** This field holds the IDs of the continent's floors. */
     val floors: List<Int>
 )

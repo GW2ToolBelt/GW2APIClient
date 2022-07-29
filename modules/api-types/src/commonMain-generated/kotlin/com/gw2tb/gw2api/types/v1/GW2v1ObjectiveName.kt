@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1ObjectiveName(
+    /** This field holds the ID of the objective. */
     val id: String,
+    /** This field holds the objective's localized name. */
     val name: String
 )

@@ -45,20 +45,32 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Guild(
+    /** This field holds the guild's ID. */
     val id: String,
+    /** This field holds the guild's name. */
     val name: String,
+    /** This field holds the guild's tag. */
     val tag: String,
+    /** This field holds the guild's level. */
     val level: Int,
+    /** This field holds the guild's message of the day. */
     @SerialName("motd")
     val motD: String? = null,
+    /** This field holds the guild's current influence. */
     val influence: Int? = null,
+    /** This field holds the guild's current aetherium. */
     val aetherium: Int? = null,
+    /** This field holds the guild's current favor. */
     val favor: Int? = null,
+    /** This field holds the guild's current resonance. */
     val resonance: Int? = null,
+    /** This field holds the guild's current member count. */
     @SerialName("member_count")
     val memberCount: Int? = null,
+    /** This field holds the guild's current member capacity. */
     @SerialName("member_capacity")
     val memberCapacity: Int? = null,
+    /** This field holds the guild's emblem. */
     val emblem: Emblem
 ) {
 
@@ -71,8 +83,11 @@ public data class GW2v2Guild(
      */
     @Serializable
     public data class Emblem(
+        /** This field holds the emblem's background. */
         val background: Background,
+        /** This field holds the emblem's foreground. */
         val foreground: Foreground,
+        /** This field holds the manipulations applied to the emblem. */
         val flags: List<String>
     ) {
 
@@ -84,7 +99,9 @@ public data class GW2v2Guild(
          */
         @Serializable
         public data class Background(
+            /** This field holds the background's ID. */
             val id: Int,
+            /** This field holds the background's colors. */
             val colors: List<Int>
         )
 
@@ -96,7 +113,9 @@ public data class GW2v2Guild(
          */
         @Serializable
         public data class Foreground(
+            /** This field holds the foreground's ID. */
             val id: Int,
+            /** This field holds the foreground's colors. */
             val colors: List<Int>
         )
 

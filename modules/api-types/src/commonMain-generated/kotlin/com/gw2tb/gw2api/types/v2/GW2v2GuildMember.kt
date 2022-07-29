@@ -36,7 +36,10 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2GuildMember(
+    /** This field holds the member's account name. */
     val name: String,
+    /** This field holds the member's rank. */
     val rank: String,
+    /** This field holds the ISO-8601 timestamp of when the member joined the guild. */
     val joined: String
 )

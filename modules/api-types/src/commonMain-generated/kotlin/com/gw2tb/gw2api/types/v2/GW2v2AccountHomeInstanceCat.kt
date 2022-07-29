@@ -35,6 +35,8 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2AccountHomeInstanceCat(
+    /** This field holds the cat's ID. */
     val id: Int,
+    /** This field holds the unlock hint. */
     val hint: String
 )

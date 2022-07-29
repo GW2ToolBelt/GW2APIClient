@@ -40,13 +40,20 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPSeasonsLeaderboardEntry(
+    /** This field holds the account's name. */
     val name: String? = null,
+    /** This field holds the guild's ID. */
     val id: String? = null,
+    /** This field holds the account's rank. */
     val rank: Int,
+    /** This field holds the guild team's name. */
     val team: String? = null,
+    /** This field holds the guild team's ID. */
     @SerialName("team_id")
     val teamID: Int? = null,
+    /** This field holds the date at which the rank was reached. */
     val date: String,
+    /** This field holds the entry's scoring values. */
     val scores: List<Scoring>
 ) {
 
@@ -58,7 +65,9 @@ public data class GW2v2PvPSeasonsLeaderboardEntry(
      */
     @Serializable
     public data class Scoring(
+        /** This field holds the scoring's ID. */
         val id: String,
+        /** This field holds the scoring's value. */
         val value: Int
     )
 

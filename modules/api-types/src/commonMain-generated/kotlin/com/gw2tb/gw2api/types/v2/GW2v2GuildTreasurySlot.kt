@@ -36,9 +36,12 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2GuildTreasurySlot(
+    /** This field holds the item's ID. */
     @SerialName("item_id")
     val itemID: Int,
+    /** This field holds the amount of the item in the guild's treasury. */
     val count: Int,
+    /** This field holds the currently in-progress upgrades requiring the item. */
     @SerialName("needed_by")
     val neededBy: List<UpgradeRequirement>
 ) {
@@ -51,8 +54,10 @@ public data class GW2v2GuildTreasurySlot(
      */
     @Serializable
     public data class UpgradeRequirement(
+        /** This field holds the guild upgrade's ID. */
         @SerialName("upgrade_id")
         val upgradeID: Int,
+        /** This field holds the total amount of the item required for the upgrade. */
         val count: Int
     )
 

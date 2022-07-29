@@ -40,11 +40,18 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2BackstoryAnswer(
+    /** This field holds the answer's ID. */
     val id: String,
+    /** This field holds the answer's localized title. */
     val title: String,
+    /** This field holds the answer's localized description. */
     val description: String,
+    /** This field holds the answer's localized journal entry. */
     val journal: String,
+    /** This field holds the ID of the biography question the answer answers. */
     val question: Int,
+    /** This field holds the IDs of the professions that the answer is available for. */
     val professions: List<String>? = null,
+    /** This field holds the IDs of the races that the answer is available for. */
     val races: List<String>? = null
 )

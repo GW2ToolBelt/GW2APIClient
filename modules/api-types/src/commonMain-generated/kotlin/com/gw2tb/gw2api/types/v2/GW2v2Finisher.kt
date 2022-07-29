@@ -39,12 +39,18 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Finisher(
+    /** This field holds the finisher's ID. */
     val id: Int,
+    /** This field holds the finisher's name. */
     val name: String,
+    /** This field holds the URL for the finisher's icon. */
     val icon: String,
+    /** This field holds a (non-unique) number that can be used as basis to sort the list of finishers. */
     val order: Int,
+    /** This field holds a description explaining how to acquire the finisher. */
     @SerialName("unlock_details")
     val unlockDetails: String,
+    /** This field holds an array of item IDs used to unlock the finisher. */
     @SerialName("unlock_items")
     val unlockItems: List<Int>
 )

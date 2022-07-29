@@ -37,11 +37,15 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1GuildDetails(
+    /** This field holds the guild's ID. */
     @SerialName("guild_id")
     val guildID: String,
+    /** This field holds the guild's name. */
     @SerialName("guild_name")
     val guildName: String,
+    /** This field holds the guild's tag. */
     val tag: String,
+    /** This field holds the guild's emblem. */
     val emblem: Emblem
 ) {
 
@@ -57,15 +61,21 @@ public data class GW2v1GuildDetails(
      */
     @Serializable
     public data class Emblem(
+        /** This field holds the background's ID. */
         @SerialName("background_id")
         val backgroundID: Int,
+        /** This field holds the foreground's ID. */
         @SerialName("foreground_id")
         val foregroundID: Int,
+        /** This field holds the manipulations applied to the emblem. */
         val flags: List<String>,
+        /** This field holds the background color's ID. */
         @SerialName("background_color_id")
         val backgroundColorID: Int,
+        /** This field holds the foreground primary color's ID. */
         @SerialName("foreground_primary_color_id")
         val foregroundPrimaryColorID: Int,
+        /** This field holds the foreground secondary color's ID. */
         @SerialName("foreground_secondary_color_id")
         val foregroundSecondaryColorID: Int
     )

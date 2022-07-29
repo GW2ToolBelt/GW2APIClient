@@ -36,8 +36,11 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2PvPStandings(
+    /** This field holds the season's current standing. */
     val current: Current,
+    /** This field holds the season's best standing. */
     val best: Best,
+    /** This field holds the season's ID. */
     @SerialName("season_id")
     val seasonID: String
 ) {
@@ -55,13 +58,20 @@ public data class GW2v2PvPStandings(
      */
     @Serializable
     public data class Current(
+        /** This field holds the total number of points. */
         @SerialName("total_points")
         val totalPoints: Int,
+        /** This field holds the index of the reached division. */
         val division: Int,
+        /** This field holds the index of the reached tier. */
         val tier: Int,
+        /** This field holds the number of pips towards the next tier. */
         val points: Int,
+        /** This field holds the number of times the account maxed out the repeat division. */
         val repeats: Int,
+        /** This field holds the rating level. */
         val rating: Int? = null,
+        /** This field holds the decay value. */
         val decay: Int? = null
     )
 
@@ -76,11 +86,16 @@ public data class GW2v2PvPStandings(
      */
     @Serializable
     public data class Best(
+        /** This field holds the total number of points. */
         @SerialName("total_points")
         val totalPoints: Int,
+        /** This field holds the index of the reached division. */
         val division: Int,
+        /** This field holds the index of the reached tier. */
         val tier: Int,
+        /** This field holds the number of pips towards the next tier. */
         val points: Int,
+        /** This field holds the number of times the account maxed out the repeat division. */
         val repeats: Int
     )
 

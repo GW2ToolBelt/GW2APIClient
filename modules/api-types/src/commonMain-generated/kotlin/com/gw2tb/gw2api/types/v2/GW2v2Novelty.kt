@@ -39,11 +39,17 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Novelty(
+    /** This field holds the novelty's ID. */
     val id: Int,
+    /** This field holds the novelty's name. */
     val name: String,
+    /** This field holds a render service URL for the novelty's icon. */
     val icon: String,
+    /** This field holds the novelty's description. */
     val description: String,
+    /** This field holds the novelty's slot. */
     val slot: String,
+    /** This field holds the IDs of the items that unlock the novelty. */
     @SerialName("unlock_item")
     val unlockItems: List<Int>
 )

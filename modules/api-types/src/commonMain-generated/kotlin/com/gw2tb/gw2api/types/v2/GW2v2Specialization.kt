@@ -44,20 +44,31 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Specialization(
+    /** This field holds the ID of the specialization. */
     val id: Int,
+    /** This field holds the localized name of the specialization. */
     val name: String,
+    /** This field holds the ID of the profession the specialization belongs to. */
     val profession: String,
+    /** This field holds a flag indicating whether or not the specialization is an elite specialization. */
     val elite: Boolean,
+    /** This field holds a render service URL for the specialization's icon. */
     val icon: String,
+    /** This field holds a render service URL for the specialization's background image. */
     val background: String,
+    /** This field holds a list of all IDs of the specialization's minor traits. */
     @SerialName("minor_traits")
     val minorTraits: List<Int>,
+    /** This field holds a list of all IDs of the specialization's major traits. */
     @SerialName("major_traits")
     val majorTraits: List<Int>,
+    /** This field holds the ID of the elite specialization's weapon trait. */
     @SerialName("weapon_trait")
     val weaponTrait: Int? = null,
+    /** This field holds a render service URL for the elite specialization's icon. */
     @SerialName("profession_icon")
     val professionIcon: String? = null,
+    /** This field holds a render service URL for a large variant of the elite specialization's icon. */
     @SerialName("profession_icon_big")
     val bigProfessionIcon: String? = null
 )

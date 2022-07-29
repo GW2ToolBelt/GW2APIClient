@@ -39,11 +39,17 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2Mini(
+    /** This field holds the mini's ID. */
     val id: Int,
+    /** This field holds the mini's name. */
     val name: String,
+    /** This field holds the description of how to unlock the mini. */
     val description: String? = null,
+    /** This field holds the URL for the mini's icon. */
     val icon: String,
+    /** This field holds a (non-unique) number that can be used as basis to sort the list of minis. */
     val order: Int,
+    /** This field holds the ID of the item which unlocks the mini. */
     @SerialName("item_id")
     val itemID: Int
 )

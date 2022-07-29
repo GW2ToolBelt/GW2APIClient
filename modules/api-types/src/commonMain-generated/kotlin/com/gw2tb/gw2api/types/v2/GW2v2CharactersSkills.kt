@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v2CharactersSkills(
+    /** This field holds the character's equipped skills. */
     val skills: GW2v2Skills
 )

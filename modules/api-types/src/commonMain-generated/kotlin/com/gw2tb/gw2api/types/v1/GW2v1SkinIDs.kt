@@ -34,5 +34,6 @@ import kotlinx.serialization.json.*
  */
 @Serializable
 public data class GW2v1SkinIDs(
+    /** This field holds the IDs of the available skins. */
     val skins: List<Int>
 )
