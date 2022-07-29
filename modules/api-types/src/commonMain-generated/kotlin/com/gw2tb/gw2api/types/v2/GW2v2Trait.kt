@@ -119,7 +119,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about an attribute adjustment.
          *
-         * @param value the amount 'target' gets adjusted, based on a level 80 character at base stats
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param value the amount 'target' gets adjusted, based on a level 80 character at base stats
          * @param target the attribute this fact adjusts
          */
         @Serializable(with = __AttributeAdjustSerializer::class)
@@ -146,7 +148,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about a buff.
          *
-         * @param status the boon, condition, or effect referred to by the fact
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param status the boon, condition, or effect referred to by the fact
          * @param duration the duration of the effect in seconds
          * @param description the description of the status effect
          * @param applyCount the number of stacks applied
@@ -180,7 +184,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about a buff-conversion.
          *
-         * @param source the attribute that is used to calculate the attribute gain
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param source the attribute that is used to calculate the attribute gain
          * @param percent how much of the source attribute is added to target
          * @param target the attribute that gets added to
          */
@@ -210,7 +216,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about a combo-field.
          *
-         * @param fieldType the type of the field
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param fieldType the type of the field
          */
         @Serializable(with = __ComboFieldSerializer::class)
         public data class ComboField(
@@ -235,7 +243,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about a combo-finisher.
          *
-         * @param finisherType the type of finisher
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param finisherType the type of finisher
          * @param percent the percent chance that the finisher will trigger
          */
         @Serializable(with = __ComboFinisherSerializer::class)
@@ -263,7 +273,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about damage.
          *
-         * @param hitCount the amount of times the damage hits
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param hitCount the amount of times the damage hits
          * @param damageMultiplier the damage multiplier
          */
         @Serializable(with = __DamageSerializer::class)
@@ -292,7 +304,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about range.
          *
-         * @param distance the distance value
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param distance the distance value
          */
         @Serializable(with = __DistanceSerializer::class)
         public data class Distance(
@@ -334,7 +348,9 @@ public data class GW2v2Trait(
         /**
          * An additional number.
          *
-         * @param value the number value as referenced by text
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param value the number value as referenced by text
          */
         @Serializable(with = __NumberSerializer::class)
         public data class Number(
@@ -358,7 +374,9 @@ public data class GW2v2Trait(
         /**
          * An additional percentage value.
          *
-         * @param percent the percentage value as referenced by text
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param percent the percentage value as referenced by text
          */
         @Serializable(with = __PercentSerializer::class)
         public data class Percent(
@@ -382,7 +400,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about a prefixed buff.
          *
-         * @param status the boon, condition, or effect referred to by the fact
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param status the boon, condition, or effect referred to by the fact
          * @param duration the duration of the effect in seconds
          * @param description the description of the status effect
          * @param applyCount the number of stacks applied
@@ -441,7 +461,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about a radius.
          *
-         * @param distance the radius value
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param distance the radius value
          */
         @Serializable(with = __RadiusSerializer::class)
         public data class Radius(
@@ -465,7 +487,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about range.
          *
-         * @param value the range of the trait/skill
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param value the range of the trait/skill
          */
         @Serializable(with = __RangeSerializer::class)
         public data class Range(
@@ -489,7 +513,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about recharge.
          *
-         * @param value the recharge time in seconds
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param value the recharge time in seconds
          */
         @Serializable(with = __RechargeSerializer::class)
         public data class Recharge(
@@ -513,7 +539,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about a stunbreak.
          *
-         * @param value always true
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param value always true
          */
         @Serializable(with = __StunBreakSerializer::class)
         public data class StunBreak(
@@ -537,7 +565,9 @@ public data class GW2v2Trait(
         /**
          * Additional information about time.
          *
-         * @param duration the time value in seconds
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param duration the time value in seconds
          */
         @Serializable(with = __TimeSerializer::class)
         public data class Time(
@@ -561,7 +591,9 @@ public data class GW2v2Trait(
         /**
          * A fact, indicating that a trait/skill is unblockable.
          *
-         * @param value always true
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact@param value always true
          */
         @Serializable(with = __UnblockableSerializer::class)
         public data class Unblockable(
@@ -628,7 +660,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about an attribute adjustment.
          *
-         * @param value the amount 'target' gets adjusted, based on a level 80 character at base stats
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the amount 'target' gets adjusted, based on a level 80 character at base stats
          * @param target the attribute this fact adjusts
          */
         @Serializable(with = __AttributeAdjustSerializer::class)
@@ -658,7 +694,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about a buff.
          *
-         * @param status the boon, condition, or effect referred to by the fact
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param status the boon, condition, or effect referred to by the fact
          * @param duration the duration of the effect in seconds
          * @param description the description of the status effect
          * @param applyCount the number of stacks applied
@@ -695,7 +735,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about a buff-conversion.
          *
-         * @param source the attribute that is used to calculate the attribute gain
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param source the attribute that is used to calculate the attribute gain
          * @param percent how much of the source attribute is added to target
          * @param target the attribute that gets added to
          */
@@ -728,7 +772,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about a combo-field.
          *
-         * @param fieldType the type of the field
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param fieldType the type of the field
          */
         @Serializable(with = __ComboFieldSerializer::class)
         public data class ComboField(
@@ -756,7 +804,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about a combo-finisher.
          *
-         * @param finisherType the type of finisher
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param finisherType the type of finisher
          * @param percent the percent chance that the finisher will trigger
          */
         @Serializable(with = __ComboFinisherSerializer::class)
@@ -787,7 +839,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about damage.
          *
-         * @param hitCount the amount of times the damage hits
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param hitCount the amount of times the damage hits
          * @param damageMultiplier the damage multiplier
          */
         @Serializable(with = __DamageSerializer::class)
@@ -819,7 +875,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about range.
          *
-         * @param distance the distance value
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param distance the distance value
          */
         @Serializable(with = __DistanceSerializer::class)
         public data class Distance(
@@ -867,7 +927,11 @@ public data class GW2v2Trait(
         /**
          * An additional number.
          *
-         * @param value the number value as referenced by text
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the number value as referenced by text
          */
         @Serializable(with = __NumberSerializer::class)
         public data class Number(
@@ -894,7 +958,11 @@ public data class GW2v2Trait(
         /**
          * An additional percentage value.
          *
-         * @param percent the percentage value as referenced by text
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param percent the percentage value as referenced by text
          */
         @Serializable(with = __PercentSerializer::class)
         public data class Percent(
@@ -921,7 +989,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about a prefixed buff.
          *
-         * @param status the boon, condition, or effect referred to by the fact
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param status the boon, condition, or effect referred to by the fact
          * @param duration the duration of the effect in seconds
          * @param description the description of the status effect
          * @param applyCount the number of stacks applied
@@ -983,7 +1055,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about a radius.
          *
-         * @param distance the radius value
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param distance the radius value
          */
         @Serializable(with = __RadiusSerializer::class)
         public data class Radius(
@@ -1010,7 +1086,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about range.
          *
-         * @param value the range of the trait/skill
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the range of the trait/skill
          */
         @Serializable(with = __RangeSerializer::class)
         public data class Range(
@@ -1037,7 +1117,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about recharge.
          *
-         * @param value the recharge time in seconds
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the recharge time in seconds
          */
         @Serializable(with = __RechargeSerializer::class)
         public data class Recharge(
@@ -1064,7 +1148,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about a stunbreak.
          *
-         * @param value always true
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value always true
          */
         @Serializable(with = __StunBreakSerializer::class)
         public data class StunBreak(
@@ -1091,7 +1179,11 @@ public data class GW2v2Trait(
         /**
          * Additional information about time.
          *
-         * @param duration the time value in seconds
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param duration the time value in seconds
          */
         @Serializable(with = __TimeSerializer::class)
         public data class Time(
@@ -1118,7 +1210,11 @@ public data class GW2v2Trait(
         /**
          * A fact, indicating that a trait/skill is unblockable.
          *
-         * @param value always true
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value always true
          */
         @Serializable(with = __UnblockableSerializer::class)
         public data class Unblockable(
@@ -1221,7 +1317,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about an attribute adjustment.
              *
-             * @param value the amount 'target' gets adjusted, based on a level 80 character at base stats
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param value the amount 'target' gets adjusted, based on a level 80 character at base stats
              * @param target the attribute this fact adjusts
              */
             @Serializable(with = __AttributeAdjustSerializer::class)
@@ -1248,7 +1346,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about a buff.
              *
-             * @param status the boon, condition, or effect referred to by the fact
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param status the boon, condition, or effect referred to by the fact
              * @param duration the duration of the effect in seconds
              * @param description the description of the status effect
              * @param applyCount the number of stacks applied
@@ -1282,7 +1382,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about a buff-conversion.
              *
-             * @param source the attribute that is used to calculate the attribute gain
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param source the attribute that is used to calculate the attribute gain
              * @param percent how much of the source attribute is added to target
              * @param target the attribute that gets added to
              */
@@ -1312,7 +1414,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about a combo-field.
              *
-             * @param fieldType the type of the field
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param fieldType the type of the field
              */
             @Serializable(with = __ComboFieldSerializer::class)
             public data class ComboField(
@@ -1337,7 +1441,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about a combo-finisher.
              *
-             * @param finisherType the type of finisher
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param finisherType the type of finisher
              * @param percent the percent chance that the finisher will trigger
              */
             @Serializable(with = __ComboFinisherSerializer::class)
@@ -1365,7 +1471,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about damage.
              *
-             * @param hitCount the amount of times the damage hits
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param hitCount the amount of times the damage hits
              * @param damageMultiplier the damage multiplier
              */
             @Serializable(with = __DamageSerializer::class)
@@ -1394,7 +1502,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about range.
              *
-             * @param distance the distance value
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param distance the distance value
              */
             @Serializable(with = __DistanceSerializer::class)
             public data class Distance(
@@ -1436,7 +1546,9 @@ public data class GW2v2Trait(
             /**
              * An additional number.
              *
-             * @param value the number value as referenced by text
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param value the number value as referenced by text
              */
             @Serializable(with = __NumberSerializer::class)
             public data class Number(
@@ -1460,7 +1572,9 @@ public data class GW2v2Trait(
             /**
              * An additional percentage value.
              *
-             * @param percent the percentage value as referenced by text
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param percent the percentage value as referenced by text
              */
             @Serializable(with = __PercentSerializer::class)
             public data class Percent(
@@ -1484,7 +1598,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about a prefixed buff.
              *
-             * @param status the boon, condition, or effect referred to by the fact
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param status the boon, condition, or effect referred to by the fact
              * @param duration the duration of the effect in seconds
              * @param description the description of the status effect
              * @param applyCount the number of stacks applied
@@ -1543,7 +1659,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about a radius.
              *
-             * @param distance the radius value
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param distance the radius value
              */
             @Serializable(with = __RadiusSerializer::class)
             public data class Radius(
@@ -1567,7 +1685,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about range.
              *
-             * @param value the range of the trait/skill
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param value the range of the trait/skill
              */
             @Serializable(with = __RangeSerializer::class)
             public data class Range(
@@ -1591,7 +1711,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about recharge.
              *
-             * @param value the recharge time in seconds
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param value the recharge time in seconds
              */
             @Serializable(with = __RechargeSerializer::class)
             public data class Recharge(
@@ -1615,7 +1737,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about a stunbreak.
              *
-             * @param value always true
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param value always true
              */
             @Serializable(with = __StunBreakSerializer::class)
             public data class StunBreak(
@@ -1639,7 +1763,9 @@ public data class GW2v2Trait(
             /**
              * Additional information about time.
              *
-             * @param duration the time value in seconds
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param duration the time value in seconds
              */
             @Serializable(with = __TimeSerializer::class)
             public data class Time(
@@ -1663,7 +1789,9 @@ public data class GW2v2Trait(
             /**
              * A fact, indicating that a trait/skill is unblockable.
              *
-             * @param value always true
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact@param value always true
              */
             @Serializable(with = __UnblockableSerializer::class)
             public data class Unblockable(
@@ -1730,7 +1858,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about an attribute adjustment.
              *
-             * @param value the amount 'target' gets adjusted, based on a level 80 character at base stats
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the amount 'target' gets adjusted, based on a level 80 character at base stats
              * @param target the attribute this fact adjusts
              */
             @Serializable(with = __AttributeAdjustSerializer::class)
@@ -1760,7 +1892,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about a buff.
              *
-             * @param status the boon, condition, or effect referred to by the fact
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param status the boon, condition, or effect referred to by the fact
              * @param duration the duration of the effect in seconds
              * @param description the description of the status effect
              * @param applyCount the number of stacks applied
@@ -1797,7 +1933,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about a buff-conversion.
              *
-             * @param source the attribute that is used to calculate the attribute gain
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param source the attribute that is used to calculate the attribute gain
              * @param percent how much of the source attribute is added to target
              * @param target the attribute that gets added to
              */
@@ -1830,7 +1970,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about a combo-field.
              *
-             * @param fieldType the type of the field
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param fieldType the type of the field
              */
             @Serializable(with = __ComboFieldSerializer::class)
             public data class ComboField(
@@ -1858,7 +2002,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about a combo-finisher.
              *
-             * @param finisherType the type of finisher
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param finisherType the type of finisher
              * @param percent the percent chance that the finisher will trigger
              */
             @Serializable(with = __ComboFinisherSerializer::class)
@@ -1889,7 +2037,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about damage.
              *
-             * @param hitCount the amount of times the damage hits
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param hitCount the amount of times the damage hits
              * @param damageMultiplier the damage multiplier
              */
             @Serializable(with = __DamageSerializer::class)
@@ -1921,7 +2073,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about range.
              *
-             * @param distance the distance value
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param distance the distance value
              */
             @Serializable(with = __DistanceSerializer::class)
             public data class Distance(
@@ -1969,7 +2125,11 @@ public data class GW2v2Trait(
             /**
              * An additional number.
              *
-             * @param value the number value as referenced by text
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the number value as referenced by text
              */
             @Serializable(with = __NumberSerializer::class)
             public data class Number(
@@ -1996,7 +2156,11 @@ public data class GW2v2Trait(
             /**
              * An additional percentage value.
              *
-             * @param percent the percentage value as referenced by text
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param percent the percentage value as referenced by text
              */
             @Serializable(with = __PercentSerializer::class)
             public data class Percent(
@@ -2023,7 +2187,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about a prefixed buff.
              *
-             * @param status the boon, condition, or effect referred to by the fact
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param status the boon, condition, or effect referred to by the fact
              * @param duration the duration of the effect in seconds
              * @param description the description of the status effect
              * @param applyCount the number of stacks applied
@@ -2085,7 +2253,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about a radius.
              *
-             * @param distance the radius value
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param distance the radius value
              */
             @Serializable(with = __RadiusSerializer::class)
             public data class Radius(
@@ -2112,7 +2284,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about range.
              *
-             * @param value the range of the trait/skill
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the range of the trait/skill
              */
             @Serializable(with = __RangeSerializer::class)
             public data class Range(
@@ -2139,7 +2315,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about recharge.
              *
-             * @param value the recharge time in seconds
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value the recharge time in seconds
              */
             @Serializable(with = __RechargeSerializer::class)
             public data class Recharge(
@@ -2166,7 +2346,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about a stunbreak.
              *
-             * @param value always true
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value always true
              */
             @Serializable(with = __StunBreakSerializer::class)
             public data class StunBreak(
@@ -2193,7 +2377,11 @@ public data class GW2v2Trait(
             /**
              * Additional information about time.
              *
-             * @param duration the time value in seconds
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param duration the time value in seconds
              */
             @Serializable(with = __TimeSerializer::class)
             public data class Time(
@@ -2220,7 +2408,11 @@ public data class GW2v2Trait(
             /**
              * A fact, indicating that a trait/skill is unblockable.
              *
-             * @param value always true
+             * @param type the type of the fact
+             * @param icon the URL for the fact's icon
+             * @param text an arbitrary localized string describing the fact
+             * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+             * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected@param value always true
              */
             @Serializable(with = __UnblockableSerializer::class)
             public data class Unblockable(

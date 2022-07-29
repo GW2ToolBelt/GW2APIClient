@@ -87,11 +87,17 @@ internal fun SchemaConditional.dokka(): String = docComment {
     append(description)
 }
 
-internal fun SchemaRecord.dokka(interpretationInNestedProperty: Boolean): String = docComment {
+internal fun SchemaRecord.dokka(
+    sharedProperties: Map<String, SchemaProperty>,
+    interpretationInNestedProperty: Boolean
+): String = docComment {
     append(description)
 
     if (!interpretationInNestedProperty && properties.isNotEmpty()) {
         append("$n$n")
+        append(sharedProperties.values.joinToString(separator = n) { property ->
+            "@param ${property.camelCaseName} ${property.description}"
+        })
         append(properties.values.joinToString(separator = n) { property ->
             "@param ${property.camelCaseName} ${property.description}"
         })

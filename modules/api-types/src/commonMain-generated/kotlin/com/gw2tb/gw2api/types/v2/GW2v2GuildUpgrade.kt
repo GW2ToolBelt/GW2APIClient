@@ -133,7 +133,16 @@ public sealed class GW2v2GuildUpgrade {
     /**
      * Information about a guild bank upgrades.
      *
-     * @param bagMaxItems the maximum item slots of the guild bank tab
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost@param bagMaxItems the maximum item slots of the guild bank tab
      * @param bagMaxCoins the maximum amount of coins that can be stored in the bank tab
      */
     @Serializable(with = __BankBagSerializer::class)

@@ -249,7 +249,10 @@ private fun SchemaRecord.toDataClassString(
         )
     }
 
-    appendLine(dokka(interpretationInNestedProperty = interpretationHint?.interpretationNestProperty != null && conditionalBaseDeclaration?.interpretationInNestedProperty == true))
+    appendLine(dokka(
+        sharedProperties = conditionalBaseDeclaration?.sharedProperties ?: emptyMap(),
+        interpretationInNestedProperty = interpretationHint?.interpretationNestProperty != null && conditionalBaseDeclaration?.interpretationInNestedProperty == true
+    ))
 
     if (serialName != null)
         appendLine("@SerialName($serialName)")
