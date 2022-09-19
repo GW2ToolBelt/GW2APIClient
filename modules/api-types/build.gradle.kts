@@ -56,7 +56,11 @@ kotlin {
         nodejs()
     }
     jvm {
+        withJava()
+
         compilations.configureEach {
+            compileKotlinTask.destinationDirectory.set(compileJavaTaskProvider!!.flatMap { it.destinationDirectory })
+
             kotlinOptions {
                 jvmTarget = "11"
             }
