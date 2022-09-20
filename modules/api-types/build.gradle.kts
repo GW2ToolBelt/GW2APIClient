@@ -59,6 +59,7 @@ kotlin {
         withJava()
 
         compilations.configureEach {
+            compileKotlinTask.dependsOn(project(":").tasks["generate"])
             compileKotlinTask.destinationDirectory.set(compileJavaTaskProvider!!.flatMap { it.destinationDirectory })
 
             kotlinOptions {
@@ -107,10 +108,6 @@ kotlin {
 tasks {
     withType<JavaCompile>().configureEach {
         options.release.set(11)
-    }
-
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-        dependsOn(project(":").tasks["generate"])
     }
 
     named<org.gradle.jvm.tasks.Jar>("jvmJar") {

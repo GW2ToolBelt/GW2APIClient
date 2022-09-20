@@ -24,7 +24,6 @@
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -44,6 +43,8 @@ kotlin {
 
     targets.configureEach {
         compilations.configureEach {
+            compileKotlinTask.dependsOn(project(":").tasks["generate"])
+
             kotlinOptions {
                 languageVersion = "1.7"
                 apiVersion = "1.7"
@@ -129,10 +130,6 @@ kotlin {
 tasks {
     withType<JavaCompile>().configureEach {
         options.release.set(11)
-    }
-
-    withType<KotlinCompile>().configureEach {
-        dependsOn(project(":").tasks["generate"])
     }
 
     named<org.gradle.jvm.tasks.Jar>("jvmJar") {
