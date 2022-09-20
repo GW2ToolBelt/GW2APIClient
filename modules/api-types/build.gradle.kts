@@ -108,6 +108,7 @@ kotlin {
 
 tasks {
     withType<JavaCompile>().configureEach {
+        options.javaModuleVersion.set("$version")
         options.release.set(11)
     }
 
@@ -118,8 +119,7 @@ tasks {
                 "Specification-Version" to project.version,
                 "Specification-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
                 "Implementation-Version" to project.version,
-                "Implementation-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
-                "Automatic-Module-Name" to "com.gw2tb.gw2api.types"
+                "Implementation-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>"
             ))
         }
     }
