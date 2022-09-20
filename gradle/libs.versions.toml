@@ -2,6 +2,7 @@
 asm = "9.3"
 api-generator = "0.6.0"
 dokka = "1.7.10"
+extra-java-module-info = "1.0"
 javaparser = "3.24.2"
 junit = "5.9.0"
 kotlin = "1.7.10"
@@ -46,6 +47,9 @@ asm = { module = "org.ow2.asm:asm", version.ref = "asm" }
 
 
 [plugins]
+# org.gradlex:extra-java-module-info - extra-java-module-info
+extra-java-module-info = { id = "org.gradlex.extra-java-module-info", version.ref = "extra-java-module-info" }
+
 # org.jetbrains.dokka - dokka
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 

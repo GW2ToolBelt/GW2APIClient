@@ -26,11 +26,12 @@ import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
+    `maven-publish`
+    signing
+    alias(libs.plugins.extra.java.module.info)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.plugin.serialization)
     alias(libs.plugins.dokka)
-    signing
-    `maven-publish`
 }
 
 java {
@@ -171,4 +172,8 @@ publishing {
 signing {
     isRequired = (deployment.type === BuildType.RELEASE)
     sign(publishing.publications)
+}
+
+extraJavaModuleInfo {
+    failOnMissingModuleInfo.set(false)
 }
