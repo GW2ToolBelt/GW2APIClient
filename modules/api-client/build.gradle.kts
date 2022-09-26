@@ -26,15 +26,15 @@ import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
+    `maven-publish`
+    signing
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.dokka)
-    signing
-    `maven-publish`
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 

@@ -28,15 +28,15 @@ import org.jetbrains.dokka.gradle.DokkaTask
 plugins {
     `maven-publish`
     signing
+    alias(libs.plugins.dokka)
     alias(libs.plugins.extra.java.module.info)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.plugin.serialization)
-    alias(libs.plugins.dokka)
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 

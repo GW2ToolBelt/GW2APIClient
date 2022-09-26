@@ -25,15 +25,15 @@ import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.dokka)
-    signing
     `maven-publish`
+    signing
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.kotlin.multiplatform)
 }
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 

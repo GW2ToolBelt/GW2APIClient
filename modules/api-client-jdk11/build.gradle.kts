@@ -26,10 +26,10 @@ import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
+    `maven-publish`
+    signing
     kotlin("jvm")
     alias(libs.plugins.dokka)
-    signing
-    `maven-publish`
 }
 
 java {
