@@ -30,7 +30,7 @@ import kotlinx.serialization.json.*
 @Suppress("ClassName")
 private object __JsonParametricSerializer_GW2v2GuildLogEntry : JsonContentPolymorphicSerializer<GW2v2GuildLogEntry>(GW2v2GuildLogEntry::class) {
     override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out GW2v2GuildLogEntry> {
-        return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+        return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
             "joined" -> GW2v2GuildLogEntry.Joined.serializer()
             "invited" -> GW2v2GuildLogEntry.Invited.serializer()
             "kick" -> GW2v2GuildLogEntry.Kick.serializer()
@@ -39,7 +39,8 @@ private object __JsonParametricSerializer_GW2v2GuildLogEntry : JsonContentPolymo
             "stash" -> GW2v2GuildLogEntry.Stash.serializer()
             "motd" -> GW2v2GuildLogEntry.MOTD.serializer()
             "upgrade" -> GW2v2GuildLogEntry.Upgrade.serializer()
-            else -> TODO()
+            null -> throw SerializationException("Disambiguator property not found")
+            else -> throw SerializationException("Invalid disambiguator value for GW2v2GuildLogEntry: $type")
         }
     }
 }

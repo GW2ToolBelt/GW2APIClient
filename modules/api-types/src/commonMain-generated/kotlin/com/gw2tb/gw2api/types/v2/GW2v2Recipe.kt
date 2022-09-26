@@ -77,11 +77,12 @@ public data class GW2v2Recipe(
     @Suppress("ClassName")
     private object __JsonParametricSerializer_Ingredient : JsonContentPolymorphicSerializer<Ingredient>(Ingredient::class) {
         override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Ingredient> {
-            return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+            return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "Currency" -> Ingredient.Currency.serializer()
                 "GuildUpgrade" -> Ingredient.GuildUpgrade.serializer()
                 "Item" -> Ingredient.Item.serializer()
-                else -> TODO()
+                null -> throw SerializationException("Disambiguator property not found")
+                else -> throw SerializationException("Invalid disambiguator value for Ingredient: $type")
             }
         }
     }

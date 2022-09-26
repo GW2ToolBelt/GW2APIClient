@@ -65,11 +65,12 @@ public data class GW2v1EventDetails(
         @Suppress("ClassName")
         private object __JsonParametricSerializer_Location : JsonContentPolymorphicSerializer<Location>(Location::class) {
             override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Location> {
-                return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+                return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                     "cylinder" -> Location.Cylinder.serializer()
                     "poly" -> Location.Poly.serializer()
                     "sphere" -> Location.Sphere.serializer()
-                    else -> TODO()
+                    null -> throw SerializationException("Disambiguator property not found")
+                    else -> throw SerializationException("Invalid disambiguator value for Location: $type")
                 }
             }
         }

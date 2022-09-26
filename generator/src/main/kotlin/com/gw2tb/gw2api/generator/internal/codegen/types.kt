@@ -313,9 +313,10 @@ private fun SchemaConditional.toSealedClassString(
         |@Suppress("ClassName")
         |private object __JsonParametricSerializer_$className : JsonContentPolymorphicSerializer<$className>($className::class) {
         |    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out $className> {
-        |        return when (element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]!!.jsonPrimitive.content) {
+        |        return when (val type = element.jsonObject["${if (disambiguationBySideProperty) "__virtualType" else disambiguationBy}"]?.jsonPrimitive?.content) {
         |            ${interpretations.entries.joinToString(separator = "$n$t$t$t") { (key, it) -> """"$key" -> $className.${it.type.toKotlinType(apiVersionInfix).serializer}""" }}
-        |            else -> TODO()
+        |            null -> throw SerializationException("Disambiguator property not found")
+        |            else -> throw SerializationException("Invalid disambiguator value for $className: ${'$'}type")
         |        }
         |    }
         |}

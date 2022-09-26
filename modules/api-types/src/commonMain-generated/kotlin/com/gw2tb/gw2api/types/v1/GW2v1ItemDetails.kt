@@ -30,7 +30,7 @@ import kotlinx.serialization.json.*
 @Suppress("ClassName")
 private object __JsonParametricSerializer_GW2v1ItemDetails : JsonContentPolymorphicSerializer<GW2v1ItemDetails>(GW2v1ItemDetails::class) {
     override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out GW2v1ItemDetails> {
-        return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+        return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
             "Armor" -> GW2v1ItemDetails.Armor.serializer()
             "Back" -> GW2v1ItemDetails.Back.serializer()
             "Bag" -> GW2v1ItemDetails.Bag.serializer()
@@ -43,7 +43,8 @@ private object __JsonParametricSerializer_GW2v1ItemDetails : JsonContentPolymorp
             "Trinket" -> GW2v1ItemDetails.Trinket.serializer()
             "UpgradeComponent" -> GW2v1ItemDetails.UpgradeComponent.serializer()
             "Weapon" -> GW2v1ItemDetails.Weapon.serializer()
-            else -> TODO()
+            null -> throw SerializationException("Disambiguator property not found")
+            else -> throw SerializationException("Invalid disambiguator value for GW2v1ItemDetails: $type")
         }
     }
 }

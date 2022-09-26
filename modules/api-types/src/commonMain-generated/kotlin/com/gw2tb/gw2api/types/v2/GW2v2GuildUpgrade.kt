@@ -30,7 +30,7 @@ import kotlinx.serialization.json.*
 @Suppress("ClassName")
 private object __JsonParametricSerializer_GW2v2GuildUpgrade : JsonContentPolymorphicSerializer<GW2v2GuildUpgrade>(GW2v2GuildUpgrade::class) {
     override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out GW2v2GuildUpgrade> {
-        return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+        return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
             "AccumulatingCurrency" -> GW2v2GuildUpgrade.AccumulatingCurrency.serializer()
             "BankBag" -> GW2v2GuildUpgrade.BankBag.serializer()
             "Boost" -> GW2v2GuildUpgrade.Boost.serializer()
@@ -42,7 +42,8 @@ private object __JsonParametricSerializer_GW2v2GuildUpgrade : JsonContentPolymor
             "Hub" -> GW2v2GuildUpgrade.Hub.serializer()
             "Queue" -> GW2v2GuildUpgrade.Queue.serializer()
             "Unlock" -> GW2v2GuildUpgrade.Unlock.serializer()
-            else -> TODO()
+            null -> throw SerializationException("Disambiguator property not found")
+            else -> throw SerializationException("Invalid disambiguator value for GW2v2GuildUpgrade: $type")
         }
     }
 }

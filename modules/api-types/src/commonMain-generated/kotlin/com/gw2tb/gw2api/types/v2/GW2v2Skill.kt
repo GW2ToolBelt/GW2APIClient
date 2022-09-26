@@ -120,7 +120,7 @@ public data class GW2v2Skill(
     @Suppress("ClassName")
     private object __JsonParametricSerializer_Fact : JsonContentPolymorphicSerializer<Fact>(Fact::class) {
         override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Fact> {
-            return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+            return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "AttributeAdjust" -> Fact.AttributeAdjust.serializer()
                 "Buff" -> Fact.Buff.serializer()
                 "BuffConversion" -> Fact.BuffConversion.serializer()
@@ -138,7 +138,8 @@ public data class GW2v2Skill(
                 "StunBreak" -> Fact.StunBreak.serializer()
                 "Time" -> Fact.Time.serializer()
                 "Unblockable" -> Fact.Unblockable.serializer()
-                else -> TODO()
+                null -> throw SerializationException("Disambiguator property not found")
+                else -> throw SerializationException("Invalid disambiguator value for Fact: $type")
             }
         }
     }
@@ -679,7 +680,7 @@ public data class GW2v2Skill(
     @Suppress("ClassName")
     private object __JsonParametricSerializer_TraitedFact : JsonContentPolymorphicSerializer<TraitedFact>(TraitedFact::class) {
         override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out TraitedFact> {
-            return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+            return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "AttributeAdjust" -> TraitedFact.AttributeAdjust.serializer()
                 "Buff" -> TraitedFact.Buff.serializer()
                 "BuffConversion" -> TraitedFact.BuffConversion.serializer()
@@ -697,7 +698,8 @@ public data class GW2v2Skill(
                 "StunBreak" -> TraitedFact.StunBreak.serializer()
                 "Time" -> TraitedFact.Time.serializer()
                 "Unblockable" -> TraitedFact.Unblockable.serializer()
-                else -> TODO()
+                null -> throw SerializationException("Disambiguator property not found")
+                else -> throw SerializationException("Invalid disambiguator value for TraitedFact: $type")
             }
         }
     }

@@ -93,12 +93,13 @@ public data class GW2v2Achievement(
     @Suppress("ClassName")
     private object __JsonParametricSerializer_Reward : JsonContentPolymorphicSerializer<Reward>(Reward::class) {
         override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Reward> {
-            return when (element.jsonObject["type"]!!.jsonPrimitive.content) {
+            return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "Coins" -> Reward.Coins.serializer()
                 "Items" -> Reward.Items.serializer()
                 "Mastery" -> Reward.Mastery.serializer()
                 "Title" -> Reward.Title.serializer()
-                else -> TODO()
+                null -> throw SerializationException("Disambiguator property not found")
+                else -> throw SerializationException("Invalid disambiguator value for Reward: $type")
             }
         }
     }

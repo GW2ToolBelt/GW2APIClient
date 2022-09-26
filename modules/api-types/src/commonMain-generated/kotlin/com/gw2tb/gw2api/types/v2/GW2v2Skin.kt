@@ -80,11 +80,12 @@ public data class GW2v2Skin(
     @Suppress("ClassName")
     private object __JsonParametricSerializer_Details : JsonContentPolymorphicSerializer<Details>(Details::class) {
         override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Details> {
-            return when (element.jsonObject["__virtualType"]!!.jsonPrimitive.content) {
+            return when (val type = element.jsonObject["__virtualType"]?.jsonPrimitive?.content) {
                 "Armor" -> Details.Armor.serializer()
                 "Gathering" -> Details.Gathering.serializer()
                 "Weapon" -> Details.Weapon.serializer()
-                else -> TODO()
+                null -> throw SerializationException("Disambiguator property not found")
+                else -> throw SerializationException("Invalid disambiguator value for Details: $type")
             }
         }
     }
