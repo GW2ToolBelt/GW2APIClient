@@ -6,7 +6,7 @@ on:
 
 
 env:
-  JDK_VERSION: '18'
+  JDK_VERSION: "18"
 
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
 
       - uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: "temurin"
           version: ${{ env.JDK_VERSION }}
 
       - name: Gradle Build
