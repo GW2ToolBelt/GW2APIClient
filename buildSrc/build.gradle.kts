@@ -30,7 +30,5 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.javaparser.core)
     implementation(libs.gw2api.generator)
-    implementation(libs.asm)
 }
