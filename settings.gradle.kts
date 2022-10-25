@@ -23,7 +23,9 @@ rootProject.name = "GW2APIClient"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-includeBuild("generator")
+pluginManagement {
+    includeBuild("generator")
+}
 
 file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
     fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
