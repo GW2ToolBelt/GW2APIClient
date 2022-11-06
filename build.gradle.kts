@@ -24,9 +24,7 @@ import com.gw2tb.gw2api.generator.tasks.Generate
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.dokka.gradle.AbstractDokkaLeafTask
-import org.jetbrains.dokka.gradle.AbstractDokkaTask
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 import java.net.URL
 
