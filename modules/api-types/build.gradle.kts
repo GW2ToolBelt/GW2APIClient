@@ -45,6 +45,8 @@ kotlin {
 
     targets.configureEach {
         compilations.configureEach {
+            compileKotlinTask.dependsOn(project(":").tasks["generate"])
+
             kotlinOptions {
                 languageVersion = "1.7"
                 apiVersion = "1.7"
@@ -60,7 +62,6 @@ kotlin {
         withJava()
 
         compilations.configureEach {
-            compileKotlinTask.dependsOn(project(":").tasks["generate"])
             compileKotlinTask.destinationDirectory.set(compileJavaTaskProvider!!.flatMap { it.destinationDirectory })
 
             kotlinOptions {
