@@ -5,7 +5,7 @@ extra-java-module-info = "1.0"
 junit = "5.9.2"
 kotlin = "1.8.20"
 kotlinx-coroutines = "1.6.4"
-kotlinx-serialization = "1.4.1"
+kotlinx-serialization = "1.5.0"
 ktor = "2.1.3"
 
 
