@@ -25,17 +25,14 @@ import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.dokka.gradle.AbstractDokkaLeafTask
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
-import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 import java.net.URL
 
 plugins {
+    alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.dokka)
     id("com.gw2tb.gw2api.generator")
 }
-
-yarn.lockFileName = "kotlin-yarn.lock"
-yarn.lockFileDirectory = rootDir
 
 allprojects {
     val nextVersion = "0.5.0"

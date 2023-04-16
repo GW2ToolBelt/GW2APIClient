@@ -23,6 +23,7 @@
 
 import com.gw2tb.gw2apiclient.build.*
 import com.gw2tb.gw2apiclient.build.BuildType
+import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
     `maven-publish`
@@ -30,6 +31,9 @@ plugins {
     alias(libs.plugins.dokka)
     alias(libs.plugins.kotlin.multiplatform)
 }
+
+yarn.lockFileName = "kotlin-yarn.lock"
+yarn.lockFileDirectory = rootProject.projectDir
 
 java {
     toolchain {
