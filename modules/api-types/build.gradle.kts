@@ -21,14 +21,11 @@
  */
 @file:Suppress("UnstableApiUsage")
 
-import com.gw2tb.gw2apiclient.build.*
-import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    `maven-publish`
-    signing
+    id("com.gw2tb.maven-publish-conventions")
     alias(libs.plugins.dokka)
     alias(libs.plugins.extra.java.module.info)
     alias(libs.plugins.kotlin.multiplatform)
@@ -156,27 +153,13 @@ publishing {
         if (name == "js") artifact(emptyJar)
         artifact(emptyJavadocJar)
 
-        decorateMavenPom {
+        pom {
             name.set("GW2API Type Definitions")
             description.set("Definitions for the various objects returned by the official Guild Wars 2 API.")
+
+            packaging = "jar"
         }
     }
-
-    repositories {
-        maven {
-            url = uri(deployment.repo)
-
-            credentials {
-                username = deployment.user
-                password = deployment.password
-            }
-        }
-    }
-}
-
-signing {
-    isRequired = (deployment.type === BuildType.RELEASE)
-    sign(publishing.publications)
 }
 
 extraJavaModuleInfo {

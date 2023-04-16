@@ -21,13 +21,10 @@
  */
 @file:Suppress("UnstableApiUsage")
 
-import com.gw2tb.gw2apiclient.build.*
-import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
-    `maven-publish`
-    signing
+    id("com.gw2tb.maven-publish-conventions")
     kotlin("jvm")
     alias(libs.plugins.dokka)
 }
@@ -84,31 +81,18 @@ tasks {
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
+        register<MavenPublication>("mavenJava") {
             from(components["java"])
             artifact(tasks["javadocJar"])
 
-            decorateMavenPom {
+            pom {
                 name.set("GW2APIClient JDK11 HttpClient Implementation")
                 description.set("JDK11 standard HttpClient implementation for GW2APIClient.")
+
+                packaging = "jar"
             }
         }
     }
-    repositories {
-        maven {
-            url = uri(deployment.repo)
-
-            credentials {
-                username = deployment.user
-                password = deployment.password
-            }
-        }
-    }
-}
-
-signing {
-    isRequired = (deployment.type === BuildType.RELEASE)
-    sign(publishing.publications)
 }
 
 dependencies {

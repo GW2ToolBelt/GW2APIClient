@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022 Leon Linhart
+ * Copyright (c) 2018-2023 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-rootProject.name = "GW2APIClient"
+@file:Suppress("SuspiciousCollectionReassignment")
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-pluginManagement {
-    includeBuild("build-logic")
-    includeBuild("generator")
+plugins {
+    `kotlin-dsl`
 }
 
-file("modules").listFiles(File::isDirectory)!!.forEach { dir ->
-    fun hasBuildscript(it: File) = File(it, "build.gradle.kts").exists()
-
-    if (hasBuildscript(dir)) {
-        val projectName = dir.name
-
-        include(projectName)
-        project(":$projectName").projectDir = dir
-    }
+repositories {
+    mavenCentral()
 }

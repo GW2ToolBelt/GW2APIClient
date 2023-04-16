@@ -21,13 +21,10 @@
  */
 @file:Suppress("UnstableApiUsage")
 
-import com.gw2tb.gw2apiclient.build.*
-import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    `maven-publish`
-    signing
+    id("com.gw2tb.maven-publish-conventions")
     alias(libs.plugins.dokka)
     alias(libs.plugins.kotlin.multiplatform)
 }
@@ -132,25 +129,11 @@ publishing {
         if (name == "js") artifact(emptyJar)
         artifact(emptyJavadocJar)
 
-        decorateMavenPom {
+        pom {
             name.set("GW2APIClient Ktor Implementation")
             description.set("Ktor HttpClient implementation for GW2APIClient.")
+
+            packaging = "jar"
         }
     }
-
-    repositories {
-        maven {
-            url = uri(deployment.repo)
-
-            credentials {
-                username = deployment.user
-                password = deployment.password
-            }
-        }
-    }
-}
-
-signing {
-    isRequired = (deployment.type === BuildType.RELEASE)
-    sign(publishing.publications)
 }

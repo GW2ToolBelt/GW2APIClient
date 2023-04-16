@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022 Leon Linhart
+ * Copyright (c) 2018-2023 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,10 +19,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build
+package com.gw2tb.build
 
-enum class BuildType {
-    LOCAL,
-    SNAPSHOT,
-    RELEASE
-}
+data class Deployment internal constructor(
+    val type: BuildType,
+    val repo: String,
+    val user: String? = null,
+    val password: String? = null
+)

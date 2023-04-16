@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022 Leon Linhart
+ * Copyright (c) 2018-2023 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,13 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2apiclient.build
+package com.gw2tb.build
 
 import org.gradle.api.*
-import org.gradle.api.publish.maven.*
 import org.gradle.kotlin.dsl.*
 
-private const val DEPLOYMENT_KEY = "com.gw2tb.gw2api.build.Deployment"
+private const val DEPLOYMENT_KEY = "com.gw2tb.build.Deployment"
 
 val Project.deployment: Deployment
     get() =
@@ -53,35 +52,3 @@ fun Project.getProperty(k: String): String =
         extra[k] as String
     else
         System.getenv(k) ?: ""
-
-fun MavenPublication.decorateMavenPom(packaging: String = "jar", configure: MavenPom.() -> Unit) {
-    pom {
-        this@pom.packaging = packaging
-        url.set("https://github.com/GW2ToolBelt/GW2APIClient")
-
-        licenses {
-            license {
-                name.set("MIT")
-                url.set("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/LICENSE")
-                distribution.set("repo")
-            }
-        }
-
-        developers {
-            developer {
-                id.set("TheMrMilchmann")
-                name.set("Leon Linhart")
-                email.set("themrmilchmann@gmail.com")
-                url.set("https://github.com/TheMrMilchmann")
-            }
-        }
-
-        scm {
-            connection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
-            developerConnection.set("scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git")
-            url.set("https://github.com/GW2ToolBelt/GW2APIClient.git")
-        }
-
-        configure()
-    }
-}

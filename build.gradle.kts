@@ -21,8 +21,6 @@
  */
 import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.gw2api.generator.tasks.Generate
-import com.gw2tb.gw2apiclient.build.*
-import com.gw2tb.gw2apiclient.build.BuildType
 import org.jetbrains.dokka.gradle.AbstractDokkaLeafTask
 import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 import java.net.URL
@@ -32,20 +30,6 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.dokka)
     id("com.gw2tb.gw2api.generator")
-}
-
-allprojects {
-    val nextVersion = "0.5.0"
-
-    group = "com.gw2tb.gw2api"
-    version = when (deployment.type) {
-        BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
-        else -> nextVersion
-    }
-
-    repositories {
-        mavenCentral()
-    }
 }
 
 subprojects {

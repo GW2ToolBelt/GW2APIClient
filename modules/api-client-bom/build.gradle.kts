@@ -19,40 +19,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import com.gw2tb.gw2apiclient.build.*
-import com.gw2tb.gw2apiclient.build.BuildType
-
 plugins {
+    id("com.gw2tb.maven-publish-conventions")
     `java-platform`
-    signing
-    `maven-publish`
 }
 
 publishing {
-    repositories {
-        maven {
-            url = uri(deployment.repo)
-
-            credentials {
-                username = deployment.user
-                password = deployment.password
-            }
-        }
-    }
     publications {
-        create<MavenPublication>("mavenJava") {
+        register<MavenPublication>("mavenJava") {
             from(components["javaPlatform"])
-            decorateMavenPom(packaging = "pom") {
+
+            pom {
                 name.set("GW2APIClient BOM")
                 description.set("Bill of Materials for GW2APIClient artifacts.")
+
+                packaging = "pom"
             }
         }
     }
-}
-
-signing {
-    isRequired = (deployment.type === BuildType.RELEASE)
-    sign(publishing.publications)
 }
 
 dependencies {
