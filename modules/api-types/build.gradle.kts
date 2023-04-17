@@ -25,49 +25,27 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    id("com.gw2tb.maven-publish-conventions")
     alias(libs.plugins.dokka)
     alias(libs.plugins.extra.java.module.info)
-    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.plugin.serialization)
+    id("com.gw2tb.multiplatform-module")
 }
 
 yarn.lockFileName = "kotlin-yarn.lock"
 yarn.lockFileDirectory = rootProject.projectDir
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
 kotlin {
-    explicitApi()
-
     targets.configureEach {
         compilations.configureEach {
-            compileKotlinTask.dependsOn(project(":").tasks["generate"])
-
-            kotlinOptions {
-                languageVersion = "1.7"
-                apiVersion = "1.7"
+            compileTaskProvider.configure {
+                dependsOn(project(":").tasks["generate"])
             }
         }
     }
 
-    js(IR) {
-        browser()
-        nodejs()
-    }
     jvm {
-        withJava()
-
         compilations.configureEach {
             compileKotlinTask.destinationDirectory.set(compileJavaTaskProvider!!.flatMap { it.destinationDirectory })
-
-            kotlinOptions {
-                jvmTarget = "11"
-            }
         }
     }
 

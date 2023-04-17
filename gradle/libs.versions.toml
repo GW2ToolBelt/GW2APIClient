@@ -23,6 +23,9 @@ kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", versi
 kotlin-test-js = { module = "org.jetbrains.kotlin:kotlin-test-js", version.ref = "kotlin" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
+# org.jetbrains.kotlin:kotlin-gradle-plugin  - Kotlin Gradle Plugin
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin ", version.ref = "kotlin" }
+
 # org.jetbrains.kotlinx:kotlinx-coroutines-[...] - kotlinx.coroutines
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-jdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinx-coroutines" }

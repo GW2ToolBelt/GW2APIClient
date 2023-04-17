@@ -25,30 +25,18 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.dokka)
-    id("com.gw2tb.maven-publish-conventions")
+    id("com.gw2tb.multiplatform-module")
 }
 
 yarn.lockFileName = "kotlin-yarn.lock"
 yarn.lockFileDirectory = rootProject.projectDir
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
 kotlin {
-    explicitApi()
-
     targets.configureEach {
         compilations.configureEach {
-            compileKotlinTask.dependsOn(project(":").tasks["generate"])
-
-            kotlinOptions {
-                languageVersion = "1.7"
-                apiVersion = "1.7"
+            compileTaskProvider.configure {
+                dependsOn(project(":").tasks["generate"])
             }
         }
     }
@@ -68,13 +56,6 @@ kotlin {
                     // https://github.com/Kotlin/kotlinx.coroutines/issues/3077
                     timeout = "10s"
                 }
-            }
-        }
-    }
-    jvm {
-        compilations.configureEach {
-            kotlinOptions {
-                jvmTarget = "11"
             }
         }
     }

@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 /*
  * Copyright (c) 2018-2023 Leon Linhart
  *
@@ -19,17 +22,52 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("SuspiciousCollectionReassignment")
-
 plugins {
-    `kotlin-dsl`
+    id("com.gw2tb.maven-publish-conventions")
+    kotlin("multiplatform")
 }
 
-repositories {
-    mavenCentral()
-    gradlePluginPortal()
-}
+kotlin {
+    explicitApi()
 
-dependencies {
-    implementation(libs.kotlin.gradle.plugin)
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+
+    targets.configureEach {
+        compilations.configureEach {
+            compilerOptions.options.apiVersion.set(KotlinVersion.KOTLIN_1_8)
+            compilerOptions.options.languageVersion.set(KotlinVersion.KOTLIN_1_8)
+        }
+    }
+
+    /* Not supported by (kotlinx.serialization, Ktor) */
+//    androidNativeArm64()
+//    androidNativeX64()
+
+    js(IR) {
+        browser()
+        nodejs()
+    }
+
+    jvm {
+        withJava()
+
+        compilations.configureEach {
+            compilerOptions.options.jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
+
+    /* Not supported by Ktor */
+//    linuxArm64()
+    linuxX64()
+
+    ios()
+    watchos()
+    tvos()
+
+    macosX64()
+    macosArm64()
+
+    mingwX64()
 }

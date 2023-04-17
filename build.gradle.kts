@@ -28,7 +28,8 @@ import java.net.URL
 plugins {
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
-    alias(libs.plugins.dokka)
+    alias(libs.plugins.dokka) apply false
+    id("com.gw2tb.deployment-conventions") apply false
     id("com.gw2tb.gw2api.generator")
 }
 
@@ -70,4 +71,9 @@ tasks {
         outputDirectory.set(layout.buildDirectory.dir("mkdocs/sources/api").map { it.asFile })
         failOnWarning.set(true)
     }
+}
+
+repositories {
+    // Required by the Kotlin Multiplatform plugin to download native tools
+    mavenCentral()
 }

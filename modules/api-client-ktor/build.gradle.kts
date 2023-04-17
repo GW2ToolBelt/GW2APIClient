@@ -24,44 +24,14 @@
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    id("com.gw2tb.maven-publish-conventions")
     alias(libs.plugins.dokka)
-    alias(libs.plugins.kotlin.multiplatform)
+    id("com.gw2tb.multiplatform-module")
 }
 
 yarn.lockFileName = "kotlin-yarn.lock"
 yarn.lockFileDirectory = rootProject.projectDir
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
 kotlin {
-    explicitApi()
-
-    targets.configureEach {
-        compilations.configureEach {
-            kotlinOptions {
-                languageVersion = "1.7"
-                apiVersion = "1.7"
-            }
-        }
-    }
-
-    js(IR) {
-        browser()
-        nodejs()
-    }
-    jvm {
-        compilations.configureEach {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
-        }
-    }
-
     sourceSets {
         commonMain {
             kotlin.srcDir("src/commonMain-generated/kotlin")
