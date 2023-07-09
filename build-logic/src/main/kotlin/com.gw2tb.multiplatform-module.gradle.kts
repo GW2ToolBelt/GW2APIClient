@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
-
 /*
  * Copyright (c) 2018-2023 Leon Linhart
  *
@@ -22,6 +19,9 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 plugins {
     id("com.gw2tb.maven-publish-conventions")
     kotlin("multiplatform")
@@ -41,10 +41,6 @@ kotlin {
         }
     }
 
-    /* Not supported by (kotlinx.serialization, Ktor) */
-//    androidNativeArm64()
-//    androidNativeX64()
-
     js(IR) {
         browser()
         nodejs()
@@ -58,16 +54,36 @@ kotlin {
         }
     }
 
-    /* Not supported by Ktor */
+    // TODO Unsupported by Ktor
+//    androidNativeArm32()
+//    androidNativeArm64()
+//    androidNativeX64()
+//    androidNativeX86()
+
+    // TODO Unsupported by Ktor (https://github.com/ktorio/ktor/pull/3587)
 //    linuxArm64()
     linuxX64()
 
-    ios()
-    watchos()
-    tvos()
+    iosArm64()
+    iosX64()
 
-    macosX64()
+    iosSimulatorArm64()
+
     macosArm64()
+    macosX64()
 
     mingwX64()
+
+    tvosArm64()
+    tvosX64()
+
+    tvosSimulatorArm64()
+
+    watchosArm32()
+    watchosArm64()
+    watchosX64()
+
+    // TODO Unsupported by Ktor
+//    watchosDeviceArm64()
+    watchosSimulatorArm64()
 }
