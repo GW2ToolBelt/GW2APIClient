@@ -3,9 +3,8 @@
 !/.idea
 /.idea/*
 !/.idea/copyright
+!/.idea/runConfigurations
 !/.idea/scopes
 
 /build
-
 /modules/*/build
-/modules/*/out
