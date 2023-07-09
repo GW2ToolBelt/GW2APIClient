@@ -19,9 +19,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import com.gw2tb.build.*
-import com.gw2tb.build.BuildType
-
 plugins {
     id("com.gw2tb.base-conventions")
     `maven-publish`
@@ -30,12 +27,18 @@ plugins {
 
 publishing {
     repositories {
-        maven {
-            url = uri(deployment.repo)
+        val sonatypeUsername: String? by project
+        val sonatypePassword: String? by project
+        val stagingRepositoryId: String? by project
 
-            credentials {
-                username = deployment.user
-                password = deployment.password
+        if (sonatypeUsername != null && sonatypePassword != null && stagingRepositoryId != null) {
+            maven {
+                url = uri("https://oss.sonatype.org/service/local/staging/deployByRepositoryId/$stagingRepositoryId/")
+
+                credentials {
+                    username = sonatypeUsername
+                    password = sonatypePassword
+                }
             }
         }
     }
@@ -72,6 +75,12 @@ publishing {
 }
 
 signing {
-    isRequired = (deployment.type === BuildType.RELEASE)
+    // Only require signing when publishing to a non-local maven repository
+    setRequired { gradle.taskGraph.allTasks.any { it is PublishToMavenRepository } }
+
+    val signingKey: String? by project
+    val signingPassword: String? by project
+    useInMemoryPgpKeys(signingKey, signingPassword)
+
     sign(publishing.publications)
 }
