@@ -19,17 +19,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import com.gw2tb.build.*
-import com.gw2tb.build.BuildType
-
-group = "com.gw2tb.gw2api"
-
-val nextVersion = "0.5.0"
-version = when (deployment.type) {
-    BuildType.SNAPSHOT -> "$nextVersion-SNAPSHOT"
-    else -> nextVersion
-}
-
 repositories {
     mavenCentral()
 }
