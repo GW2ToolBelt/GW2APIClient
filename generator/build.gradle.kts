@@ -19,7 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
     `kotlin-dsl`
@@ -35,32 +36,20 @@ kotlin {
     explicitApi()
 
     target {
-        compilations.all {
-            kotlinOptions {
-                languageVersion = "1.6"
-                apiVersion = "1.6"
+        compilations.configureEach {
+            compilerOptions.configure {
+                apiVersion.set(KotlinVersion.KOTLIN_1_8)
+                languageVersion.set(KotlinVersion.KOTLIN_1_8)
 
-                jvmTarget = "1.8"
-
-                freeCompilerArgs = (freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn")
+                jvmTarget.set(JvmTarget.JVM_1_8)
             }
-        }
-    }
-}
-
-afterEvaluate {
-    /* Currently required since the "kotlin-dsl" plugin overrides this at some point. */
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            apiVersion = "1.6"
-            languageVersion = "1.6"
         }
     }
 }
 
 gradlePlugin {
     plugins {
-        create("generator") {
+        register("generator") {
             id = "com.gw2tb.gw2api.generator"
             implementationClass = "com.gw2tb.gw2api.generator.plugins.GeneratorPlugin"
         }
@@ -68,7 +57,7 @@ gradlePlugin {
 }
 
 tasks {
-    withType<JavaCompile> {
+    withType<JavaCompile>().configureEach {
         options.release.set(8)
     }
 }
