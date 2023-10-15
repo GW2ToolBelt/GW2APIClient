@@ -34,6 +34,7 @@ plugins {
 
 rootProject.name = "GW2APIClient"
 
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 file("modules").listFiles(File::isDirectory)!!.forEach { dir ->

@@ -28,7 +28,7 @@ plugins {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion = JavaLanguageVersion.of(8)
     }
 }
 
@@ -38,10 +38,10 @@ kotlin {
     target {
         compilations.configureEach {
             compilerOptions.configure {
-                apiVersion.set(KotlinVersion.KOTLIN_1_8)
-                languageVersion.set(KotlinVersion.KOTLIN_1_8)
+                apiVersion = KotlinVersion.KOTLIN_1_8
+                languageVersion = KotlinVersion.KOTLIN_1_8
 
-                jvmTarget.set(JvmTarget.JVM_1_8)
+                jvmTarget = JvmTarget.JVM_1_8
             }
         }
     }
@@ -58,7 +58,7 @@ gradlePlugin {
 
 tasks {
     withType<JavaCompile>().configureEach {
-        options.release.set(8)
+        options.release = 8
     }
 }
 
