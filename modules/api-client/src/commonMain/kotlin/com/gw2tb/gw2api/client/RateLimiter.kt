@@ -21,12 +21,15 @@
  */
 package com.gw2tb.gw2api.client
 
-import com.gw2tb.gw2api.client.internal.currentTimeMillis
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlin.math.min
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.TimeSource
+import kotlin.time.times
 
 /**
  * A `RateLimiter` provides logic necessary to limit the rate of execution of any sort of requests. For this purpose, a
@@ -70,22 +73,22 @@ public interface RateLimiter {
 /**
  * A [RateLimiter] implementation that uses the token bucket algorithm.
  *
- * @param bucketSize    the size of the bucket
- * @param refillMillis  the maximum time (in millis) until the bucket if filled after being fully depleted
+ * @param bucketSize        the size of the bucket
+ * @param refillDuration    the maximum time (in millis) until the bucket if filled after being fully depleted
  *
  * @since   0.4.0
  */
 public class TokenBucketRateLimiter(
     private val bucketSize: Int = 300,
-    private val refillMillis: Long = 1000L * 60
+    private val refillDuration: Duration = (1000L * 60).milliseconds
 ) : RateLimiter {
 
     private var currentPermits: Int = 0
-    private var nextInterval: Long = 0L
+    private var nextInterval: TimeSource.Monotonic.ValueTimeMark = TimeSource.Monotonic.markNow()
     private var inCurrent: Boolean = false
 
     private val mutex = Mutex()
-    private val penalties: MutableSharedFlow<Long> = MutableSharedFlow()
+    private val penalties: MutableSharedFlow<Duration> = MutableSharedFlow()
 
     override fun acquire(permits: Int): Flow<Int> {
         require(permits > 0)
@@ -95,10 +98,10 @@ public class TokenBucketRateLimiter(
             var grantedPermits: Int
 
             val sleepTime = mutex.withLock {
-                val now = currentTimeMillis()
+                val now = TimeSource.Monotonic.markNow()
 
                 if (now > nextInterval) {
-                    nextInterval = now + refillMillis
+                    nextInterval = TimeSource.Monotonic.markNow() + refillDuration
                     currentPermits = bucketSize
                     inCurrent = true
                 }
@@ -108,14 +111,14 @@ public class TokenBucketRateLimiter(
 
                 currentPermits -= grantedPermits
 
-                val sleepTime = if (inCurrent) 0L else nextInterval - now
+                val sleepTime = if (inCurrent) Duration.ZERO else (nextInterval - now).absoluteValue
 
                 if (currentPermits == 0) {
-                    if (!inCurrent) nextInterval += refillMillis
+                    if (!inCurrent) nextInterval += refillDuration
 
                     val requiredIntervals = remainingPermits / bucketSize
 
-                    nextInterval += requiredIntervals * refillMillis
+                    nextInterval += requiredIntervals * refillDuration
                     currentPermits = bucketSize - (remainingPermits % bucketSize)
                     inCurrent = false
                 }
@@ -123,36 +126,36 @@ public class TokenBucketRateLimiter(
                 sleepTime
             }
 
-            tailrec suspend fun delayWithPenalty(timeMillis: Long) {
-                if (timeMillis == 0L) return
+            tailrec suspend fun delayWithPenalty(duration: Duration) {
+                if (!duration.isPositive()) return
 
-                var penalty = 0L
+                var penalty = Duration.ZERO
 
-                withTimeoutOrNull(timeMillis) {
+                withTimeoutOrNull(duration) {
                     penalties
                         .onEach { penalty += it }
                         .launchIn(this)
                 }
 
-                if (penalty > 0L)
+                if (penalty.isPositive())
                     delayWithPenalty(penalty)
             }
 
-            delayWithPenalty(timeMillis = sleepTime)
+            delayWithPenalty(duration = sleepTime)
             emit(grantedPermits)
 
             while (remainingPermits > 0) {
                 grantedPermits = min(remainingPermits, bucketSize)
                 remainingPermits -= grantedPermits
 
-                delayWithPenalty(timeMillis = refillMillis)
+                delayWithPenalty(duration = refillDuration)
                 emit(grantedPermits)
             }
         }
     }
 
     override suspend fun penalize() {
-        val refillSeconds = refillMillis * 60
+        val refillSeconds = refillDuration * 60
         val refillSecondsPerPermit = refillSeconds / bucketSize
 
         val penaltySeconds = refillSecondsPerPermit / 2
