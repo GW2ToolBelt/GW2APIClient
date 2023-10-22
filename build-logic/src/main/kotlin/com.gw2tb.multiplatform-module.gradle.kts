@@ -19,10 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
+    id("com.gw2tb.java-library-conventions")
     id("com.gw2tb.maven-publish-conventions")
     kotlin("multiplatform")
 }
@@ -30,14 +32,13 @@ plugins {
 kotlin {
     explicitApi()
 
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    targetHierarchy.default()
 
     targets.configureEach {
         compilations.configureEach {
-            compilerOptions.options.apiVersion.set(KotlinVersion.KOTLIN_1_8)
-            compilerOptions.options.languageVersion.set(KotlinVersion.KOTLIN_1_8)
+            compilerOptions.options.apiVersion = KotlinVersion.KOTLIN_1_9
+            compilerOptions.options.languageVersion = KotlinVersion.KOTLIN_1_9
         }
     }
 
@@ -50,7 +51,7 @@ kotlin {
         withJava()
 
         compilations.configureEach {
-            compilerOptions.options.jvmTarget.set(JvmTarget.JVM_11)
+            compilerOptions.options.jvmTarget = JvmTarget.JVM_11
         }
     }
 

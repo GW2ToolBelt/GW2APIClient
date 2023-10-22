@@ -24,17 +24,11 @@
 import org.jetbrains.kotlin.gradle.tasks.*
 
 plugins {
+    alias(libs.plugins.dokkatoo.javadoc)
+    alias(libs.plugins.dokkatoo.html)
+    alias(libs.plugins.kotlin.jvm)
+    id("com.gw2tb.java-library-conventions")
     id("com.gw2tb.maven-publish-conventions")
-    kotlin("jvm")
-    alias(libs.plugins.dokka)
-}
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
-    }
-
-    withSourcesJar()
 }
 
 kotlin {
@@ -42,10 +36,6 @@ kotlin {
 }
 
 tasks {
-    withType<JavaCompile>().configureEach {
-        options.release.set(11)
-    }
-
     withType<KotlinCompile>().configureEach {
         kotlinOptions {
             languageVersion = "1.7"
@@ -54,28 +44,10 @@ tasks {
         }
     }
 
-    test {
-        useJUnitPlatform()
-    }
-
-    jar {
-        manifest {
-            attributes(mapOf(
-                "Name" to project.name,
-                "Specification-Version" to project.version,
-                "Specification-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
-                "Implementation-Version" to project.version,
-                "Implementation-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
-                "Automatic-Module-Name" to "com.gw2tb.gw2api.client.jdk11"
-            ))
-        }
-    }
-
-    create<Jar>("javadocJar") {
-        dependsOn(dokkaJavadoc)
-
+    register<Jar>("javadocJar") {
         archiveClassifier.set("javadoc")
-        from(dokkaJavadoc.get().outputs)
+
+        from(dokkatooGenerateModuleJavadoc.get().outputs)
     }
 }
 
@@ -86,8 +58,8 @@ publishing {
             artifact(tasks["javadocJar"])
 
             pom {
-                name.set("GW2APIClient JDK11 HttpClient Implementation")
-                description.set("JDK11 standard HttpClient implementation for GW2APIClient.")
+                name = "GW2APIClient JDK11 HttpClient Implementation"
+                description = "JDK11 standard HttpClient implementation for GW2APIClient."
 
                 packaging = "jar"
             }

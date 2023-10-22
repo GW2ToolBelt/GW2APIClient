@@ -19,14 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("UnstableApiUsage")
-
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    alias(libs.plugins.dokka)
-    alias(libs.plugins.extra.java.module.info)
+    alias(libs.plugins.dokkatoo.html)
     alias(libs.plugins.kotlin.plugin.serialization)
     id("com.gw2tb.multiplatform-module")
 }
@@ -35,14 +31,6 @@ yarn.lockFileName = "kotlin-yarn.lock"
 yarn.lockFileDirectory = rootProject.projectDir
 
 kotlin {
-    targets.configureEach {
-        compilations.configureEach {
-            compileTaskProvider.configure {
-                dependsOn(project(":").tasks["generate"])
-            }
-        }
-    }
-
     jvm {
         compilations.configureEach {
             compileKotlinTask.destinationDirectory.set(compileJavaTaskProvider!!.flatMap { it.destinationDirectory })
@@ -57,7 +45,7 @@ kotlin {
         }
 
         commonMain {
-            kotlin.srcDir("src/commonMain-generated/kotlin")
+            kotlin.srcDir(files("src/commonMain-generated/kotlin").builtBy(project(":").tasks["generate"]))
 
             dependencies {
                 api(libs.kotlinx.serialization.json)
@@ -65,16 +53,10 @@ kotlin {
         }
 
         commonTest {
-            kotlin.srcDir("src/commonTest-generated/kotlin")
+            kotlin.srcDir(files("src/commonTest-generated/kotlin").builtBy(project(":").tasks["generate"]))
 
             dependencies {
                 api(libs.kotlin.test.common)
-            }
-        }
-
-        named("jsTest") {
-            dependencies {
-                api(libs.kotlin.test.js)
             }
         }
 
@@ -88,36 +70,7 @@ kotlin {
 
 tasks {
     withType<JavaCompile>().configureEach {
-        options.javaModuleVersion.set("$version")
-        options.release.set(11)
-    }
-
-    named<org.gradle.jvm.tasks.Jar>("jvmJar") {
-        manifest {
-            attributes(mapOf(
-                "Name" to project.name,
-                "Specification-Version" to project.version,
-                "Specification-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
-                "Implementation-Version" to project.version,
-                "Implementation-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>"
-            ))
-        }
-    }
-
-    sourcesJar {
-        dependsOn(project(":").tasks["generate"])
-    }
-
-    named("jsSourcesJar") {
-        dependsOn(project(":").tasks["generate"])
-    }
-
-    named("jvmSourcesJar") {
-        dependsOn(project(":").tasks["generate"])
-    }
-
-    withType<DokkaTask>().configureEach {
-        dependsOn(project(":").tasks["generate"])
+        options.javaModuleVersion = "$version"
     }
 }
 
@@ -132,14 +85,10 @@ publishing {
         artifact(emptyJavadocJar)
 
         pom {
-            name.set("GW2API Type Definitions")
-            description.set("Definitions for the various objects returned by the official Guild Wars 2 API.")
+            name = "Guild Wars 2 API Type Definitions"
+            description = "Definitions for the objects returned by the official Guild Wars 2 API."
 
             packaging = "jar"
         }
     }
-}
-
-extraJavaModuleInfo {
-    failOnMissingModuleInfo.set(false)
 }

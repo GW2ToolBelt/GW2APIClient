@@ -20,43 +20,42 @@
  * SOFTWARE.
  */
 import com.gw2tb.apigen.model.v2.*
+import com.gw2tb.build.tasks.MkDocs
 import com.gw2tb.gw2api.generator.tasks.Generate
-import org.jetbrains.dokka.gradle.AbstractDokkaLeafTask
-import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
-import java.net.URL
 
 plugins {
+    alias(libs.plugins.dokkatoo.html)
+    alias(libs.plugins.dokkatoo.javadoc) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
-    alias(libs.plugins.dokka) apply false
-    id("com.gw2tb.deployment-conventions") apply false
+    id("com.gw2tb.base-conventions") // Required by the Kotlin Multiplatform plugin to download native tools
     id("com.gw2tb.gw2api.generator")
 }
 
-subprojects {
-    tasks.withType<AbstractDokkaLeafTask>().configureEach {
-        dependsOn(project(":").tasks["generate"])
-
-        dokkaSourceSets.configureEach sourceSet@{
-            reportUndocumented.set(true)
-            skipEmptyPackages.set(true)
-            jdkVersion.set(11)
-
-            val sourceDir = project.file("src/${this@sourceSet.name}/kotlin")
-            if (sourceDir.isDirectory) {
-                sourceLink {
-                    localDirectory.set(sourceDir)
-                    remoteUrl.set(URL("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/modules/${project.name}/src/${this@sourceSet.name}/kotlin"))
-                    remoteLineSuffix.set("#L")
-                }
-            }
-        }
-    }
-}
+//subprojects {
+//    tasks.withType<AbstractDokkaLeafTask>().configureEach {
+//        dependsOn(project(":").tasks["generate"])
+//
+//        dokkaSourceSets.configureEach sourceSet@{
+//            reportUndocumented.set(true)
+//            skipEmptyPackages.set(true)
+//            jdkVersion.set(11)
+//
+//            val sourceDir = project.file("src/${this@sourceSet.name}/kotlin")
+//            if (sourceDir.isDirectory) {
+//                sourceLink {
+//                    localDirectory.set(sourceDir)
+//                    remoteUrl.set(URL("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/modules/${project.name}/src/${this@sourceSet.name}/kotlin"))
+//                    remoteLineSuffix.set("#L")
+//                }
+//            }
+//        }
+//    }
+//}
 
 tasks {
-    create<Generate>("generate") {
-        schemaVersion.set(V2SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z)
+    register<Generate>("generate") {
+        schemaVersion.set(SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z)
 
         licenseHeader.set(file("docs/LICENSE_HEADER_GEN").readText())
 
@@ -67,13 +66,37 @@ tasks {
         typesTestDirectory.set(file("modules/api-types/src/commonTest-generated/kotlin"))
     }
 
-    withType<DokkaMultiModuleTask> {
-        outputDirectory.set(layout.buildDirectory.dir("mkdocs/sources/api").map { it.asFile })
-        failOnWarning.set(true)
+    dokkatooGeneratePublicationHtml {
+        outputDirectory = layout.buildDirectory.dir("mkdocs/sources/api")
+    }
+
+    register<MkDocs>("mkdocs") {
+        dependsOn(dokkatooGeneratePublicationHtml)
+
+        inputFile(layout.projectDirectory.file(".github/CONTRIBUTING.md")) {
+            target = "contributing.md"
+        }
+
+        inputFile(layout.projectDirectory.file("docs/changelog/full.md")) {
+            target = "changelog.md"
+        }
+
+        inputFiles(layout.projectDirectory.dir("docs/mkdocs")) {
+            filter { it.replace("docs/mkdocs/([a-zA-Z-]*).md".toRegex(), "$1") }
+        }
     }
 }
 
-repositories {
-    // Required by the Kotlin Multiplatform plugin to download native tools
-    mavenCentral()
+dependencies {
+    dokkatoo(projects.apiClient)
+    dokkatoo(projects.apiClientJdk11)
+    dokkatoo(projects.apiClientKtor)
+    dokkatoo(projects.apiTypes)
+
+    // This is required at the moment, see https://github.com/adamko-dev/dokkatoo/issues/14
+    dokkatooPluginHtml(
+        dokkatoo.versions.jetbrainsDokka.map { dokkaVersion ->
+            "org.jetbrains.dokka:all-modules-page-plugin:$dokkaVersion"
+        }
+    )
 }

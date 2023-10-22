@@ -19,12 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("UnstableApiUsage")
-
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    alias(libs.plugins.dokka)
+    alias(libs.plugins.dokkatoo.html)
     id("com.gw2tb.multiplatform-module")
 }
 
@@ -34,8 +32,6 @@ yarn.lockFileDirectory = rootProject.projectDir
 kotlin {
     sourceSets {
         commonMain {
-            kotlin.srcDir("src/commonMain-generated/kotlin")
-
             dependencies {
                 api(projects.apiClient)
                 api(libs.ktor.client.core)
@@ -43,18 +39,10 @@ kotlin {
         }
 
         commonTest {
-            kotlin.srcDir("src/commonTest-generated/kotlin")
-
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-test-common")
                 implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
                 implementation(libs.ktor.client.mock)
-            }
-        }
-
-        named("jvmMain") {
-            dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
             }
         }
 
@@ -71,11 +59,7 @@ kotlin {
 }
 
 tasks {
-    withType<JavaCompile>().configureEach {
-        options.release.set(11)
-    }
-
-    named<org.gradle.jvm.tasks.Jar>("jvmJar") {
+    named<Jar>("jvmJar") {
         manifest {
             attributes(mapOf(
                 "Name" to project.name,
@@ -100,8 +84,8 @@ publishing {
         artifact(emptyJavadocJar)
 
         pom {
-            name.set("GW2APIClient Ktor Implementation")
-            description.set("Ktor HttpClient implementation for GW2APIClient.")
+            name = "GW2APIClient Ktor Implementation"
+            description = "Ktor HttpClient implementation for GW2APIClient."
 
             packaging = "jar"
         }

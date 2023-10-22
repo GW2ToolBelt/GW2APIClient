@@ -19,13 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("UnstableApiUsage")
-
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
-    alias(libs.plugins.dokka)
+    alias(libs.plugins.dokkatoo.html)
     id("com.gw2tb.multiplatform-module")
 }
 
@@ -33,36 +30,15 @@ yarn.lockFileName = "kotlin-yarn.lock"
 yarn.lockFileDirectory = rootProject.projectDir
 
 kotlin {
-    targets.configureEach {
+    jvm {
         compilations.configureEach {
-            compileTaskProvider.configure {
-                dependsOn(project(":").tasks["generate"])
-            }
-        }
-    }
-
-    js(IR) {
-        browser {
-            testTask {
-                useMocha {
-                    // https://github.com/Kotlin/kotlinx.coroutines/issues/3077
-                    timeout = "10s"
-                }
-            }
-        }
-        nodejs {
-            testTask {
-                useMocha {
-                    // https://github.com/Kotlin/kotlinx.coroutines/issues/3077
-                    timeout = "10s"
-                }
-            }
+            compileKotlinTask.destinationDirectory.set(compileJavaTaskProvider!!.flatMap { it.destinationDirectory })
         }
     }
 
     sourceSets {
         commonMain {
-            kotlin.srcDir("src/commonMain-generated/kotlin")
+            kotlin.srcDir(files("src/commonMain-generated/kotlin").builtBy(project(":").tasks["generate"]))
 
             dependencies {
                 api(projects.apiTypes)
@@ -71,7 +47,7 @@ kotlin {
         }
 
         commonTest {
-            kotlin.srcDir("src/commonTest-generated/kotlin")
+            kotlin.srcDir(files("src/commonTest-generated/kotlin").builtBy(project(":").tasks["generate"]))
 
             dependencies {
                 implementation(projects.apiClientKtor)
@@ -85,20 +61,12 @@ kotlin {
             dependsOn(commonMain.get())
         }
 
-        getByName("jsMain") {
+        named("nativeMain") {
             dependsOn(nonJvmMain)
         }
 
-        named("jsTest") {
-            dependencies {
-                api(libs.kotlin.test.js)
-            }
-        }
-
-        named("jvmMain") {
-            dependencies {
-                api(libs.kotlinx.coroutines.jdk8)
-            }
+        named("jsMain") {
+            dependsOn(nonJvmMain)
         }
 
         named("jvmTest") {
@@ -111,36 +79,7 @@ kotlin {
 
 tasks {
     withType<JavaCompile>().configureEach {
-        options.release.set(11)
-    }
-
-    named<org.gradle.jvm.tasks.Jar>("jvmJar") {
-        manifest {
-            attributes(mapOf(
-                "Name" to project.name,
-                "Specification-Version" to project.version,
-                "Specification-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
-                "Implementation-Version" to project.version,
-                "Implementation-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
-                "Automatic-Module-Name" to "com.gw2tb.gw2api.client"
-            ))
-        }
-    }
-
-    sourcesJar {
-        dependsOn(project(":").tasks["generate"])
-    }
-
-    named("jsSourcesJar") {
-        dependsOn(project(":").tasks["generate"])
-    }
-
-    named("jvmSourcesJar") {
-        dependsOn(project(":").tasks["generate"])
-    }
-
-    withType<DokkaTask>().configureEach {
-        dependsOn(project(":").tasks["generate"])
+        options.javaModuleVersion = "$version"
     }
 }
 
@@ -155,8 +94,8 @@ publishing {
         artifact(emptyJavadocJar)
 
         pom {
-            name.set("GW2APIClient Query Definitions")
-            description.set("Definitions for the various queries supported by the official Guild Wars 2 API.")
+            name = "Guild Wars 2 API Query Definitions"
+            description = "Definitions for the queries supported by the official Guild Wars 2 API."
 
             packaging = "jar"
         }

@@ -30,8 +30,8 @@ publishing {
             from(components["javaPlatform"])
 
             pom {
-                name.set("GW2APIClient BOM")
-                description.set("Bill of Materials for GW2APIClient artifacts.")
+                name = "GW2APIClient BOM"
+                description = "Bill of Materials for GW2APIClient artifacts."
 
                 packaging = "pom"
             }

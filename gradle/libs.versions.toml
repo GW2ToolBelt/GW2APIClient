@@ -1,7 +1,6 @@
 [versions]
 api-generator = "0.6.0"
-dokka = "1.7.20"
-extra-java-module-info = "1.0"
+dokkatoo = "2.0.0"
 junit = "5.10.0"
 kotlin = "1.9.10"
 kotlinx-coroutines = "1.7.3"
@@ -28,7 +27,6 @@ kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin ", 
 
 # org.jetbrains.kotlinx:kotlinx-coroutines-[...] - kotlinx.coroutines
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
-kotlinx-coroutines-jdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 
 # org.jetbrains.kotlinx:kotlinx-serialization-[...] - kotlinx.serialization
@@ -42,11 +40,9 @@ junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", vers
 
 
 [plugins]
-# org.gradlex:extra-java-module-info - extra-java-module-info
-extra-java-module-info = { id = "org.gradlex.extra-java-module-info", version.ref = "extra-java-module-info" }
-
-# org.jetbrains.dokka - dokka
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+# dev.adamko.dokkatoo - Dokkatoo
+dokkatoo-html = { id = "dev.adamko.dokkatoo-html", version.ref = "dokkatoo" }
+dokkatoo-javadoc = { id = "dev.adamko.dokkatoo-javadoc", version.ref = "dokkatoo" }
 
 # org.jetbrains.kotlin - Kotlin Gradle plugin
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

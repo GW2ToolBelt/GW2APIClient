@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022 Leon Linhart
+ * Copyright (c) 2018-2023 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -19,13 +19,26 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-[data-md-color-scheme="gw2tb-light"] {
-    --md-primary-fg-color: #631625;
-    --md-accent-fg-color:  #ef396a;
+plugins {
+    `java-library`
 }
 
-[data-md-color-scheme="slate"] {
-    --md-hue: 190;
-    --md-primary-fg-color: #159695;
-    --md-accent-fg-color:  #10e1c8;
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+
+    withSourcesJar()
+}
+
+tasks
+
+tasks {
+    withType<JavaCompile>().configureEach {
+        options.release = 11
+    }
+
+    withType<Test> {
+        useJUnitPlatform()
+    }
 }
