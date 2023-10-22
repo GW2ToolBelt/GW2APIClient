@@ -20,14 +20,16 @@
  * SOFTWARE.
  */
 /**
- * Provides type-safe definitions for the objects returned by the Guild Wars 2
- * API.
+ * Provides type-safe query functions which can be used to request data from the
+ * Guild Wars 2 API.
  */
 module com.gw2tb.gw2api.types {
 
-    requires transitive kotlin.stdlib.jdk8;
+    requires transitive kotlin.stdlib;
+    requires transitive kotlinx.serialization.core;
     requires transitive kotlinx.serialization.json;
 
+    exports com.gw2tb.gw2api.types;
     exports com.gw2tb.gw2api.types.mumble;
     exports com.gw2tb.gw2api.types.v1;
     exports com.gw2tb.gw2api.types.v2;

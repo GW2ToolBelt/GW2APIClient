@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2018-2022 Leon Linhart
- * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,20 +19,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.types.v2
+import java.net.http.HttpClient;
 
-import kotlinx.serialization.*
-import kotlinx.serialization.builtins.*
-import kotlinx.serialization.json.*
+/** Provides a {@link HttpClient}-based implementation for GW2APIClient. */
+@SuppressWarnings("JavaModuleNaming")
+module com.gw2tb.gw2api.client.jdk11 {
 
-/**
- * Information about a home-instance node.
- *
- * @param id the node's ID
- */
-@Serializable
-public data class GW2v2HomeInstanceNode(
-    /** This field holds the node's ID. */
-    val id: String
-)
+    requires transitive com.gw2tb.gw2api.client;
+    requires transitive java.net.http;
+
+    exports com.gw2tb.gw2api.client.jdk11;
+
+}

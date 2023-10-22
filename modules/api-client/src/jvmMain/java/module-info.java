@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2018-2022 Leon Linhart
- * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,20 +19,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.types.v2
-
-import kotlinx.serialization.*
-import kotlinx.serialization.builtins.*
-import kotlinx.serialization.json.*
-
 /**
- * Information about the current game build.
- *
- * @param id the current build ID
+ * Provides type-safe definitions for the objects returned by the Guild Wars 2
+ * API.
  */
-@Serializable
-public data class GW2v2Build(
-    /** This field holds the current build ID. */
-    val id: Int
-)
+module com.gw2tb.gw2api.client {
+
+    requires transitive com.gw2tb.gw2api.types;
+    requires transitive kotlinx.coroutines.core;
+
+    exports com.gw2tb.gw2api.client;
+    exports com.gw2tb.gw2api.client.http;
+
+}
