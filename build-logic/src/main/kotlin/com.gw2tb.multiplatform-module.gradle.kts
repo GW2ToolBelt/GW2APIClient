@@ -61,8 +61,7 @@ kotlin {
 //    androidNativeX64()
 //    androidNativeX86()
 
-    // TODO Unsupported by Ktor (https://github.com/ktorio/ktor/pull/3587)
-//    linuxArm64()
+    linuxArm64()
     linuxX64()
 
     iosArm64()
