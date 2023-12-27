@@ -5,7 +5,7 @@ junit = "5.10.1"
 kotlin = "1.9.21"
 kotlinx-coroutines = "1.7.3"
 kotlinx-serialization = "1.6.2"
-ktor = "2.3.5"
+ktor = "2.3.7"
 
 
 [libraries]
@@ -13,6 +13,7 @@ ktor = "2.3.5"
 gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version.ref = "api-generator" }
 
 # io.ktor - Ktor
+# https://github.com/ktorio/ktor
 ktor-client-apache = { module = "io.ktor:ktor-client-apache", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
