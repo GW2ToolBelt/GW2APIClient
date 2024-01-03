@@ -19,9 +19,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:Suppress("UnstableApiUsage")
-
-import org.jetbrains.kotlin.gradle.tasks.*
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.dokkatoo.javadoc)
@@ -33,14 +33,32 @@ plugins {
 
 kotlin {
     explicitApi()
+
+    compilerOptions {
+        apiVersion = KotlinVersion.KOTLIN_1_9
+        languageVersion = KotlinVersion.KOTLIN_1_9
+
+        jvmTarget = JvmTarget.JVM_11
+    }
 }
 
 tasks {
-    withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            languageVersion = "1.7"
-            apiVersion = "1.7"
-            jvmTarget = "11"
+    withType<JavaCompile>().configureEach {
+        options.javaModuleVersion = "$version"
+    }
+
+    named<JavaCompile>("compileJava") {
+        options.compilerArgumentProviders += object : CommandLineArgumentProvider {
+
+            @InputFiles
+            @PathSensitive(PathSensitivity.RELATIVE)
+            val kotlinClasses = this@tasks.named<KotlinCompile>("compileKotlin").flatMap(KotlinCompile::destinationDirectory)
+
+            override fun asArguments() = listOf(
+                "--patch-module",
+                "com.gw2tb.gw2api.client.jdk11=${kotlinClasses.get().asFile.absolutePath}"
+            )
+
         }
     }
 

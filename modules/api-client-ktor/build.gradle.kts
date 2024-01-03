@@ -19,15 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
-
 plugins {
     alias(libs.plugins.dokkatoo.html)
     id("com.gw2tb.multiplatform-module")
 }
-
-yarn.lockFileName = "kotlin-yarn.lock"
-yarn.lockFileDirectory = rootProject.projectDir
 
 kotlin {
     sourceSets {
@@ -40,16 +35,15 @@ kotlin {
 
         commonTest {
             dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-test-common")
-                implementation("org.jetbrains.kotlin:kotlin-test-annotations-common")
+                implementation(libs.kotlin.test)
                 implementation(libs.ktor.client.mock)
             }
         }
 
         named("jvmTest") {
             dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-test-junit5")
                 implementation(libs.junit.jupiter.api)
+                implementation(libs.kotlin.test.junit5)
                 implementation(libs.ktor.client.apache)
 
                 runtimeOnly(libs.junit.jupiter.engine)
@@ -73,14 +67,13 @@ tasks {
     }
 }
 
-val emptyJar by tasks.registering(Jar::class)
-val emptyJavadocJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("javadoc")
-}
-
 publishing {
     publications.withType<MavenPublication>().configureEach {
-        if (name == "js") artifact(emptyJar)
+        val emptyJavadocJar = tasks.register<Jar>("${name}JavadocJar") {
+            archiveBaseName = "${archiveBaseName.get()}-${name}"
+            archiveClassifier = "javadoc"
+        }
+
         artifact(emptyJavadocJar)
 
         pom {

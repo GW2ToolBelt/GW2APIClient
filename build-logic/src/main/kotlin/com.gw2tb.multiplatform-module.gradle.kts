@@ -19,9 +19,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 
 plugins {
     id("com.gw2tb.java-library-conventions")
@@ -29,20 +29,23 @@ plugins {
     kotlin("multiplatform")
 }
 
+yarn.lockFileName = "kotlin-yarn.lock"
+yarn.lockFileDirectory = rootProject.projectDir
+
 kotlin {
     explicitApi()
-
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    targetHierarchy.default()
+    applyDefaultHierarchyTemplate()
 
     targets.configureEach {
         compilations.configureEach {
-            compilerOptions.options.apiVersion = KotlinVersion.KOTLIN_1_9
-            compilerOptions.options.languageVersion = KotlinVersion.KOTLIN_1_9
+            compilerOptions.configure {
+                apiVersion = KotlinVersion.KOTLIN_1_9
+                languageVersion = KotlinVersion.KOTLIN_1_9
+            }
         }
     }
 
-    js(IR) {
+    js {
         browser()
         nodejs()
     }
@@ -51,7 +54,9 @@ kotlin {
         withJava()
 
         compilations.configureEach {
-            compilerOptions.options.jvmTarget = JvmTarget.JVM_11
+            compilerOptions.configure {
+                jvmTarget = JvmTarget.JVM_11
+            }
         }
     }
 
@@ -86,4 +91,13 @@ kotlin {
     // TODO Unsupported by Ktor
 //    watchosDeviceArm64()
     watchosSimulatorArm64()
+}
+
+tasks {
+    withType<Jar>().configureEach {
+        isPreserveFileTimestamps = false
+        isReproducibleFileOrder = true
+
+        includeEmptyDirs = false
+    }
 }

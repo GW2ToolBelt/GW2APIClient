@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.dokkatoo.html)
@@ -27,19 +27,10 @@ plugins {
     id("com.gw2tb.multiplatform-module")
 }
 
-yarn.lockFileName = "kotlin-yarn.lock"
-yarn.lockFileDirectory = rootProject.projectDir
-
 kotlin {
-    jvm {
-        compilations.configureEach {
-            compileKotlinTask.destinationDirectory.set(compileJavaTaskProvider!!.flatMap { it.destinationDirectory })
-        }
-    }
-
     sourceSets {
-        all {
-            languageSettings.apply {
+        configureEach {
+            languageSettings {
                 optIn("kotlinx.serialization.ExperimentalSerializationApi")
             }
         }
@@ -72,16 +63,30 @@ tasks {
     withType<JavaCompile>().configureEach {
         options.javaModuleVersion = "$version"
     }
-}
 
-val emptyJar by tasks.registering(Jar::class)
-val emptyJavadocJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("javadoc")
+    named<JavaCompile>("compileJava") {
+        options.compilerArgumentProviders += object : CommandLineArgumentProvider {
+
+            @InputFiles
+            @PathSensitive(PathSensitivity.RELATIVE)
+            val kotlinClasses = this@tasks.named<KotlinCompile>("compileKotlinJvm").flatMap(KotlinCompile::destinationDirectory)
+
+            override fun asArguments() = listOf(
+                "--patch-module",
+                "com.gw2tb.gw2api.types=${kotlinClasses.get().asFile.absolutePath}"
+            )
+
+        }
+    }
 }
 
 publishing {
     publications.withType<MavenPublication>().configureEach {
-        if (name == "js") artifact(emptyJar)
+        val emptyJavadocJar = tasks.register<Jar>("${name}JavadocJar") {
+            archiveBaseName = "${archiveBaseName.get()}-${name}"
+            archiveClassifier = "javadoc"
+        }
+
         artifact(emptyJavadocJar)
 
         pom {
