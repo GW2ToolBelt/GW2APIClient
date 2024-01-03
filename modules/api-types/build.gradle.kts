@@ -56,7 +56,7 @@ kotlin {
             kotlin.srcDir(files("src/commonTest-generated/kotlin").builtBy(project(":").tasks["generate"]))
 
             dependencies {
-                api(libs.kotlin.test.common)
+                api(libs.kotlin.test)
             }
         }
 

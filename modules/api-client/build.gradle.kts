@@ -52,7 +52,7 @@ kotlin {
             dependencies {
                 implementation(projects.apiClientKtor)
 
-                implementation(libs.kotlin.test.common)
+                implementation(libs.kotlin.test)
                 implementation(libs.kotlinx.coroutines.test)
             }
         }
