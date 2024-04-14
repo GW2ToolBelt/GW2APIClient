@@ -55,15 +55,15 @@ plugins {
 
 tasks {
     register<Generate>("generate") {
-        schemaVersion.set(SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z)
+        schemaVersion = SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z
 
-        licenseHeader.set(file("docs/LICENSE_HEADER_GEN").readText())
+        licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 
-        queriesDirectory.set(file("modules/api-client/src/commonMain-generated/kotlin"))
-        queriesTestDirectory.set(file("modules/api-client/src/commonTest-generated/kotlin"))
+        queriesDirectory = file("modules/api-client/src/commonMain-generated/kotlin")
+        queriesTestDirectory = file("modules/api-client/src/commonTest-generated/kotlin")
 
-        typesDirectory.set(file("modules/api-types/src/commonMain-generated/kotlin"))
-        typesTestDirectory.set(file("modules/api-types/src/commonTest-generated/kotlin"))
+        typesDirectory = file("modules/api-types/src/commonMain-generated/kotlin")
+        typesTestDirectory = file("modules/api-types/src/commonTest-generated/kotlin")
     }
 
     dokkatooGeneratePublicationHtml {
