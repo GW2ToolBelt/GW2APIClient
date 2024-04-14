@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2018-2022 Leon Linhart
- * MACHINE GENERATED FILE, DO NOT EDIT
+ * Copyright (c) 2019-2024 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,18 +19,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2api.types.v2
+:root {
+    --md-primary-fg-color:        #631625;
+    /*--md-primary-fg-color--light: #ECB7B7;*/
+    /*--md-primary-fg-color--dark:  #90030C;*/
+}
 
-import kotlin.test.*
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
+[data-md-color-scheme="slate"] {
+    --md-hue: 240;
+    --md-primary-fg-color:        #c44445;
+    /*--md-primary-fg-color--light: #ECB7B7;*/
+    /*--md-primary-fg-color--dark:  #90030C;*/
+}
 
-class GW2v2SpecializationsTest {
-
-    private val json = Json {
-        useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
-    }
-
-    
-
+.md-typeset a {
+    text-decoration: underline;
 }
