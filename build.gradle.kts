@@ -20,7 +20,6 @@
  * SOFTWARE.
  */
 import com.gw2tb.apigen.model.v2.*
-import com.gw2tb.build.tasks.MkDocs
 import com.gw2tb.gw2api.generator.tasks.Generate
 
 plugins {
@@ -32,26 +31,38 @@ plugins {
     id("com.gw2tb.gw2api.generator")
 }
 
-//subprojects {
-//    tasks.withType<AbstractDokkaLeafTask>().configureEach {
-//        dependsOn(project(":").tasks["generate"])
-//
-//        dokkaSourceSets.configureEach sourceSet@{
-//            reportUndocumented.set(true)
-//            skipEmptyPackages.set(true)
-//            jdkVersion.set(11)
-//
-//            val sourceDir = project.file("src/${this@sourceSet.name}/kotlin")
-//            if (sourceDir.isDirectory) {
-//                sourceLink {
-//                    localDirectory.set(sourceDir)
-//                    remoteUrl.set(URL("https://github.com/GW2ToolBelt/GW2APIClient/blob/master/modules/${project.name}/src/${this@sourceSet.name}/kotlin"))
-//                    remoteLineSuffix.set("#L")
-//                }
-//            }
-//        }
-//    }
-//}
+dokkatoo {
+    dokkaGeneratorIsolation = ProcessIsolation {
+        maxHeapSize = "4G"
+    }
+
+    dokkatooSourceSets.configureEach {
+        reportUndocumented = true
+        skipEmptyPackages = true
+        jdkVersion = 11
+
+        val localKotlinSourceDir = layout.projectDirectory.dir("src/$name/kotlin")
+        val version = project.version
+
+        sourceLink {
+            localDirectory = localKotlinSourceDir
+
+            remoteUrl("https://github.com/GW2ToolBelt/GW2APIClient/tree/v${version}/src/main/kotlin")
+            remoteLineSuffix = "#L"
+        }
+    }
+
+    dokkatooPublications.configureEach {
+        moduleName = "GW2APIClient"
+
+        // TODO Remaining warnings are silly atm. Reevaluate this flag in the future.
+//        failOnWarning = true
+    }
+
+    versions {
+        jetbrainsDokka = libs.versions.dokka
+    }
+}
 
 tasks {
     register<Generate>("generate") {
@@ -76,11 +87,4 @@ dependencies {
     dokkatoo(projects.apiClientJdk11)
     dokkatoo(projects.apiClientKtor)
     dokkatoo(projects.apiTypes)
-
-    // This is required at the moment, see https://github.com/adamko-dev/dokkatoo/issues/14
-    dokkatooPluginHtml(
-        dokkatoo.versions.jetbrainsDokka.map { dokkaVersion ->
-            "org.jetbrains.dokka:all-modules-page-plugin:$dokkaVersion"
-        }
-    )
 }

@@ -1,5 +1,6 @@
 [versions]
 api-generator = "0.6.0"
+dokka = "1.9.20"
 dokkatoo = "2.3.0"
 junit = "5.10.2"
 kotlin = "1.9.23"
