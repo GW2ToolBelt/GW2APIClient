@@ -6,7 +6,7 @@ on:
 
 
 env:
-  JDK_VERSION: "19"
+  JDK_VERSION: "21"
   WORKSPACE_ARCHIVE: workspace.tar
   WORKSPACE_ARTIFACT: build-results
 
@@ -20,30 +20,65 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
+        uses: gradle/wrapper-validation-action@v2
 
-      - uses: actions/setup-java@v3
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: ${{ env.JDK_VERSION }}
 
-      - name: Gradle Assemble
-        uses: gradle/gradle-build-action@v2
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: build --info -S --show-version
           gradle-home-cache-cleanup: true
 
-      - name: Tar files
-        run: tar -cvf ${{ env.WORKSPACE_ARCHIVE }} .
+      - name: Gradle Assemble
+        run: ./gradlew assemble --info -S --show-version
 
-      - uses: actions/upload-artifact@v3
+      - name: Tar files
+        run: tar --exclude='.git' --exclude=${{ env.WORKSPACE_ARCHIVE }} -cvf ${{ env.WORKSPACE_ARCHIVE }} .
+
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }}-${{ env.WORKSPACE_ARTIFACT }}
           path: ${{ env.WORKSPACE_ARCHIVE }}
           retention-days: 1
+
+
+  build-docs:
+    name: Build Documentation
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/download-artifact@v4
+        with:
+          name: ubuntu-latest-${{ env.WORKSPACE_ARTIFACT }}
+          path: .
+
+      - name: Untar
+        run: |
+          tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
+          rm ${{ env.WORKSPACE_ARCHIVE }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+
+      - name: Install dependencies
+        run: pip3 install --no-deps -r .github/workflows/mkdocs-requirements.txt
+
+      - name: MkDocs Build
+        run: mkdocs build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build/site
+          retention-days: 3
 
 
   check:
@@ -55,7 +90,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           # https://github.com/actions/runner/issues/409#issuecomment-752775072
           name: ${{ matrix.os == 'windows-latest' && 'ubuntu-latest' || matrix.os }}-${{ env.WORKSPACE_ARTIFACT }}
@@ -66,16 +101,18 @@ jobs:
           tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
           rm ${{ env.WORKSPACE_ARCHIVE }}
 
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: ${{ env.JDK_VERSION }}
 
-      - name: Gradle Check
-        uses: gradle/gradle-build-action@v2
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: check --info -S --show-version
           gradle-home-cache-cleanup: true
+
+      - name: Gradle Check
+        run: ./gradlew check --info -S --show-version
 
 
   # So, what's happening here?
@@ -93,15 +130,17 @@ jobs:
   cleanup:
     name: Cleanup
     if: ${{ always() }}
-    needs: check
+    needs: [build-docs, check]
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - name: Cleanup
-        uses: GeekyEggo/delete-artifact@54ab544f12cdb7b71613a16a2b5a37a9ade990af
+        uses: GeekyEggo/delete-artifact@24928e75e6e6590170563b8ddae9fac674508aa1
         with:
           name: macos-latest-${{ env.WORKSPACE_ARTIFACT }}
 
       - name: Cleanup
-        uses: GeekyEggo/delete-artifact@54ab544f12cdb7b71613a16a2b5a37a9ade990af
+        uses: GeekyEggo/delete-artifact@24928e75e6e6590170563b8ddae9fac674508aa1
         with:
           name: ubuntu-latest-${{ env.WORKSPACE_ARTIFACT }}
