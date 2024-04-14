@@ -21,7 +21,10 @@
  */
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinWithJavaTarget
+import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
+import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 
 plugins {
     id("com.gw2tb.java-library-conventions")
@@ -58,11 +61,11 @@ kotlin {
         compilations.configureEach {
             compilerOptions.configure {
                 jvmTarget = JvmTarget.JVM_11
+                freeCompilerArgs.add("-Xjdk-release=11")
             }
         }
     }
 
-    // TODO Unsupported by Ktor
 //    androidNativeArm32()
 //    androidNativeArm64()
 //    androidNativeX64()
@@ -86,20 +89,33 @@ kotlin {
 
     tvosSimulatorArm64()
 
+//    wasmJs()
+//    wasmWasi()
+
     watchosArm32()
     watchosArm64()
     watchosX64()
 
-    // TODO Unsupported by Ktor
 //    watchosDeviceArm64()
     watchosSimulatorArm64()
+
+    targets.filter { it is KotlinJvmTarget || it is KotlinWithJavaTarget<*, *> }.forEach { target ->
+        tasks.named<Jar>(target.artifactsTaskName) {
+            manifest {
+                attributes(mapOf(
+                    "Name" to project.name,
+                    "Specification-Version" to project.version,
+                    "Specification-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>",
+                    "Implementation-Version" to project.version,
+                    "Implementation-Vendor" to "Leon Linhart <themrmilchmann@gmail.com>"
+                ))
+            }
+        }
+    }
 }
 
 tasks {
-    withType<Jar>().configureEach {
-        isPreserveFileTimestamps = false
-        isReproducibleFileOrder = true
-
-        includeEmptyDirs = false
+    withType<KotlinNpmInstallTask>().configureEach {
+        args += "--ignore-engines"
     }
 }
