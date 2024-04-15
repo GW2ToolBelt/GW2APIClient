@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Title
 
 /**
  * Information about a title.
@@ -43,10 +50,10 @@ public data class GW2v2Title(
     /** This field holds the display name of the title. */
     val name: String,
     /** This field holds the ID of the achievement that grants this title. */
-    @Deprecated(message = "")
-    val achievement: Int? = null,
+    @Deprecated(message = "This property is deprecated.")
+    val achievement: GW2AchievementId? = null,
     /** This field holds the IDs of the achievements that grant this title. */
-    val achievements: List<Int>? = null,
+    val achievements: List<GW2AchievementId>? = null,
     /** This field holds the amount of AP required to unlock this title. */
     @SerialName("ap_required")
     val apRequired: Int? = null

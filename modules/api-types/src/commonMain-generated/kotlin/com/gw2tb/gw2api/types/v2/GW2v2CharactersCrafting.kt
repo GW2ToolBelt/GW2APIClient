@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CharactersCrafting
 
 /**
  * Information about a character's crafting disciplines.
@@ -43,7 +50,7 @@ public data class GW2v2CharactersCrafting(
      *
      * @param discipline the name of the discipline
      * @param rating the character's crafting level for the discipline
-     * @param active a flag indicating whether or not the discipline is currently active on the character
+     * @param active a flag indicating whether the discipline is currently active on the character
      */
     @Serializable
     public data class Discipline(
@@ -51,7 +58,7 @@ public data class GW2v2CharactersCrafting(
         val discipline: String,
         /** This field holds the character's crafting level for the discipline. */
         val rating: Int,
-        /** This field holds a flag indicating whether or not the discipline is currently active on the character. */
+        /** This field holds a flag indicating whether the discipline is currently active on the character. */
         val active: Boolean
     )
 

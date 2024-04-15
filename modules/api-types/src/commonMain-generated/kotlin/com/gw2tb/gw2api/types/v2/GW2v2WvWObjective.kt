@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: WvwObjective
 
 /**
  * Information about an objective in the World versus World game mode.
@@ -33,17 +40,17 @@ import kotlinx.serialization.json.*
  * @param id the ID of the objective
  * @param name the name of the objective
  * @param type the type of the objective
- * @param sectorID the map sector the objective can be found in
- * @param mapID the ID of the map the objective can be found on
+ * @param sectorId the map sector the objective can be found in
+ * @param mapId the ID of the map the objective can be found on
  * @param mapType the type of the map the objective can be found on
  * @param coord an array of three numbers representing the X, Y and Z coordinates of the objectives marker on the map
  * @param labelCoord an array of two numbers representing the X and Y coordinates of the sector centroid
  * @param marker the icon link
  * @param chatLink the chat code for the objective
- * @param upgradeID the ID of the upgrades available for the objective
+ * @param upgradeId the ID of the upgrades available for the objective
  */
 @Serializable
-public data class GW2v2WvWObjective(
+public data class GW2v2WvwObjective(
     /** This field holds the ID of the objective. */
     val id: String,
     /** This field holds the name of the objective. */
@@ -52,10 +59,10 @@ public data class GW2v2WvWObjective(
     val type: String,
     /** This field holds the map sector the objective can be found in. */
     @SerialName("sector_id")
-    val sectorID: Int,
+    val sectorId: Int,
     /** This field holds the ID of the map the objective can be found on. */
     @SerialName("map_id")
-    val mapID: Int,
+    val mapId: Int,
     /** This field holds the type of the map the objective can be found on. */
     @SerialName("map_type")
     val mapType: String,
@@ -71,5 +78,5 @@ public data class GW2v2WvWObjective(
     val chatLink: String,
     /** This field holds the ID of the upgrades available for the objective. */
     @SerialName("upgrade_id")
-    val upgradeID: Int? = null
+    val upgradeId: Int? = null
 )

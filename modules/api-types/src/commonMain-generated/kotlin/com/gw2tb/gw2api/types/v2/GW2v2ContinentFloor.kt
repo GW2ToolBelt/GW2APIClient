@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: ContinentFloor
 
 /**
  * Information about a continent floor.
@@ -121,7 +128,7 @@ public data class GW2v2ContinentFloor(
             @SerialName("points_of_interest")
             val pointsOfInterest: Map<Int, PointOfInterest>,
             /** This field holds the god shrines on the floor. */
-            @SerialName("godshrines")
+            @SerialName("god_shrines")
             val godShrines: List<GodShrine>? = null,
             /** This field holds the tasks on the floor. */
             val tasks: Map<Int, Task>,
@@ -175,7 +182,7 @@ public data class GW2v2ContinentFloor(
              * @param nameContested the god shrine's localized name (when contested)
              * @param icon the god shrine's icon
              * @param iconContested the god shrine's icon (when contested)
-             * @param poIID the god shrine's PoI ID
+             * @param poiId the god shrine's PoI ID
              * @param coord the god shrine's coordinates
              */
             @Serializable
@@ -194,7 +201,7 @@ public data class GW2v2ContinentFloor(
                 val iconContested: String? = null,
                 /** This field holds the god shrine's PoI ID. */
                 @SerialName("poi_id")
-                val poIID: Int,
+                val poiId: Int,
                 /** This field holds the god shrine's coordinates. */
                 val coord: List<Double>
             )

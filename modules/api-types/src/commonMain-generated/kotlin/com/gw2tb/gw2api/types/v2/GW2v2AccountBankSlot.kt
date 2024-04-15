@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: AccountBankSlot
 
 /**
  * Information about a bank slot.
@@ -45,22 +52,22 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2AccountBankSlot(
     /** This field holds the item's ID. */
-    val id: Int,
+    val id: GW2ItemId,
     /** This field holds the amount of items in the stack. */
     val count: Int,
     /** This field holds the amount of charges remaining on the item. */
     val charges: Int? = null,
     /** This field holds the ID of the skin applied to the item. */
-    val skin: Int? = null,
+    val skin: GW2SkinId? = null,
     /** This field holds the IDs of the dyes applied to the item. */
     val dyes: List<Int>? = null,
     /** This field holds the array of item IDs of runes or sigils applied to the item. */
-    val upgrades: List<Int>? = null,
+    val upgrades: List<GW2ItemId>? = null,
     /** This field holds the slot of the corresponding upgrade. */
     @SerialName("upgrade_slot_indices")
     val upgradeSlotIndices: List<Int>? = null,
     /** This field holds the array of item IDs of infusions applied to the item. */
-    val infusions: List<Int>? = null,
+    val infusions: List<GW2ItemId>? = null,
     /** This field holds contains information on the stats chosen if the item offers an option for stats/prefix. */
     val stats: Stats? = null,
     /** This field holds the binding of the material. */

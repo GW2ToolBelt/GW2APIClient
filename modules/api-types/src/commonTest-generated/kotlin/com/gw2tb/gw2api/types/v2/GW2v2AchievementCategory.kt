@@ -42,8 +42,7 @@ class GW2v2AchievementCategoryTest {
                 "description": "",
                 "order": 152,
                 "icon": "https://render.guildwars2.com/file/A0510AF3DC025EA7DDDEE037082BCD082E36081D/647965.png",
-                "achievements": [
-                ]
+                "achievements": []
             }
             """.trimIndent()
         )
@@ -59,8 +58,7 @@ class GW2v2AchievementCategoryTest {
                 "description": "",
                 "order": 502,
                 "icon": "https://render.guildwars2.com/file/9A6791950A5F3EBD15C91C2942F1E3C8D5221B28/602779.png",
-                "achievements": [
-                ]
+                "achievements": []
             }
             """.trimIndent()
         )

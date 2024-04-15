@@ -23,16 +23,23 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Emote
 
 /**
  * Information about an unlockable emote.
  *
  * @param id the emote's ID
  * @param commands the commands that may be used to trigger the emote
- * @param unlockItems the IDs of the items that unlock the emote
+ * @param unlockItems the IDs of the items that can be used to unlock the emote
  */
 @Serializable
 public data class GW2v2Emote(
@@ -40,7 +47,7 @@ public data class GW2v2Emote(
     val id: String,
     /** This field holds the commands that may be used to trigger the emote. */
     val commands: List<String>,
-    /** This field holds the IDs of the items that unlock the emote. */
+    /** This field holds the IDs of the items that can be used to unlock the emote. */
     @SerialName("unlock_items")
-    val unlockItems: List<Int>
+    val unlockItems: List<GW2ItemId>
 )

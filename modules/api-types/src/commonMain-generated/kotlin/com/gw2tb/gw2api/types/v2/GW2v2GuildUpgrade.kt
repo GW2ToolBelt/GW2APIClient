@@ -23,13 +23,20 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: GuildUpgrade
 
 @Suppress("ClassName")
 private object __JsonParametricSerializer_GW2v2GuildUpgrade : JsonContentPolymorphicSerializer<GW2v2GuildUpgrade>(GW2v2GuildUpgrade::class) {
-    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out GW2v2GuildUpgrade> {
+    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<GW2v2GuildUpgrade> {
         return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
             "AccumulatingCurrency" -> GW2v2GuildUpgrade.AccumulatingCurrency.serializer()
             "BankBag" -> GW2v2GuildUpgrade.BankBag.serializer()
@@ -54,32 +61,51 @@ public sealed class GW2v2GuildUpgrade {
 
     /** This field holds the upgrade's ID. */
     public abstract val id: Int
+
     /** This field holds the upgrade's name. */
     public abstract val name: String
+
     /** This field holds the upgrade's description. */
     public abstract val description: String
+
     /** This field holds the upgrade's type. */
     public abstract val type: String
+
     /** This field holds the URL for the upgrade's icon. */
     public abstract val icon: String
+
     /** This field holds the time it takes to build the upgrade. */
     public abstract val buildTime: Int
+
     /** This field holds the prerequisite level the guild must be at to build the upgrade. */
     public abstract val requiredLevel: Int
+
     /** This field holds the amount of guild experience that will be awarded upon building the upgrade. */
     public abstract val experience: Int
+
     /** This field holds an array of upgrade IDs that must be completed before this can be built. */
     public abstract val prerequisites: List<Int>
+
     /** This field holds an array of objects describing the upgrade's cost. */
     public abstract val costs: List<Cost>
 
     /**
      * Information about an upgrade's cost.
      *
+     * @param id the upgrade's ID
+     * @param name the upgrade's name
+     * @param description the upgrade's description
+     * @param type the upgrade's type
+     * @param icon the URL for the upgrade's icon
+     * @param buildTime the time it takes to build the upgrade
+     * @param requiredLevel the prerequisite level the guild must be at to build the upgrade
+     * @param experience the amount of guild experience that will be awarded upon building the upgrade
+     * @param prerequisites an array of upgrade IDs that must be completed before this can be built
+     * @param costs an array of objects describing the upgrade's cost
      * @param type the cost's type
      * @param name the cost's name
      * @param count the amount needed
-     * @param itemID the ID of the cost's item
+     * @param itemId the ID of the cost's item
      */
     @Serializable
     public data class Cost(
@@ -91,7 +117,7 @@ public sealed class GW2v2GuildUpgrade {
         val count: Int,
         /** This field holds the ID of the cost's item. */
         @SerialName("item_id")
-        val itemID: Int? = null
+        val itemId: GW2ItemId? = null
     )
 
     @Suppress("ClassName")
@@ -99,7 +125,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __AccumulatingCurrencyGeneratedSerializer : KSerializer<AccumulatingCurrency>
 
     @Suppress("ClassName")
-    private object __AccumulatingCurrencySerializer : JsonTransformingSerializer<AccumulatingCurrency>(__AccumulatingCurrencyGeneratedSerializer) {
+    private object __AccumulatingCurrencySerializer0 : JsonTransformingSerializer<AccumulatingCurrency>(__AccumulatingCurrencyGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -118,7 +144,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __AccumulatingCurrencySerializer::class)
+    @Serializable(with = __AccumulatingCurrencySerializer0::class)
     public data class AccumulatingCurrency(
         override val id: Int,
         override val name: String,
@@ -139,7 +165,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __BankBagGeneratedSerializer : KSerializer<BankBag>
 
     @Suppress("ClassName")
-    private object __BankBagSerializer : JsonTransformingSerializer<BankBag>(__BankBagGeneratedSerializer) {
+    private object __BankBagSerializer0 : JsonTransformingSerializer<BankBag>(__BankBagGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -160,7 +186,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param bagMaxItems the maximum item slots of the guild bank tab
      * @param bagMaxCoins the maximum amount of coins that can be stored in the bank tab
      */
-    @Serializable(with = __BankBagSerializer::class)
+    @Serializable(with = __BankBagSerializer0::class)
     public data class BankBag(
         override val id: Int,
         override val name: String,
@@ -187,7 +213,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __BoostGeneratedSerializer : KSerializer<Boost>
 
     @Suppress("ClassName")
-    private object __BoostSerializer : JsonTransformingSerializer<Boost>(__BoostGeneratedSerializer) {
+    private object __BoostSerializer0 : JsonTransformingSerializer<Boost>(__BoostGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -206,7 +232,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __BoostSerializer::class)
+    @Serializable(with = __BoostSerializer0::class)
     public data class Boost(
         override val id: Int,
         override val name: String,
@@ -227,7 +253,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __ClaimableGeneratedSerializer : KSerializer<Claimable>
 
     @Suppress("ClassName")
-    private object __ClaimableSerializer : JsonTransformingSerializer<Claimable>(__ClaimableGeneratedSerializer) {
+    private object __ClaimableSerializer0 : JsonTransformingSerializer<Claimable>(__ClaimableGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -246,7 +272,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __ClaimableSerializer::class)
+    @Serializable(with = __ClaimableSerializer0::class)
     public data class Claimable(
         override val id: Int,
         override val name: String,
@@ -267,7 +293,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __ConsumableGeneratedSerializer : KSerializer<Consumable>
 
     @Suppress("ClassName")
-    private object __ConsumableSerializer : JsonTransformingSerializer<Consumable>(__ConsumableGeneratedSerializer) {
+    private object __ConsumableSerializer0 : JsonTransformingSerializer<Consumable>(__ConsumableGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -286,7 +312,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __ConsumableSerializer::class)
+    @Serializable(with = __ConsumableSerializer0::class)
     public data class Consumable(
         override val id: Int,
         override val name: String,
@@ -307,7 +333,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __DecorationGeneratedSerializer : KSerializer<Decoration>
 
     @Suppress("ClassName")
-    private object __DecorationSerializer : JsonTransformingSerializer<Decoration>(__DecorationGeneratedSerializer) {
+    private object __DecorationSerializer0 : JsonTransformingSerializer<Decoration>(__DecorationGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -326,7 +352,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __DecorationSerializer::class)
+    @Serializable(with = __DecorationSerializer0::class)
     public data class Decoration(
         override val id: Int,
         override val name: String,
@@ -347,7 +373,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __GuildHallGeneratedSerializer : KSerializer<GuildHall>
 
     @Suppress("ClassName")
-    private object __GuildHallSerializer : JsonTransformingSerializer<GuildHall>(__GuildHallGeneratedSerializer) {
+    private object __GuildHallSerializer0 : JsonTransformingSerializer<GuildHall>(__GuildHallGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -366,7 +392,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __GuildHallSerializer::class)
+    @Serializable(with = __GuildHallSerializer0::class)
     public data class GuildHall(
         override val id: Int,
         override val name: String,
@@ -387,7 +413,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __GuildHallExpeditionGeneratedSerializer : KSerializer<GuildHallExpedition>
 
     @Suppress("ClassName")
-    private object __GuildHallExpeditionSerializer : JsonTransformingSerializer<GuildHallExpedition>(__GuildHallExpeditionGeneratedSerializer) {
+    private object __GuildHallExpeditionSerializer0 : JsonTransformingSerializer<GuildHallExpedition>(__GuildHallExpeditionGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -406,7 +432,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __GuildHallExpeditionSerializer::class)
+    @Serializable(with = __GuildHallExpeditionSerializer0::class)
     public data class GuildHallExpedition(
         override val id: Int,
         override val name: String,
@@ -427,7 +453,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __HubGeneratedSerializer : KSerializer<Hub>
 
     @Suppress("ClassName")
-    private object __HubSerializer : JsonTransformingSerializer<Hub>(__HubGeneratedSerializer) {
+    private object __HubSerializer0 : JsonTransformingSerializer<Hub>(__HubGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -446,7 +472,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __HubSerializer::class)
+    @Serializable(with = __HubSerializer0::class)
     public data class Hub(
         override val id: Int,
         override val name: String,
@@ -467,7 +493,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __QueueGeneratedSerializer : KSerializer<Queue>
 
     @Suppress("ClassName")
-    private object __QueueSerializer : JsonTransformingSerializer<Queue>(__QueueGeneratedSerializer) {
+    private object __QueueSerializer0 : JsonTransformingSerializer<Queue>(__QueueGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -486,7 +512,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __QueueSerializer::class)
+    @Serializable(with = __QueueSerializer0::class)
     public data class Queue(
         override val id: Int,
         override val name: String,
@@ -507,7 +533,7 @@ public sealed class GW2v2GuildUpgrade {
     private object __UnlockGeneratedSerializer : KSerializer<Unlock>
 
     @Suppress("ClassName")
-    private object __UnlockSerializer : JsonTransformingSerializer<Unlock>(__UnlockGeneratedSerializer) {
+    private object __UnlockSerializer0 : JsonTransformingSerializer<Unlock>(__UnlockGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -526,7 +552,7 @@ public sealed class GW2v2GuildUpgrade {
      * @param prerequisites an array of upgrade IDs that must be completed before this can be built
      * @param costs an array of objects describing the upgrade's cost
      */
-    @Serializable(with = __UnlockSerializer::class)
+    @Serializable(with = __UnlockSerializer0::class)
     public data class Unlock(
         override val id: Int,
         override val name: String,

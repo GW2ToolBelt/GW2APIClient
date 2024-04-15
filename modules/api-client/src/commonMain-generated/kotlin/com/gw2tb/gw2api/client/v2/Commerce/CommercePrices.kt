@@ -27,49 +27,60 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommercePricesIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2CommercePricesIDs(configure: RequestConfigurator<List<GW2ItemId>>? = null): RequestBuilder<List<GW2ItemId>> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2ItemId.serializer()),
     configure = configure
 )
 
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: RequestConfigurator<GW2v2CommercePrices>? = null): RequestBuilder<GW2v2CommercePrices> = request(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2CommercePrices.serializer(),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v2CommercePricesByID(id: GW2ItemId, configure: RequestConfigurator<GW2v2CommercePrices>? = null): RequestBuilder<GW2v2CommercePrices> = request(
+    path = "/v2/commerce/prices",
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = GW2v2CommercePrices.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2CommercePrices>>? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
+public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: List<GW2ItemId>, configure: RequestConfigurator<List<GW2v2CommercePrices>>? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(GW2v2CommercePrices.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2CommercePrices>>? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
+public fun GW2APIClient.gw2v2CommercePricesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2CommercePrices>>? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(GW2v2CommercePrices.serializer()),
     configure = configure

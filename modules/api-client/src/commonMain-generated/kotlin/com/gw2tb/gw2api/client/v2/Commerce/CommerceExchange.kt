@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -35,8 +36,8 @@ import kotlin.jvm.*
 public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/commerce/exchange",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
@@ -44,10 +45,10 @@ public fun GW2APIClient.gw2v2CommerceExchange(configure: RequestConfigurator<Lis
 
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurator<GW2v2CommerceExchange>? = null): RequestBuilder<GW2v2CommerceExchange> = request(
-    path = "/v2/commerce/exchange/:type",
-    parameters = mapOfNonNullValues("quantity" to quantity.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":type" to type),
-    requiredPermissions = emptySet(),
+    path = "/v2/commerce/exchange",
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "quantity" to quantity),
+    replaceInPath = mapOfNonNullValues("type" to type),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = GW2v2CommerceExchange.serializer(),
     configure = configure

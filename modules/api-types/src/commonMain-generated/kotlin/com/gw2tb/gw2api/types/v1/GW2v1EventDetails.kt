@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: EventDetails
 
 /**
  * Information about events.
@@ -35,7 +42,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v1EventDetails(
     /** This field holds the events. */
-    val events: Map<String, EventDetails>
+    val events: Map<GW2EventId, EventDetails>
 ) {
 
     /**
@@ -43,7 +50,7 @@ public data class GW2v1EventDetails(
      *
      * @param name the event's name
      * @param level the event's level
-     * @param mapID the ID of the map where the event takes place
+     * @param mapId the ID of the map where the event takes place
      * @param flags additional information about the event (e.g. group_event, map_wide, meta_event, dungeon_event)
      * @param location the event's location
      */
@@ -55,7 +62,7 @@ public data class GW2v1EventDetails(
         val level: Int,
         /** This field holds the ID of the map where the event takes place. */
         @SerialName("map_id")
-        val mapID: Int,
+        val mapId: GW2MapId,
         /** This field holds additional information about the event (e.g. group_event, map_wide, meta_event, dungeon_event). */
         val flags: List<String>,
         /** This field holds the event's location. */
@@ -64,7 +71,7 @@ public data class GW2v1EventDetails(
 
         @Suppress("ClassName")
         private object __JsonParametricSerializer_Location : JsonContentPolymorphicSerializer<Location>(Location::class) {
-            override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Location> {
+            override fun selectDeserializer(element: JsonElement): DeserializationStrategy<Location> {
                 return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                     "cylinder" -> Location.Cylinder.serializer()
                     "poly" -> Location.Poly.serializer()
@@ -87,7 +94,7 @@ public data class GW2v1EventDetails(
             private object __CylinderGeneratedSerializer : KSerializer<Cylinder>
 
             @Suppress("ClassName")
-            private object __CylinderSerializer : JsonTransformingSerializer<Cylinder>(__CylinderGeneratedSerializer) {
+            private object __CylinderSerializer0 : JsonTransformingSerializer<Cylinder>(__CylinderGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
@@ -101,7 +108,7 @@ public data class GW2v1EventDetails(
              * @param radius the cylinder's radius
              * @param rotation the cylinder's rotation
              */
-            @Serializable(with = __CylinderSerializer::class)
+            @Serializable(with = __CylinderSerializer0::class)
             public data class Cylinder(
                 override val type: String,
                 /** This field holds the coordinates (x,y,z) of the cylinder's center (in map coordinates). */
@@ -119,7 +126,7 @@ public data class GW2v1EventDetails(
             private object __PolyGeneratedSerializer : KSerializer<Poly>
 
             @Suppress("ClassName")
-            private object __PolySerializer : JsonTransformingSerializer<Poly>(__PolyGeneratedSerializer) {
+            private object __PolySerializer0 : JsonTransformingSerializer<Poly>(__PolyGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
@@ -132,7 +139,7 @@ public data class GW2v1EventDetails(
              * @param zRange the polygon's z-range
              * @param points the polygon's points
              */
-            @Serializable(with = __PolySerializer::class)
+            @Serializable(with = __PolySerializer0::class)
             public data class Poly(
                 override val type: String,
                 /** This field holds the coordinates (x,y,z) of the polygon's center (in map coordinates). */
@@ -149,7 +156,7 @@ public data class GW2v1EventDetails(
             private object __SphereGeneratedSerializer : KSerializer<Sphere>
 
             @Suppress("ClassName")
-            private object __SphereSerializer : JsonTransformingSerializer<Sphere>(__SphereGeneratedSerializer) {
+            private object __SphereSerializer0 : JsonTransformingSerializer<Sphere>(__SphereGeneratedSerializer) {
                 override fun transformDeserialize(element: JsonElement): JsonElement =
                     JsonObject(element.jsonObject - "__virtualType")
             }
@@ -162,7 +169,7 @@ public data class GW2v1EventDetails(
              * @param radius the sphere's radius
              * @param rotation the sphere's rotation
              */
-            @Serializable(with = __SphereSerializer::class)
+            @Serializable(with = __SphereSerializer0::class)
             public data class Sphere(
                 override val type: String,
                 /** This field holds the coordinates (x,y,z) of the sphere's center (in map coordinates). */

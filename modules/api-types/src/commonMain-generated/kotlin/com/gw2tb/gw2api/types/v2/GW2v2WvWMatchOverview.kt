@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: WvwMatchOverview
 
 /**
  * General information about a WvW match.
@@ -37,7 +44,7 @@ import kotlinx.serialization.json.*
  * @param endTime the ISO-8601 standard timestamp of when the match's end
  */
 @Serializable
-public data class GW2v2WvWMatchOverview(
+public data class GW2v2WvwMatchOverview(
     /** This field holds the match's ID. */
     val id: String,
     /** This field holds the IDs of the three primary servers by team color. */

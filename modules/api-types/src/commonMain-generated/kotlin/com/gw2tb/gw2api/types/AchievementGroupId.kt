@@ -20,24 +20,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:JvmName("GW2v2")
-@file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.client.v2
+package com.gw2tb.gw2api.types
 
-import com.gw2tb.gw2api.client.*
-import com.gw2tb.gw2api.client.internal.*
-import com.gw2tb.gw2api.types.v2.*
+import com.gw2tb.gw2api.types.internal.*
+
+import kotlin.jvm.JvmInline
+import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
-import kotlin.jvm.*
+import kotlinx.serialization.json.*
 
-@JvmOverloads
-public fun GW2APIClient.gw2v2CharactersSkills(id: String, configure: RequestConfigurator<GW2v2CharactersSkills>? = null): RequestBuilder<GW2v2CharactersSkills> = request(
-    path = "/v2/characters/:id/skills",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":id" to id),
-    requiredPermissions = setOf("account", "builds", "characters"),
-    supportedLanguages = emptySet(),
-    serializer = GW2v2CharactersSkills.serializer(),
-    configure = configure
+// Generated for type: AchievementGroupId
+
+/** TODO */
+@Serializable
+@JvmInline
+public value class GW2AchievementGroupId(
+    /** The raw (type-unsafe) value. */
+    public val raw: String
 )

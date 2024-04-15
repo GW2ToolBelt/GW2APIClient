@@ -23,18 +23,25 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CharactersEquipmentTab
 
 /**
  * Information about a character's equipment tab.
  *
  * @param tab the tab's ID
  * @param name the equipment configuration's name
- * @param isActive a flag indicating whether or not this tab is the active tab
+ * @param isActive a flag indicating whether this tab is the active tab
  * @param equipment the stored equipment
- * @param equipmentPvP the character's PvP equipment
+ * @param equipmentPvp the character's PvP equipment
  */
 @Serializable
 public data class GW2v2CharactersEquipmentTab(
@@ -42,14 +49,14 @@ public data class GW2v2CharactersEquipmentTab(
     val tab: Int,
     /** This field holds the equipment configuration's name. */
     val name: String,
-    /** This field holds a flag indicating whether or not this tab is the active tab. */
+    /** This field holds a flag indicating whether this tab is the active tab. */
     @SerialName("is_active")
     val isActive: Boolean,
     /** This field holds the stored equipment. */
     val equipment: List<Equipment>,
     /** This field holds the character's PvP equipment. */
     @SerialName("equipment_pvp")
-    val equipmentPvP: PvPEquipment
+    val equipmentPvp: PvpEquipment
 ) {
 
     /**
@@ -73,7 +80,7 @@ public data class GW2v2CharactersEquipmentTab(
         /** This field holds the slot in which the equipment piece is slotted into. */
         val slot: String,
         /** This field holds the ID of the skin transmuted onto the equipment piece. */
-        val skin: Int? = null,
+        val skin: GW2SkinId? = null,
         /** This field holds the IDs of the dyes applied to the item. */
         val dyes: List<Int?>? = null,
         /** This field holds the IDs of the upgrade components slotted into the item. */
@@ -144,11 +151,11 @@ public data class GW2v2CharactersEquipmentTab(
      * @param sigils the IDs of the selected sigils
      */
     @Serializable
-    public data class PvPEquipment(
+    public data class PvpEquipment(
         /** This field holds the ID of the selected amulet. */
-        val amulet: Int,
+        val amulet: Int? = null,
         /** This field holds the ID of the selected rune. */
-        val rune: Int,
+        val rune: Int? = null,
         /** This field holds the IDs of the selected sigils. */
         val sigils: List<Int?>
     )

@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: PvpHero
 
 /**
  * Information about a PvP hero.
@@ -40,7 +47,7 @@ import kotlinx.serialization.json.*
  * @param skins the hero's skins
  */
 @Serializable
-public data class GW2v2PvPHero(
+public data class GW2v2PvpHero(
     /** This field holds the PvP hero's ID. */
     val id: String,
     /** This field holds the hero's localized name. */
@@ -82,7 +89,7 @@ public data class GW2v2PvPHero(
      * @param id the PvP hero skin's ID
      * @param name the hero skin's localized name
      * @param icon a render service URL for the skin's icon
-     * @param default whether or not the skin is the champion's default skin
+     * @param default whether the skin is the champion's default skin
      * @param unlockItems an array of item IDs used to unlock the skin
      */
     @Serializable
@@ -93,11 +100,11 @@ public data class GW2v2PvPHero(
         val name: String,
         /** This field holds a render service URL for the skin's icon. */
         val icon: String,
-        /** This field holds whether or not the skin is the champion's default skin. */
+        /** This field holds whether the skin is the champion's default skin. */
         val default: Boolean,
         /** This field holds an array of item IDs used to unlock the skin. */
         @SerialName("unlock_items")
-        val unlockItems: List<Int>
+        val unlockItems: List<GW2ItemId>
     )
 
 }

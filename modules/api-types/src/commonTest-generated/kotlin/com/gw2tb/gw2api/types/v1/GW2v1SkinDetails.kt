@@ -43,8 +43,7 @@ class GW2v1SkinDetailsTest {
                 "flags": [
                     "ShowInWardrobe"
                 ],
-                "restrictions": [
-                ],
+                "restrictions": [],
                 "rarity": "Basic",
                 "icon_file_id": "740312",
                 "icon_file_signature": "021048C317DFFFB6727E0955A2D6C7EFFBE9425B",

@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: MapFloor
 
 /**
  * Information about a map floor.
@@ -43,7 +50,7 @@ public data class GW2v1MapFloor(
     @SerialName("clamped_view")
     val clampedView: List<List<Int>>? = null,
     /** This field holds the floor's regions. */
-    val regions: Map<Int, Region>
+    val regions: Map<GW2RegionId, Region>
 ) {
 
     /**
@@ -65,7 +72,7 @@ public data class GW2v1MapFloor(
         @SerialName("continent_rect")
         val continentRect: List<List<Int>>,
         /** This field holds the region's maps. */
-        val maps: Map<Int, GameMap>
+        val maps: Map<GW2MapId, GameMap>
     ) {
 
         /**
@@ -131,7 +138,7 @@ public data class GW2v1MapFloor(
             /**
              * Information about a point of interest (i.e. a landmark, vista or waypoint).
              *
-             * @param poIID the PoI's ID
+             * @param poiId the PoI's ID
              * @param name the PoI's localized name
              * @param type the type of the PoI (landmark, vista, or waypoint)
              * @param floor the PoI's floor
@@ -142,7 +149,7 @@ public data class GW2v1MapFloor(
             public data class PointOfInterest(
                 /** This field holds the PoI's ID. */
                 @SerialName("poi_id")
-                val poIID: Int,
+                val poiId: Int,
                 /** This field holds the PoI's localized name. */
                 val name: String? = null,
                 /** This field holds the type of the PoI (landmark, vista, or waypoint). */
@@ -158,14 +165,14 @@ public data class GW2v1MapFloor(
                 /**
                  * Information about a PoI's marker icon.
                  *
-                 * @param fileID the icon's file ID to be used with the render service
+                 * @param fileId the icon's file ID to be used with the render service
                  * @param signature the icon's file signature to be used with the render service
                  */
                 @Serializable
                 public data class Marker(
                     /** This field holds the icon's file ID to be used with the render service. */
                     @SerialName("file_id")
-                    val fileID: Int,
+                    val fileId: Int,
                     /** This field holds the icon's file signature to be used with the render service. */
                     val signature: String
                 )
@@ -180,7 +187,7 @@ public data class GW2v1MapFloor(
              * @param nameContested the god shrine's localized name (when contested)
              * @param icon the god shrine's icon
              * @param iconContested the god shrine's icon (when contested)
-             * @param poIID the god shrine's PoI ID
+             * @param poiId the god shrine's PoI ID
              * @param coord the god shrine's coordinates
              */
             @Serializable
@@ -199,7 +206,7 @@ public data class GW2v1MapFloor(
                 val iconContested: String? = null,
                 /** This field holds the god shrine's PoI ID. */
                 @SerialName("poi_id")
-                val poIID: Int,
+                val poiId: Int,
                 /** This field holds the god shrine's coordinates. */
                 val coord: List<Double>
             )
@@ -207,7 +214,7 @@ public data class GW2v1MapFloor(
             /**
              * Information about a task.
              *
-             * @param taskID the task's ID
+             * @param taskId the task's ID
              * @param objective the adventure's localized objective
              * @param level the task's level
              * @param coord the task's coordinates
@@ -217,7 +224,7 @@ public data class GW2v1MapFloor(
             public data class Task(
                 /** This field holds the task's ID. */
                 @SerialName("task_id")
-                val taskID: Int,
+                val taskId: Int,
                 /** This field holds the adventure's localized objective. */
                 val objective: String,
                 /** This field holds the task's level. */
@@ -249,7 +256,7 @@ public data class GW2v1MapFloor(
             /**
              * Information about a sector.
              *
-             * @param sectorID the sector's ID
+             * @param sectorId the sector's ID
              * @param name the sector's localized name
              * @param level the sector's level
              * @param coord the sector's coordinates
@@ -259,7 +266,7 @@ public data class GW2v1MapFloor(
             public data class Sector(
                 /** This field holds the sector's ID. */
                 @SerialName("sector_id")
-                val sectorID: Int,
+                val sectorId: Int,
                 /** This field holds the sector's localized name. */
                 val name: String? = null,
                 /** This field holds the sector's level. */

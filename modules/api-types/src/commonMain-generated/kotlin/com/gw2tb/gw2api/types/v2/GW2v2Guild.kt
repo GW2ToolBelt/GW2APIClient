@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Guild
 
 /**
  * Information about a guild.
@@ -34,7 +41,7 @@ import kotlinx.serialization.json.*
  * @param name the guild's name
  * @param tag the guild's tag
  * @param level the guild's level
- * @param motD the guild's message of the day
+ * @param motd the guild's message of the day
  * @param influence the guild's current influence
  * @param aetherium the guild's current aetherium
  * @param favor the guild's current favor
@@ -54,8 +61,7 @@ public data class GW2v2Guild(
     /** This field holds the guild's level. */
     val level: Int,
     /** This field holds the guild's message of the day. */
-    @SerialName("motd")
-    val motD: String? = null,
+    val motd: String? = null,
     /** This field holds the guild's current influence. */
     val influence: Int? = null,
     /** This field holds the guild's current aetherium. */

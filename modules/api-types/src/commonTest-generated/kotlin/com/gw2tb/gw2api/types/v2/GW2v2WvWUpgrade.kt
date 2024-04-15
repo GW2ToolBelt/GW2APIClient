@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2WvWUpgradeTest {
+class GW2v2WvwUpgradeTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2WvWUpgradeTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2WvWUpgrade>(
+        json.decodeFromString<GW2v2WvwUpgrade>(
             """
             {
                 "id": 18,
@@ -125,7 +125,7 @@ class GW2v2WvWUpgradeTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2WvWUpgrade>(
+        json.decodeFromString<GW2v2WvwUpgrade>(
             """
             {
                 "id": 24,
@@ -216,7 +216,7 @@ class GW2v2WvWUpgradeTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2WvWUpgrade>(
+        json.decodeFromString<GW2v2WvwUpgrade>(
             """
             {
                 "id": 25,
@@ -307,7 +307,7 @@ class GW2v2WvWUpgradeTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2WvWUpgrade>(
+        json.decodeFromString<GW2v2WvwUpgrade>(
             """
             {
                 "id": 53,
@@ -398,7 +398,7 @@ class GW2v2WvWUpgradeTest {
     
     @Test
     fun testType_04() {
-        json.decodeFromString<GW2v2WvWUpgrade>(
+        json.decodeFromString<GW2v2WvwUpgrade>(
             """
             {
                 "id": 54,

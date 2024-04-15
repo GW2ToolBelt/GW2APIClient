@@ -23,16 +23,23 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: MaterialCategory
 
 /**
  * Information about a material category.
  *
  * @param id the category's ID
  * @param name the category's name
- * @param items the IDs of this category's items
+ * @param items the IDs of the items in this category
  * @param order the category's sorting key
  */
 @Serializable
@@ -41,8 +48,8 @@ public data class GW2v2MaterialCategory(
     val id: Int,
     /** This field holds the category's name. */
     val name: String,
-    /** This field holds the IDs of this category's items. */
-    val items: List<Int>,
+    /** This field holds the IDs of the items in this category. */
+    val items: List<GW2ItemId>,
     /** This field holds the category's sorting key. */
     val order: Int
 )

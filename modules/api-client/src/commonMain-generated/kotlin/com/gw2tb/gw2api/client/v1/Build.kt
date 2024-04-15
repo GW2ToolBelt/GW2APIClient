@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -35,8 +36,8 @@ import kotlin.jvm.*
 public fun GW2APIClient.gw2v1Build(configure: RequestConfigurator<GW2v1Build>? = null): RequestBuilder<GW2v1Build> = request(
     path = "/v1/build",
     parameters = mapOfNonNullValues(),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = GW2v1Build.serializer(),
     configure = configure

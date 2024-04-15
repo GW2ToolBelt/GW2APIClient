@@ -23,15 +23,22 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CommerceTransaction
 
 /**
  * Information about a transaction.
  *
  * @param id the transaction's ID
- * @param itemID the item's ID
+ * @param itemId the item's ID
  * @param price the price in coins
  * @param quantity the quantity of the item
  * @param created the ISO-8601 standard timestamp of when the transaction was created
@@ -43,7 +50,7 @@ public data class GW2v2CommerceTransaction(
     val id: Int,
     /** This field holds the item's ID. */
     @SerialName("item_id")
-    val itemID: Int,
+    val itemId: GW2ItemId,
     /** This field holds the price in coins. */
     val price: Int,
     /** This field holds the quantity of the item. */

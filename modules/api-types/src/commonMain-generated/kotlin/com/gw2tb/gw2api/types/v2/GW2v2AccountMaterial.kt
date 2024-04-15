@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: AccountMaterial
 
 /**
  * Information about a stack of materials in a player's vault.
@@ -38,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2AccountMaterial(
     /** This field holds the material's item ID. */
-    val id: Int,
+    val id: GW2ItemId,
     /** This field holds the material category the item belongs to. */
     val category: Int,
     /** This field holds the number of the material that is stored in the player's vault. */

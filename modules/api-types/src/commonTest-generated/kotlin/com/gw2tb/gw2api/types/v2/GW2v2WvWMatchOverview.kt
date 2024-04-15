@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2WvWMatchOverviewTest {
+class GW2v2WvwMatchOverviewTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2WvWMatchOverviewTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "2-1",
@@ -66,7 +66,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "2-2",
@@ -97,7 +97,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "2-3",
@@ -129,7 +129,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "2-4",
@@ -161,7 +161,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_04() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "2-5",
@@ -191,7 +191,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_05() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "1-1",
@@ -223,7 +223,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_06() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "1-2",
@@ -255,7 +255,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_07() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "1-3",
@@ -287,7 +287,7 @@ class GW2v2WvWMatchOverviewTest {
     
     @Test
     fun testType_08() {
-        json.decodeFromString<GW2v2WvWMatchOverview>(
+        json.decodeFromString<GW2v2WvwMatchOverview>(
             """
             {
                 "id": "1-4",

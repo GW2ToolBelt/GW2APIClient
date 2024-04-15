@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: GuildTeam
 
 /**
  * Information about a guild's PvP team.
@@ -51,7 +58,7 @@ public data class GW2v2GuildTeam(
     /** This field holds the stats by ladder (e.g. "ranked", "unranked"). */
     val ladders: Map<String, Stats>,
     /** This field holds the team's recent PvP games. */
-    val games: List<PvPGame>,
+    val games: List<PvpGame>,
     /** This field holds the team's season-specific stats. */
     val seasons: List<SeasonStats>
 ) {
@@ -97,7 +104,7 @@ public data class GW2v2GuildTeam(
      * Information about a team's PvP game.
      *
      * @param id the game's ID
-     * @param mapID the map's ID
+     * @param mapId the map's ID
      * @param started the ISO-8601 standard timestamp of when the game started
      * @param ended the ISO-8601 standard timestamp of when the game ended
      * @param result the game's result for the team ("Victory" or "Defeat")
@@ -108,12 +115,12 @@ public data class GW2v2GuildTeam(
      * @param scores the game's final scores
      */
     @Serializable
-    public data class PvPGame(
+    public data class PvpGame(
         /** This field holds the game's ID. */
         val id: String,
         /** This field holds the map's ID. */
         @SerialName("map_id")
-        val mapID: Int,
+        val mapId: Int,
         /** This field holds the ISO-8601 standard timestamp of when the game started. */
         val started: String,
         /** This field holds the ISO-8601 standard timestamp of when the game ended. */

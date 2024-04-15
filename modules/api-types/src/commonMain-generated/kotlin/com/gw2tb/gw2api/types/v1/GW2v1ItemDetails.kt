@@ -23,13 +23,20 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: ItemDetails
 
 @Suppress("ClassName")
 private object __JsonParametricSerializer_GW2v1ItemDetails : JsonContentPolymorphicSerializer<GW2v1ItemDetails>(GW2v1ItemDetails::class) {
-    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out GW2v1ItemDetails> {
+    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<GW2v1ItemDetails> {
         return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
             "Armor" -> GW2v1ItemDetails.Armor.serializer()
             "Back" -> GW2v1ItemDetails.Back.serializer()
@@ -54,37 +61,64 @@ private object __JsonParametricSerializer_GW2v1ItemDetails : JsonContentPolymorp
 public sealed class GW2v1ItemDetails {
 
     /** This field holds the item's ID. */
-    public abstract val itemID: Int
+    public abstract val itemId: GW2ItemId
+
     /** This field holds the item's name. */
     public abstract val name: String
+
     /** This field holds the item's type. */
     public abstract val type: String
+
     /** This field holds the icon's file ID to be used with the render service. */
-    public abstract val iconFileID: String
+    public abstract val iconFileId: String
+
     /** This field holds the icon's file signature to be used with the render service. */
     public abstract val iconFileSignature: String
+
     /** This field holds the item's description. */
     public abstract val description: String?
+
     /** This field holds the item's rarity. */
     public abstract val rarity: String
+
     /** This field holds the level required to use the item. */
     public abstract val level: Int
+
     /** This field holds the value in coins when selling the item to a vendor. */
     public abstract val vendorValue: Int
+
     /** This field holds the ID of the item's default skin. */
     public abstract val defaultSkin: Int?
+
     /** This field holds flags applying to the item. */
     public abstract val flags: List<String>
+
     /** This field holds the game types in which the item is usable. */
     public abstract val gameTypes: List<String>
+
     /** This field holds restrictions applied to the item. */
     public abstract val restrictions: List<String>
+
     /** This field holds lists what items this item can be upgraded from and into, and the method of upgrading. */
     public abstract val upgradeRecipes: List<Upgrade>?
 
     /**
      * Information about an item's upgrade.
      *
+     * @param itemId the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileId the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      * @param type describes the method of upgrading
      * @param from the ID of the item that is upgraded into the item
      * @param into the ID of the item that results from performing the upgrade
@@ -94,16 +128,30 @@ public sealed class GW2v1ItemDetails {
         /** This field holds describes the method of upgrading. */
         val type: String,
         /** This field holds the ID of the item that is upgraded into the item. */
-        val from: Int? = null,
+        val from: GW2ItemId? = null,
         /** This field holds the ID of the item that results from performing the upgrade. */
-        val into: Int? = null
+        val into: GW2ItemId? = null
     )
 
     /**
      * Information about an items infusion slot.
      *
+     * @param itemId the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileId the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      * @param flags infusion slot type of infusion upgrades
-     * @param itemID the infusion upgrade in the armor piece
+     * @param itemId the infusion upgrade in the armor piece
      */
     @Serializable
     public data class InfusionSlot(
@@ -111,12 +159,26 @@ public sealed class GW2v1ItemDetails {
         val flags: List<String>,
         /** This field holds the infusion upgrade in the armor piece. */
         @SerialName("item_id")
-        val itemID: Int? = null
+        val itemId: GW2ItemId? = null
     )
 
     /**
      * Information about an item's infix upgrade.
      *
+     * @param itemId the item's ID
+     * @param name the item's name
+     * @param type the item's type
+     * @param iconFileId the icon's file ID to be used with the render service
+     * @param iconFileSignature the icon's file signature to be used with the render service
+     * @param description the item's description
+     * @param rarity the item's rarity
+     * @param level the level required to use the item
+     * @param vendorValue the value in coins when selling the item to a vendor
+     * @param defaultSkin the ID of the item's default skin
+     * @param flags flags applying to the item
+     * @param gameTypes the game types in which the item is usable
+     * @param restrictions restrictions applied to the item
+     * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      * @param id the itemstat ID
      * @param attributes the list of attribute bonuses granted by this item
      * @param buff object containing an additional effect
@@ -124,7 +186,7 @@ public sealed class GW2v1ItemDetails {
     @Serializable
     public data class InfixUpgrade(
         /** This field holds the itemstat ID. */
-        val id: Int,
+        val id: GW2ItemStatId,
         /** This field holds the list of attribute bonuses granted by this item. */
         val attributes: List<Attribute>,
         /** This field holds object containing an additional effect. */
@@ -148,14 +210,14 @@ public sealed class GW2v1ItemDetails {
         /**
          * Information about an infix upgrade's buffs.
          *
-         * @param skillID the skill ID of the effect
+         * @param skillId the skill ID of the effect
          * @param description the effect's description
          */
         @Serializable
         public data class Buff(
             /** This field holds the skill ID of the effect. */
             @SerialName("skill_id")
-            val skillID: Int,
+            val skillId: GW2SkillId,
             /** This field holds the effect's description. */
             val description: String? = null
         )
@@ -167,7 +229,7 @@ public sealed class GW2v1ItemDetails {
     private object __ArmorGeneratedSerializer : KSerializer<Armor>
 
     @Suppress("ClassName")
-    private object __ArmorSerializer : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
+    private object __ArmorSerializer0 : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -175,10 +237,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about an armor item.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -190,14 +252,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __ArmorSerializer::class)
+    @Serializable(with = __ArmorSerializer0::class)
     public data class Armor(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -213,7 +275,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val armor: Armor
+        public val armor: Armor
     ) : GW2v1ItemDetails() {
 
         /**
@@ -224,8 +286,8 @@ public sealed class GW2v1ItemDetails {
          * @param defense the defense value of the armor piece
          * @param infusionSlots infusion slots of the armor piece
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemID the suffix item ID
-         * @param secondarySuffixItemID the secondary suffix item ID
+         * @param suffixItemId the suffix item ID
+         * @param secondarySuffixItemId the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
          * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
@@ -246,15 +308,15 @@ public sealed class GW2v1ItemDetails {
             val infixUpgrade: InfixUpgrade? = null,
             /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val suffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val suffixItemId: GW2ItemId? = null,
             /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val secondarySuffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val secondarySuffixItemId: GW2ItemId? = null,
             /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
+            val statChoices: List<GW2ItemStatId>? = null,
             /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
@@ -267,7 +329,7 @@ public sealed class GW2v1ItemDetails {
     private object __BackGeneratedSerializer : KSerializer<Back>
 
     @Suppress("ClassName")
-    private object __BackSerializer : JsonTransformingSerializer<Back>(__BackGeneratedSerializer) {
+    private object __BackSerializer0 : JsonTransformingSerializer<Back>(__BackGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -275,10 +337,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a backpiece.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -290,14 +352,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __BackSerializer::class)
+    @Serializable(with = __BackSerializer0::class)
     public data class Back(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -313,7 +375,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val back: Back
+        public val back: Back
     ) : GW2v1ItemDetails() {
 
         /**
@@ -321,8 +383,8 @@ public sealed class GW2v1ItemDetails {
          *
          * @param infusionSlots infusion slots of the back item
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemID the suffix item ID
-         * @param secondarySuffixItemID the secondary suffix item ID
+         * @param suffixItemId the suffix item ID
+         * @param secondarySuffixItemId the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
          * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
@@ -336,15 +398,15 @@ public sealed class GW2v1ItemDetails {
             val infixUpgrade: InfixUpgrade? = null,
             /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val suffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val suffixItemId: GW2ItemId? = null,
             /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val secondarySuffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val secondarySuffixItemId: GW2ItemId? = null,
             /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
+            val statChoices: List<GW2ItemStatId>? = null,
             /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
@@ -357,7 +419,7 @@ public sealed class GW2v1ItemDetails {
     private object __BagGeneratedSerializer : KSerializer<Bag>
 
     @Suppress("ClassName")
-    private object __BagSerializer : JsonTransformingSerializer<Bag>(__BagGeneratedSerializer) {
+    private object __BagSerializer0 : JsonTransformingSerializer<Bag>(__BagGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -365,10 +427,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a bag.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -380,14 +442,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __BagSerializer::class)
+    @Serializable(with = __BagSerializer0::class)
     public data class Bag(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -403,7 +465,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val bag: Bag
+        public val bag: Bag
     ) : GW2v1ItemDetails() {
 
         /**
@@ -428,7 +490,7 @@ public sealed class GW2v1ItemDetails {
     private object __ConsumableGeneratedSerializer : KSerializer<Consumable>
 
     @Suppress("ClassName")
-    private object __ConsumableSerializer : JsonTransformingSerializer<Consumable>(__ConsumableGeneratedSerializer) {
+    private object __ConsumableSerializer0 : JsonTransformingSerializer<Consumable>(__ConsumableGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -436,10 +498,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a consumable item.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -451,14 +513,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __ConsumableSerializer::class)
+    @Serializable(with = __ConsumableSerializer0::class)
     public data class Consumable(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -474,7 +536,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val consumable: Consumable
+        public val consumable: Consumable
     ) : GW2v1ItemDetails() {
 
         /**
@@ -484,10 +546,10 @@ public sealed class GW2v1ItemDetails {
          * @param description effect description for consumables applying an effect
          * @param durationMs effect duration in milliseconds
          * @param unlockType unlock type for unlock consumables
-         * @param colorID the dye ID for dye unlocks
-         * @param recipeID the recipe ID for recipe unlocks
-         * @param extraRecipeIDs additional recipe IDs for recipe unlocks
-         * @param guildUpgradeID the guild upgrade ID for the item
+         * @param colorId the dye ID for dye unlocks
+         * @param recipeId the recipe ID for recipe unlocks
+         * @param extraRecipeIds additional recipe IDs for recipe unlocks
+         * @param guildUpgradeId the guild upgrade ID for the item
          * @param applyCount the number of stacks of the effect applied by this item
          * @param name the effect type name of the consumable
          * @param icon the icon of the effect
@@ -507,16 +569,16 @@ public sealed class GW2v1ItemDetails {
             val unlockType: String? = null,
             /** This field holds the dye ID for dye unlocks. */
             @SerialName("color_id")
-            val colorID: Int? = null,
+            val colorId: GW2ColorId? = null,
             /** This field holds the recipe ID for recipe unlocks. */
             @SerialName("recipe_id")
-            val recipeID: Int? = null,
+            val recipeId: GW2RecipeId? = null,
             /** This field holds additional recipe IDs for recipe unlocks. */
             @SerialName("extra_recipe_ids")
-            val extraRecipeIDs: List<Int>? = null,
+            val extraRecipeIds: List<GW2RecipeId>? = null,
             /** This field holds the guild upgrade ID for the item. */
             @SerialName("guild_upgrade_id")
-            val guildUpgradeID: Int? = null,
+            val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the number of stacks of the effect applied by this item. */
             @SerialName("apply_count")
             val applyCount: Int? = null,
@@ -525,7 +587,7 @@ public sealed class GW2v1ItemDetails {
             /** This field holds the icon of the effect. */
             val icon: String? = null,
             /** This field holds a list of skin ids which this item unlocks. */
-            val skins: List<Int>? = null
+            val skins: List<GW2SkinId>? = null
         )
 
     }
@@ -535,7 +597,7 @@ public sealed class GW2v1ItemDetails {
     private object __ContainerGeneratedSerializer : KSerializer<Container>
 
     @Suppress("ClassName")
-    private object __ContainerSerializer : JsonTransformingSerializer<Container>(__ContainerGeneratedSerializer) {
+    private object __ContainerSerializer0 : JsonTransformingSerializer<Container>(__ContainerGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -543,10 +605,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a container.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -558,14 +620,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __ContainerSerializer::class)
+    @Serializable(with = __ContainerSerializer0::class)
     public data class Container(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -581,7 +643,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val container: Container
+        public val container: Container
     ) : GW2v1ItemDetails() {
 
         /**
@@ -602,7 +664,7 @@ public sealed class GW2v1ItemDetails {
     private object __GatheringToolGeneratedSerializer : KSerializer<GatheringTool>
 
     @Suppress("ClassName")
-    private object __GatheringToolSerializer : JsonTransformingSerializer<GatheringTool>(__GatheringToolGeneratedSerializer) {
+    private object __GatheringToolSerializer0 : JsonTransformingSerializer<GatheringTool>(__GatheringToolGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -610,10 +672,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a gathering tool.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -625,14 +687,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __GatheringToolSerializer::class)
+    @Serializable(with = __GatheringToolSerializer0::class)
     public data class GatheringTool(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -648,7 +710,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val gathering: GatheringTool
+        public val gathering: GatheringTool
     ) : GW2v1ItemDetails() {
 
         /**
@@ -669,7 +731,7 @@ public sealed class GW2v1ItemDetails {
     private object __GizmoGeneratedSerializer : KSerializer<Gizmo>
 
     @Suppress("ClassName")
-    private object __GizmoSerializer : JsonTransformingSerializer<Gizmo>(__GizmoGeneratedSerializer) {
+    private object __GizmoSerializer0 : JsonTransformingSerializer<Gizmo>(__GizmoGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -677,10 +739,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a gizmo.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -692,14 +754,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __GizmoSerializer::class)
+    @Serializable(with = __GizmoSerializer0::class)
     public data class Gizmo(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -715,15 +777,15 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val gizmo: Gizmo
+        public val gizmo: Gizmo
     ) : GW2v1ItemDetails() {
 
         /**
          * Additional information about a gizmo.
          *
          * @param type the gizmo type
-         * @param guildUpgradeID the guild upgrade ID for the item
-         * @param vendorIDs the vendor IDs
+         * @param guildUpgradeId the guild upgrade ID for the item
+         * @param vendorIds the vendor IDs
          */
         @Serializable
         public data class Gizmo(
@@ -731,10 +793,10 @@ public sealed class GW2v1ItemDetails {
             val type: String,
             /** This field holds the guild upgrade ID for the item. */
             @SerialName("guild_upgrade_id")
-            val guildUpgradeID: Int? = null,
+            val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the vendor IDs. */
             @SerialName("vendor_ids")
-            val vendorIDs: List<Int>? = null
+            val vendorIds: List<Int>? = null
         )
 
     }
@@ -744,7 +806,7 @@ public sealed class GW2v1ItemDetails {
     private object __MiniPetGeneratedSerializer : KSerializer<MiniPet>
 
     @Suppress("ClassName")
-    private object __MiniPetSerializer : JsonTransformingSerializer<MiniPet>(__MiniPetGeneratedSerializer) {
+    private object __MiniPetSerializer0 : JsonTransformingSerializer<MiniPet>(__MiniPetGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -752,10 +814,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a mini unlock item.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -767,14 +829,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __MiniPetSerializer::class)
+    @Serializable(with = __MiniPetSerializer0::class)
     public data class MiniPet(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -790,19 +852,19 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val minipet: MiniPet
+        public val mini_pet: MiniPet
     ) : GW2v1ItemDetails() {
 
         /**
          * Additional information about a mini unlock item.
          *
-         * @param minipetID the miniature it unlocks
+         * @param minipetId the miniature it unlocks
          */
         @Serializable
         public data class MiniPet(
             /** This field holds the miniature it unlocks. */
             @SerialName("minipet_id")
-            val minipetID: Int
+            val minipetId: GW2MiniId
         )
 
     }
@@ -812,7 +874,7 @@ public sealed class GW2v1ItemDetails {
     private object __ToolGeneratedSerializer : KSerializer<Tool>
 
     @Suppress("ClassName")
-    private object __ToolSerializer : JsonTransformingSerializer<Tool>(__ToolGeneratedSerializer) {
+    private object __ToolSerializer0 : JsonTransformingSerializer<Tool>(__ToolGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -820,10 +882,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a tool.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -835,14 +897,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __ToolSerializer::class)
+    @Serializable(with = __ToolSerializer0::class)
     public data class Tool(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -858,7 +920,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val tool: Tool
+        public val tool: Tool
     ) : GW2v1ItemDetails() {
 
         /**
@@ -882,7 +944,7 @@ public sealed class GW2v1ItemDetails {
     private object __TrinketGeneratedSerializer : KSerializer<Trinket>
 
     @Suppress("ClassName")
-    private object __TrinketSerializer : JsonTransformingSerializer<Trinket>(__TrinketGeneratedSerializer) {
+    private object __TrinketSerializer0 : JsonTransformingSerializer<Trinket>(__TrinketGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -890,10 +952,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a trinket.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -905,14 +967,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __TrinketSerializer::class)
+    @Serializable(with = __TrinketSerializer0::class)
     public data class Trinket(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -928,7 +990,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val trinket: Trinket
+        public val trinket: Trinket
     ) : GW2v1ItemDetails() {
 
         /**
@@ -937,8 +999,8 @@ public sealed class GW2v1ItemDetails {
          * @param type the trinket type
          * @param infusionSlots infusion slots of the trinket
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemID the suffix item ID
-         * @param secondarySuffixItemID the secondary suffix item ID
+         * @param suffixItemId the suffix item ID
+         * @param secondarySuffixItemId the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
          * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
@@ -954,15 +1016,15 @@ public sealed class GW2v1ItemDetails {
             val infixUpgrade: InfixUpgrade? = null,
             /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val suffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val suffixItemId: GW2ItemId? = null,
             /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val secondarySuffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val secondarySuffixItemId: GW2ItemId? = null,
             /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
+            val statChoices: List<GW2ItemStatId>? = null,
             /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
@@ -975,7 +1037,7 @@ public sealed class GW2v1ItemDetails {
     private object __UpgradeComponentGeneratedSerializer : KSerializer<UpgradeComponent>
 
     @Suppress("ClassName")
-    private object __UpgradeComponentSerializer : JsonTransformingSerializer<UpgradeComponent>(__UpgradeComponentGeneratedSerializer) {
+    private object __UpgradeComponentSerializer0 : JsonTransformingSerializer<UpgradeComponent>(__UpgradeComponentGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -983,10 +1045,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about an upgrade component.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -998,14 +1060,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __UpgradeComponentSerializer::class)
+    @Serializable(with = __UpgradeComponentSerializer0::class)
     public data class UpgradeComponent(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -1021,7 +1083,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val upgradecomponent: UpgradeComponent
+        public val upgrade_component: UpgradeComponent
     ) : GW2v1ItemDetails() {
 
         /**
@@ -1063,7 +1125,7 @@ public sealed class GW2v1ItemDetails {
     private object __WeaponGeneratedSerializer : KSerializer<Weapon>
 
     @Suppress("ClassName")
-    private object __WeaponSerializer : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
+    private object __WeaponSerializer0 : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -1071,10 +1133,10 @@ public sealed class GW2v1ItemDetails {
     /**
      * Additional information about a weapon.
      *
-     * @param itemID the item's ID
+     * @param itemId the item's ID
      * @param name the item's name
      * @param type the item's type
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      * @param description the item's description
      * @param rarity the item's rarity
@@ -1086,14 +1148,14 @@ public sealed class GW2v1ItemDetails {
      * @param restrictions restrictions applied to the item
      * @param upgradeRecipes lists what items this item can be upgraded from and into, and the method of upgrading
      */
-    @Serializable(with = __WeaponSerializer::class)
+    @Serializable(with = __WeaponSerializer0::class)
     public data class Weapon(
         @SerialName("item_id")
-        override val itemID: Int,
+        override val itemId: GW2ItemId,
         override val name: String,
         override val type: String,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
         override val description: String? = null,
@@ -1109,7 +1171,7 @@ public sealed class GW2v1ItemDetails {
         override val restrictions: List<String>,
         @SerialName("upgrade_recipes")
         override val upgradeRecipes: List<Upgrade>? = null,
-        val weapon: Weapon
+        public val weapon: Weapon
     ) : GW2v1ItemDetails() {
 
         /**
@@ -1122,8 +1184,8 @@ public sealed class GW2v1ItemDetails {
          * @param defense the defense value of the weapon
          * @param infusionSlots infusion slots of the weapon
          * @param infixUpgrade infix upgrade object
-         * @param suffixItemID the suffix item ID
-         * @param secondarySuffixItemID the secondary suffix item ID
+         * @param suffixItemId the suffix item ID
+         * @param secondarySuffixItemId the secondary suffix item ID
          * @param statChoices a list of selectable stat IDs which are visible in /v2/itemstats
          * @param attributeAdjustment The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats
          */
@@ -1150,15 +1212,15 @@ public sealed class GW2v1ItemDetails {
             val infixUpgrade: InfixUpgrade? = null,
             /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val suffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val suffixItemId: GW2ItemId? = null,
             /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
-            @Serializable(with = com.gw2tb.gw2api.types.internal.LenientIntSerializer::class)
-            val secondarySuffixItemID: Int? = null,
+            @Serializable(with = LenientGW2ItemIdSerializer::class)
+            val secondarySuffixItemId: GW2ItemId? = null,
             /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
+            val statChoices: List<GW2ItemStatId>? = null,
             /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null

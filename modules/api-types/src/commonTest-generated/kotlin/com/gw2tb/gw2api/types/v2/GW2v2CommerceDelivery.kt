@@ -38,8 +38,7 @@ class GW2v2CommerceDeliveryTest {
             """
             {
                 "coins": 0,
-                "items": [
-                ]
+                "items": []
             }
             """.trimIndent()
         )

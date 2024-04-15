@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -35,8 +36,8 @@ import kotlin.jvm.*
 public fun GW2APIClient.gw2v2FilesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/files",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
@@ -45,42 +46,31 @@ public fun GW2APIClient.gw2v2FilesIDs(configure: RequestConfigurator<List<String
 @JvmOverloads
 public fun GW2APIClient.gw2v2FilesByID(id: String, configure: RequestConfigurator<GW2v2File>? = null): RequestBuilder<GW2v2File> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = GW2v2File.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2FilesByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
+public fun GW2APIClient.gw2v2FilesByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(GW2v2File.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2FilesAll(configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
+public fun GW2APIClient.gw2v2FilesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
     path = "/v2/files",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2File.serializer()),
-    configure = configure
-)
-
-@JvmOverloads
-public fun GW2APIClient.gw2v2FilesByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2File>>? = null): RequestBuilder<List<GW2v2File>> = request(
-    path = "/v2/files",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(GW2v2File.serializer()),
     configure = configure

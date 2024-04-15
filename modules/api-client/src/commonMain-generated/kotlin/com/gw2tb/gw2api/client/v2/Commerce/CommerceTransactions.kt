@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -35,8 +36,8 @@ import kotlin.jvm.*
 public fun GW2APIClient.gw2v2CommerceTransactions(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = setOf("account", "tradingpost"),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf("account", "trading_post"),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
@@ -44,21 +45,21 @@ public fun GW2APIClient.gw2v2CommerceTransactions(configure: RequestConfigurator
 
 @JvmOverloads
 public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
-    path = "/v2/commerce/transactions/:relevance",
+    path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":relevance" to relevance),
-    requiredPermissions = setOf("account", "tradingpost"),
+    replaceInPath = mapOfNonNullValues("relevance" to relevance),
+    requiredPermissions = setOf("account", "trading_post"),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2CommerceTransaction>>? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
-    path = "/v2/commerce/transactions/:relevance/:type",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":relevance" to relevance, ":type" to type),
-    requiredPermissions = setOf("account", "tradingpost"),
+public fun GW2APIClient.gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2CommerceTransaction>>? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
+    path = "/v2/commerce/transactions",
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues("relevance" to relevance, "type" to type),
+    requiredPermissions = setOf("account", "trading_post"),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(GW2v2CommerceTransaction.serializer()),
     configure = configure

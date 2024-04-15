@@ -23,15 +23,22 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: PvpRank
 
 /**
  * Information about a PvP rank.
  *
  * @param id the PvP rank's ID
- * @param finisherID the rank finisher's ID
+ * @param finisherId the rank finisher's ID
  * @param name the rank's localized name
  * @param icon a render service URL for the rank's icon
  * @param minRank the minimum PvP level required for the rank
@@ -39,12 +46,12 @@ import kotlinx.serialization.json.*
  * @param levels the rank's levels
  */
 @Serializable
-public data class GW2v2PvPRank(
+public data class GW2v2PvpRank(
     /** This field holds the PvP rank's ID. */
     val id: Int,
     /** This field holds the rank finisher's ID. */
     @SerialName("finisher_id")
-    val finisherID: Int,
+    val finisherId: Int,
     /** This field holds the rank's localized name. */
     val name: String,
     /** This field holds a render service URL for the rank's icon. */

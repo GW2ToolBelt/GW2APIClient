@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2WvWMatchStatsTest {
+class GW2v2WvwMatchStatsTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2WvWMatchStatsTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2WvWMatchStats>(
+        json.decodeFromString<GW2v2WvwMatchStats>(
             """
             {
                 "id": "2-1",
@@ -113,7 +113,7 @@ class GW2v2WvWMatchStatsTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2WvWMatchStats>(
+        json.decodeFromString<GW2v2WvwMatchStats>(
             """
             {
                 "id": "2-2",

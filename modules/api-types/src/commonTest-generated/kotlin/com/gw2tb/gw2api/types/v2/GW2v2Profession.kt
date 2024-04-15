@@ -344,8 +344,7 @@ class GW2v2ProfessionTest {
                         ]
                     }
                 },
-                "flags": [
-                ],
+                "flags": [],
                 "skills": [
                     {
                         "id": 9115,
@@ -2324,8 +2323,7 @@ class GW2v2ProfessionTest {
                         ]
                     }
                 },
-                "flags": [
-                ],
+                "flags": [],
                 "skills": [
                     {
                         "id": 14443,
@@ -6192,8 +6190,7 @@ class GW2v2ProfessionTest {
                         ]
                     }
                 },
-                "flags": [
-                ],
+                "flags": [],
                 "skills": [
                     {
                         "id": 31914,
@@ -8489,8 +8486,7 @@ class GW2v2ProfessionTest {
                         ]
                     }
                 },
-                "flags": [
-                ],
+                "flags": [],
                 "skills": [
                     {
                         "id": 13014,
@@ -12777,8 +12773,7 @@ class GW2v2ProfessionTest {
                         ]
                     }
                 },
-                "flags": [
-                ],
+                "flags": [],
                 "skills": [
                     {
                         "id": 10192,
@@ -14649,8 +14644,7 @@ class GW2v2ProfessionTest {
                         ]
                     }
                 },
-                "flags": [
-                ],
+                "flags": [],
                 "skills": [
                     {
                         "id": 10547,

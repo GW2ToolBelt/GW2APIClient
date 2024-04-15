@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: WvwRank
 
 /**
  * Information about an achievable rank in the World versus World game mode.
@@ -35,9 +42,9 @@ import kotlinx.serialization.json.*
  * @param minRank the WvW level required to unlock this rank
  */
 @Serializable
-public data class GW2v2WvWRank(
+public data class GW2v2WvwRank(
     /** This field holds the ID of the rank. */
-    val id: Int,
+    val id: GW2WvwRankId,
     /** This field holds the title of the rank. */
     val title: String,
     /** This field holds the WvW level required to unlock this rank. */

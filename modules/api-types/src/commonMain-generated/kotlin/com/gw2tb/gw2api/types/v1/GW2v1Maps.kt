@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Maps
 
 /**
  * Information about maps.
@@ -35,7 +42,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v1Maps(
     /** This field holds the maps. */
-    val maps: Map<Int, GameMap>
+    val maps: Map<GW2MapId, GameMap>
 ) {
 
     /**
@@ -47,9 +54,9 @@ public data class GW2v1Maps(
      * @param maxLevel the maximum level of the map
      * @param defaultFloor the ID of the map's default floor
      * @param floors the IDs of the floors available on the map
-     * @param regionID the ID of the region the map belongs to
+     * @param regionId the ID of the region the map belongs to
      * @param regionName the name of the region the map belongs to
-     * @param continentID the ID of the continent the map belongs to
+     * @param continentId the ID of the continent the map belongs to
      * @param continentName the name of the continent the map belongs to
      * @param mapRect the dimensions of the map, given as the coordinates of the lower-left (SW) and upper-right (NE) corners
      * @param continentRect the dimensions of the map within the continent coordinate system, given as the coordinates of the upper-left (NW) and lower-right (SE) corners
@@ -69,18 +76,18 @@ public data class GW2v1Maps(
         val maxLevel: Int,
         /** This field holds the ID of the map's default floor. */
         @SerialName("default_floor")
-        val defaultFloor: Int,
+        val defaultFloor: GW2FloorId,
         /** This field holds the IDs of the floors available on the map. */
         val floors: List<Int>,
         /** This field holds the ID of the region the map belongs to. */
         @SerialName("region_id")
-        val regionID: Int,
+        val regionId: GW2RegionId,
         /** This field holds the name of the region the map belongs to. */
         @SerialName("region_name")
         val regionName: String? = null,
         /** This field holds the ID of the continent the map belongs to. */
         @SerialName("continent_id")
-        val continentID: Int,
+        val continentId: GW2ContinentId,
         /** This field holds the name of the continent the map belongs to. */
         @SerialName("continent_name")
         val continentName: String? = null,

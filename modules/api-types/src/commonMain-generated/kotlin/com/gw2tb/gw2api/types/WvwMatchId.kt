@@ -20,24 +20,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@file:JvmName("GW2v1")
-@file:JvmMultifileClass
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.client.v1
+package com.gw2tb.gw2api.types
 
-import com.gw2tb.gw2api.client.*
-import com.gw2tb.gw2api.client.internal.*
-import com.gw2tb.gw2api.types.v1.*
+import com.gw2tb.gw2api.types.internal.*
+
+import kotlin.jvm.JvmInline
+import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
-import kotlin.jvm.*
+import kotlinx.serialization.json.*
 
-@JvmOverloads
-public fun GW2APIClient.gw2v1WvWObjectivesNames(configure: RequestConfigurator<List<GW2v1ObjectiveName>>? = null): RequestBuilder<List<GW2v1ObjectiveName>> = request(
-    path = "/v1/wvw/objective_names",
-    parameters = mapOfNonNullValues(),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = Language.API_V1,
-    serializer = ListSerializer(GW2v1ObjectiveName.serializer()),
-    configure = configure
+// Generated for type: WvwMatchId
+
+/** TODO */
+@Serializable
+@JvmInline
+public value class GW2WvwMatchId(
+    /** The raw (type-unsafe) value. */
+    public val raw: String
 )

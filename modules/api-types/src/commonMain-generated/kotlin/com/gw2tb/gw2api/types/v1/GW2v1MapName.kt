@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: MapName
 
 /**
  * Information about a map.
@@ -36,7 +43,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v1MapName(
     /** This field holds the map's ID. */
-    val id: Int,
+    val id: GW2MapId,
     /** This field holds the map's name. */
     val name: String
 )

@@ -97,8 +97,7 @@ class GW2v2StoryTest {
                 "timeline": "1330 n. E.",
                 "level": 80,
                 "order": 12,
-                "chapters": [
-                ]
+                "chapters": []
             }
             """.trimIndent()
         )
@@ -116,8 +115,7 @@ class GW2v2StoryTest {
                 "timeline": "1333 n. E.",
                 "level": 80,
                 "order": 7,
-                "chapters": [
-                ],
+                "chapters": [],
                 "flags": [
                     "RequiresUnlock"
                 ]

@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2PvPSeasonTest {
+class GW2v2PvpSeasonTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2PvPSeasonTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2PvPSeason>(
+        json.decodeFromString<GW2v2PvpSeason>(
             """
             {
                 "id": "91C6E5B8-6CA7-4C2B-9F8E-BCA8EDD0653A",
@@ -45,8 +45,7 @@ class GW2v2PvPSeasonTest {
                 "divisions": [
                     {
                         "name": "Coelinblau",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/CBACFFCD30B623FCCAF3CC7296056265F15E09BB/1614868.png",
                         "small_icon": "https://render.guildwars2.com/file/0673802F661E33D2BAFB400F56E502ACAE9468F4/1614874.png",
                         "pip_icon": "https://render.guildwars2.com/file/DF4AE7C6B85711B5EF0A970851672FFE230FE61D/1614836.png",
@@ -64,8 +63,7 @@ class GW2v2PvPSeasonTest {
                     },
                     {
                         "name": "Jaspis",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/769445B8AFC30D92345AB6A84ACD02A223B5B1B5/1614869.png",
                         "small_icon": "https://render.guildwars2.com/file/6E0EF5120B6E095ED894A4E3BFC69F141EEF652E/1614876.png",
                         "pip_icon": "https://render.guildwars2.com/file/65192C9BEF0C080CACB5005B7B074C7EE37C6527/1614837.png",
@@ -86,8 +84,7 @@ class GW2v2PvPSeasonTest {
                     },
                     {
                         "name": "Safran",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/509921D3BFDC049BC20758B71AD85592A043A439/1614870.png",
                         "small_icon": "https://render.guildwars2.com/file/6BE7DAD4635AF66FA4017A4D217F609FC95CE3A6/1614878.png",
                         "pip_icon": "https://render.guildwars2.com/file/0E9EFE4F06A46D124EF970375CB0FE7C5646DEBD/1614838.png",
@@ -275,7 +272,7 @@ class GW2v2PvPSeasonTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2PvPSeason>(
+        json.decodeFromString<GW2v2PvpSeason>(
             """
             {
                 "id": "B88D04C3-E53F-41AF-8770-A84D75DA10EC",
@@ -286,8 +283,7 @@ class GW2v2PvPSeasonTest {
                 "divisions": [
                     {
                         "name": "Coelinblau",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/CBACFFCD30B623FCCAF3CC7296056265F15E09BB/1614868.png",
                         "small_icon": "https://render.guildwars2.com/file/0673802F661E33D2BAFB400F56E502ACAE9468F4/1614874.png",
                         "pip_icon": "https://render.guildwars2.com/file/DF4AE7C6B85711B5EF0A970851672FFE230FE61D/1614836.png",
@@ -305,8 +301,7 @@ class GW2v2PvPSeasonTest {
                     },
                     {
                         "name": "Jaspis",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/769445B8AFC30D92345AB6A84ACD02A223B5B1B5/1614869.png",
                         "small_icon": "https://render.guildwars2.com/file/6E0EF5120B6E095ED894A4E3BFC69F141EEF652E/1614876.png",
                         "pip_icon": "https://render.guildwars2.com/file/65192C9BEF0C080CACB5005B7B074C7EE37C6527/1614837.png",
@@ -327,8 +322,7 @@ class GW2v2PvPSeasonTest {
                     },
                     {
                         "name": "Safran",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/509921D3BFDC049BC20758B71AD85592A043A439/1614870.png",
                         "small_icon": "https://render.guildwars2.com/file/6BE7DAD4635AF66FA4017A4D217F609FC95CE3A6/1614878.png",
                         "pip_icon": "https://render.guildwars2.com/file/0E9EFE4F06A46D124EF970375CB0FE7C5646DEBD/1614838.png",
@@ -352,8 +346,7 @@ class GW2v2PvPSeasonTest {
                     },
                     {
                         "name": "Persimone",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/5807B5E8BC4658DE9CB44664C125A6A3900D80A9/1614871.png",
                         "small_icon": "https://render.guildwars2.com/file/AA9C38331B5F97511697C66E236E54BB151CF93C/1614880.png",
                         "pip_icon": "https://render.guildwars2.com/file/D7A1BE091BEB55FFFBE529F84DAF0EA23B9E0943/1614839.png",
@@ -377,8 +370,7 @@ class GW2v2PvPSeasonTest {
                     },
                     {
                         "name": "Amaranth",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/9CEAC0D269EC685D2818320FACC4130151C9B4B7/1614872.png",
                         "small_icon": "https://render.guildwars2.com/file/18A56E0F97DF075C30EA05CD1B571DEB024E0815/1614882.png",
                         "pip_icon": "https://render.guildwars2.com/file/76EA60C4256FA580F167036739006D5B7D0791A1/1614840.png",
@@ -605,7 +597,7 @@ class GW2v2PvPSeasonTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2PvPSeason>(
+        json.decodeFromString<GW2v2PvpSeason>(
             """
             {
                 "id": "D1777261-555B-4B72-A27E-BDC96EC393D5",
@@ -616,8 +608,7 @@ class GW2v2PvPSeasonTest {
                 "divisions": [
                     {
                         "name": "Division 1: Bernstein",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "large_icon": "https://render.guildwars2.com/file/02ED75461164551455297DA4955862552C2452BE/1313334.png",
                         "small_icon": "https://render.guildwars2.com/file/6357FE56301B2F4AD1F309E62739B0110DA2452A/1313340.png",
                         "pip_icon": "https://render.guildwars2.com/file/47BDF237FF800552EDD69D28BC926031FC4B64A9/1313346.png",

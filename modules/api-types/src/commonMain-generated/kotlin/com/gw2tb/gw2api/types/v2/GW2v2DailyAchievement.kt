@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: DailyAchievement
 
 /**
  * Information about a daily achievement.
@@ -37,7 +44,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2DailyAchievement(
     /** This field holds the achievement's ID. */
-    val id: Int,
+    val id: GW2AchievementId,
     /** This field holds the level requirement for the daily achievement to appear. */
     val level: LevelRequirement,
     /** This field holds the GW2 campaigns required to see the daily achievement. */

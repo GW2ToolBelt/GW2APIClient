@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CommerceDelivery
 
 /**
  * Information about the items and coins currently available for pickup.
@@ -50,7 +57,7 @@ public data class GW2v2CommerceDelivery(
     @Serializable
     public data class Item(
         /** This field holds the item's ID. */
-        val id: Int,
+        val id: GW2ItemId,
         /** This field holds the amount of this item ready for pickup. */
         val count: Int
     )

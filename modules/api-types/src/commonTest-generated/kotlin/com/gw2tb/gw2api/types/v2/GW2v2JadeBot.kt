@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2CharactersSkillsTest {
+class GW2v2JadeBotTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,38 +34,41 @@ class GW2v2CharactersSkillsTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2CharactersSkills>(
+        json.decodeFromString<GW2v2JadeBot>(
             """
             {
-                "skills": {
-                    "pve": {
-                        "heal": 30305,
-                        "utilities": [
-                            10200,
-                            10236,
-                            10197
-                        ],
-                        "elite": 29519
-                    },
-                    "pvp": {
-                        "heal": 30305,
-                        "utilities": [
-                            10200,
-                            10236,
-                            10197
-                        ],
-                        "elite": 29519
-                    },
-                    "wvw": {
-                        "heal": 30305,
-                        "utilities": [
-                            10200,
-                            10236,
-                            10197
-                        ],
-                        "elite": 29519
-                    }
-                }
+                "id": 2,
+                "name": "Cuddly Cat",
+                "description": "<c=@reminder>This is only available from the Black Lion Trading Company during limited-time sales.</c>",
+                "unlock_item": 98311
+            }
+            """.trimIndent()
+        )
+    }
+    
+    @Test
+    fun testType_01() {
+        json.decodeFromString<GW2v2JadeBot>(
+            """
+            {
+                "id": 4,
+                "name": "Playful Ghost",
+                "description": "Found only in Black Lion Chests during specific times of the year.",
+                "unlock_item": 99005
+            }
+            """.trimIndent()
+        )
+    }
+    
+    @Test
+    fun testType_02() {
+        json.decodeFromString<GW2v2JadeBot>(
+            """
+            {
+                "id": 5,
+                "name": "Fluttering Fairy",
+                "description": "<c=@reminder>This is only available from the Black Lion Trading Company during limited-time sales.</c>",
+                "unlock_item": 99223
             }
             """.trimIndent()
         )

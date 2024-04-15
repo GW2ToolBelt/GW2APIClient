@@ -21,41 +21,27 @@
  * SOFTWARE.
  */
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.types.v2
+package com.gw2tb.gw2api.types
 
+import com.gw2tb.gw2api.types.internal.*
+
+import kotlin.jvm.JvmInline
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 
-/**
- * Information about a character's equipped specializations.
- *
- * @param pve the character's PvE specializations
- * @param pvp the character's PvP specializations
- * @param wvw the character's WvW specializations
- */
+// Generated for type: RecipeId
+
+@Suppress("unused")
+internal object LenientGW2RecipeIdSerializer : LenientSerializer<GW2RecipeId?>(
+    { GW2RecipeId(it.toInt()) },
+    GW2RecipeId.serializer().nullable
+)
+
+/** TODO */
 @Serializable
-public data class GW2v2Specializations(
-    /** This field holds the character's PvE specializations. */
-    val pve: List<Specialization>,
-    /** This field holds the character's PvP specializations. */
-    val pvp: List<Specialization>,
-    /** This field holds the character's WvW specializations. */
-    val wvw: List<Specialization>
-) {
-
-    /**
-     * Information about an equipped specialization.
-     *
-     * @param id the specialization's ID
-     * @param traits the IDs of the selected traits
-     */
-    @Serializable
-    public data class Specialization(
-        /** This field holds the specialization's ID. */
-        val id: Int? = null,
-        /** This field holds the IDs of the selected traits. */
-        val traits: List<Int?>
-    )
-
-}
+@JvmInline
+public value class GW2RecipeId(
+    /** The raw (type-unsafe) value. */
+    public val raw: Int
+)

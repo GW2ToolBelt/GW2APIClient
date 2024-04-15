@@ -20,64 +20,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+@file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
-import kotlin.test.*
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
+import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
 
-class GW2v2AccountHomeInstanceCatTest {
+// Generated for type: JadeBot
 
-    private val json = Json {
-        useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
-    }
-
-    @Test
-    fun testType_00() {
-        json.decodeFromString<GW2v2AccountHomeInstanceCat>(
-            """
-            {
-                "id": 2,
-                "hint": "grilled_chicken"
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_01() {
-        json.decodeFromString<GW2v2AccountHomeInstanceCat>(
-            """
-            {
-                "id": 24,
-                "hint": "snow_leopard"
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_02() {
-        json.decodeFromString<GW2v2AccountHomeInstanceCat>(
-            """
-            {
-                "id": 1,
-                "hint": "chicken"
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_03() {
-        json.decodeFromString<GW2v2AccountHomeInstanceCat>(
-            """
-            {
-                "id": 20,
-                "hint": "necromancer"
-            }
-            """.trimIndent()
-        )
-    }
-
-}
+/**
+ * Information about a jade bot skin.
+ *
+ * @param id the skin's ID
+ * @param name the skin's name
+ * @param description the skin's description
+ * @param unlockItem the ID of the item used to unlock the skin
+ */
+@Serializable
+public data class GW2v2JadeBot(
+    /** This field holds the skin's ID. */
+    val id: Int,
+    /** This field holds the skin's name. */
+    val name: String,
+    /** This field holds the skin's description. */
+    val description: String,
+    /** This field holds the ID of the item used to unlock the skin. */
+    @SerialName("unlock_item")
+    val unlockItem: GW2ItemId
+)

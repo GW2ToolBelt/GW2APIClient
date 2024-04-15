@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Account
 
 /**
  * Information about a player's account.
@@ -38,7 +45,7 @@ import kotlinx.serialization.json.*
  * @param guildLeader an array containing the IDs of all guilds the account is a leader of
  * @param created the ISO-8601 standard timestamp of when the account was created
  * @param access an array of what content this account has access to
- * @param commander a flag indicating whether or not the commander tag is unlocked for the account
+ * @param commander a flag indicating whether the commander tag is unlocked for the account
  * @param fractalLevel the account's personal fractal level
  * @param dailyAP the daily AP the account has
  * @param monthlyAP the monthly AP the account has
@@ -65,7 +72,7 @@ public data class GW2v2Account(
     val created: String,
     /** This field holds an array of what content this account has access to. */
     val access: List<String>,
-    /** This field holds a flag indicating whether or not the commander tag is unlocked for the account. */
+    /** This field holds a flag indicating whether the commander tag is unlocked for the account. */
     val commander: Boolean,
     /** This field holds the account's personal fractal level. */
     @SerialName("fractal_level")
@@ -84,5 +91,5 @@ public data class GW2v2Account(
     val lastModified: String,
     /** This field holds the number of the account's account-wide build storage slots unlocked. */
     @SerialName("build_storage_slots")
-    val buildStorageSlots: Int
+    val buildStorageSlots: Int? = null
 )

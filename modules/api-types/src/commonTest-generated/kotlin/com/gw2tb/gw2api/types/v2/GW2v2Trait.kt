@@ -483,8 +483,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Shadowstep to your foe and steal from them.",
                         "icon": "https://render.guildwars2.com/file/07B49B4F1BB7613332987FBCEC39E24A0EAD01F6/2128021.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 55031,
                         "chat_link": "[&BvfWAAA=]",
                         "traited_facts": [
@@ -602,8 +601,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Gadget. Break out of stun, gaining resistance and clearing blindness.",
                         "icon": "https://render.guildwars2.com/file/4ED8F42447B076AF1DD410430974C7BE7A0F7F61/103417.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 29812,
                         "chat_link": "[&BnR0AAA=]",
                         "categories": [
@@ -778,8 +776,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Celestial Avatar. Summon a seed that heals and cleanses nearby allies of conditions when it blossoms.",
                         "icon": "https://render.guildwars2.com/file/761706674AF9092C98D059AB03BD747BFC7DF506/1128623.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 31776,
                         "chat_link": "[&BiB8AAA=]",
                         "categories": [
@@ -957,8 +954,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Phantasm. Summon an illusion that taunts your target and all nearby targets while blocking attacks. It explodes when it finishes blocking, dealing increased damage for each attack blocked.",
                         "icon": "https://render.guildwars2.com/file/3439B9C801F6F72F0701A1BA759B249FF428D5C2/103791.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 30192,
                         "chat_link": "[&BvB1AAA=]",
                         "categories": [
@@ -1443,8 +1439,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Create a nova at the target that damages and chills nearby foes.",
                         "icon": "https://render.guildwars2.com/file/1A530DDEE40FC509562E11170D0F620127D70DD0/1012917.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 29604,
                         "chat_link": "[&BqRzAAA=]"
                     }
@@ -1680,8 +1675,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Overload. Unleash your flames, granting might to allies and burning enemies. Finishing the cast creates a tornado that continues to grant might and burn foes.\nUsing this skill causes the attunement to have a longer recharge.",
                         "icon": "https://render.guildwars2.com/file/3A04F5D420A86664A3044B950E145E022A49D8AA/1029985.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 29706,
                         "chat_link": "[&Bgp0AAA=]",
                         "categories": [
@@ -1774,8 +1768,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Overload. Create a surge of accumulated water magic, healing and cleansing allies. When the cast ends, heal the area and apply regeneration.\nUsing this skill causes the attunement to have a longer recharge.",
                         "icon": "https://render.guildwars2.com/file/0E3DEF200ACD40FE281956CBA511E934F2B3F82A/1029986.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 29415,
                         "chat_link": "[&BudyAAA=]",
                         "categories": [
@@ -1873,8 +1866,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Overload. Use your air magic to summon a nimbus that repeatedly strikes nearby enemies. When this ability is complete, imbue your allies with electricity and create a lingering static region that strikes enemies at the same interval.\nUsing this skill causes the attunement to have a longer recharge.",
                         "icon": "https://render.guildwars2.com/file/592CC2A120322000BC7234B8522BBE7BAF2F4A57/1029987.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 29719,
                         "chat_link": "[&Bhd0AAA=]",
                         "categories": [
@@ -2000,8 +1992,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Overload. Ride your stored earth magic around, granting protection to other allies you move over and crippling enemies, then deliver a final immobilizing blast of power to the area, leaving behind a dust cyclone that delivers the same effects as the overload.\nUsing this skill causes the attunement to have a longer recharge.",
                         "icon": "https://render.guildwars2.com/file/975A1DE89BA70721BD0E0F6D601C259066F8D468/1029988.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 29618,
                         "chat_link": "[&BrJzAAA=]",
                         "categories": [
@@ -2193,8 +2184,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Shatter. Destroy all your clones, damaging nearby foes. Strikes again after a delay.\nShatter traits only affect the first strike of this skill.",
                         "icon": "https://render.guildwars2.com/file/14090D7A6472AB06125662EB12E6EC51EDE2EEBB/2175059.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 56930,
                         "chat_link": "[&BmLeAAA=]",
                         "traited_facts": [
@@ -2276,8 +2266,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Shatter. Destroy all your clones, confusing nearby foes and recharging this skill for each clone shattered.",
                         "icon": "https://render.guildwars2.com/file/F59775A05108441C09AC03C30CAD98CC049CCC28/2175058.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 56928,
                         "chat_link": "[&BmDeAAA=]",
                         "traited_facts": [
@@ -2366,8 +2355,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Shatter. Destroy all your clones, dazing and slowing their targets.",
                         "icon": "https://render.guildwars2.com/file/3A0CF805A4359A10766D1DD04FF0E7D20A05BD17/2175060.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 56873,
                         "chat_link": "[&BineAAA=]",
                         "traited_facts": [
@@ -2457,8 +2445,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Destroy all your clones and create a rift in the space-time continuum. When it expires, you will revert back to your original point with your previous health, endurance, and skill recharges. Duration increases with each illusion shattered.\nThis skill's recharge cannot be reset by other mesmer skills.",
                         "icon": "https://render.guildwars2.com/file/9E7CE10D0E447973F2D9175CF16A103BD076D04B/1012882.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 29830,
                         "chat_link": "[&BoZ0AAA=]",
                         "traited_facts": [
@@ -2500,8 +2487,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Revert back to the previous timeline. Your health, endurance and cooldowns are reverted to their previous states. You are transported back prematurely if the rift is destroyed.",
                         "icon": "https://render.guildwars2.com/file/4BD3BEF1DE31476B3E40002708049EA1026F1F0B/1012895.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 30747,
                         "chat_link": "[&Bht4AAA=]"
                     }
@@ -2851,8 +2837,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Trap. Lay a trap that deals damage and unleashes multiple fragments into the area when triggered. Each fragment grants aegis to allies, as long as they don't already have aegis.",
                         "icon": "https://render.guildwars2.com/file/32106907940C3F0AB9E771C014BF59D4DE285241/1012877.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 31765,
                         "chat_link": "[&BhV8AAA=]",
                         "categories": [
@@ -3166,8 +3151,7 @@ class GW2v2TraitTest {
                         ],
                         "description": "Leap into an area, and deliver a massive blow to enemies.",
                         "icon": "https://render.guildwars2.com/file/F3E22D0FDFDB436780BD4ACBA5D135EE40507FFD/1058554.png",
-                        "flags": [
-                        ],
+                        "flags": [],
                         "id": 31129,
                         "chat_link": "[&Bpl5AAA=]"
                     }

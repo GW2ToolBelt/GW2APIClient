@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2WvWMatchTest {
+class GW2v2WvwMatchTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2WvWMatchTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2WvWMatch>(
+        json.decodeFromString<GW2v2WvwMatch>(
             """
             {
                 "id": "2-1",
@@ -3576,8 +3576,7 @@ class GW2v2WvWMatchTest {
                             "blue": 160460,
                             "green": 187348
                         },
-                        "bonuses": [
-                        ],
+                        "bonuses": [],
                         "objectives": [
                             {
                                 "id": "38-131",
@@ -3612,8 +3611,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 3,
                                 "points_capture": 3,
                                 "yaks_delivered": 35,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-9",
@@ -3644,8 +3642,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 3,
                                 "points_capture": 3,
                                 "yaks_delivered": 25,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-6",
@@ -3657,8 +3654,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 12,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-124",
@@ -3693,8 +3689,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 16,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-5",
@@ -3706,8 +3701,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 3,
                                 "points_capture": 3,
                                 "yaks_delivered": 21,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-16",
@@ -3738,8 +3732,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 2,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-1",
@@ -3800,8 +3793,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 4,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-14",
@@ -3813,8 +3805,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 11,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-125",
@@ -3880,8 +3871,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 1,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-18",
@@ -3893,8 +3883,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-2",
@@ -3925,8 +3914,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 16,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "38-13",
@@ -4003,8 +3991,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-118",
@@ -4024,8 +4011,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 8,
                                 "points_capture": 8,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-107",
@@ -4045,8 +4031,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 5,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-113",
@@ -4085,8 +4070,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 6,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-110",
@@ -4140,8 +4124,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 6,
                                 "points_capture": 6,
                                 "yaks_delivered": 22,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-102",
@@ -4153,8 +4136,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 10,
                                 "points_capture": 10,
                                 "yaks_delivered": 140,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-117",
@@ -4182,8 +4164,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 1,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-101",
@@ -4195,8 +4176,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-121",
@@ -4216,8 +4196,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 1,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "1099-108",
@@ -4237,8 +4216,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             }
                         ],
                         "deaths": {
@@ -4277,8 +4255,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-40",
@@ -4309,8 +4286,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 2,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-36",
@@ -4322,8 +4298,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 6,
                                 "points_capture": 6,
                                 "yaks_delivered": 20,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-33",
@@ -4335,8 +4310,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 8,
                                 "points_capture": 8,
                                 "yaks_delivered": 1,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-111",
@@ -4364,8 +4338,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 2,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-52",
@@ -4377,8 +4350,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-66",
@@ -4406,8 +4378,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-32",
@@ -4419,8 +4390,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 12,
                                 "points_capture": 12,
                                 "yaks_delivered": 23,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-62",
@@ -4440,8 +4410,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-37",
@@ -4507,8 +4476,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "96-63",
@@ -4555,8 +4523,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 4,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-40",
@@ -4568,8 +4535,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 4,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-35",
@@ -4581,8 +4547,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 4,
                                 "points_capture": 4,
                                 "yaks_delivered": 2,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-36",
@@ -4613,8 +4578,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 8,
                                 "points_capture": 8,
                                 "yaks_delivered": 5,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-111",
@@ -4642,8 +4606,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 3,
                                 "points_capture": 3,
                                 "yaks_delivered": 22,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-52",
@@ -4686,8 +4649,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-32",
@@ -4726,8 +4688,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-37",
@@ -4789,8 +4750,7 @@ class GW2v2WvWMatchTest {
                                 "points_tick": 2,
                                 "points_capture": 2,
                                 "yaks_delivered": 0,
-                                "guild_upgrades": [
-                                ]
+                                "guild_upgrades": []
                             },
                             {
                                 "id": "95-63",

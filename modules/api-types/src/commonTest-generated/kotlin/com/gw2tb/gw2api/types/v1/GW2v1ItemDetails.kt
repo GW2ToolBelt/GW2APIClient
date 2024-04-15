@@ -69,8 +69,7 @@ class GW2v1ItemDetailsTest {
                     "Unique",
                     "AccountBindOnUse"
                 ],
-                "restrictions": [
-                ],
+                "restrictions": [],
                 "trinket": {
                     "type": "Ring",
                     "infusion_slots": [

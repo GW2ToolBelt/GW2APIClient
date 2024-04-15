@@ -39,8 +39,7 @@ class GW2v2ItemStatSetTest {
             {
                 "id": 50,
                 "name": "",
-                "attributes": [
-                ]
+                "attributes": []
             }
             """.trimIndent()
         )
@@ -53,8 +52,7 @@ class GW2v2ItemStatSetTest {
             {
                 "id": 112,
                 "name": "",
-                "attributes": [
-                ]
+                "attributes": []
             }
             """.trimIndent()
         )
@@ -134,8 +132,7 @@ class GW2v2ItemStatSetTest {
             {
                 "id": 1548,
                 "name": "",
-                "attributes": [
-                ]
+                "attributes": []
             }
             """.trimIndent()
         )

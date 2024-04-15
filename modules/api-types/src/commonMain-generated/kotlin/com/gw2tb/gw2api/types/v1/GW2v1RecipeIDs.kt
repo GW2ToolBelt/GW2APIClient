@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: RecipeIds
 
 /**
  * Information about the available recipes.
@@ -33,7 +40,7 @@ import kotlinx.serialization.json.*
  * @param recipes the IDs of the available recipes
  */
 @Serializable
-public data class GW2v1RecipeIDs(
+public data class GW2v1RecipeIds(
     /** This field holds the IDs of the available recipes. */
-    val recipes: List<Int>
+    val recipes: List<GW2RecipeId>
 )

@@ -27,16 +27,17 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1GuildDetailsByID(guildID: String, configure: RequestConfigurator<GW2v1GuildDetails>? = null): RequestBuilder<GW2v1GuildDetails> = request(
+public fun GW2APIClient.gw2v1GuildDetailsByID(guildId: String, configure: RequestConfigurator<GW2v1GuildDetails>? = null): RequestBuilder<GW2v1GuildDetails> = request(
     path = "/v1/guild_details",
-    parameters = mapOfNonNullValues("guild_id" to guildID),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("guild_id" to guildId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = GW2v1GuildDetails.serializer(),
     configure = configure
@@ -46,8 +47,8 @@ public fun GW2APIClient.gw2v1GuildDetailsByID(guildID: String, configure: Reques
 public fun GW2APIClient.gw2v1GuildDetailsByName(guildName: String, configure: RequestConfigurator<GW2v1GuildDetails>? = null): RequestBuilder<GW2v1GuildDetails> = request(
     path = "/v1/guild_details",
     parameters = mapOfNonNullValues("guild_name" to guildName),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = GW2v1GuildDetails.serializer(),
     configure = configure

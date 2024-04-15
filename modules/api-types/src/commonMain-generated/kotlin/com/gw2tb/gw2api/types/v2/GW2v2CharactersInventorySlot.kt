@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CharactersInventorySlot
 
 /**
  * Information about a bag in a character's inventory.
@@ -48,7 +55,7 @@ public data class GW2v2CharactersInventorySlot(
     @Serializable
     public data class Bag(
         /** This field holds the bag's item ID. */
-        val id: Int,
+        val id: GW2ItemId,
         /** This field holds the bag's size. */
         val size: Int,
         /** This field holds the bag's content. */
@@ -72,20 +79,20 @@ public data class GW2v2CharactersInventorySlot(
         @Serializable
         public data class Item(
             /** This field holds the item's ID. */
-            val id: Int,
+            val id: GW2ItemId,
             /** This field holds the amount of items in the stack. */
             val count: Int,
             /** This field holds the amount of charges remaining on the item. */
             val charges: Int? = null,
             /** This field holds the ID of the skin applied to the item. */
-            val skin: Int? = null,
+            val skin: GW2SkinId? = null,
             /** This field holds an array of item IDs for each rune or signet applied to the item. */
-            val upgrades: List<Int>? = null,
+            val upgrades: List<GW2ItemId>? = null,
             /** This field holds the slot of the corresponding upgrade. */
             @SerialName("upgrade_slot_indices")
             val upgradeSlotIndices: List<Int>? = null,
             /** This field holds an array of item IDs for each infusion applied to the item. */
-            val infusions: List<Int>? = null,
+            val infusions: List<GW2ItemId>? = null,
             /** This field holds contains information on the stats chosen if the item offers an option for stats/prefix. */
             val stats: Stats? = null,
             /** This field holds the binding of the material. */

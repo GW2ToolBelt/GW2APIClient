@@ -145,8 +145,7 @@ class GW2v2CharactersEquipmentTabTest {
                 "tab": 2,
                 "name": "",
                 "is_active": false,
-                "equipment": [
-                ],
+                "equipment": [],
                 "equipment_pvp": {
                     "amulet": 9,
                     "rune": 21172,

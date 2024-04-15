@@ -23,26 +23,33 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: PvpStandings
 
 /**
  * Information about an account's PvP standings.
  *
  * @param current the season's current standing
  * @param best the season's best standing
- * @param seasonID the season's ID
+ * @param seasonId the season's ID
  */
 @Serializable
-public data class GW2v2PvPStandings(
+public data class GW2v2PvpStandings(
     /** This field holds the season's current standing. */
     val current: Current,
     /** This field holds the season's best standing. */
     val best: Best,
     /** This field holds the season's ID. */
     @SerialName("season_id")
-    val seasonID: String
+    val seasonId: String
 ) {
 
     /**

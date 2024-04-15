@@ -23,19 +23,26 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: WvwUpgrade
 
 /**
  * Information about an upgrade for objectives in the World versus World game mode.
  *
- * @param id the ID of the upgrade
+ * @param id the upgrade's ID
  * @param tiers the different tiers of the upgrade
  */
 @Serializable
-public data class GW2v2WvWUpgrade(
-    /** This field holds the ID of the upgrade. */
+public data class GW2v2WvwUpgrade(
+    /** This field holds the upgrade's ID. */
     val id: Int,
     /** This field holds the different tiers of the upgrade. */
     val tiers: List<Tier>

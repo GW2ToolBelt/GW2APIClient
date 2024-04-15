@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Specialization
 
 /**
  * Information about a specialization.
@@ -33,7 +40,7 @@ import kotlinx.serialization.json.*
  * @param id the ID of the specialization
  * @param name the localized name of the specialization
  * @param profession the ID of the profession the specialization belongs to
- * @param elite a flag indicating whether or not the specialization is an elite specialization
+ * @param elite a flag indicating whether the specialization is an elite specialization
  * @param icon a render service URL for the specialization's icon
  * @param background a render service URL for the specialization's background image
  * @param minorTraits a list of all IDs of the specialization's minor traits
@@ -50,7 +57,7 @@ public data class GW2v2Specialization(
     val name: String,
     /** This field holds the ID of the profession the specialization belongs to. */
     val profession: String,
-    /** This field holds a flag indicating whether or not the specialization is an elite specialization. */
+    /** This field holds a flag indicating whether the specialization is an elite specialization. */
     val elite: Boolean,
     /** This field holds a render service URL for the specialization's icon. */
     val icon: String,

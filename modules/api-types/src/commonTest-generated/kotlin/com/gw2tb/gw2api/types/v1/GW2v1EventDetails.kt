@@ -42,8 +42,7 @@ class GW2v1EventDetailsTest {
                         "name": "Defeat the holograms!",
                         "level": 0,
                         "map_id": 26,
-                        "flags": [
-                        ],
+                        "flags": [],
                         "location": {
                             "type": "sphere",
                             "center": [
@@ -59,8 +58,7 @@ class GW2v1EventDetailsTest {
                         "name": "Defend Stygian Deeps from the Risen krait.",
                         "level": 72,
                         "map_id": 51,
-                        "flags": [
-                        ],
+                        "flags": [],
                         "location": {
                             "type": "cylinder",
                             "center": [
@@ -77,8 +75,7 @@ class GW2v1EventDetailsTest {
                         "name": "Defeat the renegade charr.",
                         "level": 42,
                         "map_id": 20,
-                        "flags": [
-                        ],
+                        "flags": [],
                         "location": {
                             "type": "sphere",
                             "center": [
@@ -94,8 +91,7 @@ class GW2v1EventDetailsTest {
                         "name": "Intimidate creatures and tame them with a flute.",
                         "level": 80,
                         "map_id": 1211,
-                        "flags": [
-                        ],
+                        "flags": [],
                         "location": {
                             "type": "poly",
                             "center": [

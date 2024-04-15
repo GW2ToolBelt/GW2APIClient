@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2WvWRankTest {
+class GW2v2WvwRankTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2WvWRankTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2WvWRank>(
+        json.decodeFromString<GW2v2WvwRank>(
             """
             {
                 "id": 1,
@@ -47,7 +47,7 @@ class GW2v2WvWRankTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2WvWRank>(
+        json.decodeFromString<GW2v2WvwRank>(
             """
             {
                 "id": 2,
@@ -60,7 +60,7 @@ class GW2v2WvWRankTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2WvWRank>(
+        json.decodeFromString<GW2v2WvwRank>(
             """
             {
                 "id": 3,
@@ -73,7 +73,7 @@ class GW2v2WvWRankTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2WvWRank>(
+        json.decodeFromString<GW2v2WvwRank>(
             """
             {
                 "id": 4,
@@ -86,7 +86,7 @@ class GW2v2WvWRankTest {
     
     @Test
     fun testType_04() {
-        json.decodeFromString<GW2v2WvWRank>(
+        json.decodeFromString<GW2v2WvwRank>(
             """
             {
                 "id": 5,
@@ -99,7 +99,7 @@ class GW2v2WvWRankTest {
     
     @Test
     fun testType_05() {
-        json.decodeFromString<GW2v2WvWRank>(
+        json.decodeFromString<GW2v2WvwRank>(
             """
             {
                 "id": 6,

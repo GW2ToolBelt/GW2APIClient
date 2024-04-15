@@ -27,39 +27,40 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(iD: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(id: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/pvp/seasons/:id/leaderboards",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":id" to iD),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues("id" to id),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(iD: String, board: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
-    path = "/v2/pvp/seasons/:id/leaderboards/:board",
+public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+    path = "/v2/pvp/seasons/:id/leaderboards",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":id" to iD, ":board" to board),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues("id" to id, "board" to board),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPSeasonsLeaderboardsByPage(iD: String, board: String, region: String, page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2PvPSeasonsLeaderboardEntry>>? = null): RequestBuilder<List<GW2v2PvPSeasonsLeaderboardEntry>> = request(
-    path = "/v2/pvp/seasons/:id/leaderboards/:board/:region",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":id" to iD, ":board" to board, ":region" to region),
-    requiredPermissions = emptySet(),
+public fun GW2APIClient.gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2PvpSeasonsLeaderboardEntry>>? = null): RequestBuilder<List<GW2v2PvpSeasonsLeaderboardEntry>> = request(
+    path = "/v2/pvp/seasons/:id/leaderboards",
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues("id" to id, "board" to board, "region" to region),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2PvPSeasonsLeaderboardEntry.serializer()),
+    serializer = ListSerializer(GW2v2PvpSeasonsLeaderboardEntry.serializer()),
     configure = configure
 )

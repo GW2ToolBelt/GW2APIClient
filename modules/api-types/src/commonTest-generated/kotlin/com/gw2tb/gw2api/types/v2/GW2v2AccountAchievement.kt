@@ -67,8 +67,7 @@ class GW2v2AccountAchievementTest {
             """
             {
                 "id": 5474,
-                "bits": [
-                ],
+                "bits": [],
                 "current": 2,
                 "max": 2,
                 "done": true

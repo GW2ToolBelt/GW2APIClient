@@ -3193,11 +3193,9 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BFAEAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 19,
-                                "mastery_points": [
-                                ]
+                                "mastery_points": []
                             },
                             "371": {
                                 "name": "Hero's Canton (Home)",
@@ -3228,19 +3226,13 @@ class GW2v2ContinentFloorTest {
                                         15616
                                     ]
                                 ],
-                                "points_of_interest": {
-                                },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
-                                "sectors": {
-                                },
+                                "points_of_interest": {},
+                                "tasks": {},
+                                "skill_challenges": [],
+                                "sectors": {},
                                 "id": 371,
-                                "mastery_points": [
-                                ],
-                                "adventures": [
-                                ]
+                                "mastery_points": [],
+                                "adventures": []
                             },
                             "372": {
                                 "name": "Blood Tribune Quarters",
@@ -3271,19 +3263,13 @@ class GW2v2ContinentFloorTest {
                                         15616
                                     ]
                                 ],
-                                "points_of_interest": {
-                                },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
-                                "sectors": {
-                                },
+                                "points_of_interest": {},
+                                "tasks": {},
+                                "skill_challenges": [],
+                                "sectors": {},
                                 "id": 372,
-                                "mastery_points": [
-                                ],
-                                "adventures": [
-                                ]
+                                "mastery_points": [],
+                                "adventures": []
                             }
                         },
                         "id": 2
@@ -3556,10 +3542,8 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BBUIAAA=]"
                                     }
                                 },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
+                                "tasks": {},
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1238": {
                                         "name": "Rata Novus Lane",
@@ -3686,11 +3670,9 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BOQEAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1033,
-                                "mastery_points": [
-                                ]
+                                "mastery_points": []
                             },
                             "1043": {
                                 "name": "Auric Basin",
@@ -4102,8 +4084,7 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BOwIAAA=]"
                                     }
                                 },
-                                "tasks": {
-                                },
+                                "tasks": {},
                                 "skill_challenges": [
                                     {
                                         "coord": [
@@ -5301,8 +5282,7 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BO4EAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1043,
                                 "mastery_points": [
                                     {
@@ -5468,10 +5448,8 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BAoJAAA=]"
                                     }
                                 },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
+                                "tasks": {},
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1275": {
                                         "name": "Spirit Vale",
@@ -5542,11 +5520,9 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BPsEAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1062,
-                                "mastery_points": [
-                                ]
+                                "mastery_points": []
                             },
                             "1066": {
                                 "name": "Claiming the Gilded Hollow",
@@ -5577,12 +5553,9 @@ class GW2v2ContinentFloorTest {
                                         17408
                                     ]
                                 ],
-                                "points_of_interest": {
-                                },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
+                                "points_of_interest": {},
+                                "tasks": {},
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1299": {
                                         "level": 0,
@@ -5628,11 +5601,9 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BBMFAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1066,
-                                "mastery_points": [
-                                ]
+                                "mastery_points": []
                             },
                             "1068": {
                                 "name": "Gilded Hollow",
@@ -5720,10 +5691,8 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BAEJAAA=]"
                                     }
                                 },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
+                                "tasks": {},
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1299": {
                                         "level": 0,
@@ -5769,11 +5738,9 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BBMFAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1068,
-                                "mastery_points": [
-                                ]
+                                "mastery_points": []
                             },
                             "1101": {
                                 "name": "Gilded Hollow",
@@ -5861,10 +5828,8 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BAEJAAA=]"
                                     }
                                 },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
+                                "tasks": {},
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1299": {
                                         "level": 0,
@@ -5911,10 +5876,8 @@ class GW2v2ContinentFloorTest {
                                     }
                                 },
                                 "id": 1101,
-                                "mastery_points": [
-                                ],
-                                "adventures": [
-                                ]
+                                "mastery_points": [],
+                                "adventures": []
                             },
                             "1110": {
                                 "name": "Scrap Rifle Field Test",
@@ -5945,12 +5908,9 @@ class GW2v2ContinentFloorTest {
                                         19712
                                     ]
                                 ],
-                                "points_of_interest": {
-                                },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
+                                "points_of_interest": {},
+                                "tasks": {},
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1237": {
                                         "name": "SCAR Lane",
@@ -6009,11 +5969,9 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BNUEAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1110,
-                                "mastery_points": [
-                                ]
+                                "mastery_points": []
                             }
                         },
                         "id": 10
@@ -6622,8 +6580,7 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BKYBAAA=]"
                                     }
                                 },
-                                "skill_challenges": [
-                                ],
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1598": {
                                         "name": "Churrhir Cliffs",
@@ -7674,8 +7631,7 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BFcGAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1263,
                                 "mastery_points": [
                                     {
@@ -7733,12 +7689,9 @@ class GW2v2ContinentFloorTest {
                                         46384
                                     ]
                                 ],
-                                "points_of_interest": {
-                                },
-                                "tasks": {
-                                },
-                                "skill_challenges": [
-                                ],
+                                "points_of_interest": {},
+                                "tasks": {},
+                                "skill_challenges": [],
                                 "sectors": {
                                     "1599": {
                                         "name": "Eternal Reservoir",
@@ -8313,11 +8266,9 @@ class GW2v2ContinentFloorTest {
                                         "chat_link": "[&BFUGAAA=]"
                                     }
                                 },
-                                "adventures": [
-                                ],
+                                "adventures": [],
                                 "id": 1268,
-                                "mastery_points": [
-                                ]
+                                "mastery_points": []
                             }
                         },
                         "id": 12

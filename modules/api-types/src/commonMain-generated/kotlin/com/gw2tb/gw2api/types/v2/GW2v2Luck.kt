@@ -23,12 +23,19 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
 
+// Generated for type: Luck
+
 /**
- * Information about a plyer's luck.
+ * Information about a player's luck.
  *
  * @param id the type of luck (always "luck")
  * @param value the amount of luck

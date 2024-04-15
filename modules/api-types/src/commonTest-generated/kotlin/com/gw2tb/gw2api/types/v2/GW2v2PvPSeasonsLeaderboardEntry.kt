@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2PvPSeasonsLeaderboardEntryTest {
+class GW2v2PvpSeasonsLeaderboardEntryTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2PvPSeasonsLeaderboardEntryTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2PvPSeasonsLeaderboardEntry>(
+        json.decodeFromString<GW2v2PvpSeasonsLeaderboardEntry>(
             """
             {
                 "name": "Make Pvp Great Again",
@@ -64,7 +64,7 @@ class GW2v2PvPSeasonsLeaderboardEntryTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2PvPSeasonsLeaderboardEntry>(
+        json.decodeFromString<GW2v2PvpSeasonsLeaderboardEntry>(
             """
             {
                 "name": "How Can You Be So Bad At This",
@@ -94,7 +94,7 @@ class GW2v2PvPSeasonsLeaderboardEntryTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2PvPSeasonsLeaderboardEntry>(
+        json.decodeFromString<GW2v2PvpSeasonsLeaderboardEntry>(
             """
             {
                 "name": "Obindo.6802",
@@ -113,7 +113,7 @@ class GW2v2PvPSeasonsLeaderboardEntryTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2PvPSeasonsLeaderboardEntry>(
+        json.decodeFromString<GW2v2PvpSeasonsLeaderboardEntry>(
             """
             {
                 "name": "lex.2164",

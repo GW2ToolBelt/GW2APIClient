@@ -23,46 +23,53 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: WvwMatches
 
 /**
  * Information about WvW matches.
  *
- * @param wvWMatches the matches
+ * @param wvwMatches the matches
  */
 @Serializable
-public data class GW2v1WvWMatches(
+public data class GW2v1WvwMatches(
     /** This field holds the matches. */
     @SerialName("wvw_matches")
-    val wvWMatches: List<WvWMatch>
+    val wvwMatches: List<WvwMatch>
 ) {
 
     /**
      * Information about a WvW match.
      *
-     * @param wvWMatchID the match's ID
-     * @param redWorldID the ID of the red team's primary server
-     * @param blueWorldID the ID of the blue team's primary server
-     * @param greenWorldID the ID of the green team's primary server
+     * @param wvwMatchId the match's ID
+     * @param redWorldId the ID of the red team's primary server
+     * @param blueWorldId the ID of the blue team's primary server
+     * @param greenWorldId the ID of the green team's primary server
      * @param startTime the ISO-8601 standard timestamp of when the match's start
      * @param endTime the ISO-8601 standard timestamp of when the match's end
      */
     @Serializable
-    public data class WvWMatch(
+    public data class WvwMatch(
         /** This field holds the match's ID. */
         @SerialName("wvw_match_id")
-        val wvWMatchID: String,
+        val wvwMatchId: GW2WvwMatchId,
         /** This field holds the ID of the red team's primary server. */
         @SerialName("red_world_id")
-        val redWorldID: Int,
+        val redWorldId: GW2WorldId,
         /** This field holds the ID of the blue team's primary server. */
         @SerialName("blue_world_id")
-        val blueWorldID: Int,
+        val blueWorldId: GW2WorldId,
         /** This field holds the ID of the green team's primary server. */
         @SerialName("green_world_id")
-        val greenWorldID: Int,
+        val greenWorldId: GW2WorldId,
         /** This field holds the ISO-8601 standard timestamp of when the match's start. */
         @SerialName("start_time")
         val startTime: String,

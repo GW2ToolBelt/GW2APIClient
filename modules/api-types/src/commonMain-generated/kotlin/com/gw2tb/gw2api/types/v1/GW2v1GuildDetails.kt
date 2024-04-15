@@ -23,14 +23,21 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: GuildDetails
 
 /**
  * Information about events.
  *
- * @param guildID the guild's ID
+ * @param guildId the guild's ID
  * @param guildName the guild's name
  * @param tag the guild's tag
  * @param emblem the guild's emblem
@@ -39,7 +46,7 @@ import kotlinx.serialization.json.*
 public data class GW2v1GuildDetails(
     /** This field holds the guild's ID. */
     @SerialName("guild_id")
-    val guildID: String,
+    val guildId: GW2GuildId,
     /** This field holds the guild's name. */
     @SerialName("guild_name")
     val guildName: String,
@@ -52,32 +59,32 @@ public data class GW2v1GuildDetails(
     /**
      * Information about a guild emblem.
      *
-     * @param backgroundID the background's ID
-     * @param foregroundID the foreground's ID
+     * @param backgroundId the background's ID
+     * @param foregroundId the foreground's ID
      * @param flags the manipulations applied to the emblem
-     * @param backgroundColorID the background color's ID
-     * @param foregroundPrimaryColorID the foreground primary color's ID
-     * @param foregroundSecondaryColorID the foreground secondary color's ID
+     * @param backgroundColorId the background color's ID
+     * @param foregroundPrimaryColorId the foreground primary color's ID
+     * @param foregroundSecondaryColorId the foreground secondary color's ID
      */
     @Serializable
     public data class Emblem(
         /** This field holds the background's ID. */
         @SerialName("background_id")
-        val backgroundID: Int,
+        val backgroundId: Int,
         /** This field holds the foreground's ID. */
         @SerialName("foreground_id")
-        val foregroundID: Int,
+        val foregroundId: Int,
         /** This field holds the manipulations applied to the emblem. */
         val flags: List<String>,
         /** This field holds the background color's ID. */
         @SerialName("background_color_id")
-        val backgroundColorID: Int,
+        val backgroundColorId: Int,
         /** This field holds the foreground primary color's ID. */
         @SerialName("foreground_primary_color_id")
-        val foregroundPrimaryColorID: Int,
+        val foregroundPrimaryColorId: Int,
         /** This field holds the foreground secondary color's ID. */
         @SerialName("foreground_secondary_color_id")
-        val foregroundSecondaryColorID: Int
+        val foregroundSecondaryColorId: Int
     )
 
 }

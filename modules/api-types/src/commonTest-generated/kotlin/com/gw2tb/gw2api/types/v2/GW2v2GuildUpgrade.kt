@@ -103,8 +103,7 @@ class GW2v2GuildUpgradeTest {
                 "type": "Decoration",
                 "required_level": 0,
                 "experience": 0,
-                "prerequisites": [
-                ],
+                "prerequisites": [],
                 "costs": [
                     {
                         "type": "Item",
@@ -189,10 +188,8 @@ class GW2v2GuildUpgradeTest {
                 "type": "Decoration",
                 "required_level": 0,
                 "experience": 0,
-                "prerequisites": [
-                ],
-                "costs": [
-                ]
+                "prerequisites": [],
+                "costs": []
             }
             """.trimIndent()
         )
@@ -240,10 +237,8 @@ class GW2v2GuildUpgradeTest {
                 "type": "Decoration",
                 "required_level": 0,
                 "experience": 0,
-                "prerequisites": [
-                ],
-                "costs": [
-                ]
+                "prerequisites": [],
+                "costs": []
             }
             """.trimIndent()
         )

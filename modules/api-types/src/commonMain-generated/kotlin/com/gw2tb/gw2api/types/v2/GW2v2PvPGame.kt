@@ -23,15 +23,22 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: PvpGame
 
 /**
  * Information about an account's PvP game.
  *
  * @param id the game's ID
- * @param mapID the map's ID
+ * @param mapId the map's ID
  * @param started the ISO-8601 standard timestamp of when the game started
  * @param ended the ISO-8601 standard timestamp of when the game ended
  * @param result the game's result for the account ("Victory" or "Defeat")
@@ -43,12 +50,12 @@ import kotlinx.serialization.json.*
  * @param scores the game's final scores
  */
 @Serializable
-public data class GW2v2PvPGame(
+public data class GW2v2PvpGame(
     /** This field holds the game's ID. */
     val id: String,
     /** This field holds the map's ID. */
     @SerialName("map_id")
-    val mapID: Int,
+    val mapId: Int,
     /** This field holds the ISO-8601 standard timestamp of when the game started. */
     val started: String,
     /** This field holds the ISO-8601 standard timestamp of when the game ended. */

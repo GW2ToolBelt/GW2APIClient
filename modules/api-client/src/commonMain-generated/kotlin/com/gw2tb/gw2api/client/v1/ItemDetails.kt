@@ -27,16 +27,27 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1ItemDetails(itemID: Int, configure: RequestConfigurator<GW2v1ItemDetails>? = null): RequestBuilder<GW2v1ItemDetails> = request(
+public fun GW2APIClient.gw2v1ItemDetails(itemId: Int, configure: RequestConfigurator<GW2v1ItemDetails>? = null): RequestBuilder<GW2v1ItemDetails> = request(
     path = "/v1/item_details",
-    parameters = mapOfNonNullValues("item_id" to itemID.toString()),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("item_id" to itemId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V1,
+    serializer = GW2v1ItemDetails.serializer(),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v1ItemDetails(itemId: GW2ItemId, configure: RequestConfigurator<GW2v1ItemDetails>? = null): RequestBuilder<GW2v1ItemDetails> = request(
+    path = "/v1/item_details",
+    parameters = mapOfNonNullValues("item_id" to itemId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V1,
     serializer = GW2v1ItemDetails.serializer(),
     configure = configure

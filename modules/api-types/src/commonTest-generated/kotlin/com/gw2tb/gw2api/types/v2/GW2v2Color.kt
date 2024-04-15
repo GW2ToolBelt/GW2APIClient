@@ -92,8 +92,7 @@ class GW2v2ColorTest {
                         83
                     ]
                 },
-                "categories": [
-                ]
+                "categories": []
             }
             """.trimIndent()
         )

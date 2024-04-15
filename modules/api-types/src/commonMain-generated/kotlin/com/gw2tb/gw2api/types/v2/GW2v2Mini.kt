@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Mini
 
 /**
  * Information about a mini.
@@ -35,7 +42,7 @@ import kotlinx.serialization.json.*
  * @param description the description of how to unlock the mini
  * @param icon the URL for the mini's icon
  * @param order a (non-unique) number that can be used as basis to sort the list of minis
- * @param itemID the ID of the item which unlocks the mini
+ * @param itemId the ID of the item that can be used to unlock the mini
  */
 @Serializable
 public data class GW2v2Mini(
@@ -49,7 +56,7 @@ public data class GW2v2Mini(
     val icon: String,
     /** This field holds a (non-unique) number that can be used as basis to sort the list of minis. */
     val order: Int,
-    /** This field holds the ID of the item which unlocks the mini. */
+    /** This field holds the ID of the item that can be used to unlock the mini. */
     @SerialName("item_id")
-    val itemID: Int
+    val itemId: GW2ItemId
 )

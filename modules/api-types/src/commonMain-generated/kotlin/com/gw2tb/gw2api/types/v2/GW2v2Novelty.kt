@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Novelty
 
 /**
  * Information about a novelty.
@@ -35,7 +42,7 @@ import kotlinx.serialization.json.*
  * @param icon a render service URL for the novelty's icon
  * @param description the novelty's description
  * @param slot the novelty's slot
- * @param unlockItems the IDs of the items that unlock the novelty
+ * @param unlockItems the IDs of the items that can be used to unlock the novelty
  */
 @Serializable
 public data class GW2v2Novelty(
@@ -49,7 +56,7 @@ public data class GW2v2Novelty(
     val description: String,
     /** This field holds the novelty's slot. */
     val slot: String,
-    /** This field holds the IDs of the items that unlock the novelty. */
+    /** This field holds the IDs of the items that can be used to unlock the novelty. */
     @SerialName("unlock_item")
-    val unlockItems: List<Int>
+    val unlockItems: List<GW2ItemId>
 )

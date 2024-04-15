@@ -23,23 +23,30 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CommercePrices
 
 /**
  * Information about an item listed in the trading post.
  *
  * @param id the item's ID
- * @param whitelisted indicates whether or not a free to play account can purchase or sell this item on the trading post
+ * @param whitelisted indicates whether a free to play account can purchase or sell this item on the trading post
  * @param buys the buy information
  * @param sells the sell information
  */
 @Serializable
 public data class GW2v2CommercePrices(
     /** This field holds the item's ID. */
-    val id: Int,
-    /** This field holds indicates whether or not a free to play account can purchase or sell this item on the trading post. */
+    val id: GW2ItemId,
+    /** This field holds indicates whether a free to play account can purchase or sell this item on the trading post. */
     val whitelisted: Boolean,
     /** This field holds the buy information. */
     val buys: BuyListing,

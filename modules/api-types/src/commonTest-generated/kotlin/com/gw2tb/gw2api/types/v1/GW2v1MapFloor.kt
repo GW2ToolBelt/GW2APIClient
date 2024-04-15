@@ -614,8 +614,7 @@ class GW2v1MapFloorTest {
                                         ]
                                     }
                                 ],
-                                "god_shrines": [
-                                ],
+                                "god_shrines": [],
                                 "tasks": [
                                     {
                                         "task_id": 7,
@@ -3007,8 +3006,7 @@ class GW2v1MapFloorTest {
                                         "type": "Tyria"
                                     }
                                 ],
-                                "adventures": [
-                                ]
+                                "adventures": []
                             }
                         }
                     }

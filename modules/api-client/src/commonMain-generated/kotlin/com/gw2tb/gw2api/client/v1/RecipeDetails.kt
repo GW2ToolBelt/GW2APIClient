@@ -27,16 +27,27 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1RecipeDetails(recipeID: Int, configure: RequestConfigurator<GW2v1RecipeDetails>? = null): RequestBuilder<GW2v1RecipeDetails> = request(
+public fun GW2APIClient.gw2v1RecipeDetails(recipeId: Int, configure: RequestConfigurator<GW2v1RecipeDetails>? = null): RequestBuilder<GW2v1RecipeDetails> = request(
     path = "/v1/recipe_details",
-    parameters = mapOfNonNullValues("recipe_id" to recipeID.toString()),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("recipe_id" to recipeId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v1RecipeDetails.serializer(),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v1RecipeDetails(recipeId: GW2RecipeId, configure: RequestConfigurator<GW2v1RecipeDetails>? = null): RequestBuilder<GW2v1RecipeDetails> = request(
+    path = "/v1/recipe_details",
+    parameters = mapOfNonNullValues("recipe_id" to recipeId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = GW2v1RecipeDetails.serializer(),
     configure = configure

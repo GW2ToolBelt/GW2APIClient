@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: AccountBuildStorageSlot
 
 /**
  * Information about a build in an account's storage.
@@ -34,7 +41,7 @@ import kotlinx.serialization.json.*
  * @param profession the profession's ID
  * @param specializations the build's specializations
  * @param skills the build's skills
- * @param auqaticSkills the build's aquatic skills
+ * @param aquaticSkills the build's aquatic skills
  * @param legends the build's legend IDs
  * @param aquaticLegends the build's aquatic legend IDs
  */
@@ -50,7 +57,7 @@ public data class GW2v2AccountBuildStorageSlot(
     val skills: Skills? = null,
     /** This field holds the build's aquatic skills. */
     @SerialName("aquatic_skills")
-    val auqaticSkills: AuqaticSkills? = null,
+    val aquaticSkills: AuqaticSkills? = null,
     /** This field holds the build's legend IDs. */
     val legends: List<String?>? = null,
     /** This field holds the build's aquatic legend IDs. */

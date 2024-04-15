@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: AchievementGroups
 
 /**
  * Information about an achievement group.
@@ -39,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2AchievementGroups(
     /** This field holds the achievement group's ID. */
-    val id: String,
+    val id: GW2AchievementGroupId,
     /** This field holds the achievement group's localized name. */
     val name: String,
     /** This field holds the achievement group's localized description. */
@@ -47,5 +54,5 @@ public data class GW2v2AchievementGroups(
     /** This field holds a number that can be used to sort the list of groups. */
     val order: Int,
     /** This field holds an array containing the IDs of the categories that this group contains. */
-    val categories: List<Int>
+    val categories: List<GW2AchievementCategoryId>
 )

@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -35,53 +36,42 @@ import kotlin.jvm.*
 public fun GW2APIClient.gw2v2PvPRanksIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(Int.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksByID(id: Int, configure: RequestConfigurator<GW2v2PvPRank>? = null): RequestBuilder<GW2v2PvPRank> = request(
+public fun GW2APIClient.gw2v2PvPRanksByID(id: Int, configure: RequestConfigurator<GW2v2PvpRank>? = null): RequestBuilder<GW2v2PvpRank> = request(
     path = "/v2/pvp/ranks",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2PvPRank.serializer(),
+    serializer = GW2v2PvpRank.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2PvPRank>>? = null): RequestBuilder<List<GW2v2PvPRank>> = request(
+public fun GW2APIClient.gw2v2PvPRanksByIDs(ids: List<Int>, configure: RequestConfigurator<List<GW2v2PvpRank>>? = null): RequestBuilder<List<GW2v2PvpRank>> = request(
     path = "/v2/pvp/ranks",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2PvPRank.serializer()),
+    serializer = ListSerializer(GW2v2PvpRank.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksAll(configure: RequestConfigurator<List<GW2v2PvPRank>>? = null): RequestBuilder<List<GW2v2PvPRank>> = request(
+public fun GW2APIClient.gw2v2PvPRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2PvpRank>>? = null): RequestBuilder<List<GW2v2PvpRank>> = request(
     path = "/v2/pvp/ranks",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2PvPRank.serializer()),
-    configure = configure
-)
-
-@JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2PvPRank>>? = null): RequestBuilder<List<GW2v2PvPRank>> = request(
-    path = "/v2/pvp/ranks",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2PvPRank.serializer()),
+    serializer = ListSerializer(GW2v2PvpRank.serializer()),
     configure = configure
 )

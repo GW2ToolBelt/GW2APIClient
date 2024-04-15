@@ -23,13 +23,20 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: SkinDetails
 
 @Suppress("ClassName")
 private object __JsonParametricSerializer_GW2v1SkinDetails : JsonContentPolymorphicSerializer<GW2v1SkinDetails>(GW2v1SkinDetails::class) {
-    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out GW2v1SkinDetails> {
+    override fun selectDeserializer(element: JsonElement): DeserializationStrategy<GW2v1SkinDetails> {
         return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
             "Armor" -> GW2v1SkinDetails.Armor.serializer()
             "Back" -> GW2v1SkinDetails.Back.serializer()
@@ -46,19 +53,26 @@ private object __JsonParametricSerializer_GW2v1SkinDetails : JsonContentPolymorp
 public sealed class GW2v1SkinDetails {
 
     /** This field holds the skin's ID. */
-    public abstract val skinID: Int
+    public abstract val skinId: GW2SkinId
+
     /** This field holds the skin's localized name. */
     public abstract val name: String
+
     /** This field holds the skin's type. */
     public abstract val type: String
+
     /** This field holds the skin's rarity. */
     public abstract val rarity: String
+
     /** This field holds additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity). */
     public abstract val flags: List<String>
+
     /** This field holds the IDs of the races that can use this skin, or empty if it can be used by any race. */
     public abstract val restrictions: List<String>
+
     /** This field holds the icon's file ID to be used with the render service. */
-    public abstract val iconFileID: String
+    public abstract val iconFileId: String
+
     /** This field holds the icon's file signature to be used with the render service. */
     public abstract val iconFileSignature: String
 
@@ -67,7 +81,7 @@ public sealed class GW2v1SkinDetails {
     private object __ArmorGeneratedSerializer : KSerializer<Armor>
 
     @Suppress("ClassName")
-    private object __ArmorSerializer : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
+    private object __ArmorSerializer0 : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -75,29 +89,29 @@ public sealed class GW2v1SkinDetails {
     /**
      * Additional information about an armor skin.
      *
-     * @param skinID the skin's ID
+     * @param skinId the skin's ID
      * @param name the skin's localized name
      * @param type the skin's type
      * @param rarity the skin's rarity
      * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
      * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      */
-    @Serializable(with = __ArmorSerializer::class)
+    @Serializable(with = __ArmorSerializer0::class)
     public data class Armor(
         @SerialName("skin_id")
-        override val skinID: Int,
+        override val skinId: GW2SkinId,
         override val name: String,
         override val type: String,
         override val rarity: String,
         override val flags: List<String>,
         override val restrictions: List<String>,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
-        val armor: Armor
+        public val armor: Armor
     ) : GW2v1SkinDetails() {
 
         /**
@@ -171,14 +185,14 @@ public sealed class GW2v1SkinDetails {
             /**
              * Information about a dye slot.
              *
-             * @param colorID the default color's ID
+             * @param colorId the default color's ID
              * @param material the material type
              */
             @Serializable
             public data class DyeSlot(
                 /** This field holds the default color's ID. */
                 @SerialName("color_id")
-                val colorID: Int,
+                val colorId: GW2ColorId,
                 /** This field holds the material type. */
                 val material: String
             )
@@ -192,7 +206,7 @@ public sealed class GW2v1SkinDetails {
     private object __BackGeneratedSerializer : KSerializer<Back>
 
     @Suppress("ClassName")
-    private object __BackSerializer : JsonTransformingSerializer<Back>(__BackGeneratedSerializer) {
+    private object __BackSerializer0 : JsonTransformingSerializer<Back>(__BackGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -200,34 +214,34 @@ public sealed class GW2v1SkinDetails {
     /**
      * Additional information about a backpack skin.
      *
-     * @param skinID the skin's ID
+     * @param skinId the skin's ID
      * @param name the skin's localized name
      * @param type the skin's type
      * @param rarity the skin's rarity
      * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
      * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      */
-    @Serializable(with = __BackSerializer::class)
+    @Serializable(with = __BackSerializer0::class)
     public data class Back(
         @SerialName("skin_id")
-        override val skinID: Int,
+        override val skinId: GW2SkinId,
         override val name: String,
         override val type: String,
         override val rarity: String,
         override val flags: List<String>,
         override val restrictions: List<String>,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
-        val back: Back
+        public val back: Back
     ) : GW2v1SkinDetails() {
 
         /** Additional information about a backpack skin. */
         @Serializable
-        public object Back
+        public data object Back
 
     }
 
@@ -236,7 +250,7 @@ public sealed class GW2v1SkinDetails {
     private object __GatheringGeneratedSerializer : KSerializer<Gathering>
 
     @Suppress("ClassName")
-    private object __GatheringSerializer : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer) {
+    private object __GatheringSerializer0 : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -244,34 +258,34 @@ public sealed class GW2v1SkinDetails {
     /**
      * Additional information about a gathering tool skin.
      *
-     * @param skinID the skin's ID
+     * @param skinId the skin's ID
      * @param name the skin's localized name
      * @param type the skin's type
      * @param rarity the skin's rarity
      * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
      * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      */
-    @Serializable(with = __GatheringSerializer::class)
+    @Serializable(with = __GatheringSerializer0::class)
     public data class Gathering(
         @SerialName("skin_id")
-        override val skinID: Int,
+        override val skinId: GW2SkinId,
         override val name: String,
         override val type: String,
         override val rarity: String,
         override val flags: List<String>,
         override val restrictions: List<String>,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
-        val gathering: Gathering
+        public val gathering: Gathering
     ) : GW2v1SkinDetails() {
 
         /** Additional information about a gathering tool skin. */
         @Serializable
-        public object Gathering
+        public data object Gathering
 
     }
 
@@ -280,7 +294,7 @@ public sealed class GW2v1SkinDetails {
     private object __WeaponGeneratedSerializer : KSerializer<Weapon>
 
     @Suppress("ClassName")
-    private object __WeaponSerializer : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
+    private object __WeaponSerializer0 : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
         override fun transformDeserialize(element: JsonElement): JsonElement =
             JsonObject(element.jsonObject - "__virtualType")
     }
@@ -288,29 +302,29 @@ public sealed class GW2v1SkinDetails {
     /**
      * Additional information about a gathering tool skin.
      *
-     * @param skinID the skin's ID
+     * @param skinId the skin's ID
      * @param name the skin's localized name
      * @param type the skin's type
      * @param rarity the skin's rarity
      * @param flags additional skin flags (ShowInWardrobe, NoCost, HideIfLocked, OverrideRarity)
      * @param restrictions the IDs of the races that can use this skin, or empty if it can be used by any race
-     * @param iconFileID the icon's file ID to be used with the render service
+     * @param iconFileId the icon's file ID to be used with the render service
      * @param iconFileSignature the icon's file signature to be used with the render service
      */
-    @Serializable(with = __WeaponSerializer::class)
+    @Serializable(with = __WeaponSerializer0::class)
     public data class Weapon(
         @SerialName("skin_id")
-        override val skinID: Int,
+        override val skinId: GW2SkinId,
         override val name: String,
         override val type: String,
         override val rarity: String,
         override val flags: List<String>,
         override val restrictions: List<String>,
         @SerialName("icon_file_id")
-        override val iconFileID: String,
+        override val iconFileId: String,
         @SerialName("icon_file_signature")
         override val iconFileSignature: String,
-        val weapon: Weapon
+        public val weapon: Weapon
     ) : GW2v1SkinDetails() {
 
         /**
@@ -322,7 +336,7 @@ public sealed class GW2v1SkinDetails {
         @Serializable
         public data class Weapon(
             /** This field holds the skin's weapon type. */
-            @SerialName("type")
+            @SerialName("weapon_type")
             val weaponType: String,
             /** This field holds the skin's damage type. */
             @SerialName("damage_type")

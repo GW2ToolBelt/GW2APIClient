@@ -42,8 +42,7 @@ class GW2v2SkinTest {
                 "flags": [
                     "ShowInWardrobe"
                 ],
-                "restrictions": [
-                ],
+                "restrictions": [],
                 "rarity": "Basic",
                 "id": 103,
                 "icon": "https://render.guildwars2.com/file/16E5686EC33001A0D77FF5D4320EFBCA39130826/61411.png",
@@ -66,8 +65,7 @@ class GW2v2SkinTest {
                             },
                             null
                         ],
-                        "overrides": {
-                        }
+                        "overrides": {}
                     }
                 }
             }
@@ -85,8 +83,7 @@ class GW2v2SkinTest {
                 "flags": [
                     "ShowInWardrobe"
                 ],
-                "restrictions": [
-                ],
+                "restrictions": [],
                 "rarity": "Basic",
                 "id": 115,
                 "icon": "https://render.guildwars2.com/file/5C63AF3E5541CBBF54C8656DD8F5E274590BEA52/699213.png",

@@ -27,15 +27,16 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String, configure: RequestConfigurator<GW2v2SubToken>? = null): RequestBuilder<GW2v2SubToken> = request(
+public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: RequestConfigurator<GW2v2SubToken>? = null): RequestBuilder<GW2v2SubToken> = request(
     path = "/v2/createsubtoken",
-    parameters = mapOfNonNullValues("expire" to expire, "permissions" to permissions, "urls" to urls, "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "expire" to expire, "permissions" to permissions, "urls" to urls),
+    replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account"),
     supportedLanguages = emptySet(),
     serializer = GW2v2SubToken.serializer(),

@@ -27,16 +27,27 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1MapFloor(continentID: Int, floorID: Int, configure: RequestConfigurator<GW2v1MapFloor>? = null): RequestBuilder<GW2v1MapFloor> = request(
+public fun GW2APIClient.gw2v1MapFloor(continentId: Int, floorId: Int, configure: RequestConfigurator<GW2v1MapFloor>? = null): RequestBuilder<GW2v1MapFloor> = request(
     path = "/v1/map_floor",
-    parameters = mapOfNonNullValues("continent_id" to continentID.toString(), "floor" to floorID.toString()),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("continent_id" to continentId, "floor" to floorId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V1,
+    serializer = GW2v1MapFloor.serializer(),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v1MapFloor(continentId: GW2ContinentId, floorId: GW2FloorId, configure: RequestConfigurator<GW2v1MapFloor>? = null): RequestBuilder<GW2v1MapFloor> = request(
+    path = "/v1/map_floor",
+    parameters = mapOfNonNullValues("continent_id" to continentId, "floor" to floorId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V1,
     serializer = GW2v1MapFloor.serializer(),
     configure = configure

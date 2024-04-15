@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CharactersEquipment
 
 /**
  * Information about a character's equipment.
@@ -57,17 +64,17 @@ public data class GW2v2CharactersEquipment(
     @Serializable
     public data class EquipmentSlot(
         /** This field holds the equipment piece's item ID. */
-        val id: Int,
+        val id: GW2ItemId,
         /** This field holds the equipment piece's slot. */
         val slot: String? = null,
         /** This field holds the ID of the skin transmuted onto the equipment piece. */
-        val skin: Int? = null,
+        val skin: GW2SkinId? = null,
         /** This field holds the IDs of the dyes applied to the item. */
         val dyes: List<Int?>? = null,
         /** This field holds the IDs of the upgrade components slotted into the item. */
-        val upgrades: List<Int>? = null,
+        val upgrades: List<GW2ItemId>? = null,
         /** This field holds the IDs of the infusions slotted into the item. */
-        val infusions: List<Int>? = null,
+        val infusions: List<GW2ItemId>? = null,
         /** This field holds the amount of charges remaining on the item. */
         val charges: Int? = null,
         /** This field holds the binding of the item. */

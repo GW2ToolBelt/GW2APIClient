@@ -23,22 +23,29 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CharactersBuildTab
 
 /**
  * Information about a character's build tab.
  *
  * @param tab the tab's ID
- * @param isActive a flag indicating whether or not this tab is the active tab
+ * @param isActive a flag indicating whether this tab is the active tab
  * @param build the stored build
  */
 @Serializable
 public data class GW2v2CharactersBuildTab(
     /** This field holds the tab's ID. */
     val tab: Int,
-    /** This field holds a flag indicating whether or not this tab is the active tab. */
+    /** This field holds a flag indicating whether this tab is the active tab. */
     @SerialName("is_active")
     val isActive: Boolean,
     /** This field holds the stored build. */

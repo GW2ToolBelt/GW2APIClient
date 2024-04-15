@@ -21,19 +21,27 @@
  * SOFTWARE.
  */
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.types.v2
+package com.gw2tb.gw2api.types
 
+import com.gw2tb.gw2api.types.internal.*
+
+import kotlin.jvm.JvmInline
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 
-/**
- * Information about a character's equipped specializations.
- *
- * @param specializations the character's equipped specializations
- */
+// Generated for type: MapId
+
+@Suppress("unused")
+internal object LenientGW2MapIdSerializer : LenientSerializer<GW2MapId?>(
+    { GW2MapId(it.toInt()) },
+    GW2MapId.serializer().nullable
+)
+
+/** TODO */
 @Serializable
-public data class GW2v2CharactersSpecializations(
-    /** This field holds the character's equipped specializations. */
-    val specializations: GW2v2Specializations
+@JvmInline
+public value class GW2MapId(
+    /** The raw (type-unsafe) value. */
+    public val raw: Int
 )

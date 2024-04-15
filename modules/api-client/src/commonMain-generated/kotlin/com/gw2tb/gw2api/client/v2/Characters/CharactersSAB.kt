@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -35,7 +36,7 @@ import kotlin.jvm.*
 public fun GW2APIClient.gw2v2CharactersSAB(id: String, configure: RequestConfigurator<GW2v2CharactersSAB>? = null): RequestBuilder<GW2v2CharactersSAB> = request(
     path = "/v2/characters/:id/sab",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(":id" to id),
+    replaceInPath = mapOfNonNullValues("id" to id),
     requiredPermissions = setOf("account", "characters"),
     supportedLanguages = emptySet(),
     serializer = GW2v2CharactersSAB.serializer(),

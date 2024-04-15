@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v1SkinIDsTest {
+class GW2v1SkinIdsTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v1SkinIDsTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v1SkinIDs>(
+        json.decodeFromString<GW2v1SkinIds>(
             """
             {
                 "skins": [

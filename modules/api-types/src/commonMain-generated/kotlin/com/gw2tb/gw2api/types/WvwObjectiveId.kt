@@ -21,19 +21,21 @@
  * SOFTWARE.
  */
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.types.v2
+package com.gw2tb.gw2api.types
 
+import com.gw2tb.gw2api.types.internal.*
+
+import kotlin.jvm.JvmInline
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.json.*
 
-/**
- * Information about a character's equipped skills.
- *
- * @param skills the character's equipped skills
- */
+// Generated for type: WvwObjectiveId
+
+/** TODO */
 @Serializable
-public data class GW2v2CharactersSkills(
-    /** This field holds the character's equipped skills. */
-    val skills: GW2v2Skills
+@JvmInline
+public value class GW2WvwObjectiveId(
+    /** The raw (type-unsafe) value. */
+    public val raw: String
 )

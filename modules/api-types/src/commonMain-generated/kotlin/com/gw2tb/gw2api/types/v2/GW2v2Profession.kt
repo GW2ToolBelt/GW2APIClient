@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Profession
 
 /**
  * Information about a playable profession.
@@ -157,8 +164,8 @@ public data class GW2v2Profession(
          *
          * @param cost the amount of skill points required to unlock this step
          * @param type the type of the step (e.g. Skill, Trait)
-         * @param skillID the ID of the skill unlocked by this step
-         * @param traitID the ID of the trait unlocked by this step
+         * @param skillId the ID of the skill unlocked by this step
+         * @param traitId the ID of the trait unlocked by this step
          */
         @Serializable
         public data class Track(
@@ -168,10 +175,10 @@ public data class GW2v2Profession(
             val type: String,
             /** This field holds the ID of the skill unlocked by this step. */
             @SerialName("skill_id")
-            val skillID: Int? = null,
+            val skillId: Int? = null,
             /** This field holds the ID of the trait unlocked by this step. */
             @SerialName("trait_id")
-            val traitID: Int? = null
+            val traitId: Int? = null
         )
 
     }

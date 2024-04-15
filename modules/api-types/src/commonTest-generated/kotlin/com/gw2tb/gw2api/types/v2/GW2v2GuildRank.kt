@@ -85,8 +85,7 @@ class GW2v2GuildRankTest {
             {
                 "id": "Kohlmmandeur",
                 "order": 3,
-                "permissions": [
-                ],
+                "permissions": [],
                 "icon": "https://render.guildwars2.com/file/2F25BCE10A3A0AA3F8DA282148C8652060DA94C9/156379.png"
             }
             """.trimIndent()
@@ -159,8 +158,7 @@ class GW2v2GuildRankTest {
             {
                 "id": "Spargeltarzan",
                 "order": 4,
-                "permissions": [
-                ],
+                "permissions": [],
                 "icon": "https://render.guildwars2.com/file/30EB1BDA3850EF59AFEFAA005DA19605250D3620/156373.png"
             }
             """.trimIndent()

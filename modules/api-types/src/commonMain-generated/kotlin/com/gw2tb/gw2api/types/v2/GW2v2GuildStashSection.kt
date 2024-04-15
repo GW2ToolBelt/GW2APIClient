@@ -23,14 +23,21 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: GuildStashSection
 
 /**
  * Information about a section of a guild's vault.
  *
- * @param upgradeID the ID of the guild upgrade that granted access to this section of the guild's vault
+ * @param upgradeId the ID of the guild upgrade that granted access to this section of the guild's vault
  * @param size the number of slots in this section of the guild's vault
  * @param coins the number of coins deposited in this section of the guild's vault
  * @param note the description set for this section of the guild's vault
@@ -40,7 +47,7 @@ import kotlinx.serialization.json.*
 public data class GW2v2GuildStashSection(
     /** This field holds the ID of the guild upgrade that granted access to this section of the guild's vault. */
     @SerialName("upgrade_id")
-    val upgradeID: Int,
+    val upgradeId: Int,
     /** This field holds the number of slots in this section of the guild's vault. */
     val size: Int,
     /** This field holds the number of coins deposited in this section of the guild's vault. */
@@ -60,7 +67,7 @@ public data class GW2v2GuildStashSection(
     @Serializable
     public data class GuildStashSlot(
         /** This field holds the item's ID. */
-        val id: Int,
+        val id: GW2ItemId,
         /** This field holds the amount of items in the stack. */
         val count: Int
     )

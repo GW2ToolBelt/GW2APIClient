@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Achievement
 
 /**
  * Information about an achievement.
@@ -47,7 +54,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Achievement(
     /** This field holds the achievement's ID. */
-    val id: Int,
+    val id: GW2AchievementId,
     /** This field holds the URL for the achievement's icon. */
     val icon: String? = null,
     /** This field holds the achievement's localized name. */
@@ -92,7 +99,7 @@ public data class GW2v2Achievement(
 
     @Suppress("ClassName")
     private object __JsonParametricSerializer_Reward : JsonContentPolymorphicSerializer<Reward>(Reward::class) {
-        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Reward> {
+        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<Reward> {
             return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "Coins" -> Reward.Coins.serializer()
                 "Items" -> Reward.Items.serializer()
@@ -116,7 +123,7 @@ public data class GW2v2Achievement(
         private object __CoinsGeneratedSerializer : KSerializer<Coins>
 
         @Suppress("ClassName")
-        private object __CoinsSerializer : JsonTransformingSerializer<Coins>(__CoinsGeneratedSerializer) {
+        private object __CoinsSerializer0 : JsonTransformingSerializer<Coins>(__CoinsGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -127,7 +134,7 @@ public data class GW2v2Achievement(
          * @param type the type of reward
          * @param count the amount of coins
          */
-        @Serializable(with = __CoinsSerializer::class)
+        @Serializable(with = __CoinsSerializer0::class)
         public data class Coins(
             override val type: String,
             /** This field holds the amount of coins. */
@@ -139,7 +146,7 @@ public data class GW2v2Achievement(
         private object __ItemsGeneratedSerializer : KSerializer<Items>
 
         @Suppress("ClassName")
-        private object __ItemsSerializer : JsonTransformingSerializer<Items>(__ItemsGeneratedSerializer) {
+        private object __ItemsSerializer0 : JsonTransformingSerializer<Items>(__ItemsGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -151,11 +158,11 @@ public data class GW2v2Achievement(
          * @param id the item's ID
          * @param count the amount of the item
          */
-        @Serializable(with = __ItemsSerializer::class)
+        @Serializable(with = __ItemsSerializer0::class)
         public data class Items(
             override val type: String,
             /** This field holds the item's ID. */
-            val id: Int,
+            val id: GW2ItemId,
             /** This field holds the amount of the item. */
             val count: Int
         ) : Reward()
@@ -165,7 +172,7 @@ public data class GW2v2Achievement(
         private object __MasteryGeneratedSerializer : KSerializer<Mastery>
 
         @Suppress("ClassName")
-        private object __MasterySerializer : JsonTransformingSerializer<Mastery>(__MasteryGeneratedSerializer) {
+        private object __MasterySerializer0 : JsonTransformingSerializer<Mastery>(__MasteryGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -177,7 +184,7 @@ public data class GW2v2Achievement(
          * @param id the mastery point's ID
          * @param region the mastery point's region
          */
-        @Serializable(with = __MasterySerializer::class)
+        @Serializable(with = __MasterySerializer0::class)
         public data class Mastery(
             override val type: String,
             /** This field holds the mastery point's ID. */
@@ -191,7 +198,7 @@ public data class GW2v2Achievement(
         private object __TitleGeneratedSerializer : KSerializer<Title>
 
         @Suppress("ClassName")
-        private object __TitleSerializer : JsonTransformingSerializer<Title>(__TitleGeneratedSerializer) {
+        private object __TitleSerializer0 : JsonTransformingSerializer<Title>(__TitleGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -202,7 +209,7 @@ public data class GW2v2Achievement(
          * @param type the type of reward
          * @param id the title's ID
          */
-        @Serializable(with = __TitleSerializer::class)
+        @Serializable(with = __TitleSerializer0::class)
         public data class Title(
             override val type: String,
             /** This field holds the title's ID. */

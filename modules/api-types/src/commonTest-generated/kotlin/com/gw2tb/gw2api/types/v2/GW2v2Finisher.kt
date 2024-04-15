@@ -39,8 +39,7 @@ class GW2v2FinisherTest {
             {
                 "id": 1,
                 "unlock_details": "<c=@reminder>Schaltet diesen PvP-Rang-Todesstoß frei, indem Ihr Rangpunkte verdient und Euren PvP-Rang erhöht.</c>",
-                "unlock_items": [
-                ],
+                "unlock_items": [],
                 "order": 18,
                 "icon": "https://render.guildwars2.com/file/807516C20D08B908946167EADD57980163EECA4E/620101.png",
                 "name": "Kaninchenrang-Todesstoß"
@@ -56,8 +55,7 @@ class GW2v2FinisherTest {
             {
                 "id": 2,
                 "unlock_details": "<c=@reminder>Schaltet diesen PvP-Rang-Todesstoß frei, indem Ihr Rangpunkte verdient und Euren PvP-Rang erhöht.</c>",
-                "unlock_items": [
-                ],
+                "unlock_items": [],
                 "order": 17,
                 "icon": "https://render.guildwars2.com/file/6A68492F14AB3AFC5A95BCE008BDE8B50EB82CAF/620104.png",
                 "name": "Hirschrang-Todesstoß"
@@ -73,8 +71,7 @@ class GW2v2FinisherTest {
             {
                 "id": 3,
                 "unlock_details": "<c=@reminder>Schaltet diesen PvP-Rang-Todesstoß frei, indem Ihr Rangpunkte verdient und Euren PvP-Rang erhöht.</c>",
-                "unlock_items": [
-                ],
+                "unlock_items": [],
                 "order": 16,
                 "icon": "https://render.guildwars2.com/file/0CA368AB05A9580612F6BEECE80BA0051ED3C658/620107.png",
                 "name": "Dolyakrang-Todesstoß"
@@ -90,8 +87,7 @@ class GW2v2FinisherTest {
             {
                 "id": 4,
                 "unlock_details": "<c=@reminder>Schaltet diesen PvP-Rang-Todesstoß frei, indem Ihr Rangpunkte verdient und Euren PvP-Rang erhöht.</c>",
-                "unlock_items": [
-                ],
+                "unlock_items": [],
                 "order": 15,
                 "icon": "https://render.guildwars2.com/file/C42552A84EEBD24E46A304AF1F8048D20004033C/620110.png",
                 "name": "Wolfrang-Todesstoß"

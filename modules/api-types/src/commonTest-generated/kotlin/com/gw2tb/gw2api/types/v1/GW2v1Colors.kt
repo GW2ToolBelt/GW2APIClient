@@ -93,8 +93,7 @@ class GW2v1ColorsTest {
                                 83
                             ]
                         },
-                        "categories": [
-                        ]
+                        "categories": []
                     },
                     "2": {
                         "name": "Black",

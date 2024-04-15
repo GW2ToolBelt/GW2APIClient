@@ -66,8 +66,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Legendary Dwarf. Channel the power of the Rite of the Great Dwarf to turn yourself and nearby allies to stone to reduce incoming damage.",
                 "icon": "https://render.guildwars2.com/file/D8AEB219F1A057F3F4E47E5E54A12BBABFC8474F/961437.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 32588,
                 "chat_link": "[&Bkx/AAA=]",
                 "categories": [
@@ -106,8 +105,7 @@ class GW2v2SkillTest {
                     "Guardian"
                 ],
                 "slot": "Profession_1",
-                "flags": [
-                ],
+                "flags": [],
                 "specialization": 27,
                 "id": 33134,
                 "chat_link": "[&Bm6BAAA=]"
@@ -152,8 +150,7 @@ class GW2v2SkillTest {
                     "Ranger"
                 ],
                 "slot": "Weapon_1",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 33387,
                 "chat_link": "[&BmuCAAA=]",
                 "categories": [
@@ -254,8 +251,7 @@ class GW2v2SkillTest {
                     "Ranger"
                 ],
                 "slot": "Weapon_5",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34070,
                 "chat_link": "[&BhaFAAA=]",
                 "categories": [
@@ -282,8 +278,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The unstable environment rains down debris from the airships in the trees, dealing damage upon impact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34112,
                 "chat_link": "[&BkCFAAA=]"
             }
@@ -313,8 +308,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "A timed bomb explodes, dealing damage to all foes in the area of impact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34152,
                 "chat_link": "[&BmiFAAA=]"
             }
@@ -338,8 +332,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The unstable environment rains down debris from the airships in the trees, dealing damage upon impact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34174,
                 "chat_link": "[&Bn6FAAA=]"
             }
@@ -390,8 +383,7 @@ class GW2v2SkillTest {
                     "Ranger"
                 ],
                 "slot": "Utility",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34309,
                 "chat_link": "[&BgWGAAA=]"
             }
@@ -445,8 +437,7 @@ class GW2v2SkillTest {
                     "Mesmer"
                 ],
                 "slot": "Utility",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34326,
                 "chat_link": "[&BhaGAAA=]",
                 "categories": [
@@ -479,8 +470,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Forward sweep-attack; damages foes on impact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34335,
                 "chat_link": "[&Bh+GAAA=]"
             }
@@ -504,8 +494,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Matthias creates a deadly pool of magic where Unstable Blood Magic was purged.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34336,
                 "chat_link": "[&BiCGAAA=]"
             }
@@ -535,8 +524,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Berg leaps forward with his hammer, dealing damage upon contact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34343,
                 "chat_link": "[&BieGAAA=]"
             }
@@ -560,8 +548,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Narella shoots fiery tornadoes that drag foes, dealing damage every second.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34344,
                 "chat_link": "[&BiiGAAA=]"
             }
@@ -613,8 +600,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Shadowstep and unleash fierce attacks on nearby foes. Gain might each time you damage a foe.",
                 "icon": "https://render.guildwars2.com/file/A1E252A0C9F506B73465E09919D119D706702DD8/1013004.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34345,
                 "chat_link": "[&BimGAAA=]"
             }
@@ -644,8 +630,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Berg swings his hammer, damaging foes.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34353,
                 "chat_link": "[&BjGGAAA=]"
             }
@@ -669,8 +654,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling bites you and inflicts torment.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34354,
                 "chat_link": "[&BjKGAAA=]"
             }
@@ -686,8 +670,7 @@ class GW2v2SkillTest {
                 "name": "Snowstorm",
                 "description": "Matthias pulses snowstorm damage every 3 seconds to all targets in the area.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34356,
                 "chat_link": "[&BjSGAAA=]"
             }
@@ -717,8 +700,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Slothasor jabs foes.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34359,
                 "chat_link": "[&BjeGAAA=]"
             }
@@ -734,8 +716,7 @@ class GW2v2SkillTest {
                 "name": "Spontaneous Combustion",
                 "description": "Matthias pulses heat-wave damage every 3 seconds to all targets in the area.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34363,
                 "chat_link": "[&BjuGAAA=]"
             }
@@ -759,8 +740,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling bites you and inflicts bleeding.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34368,
                 "chat_link": "[&BkCGAAA=]"
             }
@@ -790,8 +770,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "A mutated Matthias charges and fires a beam shot directly in front of him, dealing massive damage to all targets hit.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34371,
                 "chat_link": "[&BkOGAAA=]"
             }
@@ -821,8 +800,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Narella shoots forward a burst of flame, dealing decreased damage the farther it is from its target.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34375,
                 "chat_link": "[&BkeGAAA=]"
             }
@@ -852,8 +830,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Matthias charges and fires a beam that's shot directly in front of him, dealing massive damage to all targets hit.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34380,
                 "chat_link": "[&BkyGAAA=]"
             }
@@ -883,8 +860,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Zane fires a hail of bullets in a cone that increases in size with each shot.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34383,
                 "chat_link": "[&Bk+GAAA=]"
             }
@@ -900,8 +876,7 @@ class GW2v2SkillTest {
                 "name": "Volatile Poison",
                 "icon": "https://render.guildwars2.com/file/2A0F50179DD54E31405336CF1D099A61B0A5993D/1377815.png",
                 "description": "",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34387,
                 "chat_link": "[&BlOGAAA=]"
             }
@@ -931,8 +906,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Berg swings his hammer, bashing his target.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34388,
                 "chat_link": "[&BlSGAAA=]"
             }
@@ -990,8 +964,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Shadowstep and unleash fierce attacks on nearby foes. Gain might each time you damage a foe.",
                 "icon": "https://render.guildwars2.com/file/A1E252A0C9F506B73465E09919D119D706702DD8/1013004.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34396,
                 "chat_link": "[&BlyGAAA=]"
             }
@@ -1021,8 +994,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Zane fires a shot that bounces to the next closest foe on hit.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34398,
                 "chat_link": "[&Bl6GAAA=]"
             }
@@ -1052,8 +1024,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Matthias fires a volley of projectiles that can be reflected. Applies stacks of Blood Fueled on hit.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34404,
                 "chat_link": "[&BmSGAAA=]"
             }
@@ -1083,8 +1054,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Matthias fires a volley of projectiles that can be reflected. Applies stacks of Blood Fueled on hit.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34411,
                 "chat_link": "[&BmuGAAA=]"
             }
@@ -1108,8 +1078,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Spirits sacrificed on the Bloodstone pulse massive damage to targets standing in their path.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34413,
                 "chat_link": "[&Bm2GAAA=]"
             }
@@ -1139,8 +1108,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Narella fires a series of projectiles that deal damage on impact and leave deadly pools behind.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34417,
                 "chat_link": "[&BnGGAAA=]"
             }
@@ -1170,8 +1138,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling spits multiple projectiles that convert boons to conditions upon hitting its target.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34431,
                 "chat_link": "[&Bn+GAAA=]"
             }
@@ -1201,8 +1168,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling spits a projectile that inflicts burning.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34438,
                 "chat_link": "[&BoaGAAA=]"
             }
@@ -1232,8 +1198,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Matthias fires a stream of projectiles at a target. Reflected projectiles remove stacks of Blood Shield.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34440,
                 "chat_link": "[&BoiGAAA=]"
             }
@@ -1263,8 +1228,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Berg swings his hammer in a massive overhead smash, dealing a large amount of damage to all targets on impact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34448,
                 "chat_link": "[&BpCGAAA=]"
             }
@@ -1280,8 +1244,7 @@ class GW2v2SkillTest {
                 "name": "Unstable Blood Magic",
                 "icon": "https://render.guildwars2.com/file/93A3056DB159317C28972799036140B39A77009E/1377824.png",
                 "description": "",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34450,
                 "chat_link": "[&BpKGAAA=]"
             }
@@ -1311,8 +1274,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Forward sweep-attack; damages foes on impact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34455,
                 "chat_link": "[&BpeGAAA=]"
             }
@@ -1342,8 +1304,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling spits a projectile that inflicts poison.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34460,
                 "chat_link": "[&BpyGAAA=]"
             }
@@ -1373,8 +1334,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling bounces and slows nearby targets.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34462,
                 "chat_link": "[&Bp6GAAA=]"
             }
@@ -1390,8 +1350,7 @@ class GW2v2SkillTest {
                 "name": "Slow Burn",
                 "icon": "https://render.guildwars2.com/file/9C7F49591CE027BAF50CF29371466F0EBCAA2828/1377819.png",
                 "description": "",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34464,
                 "chat_link": "[&BqCGAAA=]"
             }
@@ -1415,8 +1374,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The fiery tornado pulls foes, dealing damage every second they're caught in the vortex.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34466,
                 "chat_link": "[&BqKGAAA=]"
             }
@@ -1432,8 +1390,7 @@ class GW2v2SkillTest {
                 "name": "Corruption",
                 "description": "Matthias corrupts a target, dealing pulsing damage to all foes in an area. Can be cleansed by entering uncorrupted fountains.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34473,
                 "chat_link": "[&BqmGAAA=]"
             }
@@ -1457,8 +1414,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Slothasor pounds the ground in irritation, causing violent tremors in the caves, dealing damage on impact, and knocking foes down.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34479,
                 "chat_link": "[&Bq+GAAA=]"
             }
@@ -1488,8 +1444,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Matthias fires a stream of projectiles at a target. Reflected projectiles remove stacks of Blood Shield.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34480,
                 "chat_link": "[&BrCGAAA=]"
             }
@@ -1513,8 +1468,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "A pool of poison left behind after purging the volatile-poison condition.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34481,
                 "chat_link": "[&BrGGAAA=]"
             }
@@ -1544,8 +1498,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Slothasor shakes spores off its back, damaging foes on impact.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34482,
                 "chat_link": "[&BrKGAAA=]"
             }
@@ -1575,8 +1528,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling spits multiple projectiles that convert boons to conditions upon hitting its target.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34488,
                 "chat_link": "[&BriGAAA=]"
             }
@@ -1606,8 +1558,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "The slubling bounces, crippling nearby targets.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34503,
                 "chat_link": "[&BseGAAA=]"
             }
@@ -1631,8 +1582,7 @@ class GW2v2SkillTest {
                 ],
                 "description": "Slothasor pulses a volatile aura that deals damage to all foes within a 2000 range every 3 seconds.",
                 "icon": "https://render.guildwars2.com/file/1D55D34FB4EE20B1962E315245E40CA5E1042D0E/62248.png",
-                "flags": [
-                ],
+                "flags": [],
                 "id": 34505,
                 "chat_link": "[&BsmGAAA=]"
             }

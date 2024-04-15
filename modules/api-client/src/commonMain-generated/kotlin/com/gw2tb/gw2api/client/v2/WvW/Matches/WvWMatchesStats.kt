@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -35,53 +36,42 @@ import kotlin.jvm.*
 public fun GW2APIClient.gw2v2WvWMatchesStatsIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/wvw/matches/stats",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(String.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesStatsByID(id: String, configure: RequestConfigurator<GW2v2WvWMatchStats>? = null): RequestBuilder<GW2v2WvWMatchStats> = request(
+public fun GW2APIClient.gw2v2WvWMatchesStatsByID(id: String, configure: RequestConfigurator<GW2v2WvwMatchStats>? = null): RequestBuilder<GW2v2WvwMatchStats> = request(
     path = "/v2/wvw/matches/stats",
-    parameters = mapOfNonNullValues("id" to id, "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = GW2v2WvWMatchStats.serializer(),
+    serializer = GW2v2WvwMatchStats.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesStatsByIDs(ids: Collection<String>, configure: RequestConfigurator<List<GW2v2WvWMatchStats>>? = null): RequestBuilder<List<GW2v2WvWMatchStats>> = request(
+public fun GW2APIClient.gw2v2WvWMatchesStatsByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2WvwMatchStats>>? = null): RequestBuilder<List<GW2v2WvwMatchStats>> = request(
     path = "/v2/wvw/matches/stats",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WvWMatchStats.serializer()),
+    serializer = ListSerializer(GW2v2WvwMatchStats.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesStatsAll(configure: RequestConfigurator<List<GW2v2WvWMatchStats>>? = null): RequestBuilder<List<GW2v2WvWMatchStats>> = request(
+public fun GW2APIClient.gw2v2WvWMatchesStatsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2WvwMatchStats>>? = null): RequestBuilder<List<GW2v2WvwMatchStats>> = request(
     path = "/v2/wvw/matches/stats",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WvWMatchStats.serializer()),
-    configure = configure
-)
-
-@JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesStatsByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2WvWMatchStats>>? = null): RequestBuilder<List<GW2v2WvWMatchStats>> = request(
-    path = "/v2/wvw/matches/stats",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2WvWMatchStats.serializer()),
+    serializer = ListSerializer(GW2v2WvwMatchStats.serializer()),
     configure = configure
 )

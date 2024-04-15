@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Finisher
 
 /**
  * Information about a finisher.
@@ -52,5 +59,5 @@ public data class GW2v2Finisher(
     val unlockDetails: String,
     /** This field holds an array of item IDs used to unlock the finisher. */
     @SerialName("unlock_items")
-    val unlockItems: List<Int>
+    val unlockItems: List<GW2ItemId>
 )

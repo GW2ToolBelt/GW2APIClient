@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2PvPHeroTest {
+class GW2v2PvpHeroTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2PvPHeroTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2PvPHero>(
+        json.decodeFromString<GW2v2PvpHero>(
             """
             {
                 "id": "115C140F-C2F5-40EB-8EA2-C3773F2AE468",
@@ -102,7 +102,7 @@ class GW2v2PvPHeroTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2PvPHero>(
+        json.decodeFromString<GW2v2PvpHero>(
             """
             {
                 "id": "B7EA9889-5F16-4636-9705-4FCAF8B39ECD",
@@ -161,7 +161,7 @@ class GW2v2PvPHeroTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2PvPHero>(
+        json.decodeFromString<GW2v2PvpHero>(
             """
             {
                 "id": "BEA79596-CA8B-4D46-9B9C-EA1B606BCF42",
@@ -208,8 +208,7 @@ class GW2v2PvPHeroTest {
                         "name": "Turai Ossa",
                         "icon": "https://render.guildwars2.com/file/B61ED3D01BBE5D17AC53F6E5C5EB59087CB7BCD6/1058577.png",
                         "default": true,
-                        "unlock_items": [
-                        ]
+                        "unlock_items": []
                     },
                     {
                         "id": 14,
@@ -228,7 +227,7 @@ class GW2v2PvPHeroTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2PvPHero>(
+        json.decodeFromString<GW2v2PvpHero>(
             """
             {
                 "id": "CF977AE5-C605-4586-A802-3E25F0F35772",

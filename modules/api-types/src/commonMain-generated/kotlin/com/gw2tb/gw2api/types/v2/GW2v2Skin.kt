@@ -23,16 +23,23 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Skin
 
 @Suppress("ClassName")
 @Serializer(forClass = GW2v2Skin::class)
 private object __GW2v2SkinGeneratedSerializer : KSerializer<GW2v2Skin>
 
 @Suppress("ClassName")
-private object __GW2v2SkinSerializer : JsonTransformingSerializer<GW2v2Skin>(__GW2v2SkinGeneratedSerializer) {
+private object __GW2v2SkinSerializer0 : JsonTransformingSerializer<GW2v2Skin>(__GW2v2SkinGeneratedSerializer) {
     override fun transformDeserialize(element: JsonElement): JsonElement =
         JsonObject(element.jsonObject.mapValues { (key, value) ->
             when (key) {
@@ -55,10 +62,10 @@ private object __GW2v2SkinSerializer : JsonTransformingSerializer<GW2v2Skin>(__G
  * @param description the skin's description
  * @param details additional information about the skin
  */
-@Serializable(with = __GW2v2SkinSerializer::class)
+@Serializable(with = __GW2v2SkinSerializer0::class)
 public data class GW2v2Skin(
     /** This field holds the skin's ID. */
-    val id: Int,
+    val id: GW2SkinId,
     /** This field holds the skin's localized name. */
     val name: String,
     /** This field holds the skin's type. */
@@ -79,7 +86,7 @@ public data class GW2v2Skin(
 
     @Suppress("ClassName")
     private object __JsonParametricSerializer_Details : JsonContentPolymorphicSerializer<Details>(Details::class) {
-        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Details> {
+        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<Details> {
             return when (val type = element.jsonObject["__virtualType"]?.jsonPrimitive?.content) {
                 "Armor" -> Details.Armor.serializer()
                 "Gathering" -> Details.Gathering.serializer()
@@ -99,7 +106,7 @@ public data class GW2v2Skin(
         private object __ArmorGeneratedSerializer : KSerializer<Armor>
 
         @Suppress("ClassName")
-        private object __ArmorSerializer : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
+        private object __ArmorSerializer0 : JsonTransformingSerializer<Armor>(__ArmorGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -111,7 +118,7 @@ public data class GW2v2Skin(
          * @param weightClass the skin's armor weight
          * @param dyeSlots the skin's dye slots
          */
-        @Serializable(with = __ArmorSerializer::class)
+        @Serializable(with = __ArmorSerializer0::class)
         public data class Armor(
             /** This field holds the skin's armor slot. */
             val type: String,
@@ -140,14 +147,14 @@ public data class GW2v2Skin(
                 /**
                  * Information about a dye slot.
                  *
-                 * @param colorID the default color's ID
+                 * @param colorId the default color's ID
                  * @param material the material type
                  */
                 @Serializable
                 public data class DyeSlot(
                     /** This field holds the default color's ID. */
                     @SerialName("color_id")
-                    val colorID: Int,
+                    val colorId: Int,
                     /** This field holds the material type. */
                     val material: String
                 )
@@ -209,7 +216,7 @@ public data class GW2v2Skin(
         private object __GatheringGeneratedSerializer : KSerializer<Gathering>
 
         @Suppress("ClassName")
-        private object __GatheringSerializer : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer) {
+        private object __GatheringSerializer0 : JsonTransformingSerializer<Gathering>(__GatheringGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -219,7 +226,7 @@ public data class GW2v2Skin(
          *
          * @param type the skin's tool type
          */
-        @Serializable(with = __GatheringSerializer::class)
+        @Serializable(with = __GatheringSerializer0::class)
         public data class Gathering(
             /** This field holds the skin's tool type. */
             val type: String
@@ -230,7 +237,7 @@ public data class GW2v2Skin(
         private object __WeaponGeneratedSerializer : KSerializer<Weapon>
 
         @Suppress("ClassName")
-        private object __WeaponSerializer : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
+        private object __WeaponSerializer0 : JsonTransformingSerializer<Weapon>(__WeaponGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -241,7 +248,7 @@ public data class GW2v2Skin(
          * @param type the skin's weapon type
          * @param damageType the skin's damage type
          */
-        @Serializable(with = __WeaponSerializer::class)
+        @Serializable(with = __WeaponSerializer0::class)
         public data class Weapon(
             /** This field holds the skin's weapon type. */
             val type: String,

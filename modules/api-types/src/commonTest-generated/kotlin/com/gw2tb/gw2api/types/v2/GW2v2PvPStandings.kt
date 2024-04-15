@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2PvPStandingsTest {
+class GW2v2PvpStandingsTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2PvPStandingsTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -60,7 +60,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -86,7 +86,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -112,7 +112,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -138,7 +138,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_04() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -164,7 +164,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_05() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -191,7 +191,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_06() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -217,7 +217,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_07() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -244,7 +244,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_08() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {
@@ -270,7 +270,7 @@ class GW2v2PvPStandingsTest {
     
     @Test
     fun testType_09() {
-        json.decodeFromString<GW2v2PvPStandings>(
+        json.decodeFromString<GW2v2PvpStandings>(
             """
             {
                 "current": {

@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: PvpSeason
 
 /**
  * Information about a PvP season.
@@ -34,13 +41,13 @@ import kotlinx.serialization.json.*
  * @param name the season's localized name
  * @param start the ISO-8601 standard timestamp of when the season started
  * @param end the ISO-8601 standard timestamp of when the season ended
- * @param active whether or not the season is currently active
+ * @param active whether the season is currently active
  * @param divisions the season's divisions
  * @param ranks the season's ranks
  * @param leaderboards the season's leaderboards
  */
 @Serializable
-public data class GW2v2PvPSeason(
+public data class GW2v2PvpSeason(
     /** This field holds the PvP season's ID. */
     val id: String,
     /** This field holds the season's localized name. */
@@ -49,7 +56,7 @@ public data class GW2v2PvPSeason(
     val start: String,
     /** This field holds the ISO-8601 standard timestamp of when the season ended. */
     val end: String,
-    /** This field holds whether or not the season is currently active. */
+    /** This field holds whether the season is currently active. */
     val active: Boolean,
     /** This field holds the season's divisions. */
     val divisions: List<Division>,

@@ -27,17 +27,28 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1WvWMatchDetails(matchID: String, configure: RequestConfigurator<GW2v1WvWMatchDetails>? = null): RequestBuilder<GW2v1WvWMatchDetails> = request(
+public fun GW2APIClient.gw2v1WvWMatchDetails(matchId: String, configure: RequestConfigurator<GW2v1WvwMatchDetails>? = null): RequestBuilder<GW2v1WvwMatchDetails> = request(
     path = "/v1/wvw/match_details",
-    parameters = mapOfNonNullValues("match_id" to matchID),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("match_id" to matchId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = GW2v1WvWMatchDetails.serializer(),
+    serializer = GW2v1WvwMatchDetails.serializer(),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v1WvWMatchDetails(matchId: GW2WvwMatchId, configure: RequestConfigurator<GW2v1WvwMatchDetails>? = null): RequestBuilder<GW2v1WvwMatchDetails> = request(
+    path = "/v1/wvw/match_details",
+    parameters = mapOfNonNullValues("match_id" to matchId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v1WvwMatchDetails.serializer(),
     configure = configure
 )

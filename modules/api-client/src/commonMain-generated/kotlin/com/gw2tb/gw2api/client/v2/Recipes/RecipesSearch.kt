@@ -27,6 +27,7 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
@@ -34,9 +35,19 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("input" to input.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "input" to input),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(Int.serializer()),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+    path = "/v2/recipes/search",
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "input" to input),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(Int.serializer()),
     configure = configure
@@ -45,9 +56,19 @@ public fun GW2APIClient.gw2v2RecipesSearchByInput(input: Int, configure: Request
 @JvmOverloads
 public fun GW2APIClient.gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("output" to output.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "output" to output),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(Int.serializer()),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v2RecipesSearchByOutput(output: GW2ItemId, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+    path = "/v2/recipes/search",
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "output" to output),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
     serializer = ListSerializer(Int.serializer()),
     configure = configure

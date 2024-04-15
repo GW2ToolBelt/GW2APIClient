@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2WvWObjectiveTest {
+class GW2v2WvwObjectiveTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2WvWObjectiveTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2WvWObjective>(
+        json.decodeFromString<GW2v2WvwObjective>(
             """
             {
                 "id": "94-112",
@@ -52,7 +52,7 @@ class GW2v2WvWObjectiveTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2WvWObjective>(
+        json.decodeFromString<GW2v2WvwObjective>(
             """
             {
                 "id": "94-66",
@@ -70,7 +70,7 @@ class GW2v2WvWObjectiveTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2WvWObjective>(
+        json.decodeFromString<GW2v2WvwObjective>(
             """
             {
                 "id": "968-129",
@@ -91,7 +91,7 @@ class GW2v2WvWObjectiveTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2WvWObjective>(
+        json.decodeFromString<GW2v2WvwObjective>(
             """
             {
                 "id": "968-92",

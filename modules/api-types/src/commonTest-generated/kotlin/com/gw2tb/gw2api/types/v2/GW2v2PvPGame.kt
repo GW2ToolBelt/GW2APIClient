@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2PvPGameTest {
+class GW2v2PvpGameTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2PvPGameTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "198AB946-2171-48A0-9885-03095F9DD122",
@@ -58,7 +58,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "3C87857E-9EF1-4F79-8481-F40FE23058FC",
@@ -82,7 +82,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "7225A964-5410-4944-AAC1-1A74EF405371",
@@ -106,7 +106,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "927BE792-3794-4417-85F0-45B01C736982",
@@ -130,7 +130,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_04() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "B27E109E-C6F9-4A08-800D-78FDC4D394F2",
@@ -154,7 +154,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_05() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "C78896A4-4E42-4D58-B6D7-9DA008F48217",
@@ -178,7 +178,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_06() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "CEA121FD-88DE-4B79-8C98-BA3068CDF388",
@@ -202,7 +202,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_07() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "D3F73C07-B4C6-42CE-8816-58ECB411C9B0",
@@ -226,7 +226,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_08() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "D7B36ACB-FBE4-4D75-9092-C0273E951CBB",
@@ -250,7 +250,7 @@ class GW2v2PvPGameTest {
     
     @Test
     fun testType_09() {
-        json.decodeFromString<GW2v2PvPGame>(
+        json.decodeFromString<GW2v2PvpGame>(
             """
             {
                 "id": "E5F0E1D1-E400-43F8-9241-A41356CA43C7",

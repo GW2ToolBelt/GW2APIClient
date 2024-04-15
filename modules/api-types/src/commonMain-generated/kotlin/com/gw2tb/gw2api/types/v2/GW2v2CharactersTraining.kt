@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CharactersTraining
 
 /**
  * Information about a character's (skill-tree) training.
@@ -43,7 +50,7 @@ public data class GW2v2CharactersTraining(
      *
      * @param id the skill tree's ID
      * @param spent the amount of hero points spent in the tree
-     * @param done a flag indicating whether or not the tree is fully trained
+     * @param done a flag indicating whether the tree is fully trained
      */
     @Serializable
     public data class Training(
@@ -51,7 +58,7 @@ public data class GW2v2CharactersTraining(
         val id: Int,
         /** This field holds the amount of hero points spent in the tree. */
         val spent: Int,
-        /** This field holds a flag indicating whether or not the tree is fully trained. */
+        /** This field holds a flag indicating whether the tree is fully trained. */
         val done: Boolean
     )
 

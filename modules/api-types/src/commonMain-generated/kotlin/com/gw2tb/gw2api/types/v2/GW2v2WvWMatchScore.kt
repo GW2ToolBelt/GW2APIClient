@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: WvwMatchScore
 
 /**
  * Information about a WvW match scores.
@@ -37,7 +44,7 @@ import kotlinx.serialization.json.*
  * @param maps the total scores by map
  */
 @Serializable
-public data class GW2v2WvWMatchScore(
+public data class GW2v2WvwMatchScore(
     /** This field holds the match's ID. */
     val id: String,
     /** This field holds the total scores by team color. */

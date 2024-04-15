@@ -27,61 +27,61 @@ package com.gw2tb.gw2api.client.v2
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2WvWRanksIDs(configure: RequestConfigurator<List<GW2WvwRankId>>? = null): RequestBuilder<List<GW2WvwRankId>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2WvwRankId.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksByID(id: Int, configure: RequestConfigurator<GW2v2WvWRank>? = null): RequestBuilder<GW2v2WvWRank> = request(
+public fun GW2APIClient.gw2v2WvWRanksByID(id: Int, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
     path = "/v2/wvw/ranks",
-    parameters = mapOfNonNullValues("id" to id.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
-    serializer = GW2v2WvWRank.serializer(),
+    serializer = GW2v2WvwRank.serializer(),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v2WvWRanksByID(id: GW2WvwRankId, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
+    path = "/v2/wvw/ranks",
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = GW2v2WvwRank.serializer(),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksByIDs(ids: Collection<Int>, configure: RequestConfigurator<List<GW2v2WvWRank>>? = null): RequestBuilder<List<GW2v2WvWRank>> = request(
+public fun GW2APIClient.gw2v2WvWRanksByIDs(ids: List<GW2WvwRankId>, configure: RequestConfigurator<List<GW2v2WvwRank>>? = null): RequestBuilder<List<GW2v2WvwRank>> = request(
     path = "/v2/wvw/ranks",
-    parameters = mapOfNonNullValues("ids" to ids.joinToString(","), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2WvWRank.serializer()),
+    serializer = ListSerializer(GW2v2WvwRank.serializer()),
     configure = configure
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksAll(configure: RequestConfigurator<List<GW2v2WvWRank>>? = null): RequestBuilder<List<GW2v2WvWRank>> = request(
+public fun GW2APIClient.gw2v2WvWRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2WvwRank>>? = null): RequestBuilder<List<GW2v2WvwRank>> = request(
     path = "/v2/wvw/ranks",
-    parameters = mapOfNonNullValues("ids" to "all", "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2WvWRank.serializer()),
-    configure = configure
-)
-
-@JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksByPage(page: Int, pageSize: Int = 200, configure: RequestConfigurator<List<GW2v2WvWRank>>? = null): RequestBuilder<List<GW2v2WvWRank>> = request(
-    path = "/v2/wvw/ranks",
-    parameters = mapOfNonNullValues("page" to page.toString(), "page_size" to pageSize.let { if (it < 1 || it > 200) throw IllegalArgumentException("Illegal page size") else it }.toString(), "v" to "2022-03-09T02:00:00.000Z"),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
-    supportedLanguages = Language.API_V2,
-    serializer = ListSerializer(GW2v2WvWRank.serializer()),
+    serializer = ListSerializer(GW2v2WvwRank.serializer()),
     configure = configure
 )

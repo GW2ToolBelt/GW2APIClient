@@ -45,8 +45,7 @@ class GW2v2GliderTest {
                 "icon": "https://render.guildwars2.com/file/5978F84C08E69460B7FD34346745E7183562A35A/951784.png",
                 "name": "Schwarzfederflügel-Gleitschirm",
                 "description": "<c=@reminder>Nur für begrenzte Zeit über die Schwarzlöwen-Handelsgesellschaft erhältlich.</c>\n\nWenn Ihr einen Schwarzfederflügel-Rucksack tragt, sprecht mit einem Späher in der Grasgrünen Schwelle, um kostenlos einen passenden Gleitschirm zu erhalten.",
-                "default_dyes": [
-                ]
+                "default_dyes": []
             }
             """.trimIndent()
         )

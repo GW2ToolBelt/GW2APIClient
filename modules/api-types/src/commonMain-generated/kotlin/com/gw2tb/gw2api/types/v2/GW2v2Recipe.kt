@@ -23,23 +23,30 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Recipe
 
 /**
  * Information about a crafting recipe.
  *
  * @param id the recipe's ID
  * @param type the recipe's type
- * @param outputItemID the ID of the produced item
+ * @param outputItemId the ID of the produced item
  * @param outputItemCount the amount of items produced
  * @param craftTimeMillis the time in milliseconds it takes to craft the item
  * @param disciplines the crafting disciplines that can use the recipe
  * @param minRating the minimum rating required to use the recipe
  * @param flags the flags applying to the recipe
  * @param ingredients the recipe's ingredients
- * @param outputUpgradeID the ID of the produced guild upgrade
+ * @param outputUpgradeId the ID of the produced guild upgrade
  * @param chatLink the recipe's chat code
  */
 @Serializable
@@ -50,7 +57,7 @@ public data class GW2v2Recipe(
     val type: String,
     /** This field holds the ID of the produced item. */
     @SerialName("output_item_id")
-    val outputItemID: Int,
+    val outputItemId: GW2ItemId,
     /** This field holds the amount of items produced. */
     @SerialName("output_item_count")
     val outputItemCount: Int,
@@ -68,7 +75,7 @@ public data class GW2v2Recipe(
     val ingredients: List<Ingredient>,
     /** This field holds the ID of the produced guild upgrade. */
     @SerialName("output_upgrade_id")
-    val outputUpgradeID: Int? = null,
+    val outputUpgradeId: Int? = null,
     /** This field holds the recipe's chat code. */
     @SerialName("chat_link")
     val chatLink: String
@@ -76,7 +83,7 @@ public data class GW2v2Recipe(
 
     @Suppress("ClassName")
     private object __JsonParametricSerializer_Ingredient : JsonContentPolymorphicSerializer<Ingredient>(Ingredient::class) {
-        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<out Ingredient> {
+        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<Ingredient> {
             return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "Currency" -> Ingredient.Currency.serializer()
                 "GuildUpgrade" -> Ingredient.GuildUpgrade.serializer()
@@ -93,8 +100,10 @@ public data class GW2v2Recipe(
 
         /** This field holds the ingredient's type. */
         public abstract val type: String
+
         /** This field holds the ingredient's ID. */
         public abstract val id: Int
+
         /** This field holds the amount. */
         public abstract val count: Int
 
@@ -103,7 +112,7 @@ public data class GW2v2Recipe(
         private object __CurrencyGeneratedSerializer : KSerializer<Currency>
 
         @Suppress("ClassName")
-        private object __CurrencySerializer : JsonTransformingSerializer<Currency>(__CurrencyGeneratedSerializer) {
+        private object __CurrencySerializer0 : JsonTransformingSerializer<Currency>(__CurrencyGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -115,7 +124,7 @@ public data class GW2v2Recipe(
          * @param id the ingredient's ID
          * @param count the amount
          */
-        @Serializable(with = __CurrencySerializer::class)
+        @Serializable(with = __CurrencySerializer0::class)
         public data class Currency(
             override val type: String,
             override val id: Int,
@@ -127,7 +136,7 @@ public data class GW2v2Recipe(
         private object __GuildUpgradeGeneratedSerializer : KSerializer<GuildUpgrade>
 
         @Suppress("ClassName")
-        private object __GuildUpgradeSerializer : JsonTransformingSerializer<GuildUpgrade>(__GuildUpgradeGeneratedSerializer) {
+        private object __GuildUpgradeSerializer0 : JsonTransformingSerializer<GuildUpgrade>(__GuildUpgradeGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -139,7 +148,7 @@ public data class GW2v2Recipe(
          * @param id the ingredient's ID
          * @param count the amount
          */
-        @Serializable(with = __GuildUpgradeSerializer::class)
+        @Serializable(with = __GuildUpgradeSerializer0::class)
         public data class GuildUpgrade(
             override val type: String,
             override val id: Int,
@@ -151,7 +160,7 @@ public data class GW2v2Recipe(
         private object __ItemGeneratedSerializer : KSerializer<Item>
 
         @Suppress("ClassName")
-        private object __ItemSerializer : JsonTransformingSerializer<Item>(__ItemGeneratedSerializer) {
+        private object __ItemSerializer0 : JsonTransformingSerializer<Item>(__ItemGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -163,7 +172,7 @@ public data class GW2v2Recipe(
          * @param id the ingredient's ID
          * @param count the amount
          */
-        @Serializable(with = __ItemSerializer::class)
+        @Serializable(with = __ItemSerializer0::class)
         public data class Item(
             override val type: String,
             override val id: Int,
@@ -171,20 +180,5 @@ public data class GW2v2Recipe(
         ) : Ingredient()
 
     }
-
-    /**
-     * Information about a recipe guild ingredient.
-     *
-     * @param upgradeID the guild ingredient's guild upgrade ID
-     * @param count the quantity of this guild ingredient
-     */
-    @Serializable
-    public data class GuildIngredient(
-        /** This field holds the guild ingredient's guild upgrade ID. */
-        @SerialName("upgrade_id")
-        val upgradeID: String,
-        /** This field holds the quantity of this guild ingredient. */
-        val count: Int
-    )
 
 }

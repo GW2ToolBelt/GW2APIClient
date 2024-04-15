@@ -27,17 +27,18 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1WvWMatches(configure: RequestConfigurator<GW2v1WvWMatches>? = null): RequestBuilder<GW2v1WvWMatches> = request(
+public fun GW2APIClient.gw2v1WvWMatches(configure: RequestConfigurator<GW2v1WvwMatches>? = null): RequestBuilder<GW2v1WvwMatches> = request(
     path = "/v1/wvw/matches",
     parameters = mapOfNonNullValues(),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = GW2v1WvWMatches.serializer(),
+    serializer = GW2v1WvwMatches.serializer(),
     configure = configure
 )

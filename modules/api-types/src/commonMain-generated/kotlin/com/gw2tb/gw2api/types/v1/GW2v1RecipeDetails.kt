@@ -23,16 +23,23 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: RecipeDetails
 
 /**
  * Information about a crafting recipe.
  *
- * @param recipeID the recipe's ID
+ * @param recipeId the recipe's ID
  * @param type the recipe's type
- * @param outputItemID the ID of the produced item
+ * @param outputItemId the ID of the produced item
  * @param outputItemCount the amount of items produced
  * @param craftTimeMillis the time in milliseconds it takes to craft the item
  * @param disciplines the crafting disciplines that can use the recipe
@@ -44,12 +51,12 @@ import kotlinx.serialization.json.*
 public data class GW2v1RecipeDetails(
     /** This field holds the recipe's ID. */
     @SerialName("recipe_id")
-    val recipeID: Int,
+    val recipeId: GW2RecipeId,
     /** This field holds the recipe's type. */
     val type: String,
     /** This field holds the ID of the produced item. */
     @SerialName("output_item_id")
-    val outputItemID: Int,
+    val outputItemId: GW2ItemId,
     /** This field holds the amount of items produced. */
     @SerialName("output_item_count")
     val outputItemCount: Int,
@@ -70,14 +77,14 @@ public data class GW2v1RecipeDetails(
     /**
      * Information about a recipe ingredient.
      *
-     * @param itemID the ingredient's item ID
+     * @param itemId the ingredient's item ID
      * @param count the quantity of this ingredient
      */
     @Serializable
     public data class Ingredient(
         /** This field holds the ingredient's item ID. */
         @SerialName("item_id")
-        val itemID: Int,
+        val itemId: GW2ItemId,
         /** This field holds the quantity of this ingredient. */
         val count: Int
     )

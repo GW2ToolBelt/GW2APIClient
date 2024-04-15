@@ -23,45 +23,51 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
 
+// Generated for type: Skiff
+
 /**
- * Information about a character's equipped skills.
+ * Information about a skiff skin.
  *
- * @param pve the character's PvE skills
- * @param pvp the character's PvP skills
- * @param wvw the character's WvW skills
+ * @param id the skin's ID
+ * @param name the skin's name
+ * @param icon a render service URL for the skin's icon
+ * @param dyeSlots the skin's dye slots
  */
 @Serializable
-public data class GW2v2Skills(
-    /** This field holds the character's PvE skills. */
-    val pve: Skills,
-    /** This field holds the character's PvP skills. */
-    val pvp: Skills,
-    /** This field holds the character's WvW skills. */
-    val wvw: Skills
+public data class GW2v2Skiff(
+    /** This field holds the skin's ID. */
+    val id: Int,
+    /** This field holds the skin's name. */
+    val name: String,
+    /** This field holds a render service URL for the skin's icon. */
+    val icon: String,
+    /** This field holds the skin's dye slots. */
+    @SerialName("dye_slots")
+    val dyeSlots: List<DyeSlot>
 ) {
 
     /**
-     * Information about a character's equipped skills.
+     * Information about a dye slot.
      *
-     * @param heal the heal skill's ID
-     * @param utilities the IDs of the utility skills
-     * @param elite the elite skill's ID
-     * @param legends the legend IDs
+     * @param colorId the ID of the color
+     * @param material the slot's material
      */
     @Serializable
-    public data class Skills(
-        /** This field holds the heal skill's ID. */
-        val heal: Int? = null,
-        /** This field holds the IDs of the utility skills. */
-        val utilities: List<Int?>,
-        /** This field holds the elite skill's ID. */
-        val elite: Int? = null,
-        /** This field holds the legend IDs. */
-        val legends: List<String?>? = null
+    public data class DyeSlot(
+        /** This field holds the ID of the color. */
+        @SerialName("color_id")
+        val colorId: Int,
+        /** This field holds the slot's material. */
+        val material: String
     )
 
 }

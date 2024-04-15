@@ -43,8 +43,7 @@ class GW2v1GuildDetailsTest {
                 "emblem": {
                     "background_id": 27,
                     "foreground_id": 114,
-                    "flags": [
-                    ],
+                    "flags": [],
                     "background_color_id": 11,
                     "foreground_primary_color_id": 584,
                     "foreground_secondary_color_id": 64

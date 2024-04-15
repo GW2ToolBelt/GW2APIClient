@@ -23,26 +23,33 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: AccountAchievement
 
 /**
  * Information about a player's progress towards an achievement.
  *
  * @param id the achievement's ID
- * @param done a flag indicating whether or not the account has completed the achievement
+ * @param done a flag indicating whether the account has completed the achievement
  * @param bits an array of numbers (whose exact meaning differs) giving information about the progress towards an achievement
  * @param current the account's current progress towards the achievement
  * @param max the amount of progress required to complete the achievement
  * @param repeated the number of times the achievement has been completed (if the achievement is repeatable)
- * @param unlocked a flag indicating whether or not the achievement is unlocked (if the achievement can be unlocked)
+ * @param unlocked a flag indicating whether the achievement is unlocked (if the achievement can be unlocked)
  */
 @Serializable
 public data class GW2v2AccountAchievement(
     /** This field holds the achievement's ID. */
-    val id: Int,
-    /** This field holds a flag indicating whether or not the account has completed the achievement. */
+    val id: GW2AchievementId,
+    /** This field holds a flag indicating whether the account has completed the achievement. */
     val done: Boolean,
     /** This field holds an array of numbers (whose exact meaning differs) giving information about the progress towards an achievement. */
     val bits: List<Int>? = null,
@@ -52,6 +59,6 @@ public data class GW2v2AccountAchievement(
     val max: Int? = null,
     /** This field holds the number of times the achievement has been completed (if the achievement is repeatable). */
     val repeated: Int? = null,
-    /** This field holds a flag indicating whether or not the achievement is unlocked (if the achievement can be unlocked). */
+    /** This field holds a flag indicating whether the achievement is unlocked (if the achievement can be unlocked). */
     val unlocked: Boolean? = null
 )

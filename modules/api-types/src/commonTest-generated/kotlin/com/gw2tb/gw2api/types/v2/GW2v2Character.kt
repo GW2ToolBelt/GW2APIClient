@@ -40,8 +40,7 @@ class GW2v2CharacterTest {
                 "name": "Linux Debizahn",
                 "race": "Charr",
                 "gender": "Male",
-                "flags": [
-                ],
+                "flags": [],
                 "profession": "Guardian",
                 "level": 80,
                 "guild": "EEBAF715-BDC4-4C46-9D9F-1B80EFD20DF0",
@@ -49,8 +48,7 @@ class GW2v2CharacterTest {
                 "last_modified": "2022-04-02T14:00:00Z",
                 "created": "2017-06-07T10:13:00Z",
                 "deaths": 2,
-                "crafting": [
-                ],
+                "crafting": [],
                 "title": 117,
                 "backstory": [
                     "15-84",
@@ -59,8 +57,7 @@ class GW2v2CharacterTest {
                     "182-177",
                     "16-90"
                 ],
-                "wvw_abilities": [
-                ],
+                "wvw_abilities": [],
                 "build_tabs_unlocked": 3,
                 "active_build_tab": 1,
                 "build_tabs": [
@@ -680,8 +677,7 @@ class GW2v2CharacterTest {
                         "tab": 2,
                         "name": "",
                         "is_active": false,
-                        "equipment": [
-                        ],
+                        "equipment": [],
                         "equipment_pvp": {
                             "amulet": 9,
                             "rune": 21172,

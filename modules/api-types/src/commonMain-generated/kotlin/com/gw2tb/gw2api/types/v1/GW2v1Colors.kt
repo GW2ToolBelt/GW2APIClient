@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Colors
 
 /**
  * Information about the available dye colors.
@@ -35,14 +42,14 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v1Colors(
     /** This field holds the colors. */
-    val colors: Map<Int, Color>
+    val colors: Map<GW2ColorId, Color>
 ) {
 
     /**
      * Information about a dye color.
      *
      * @param name the color's name
-     * @param baseRGB the base RGB values
+     * @param baseRgb the base RGB values
      * @param cloth detailed information on its appearance when applied on cloth armor
      * @param leather detailed information on its appearance when applied on leather armor
      * @param metal detailed information on its appearance when applied on metal armor
@@ -57,7 +64,7 @@ public data class GW2v1Colors(
         val name: String,
         /** This field holds the base RGB values. */
         @SerialName("base_rgb")
-        val baseRGB: List<Int>,
+        val baseRgb: List<Int>,
         /** This field holds detailed information on its appearance when applied on cloth armor. */
         val cloth: Appearance,
         /** This field holds detailed information on its appearance when applied on leather armor. */
@@ -69,7 +76,7 @@ public data class GW2v1Colors(
         /** This field holds detailed information on its appearance when applied on fur armor. */
         val fur: Appearance? = null,
         /** This field holds the ID of the dye item. */
-        val item: Int? = null,
+        val item: GW2ItemId? = null,
         /** This field holds the categories of the color. */
         val categories: List<String>
     ) {
@@ -82,7 +89,7 @@ public data class GW2v1Colors(
          * @param hue the hue in HSL colorspace
          * @param saturation the saturation in HSL colorspace
          * @param lightness the lightness in HSL colorspace
-         * @param rGB a list containing precalculated RGB values
+         * @param rgb a list containing precalculated RGB values
          */
         @Serializable
         public data class Appearance(
@@ -97,8 +104,7 @@ public data class GW2v1Colors(
             /** This field holds the lightness in HSL colorspace. */
             val lightness: Double,
             /** This field holds a list containing precalculated RGB values. */
-            @SerialName("rgb")
-            val rGB: List<Int>
+            val rgb: List<Int>
         )
 
     }

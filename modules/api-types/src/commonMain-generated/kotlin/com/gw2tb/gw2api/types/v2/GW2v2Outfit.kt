@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: Outfit
 
 /**
  * Information about an outfit.
@@ -33,7 +40,7 @@ import kotlinx.serialization.json.*
  * @param id the outfit's ID
  * @param name the outfit's name
  * @param icon the outfit's icon
- * @param unlockItems the IDs of the items that unlock the outfit
+ * @param unlockItems the IDs of the items that can be used to unlock the outfit
  */
 @Serializable
 public data class GW2v2Outfit(
@@ -43,7 +50,7 @@ public data class GW2v2Outfit(
     val name: String,
     /** This field holds the outfit's icon. */
     val icon: String,
-    /** This field holds the IDs of the items that unlock the outfit. */
+    /** This field holds the IDs of the items that can be used to unlock the outfit. */
     @SerialName("unlock_items")
-    val unlockItems: List<Int>
+    val unlockItems: List<GW2ItemId>
 )

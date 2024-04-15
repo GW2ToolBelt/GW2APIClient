@@ -23,22 +23,29 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v1
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: WvwMatchDetails
 
 /**
  * Information about a WvW match.
  *
- * @param matchID the match's ID
+ * @param matchId the match's ID
  * @param scores the total scores
  * @param maps the map information
  */
 @Serializable
-public data class GW2v1WvWMatchDetails(
+public data class GW2v1WvwMatchDetails(
     /** This field holds the match's ID. */
     @SerialName("match_id")
-    val matchID: String,
+    val matchId: GW2WvwMatchId,
     /** This field holds the total scores. */
     val scores: List<Int>,
     /** This field holds the map information. */

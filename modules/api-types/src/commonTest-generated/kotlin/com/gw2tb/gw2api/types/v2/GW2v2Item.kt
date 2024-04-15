@@ -55,8 +55,7 @@ class GW2v2ItemTest {
                     "SoulbindOnAcquire",
                     "SoulBindOnUse"
                 ],
-                "restrictions": [
-                ],
+                "restrictions": [],
                 "id": 6,
                 "chat_link": "[&AgEGAAAA]",
                 "icon": "https://render.guildwars2.com/file/CC2E01E0F566A6EEF4F2EC2B19AA7A3E1FEFB1B4/60984.png",
@@ -66,8 +65,7 @@ class GW2v2ItemTest {
                     "min_power": 105,
                     "max_power": 117,
                     "defense": 0,
-                    "infusion_slots": [
-                    ],
+                    "infusion_slots": [],
                     "attribute_adjustment": 7.8
                 }
             }

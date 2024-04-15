@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: LegendaryArmorySlot
 
 /**
  * Information about an item that can be stored in the legendary armory.
@@ -36,7 +43,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2LegendaryArmorySlot(
     /** This field holds the item's ID. */
-    val id: Int,
+    val id: GW2ItemId,
     /** This field holds the maximum number of copies of this item that can be stored in the armory for an account. */
     @SerialName("max_count")
     val maxCount: Int

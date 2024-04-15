@@ -393,8 +393,7 @@ class GW2v2AchievementsDailyTomorrowTest {
                         ]
                     }
                 ],
-                "special": [
-                ]
+                "special": []
             }
             """.trimIndent()
         )

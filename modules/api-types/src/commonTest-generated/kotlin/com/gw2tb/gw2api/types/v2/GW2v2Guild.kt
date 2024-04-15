@@ -62,8 +62,7 @@ class GW2v2GuildTest {
                             130
                         ]
                     },
-                    "flags": [
-                    ]
+                    "flags": []
                 }
             }
             """.trimIndent()

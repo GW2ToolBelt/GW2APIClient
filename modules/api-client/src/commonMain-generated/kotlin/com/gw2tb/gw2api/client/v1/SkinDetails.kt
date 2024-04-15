@@ -27,16 +27,27 @@ package com.gw2tb.gw2api.client.v1
 
 import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
+import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1SkinDetails(skinID: Int, configure: RequestConfigurator<GW2v1SkinDetails>? = null): RequestBuilder<GW2v1SkinDetails> = request(
+public fun GW2APIClient.gw2v1SkinDetails(skinId: Int, configure: RequestConfigurator<GW2v1SkinDetails>? = null): RequestBuilder<GW2v1SkinDetails> = request(
     path = "/v1/skin_details",
-    parameters = mapOfNonNullValues("skin_id" to skinID.toString()),
-    replaceInPath = mapOf(),
-    requiredPermissions = emptySet(),
+    parameters = mapOfNonNullValues("skin_id" to skinId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V1,
+    serializer = GW2v1SkinDetails.serializer(),
+    configure = configure
+)
+
+public fun GW2APIClient.gw2v1SkinDetails(skinId: GW2SkinId, configure: RequestConfigurator<GW2v1SkinDetails>? = null): RequestBuilder<GW2v1SkinDetails> = request(
+    path = "/v1/skin_details",
+    parameters = mapOfNonNullValues("skin_id" to skinId),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
     supportedLanguages = Language.API_V1,
     serializer = GW2v1SkinDetails.serializer(),
     configure = configure

@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2PvPAmuletTest {
+class GW2v2PvpAmuletTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2PvPAmuletTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 4,
@@ -52,7 +52,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 8,
@@ -70,7 +70,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 9,
@@ -88,7 +88,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 13,
@@ -106,7 +106,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_04() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 14,
@@ -124,7 +124,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_05() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 18,
@@ -142,7 +142,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_06() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 20,
@@ -161,7 +161,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_07() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 22,
@@ -179,7 +179,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_08() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 29,
@@ -198,7 +198,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_09() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 30,
@@ -217,7 +217,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_10() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 31,
@@ -236,7 +236,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_11() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 34,
@@ -255,7 +255,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_12() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 35,
@@ -274,7 +274,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_13() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 40,
@@ -293,7 +293,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_14() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 41,
@@ -312,7 +312,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_15() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 43,
@@ -331,7 +331,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_16() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 44,
@@ -350,7 +350,7 @@ class GW2v2PvPAmuletTest {
     
     @Test
     fun testType_17() {
-        json.decodeFromString<GW2v2PvPAmulet>(
+        json.decodeFromString<GW2v2PvpAmulet>(
             """
             {
                 "id": 45,

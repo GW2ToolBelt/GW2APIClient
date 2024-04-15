@@ -22,49 +22,50 @@
  */
 package com.gw2tb.gw2api.types.mumble
 
+import com.gw2tb.gw2api.types.*
+
 import kotlinx.serialization.*
 
 /**
- * The definition Guild Wars 2's use of the `identity` field of the MumbleLink protocol.
+ * The information exposed by MumbleLink's "identity" buffer.
  *
  * @param name the name of the currently played character
- * @param profession the current profession (class) of the currently played character
- * @param spec the ID of the current elite-specialization of the currently played character, or 0
+ * @param profession the name of the currently played character
+ * @param spec the ID of the currently equipped elite-specialization, or zero
  * @param race the ID of the race of the currently played character
- * @param mapId the ID of the current map
- * @param worldId the ID of the current world
+ * @param mapID the ID of the current map
+ * @param worldID the ID of the current world
  * @param teamColorId the ID of the current team
- * @param commander whether or not the player currently is commanding a squad
+ * @param commander a flag indicating whether the player currently is commanding a squad
  * @param map the ID of the current map
- * @param foV the scaling of the FOV
+ * @param fov the scaling of the FOV
  * @param uISize the selected UI size
  */
 @Serializable
-public data class MumbleLinkIdentity(
+public data class MumbleLink(
     /** This field holds the name of the currently played character. */
     val name: String,
-    /** This field holds the current profession (class) of the currently played character. */
-    val profession: Int,
-    /** This field holds the ID of the current elite-specialization of the currently played character, or 0. */
-    val spec: Int,
+    /** This field holds the name of the currently played character. */
+    val profession: GW2ProfessionId,
+    /** This field holds the ID of the currently equipped elite-specialization, or zero. */
+    val spec: GW2SpecializationId,
     /** This field holds the ID of the race of the currently played character. */
-    val race: Int,
+    val race: GW2RaceId,
     /** This field holds the ID of the current map. */
     @SerialName("map_id")
-    val mapId: Int,
+    val mapID: GW2MapId,
     /** This field holds the ID of the current world. */
     @SerialName("world_id")
-    val worldId: Int,
+    val worldID: ULong,
     /** This field holds the ID of the current team. */
     @SerialName("team_color_id")
     val teamColorId: Int,
-    /** This field holds whether or not the player currently is commanding a squad. */
+    /** This field holds a flag indicating whether the player currently is commanding a squad. */
     val commander: Boolean,
     /** This field holds the ID of the current map. */
-    val map: Int,
+    val map: GW2MapId,
     /** This field holds the scaling of the FOV. */
-    @SerialName("fov")
-    val foV: Double,
+    val fov: Double,
     /** This field holds the selected UI size. */
     @SerialName("uisz")
     val uISize: Int

@@ -23,14 +23,21 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: GuildTreasurySlot
 
 /**
  * Information about an item in a guild's treasury.
  *
- * @param itemID the item's ID
+ * @param itemId the item's ID
  * @param count the amount of the item in the guild's treasury
  * @param neededBy the currently in-progress upgrades requiring the item
  */
@@ -38,7 +45,7 @@ import kotlinx.serialization.json.*
 public data class GW2v2GuildTreasurySlot(
     /** This field holds the item's ID. */
     @SerialName("item_id")
-    val itemID: Int,
+    val itemId: GW2ItemId,
     /** This field holds the amount of the item in the guild's treasury. */
     val count: Int,
     /** This field holds the currently in-progress upgrades requiring the item. */
@@ -49,14 +56,14 @@ public data class GW2v2GuildTreasurySlot(
     /**
      * Information about the usage for an item.
      *
-     * @param upgradeID the guild upgrade's ID
+     * @param upgradeId the guild upgrade's ID
      * @param count the total amount of the item required for the upgrade
      */
     @Serializable
     public data class UpgradeRequirement(
         /** This field holds the guild upgrade's ID. */
         @SerialName("upgrade_id")
-        val upgradeID: Int,
+        val upgradeId: Int,
         /** This field holds the total amount of the item required for the upgrade. */
         val count: Int
     )

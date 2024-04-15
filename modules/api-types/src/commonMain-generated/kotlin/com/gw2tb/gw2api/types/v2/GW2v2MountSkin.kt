@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: MountSkin
 
 /**
  * Information about a mount skin.
@@ -54,14 +61,14 @@ public data class GW2v2MountSkin(
     /**
      * Information about a dye slot.
      *
-     * @param colorID the ID of the color
+     * @param colorId the ID of the color
      * @param material the slot's material
      */
     @Serializable
     public data class DyeSlot(
         /** This field holds the ID of the color. */
         @SerialName("color_id")
-        val colorID: Int,
+        val colorId: Int,
         /** This field holds the slot's material. */
         val material: String
     )

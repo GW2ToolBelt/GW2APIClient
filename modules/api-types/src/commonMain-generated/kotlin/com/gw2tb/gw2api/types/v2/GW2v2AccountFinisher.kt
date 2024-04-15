@@ -23,22 +23,29 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: AccountFinisher
 
 /**
  * Information about finishers unlocked by an account.
  *
  * @param id the finisher's ID
- * @param permanent whether or not the finisher is unlock permanently
+ * @param permanent whether the finisher is unlock permanently
  * @param quantity the remaining uses
  */
 @Serializable
 public data class GW2v2AccountFinisher(
     /** This field holds the finisher's ID. */
     val id: Int,
-    /** This field holds whether or not the finisher is unlock permanently. */
+    /** This field holds whether the finisher is unlock permanently. */
     val permanent: Boolean,
     /** This field holds the remaining uses. */
     val quantity: Int? = null

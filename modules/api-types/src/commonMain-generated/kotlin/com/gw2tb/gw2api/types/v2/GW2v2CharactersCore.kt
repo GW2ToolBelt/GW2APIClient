@@ -23,9 +23,16 @@
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
 package com.gw2tb.gw2api.types.v2
 
+import com.gw2tb.gw2api.types.*
+import com.gw2tb.gw2api.types.internal.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
+import kotlinx.serialization.descriptors.*
+import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
+
+// Generated for type: CharactersCore
 
 /**
  * General Information about a character.
@@ -33,7 +40,7 @@ import kotlinx.serialization.json.*
  * @param name the character's name
  * @param race the ID of the character's race
  * @param gender the character's gender
- * @param profession the ID of the characters's profession
+ * @param profession the ID of the character's profession
  * @param level the character's level
  * @param guild the ID of the character's represented guild
  * @param age the amount of seconds the character was played
@@ -50,7 +57,7 @@ public data class GW2v2CharactersCore(
     val race: String,
     /** This field holds the character's gender. */
     val gender: String,
-    /** This field holds the ID of the characters's profession. */
+    /** This field holds the ID of the character's profession. */
     val profession: String,
     /** This field holds the character's level. */
     val level: Int,
