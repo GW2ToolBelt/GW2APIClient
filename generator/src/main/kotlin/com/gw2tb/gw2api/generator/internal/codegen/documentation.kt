@@ -21,10 +21,7 @@
  */
 package com.gw2tb.gw2api.generator.internal.codegen
 
-import com.gw2tb.apigen.model.*
-import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.apigen.schema.*
-import java.util.*
 import kotlin.time.*
 
 private fun Duration.normalizeCacheTime(): String {
@@ -43,6 +40,10 @@ internal val String.asComment: String get() = comment({
     append(this@asComment)
 })
 
+internal val String.asDocComment: String get() = comment({
+    append(this@asDocComment)
+}, isDocComment = true)
+
 private inline fun comment(action: StringBuilder.() -> Unit, isDocComment: Boolean = false): String =
     StringBuilder().apply(action).toString().lines().let {
         val start = if (isDocComment) "/**" else "/*"
@@ -59,46 +60,42 @@ private inline fun comment(action: StringBuilder.() -> Unit, isDocComment: Boole
 @Suppress("NOTHING_TO_INLINE")
 private inline fun docComment(noinline action: StringBuilder.() -> Unit): String = comment(action, isDocComment = true)
 
-internal fun APIQuery.V2.dokka(queryType: String): String = docComment {
-    val siblings = API_V2.supportedQueries.filter { it.endpoint == endpoint }
-    val isPaginated = siblings.any { it.queryDetails?.queryType is QueryType.ByPage }
-    val isBulkSupported = siblings.any { it.queryDetails?.queryType?.let { queryType -> queryType is QueryType.ByIDs } ?: false }
-    val isLocalized = siblings.any { it[V2SchemaVersion.V2_SCHEMA_2021_04_06T21_00_00_000Z].data.isLocalized } // TODO
-
-    append("$queryType$n$n")
-    append("$summary$n$n")
-    append("""
-                |```
-                |Authenticated:       ${if (security.isNotEmpty()) "Yes (${security.joinToString()})" else "No"}
-                |Paginated:           ${if (isPaginated) "Yes" else "No"}
-                |Bulk expanded:       ${if (isBulkSupported) "Yes" else "No"}
-                |Localized:           ${if (isLocalized) "Yes" else "No"}
-                |Cache time:          ${cache?.normalizeCacheTime() ?: "N/A"}
-                |```
-            """.trimMargin() + n + n)
-    append("Read more: [https://wiki.guildwars2.com/wiki/API:2/${route.toLowerCase(Locale.ENGLISH).removePrefix("/")}]$n$n")
-    append("@receiver        the client instance used to make the request$n")
-    append("@param configure configure action for the request$n$n")
-    append("@return  the request that can be executed to query the API")
-}
-
-internal fun SchemaConditional.dokka(): String = docComment {
-    append(description)
-}
+//internal fun APIQuery.dokka(queryType: String): String = docComment {
+//    val siblings = API_V2.supportedQueries.filter { it.endpoint == endpoint }
+//    val isPaginated = siblings.any { it.queryDetails?.queryType is QueryType.ByPage }
+//    val isBulkSupported = siblings.any { it.queryDetails?.queryType?.let { queryType -> queryType is QueryType.ByIDs } ?: false }
+//    val isLocalized = siblings.any { it[V2SchemaVersion.V2_SCHEMA_2021_04_06T21_00_00_000Z].data.isLocalized } // TODO
+//
+//    append("$queryType$n$n")
+//    append("$summary$n$n")
+//    append("""
+//                |```
+//                |Authenticated:       ${if (security.isNotEmpty()) "Yes (${security.joinToString()})" else "No"}
+//                |Paginated:           ${if (isPaginated) "Yes" else "No"}
+//                |Bulk expanded:       ${if (isBulkSupported) "Yes" else "No"}
+//                |Localized:           ${if (isLocalized) "Yes" else "No"}
+//                |Cache time:          ${cache?.normalizeCacheTime() ?: "N/A"}
+//                |```
+//            """.trimMargin() + n + n)
+//    append("Read more: [https://wiki.guildwars2.com/wiki/API:2/${route.lowercase().removePrefix("/")}]$n$n")
+//    append("@receiver        the client instance used to make the request$n")
+//    append("@param configure configure action for the request$n$n")
+//    append("@return  the request that can be executed to query the API")
+//}
 
 internal fun SchemaRecord.dokka(
-    sharedProperties: Map<String, SchemaProperty>,
+    sharedProperties: Collection<SchemaProperty>,
     interpretationInNestedProperty: Boolean
 ): String = docComment {
     append(description)
 
     val paramTags = buildList {
-        for (property in sharedProperties.values)
-            add("@param ${property.camelCaseName} ${property.description}")
+        for (property in sharedProperties)
+            add("@param ${property.name.toCamelCase()} ${property.description}")
 
         if (!interpretationInNestedProperty) {
             for (property in properties.values)
-                add("@param ${property.camelCaseName} ${property.description}")
+                add("@param ${property.name.toCamelCase()} ${property.description}")
         }
     }.joinToString(separator = n)
 
@@ -106,8 +103,4 @@ internal fun SchemaRecord.dokka(
         append("$n$n")
         append(paramTags)
     }
-}
-
-internal fun SchemaProperty.dokka(): String = docComment {
-    append("This field holds ${description}.")
 }

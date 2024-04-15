@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2018-2022 Leon Linhart
- * MACHINE GENERATED FILE, DO NOT EDIT
+ * Copyright (c) 2018-2023 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,18 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.gw2tb.gw2api.types.v2
+package com.gw2tb.gw2api.types.internal
 
-import kotlin.test.*
-import kotlinx.serialization.*
-import kotlinx.serialization.json.*
+import kotlinx.serialization.SerialInfo
 
-class GW2v2SkillsTest {
-
-    private val json = Json {
-        useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
-    }
-
-    
-
-}
+@SerialInfo
+@Target(AnnotationTarget.PROPERTY)
+internal annotation class SerializeInline

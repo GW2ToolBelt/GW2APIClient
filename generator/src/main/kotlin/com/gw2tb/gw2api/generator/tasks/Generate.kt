@@ -21,14 +21,18 @@
  */
 package com.gw2tb.gw2api.generator.tasks
 
-import com.gw2tb.apigen.MUMBLELINK_IDENTITY_DEFINITION
+import com.gw2tb.apigen.APIGenerator
 import com.gw2tb.apigen.model.Language
-import com.gw2tb.apigen.model.TypeLocation
-import com.gw2tb.apigen.model.v2.V2SchemaVersion
+import com.gw2tb.apigen.model.v2.SchemaVersion
+import com.gw2tb.apigen.schema.model.APIVersion
 import com.gw2tb.gw2api.generator.internal.codegen.*
 import com.gw2tb.gw2api.generator.internal.codegen.asComment
+import com.gw2tb.gw2api.generator.internal.codegen.impl.asPrintableFileSequence
+import com.gw2tb.gw2api.generator.internal.codegen.impl.asPrintableTestFileSequence
+import com.gw2tb.gw2api.generator.internal.codegen.impl.printToString
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.file.FileSystemOperations
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
@@ -36,12 +40,15 @@ import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import org.gradle.kotlin.dsl.property
 import java.io.File
+import javax.inject.Inject
 
 @CacheableTask
-public open class Generate : DefaultTask() {
+public open class Generate @Inject constructor(
+    private val fsOperations: FileSystemOperations
+) : DefaultTask() {
 
     @get:Input
-    public val schemaVersion: Property<V2SchemaVersion> = project.objects.property()
+    public val schemaVersion: Property<SchemaVersion> = project.objects.property()
 
     @get:Input
     public val licenseHeader: Property<String> = project.objects.property()
@@ -72,13 +79,13 @@ public open class Generate : DefaultTask() {
 
         val queriesDirectory = queriesDirectory.get().asFile
         val queriesTestDirectory = queriesTestDirectory.get().asFile
-        project.delete(queriesDirectory)
-        project.delete(queriesTestDirectory)
 
         val typesDirectory = typesDirectory.get().asFile
         val typesTestDirectory = typesTestDirectory.get().asFile
-        project.delete(typesDirectory)
-        project.delete(typesTestDirectory)
+
+        fsOperations.delete {
+            delete(queriesDirectory, queriesTestDirectory, typesDirectory, typesTestDirectory)
+        }
 
         fun writeFile(directory: File, location: String, content: String) {
             File(directory, "$location.kt").also { it.parentFile.mkdirs() }.writeText(buildString {
@@ -88,13 +95,21 @@ public open class Generate : DefaultTask() {
         }
 
         fun PrintableFile.writeFile(directory: File) = writeFile(directory, path, content)
+        fun Sequence<PrintableFile>.writeAll(directory: File) {
+            forEach { it.writeFile(directory) }
+        }
+
+        val generator = APIGenerator(
+            v2SchemaVersion = schemaVersion,
+            includeMumbleLink = true
+        )
 
         /* Languages */
         writeFile(
             directory = queriesDirectory,
             location = "com/gw2tb/gw2api/client/Language",
             content =
-            """
+                """
                 |package com.gw2tb.gw2api.client
                 |
                 |/**
@@ -105,7 +120,7 @@ public open class Generate : DefaultTask() {
                 | * @since   0.1.0
                 | */
                 |public enum class Language(public val code: String) {
-                |${Language.values().map { language -> """${language.name}("${language.locale.language}")""" }.joinToString(separator = ",$n") { "$t$it" }};
+                |${Language.values().map { language -> """${language.name}("${language.language}")""" }.joinToString(separator = ",$n") { "$t$it" }};
                 |
                 |    public companion object {
                 |        /**
@@ -113,49 +128,50 @@ public open class Generate : DefaultTask() {
                 |         *
                 |         * @since  0.3.0
                 |         */
-                |        public val API_V1: Set<Language> = setOf(${API_V1.supportedLanguages.joinToString(separator = ", ") { it.name }})
+                |        public val API_V1: Set<Language> = setOf(${generator.apiV1.supportedLanguages.joinToString(separator = ", ") { it.name }})
                 |        /**
                 |         * The languages supported by V2 of the Guild Wars 2 API.
                 |         *
                 |         * @since  0.1.0
                 |         */
-                |        public val API_V2: Set<Language> = setOf(${API_V2.supportedLanguages.joinToString(separator = ", ") { it.name }})
+                |        public val API_V2: Set<Language> = setOf(${generator.apiV2.supportedLanguages.joinToString(separator = ", ") { it.name }})
                 |    }
                 |}
                 """.trimMargin()
         )
 
         /* MumbleLink `identity` type */
+        val mumbleIdentity = generator.mumbleIdentity ?: error("MumbleLink Identity does not exist")
+
         writeFile(
             directory = typesDirectory,
             location = "com/gw2tb/gw2api/types/mumble/MumbleLinkIdentity",
             content =
-            """
+                """
                 |package com.gw2tb.gw2api.types.mumble
+                |
+                |import com.gw2tb.gw2api.types.*
                 |
                 |import kotlinx.serialization.*
                 |
-                |${MUMBLELINK_IDENTITY_DEFINITION.toClassString(TypeLocation(null, "MumbleLinkIdentity"), nestedTypesToString = { "" }, apiVersionInfix = null, typeLookup = { error("") })}
+                |${mumbleIdentity.printToString()}
                 """.trimMargin()
         )
 
-        /* Queries */
-        (sequenceOfPrintableV1Queries() + sequenceOfPrintableV2Queries(schemaVersion)).forEach { printableFile ->
-            printableFile.writeFile(directory = queriesDirectory)
+        fun printApiVersion(apiVersion: APIVersion, number: Int) {
+            apiVersion.supportedQueries.asPrintableFileSequence(
+                apiVersion = number,
+                schemaVersion = if (number == 2) schemaVersion else null,
+                lookupAlias = { name -> generator.aliases[name]!! }
+            ).writeAll(queriesDirectory)
+
+            apiVersion.supportedTypes.asPrintableFileSequence(apiVersion = number).writeAll(typesDirectory)
+            apiVersion.supportedTypes.asPrintableTestFileSequence(apiVersion = number).writeAll(typesTestDirectory)
         }
 
-        sequenceOfPrintableQueryTests().forEach { printableFile ->
-            printableFile.writeFile(directory = queriesTestDirectory)
-        }
-
-        /* Types */
-        (sequenceOfPrintableV1Types() + sequenceOfPrintableV2Types(schemaVersion)).forEach { printableFile ->
-            printableFile.writeFile(directory = typesDirectory)
-        }
-
-        (sequenceOfPrintableV1TypeTests() + sequenceOfPrintableV2TypeTests(schemaVersion)).forEach { printableFile ->
-            printableFile.writeFile(directory = typesTestDirectory)
-        }
+        generator.aliases.asPrintableFileSequence().writeAll(typesDirectory)
+        printApiVersion(generator.apiV1, number = 1)
+        printApiVersion(generator.apiV2, number = 2)
     }
 
 }
