@@ -19,16 +19,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/**
- * Provides type-safe definitions for the objects returned by the Guild Wars 2
- * API.
- */
+/** Provides type-safe definitions for the objects returned by the Guild Wars 2 API. */
 module com.gw2tb.gw2api.client {
+
+    requires transitive kotlin.stdlib;
 
     requires transitive com.gw2tb.gw2api.types;
     requires transitive kotlinx.coroutines.core;
 
     exports com.gw2tb.gw2api.client;
-    exports com.gw2tb.gw2api.client.http;
+
+    exports com.gw2tb.gw2api.client.internal to
+        com.gw2tb.gw2api.client.jdk11,
+        com.gw2tb.gw2api.client.ktor;
+
+    exports com.gw2tb.gw2api.client.internal.http to
+        com.gw2tb.gw2api.client.jdk11,
+        com.gw2tb.gw2api.client.ktor;
 
 }

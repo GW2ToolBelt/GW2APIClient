@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1Build(configure: RequestConfigurator<GW2v1Build>? = null): RequestBuilder<GW2v1Build> = request(
+public fun gw2v1Build(configure: RequestConfigurer? = null): RequestTemplate<GW2v1Build> = RequestTemplate(
     path = "/v1/build",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOfNonNullValues(),

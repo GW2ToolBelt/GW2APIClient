@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1MapFloor(continentId: Int, floorId: Int, configure: RequestConfigurator<GW2v1MapFloor>? = null): RequestBuilder<GW2v1MapFloor> = request(
+public fun gw2v1MapFloor(continentId: Int, floorId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1MapFloor> = RequestTemplate(
     path = "/v1/map_floor",
     parameters = mapOfNonNullValues("continent_id" to continentId, "floor" to floorId),
     replaceInPath = mapOfNonNullValues(),
@@ -43,7 +43,8 @@ public fun GW2APIClient.gw2v1MapFloor(continentId: Int, floorId: Int, configure:
     configure = configure
 )
 
-public fun GW2APIClient.gw2v1MapFloor(continentId: GW2ContinentId, floorId: GW2FloorId, configure: RequestConfigurator<GW2v1MapFloor>? = null): RequestBuilder<GW2v1MapFloor> = request(
+@JvmSynthetic
+public fun gw2v1MapFloor(continentId: GW2ContinentId, floorId: GW2FloorId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1MapFloor> = RequestTemplate(
     path = "/v1/map_floor",
     parameters = mapOfNonNullValues("continent_id" to continentId, "floor" to floorId),
     replaceInPath = mapOfNonNullValues(),

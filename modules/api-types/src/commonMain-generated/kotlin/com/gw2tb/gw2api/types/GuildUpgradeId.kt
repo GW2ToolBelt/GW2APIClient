@@ -44,4 +44,6 @@ internal object LenientGW2GuildUpgradeIdSerializer : LenientSerializer<GW2GuildU
 public value class GW2GuildUpgradeId(
     /** The raw (type-unsafe) value. */
     public val raw: Int
-)
+) {
+    override fun toString(): String = raw.toString()
+}

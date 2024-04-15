@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWObjectivesIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun gw2v2WvWObjectivesIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesIds(configure: RequestConfigurator<Lis
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: RequestConfigurator<GW2v2WvwObjective>? = null): RequestBuilder<GW2v2WvwObjective> = request(
+public fun gw2v2WvWObjectivesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwObjective> = RequestTemplate(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: RequestCon
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2WvwObjective>>? = null): RequestBuilder<List<GW2v2WvwObjective>> = request(
+public fun gw2v2WvWObjectivesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -66,7 +66,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: List<String>, configure: Re
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWObjectivesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2WvwObjective>>? = null): RequestBuilder<List<GW2v2WvwObjective>> = request(
+public fun gw2v2WvWObjectivesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

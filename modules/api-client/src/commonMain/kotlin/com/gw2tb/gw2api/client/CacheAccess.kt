@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022 Leon Linhart
+ * Copyright (c) 2018-2024 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,25 +24,24 @@ package com.gw2tb.gw2api.client
 /**
  * Provides basic access to a response caching implementation.
  *
- * This interface does not make any guarantees about the caching behavior of its
- * implementations.
+ * This interface does not make any guarantees about the caching behavior of its implementations.
  *
  * @since   0.1.0
  */
 public interface CacheAccess {
 
     /**
-     * Memoizes the given [Response].
+     * Memoizes the given [Gw2ApiResponse].
      *
      * @param response  the response to be memoized
      *
      * @since   0.1.0
      */
-    public fun <T> memoize(response: Response<T>)
+    public fun <T> memoize(response: Gw2ApiResponse<T>)
 
     /**
-     * Queries the cache for a given [Request] and returns the cached [Response]
-     * or `null` if no appropriate response was cached.
+     * Queries the cache for a given [Gw2ApiRequest] and returns the cached [Gw2ApiResponse] or `null` if no appropriate
+     * response was cached.
      *
      * @param request   the request for which the cache should be checked
      *
@@ -50,6 +49,6 @@ public interface CacheAccess {
      *
      * @since   0.1.0
      */
-    public fun <T> query(request: Request<T>): Response<T>?
+    public fun <T> query(request: Gw2ApiRequest<T>): Gw2ApiResponse<T>?
 
 }

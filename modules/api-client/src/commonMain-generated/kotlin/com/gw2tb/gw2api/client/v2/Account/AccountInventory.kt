@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountInventory(configure: RequestConfigurator<List<GW2v2AccountInventorySlot>>? = null): RequestBuilder<List<GW2v2AccountInventorySlot>> = request(
+public fun gw2v2AccountInventory(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountInventorySlot>> = RequestTemplate(
     path = "/v2/account/inventory",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),

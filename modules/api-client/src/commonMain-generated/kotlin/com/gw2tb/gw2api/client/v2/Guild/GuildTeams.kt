@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2GuildTeams(id: String, configure: RequestConfigurator<List<GW2v2GuildTeam>>? = null): RequestBuilder<List<GW2v2GuildTeam>> = request(
+public fun gw2v2GuildTeams(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2GuildTeam>> = RequestTemplate(
     path = "/v2/guild/:id/teams",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsIds(id: String, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun gw2v2CharactersBuildTabsIds(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsIds(id: String, configure: Reque
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsById(id: String, tab: Int, configure: RequestConfigurator<GW2v2CharactersBuildTab>? = null): RequestBuilder<GW2v2CharactersBuildTab> = request(
+public fun gw2v2CharactersBuildTabsById(id: String, tab: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CharactersBuildTab> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "tab" to tab),
     replaceInPath = mapOfNonNullValues("id" to id),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsById(id: String, tab: Int, confi
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsByIds(id: String, tabs: List<Int>, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
+public fun gw2v2CharactersBuildTabsByIds(id: String, tabs: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CharactersBuildTab>> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "tabs" to tabs),
     replaceInPath = mapOfNonNullValues("id" to id),
@@ -66,7 +66,7 @@ public fun GW2APIClient.gw2v2CharactersBuildTabsByIds(id: String, tabs: List<Int
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsByPage(id: String, page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2CharactersBuildTab>>? = null): RequestBuilder<List<GW2v2CharactersBuildTab>> = request(
+public fun gw2v2CharactersBuildTabsByPage(id: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CharactersBuildTab>> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to id),

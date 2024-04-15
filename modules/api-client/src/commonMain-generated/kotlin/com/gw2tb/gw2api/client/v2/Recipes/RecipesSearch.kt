@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "input" to input),
     replaceInPath = mapOfNonNullValues(),
@@ -43,7 +43,8 @@ public fun GW2APIClient.gw2v2RecipesSearchByInput(input: Int, configure: Request
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+@JvmSynthetic
+public fun gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "input" to input),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +55,7 @@ public fun GW2APIClient.gw2v2RecipesSearchByInput(input: GW2ItemId, configure: R
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "output" to output),
     replaceInPath = mapOfNonNullValues(),
@@ -64,7 +65,8 @@ public fun GW2APIClient.gw2v2RecipesSearchByOutput(output: Int, configure: Reque
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2RecipesSearchByOutput(output: GW2ItemId, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+@JvmSynthetic
+public fun gw2v2RecipesSearchByOutput(output: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "output" to output),
     replaceInPath = mapOfNonNullValues(),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1MapNames(configure: RequestConfigurator<List<GW2v1MapName>>? = null): RequestBuilder<List<GW2v1MapName>> = request(
+public fun gw2v1MapNames(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v1MapName>> = RequestTemplate(
     path = "/v1/map_names",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOfNonNullValues(),

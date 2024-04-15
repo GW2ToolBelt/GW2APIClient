@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: RequestConfigurator<GW2v2SubToken>? = null): RequestBuilder<GW2v2SubToken> = request(
+public fun gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: RequestConfigurer? = null): RequestTemplate<GW2v2SubToken> = RequestTemplate(
     path = "/v2/createsubtoken",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "expire" to expire, "permissions" to permissions, "urls" to urls),
     replaceInPath = mapOfNonNullValues(),

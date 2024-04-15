@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun gw2v2WvWMatchesIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/wvw/matches",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2WvWMatchesIds(configure: RequestConfigurator<List<S
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesById(id: String, configure: RequestConfigurator<GW2v2WvwMatch>? = null): RequestBuilder<GW2v2WvwMatch> = request(
+public fun gw2v2WvWMatchesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwMatch> = RequestTemplate(
     path = "/v2/wvw/matches",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2WvWMatchesById(id: String, configure: RequestConfig
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2WvwMatch>>? = null): RequestBuilder<List<GW2v2WvwMatch>> = request(
+public fun gw2v2WvWMatchesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatch>> = RequestTemplate(
     path = "/v2/wvw/matches",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -66,7 +66,7 @@ public fun GW2APIClient.gw2v2WvWMatchesByIds(ids: List<String>, configure: Reque
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2WvwMatch>>? = null): RequestBuilder<List<GW2v2WvwMatch>> = request(
+public fun gw2v2WvWMatchesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatch>> = RequestTemplate(
     path = "/v2/wvw/matches",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

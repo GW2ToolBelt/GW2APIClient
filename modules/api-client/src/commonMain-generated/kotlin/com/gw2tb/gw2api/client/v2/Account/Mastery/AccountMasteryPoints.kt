@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountMasteryPoints(configure: RequestConfigurator<GW2v2AccountMasteryPoint>? = null): RequestBuilder<GW2v2AccountMasteryPoint> = request(
+public fun gw2v2AccountMasteryPoints(configure: RequestConfigurer? = null): RequestTemplate<GW2v2AccountMasteryPoint> = RequestTemplate(
     path = "/v2/account/mastery/points",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),

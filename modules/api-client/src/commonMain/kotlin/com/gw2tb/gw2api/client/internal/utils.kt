@@ -21,10 +21,15 @@
  */
 package com.gw2tb.gw2api.client.internal
 
-internal fun <K, V> mapOfNonNullValues(vararg pairs: Pair<K, V?>): Map<K, V> {
+internal fun <K> mapOfNonNullValues(vararg pairs: Pair<K, Any?>): Map<K, String> {
     if (pairs.isEmpty()) return emptyMap()
 
-    val map = LinkedHashMap<K, V>(pairs.size)
-    for ((first, second) in pairs) if (second != null) map[first] = second
+    val map = LinkedHashMap<K, String>(pairs.size)
+    for ((first, second) in pairs) {
+        if (second != null) {
+            map[first] = if (second is Collection<*>) second.joinToString(separator = ",") else second.toString()
+        }
+    }
+
     return map
 }

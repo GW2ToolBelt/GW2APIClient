@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksIds(configure: RequestConfigurator<List<GW2WvwRankId>>? = null): RequestBuilder<List<GW2WvwRankId>> = request(
+public fun gw2v2WvWRanksIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WvwRankId>> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2WvWRanksIds(configure: RequestConfigurator<List<GW2
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksById(id: Int, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
+public fun gw2v2WvWRanksById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwRank> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,8 @@ public fun GW2APIClient.gw2v2WvWRanksById(id: Int, configure: RequestConfigurato
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2WvWRanksById(id: GW2WvwRankId, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
+@JvmSynthetic
+public fun gw2v2WvWRanksById(id: GW2WvwRankId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwRank> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +66,7 @@ public fun GW2APIClient.gw2v2WvWRanksById(id: GW2WvwRankId, configure: RequestCo
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksByIds(ids: List<GW2WvwRankId>, configure: RequestConfigurator<List<GW2v2WvwRank>>? = null): RequestBuilder<List<GW2v2WvwRank>> = request(
+public fun gw2v2WvWRanksByIds(ids: List<GW2WvwRankId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -76,7 +77,7 @@ public fun GW2APIClient.gw2v2WvWRanksByIds(ids: List<GW2WvwRankId>, configure: R
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2WvwRank>>? = null): RequestBuilder<List<GW2v2WvwRank>> = request(
+public fun gw2v2WvWRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

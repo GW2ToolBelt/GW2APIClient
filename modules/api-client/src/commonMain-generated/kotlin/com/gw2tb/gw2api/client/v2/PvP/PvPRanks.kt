@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksIds(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun gw2v2PvPRanksIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2PvPRanksIds(configure: RequestConfigurator<List<Int
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksById(id: Int, configure: RequestConfigurator<GW2v2PvpRank>? = null): RequestBuilder<GW2v2PvpRank> = request(
+public fun gw2v2PvPRanksById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpRank> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2PvPRanksById(id: Int, configure: RequestConfigurato
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksByIds(ids: List<Int>, configure: RequestConfigurator<List<GW2v2PvpRank>>? = null): RequestBuilder<List<GW2v2PvpRank>> = request(
+public fun gw2v2PvPRanksByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -66,7 +66,7 @@ public fun GW2APIClient.gw2v2PvPRanksByIds(ids: List<Int>, configure: RequestCon
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2PvpRank>>? = null): RequestBuilder<List<GW2v2PvpRank>> = request(
+public fun gw2v2PvPRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

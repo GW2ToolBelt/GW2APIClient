@@ -44,4 +44,6 @@ internal object LenientGW2SkinIdSerializer : LenientSerializer<GW2SkinId?>(
 public value class GW2SkinId(
     /** The raw (type-unsafe) value. */
     public val raw: Int
-)
+) {
+    override fun toString(): String = raw.toString()
+}

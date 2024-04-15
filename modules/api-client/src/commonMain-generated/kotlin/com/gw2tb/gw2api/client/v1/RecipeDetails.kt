@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1RecipeDetails(recipeId: Int, configure: RequestConfigurator<GW2v1RecipeDetails>? = null): RequestBuilder<GW2v1RecipeDetails> = request(
+public fun gw2v1RecipeDetails(recipeId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1RecipeDetails> = RequestTemplate(
     path = "/v1/recipe_details",
     parameters = mapOfNonNullValues("recipe_id" to recipeId),
     replaceInPath = mapOfNonNullValues(),
@@ -43,7 +43,8 @@ public fun GW2APIClient.gw2v1RecipeDetails(recipeId: Int, configure: RequestConf
     configure = configure
 )
 
-public fun GW2APIClient.gw2v1RecipeDetails(recipeId: GW2RecipeId, configure: RequestConfigurator<GW2v1RecipeDetails>? = null): RequestBuilder<GW2v1RecipeDetails> = request(
+@JvmSynthetic
+public fun gw2v1RecipeDetails(recipeId: GW2RecipeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1RecipeDetails> = RequestTemplate(
     path = "/v1/recipe_details",
     parameters = mapOfNonNullValues("recipe_id" to recipeId),
     replaceInPath = mapOfNonNullValues(),

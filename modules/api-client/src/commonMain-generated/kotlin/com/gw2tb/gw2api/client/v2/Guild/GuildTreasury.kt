@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2GuildTreasury(id: String, configure: RequestConfigurator<List<GW2v2GuildTreasurySlot>>? = null): RequestBuilder<List<GW2v2GuildTreasurySlot>> = request(
+public fun gw2v2GuildTreasury(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2GuildTreasurySlot>> = RequestTemplate(
     path = "/v2/guild/:id/treasury",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),

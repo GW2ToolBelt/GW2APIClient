@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1Colors(configure: RequestConfigurator<GW2v1Colors>? = null): RequestBuilder<GW2v1Colors> = request(
+public fun gw2v1Colors(configure: RequestConfigurer? = null): RequestTemplate<GW2v1Colors> = RequestTemplate(
     path = "/v1/colors",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOfNonNullValues(),

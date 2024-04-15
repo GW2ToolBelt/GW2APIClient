@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2022 Leon Linhart
+ * Copyright (c) 2018-2024 Leon Linhart
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,6 +38,18 @@ kotlin {
                 implementation(libs.kotlin.test)
                 implementation(libs.ktor.client.mock)
             }
+        }
+
+        val nonJvmMain by creating {
+            dependsOn(commonMain.get())
+        }
+
+        named("nativeMain") {
+            dependsOn(nonJvmMain)
+        }
+
+        named("jsMain") {
+            dependsOn(nonJvmMain)
         }
 
         named("jvmTest") {

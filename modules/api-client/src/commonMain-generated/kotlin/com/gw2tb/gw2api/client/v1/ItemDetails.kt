@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1ItemDetails(itemId: Int, configure: RequestConfigurator<GW2v1ItemDetails>? = null): RequestBuilder<GW2v1ItemDetails> = request(
+public fun gw2v1ItemDetails(itemId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1ItemDetails> = RequestTemplate(
     path = "/v1/item_details",
     parameters = mapOfNonNullValues("item_id" to itemId),
     replaceInPath = mapOfNonNullValues(),
@@ -43,7 +43,8 @@ public fun GW2APIClient.gw2v1ItemDetails(itemId: Int, configure: RequestConfigur
     configure = configure
 )
 
-public fun GW2APIClient.gw2v1ItemDetails(itemId: GW2ItemId, configure: RequestConfigurator<GW2v1ItemDetails>? = null): RequestBuilder<GW2v1ItemDetails> = request(
+@JvmSynthetic
+public fun gw2v1ItemDetails(itemId: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1ItemDetails> = RequestTemplate(
     path = "/v1/item_details",
     parameters = mapOfNonNullValues("item_id" to itemId),
     replaceInPath = mapOfNonNullValues(),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2GuildStash(id: String, configure: RequestConfigurator<List<GW2v2GuildStashSection>>? = null): RequestBuilder<List<GW2v2GuildStashSection>> = request(
+public fun gw2v2GuildStash(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2GuildStashSection>> = RequestTemplate(
     path = "/v2/guild/:id/stash",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),

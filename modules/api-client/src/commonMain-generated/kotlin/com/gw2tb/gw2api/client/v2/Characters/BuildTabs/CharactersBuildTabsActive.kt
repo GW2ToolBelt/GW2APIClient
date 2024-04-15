@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CharactersBuildTabsActive(id: String, configure: RequestConfigurator<GW2v2CharactersEquipmentTab>? = null): RequestBuilder<GW2v2CharactersEquipmentTab> = request(
+public fun gw2v2CharactersBuildTabsActive(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CharactersEquipmentTab> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs/active",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),

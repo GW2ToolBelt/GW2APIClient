@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(id: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun gw2v2PvPSeasonsLeaderboards(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(id: String, configure: Reque
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id, "board" to board),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2PvPSeasonsLeaderboards(id: String, board: String, c
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2PvpSeasonsLeaderboardEntry>>? = null): RequestBuilder<List<GW2v2PvpSeasonsLeaderboardEntry>> = request(
+public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to id, "board" to board, "region" to region),

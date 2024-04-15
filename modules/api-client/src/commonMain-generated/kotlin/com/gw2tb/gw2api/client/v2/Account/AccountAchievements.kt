@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountAchievements(configure: RequestConfigurator<List<GW2v2AccountAchievement>>? = null): RequestBuilder<List<GW2v2AccountAchievement>> = request(
+public fun gw2v2AccountAchievements(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountAchievement>> = RequestTemplate(
     path = "/v2/account/achievements",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),

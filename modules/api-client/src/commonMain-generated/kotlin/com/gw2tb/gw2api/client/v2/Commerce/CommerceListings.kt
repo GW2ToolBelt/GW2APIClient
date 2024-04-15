@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceListingsIds(configure: RequestConfigurator<List<GW2ItemId>>? = null): RequestBuilder<List<GW2ItemId>> = request(
+public fun gw2v2CommerceListingsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2ItemId>> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2CommerceListingsIds(configure: RequestConfigurator<
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceListingsById(id: Int, configure: RequestConfigurator<GW2v2CommerceListing>? = null): RequestBuilder<GW2v2CommerceListing> = request(
+public fun gw2v2CommerceListingsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceListing> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,8 @@ public fun GW2APIClient.gw2v2CommerceListingsById(id: Int, configure: RequestCon
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2CommerceListingsById(id: GW2ItemId, configure: RequestConfigurator<GW2v2CommerceListing>? = null): RequestBuilder<GW2v2CommerceListing> = request(
+@JvmSynthetic
+public fun gw2v2CommerceListingsById(id: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceListing> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +66,7 @@ public fun GW2APIClient.gw2v2CommerceListingsById(id: GW2ItemId, configure: Requ
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceListingsByIds(ids: List<GW2ItemId>, configure: RequestConfigurator<List<GW2v2CommerceListing>>? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
+public fun gw2v2CommerceListingsByIds(ids: List<GW2ItemId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceListing>> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -76,7 +77,7 @@ public fun GW2APIClient.gw2v2CommerceListingsByIds(ids: List<GW2ItemId>, configu
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceListingsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2CommerceListing>>? = null): RequestBuilder<List<GW2v2CommerceListing>> = request(
+public fun gw2v2CommerceListingsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceListing>> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

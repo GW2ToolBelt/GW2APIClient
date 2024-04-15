@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountSkins(configure: RequestConfigurator<List<GW2SkinId>>? = null): RequestBuilder<List<GW2SkinId>> = request(
+public fun gw2v2AccountSkins(configure: RequestConfigurer? = null): RequestTemplate<List<GW2SkinId>> = RequestTemplate(
     path = "/v2/account/skins",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),

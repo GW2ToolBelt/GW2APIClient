@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MaterialsIds(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun gw2v2MaterialsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/materials",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2MaterialsIds(configure: RequestConfigurator<List<In
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MaterialsById(id: Int, configure: RequestConfigurator<GW2v2MaterialCategory>? = null): RequestBuilder<GW2v2MaterialCategory> = request(
+public fun gw2v2MaterialsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MaterialCategory> = RequestTemplate(
     path = "/v2/materials",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2MaterialsById(id: Int, configure: RequestConfigurat
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MaterialsByIds(ids: List<Int>, configure: RequestConfigurator<List<GW2v2MaterialCategory>>? = null): RequestBuilder<List<GW2v2MaterialCategory>> = request(
+public fun gw2v2MaterialsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MaterialCategory>> = RequestTemplate(
     path = "/v2/materials",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -66,7 +66,7 @@ public fun GW2APIClient.gw2v2MaterialsByIds(ids: List<Int>, configure: RequestCo
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MaterialsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2MaterialCategory>>? = null): RequestBuilder<List<GW2v2MaterialCategory>> = request(
+public fun gw2v2MaterialsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MaterialCategory>> = RequestTemplate(
     path = "/v2/materials",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1GuildDetailsByID(guildId: String, configure: RequestConfigurator<GW2v1GuildDetails>? = null): RequestBuilder<GW2v1GuildDetails> = request(
+public fun gw2v1GuildDetailsByID(guildId: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v1GuildDetails> = RequestTemplate(
     path = "/v1/guild_details",
     parameters = mapOfNonNullValues("guild_id" to guildId),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v1GuildDetailsByID(guildId: String, configure: Reques
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1GuildDetailsByName(guildName: String, configure: RequestConfigurator<GW2v1GuildDetails>? = null): RequestBuilder<GW2v1GuildDetails> = request(
+public fun gw2v1GuildDetailsByName(guildName: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v1GuildDetails> = RequestTemplate(
     path = "/v1/guild_details",
     parameters = mapOfNonNullValues("guild_name" to guildName),
     replaceInPath = mapOfNonNullValues(),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1Continents(configure: RequestConfigurator<GW2v1Continents>? = null): RequestBuilder<GW2v1Continents> = request(
+public fun gw2v1Continents(configure: RequestConfigurer? = null): RequestTemplate<GW2v1Continents> = RequestTemplate(
     path = "/v1/continents",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOfNonNullValues(),

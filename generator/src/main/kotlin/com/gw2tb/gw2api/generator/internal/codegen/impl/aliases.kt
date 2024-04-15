@@ -26,7 +26,6 @@ import com.gw2tb.apigen.model.QualifiedTypeName
 import com.gw2tb.apigen.model.joinToString
 import com.gw2tb.apigen.schema.SchemaAlias
 import com.gw2tb.apigen.schema.SchemaInteger
-import com.gw2tb.apigen.schema.SchemaString
 import com.gw2tb.gw2api.generator.internal.codegen.PrintableFile
 import com.gw2tb.gw2api.generator.internal.codegen.asDocComment
 import com.gw2tb.gw2api.generator.internal.codegen.n
@@ -85,7 +84,9 @@ private fun SchemaAlias.printToString(): String {
             public value class GW2${name.toTitleCase()}(
                 /** The raw (type-unsafe) value. */
                 public val raw: ${typeInfo.name}
-            )""".trimIndent()
+            ) {
+                override fun toString(): String = raw.toString()
+            }""".trimIndent()
         )
     }
 }

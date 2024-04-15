@@ -44,4 +44,6 @@ internal object LenientGW2ColorIdSerializer : LenientSerializer<GW2ColorId?>(
 public value class GW2ColorId(
     /** The raw (type-unsafe) value. */
     public val raw: Int
-)
+) {
+    override fun toString(): String = raw.toString()
+}

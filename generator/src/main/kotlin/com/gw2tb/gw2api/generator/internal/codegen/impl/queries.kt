@@ -143,7 +143,7 @@ private fun APIQuery.printQueryFunctions(
                     }
 
                     add(FunctionParameter(
-                        type = "RequestConfigurator<${dataType.name}>? = null",
+                        type = "RequestConfigurer? = null",
                         name = "configure"
                     ))
                 },
@@ -172,7 +172,7 @@ private fun APIQuery.printQueryFunctions(
                 }
 
                 add(FunctionParameter(
-                    type = "RequestConfigurator<${dataType.name}>? = null",
+                    type = "RequestConfigurer? = null",
                     name = "configure"
                 ))
             },
@@ -197,10 +197,12 @@ private fun APIQuery.printFunction(
     return buildString {
         if (canHaveJvmOverloads)
             appendLine("@JvmOverloads")
+        else
+            appendLine("@JvmSynthetic")
 
         append(
             """
-            public fun GW2APIClient.$name(${parameters.joinToString(separator = ", ")}): RequestBuilder<${returnType.name}> = request(
+            public fun $name(${parameters.joinToString(separator = ", ")}): RequestTemplate<${returnType.name}> = RequestTemplate(
                 path = "/v$apiVersion${endpoint.path.toSnakeCase()}",
                 parameters = mapOfNonNullValues($queryParameterMappings),
                 replaceInPath = mapOfNonNullValues(${pathParameters.values.joinToString(separator = ", ") { "\"${it.key}\" to ${it.name.toCamelCase()}" }}),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactions(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun gw2v2CommerceTransactions(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(configure: RequestConfigurator
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun gw2v2CommerceTransactions(relevance: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("relevance" to relevance),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2CommerceTransactions(relevance: String, configure: 
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2CommerceTransaction>>? = null): RequestBuilder<List<GW2v2CommerceTransaction>> = request(
+public fun gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceTransaction>> = RequestTemplate(
     path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("relevance" to relevance, "type" to type),

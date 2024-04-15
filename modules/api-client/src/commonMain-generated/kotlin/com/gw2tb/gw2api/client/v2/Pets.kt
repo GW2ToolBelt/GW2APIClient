@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PetsIds(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun gw2v2PetsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/pets",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2PetsIds(configure: RequestConfigurator<List<Int>>? 
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PetsById(id: Int, configure: RequestConfigurator<GW2v2Pet>? = null): RequestBuilder<GW2v2Pet> = request(
+public fun gw2v2PetsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Pet> = RequestTemplate(
     path = "/v2/pets",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2PetsById(id: Int, configure: RequestConfigurator<GW
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PetsByIds(ids: List<Int>, configure: RequestConfigurator<List<GW2v2Pet>>? = null): RequestBuilder<List<GW2v2Pet>> = request(
+public fun gw2v2PetsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Pet>> = RequestTemplate(
     path = "/v2/pets",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -66,7 +66,7 @@ public fun GW2APIClient.gw2v2PetsByIds(ids: List<Int>, configure: RequestConfigu
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PetsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurator<List<GW2v2Pet>>? = null): RequestBuilder<List<GW2v2Pet>> = request(
+public fun gw2v2PetsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Pet>> = RequestTemplate(
     path = "/v2/pets",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

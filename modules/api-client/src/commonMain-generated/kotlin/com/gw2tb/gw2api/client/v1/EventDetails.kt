@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v1EventDetails(configure: RequestConfigurator<GW2v1EventDetails>? = null): RequestBuilder<GW2v1EventDetails> = request(
+public fun gw2v1EventDetails(configure: RequestConfigurer? = null): RequestTemplate<GW2v1EventDetails> = RequestTemplate(
     path = "/v1/event_details",
     parameters = mapOfNonNullValues(),
     replaceInPath = mapOfNonNullValues(),

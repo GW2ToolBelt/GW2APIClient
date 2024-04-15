@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommerceDelivery(configure: RequestConfigurator<GW2v2CommerceDelivery>? = null): RequestBuilder<GW2v2CommerceDelivery> = request(
+public fun gw2v2CommerceDelivery(configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceDelivery> = RequestTemplate(
     path = "/v2/commerce/delivery",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),

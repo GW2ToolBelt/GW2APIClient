@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPStandings(configure: RequestConfigurator<List<GW2v2PvpStandings>>? = null): RequestBuilder<List<GW2v2PvpStandings>> = request(
+public fun gw2v2PvPStandings(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpStandings>> = RequestTemplate(
     path = "/v2/pvp/standings",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),

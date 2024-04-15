@@ -44,4 +44,6 @@ internal object LenientGW2WorldIdSerializer : LenientSerializer<GW2WorldId?>(
 public value class GW2WorldId(
     /** The raw (type-unsafe) value. */
     public val raw: Int
-)
+) {
+    override fun toString(): String = raw.toString()
+}

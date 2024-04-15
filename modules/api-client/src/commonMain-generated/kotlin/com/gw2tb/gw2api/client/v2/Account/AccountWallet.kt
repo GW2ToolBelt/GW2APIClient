@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AccountWallet(configure: RequestConfigurator<List<GW2v2AccountWalletCurrency>>? = null): RequestBuilder<List<GW2v2AccountWalletCurrency>> = request(
+public fun gw2v2AccountWallet(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountWalletCurrency>> = RequestTemplate(
     path = "/v2/account/wallet",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
