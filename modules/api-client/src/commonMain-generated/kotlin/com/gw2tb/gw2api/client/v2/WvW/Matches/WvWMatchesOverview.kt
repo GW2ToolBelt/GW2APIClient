@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesOverviewIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2WvWMatchesOverviewIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2WvWMatchesOverviewIDs(configure: RequestConfigurato
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesOverviewByID(id: String, configure: RequestConfigurator<GW2v2WvwMatchOverview>? = null): RequestBuilder<GW2v2WvwMatchOverview> = request(
+public fun GW2APIClient.gw2v2WvWMatchesOverviewById(id: String, configure: RequestConfigurator<GW2v2WvwMatchOverview>? = null): RequestBuilder<GW2v2WvwMatchOverview> = request(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2WvWMatchesOverviewByID(id: String, configure: Reque
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWMatchesOverviewByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2WvwMatchOverview>>? = null): RequestBuilder<List<GW2v2WvwMatchOverview>> = request(
+public fun GW2APIClient.gw2v2WvWMatchesOverviewByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2WvwMatchOverview>>? = null): RequestBuilder<List<GW2v2WvwMatchOverview>> = request(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2ContinentsIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2ContinentsIds(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/continents",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2ContinentsIDs(configure: RequestConfigurator<List<I
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2ContinentsByID(id: Int, configure: RequestConfigurator<GW2v2Continent>? = null): RequestBuilder<GW2v2Continent> = request(
+public fun GW2APIClient.gw2v2ContinentsById(id: Int, configure: RequestConfigurator<GW2v2Continent>? = null): RequestBuilder<GW2v2Continent> = request(
     path = "/v2/continents",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2ContinentsByID(id: Int, configure: RequestConfigura
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2ContinentsByIDs(ids: List<Int>, configure: RequestConfigurator<List<GW2v2Continent>>? = null): RequestBuilder<List<GW2v2Continent>> = request(
+public fun GW2APIClient.gw2v2ContinentsByIds(ids: List<Int>, configure: RequestConfigurator<List<GW2v2Continent>>? = null): RequestBuilder<List<GW2v2Continent>> = request(
     path = "/v2/continents",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2Emblem(configure: RequestConfigurator<List<String>>
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2EmblemIds(type: String, configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("type" to type),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2EmblemIDs(type: String, configure: RequestConfigura
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemByID(type: String, id: Int, configure: RequestConfigurator<GW2v2EmblemPart>? = null): RequestBuilder<GW2v2EmblemPart> = request(
+public fun GW2APIClient.gw2v2EmblemById(type: String, id: Int, configure: RequestConfigurator<GW2v2EmblemPart>? = null): RequestBuilder<GW2v2EmblemPart> = request(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues("type" to type),
@@ -66,7 +66,7 @@ public fun GW2APIClient.gw2v2EmblemByID(type: String, id: Int, configure: Reques
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2EmblemByIDs(type: String, ids: List<Int>, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
+public fun GW2APIClient.gw2v2EmblemByIds(type: String, ids: List<Int>, configure: RequestConfigurator<List<GW2v2EmblemPart>>? = null): RequestBuilder<List<GW2v2EmblemPart>> = request(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("type" to type),

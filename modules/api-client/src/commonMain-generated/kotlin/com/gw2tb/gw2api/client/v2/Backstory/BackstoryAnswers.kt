@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2BackstoryAnswersIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2BackstoryAnswersIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/backstory/answers",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2BackstoryAnswersIDs(configure: RequestConfigurator<
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2BackstoryAnswersByID(id: String, configure: RequestConfigurator<GW2v2BackstoryAnswer>? = null): RequestBuilder<GW2v2BackstoryAnswer> = request(
+public fun GW2APIClient.gw2v2BackstoryAnswersById(id: String, configure: RequestConfigurator<GW2v2BackstoryAnswer>? = null): RequestBuilder<GW2v2BackstoryAnswer> = request(
     path = "/v2/backstory/answers",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2BackstoryAnswersByID(id: String, configure: Request
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2BackstoryAnswersByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2BackstoryAnswer>>? = null): RequestBuilder<List<GW2v2BackstoryAnswer>> = request(
+public fun GW2APIClient.gw2v2BackstoryAnswersByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2BackstoryAnswer>>? = null): RequestBuilder<List<GW2v2BackstoryAnswer>> = request(
     path = "/v2/backstory/answers",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

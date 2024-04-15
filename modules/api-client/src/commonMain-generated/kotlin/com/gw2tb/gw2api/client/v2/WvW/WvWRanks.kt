@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksIDs(configure: RequestConfigurator<List<GW2WvwRankId>>? = null): RequestBuilder<List<GW2WvwRankId>> = request(
+public fun GW2APIClient.gw2v2WvWRanksIds(configure: RequestConfigurator<List<GW2WvwRankId>>? = null): RequestBuilder<List<GW2WvwRankId>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2WvWRanksIDs(configure: RequestConfigurator<List<GW2
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksByID(id: Int, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
+public fun GW2APIClient.gw2v2WvWRanksById(id: Int, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,7 @@ public fun GW2APIClient.gw2v2WvWRanksByID(id: Int, configure: RequestConfigurato
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2WvWRanksByID(id: GW2WvwRankId, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
+public fun GW2APIClient.gw2v2WvWRanksById(id: GW2WvwRankId, configure: RequestConfigurator<GW2v2WvwRank>? = null): RequestBuilder<GW2v2WvwRank> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +65,7 @@ public fun GW2APIClient.gw2v2WvWRanksByID(id: GW2WvwRankId, configure: RequestCo
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWRanksByIDs(ids: List<GW2WvwRankId>, configure: RequestConfigurator<List<GW2v2WvwRank>>? = null): RequestBuilder<List<GW2v2WvwRank>> = request(
+public fun GW2APIClient.gw2v2WvWRanksByIds(ids: List<GW2WvwRankId>, configure: RequestConfigurator<List<GW2v2WvwRank>>? = null): RequestBuilder<List<GW2v2WvwRank>> = request(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

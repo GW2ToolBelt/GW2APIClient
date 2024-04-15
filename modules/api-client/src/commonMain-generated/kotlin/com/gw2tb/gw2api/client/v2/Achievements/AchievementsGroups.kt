@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsGroupsIDs(configure: RequestConfigurator<List<GW2AchievementGroupId>>? = null): RequestBuilder<List<GW2AchievementGroupId>> = request(
+public fun GW2APIClient.gw2v2AchievementsGroupsIds(configure: RequestConfigurator<List<GW2AchievementGroupId>>? = null): RequestBuilder<List<GW2AchievementGroupId>> = request(
     path = "/v2/achievements/groups",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2AchievementsGroupsIDs(configure: RequestConfigurato
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsGroupsByID(id: String, configure: RequestConfigurator<GW2v2AchievementGroups>? = null): RequestBuilder<GW2v2AchievementGroups> = request(
+public fun GW2APIClient.gw2v2AchievementsGroupsById(id: String, configure: RequestConfigurator<GW2v2AchievementGroups>? = null): RequestBuilder<GW2v2AchievementGroups> = request(
     path = "/v2/achievements/groups",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,7 @@ public fun GW2APIClient.gw2v2AchievementsGroupsByID(id: String, configure: Reque
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2AchievementsGroupsByID(id: GW2AchievementGroupId, configure: RequestConfigurator<GW2v2AchievementGroups>? = null): RequestBuilder<GW2v2AchievementGroups> = request(
+public fun GW2APIClient.gw2v2AchievementsGroupsById(id: GW2AchievementGroupId, configure: RequestConfigurator<GW2v2AchievementGroups>? = null): RequestBuilder<GW2v2AchievementGroups> = request(
     path = "/v2/achievements/groups",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +65,7 @@ public fun GW2APIClient.gw2v2AchievementsGroupsByID(id: GW2AchievementGroupId, c
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsGroupsByIDs(ids: List<GW2AchievementGroupId>, configure: RequestConfigurator<List<GW2v2AchievementGroups>>? = null): RequestBuilder<List<GW2v2AchievementGroups>> = request(
+public fun GW2APIClient.gw2v2AchievementsGroupsByIds(ids: List<GW2AchievementGroupId>, configure: RequestConfigurator<List<GW2v2AchievementGroups>>? = null): RequestBuilder<List<GW2v2AchievementGroups>> = request(
     path = "/v2/achievements/groups",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

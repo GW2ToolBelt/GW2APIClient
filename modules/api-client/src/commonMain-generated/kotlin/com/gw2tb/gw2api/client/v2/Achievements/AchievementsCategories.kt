@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsCategoriesIDs(configure: RequestConfigurator<List<GW2AchievementCategoryId>>? = null): RequestBuilder<List<GW2AchievementCategoryId>> = request(
+public fun GW2APIClient.gw2v2AchievementsCategoriesIds(configure: RequestConfigurator<List<GW2AchievementCategoryId>>? = null): RequestBuilder<List<GW2AchievementCategoryId>> = request(
     path = "/v2/achievements/categories",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2AchievementsCategoriesIDs(configure: RequestConfigu
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsCategoriesByID(id: Int, configure: RequestConfigurator<GW2v2AchievementCategory>? = null): RequestBuilder<GW2v2AchievementCategory> = request(
+public fun GW2APIClient.gw2v2AchievementsCategoriesById(id: Int, configure: RequestConfigurator<GW2v2AchievementCategory>? = null): RequestBuilder<GW2v2AchievementCategory> = request(
     path = "/v2/achievements/categories",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,7 @@ public fun GW2APIClient.gw2v2AchievementsCategoriesByID(id: Int, configure: Requ
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2AchievementsCategoriesByID(id: GW2AchievementCategoryId, configure: RequestConfigurator<GW2v2AchievementCategory>? = null): RequestBuilder<GW2v2AchievementCategory> = request(
+public fun GW2APIClient.gw2v2AchievementsCategoriesById(id: GW2AchievementCategoryId, configure: RequestConfigurator<GW2v2AchievementCategory>? = null): RequestBuilder<GW2v2AchievementCategory> = request(
     path = "/v2/achievements/categories",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +65,7 @@ public fun GW2APIClient.gw2v2AchievementsCategoriesByID(id: GW2AchievementCatego
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsCategoriesByIDs(ids: List<GW2AchievementCategoryId>, configure: RequestConfigurator<List<GW2v2AchievementCategory>>? = null): RequestBuilder<List<GW2v2AchievementCategory>> = request(
+public fun GW2APIClient.gw2v2AchievementsCategoriesByIds(ids: List<GW2AchievementCategoryId>, configure: RequestConfigurator<List<GW2v2AchievementCategory>>? = null): RequestBuilder<List<GW2v2AchievementCategory>> = request(
     path = "/v2/achievements/categories",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

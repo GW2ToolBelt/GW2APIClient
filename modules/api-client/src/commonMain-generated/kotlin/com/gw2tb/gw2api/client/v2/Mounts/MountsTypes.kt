@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MountsTypesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2MountsTypesIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/mounts/types",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2MountsTypesIDs(configure: RequestConfigurator<List<
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MountsTypesByID(id: String, configure: RequestConfigurator<GW2v2MountType>? = null): RequestBuilder<GW2v2MountType> = request(
+public fun GW2APIClient.gw2v2MountsTypesById(id: String, configure: RequestConfigurator<GW2v2MountType>? = null): RequestBuilder<GW2v2MountType> = request(
     path = "/v2/mounts/types",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2MountsTypesByID(id: String, configure: RequestConfi
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MountsTypesByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2MountType>>? = null): RequestBuilder<List<GW2v2MountType>> = request(
+public fun GW2APIClient.gw2v2MountsTypesByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2MountType>>? = null): RequestBuilder<List<GW2v2MountType>> = request(
     path = "/v2/mounts/types",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

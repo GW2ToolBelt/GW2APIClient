@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPGamesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2PvPGamesIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/pvp/games",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2PvPGamesIDs(configure: RequestConfigurator<List<Str
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPGamesByID(id: String, configure: RequestConfigurator<GW2v2PvpGame>? = null): RequestBuilder<GW2v2PvpGame> = request(
+public fun GW2APIClient.gw2v2PvPGamesById(id: String, configure: RequestConfigurator<GW2v2PvpGame>? = null): RequestBuilder<GW2v2PvpGame> = request(
     path = "/v2/pvp/games",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2PvPGamesByID(id: String, configure: RequestConfigur
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPGamesByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2PvpGame>>? = null): RequestBuilder<List<GW2v2PvpGame>> = request(
+public fun GW2APIClient.gw2v2PvPGamesByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2PvpGame>>? = null): RequestBuilder<List<GW2v2PvpGame>> = request(
     path = "/v2/pvp/games",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

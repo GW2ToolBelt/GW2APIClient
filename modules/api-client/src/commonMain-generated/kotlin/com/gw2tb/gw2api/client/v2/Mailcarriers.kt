@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MailcarriersIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2MailcarriersIds(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/mailcarriers",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2MailcarriersIDs(configure: RequestConfigurator<List
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MailcarriersByID(id: Int, configure: RequestConfigurator<GW2v2Mailcarrier>? = null): RequestBuilder<GW2v2Mailcarrier> = request(
+public fun GW2APIClient.gw2v2MailcarriersById(id: Int, configure: RequestConfigurator<GW2v2Mailcarrier>? = null): RequestBuilder<GW2v2Mailcarrier> = request(
     path = "/v2/mailcarriers",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2MailcarriersByID(id: Int, configure: RequestConfigu
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MailcarriersByIDs(ids: List<Int>, configure: RequestConfigurator<List<GW2v2Mailcarrier>>? = null): RequestBuilder<List<GW2v2Mailcarrier>> = request(
+public fun GW2APIClient.gw2v2MailcarriersByIds(ids: List<Int>, configure: RequestConfigurator<List<GW2v2Mailcarrier>>? = null): RequestBuilder<List<GW2v2Mailcarrier>> = request(
     path = "/v2/mailcarriers",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

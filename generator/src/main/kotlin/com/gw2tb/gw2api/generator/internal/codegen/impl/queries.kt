@@ -86,9 +86,9 @@ private fun APIQuery.printQueryFunctions(
         append(endpoint.path.toTitleCase().replace(Regex("/:([A-Za-z])*"), "").replace("/", ""))
 
         val suffix = querySuffix ?: when (details?.queryType) {
-            QueryType.IDs -> "IDs"
-            is QueryType.ByID -> "ByID"
-            is QueryType.ByIDs -> "ByIDs"
+            QueryType.IDs -> "Ids"
+            is QueryType.ByID -> "ById"
+            is QueryType.ByIDs -> "ByIds"
             QueryType.ByPage -> "ByPage"
             else -> null
         }

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPHeroesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2PvPHeroesIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/pvp/heroes",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2PvPHeroesIDs(configure: RequestConfigurator<List<St
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPHeroesByID(id: String, configure: RequestConfigurator<GW2v2PvpHero>? = null): RequestBuilder<GW2v2PvpHero> = request(
+public fun GW2APIClient.gw2v2PvPHeroesById(id: String, configure: RequestConfigurator<GW2v2PvpHero>? = null): RequestBuilder<GW2v2PvpHero> = request(
     path = "/v2/pvp/heroes",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2PvPHeroesByID(id: String, configure: RequestConfigu
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2PvPHeroesByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2PvpHero>>? = null): RequestBuilder<List<GW2v2PvpHero>> = request(
+public fun GW2APIClient.gw2v2PvPHeroesByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2PvpHero>>? = null): RequestBuilder<List<GW2v2PvpHero>> = request(
     path = "/v2/pvp/heroes",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

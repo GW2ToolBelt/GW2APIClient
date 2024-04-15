@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsIDs(configure: RequestConfigurator<List<GW2AchievementId>>? = null): RequestBuilder<List<GW2AchievementId>> = request(
+public fun GW2APIClient.gw2v2AchievementsIds(configure: RequestConfigurator<List<GW2AchievementId>>? = null): RequestBuilder<List<GW2AchievementId>> = request(
     path = "/v2/achievements",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2AchievementsIDs(configure: RequestConfigurator<List
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsByID(id: Int, configure: RequestConfigurator<GW2v2Achievement>? = null): RequestBuilder<GW2v2Achievement> = request(
+public fun GW2APIClient.gw2v2AchievementsById(id: Int, configure: RequestConfigurator<GW2v2Achievement>? = null): RequestBuilder<GW2v2Achievement> = request(
     path = "/v2/achievements",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,7 @@ public fun GW2APIClient.gw2v2AchievementsByID(id: Int, configure: RequestConfigu
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2AchievementsByID(id: GW2AchievementId, configure: RequestConfigurator<GW2v2Achievement>? = null): RequestBuilder<GW2v2Achievement> = request(
+public fun GW2APIClient.gw2v2AchievementsById(id: GW2AchievementId, configure: RequestConfigurator<GW2v2Achievement>? = null): RequestBuilder<GW2v2Achievement> = request(
     path = "/v2/achievements",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +65,7 @@ public fun GW2APIClient.gw2v2AchievementsByID(id: GW2AchievementId, configure: R
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2AchievementsByIDs(ids: List<GW2AchievementId>, configure: RequestConfigurator<List<GW2v2Achievement>>? = null): RequestBuilder<List<GW2v2Achievement>> = request(
+public fun GW2APIClient.gw2v2AchievementsByIds(ids: List<GW2AchievementId>, configure: RequestConfigurator<List<GW2v2Achievement>>? = null): RequestBuilder<List<GW2v2Achievement>> = request(
     path = "/v2/achievements",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

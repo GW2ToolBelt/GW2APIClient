@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MasteriesIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2MasteriesIds(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/masteries",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2MasteriesIDs(configure: RequestConfigurator<List<In
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MasteriesByID(id: Int, configure: RequestConfigurator<GW2v2Mastery>? = null): RequestBuilder<GW2v2Mastery> = request(
+public fun GW2APIClient.gw2v2MasteriesById(id: Int, configure: RequestConfigurator<GW2v2Mastery>? = null): RequestBuilder<GW2v2Mastery> = request(
     path = "/v2/masteries",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2MasteriesByID(id: Int, configure: RequestConfigurat
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2MasteriesByIDs(ids: List<Int>, configure: RequestConfigurator<List<GW2v2Mastery>>? = null): RequestBuilder<List<GW2v2Mastery>> = request(
+public fun GW2APIClient.gw2v2MasteriesByIds(ids: List<Int>, configure: RequestConfigurator<List<GW2v2Mastery>>? = null): RequestBuilder<List<GW2v2Mastery>> = request(
     path = "/v2/masteries",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

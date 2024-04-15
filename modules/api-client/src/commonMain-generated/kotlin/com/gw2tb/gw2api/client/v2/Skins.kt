@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2SkinsIDs(configure: RequestConfigurator<List<GW2SkinId>>? = null): RequestBuilder<List<GW2SkinId>> = request(
+public fun GW2APIClient.gw2v2SkinsIds(configure: RequestConfigurator<List<GW2SkinId>>? = null): RequestBuilder<List<GW2SkinId>> = request(
     path = "/v2/skins",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2SkinsIDs(configure: RequestConfigurator<List<GW2Ski
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2SkinsByID(id: Int, configure: RequestConfigurator<GW2v2Skin>? = null): RequestBuilder<GW2v2Skin> = request(
+public fun GW2APIClient.gw2v2SkinsById(id: Int, configure: RequestConfigurator<GW2v2Skin>? = null): RequestBuilder<GW2v2Skin> = request(
     path = "/v2/skins",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,7 @@ public fun GW2APIClient.gw2v2SkinsByID(id: Int, configure: RequestConfigurator<G
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2SkinsByID(id: GW2SkinId, configure: RequestConfigurator<GW2v2Skin>? = null): RequestBuilder<GW2v2Skin> = request(
+public fun GW2APIClient.gw2v2SkinsById(id: GW2SkinId, configure: RequestConfigurator<GW2v2Skin>? = null): RequestBuilder<GW2v2Skin> = request(
     path = "/v2/skins",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +65,7 @@ public fun GW2APIClient.gw2v2SkinsByID(id: GW2SkinId, configure: RequestConfigur
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2SkinsByIDs(ids: List<GW2SkinId>, configure: RequestConfigurator<List<GW2v2Skin>>? = null): RequestBuilder<List<GW2v2Skin>> = request(
+public fun GW2APIClient.gw2v2SkinsByIds(ids: List<GW2SkinId>, configure: RequestConfigurator<List<GW2v2Skin>>? = null): RequestBuilder<List<GW2v2Skin>> = request(
     path = "/v2/skins",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

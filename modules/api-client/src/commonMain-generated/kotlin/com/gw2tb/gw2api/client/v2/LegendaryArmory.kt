@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2LegendaryArmoryIDs(configure: RequestConfigurator<List<GW2ItemId>>? = null): RequestBuilder<List<GW2ItemId>> = request(
+public fun GW2APIClient.gw2v2LegendaryArmoryIds(configure: RequestConfigurator<List<GW2ItemId>>? = null): RequestBuilder<List<GW2ItemId>> = request(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2LegendaryArmoryIDs(configure: RequestConfigurator<L
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2LegendaryArmoryByID(id: Int, configure: RequestConfigurator<GW2v2LegendaryArmorySlot>? = null): RequestBuilder<GW2v2LegendaryArmorySlot> = request(
+public fun GW2APIClient.gw2v2LegendaryArmoryById(id: Int, configure: RequestConfigurator<GW2v2LegendaryArmorySlot>? = null): RequestBuilder<GW2v2LegendaryArmorySlot> = request(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,7 @@ public fun GW2APIClient.gw2v2LegendaryArmoryByID(id: Int, configure: RequestConf
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2LegendaryArmoryByID(id: GW2ItemId, configure: RequestConfigurator<GW2v2LegendaryArmorySlot>? = null): RequestBuilder<GW2v2LegendaryArmorySlot> = request(
+public fun GW2APIClient.gw2v2LegendaryArmoryById(id: GW2ItemId, configure: RequestConfigurator<GW2v2LegendaryArmorySlot>? = null): RequestBuilder<GW2v2LegendaryArmorySlot> = request(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +65,7 @@ public fun GW2APIClient.gw2v2LegendaryArmoryByID(id: GW2ItemId, configure: Reque
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2LegendaryArmoryByIDs(ids: List<GW2ItemId>, configure: RequestConfigurator<List<GW2v2LegendaryArmorySlot>>? = null): RequestBuilder<List<GW2v2LegendaryArmorySlot>> = request(
+public fun GW2APIClient.gw2v2LegendaryArmoryByIds(ids: List<GW2ItemId>, configure: RequestConfigurator<List<GW2v2LegendaryArmorySlot>>? = null): RequestBuilder<List<GW2v2LegendaryArmorySlot>> = request(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommercePricesIDs(configure: RequestConfigurator<List<GW2ItemId>>? = null): RequestBuilder<List<GW2ItemId>> = request(
+public fun GW2APIClient.gw2v2CommercePricesIds(configure: RequestConfigurator<List<GW2ItemId>>? = null): RequestBuilder<List<GW2ItemId>> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2CommercePricesIDs(configure: RequestConfigurator<Li
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: RequestConfigurator<GW2v2CommercePrices>? = null): RequestBuilder<GW2v2CommercePrices> = request(
+public fun GW2APIClient.gw2v2CommercePricesById(id: Int, configure: RequestConfigurator<GW2v2CommercePrices>? = null): RequestBuilder<GW2v2CommercePrices> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -54,7 +54,7 @@ public fun GW2APIClient.gw2v2CommercePricesByID(id: Int, configure: RequestConfi
     configure = configure
 )
 
-public fun GW2APIClient.gw2v2CommercePricesByID(id: GW2ItemId, configure: RequestConfigurator<GW2v2CommercePrices>? = null): RequestBuilder<GW2v2CommercePrices> = request(
+public fun GW2APIClient.gw2v2CommercePricesById(id: GW2ItemId, configure: RequestConfigurator<GW2v2CommercePrices>? = null): RequestBuilder<GW2v2CommercePrices> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -65,7 +65,7 @@ public fun GW2APIClient.gw2v2CommercePricesByID(id: GW2ItemId, configure: Reques
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2CommercePricesByIDs(ids: List<GW2ItemId>, configure: RequestConfigurator<List<GW2v2CommercePrices>>? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
+public fun GW2APIClient.gw2v2CommercePricesByIds(ids: List<GW2ItemId>, configure: RequestConfigurator<List<GW2v2CommercePrices>>? = null): RequestBuilder<List<GW2v2CommercePrices>> = request(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

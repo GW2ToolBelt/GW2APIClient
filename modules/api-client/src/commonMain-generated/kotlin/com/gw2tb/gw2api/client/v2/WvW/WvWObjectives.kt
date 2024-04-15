@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWObjectivesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesIDs(configure: RequestConfigurator<Lis
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWObjectivesByID(id: String, configure: RequestConfigurator<GW2v2WvwObjective>? = null): RequestBuilder<GW2v2WvwObjective> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesById(id: String, configure: RequestConfigurator<GW2v2WvwObjective>? = null): RequestBuilder<GW2v2WvwObjective> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2WvWObjectivesByID(id: String, configure: RequestCon
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2WvWObjectivesByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2WvwObjective>>? = null): RequestBuilder<List<GW2v2WvwObjective>> = request(
+public fun GW2APIClient.gw2v2WvWObjectivesByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2WvwObjective>>? = null): RequestBuilder<List<GW2v2WvwObjective>> = request(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

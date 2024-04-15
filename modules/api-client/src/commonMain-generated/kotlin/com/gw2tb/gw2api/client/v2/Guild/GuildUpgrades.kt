@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2GuildUpgradesIDs(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
+public fun GW2APIClient.gw2v2GuildUpgradesIds(configure: RequestConfigurator<List<Int>>? = null): RequestBuilder<List<Int>> = request(
     path = "/v2/guild/upgrades",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2GuildUpgradesIDs(configure: RequestConfigurator<Lis
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2GuildUpgradesByID(id: Int, configure: RequestConfigurator<GW2v2GuildUpgrade>? = null): RequestBuilder<GW2v2GuildUpgrade> = request(
+public fun GW2APIClient.gw2v2GuildUpgradesById(id: Int, configure: RequestConfigurator<GW2v2GuildUpgrade>? = null): RequestBuilder<GW2v2GuildUpgrade> = request(
     path = "/v2/guild/upgrades",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2GuildUpgradesByID(id: Int, configure: RequestConfig
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2GuildUpgradesByIDs(ids: List<Int>, configure: RequestConfigurator<List<GW2v2GuildUpgrade>>? = null): RequestBuilder<List<GW2v2GuildUpgrade>> = request(
+public fun GW2APIClient.gw2v2GuildUpgradesByIds(ids: List<Int>, configure: RequestConfigurator<List<GW2v2GuildUpgrade>>? = null): RequestBuilder<List<GW2v2GuildUpgrade>> = request(
     path = "/v2/guild/upgrades",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

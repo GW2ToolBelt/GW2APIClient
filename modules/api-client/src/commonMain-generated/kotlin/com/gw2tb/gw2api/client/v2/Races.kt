@@ -33,7 +33,7 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesIDs(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
+public fun GW2APIClient.gw2v2RacesIds(configure: RequestConfigurator<List<String>>? = null): RequestBuilder<List<String>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
@@ -44,7 +44,7 @@ public fun GW2APIClient.gw2v2RacesIDs(configure: RequestConfigurator<List<String
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByID(id: String, configure: RequestConfigurator<GW2v2Race>? = null): RequestBuilder<GW2v2Race> = request(
+public fun GW2APIClient.gw2v2RacesById(id: String, configure: RequestConfigurator<GW2v2Race>? = null): RequestBuilder<GW2v2Race> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -55,7 +55,7 @@ public fun GW2APIClient.gw2v2RacesByID(id: String, configure: RequestConfigurato
 )
 
 @JvmOverloads
-public fun GW2APIClient.gw2v2RacesByIDs(ids: List<String>, configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
+public fun GW2APIClient.gw2v2RacesByIds(ids: List<String>, configure: RequestConfigurator<List<GW2v2Race>>? = null): RequestBuilder<List<GW2v2Race>> = request(
     path = "/v2/races",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
