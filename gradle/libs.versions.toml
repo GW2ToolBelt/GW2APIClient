@@ -5,7 +5,7 @@ dokkatoo = "2.3.0"
 junit = "5.10.2"
 kotlin = "2.0.0"
 kotlinx-coroutines = "1.8.0"
-kotlinx-serialization = "1.6.3"
+kotlinx-serialization = "1.7.1"
 ktor = "2.3.12"
 
 
