@@ -78,7 +78,7 @@ internal fun Map<QualifiedTypeName.Declaration, APIType>.asPrintableTestFileSequ
     return entries
         .asSequence()
         .filter { (loc, _) -> loc.nest == null }
-        .map { (loc, type) ->
+        .mapNotNull { (loc, type) ->
             val typeName = loc.toKotlinName(apiVersion)
 
             val content = TestData[type, type.schemaVersion]
@@ -95,7 +95,8 @@ internal fun Map<QualifiedTypeName.Declaration, APIType>.asPrintableTestFileSequ
                     |}
                     """.trimMargin()
                 }
-                .prependIndent(t)
+                .ifBlank { null }
+                ?.prependIndent(t) ?: return@mapNotNull null
 
             PrintableFile(
                 "com/gw2tb/gw2api/types/v$apiVersion/$typeName",
