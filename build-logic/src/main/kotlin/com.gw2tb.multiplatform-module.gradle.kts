@@ -39,15 +39,11 @@ kotlin {
     explicitApi()
     applyDefaultHierarchyTemplate()
 
-    targets.configureEach {
-        compilations.configureEach {
-            compilerOptions.configure {
-                apiVersion = KotlinVersion.KOTLIN_1_9
-                languageVersion = KotlinVersion.KOTLIN_1_9
+    compilerOptions {
+        apiVersion = KotlinVersion.KOTLIN_1_9
+        languageVersion = KotlinVersion.KOTLIN_1_9
 
-                freeCompilerArgs.add("-Xexpect-actual-classes")
-            }
-        }
+        freeCompilerArgs.add("-Xexpect-actual-classes")
     }
 
     js {
@@ -58,11 +54,9 @@ kotlin {
     jvm {
         withJava()
 
-        compilations.configureEach {
-            compilerOptions.configure {
-                jvmTarget = JvmTarget.JVM_11
-                freeCompilerArgs.add("-Xjdk-release=11")
-            }
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_11
+            freeCompilerArgs.add("-Xjdk-release=11")
         }
     }
 
