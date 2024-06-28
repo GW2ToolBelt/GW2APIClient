@@ -42,7 +42,6 @@ kotlin {
 
             dependencies {
                 implementation(projects.apiClientKtor)
-
                 implementation(libs.kotlin.test)
                 implementation(libs.kotlinx.coroutines.test)
             }
@@ -63,6 +62,7 @@ kotlin {
         named("jvmTest") {
             dependencies {
                 api(libs.kotlin.test.junit5)
+                implementation(libs.ktor.client.apache)
             }
         }
     }
