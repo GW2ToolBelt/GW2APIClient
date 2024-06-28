@@ -64,7 +64,9 @@ public class Gw2ApiClientBuilder internal constructor() {
      */
     public var json: Json = Gw2ApiClientDefaults.json
 
-    internal val requestConfigurers: MutableList<RequestConfigurer> = ArrayList(initialCapacity = 1)
+// For some reason, this fails when compiling for the JVM:
+//    internal val requestConfigurers: MutableList<RequestConfigurer> = ArrayList(initialCapacity = 1)
+    internal val requestConfigurers: MutableList<RequestConfigurer> = mutableListOf()
 
     /**
      * Adds a [RequestConfigurer] that is used to configure each request before it is sent.
