@@ -39,6 +39,7 @@ kotlin {
     explicitApi()
     applyDefaultHierarchyTemplate()
 
+    @Suppress("OPT_IN_USAGE")
     compilerOptions {
         apiVersion = KotlinVersion.KOTLIN_1_9
         languageVersion = KotlinVersion.KOTLIN_1_9
@@ -54,6 +55,7 @@ kotlin {
     jvm {
         withJava()
 
+        @Suppress("OPT_IN_USAGE")
         compilerOptions {
             jvmTarget = JvmTarget.JVM_11
             freeCompilerArgs.add("-Xjdk-release=11")
