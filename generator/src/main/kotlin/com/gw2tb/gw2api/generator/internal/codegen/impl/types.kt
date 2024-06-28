@@ -382,7 +382,7 @@ private fun SchemaRecord.printRecordToString(
 
                             appendLine("""if ($condition) put("${property.serialName}", buildJsonObject {""")
 
-                            for ((_, p) in (s as SchemaRecord).properties) {
+                            for ((_, p) in s.properties) {
                                 appendLine("""${t}if ("${p.serialName}" in element) put("${p.serialName}", element["${p.serialName}"]!!)""")
                             }
 
