@@ -40,6 +40,7 @@ kotlin {
         languageVersion = KotlinVersion.KOTLIN_1_8
 
         jvmTarget = JvmTarget.JVM_1_8
+        freeCompilerArgs.add("-Xjdk-release=1.8")
     }
 }
 
