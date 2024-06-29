@@ -22,7 +22,7 @@
 import java.net.http.HttpClient;
 
 /** Provides a {@link HttpClient}-based implementation for GW2APIClient. */
-@SuppressWarnings("JavaModuleNaming")
+@SuppressWarnings({"JavaModuleNaming", "module"})
 module com.gw2tb.gw2api.client.jdk11 {
 
     requires transitive com.gw2tb.gw2api.client;

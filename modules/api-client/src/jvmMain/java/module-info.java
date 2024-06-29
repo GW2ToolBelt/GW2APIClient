@@ -20,6 +20,7 @@
  * SOFTWARE.
  */
 /** Provides type-safe definitions for the objects returned by the Guild Wars 2 API. */
+@SuppressWarnings("module")
 module com.gw2tb.gw2api.client {
 
     requires transitive kotlin.stdlib;
