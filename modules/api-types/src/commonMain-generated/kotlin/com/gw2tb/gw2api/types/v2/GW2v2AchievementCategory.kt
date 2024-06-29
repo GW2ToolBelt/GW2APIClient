@@ -42,7 +42,8 @@ import kotlinx.serialization.json.*
  * @param name the achievement category's localized name
  * @param description the achievement category's localized description
  * @param order a number that can be used to sort the list of categories
- * @param achievements an array containing the IDs of the achievements that this category contains
+ * @param achievements an array containing information about the achievements that this category contains
+ * @param tomorrow an array containing information about the achievements that this category will contain the next day
  */
 @Serializable
 public data class GW2v2AchievementCategory(
@@ -56,6 +57,106 @@ public data class GW2v2AchievementCategory(
     val description: String,
     /** This field holds a number that can be used to sort the list of categories. */
     val order: Int,
-    /** This field holds an array containing the IDs of the achievements that this category contains. */
-    val achievements: List<GW2AchievementId>
-)
+    /** This field holds an array containing information about the achievements that this category contains. */
+    val achievements: List<Entry>,
+    /** This field holds an array containing information about the achievements that this category will contain the next day. */
+    val tomorrow: List<Entry>? = null
+) {
+
+    /**
+     * An achievement entry of a category.
+     *
+     * @param id the achievement's ID
+     * @param flags additional informational flags
+     * @param requiredAccess the access constraints for the achievement
+     * @param level the level constraints for the achievement
+     */
+    @Serializable
+    public data class Entry(
+        /** This field holds the achievement's ID. */
+        val id: GW2AchievementId,
+        /** This field holds additional informational flags. */
+        val flags: List<String>? = null,
+        /** This field holds the access constraints for the achievement. */
+        @SerialName("required_access")
+        val requiredAccess: AccessConstraint? = null,
+        /** This field holds the level constraints for the achievement. */
+        val level: LevelConstraint? = null
+    ) {
+
+        /**
+         * Information about the product requirements for an achievement.
+         *
+         * @param product the product
+         * @param condition the type of the condition
+         */
+        @Serializable
+        public data class AccessConstraint(
+            /** This field holds the product. */
+            val product: String,
+            /** This field holds the type of the condition. */
+            val condition: ConditionType
+        ) {
+
+            @Suppress("ClassName")
+            private object __ConditionTypeSerializer : KSerializer<ConditionType> {
+
+                override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("ConditionType", PrimitiveKind.STRING)
+
+                override fun deserialize(decoder: Decoder): ConditionType = when (val value = decoder.decodeString()) {
+                    "HasAccess" -> ConditionType.HasAccess
+                    "NoAccess" -> ConditionType.NoAccess
+                    else -> ConditionType.Unknown(value)
+                }
+
+                override fun serialize(encoder: Encoder, value: ConditionType) {
+                    encoder.encodeString(value.value)
+                }
+
+            }
+
+
+            /** Information about a condition for an access constraint. */
+            @Serializable(with = __ConditionTypeSerializer::class)
+            public sealed class ConditionType {
+
+                public abstract val value: String
+
+                /** An unknown value. */
+                public data class Unknown(override val value: String) : ConditionType()
+
+                /** the account has access */
+                @Serializable
+                public data object HasAccess : ConditionType() {
+                    override val value: String get() = "HasAccess"
+                }
+
+                /** the account does not have access */
+                @Serializable
+                public data object NoAccess : ConditionType() {
+                    override val value: String get() = "NoAccess"
+                }
+
+            }
+
+        }
+
+        @Suppress("ClassName")
+        @Serializer(forClass = LevelConstraint::class)
+        private object __LevelConstraintGeneratedSerializer : KSerializer<LevelConstraint?>
+
+        @Suppress("ClassName")
+        private object __LevelConstraintSerializer : JsonTupleSerializer<LevelConstraint?>(__LevelConstraintGeneratedSerializer)
+
+        /** Information about the level requirements for an achievement. */
+        @Serializable(with = __LevelConstraintSerializer::class)
+        public data class LevelConstraint(
+            /** This field holds the minimum level for the achievement. */
+            public val minimum: Int,
+            /** This field holds the maximum level for the achievement. */
+            public val maximum: Int
+        )
+
+    }
+
+}

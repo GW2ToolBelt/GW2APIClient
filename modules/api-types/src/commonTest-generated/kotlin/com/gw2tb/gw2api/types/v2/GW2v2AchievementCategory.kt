@@ -37,12 +37,37 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 52,
-                "name": "Blut und Verrücktheit",
+                "id": 6,
+                "name": "Fashion",
                 "description": "",
-                "order": 152,
-                "icon": "https://render.guildwars2.com/file/A0510AF3DC025EA7DDDEE037082BCD082E36081D/647965.png",
-                "achievements": []
+                "order": 14,
+                "icon": "https://render.guildwars2.com/file/7FCDBD1110A3F8A3172541ED05664165C4A7B918/42683.png",
+                "achievements": [
+                    {
+                        "id": 93
+                    },
+                    {
+                        "id": 94
+                    },
+                    {
+                        "id": 95
+                    },
+                    {
+                        "id": 96
+                    },
+                    {
+                        "id": 97
+                    },
+                    {
+                        "id": 223
+                    },
+                    {
+                        "id": 1567
+                    },
+                    {
+                        "id": 3935
+                    }
+                ]
             }
             """.trimIndent()
         )
@@ -53,11 +78,11 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 136,
-                "name": "Fraktale der Nebel",
+                "id": 36,
+                "name": "Support Ellen Kiel",
                 "description": "",
-                "order": 502,
-                "icon": "https://render.guildwars2.com/file/9A6791950A5F3EBD15C91C2942F1E3C8D5221B28/602779.png",
+                "order": 206,
+                "icon": "https://render.guildwars2.com/file/BE6160536DAA6E2F06BC03507325B2CB51639B75/607412.png",
                 "achievements": []
             }
             """.trimIndent()
@@ -69,14 +94,12 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 207,
-                "name": "Täglicher Jäger versunkener Schätze",
+                "id": 37,
+                "name": "Support Evon Gnashblade",
                 "description": "",
-                "order": 22,
-                "icon": "https://render.guildwars2.com/file/9380EEBE040AF400A2EFCC08175F4D9B6CB2F70A/1983619.png",
-                "achievements": [
-                    4181
-                ]
+                "order": 207,
+                "icon": "https://render.guildwars2.com/file/744850091DAB68170ECB2DA14D072C2F731D71B2/607413.png",
+                "achievements": []
             }
             """.trimIndent()
         )
@@ -87,77 +110,64 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 254,
-                "name": "Jormags Erwachen",
+                "id": 79,
+                "name": "Halloween Daily",
                 "description": "",
                 "order": 1,
-                "icon": "https://render.guildwars2.com/file/4BC6585054945E93B7061FBD5B04BF79A198FB78/2314913.png",
+                "icon": "https://render.guildwars2.com/file/7148FBEFC0071191C91BFD37D1346BF70DA65403/602778.png",
                 "achievements": [
-                    5380,
-                    5353,
-                    5379,
-                    5417,
-                    5366,
-                    5415,
-                    5421,
-                    5374,
-                    5378,
-                    5396,
-                    5413,
-                    5348,
-                    5401,
-                    5376,
-                    5387,
-                    5357,
-                    5369,
-                    5351,
-                    5419,
-                    5394,
-                    5423,
-                    5403,
-                    5364,
-                    5359,
-                    5362,
-                    5386,
-                    5410,
-                    5424,
-                    5414,
-                    5350,
-                    5363,
-                    5420,
-                    5383,
-                    5409,
-                    5402,
-                    5428,
-                    5368,
-                    5418,
-                    5412,
-                    5393,
-                    5377,
-                    5347,
-                    5349,
-                    5406,
-                    5397,
-                    5375,
-                    5354,
-                    5390,
-                    5422,
-                    5429,
-                    5408,
-                    5416,
-                    5382,
-                    5372,
-                    5389,
-                    5352,
-                    5381,
-                    5365,
-                    5358,
-                    5405,
-                    5411,
-                    5361,
-                    5367,
-                    5391,
-                    5476
+                    {
+                        "id": 1022
+                    },
+                    {
+                        "id": 1024
+                    },
+                    {
+                        "id": 1025
+                    },
+                    {
+                        "id": 3167,
+                        "flags": [
+                            "SpecialEvent",
+                            "PvE"
+                        ]
+                    },
+                    {
+                        "id": 3929
+                    },
+                    {
+                        "id": 4437
+                    },
+                    {
+                        "id": 6775
+                    }
+                ],
+                "tomorrow": [
+                    {
+                        "id": 1021
+                    },
+                    {
+                        "id": 1023
+                    },
+                    {
+                        "id": 3167,
+                        "flags": [
+                            "SpecialEvent",
+                            "PvE"
+                        ]
+                    },
+                    {
+                        "id": 3930
+                    },
+                    {
+                        "id": 3933
+                    },
+                    {
+                        "id": 4451
+                    },
+                    {
+                        "id": 6775
+                    }
                 ]
             }
             """.trimIndent()
@@ -169,20 +179,104 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 256,
-                "name": "Meta-Event-Ansturm",
+                "id": 88,
+                "name": "Daily Fractals",
                 "description": "",
                 "order": 2,
-                "icon": "https://render.guildwars2.com/file/C2E37DE77D0C024B06F1E0A5F738524A07E9CF2B/797625.png",
+                "icon": "https://render.guildwars2.com/file/4A5834E40CDC6A0C44085B1F697565002D71CD47/1228226.png",
                 "achievements": [
-                    4773,
-                    4755,
-                    4767,
-                    4768,
-                    4772,
-                    4761,
-                    4769,
-                    4756
+                    {
+                        "id": 2153
+                    },
+                    {
+                        "id": 2591
+                    },
+                    {
+                        "id": 2889
+                    },
+                    {
+                        "id": 2896
+                    },
+                    {
+                        "id": 2897
+                    },
+                    {
+                        "id": 2907
+                    },
+                    {
+                        "id": 2929
+                    },
+                    {
+                        "id": 2941
+                    },
+                    {
+                        "id": 2947
+                    },
+                    {
+                        "id": 2950
+                    },
+                    {
+                        "id": 3228
+                    },
+                    {
+                        "id": 5437
+                    },
+                    {
+                        "id": 5446
+                    },
+                    {
+                        "id": 5447
+                    },
+                    {
+                        "id": 5449
+                    }
+                ],
+                "tomorrow": [
+                    {
+                        "id": 2239
+                    },
+                    {
+                        "id": 2467
+                    },
+                    {
+                        "id": 2909
+                    },
+                    {
+                        "id": 2927
+                    },
+                    {
+                        "id": 2928
+                    },
+                    {
+                        "id": 2948
+                    },
+                    {
+                        "id": 3038
+                    },
+                    {
+                        "id": 3044
+                    },
+                    {
+                        "id": 3045
+                    },
+                    {
+                        "id": 3063
+                    },
+                    {
+                        "id": 3175
+                    },
+                    {
+                        "id": 3177
+                    },
+                    {
+                        "id": 3196
+                    },
+                    {
+                        "id": 3215
+                    },
+                    {
+                        "id": 3229
+                    }
                 ]
             }
             """.trimIndent()
@@ -194,22 +288,308 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 257,
-                "name": "Champion-Ansturm",
+                "id": 97,
+                "name": "Daily",
                 "description": "",
-                "order": 3,
-                "icon": "https://render.guildwars2.com/file/C2E37DE77D0C024B06F1E0A5F738524A07E9CF2B/797625.png",
+                "order": 0,
+                "icon": "https://render.guildwars2.com/file/483E3939D1A7010BDEA2970FB27703CAAD5FBB0F/42684.png",
                 "achievements": [
-                    4889,
-                    4893,
-                    4886,
-                    4894,
-                    4885,
-                    4888,
-                    4892,
-                    4895,
-                    4887,
-                    4891
+                    {
+                        "id": 437,
+                        "flags": [
+                            "WvW"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1839,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            11,
+                            79
+                        ]
+                    },
+                    {
+                        "id": 1840
+                    },
+                    {
+                        "id": 1850,
+                        "flags": [
+                            "WvW"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1851,
+                        "flags": [
+                            "WvW"
+                        ],
+                        "level": [
+                            31,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1852,
+                        "flags": [
+                            "WvW"
+                        ]
+                    },
+                    {
+                        "id": 1857,
+                        "flags": [
+                            "PvP"
+                        ]
+                    },
+                    {
+                        "id": 1902,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            31,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1932,
+                        "required_access": {
+                            "product": "PathOfFire",
+                            "condition": "NoAccess"
+                        },
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            80,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1946,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            40,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1964,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            11,
+                            39
+                        ]
+                    },
+                    {
+                        "id": 1971,
+                        "flags": [
+                            "PvE"
+                        ]
+                    },
+                    {
+                        "id": 2817,
+                        "flags": [
+                            "PvP"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 3449,
+                        "flags": [
+                            "PvP"
+                        ],
+                        "level": [
+                            31,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 3450,
+                        "flags": [
+                            "PvP"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 3562,
+                        "required_access": {
+                            "product": "PathOfFire",
+                            "condition": "HasAccess"
+                        },
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            80,
+                            80
+                        ]
+                    }
+                ],
+                "tomorrow": [
+                    {
+                        "id": 946,
+                        "flags": [
+                            "WvW"
+                        ]
+                    },
+                    {
+                        "id": 1840
+                    },
+                    {
+                        "id": 1845,
+                        "flags": [
+                            "WvW"
+                        ],
+                        "level": [
+                            31,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1849,
+                        "flags": [
+                            "WvW"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1851,
+                        "flags": [
+                            "WvW"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1856,
+                        "flags": [
+                            "PvP"
+                        ]
+                    },
+                    {
+                        "id": 1861,
+                        "flags": [
+                            "PvP"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1897,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            77,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1929,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            31,
+                            76
+                        ]
+                    },
+                    {
+                        "id": 1939,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1940,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            11,
+                            54
+                        ]
+                    },
+                    {
+                        "id": 1947,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            55,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 1973,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            1,
+                            69
+                        ]
+                    },
+                    {
+                        "id": 1974,
+                        "flags": [
+                            "PvE"
+                        ],
+                        "level": [
+                            70,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 3449,
+                        "flags": [
+                            "PvP"
+                        ],
+                        "level": [
+                            11,
+                            80
+                        ]
+                    },
+                    {
+                        "id": 3450,
+                        "flags": [
+                            "PvP"
+                        ],
+                        "level": [
+                            31,
+                            80
+                        ]
+                    }
                 ]
             }
             """.trimIndent()
@@ -221,22 +601,170 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 258,
-                "name": "Fraktal \"Sunqua-Gipfel\"",
+                "id": 98,
+                "name": "Wintersday Daily",
                 "description": "",
-                "order": 5,
-                "icon": "https://render.guildwars2.com/file/9A6791950A5F3EBD15C91C2942F1E3C8D5221B28/602779.png",
+                "order": 0,
+                "icon": "https://render.guildwars2.com/file/C5CE0723E54B4B2F78A2E6E5496A04B54E7A65E6/602777.png",
                 "achievements": [
-                    5438,
-                    5456,
-                    5451,
-                    5442,
-                    5445,
-                    5450,
-                    5440,
-                    5443,
-                    5439,
-                    5444
+                    {
+                        "id": 1263,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 1265,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 2789,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 3253,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 3263,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 4053,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5067,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5068,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5070,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5071,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5073,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5075,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 6820,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    }
+                ],
+                "tomorrow": [
+                    {
+                        "id": 1262,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 1264,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 1265,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 2789,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 3245,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 3263,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5067,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5068,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5070,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5071,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5073,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 5075,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    },
+                    {
+                        "id": 6820,
+                        "flags": [
+                            "SpecialEvent"
+                        ]
+                    }
                 ]
             }
             """.trimIndent()
@@ -248,99 +776,12 @@ class GW2v2AchievementCategoryTest {
         json.decodeFromString<GW2v2AchievementCategory>(
             """
             {
-                "id": 259,
-                "name": "Wöchentliche Schlachtzüge",
+                "id": 99,
+                "name": "A Very Merry Wintersday '14",
                 "description": "",
-                "order": 4,
-                "icon": "https://render.guildwars2.com/file/9F5C23543CB8C715B7022635C10AA6D5011E74B3/1302679.png",
-                "achievements": [
-                    5455
-                ]
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_08() {
-        json.decodeFromString<GW2v2AchievementCategory>(
-            """
-            {
-                "id": 260,
-                "name": "Fraktal-Ansturm",
-                "description": "",
-                "order": 503,
-                "icon": "https://render.guildwars2.com/file/C2E37DE77D0C024B06F1E0A5F738524A07E9CF2B/797625.png",
-                "achievements": [
-                    5464,
-                    5465,
-                    5462,
-                    5460,
-                    5459
-                ]
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_09() {
-        json.decodeFromString<GW2v2AchievementCategory>(
-            """
-            {
-                "id": 261,
-                "name": "Wöchentliche Fraktale",
-                "description": "",
-                "order": 1,
-                "icon": "https://render.guildwars2.com/file/9A6791950A5F3EBD15C91C2942F1E3C8D5221B28/602779.png",
-                "achievements": [
-                    5453,
-                    5452,
-                    5448,
-                    5441
-                ]
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_10() {
-        json.decodeFromString<GW2v2AchievementCategory>(
-            """
-            {
-                "id": 262,
-                "name": "Anführen der Kristallblüte",
-                "description": "",
-                "order": 1,
-                "icon": "https://render.guildwars2.com/file/C2E37DE77D0C024B06F1E0A5F738524A07E9CF2B/797625.png",
-                "achievements": [
-                    5479,
-                    5532,
-                    5519,
-                    5477
-                ]
-            }
-            """.trimIndent()
-        )
-    }
-    
-    @Test
-    fun testType_11() {
-        json.decodeFromString<GW2v2AchievementCategory>(
-            """
-            {
-                "id": 263,
-                "name": "Anführen der Ebon-Vorhut",
-                "description": "",
-                "order": 1,
-                "icon": "https://render.guildwars2.com/file/C2E37DE77D0C024B06F1E0A5F738524A07E9CF2B/797625.png",
-                "achievements": [
-                    5542,
-                    5531,
-                    5509,
-                    5514
-                ]
+                "order": 163,
+                "icon": "https://render.guildwars2.com/file/C5CE0723E54B4B2F78A2E6E5496A04B54E7A65E6/602777.png",
+                "achievements": []
             }
             """.trimIndent()
         )

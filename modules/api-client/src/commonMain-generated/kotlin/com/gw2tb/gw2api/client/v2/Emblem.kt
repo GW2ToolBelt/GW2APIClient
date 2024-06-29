@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2Emblem(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/emblem",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2Emblem(configure: RequestConfigurer? = null): RequestTemplate<Li
 @JvmOverloads
 public fun gw2v2EmblemIds(type: String, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/emblem",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("type" to type),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -57,7 +57,7 @@ public fun gw2v2EmblemIds(type: String, configure: RequestConfigurer? = null): R
 @JvmOverloads
 public fun gw2v2EmblemById(type: String, id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2EmblemPart> = RequestTemplate(
     path = "/v2/emblem",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues("type" to type),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -68,7 +68,7 @@ public fun gw2v2EmblemById(type: String, id: Int, configure: RequestConfigurer? 
 @JvmOverloads
 public fun gw2v2EmblemByIds(type: String, ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
     path = "/v2/emblem",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("type" to type),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -79,7 +79,7 @@ public fun gw2v2EmblemByIds(type: String, ids: List<Int>, configure: RequestConf
 @JvmOverloads
 public fun gw2v2EmblemByPage(type: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
     path = "/v2/emblem",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("type" to type),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

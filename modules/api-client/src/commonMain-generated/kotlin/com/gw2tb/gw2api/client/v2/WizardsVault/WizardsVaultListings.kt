@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2WizardsVaultListingsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/wizardsvault/listings",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2WizardsVaultListingsIds(configure: RequestConfigurer? = null): R
 @JvmOverloads
 public fun gw2v2WizardsVaultListingsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WizardsVaultListing> = RequestTemplate(
     path = "/v2/wizardsvault/listings",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -57,7 +57,7 @@ public fun gw2v2WizardsVaultListingsById(id: Int, configure: RequestConfigurer? 
 @JvmOverloads
 public fun gw2v2WizardsVaultListingsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultListing>> = RequestTemplate(
     path = "/v2/wizardsvault/listings",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -68,7 +68,7 @@ public fun gw2v2WizardsVaultListingsByIds(ids: List<Int>, configure: RequestConf
 @JvmOverloads
 public fun gw2v2WizardsVaultListingsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultListing>> = RequestTemplate(
     path = "/v2/wizardsvault/listings",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

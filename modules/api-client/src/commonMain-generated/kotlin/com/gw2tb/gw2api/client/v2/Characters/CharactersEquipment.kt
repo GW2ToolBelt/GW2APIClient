@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2CharactersEquipment(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CharactersEquipment> = RequestTemplate(
     path = "/v2/characters/:id/equipment",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),

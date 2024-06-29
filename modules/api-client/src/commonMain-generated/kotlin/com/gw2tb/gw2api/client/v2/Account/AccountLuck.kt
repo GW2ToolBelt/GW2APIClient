@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2AccountLuck(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Luck>> = RequestTemplate(
     path = "/v2/account/luck",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "progression", "unlocks"),
     supportedLanguages = emptySet(),

@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2SkinsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2SkinId>> = RequestTemplate(
     path = "/v2/skins",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2SkinsIds(configure: RequestConfigurer? = null): RequestTemplate<
 @JvmOverloads
 public fun gw2v2SkinsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Skin> = RequestTemplate(
     path = "/v2/skins",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -57,7 +57,7 @@ public fun gw2v2SkinsById(id: Int, configure: RequestConfigurer? = null): Reques
 @JvmSynthetic
 public fun gw2v2SkinsById(id: GW2SkinId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Skin> = RequestTemplate(
     path = "/v2/skins",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -68,7 +68,7 @@ public fun gw2v2SkinsById(id: GW2SkinId, configure: RequestConfigurer? = null): 
 @JvmOverloads
 public fun gw2v2SkinsByIds(ids: List<GW2SkinId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Skin>> = RequestTemplate(
     path = "/v2/skins",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -79,7 +79,7 @@ public fun gw2v2SkinsByIds(ids: List<GW2SkinId>, configure: RequestConfigurer? =
 @JvmOverloads
 public fun gw2v2SkinsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Skin>> = RequestTemplate(
     path = "/v2/skins",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,

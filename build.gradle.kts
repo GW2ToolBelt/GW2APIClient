@@ -66,7 +66,7 @@ dokkatoo {
 
 tasks {
     register<Generate>("generate") {
-        schemaVersion = SchemaVersion.V2_SCHEMA_2022_03_09T02_00_00_000Z
+        schemaVersion = SchemaVersion.V2_SCHEMA_2022_03_23T19_00_00_000Z
 
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 

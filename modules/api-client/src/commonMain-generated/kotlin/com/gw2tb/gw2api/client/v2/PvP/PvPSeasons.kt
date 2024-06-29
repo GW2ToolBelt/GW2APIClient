@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2PvPSeasonsIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/pvp/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2PvPSeasonsIds(configure: RequestConfigurer? = null): RequestTemp
 @JvmOverloads
 public fun gw2v2PvPSeasonsById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpSeason> = RequestTemplate(
     path = "/v2/pvp/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -57,7 +57,7 @@ public fun gw2v2PvPSeasonsById(id: String, configure: RequestConfigurer? = null)
 @JvmOverloads
 public fun gw2v2PvPSeasonsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeason>> = RequestTemplate(
     path = "/v2/pvp/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -68,7 +68,7 @@ public fun gw2v2PvPSeasonsByIds(ids: List<String>, configure: RequestConfigurer?
 @JvmOverloads
 public fun gw2v2PvPSeasonsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeason>> = RequestTemplate(
     path = "/v2/pvp/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,

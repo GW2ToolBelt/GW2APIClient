@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2CommercePricesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2ItemId>> = RequestTemplate(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2CommercePricesIds(configure: RequestConfigurer? = null): Request
 @JvmOverloads
 public fun gw2v2CommercePricesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommercePrices> = RequestTemplate(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -57,7 +57,7 @@ public fun gw2v2CommercePricesById(id: Int, configure: RequestConfigurer? = null
 @JvmSynthetic
 public fun gw2v2CommercePricesById(id: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommercePrices> = RequestTemplate(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -68,7 +68,7 @@ public fun gw2v2CommercePricesById(id: GW2ItemId, configure: RequestConfigurer? 
 @JvmOverloads
 public fun gw2v2CommercePricesByIds(ids: List<GW2ItemId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommercePrices>> = RequestTemplate(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -79,7 +79,7 @@ public fun gw2v2CommercePricesByIds(ids: List<GW2ItemId>, configure: RequestConf
 @JvmOverloads
 public fun gw2v2CommercePricesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommercePrices>> = RequestTemplate(
     path = "/v2/commerce/prices",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

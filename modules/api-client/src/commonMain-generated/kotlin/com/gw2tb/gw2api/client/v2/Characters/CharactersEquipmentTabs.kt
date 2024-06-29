@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2CharactersEquipmentTabsIds(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/characters/:id/equipmenttabs",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2CharactersEquipmentTabsIds(id: String, configure: RequestConfigu
 @JvmOverloads
 public fun gw2v2CharactersEquipmentTabsById(id: String, tab: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CharactersEquipmentTab> = RequestTemplate(
     path = "/v2/characters/:id/equipmenttabs",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "tab" to tab),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "tab" to tab),
     replaceInPath = mapOfNonNullValues("id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
@@ -57,7 +57,7 @@ public fun gw2v2CharactersEquipmentTabsById(id: String, tab: Int, configure: Req
 @JvmOverloads
 public fun gw2v2CharactersEquipmentTabsByIds(id: String, tabs: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CharactersEquipmentTab>> = RequestTemplate(
     path = "/v2/characters/:id/equipmenttabs",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "tabs" to tabs),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "tabs" to tabs),
     replaceInPath = mapOfNonNullValues("id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),
@@ -68,7 +68,7 @@ public fun gw2v2CharactersEquipmentTabsByIds(id: String, tabs: List<Int>, config
 @JvmOverloads
 public fun gw2v2CharactersEquipmentTabsByPage(id: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CharactersEquipmentTab>> = RequestTemplate(
     path = "/v2/characters/:id/equipmenttabs",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to id),
     requiredPermissions = setOf("account", "builds", "characters"),
     supportedLanguages = emptySet(),

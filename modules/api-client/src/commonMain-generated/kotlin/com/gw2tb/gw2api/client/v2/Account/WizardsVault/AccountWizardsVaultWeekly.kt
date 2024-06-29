@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2AccountWizardsVaultWeekly(configure: RequestConfigurer? = null): RequestTemplate<GW2v2AccountWizardsVaultWeekly> = RequestTemplate(
     path = "/v2/account/wizardsvault/weekly",
-    parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account"),
     supportedLanguages = emptySet(),
