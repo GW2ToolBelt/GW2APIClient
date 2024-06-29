@@ -54,7 +54,57 @@ public data class GW2v2WizardsVaultListing(
     @SerialName("item_count")
     val itemCount: Int,
     /** This field holds the type of the listing. */
-    val type: GW2v2Type,
+    val type: Type,
     /** This field holds the cost of this listing (in Astral Acclaim). */
     val cost: Int
-)
+) {
+
+    @Suppress("ClassName")
+    private object __TypeSerializer : KSerializer<Type> {
+
+        override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("Type", PrimitiveKind.STRING)
+
+        override fun deserialize(decoder: Decoder): Type = when (val value = decoder.decodeString()) {
+            "Featured" -> Type.Featured
+            "Normal" -> Type.Normal
+            "Legacy" -> Type.Legacy
+            else -> Type.Unknown(value)
+        }
+
+        override fun serialize(encoder: Encoder, value: Type) {
+            encoder.encodeString(value.value)
+        }
+
+    }
+
+
+    /** the type of the listing */
+    @Serializable(with = __TypeSerializer::class)
+    public sealed class Type {
+
+        public abstract val value: String
+
+        /** An unknown value. */
+        public data class Unknown(override val value: String) : Type()
+
+        /** a featured listing */
+        @Serializable
+        public data object Featured : Type() {
+            override val value: String get() = "Featured"
+        }
+
+        /** a normal listing in the current rewards tab */
+        @Serializable
+        public data object Normal : Type() {
+            override val value: String get() = "Normal"
+        }
+
+        /** a normal listing in the legacy rewards tab */
+        @Serializable
+        public data object Legacy : Type() {
+            override val value: String get() = "Legacy"
+        }
+
+    }
+
+}

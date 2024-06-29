@@ -32,7 +32,7 @@ import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
 
-// Generated for type: AccountWizardsVaultListings
+// Generated for type: AccountWizardsVaultListing
 
 /**
  * Information about a player's available Wizard's Vault listings.
@@ -46,7 +46,7 @@ import kotlinx.serialization.json.*
  * @param purchaseLimit the maximum amount of times this listing can be purchased
  */
 @Serializable
-public data class GW2v2AccountWizardsVaultListings(
+public data class GW2v2AccountWizardsVaultListing(
     /** This field holds the listing's ID. */
     val id: Int,
     /** This field holds the ID of the listed item. */
@@ -56,7 +56,7 @@ public data class GW2v2AccountWizardsVaultListings(
     @SerialName("item_count")
     val itemCount: Int,
     /** This field holds the type of the listing. */
-    val type: GW2v2Type,
+    val type: Type,
     /** This field holds the cost of this listing (in Astral Acclaim). */
     val cost: Int,
     /** This field holds the amount of times this listing has been purchased. */
@@ -64,4 +64,54 @@ public data class GW2v2AccountWizardsVaultListings(
     /** This field holds the maximum amount of times this listing can be purchased. */
     @SerialName("purchase_limit")
     val purchaseLimit: Int? = null
-)
+) {
+
+    @Suppress("ClassName")
+    private object __TypeSerializer : KSerializer<Type> {
+
+        override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("Type", PrimitiveKind.STRING)
+
+        override fun deserialize(decoder: Decoder): Type = when (val value = decoder.decodeString()) {
+            "Featured" -> Type.Featured
+            "Normal" -> Type.Normal
+            "Legacy" -> Type.Legacy
+            else -> Type.Unknown(value)
+        }
+
+        override fun serialize(encoder: Encoder, value: Type) {
+            encoder.encodeString(value.value)
+        }
+
+    }
+
+
+    /** the type of the listing */
+    @Serializable(with = __TypeSerializer::class)
+    public sealed class Type {
+
+        public abstract val value: String
+
+        /** An unknown value. */
+        public data class Unknown(override val value: String) : Type()
+
+        /** a featured listing */
+        @Serializable
+        public data object Featured : Type() {
+            override val value: String get() = "Featured"
+        }
+
+        /** a normal listing in the current rewards tab */
+        @Serializable
+        public data object Normal : Type() {
+            override val value: String get() = "Normal"
+        }
+
+        /** a normal listing in the legacy rewards tab */
+        @Serializable
+        public data object Legacy : Type() {
+            override val value: String get() = "Legacy"
+        }
+
+    }
+
+}

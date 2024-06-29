@@ -26,7 +26,7 @@ import kotlin.test.*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 
-class GW2v2AccountWizardsVaultListingsTest {
+class GW2v2AccountWizardsVaultListingTest {
 
     private val json = Json {
         useAlternativeNames = false // https://github.com/Kotlin/kotlinx.serialization/issues/1512
@@ -34,7 +34,7 @@ class GW2v2AccountWizardsVaultListingsTest {
 
     @Test
     fun testType_00() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 1,
@@ -51,7 +51,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_01() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 2,
@@ -68,7 +68,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_02() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 3,
@@ -85,7 +85,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_03() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 4,
@@ -102,7 +102,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_04() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 5,
@@ -119,7 +119,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_05() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 6,
@@ -136,7 +136,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_06() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 7,
@@ -153,7 +153,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_07() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 8,
@@ -170,7 +170,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_08() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 9,
@@ -185,7 +185,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_09() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 10,
@@ -202,7 +202,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_10() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 11,
@@ -219,7 +219,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_11() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 12,
@@ -236,7 +236,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_12() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 13,
@@ -253,7 +253,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_13() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 14,
@@ -270,7 +270,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_14() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 15,
@@ -287,7 +287,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_15() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 16,
@@ -302,7 +302,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_16() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 17,
@@ -319,7 +319,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_17() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 18,
@@ -336,7 +336,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_18() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 19,
@@ -353,7 +353,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_19() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 20,
@@ -370,7 +370,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_20() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 21,
@@ -387,7 +387,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_21() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 22,
@@ -404,7 +404,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_22() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 23,
@@ -421,7 +421,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_23() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 24,
@@ -438,7 +438,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_24() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 25,
@@ -455,7 +455,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_25() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 26,
@@ -472,7 +472,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_26() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 27,
@@ -489,7 +489,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_27() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 28,
@@ -506,7 +506,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_28() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 29,
@@ -523,7 +523,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_29() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 30,
@@ -540,7 +540,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_30() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 31,
@@ -557,7 +557,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_31() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 32,
@@ -574,7 +574,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_32() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 33,
@@ -591,7 +591,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_33() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 34,
@@ -608,7 +608,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_34() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 35,
@@ -625,7 +625,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_35() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 36,
@@ -642,7 +642,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_36() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 37,
@@ -659,7 +659,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_37() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 38,
@@ -676,7 +676,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_38() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 39,
@@ -693,7 +693,7 @@ class GW2v2AccountWizardsVaultListingsTest {
     
     @Test
     fun testType_39() {
-        json.decodeFromString<GW2v2AccountWizardsVaultListings>(
+        json.decodeFromString<GW2v2AccountWizardsVaultListing>(
             """
             {
                 "id": 40,

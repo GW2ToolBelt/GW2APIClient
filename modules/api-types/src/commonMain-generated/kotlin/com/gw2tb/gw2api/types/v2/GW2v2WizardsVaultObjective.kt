@@ -49,7 +49,57 @@ public data class GW2v2WizardsVaultObjective(
     /** This field holds the objective's title. */
     val title: String,
     /** This field holds the objective's track. */
-    val track: GW2v2Track,
+    val track: Track,
     /** This field holds the amount of Astral Acclaim the player receives for completing the objective. */
     val acclaim: Int
-)
+) {
+
+    @Suppress("ClassName")
+    private object __TrackSerializer : KSerializer<Track> {
+
+        override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("Track", PrimitiveKind.STRING)
+
+        override fun deserialize(decoder: Decoder): Track = when (val value = decoder.decodeString()) {
+            "PvE" -> Track.PvE
+            "PvP" -> Track.PvP
+            "WvW" -> Track.WvW
+            else -> Track.Unknown(value)
+        }
+
+        override fun serialize(encoder: Encoder, value: Track) {
+            encoder.encodeString(value.value)
+        }
+
+    }
+
+
+    /** the objective's track */
+    @Serializable(with = __TrackSerializer::class)
+    public sealed class Track {
+
+        public abstract val value: String
+
+        /** An unknown value. */
+        public data class Unknown(override val value: String) : Track()
+
+        /** a PvE objective */
+        @Serializable
+        public data object PvE : Track() {
+            override val value: String get() = "PvE"
+        }
+
+        /** a PvP objective */
+        @Serializable
+        public data object PvP : Track() {
+            override val value: String get() = "PvP"
+        }
+
+        /** a WvW objective */
+        @Serializable
+        public data object WvW : Track() {
+            override val value: String get() = "WvW"
+        }
+
+    }
+
+}

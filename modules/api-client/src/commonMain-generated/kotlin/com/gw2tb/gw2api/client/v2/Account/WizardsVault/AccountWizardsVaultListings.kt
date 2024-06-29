@@ -33,12 +33,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2AccountWizardsVaultListings(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountWizardsVaultListings>> = RequestTemplate(
+public fun gw2v2AccountWizardsVaultListings(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountWizardsVaultListing>> = RequestTemplate(
     path = "/v2/account/wizardsvault/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-09T02:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountWizardsVaultListings.serializer()),
+    serializer = ListSerializer(GW2v2AccountWizardsVaultListing.serializer()),
     configure = configure
 )
