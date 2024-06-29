@@ -252,6 +252,7 @@ public inline fun <T> DecodingResult<T>.getOrThrow(): T {
  *
  * @since   0.4.0
  */
+@Suppress("UNCHECKED_CAST")
 public inline fun <R, T : R> DecodingResult<T>.getOrElse(
     onFailure: (exception: Throwable) -> R
 ): R {
@@ -259,10 +260,10 @@ public inline fun <R, T : R> DecodingResult<T>.getOrElse(
         callsInPlace(onFailure, InvocationKind.AT_MOST_ONCE)
     }
 
-    return getOrElse(
-        onSchemaMismatch = { _, exception -> onFailure(exception) },
-        onFailure = onFailure
-    )
+    return when (val exception = exceptionOrNull()) {
+        null -> value as T
+        else -> onFailure(exception)
+    }
 }
 
 /**
@@ -324,11 +325,11 @@ public fun <R, T> DecodingResult<T>.fold(
         callsInPlace(onFailure, InvocationKind.AT_MOST_ONCE)
     }
 
-    return fold(
-        onSuccess = onSuccess,
-        onSchemaMismatch = { _, exception -> onFailure(exception) },
-        onFailure = onFailure
-    )
+    @Suppress("UNCHECKED_CAST")
+    return when (val exception = exceptionOrNull()) {
+        null -> onSuccess(value as T)
+        else -> onFailure(exception)
+    }
 }
 
 /**
