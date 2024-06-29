@@ -155,7 +155,7 @@ internal fun SchemaTypeDeclaration.printToString(
         is SchemaConditional -> printConditionalToString(apiVersion, typeName, lookupTypeDeclaration, nest, getNestedTypes)
         is SchemaEnum -> printEnumToString(apiVersion, typeName, lookupTypeDeclaration)
         is SchemaRecord -> printRecordToString(apiVersion, typeName, lookupTypeDeclaration, nest, getNestedTypes, inheritedProperties, interpretationHint)
-        is SchemaTuple -> printTupleToString(apiVersion, typeName, lookupTypeDeclaration)
+        is SchemaTuple -> printTupleToString(apiVersion, typeName, lookupTypeDeclaration, nest, getNestedTypes)
     }
 }
 
@@ -511,8 +511,21 @@ private fun SchemaRecord.printRecordToString(
 private fun SchemaTuple.printTupleToString(
     apiVersion: Int?,
     typeName: String,
-    @Suppress("UNUSED_PARAMETER") lookupTypeDeclaration: (SchemaTypeReference) -> SchemaTypeDeclaration?,
+    lookupTypeDeclaration: (SchemaTypeReference) -> SchemaTypeDeclaration?,
+    nest: List<Name> = emptyList(),
+    getNestedTypes: (nest: List<Name>) -> Sequence<Pair<QualifiedTypeName.Declaration, APIType>> = { emptySequence() }
 ): String {
+    val nestedTypes = getNestedTypes(nest + name)
+    val nestedTypesStr = nestedTypes.joinToString(separator = "$n$n") { (name, type) ->
+        type.printToString(
+            apiVersion = apiVersion,
+            name = name,
+            lookupTypeDeclaration = lookupTypeDeclaration,
+            nest = nest + this@printTupleToString.name,
+            getNestedTypes = getNestedTypes
+        )
+    }
+
     val propertyStrings = elements.map { it.printToString(apiVersion) }
 
     return buildString {
@@ -533,6 +546,17 @@ private fun SchemaTuple.printTupleToString(
         appendLine("public data class $typeName(")
         appendLine(propertyStrings.joinToString(separator = ",$n").prependIndent(t))
         append(")")
+
+        if (nestedTypesStr.isNotEmpty()) {
+            appendLine(" {$n")
+
+            if (nestedTypesStr.isNotEmpty()) {
+                appendLine(nestedTypesStr.prependIndentNonEmpty(t))
+                appendLine()
+            }
+
+            append("}")
+        }
     }
 }
 
