@@ -25,7 +25,7 @@ import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
 
 @InternalGw2ApiClientApi
-public expect interface IHttpClient : Closeable {
+public expect interface IHttpClient : AutoCloseable {
 
     public suspend fun sendAsync(request: Gw2ApiRequest<*>): IHttpResponse
 

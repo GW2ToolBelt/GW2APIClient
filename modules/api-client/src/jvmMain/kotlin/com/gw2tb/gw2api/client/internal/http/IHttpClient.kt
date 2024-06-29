@@ -25,7 +25,7 @@ import com.gw2tb.gw2api.client.Gw2ApiRequest
 import com.gw2tb.gw2api.client.internal.InternalGw2ApiClientApi
 
 @InternalGw2ApiClientApi
-public actual interface IHttpClient : Closeable {
+public actual interface IHttpClient : AutoCloseable {
 
     public fun send(request: Gw2ApiRequest<*>): IHttpResponse
 

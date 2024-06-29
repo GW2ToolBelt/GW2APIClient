@@ -22,7 +22,6 @@
 package com.gw2tb.gw2api.client
 
 import com.gw2tb.gw2api.client.internal.http.IHttpClient
-import com.gw2tb.gw2api.client.internal.http.Closeable
 import com.gw2tb.gw2api.client.internal.InternalGw2ApiClientApi
 import kotlinx.serialization.json.Json
 
@@ -34,7 +33,7 @@ public actual class Gw2ApiClient @InternalGw2ApiClientApi actual constructor(
     private val rateLimiter: RateLimiter?,
     private val json: Json,
     private val requestConfigurers: List<RequestConfigurer>
-) : Closeable by httpClient {
+) : AutoCloseable by httpClient {
 
     @InternalGw2ApiClientApi
     public actual constructor(httpClient: IHttpClient, builder: Gw2ApiClientBuilder): this(
