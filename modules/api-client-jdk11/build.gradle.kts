@@ -39,6 +39,7 @@ kotlin {
         languageVersion = KotlinVersion.KOTLIN_2_0
 
         jvmTarget = JvmTarget.JVM_11
+        freeCompilerArgs.add("-Xjdk-release=11")
     }
 }
 
