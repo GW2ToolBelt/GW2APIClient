@@ -35,7 +35,7 @@ import kotlinx.serialization.json.*
 // Generated for type: AccountWizardsVaultListing
 
 /**
- * Information about a player's available Wizard's Vault listings.
+ * Information about a Wizard's Vault listing available for a player.
  *
  * @param id the listing's ID
  * @param itemId the ID of the listed item
