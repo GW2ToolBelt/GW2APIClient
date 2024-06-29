@@ -58,6 +58,7 @@ public expect fun buildGw2ApiClient(
  *
  * @since   0.5.0
  */
+@Suppress("NOTHING_TO_INLINE")
 @JvmName("newGw2ApiClient")
 public inline fun Gw2ApiClient(): Gw2ApiClient =
     buildGw2ApiClient {}
@@ -69,6 +70,7 @@ public inline fun Gw2ApiClient(): Gw2ApiClient =
  *
  * @since   0.5.0
  */
+@Suppress("NOTHING_TO_INLINE")
 @JvmName("newGw2ApiClient")
 public inline fun Gw2ApiClient(engine: HttpClientEngine): Gw2ApiClient =
     buildGw2ApiClient(engine = engine) {}

@@ -57,8 +57,12 @@ private class KtorHttpClientProxy(private val httpClient: HttpClient) : IHttpCli
     }
 
     override suspend fun sendAsync(request: Gw2ApiRequest<*>): IHttpResponse {
+        val baseUrl = Url(request.baseUrl)
+
         val url = URLBuilder().apply {
-            host = request.baseUrl
+            protocol = baseUrl.protocol
+            host = baseUrl.host
+            pathSegments = request.path.removePrefix("/").split("/")
             pathSegments = request.path.removePrefix("/").split("/")
 
             request.parameters.forEach { (k, v) -> parameters.append(k, v) }
