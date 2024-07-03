@@ -6,22 +6,22 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-2%2E0-green.svg?style=for-the-badge&color=a97bff&logo=Kotlin)
 ![Java](https://img.shields.io/badge/Java-11-green.svg?style=for-the-badge&color=b07219&logo=Java)
 
-**GW2APIClient** is a cross-platform client for the official Guild Wars 2 API.
-By leveraging [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html),
-GW2APIClient can be used on a large variety of platforms (including Android, the
-JVM, and JS) and interoperates seamlessly with various popular programming
-languages.
+A Kotlin Multiplatform library for working with the official [Guild Wars 2](https://www.guildwars2.com)
+API.
+
+The core library is fully written in common Kotlin code. Prebuilt binaries are
+available for JVM (Java 11 or later), JS, Wasm, and several native targets.[^1]
+
+[^1]: We aim to provide prebuilt libraries for all native targets supported by
+Ktor. Despite that, some targets may be missing as target support may change
+over time. In case something is missing, please make sure to let us know.
+
+
+## Usage
 
 GW2APIClient provides low-level access to the data provided by Guild Wars 2's
 API. It does not provide higher-level abstractions, visualizations or analytical
 functionality but may be used to build such tools.
-
-The [api-generator](https://github.com/GW2Toolbelt/api-generator) is used to
-generate the types and endpoint definitions for this library. Head over to its
-repository to learn more about Guild Wars 2's API.
-
-
-## Getting Started
 
 GW2APIClient consists of two primary modules:
 
@@ -42,80 +42,131 @@ reading MumbleLink data.
 The `api-client` module provides definitions for the endpoints available as part
 of the Guild Wars 2 API.
 
+#### Getting Started
 
-#### Configuring the Cache
+To get started with the API client, it is necessary to also pick an
+implementation module:
+
+  - `api-client-jdk11` contains an implementation using Java's `HttpClient`.
+  - `api-client-ktor` contains an implementation using [Ktor](https://ktor.io).
+
+Once the implementation module is chosen, the API client can be built using the
+functions exposed by `JdkGw2ApiClientFactory` or `KtorGw2ApiClientFactory`
+respectively:
+
+```kotlin
+val client = Gw2ApiClient()
+```
+
+#### Implementing Caching
 
 To configure an API client to use a cache, a `CacheAccess` implementation can be
-specified during construction. This library does not provide a default cache
-implementation yet.
+provided when building an API client:
+
+```kotlin
+val client = buildGw2ApiClient {
+    cacheAccess = MyCacheAccess()
+}
+```
+
+This library does not provide a cache implementation. Thus, by default no
+caching is configured.
 
 
-#### Configuring the Rate Limiter
+#### Configuring Rate Limiting
 
-By default, a `GW2APIClient` is configured with a `TokenBucketRateLimiter` with
-`bucketSize` set to 300 and `refillMillis` set to 1 second. While this limit is
-usually a good fit as it matches the behavior of the official API, it may be
-desirable to customize rate limiting.
+To configure an API client to perform client-side rate limiting, a `RateLimiter`
+can be provided when building an API client:
 
-To overwrite the default rate limiter, an `RateLimiter` implementation can be
-passed during the construction of an API client. If the rate limiter is set to
-`null`, the client does not perform any rate limiting.
+```kotlin
+val client = buildGw2ApiClient {
+    rateLimiter = MyRateLimiter()
+}
+```
+
+By default, API clients are configured to use a `TokenBucketRateLimiter` with a
+bucket size of 300 and a refill duration of 1 minute. This configuration roughly
+matches the rate limiting behavior of the official API and should prevent
+requests from running into rate limits.
+
+However, as the same rate limit applies to all clients on a single IP address,
+it may be desirable to adjust the rate limiter to match the specific use case.
 
 
 #### Configuring Requests
 
-Before executing a request, it can be configured by using the `RequestBuilder`
-instance. These builders are initialized with the defaults from the API client
-but many settings may be tweaked as desired.
+Endpoints may return localized data. For example, the `/v2/items` endpoint may
+return item names in different languages. By default, all requests will return
+English information. To request localized data for a different language, the
+`RequestCustomizer` may be used:
 
-| Property           | "Wither"               | Description                                                 |
-|--------------------|------------------------|-------------------------------------------------------------|
-| `apiKey`           | `withAPIKey`           | The API key to use for the request                          |
-| `cacheAccess`      | `withCacheAccess`      | The cache access to use for the request                     |
-| `checkPermissions` | `withPermissionChecks` | Whether client-side permission checks are enabled           |
-| `language`         | `withLanguage`         | The language for the request                                |
-| `rateLimiter`      | `withRateLimiter`      | The rate limiter to use for the request                     |
+```kotlin
+val request = gw2v2ItemsByPage(page = 0, pageSize = 10) {
+    language = Language.GERMAN
+}
+```
 
+Similarly, some endpoints require authentication and an API key has to be
+provided:
 
-#### HttpClient Implementations
+```kotlin
+val request = gw2v2Account() {
+    apiKey = "..."
+}
+```
 
-The `api-client-{jdk11|ktor}` modules provide implementations using Java 11's
-HttpClient or Ktor's HttpClient respectively.
+It is also possible to apply a default configuration to all requests executed by
+an API client:
 
+```kotlin
+val client = buildGw2ApiClient {
+    configureRequests {
+        apiKey = "..."
+        language = Language.GERMAN
+    }
+}
+```
 
 ## Example
 
-### Retrieve the Build ID
+### Retrieving the Build ID
+
+The following example demonstrates how to execute a request against the
+Guild Wars API to retrieve the current build ID:
 
 ```kotlin
 suspend fun main() {
-    val client = GW2APIClient(...)
-    val requestBuilder = client.gw2v2Build()
+    val client = Gw2ApiClient()
+    val buildId = client.executeAsync(gw2v2Build()).dataOrNull?.id ?: error("Failed to fetch build ID.")
     
-    val request = coroutineScope { requestBuilder.execute(this) }
-    val response = request.get()
-    
-    val gw2v2Build = response.data.getOrNull() ?: error("Could not decode request")
-    
-    println("Build ID: ${gw2v2Build.id}")    
+    println("Build ID: ${buildId}")    
 }
 ```
 
 ### Retrieving Items
 
-The following example retrieves the first 1000 items listed in `/v2/items` in
-parallel and prints their ids and names:
+The following example demonstrates one possible way to retrieve multiple items.
+First, the IDs of all items are fetched. Those IDs are then chunked into groups
+of up to 200 IDs each (as this is the maximum number of items that can be
+fetched in one call). Next, requests to fetch the first 10 chunks are started
+asynchronously. Finally, the results are combined and printed to the console:
 
 ```kotlin
-suspend fun main() = coroutineScope {
-    val client = GW2APIClient(/* JDKHttpClientImpl() or KtorHttpClientImpl() */)
-    val itemIds = client.gw2v2ItemsIDs().execute(this).get().data.getOrNull() ?: error("Failed to fetch item IDs.")
+suspend fun main() {
+    val client = Gw2ApiClient()
+    val itemIds = client.executeAsync(gw2v2ItemsIds()).dataOrNull ?: error("Failed to fetch item IDs.")
 
-    val items = itemIds.take(1000).chunked(200).map { ids ->
-        async {
-            client.gw2v2ItemsByIDs(ids).execute(this).get().data.getOrNull() ?: error("Request failed.")
-        }
-    }.awaitAll().flatten()
+    val items = coroutineScope {
+        itemIds
+            .chunked(size = 200)
+            .take(10)
+            .map { ids ->
+                async { client.executeAsync(gw2v2ItemsByIds(ids)).dataOrNull }
+            }
+            .awaitAll()
+            .filterNotNull()
+            .flatten()
+    }
 
     for (item in items) {
         println("[${item.id}] ${item.name}")
@@ -124,11 +175,21 @@ suspend fun main() = coroutineScope {
 ```
 
 
-## Supported Platforms
+## Supported platforms
 
-The library is written in platform-independent Kotlin code and can be used on
-Android, JavaScript and the JVM and native targets. Currently, prebuilt binaries
-are only available for the JVM (and Android) and JS.
+The following [targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) are supported by this
+library:
+
+| Target platform                          | Target preset                                                         |
+|------------------------------------------|-----------------------------------------------------------------------|
+| Kotlin/JVM (can also be used on Android) | `jvm`                                                                 |
+| Kotlin/JS                                | `js`                                                                  |
+| iOS                                      | `iosArm64`, `iosX64`, `iosSimulatorArm64`                             |
+| watchOS                                  | `watchosArm32`, `watchosArm64`, `watchosX64`, `watchosSimulatorArm64` |
+| tvOS                                     | `tvosArm64`, `tvosX64`, `tvosSimulatorArm64`                          |
+| macOS                                    | `macosArm64`, `macosX64`                                              |
+| Linux                                    | `linuxArm64`, `linuxX64`                                              |
+| Windows                                  | `mingwX64`                                                            |
 
 
 ## Building from source
@@ -140,6 +201,12 @@ to detect and select the JDKs required to run the build. Please refer to the
 build scripts to find out which toolchains are requested.
 
 An installed JDK 1.8 (or later) is required to use Gradle.
+
+## Generating Endpoints
+
+The [api-generator](https://github.com/GW2Toolbelt/api-generator) is used to
+generate the types and endpoint definitions for this library. Head over to its
+repository to learn more about Guild Wars 2's API.
 
 ### Building
 
