@@ -28,6 +28,7 @@ import kotlinx.coroutines.sync.withLock
 import kotlin.math.min
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.minutes
 import kotlin.time.TimeSource
 import kotlin.time.times
 
@@ -74,13 +75,13 @@ public interface RateLimiter {
  * A [RateLimiter] implementation that uses the token bucket algorithm.
  *
  * @param bucketSize        the size of the bucket
- * @param refillDuration    the maximum time (in millis) until the bucket if filled after being fully depleted
+ * @param refillDuration    the maximum time until the bucket is filled after being fully depleted
  *
  * @since   0.4.0
  */
 public class TokenBucketRateLimiter(
     private val bucketSize: Int = 300,
-    private val refillDuration: Duration = (1000L * 60).milliseconds
+    private val refillDuration: Duration = 1.minutes
 ) : RateLimiter {
 
     private var currentPermits: Int = 0
