@@ -44,6 +44,7 @@ public fun gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurer? =
 )
 
 @JvmSynthetic
+@JvmName("gw2v2RecipesSearchByInput-Alias")
 public fun gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "input" to input),
@@ -66,6 +67,7 @@ public fun gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurer?
 )
 
 @JvmSynthetic
+@JvmName("gw2v2RecipesSearchByOutput-Alias")
 public fun gw2v2RecipesSearchByOutput(output: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "output" to output),

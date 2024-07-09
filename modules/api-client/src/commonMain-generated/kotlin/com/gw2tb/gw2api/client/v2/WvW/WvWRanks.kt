@@ -55,6 +55,7 @@ public fun gw2v2WvWRanksById(id: Int, configure: RequestConfigurer? = null): Req
 )
 
 @JvmSynthetic
+@JvmName("gw2v2WvWRanksById-Alias")
 public fun gw2v2WvWRanksById(id: GW2WvwRankId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwRank> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
@@ -66,6 +67,18 @@ public fun gw2v2WvWRanksById(id: GW2WvwRankId, configure: RequestConfigurer? = n
 )
 
 @JvmOverloads
+public fun gw2v2WvWRanksByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
+    path = "/v2/wvw/ranks",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2WvwRank.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2WvWRanksByIds-Alias")
 public fun gw2v2WvWRanksByIds(ids: List<GW2WvwRankId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),

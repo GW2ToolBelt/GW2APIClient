@@ -55,6 +55,7 @@ public fun gw2v2ItemsById(id: Int, configure: RequestConfigurer? = null): Reques
 )
 
 @JvmSynthetic
+@JvmName("gw2v2ItemsById-Alias")
 public fun gw2v2ItemsById(id: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Item> = RequestTemplate(
     path = "/v2/items",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
@@ -66,6 +67,18 @@ public fun gw2v2ItemsById(id: GW2ItemId, configure: RequestConfigurer? = null): 
 )
 
 @JvmOverloads
+public fun gw2v2ItemsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Item>> = RequestTemplate(
+    path = "/v2/items",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2Item.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2ItemsByIds-Alias")
 public fun gw2v2ItemsByIds(ids: List<GW2ItemId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Item>> = RequestTemplate(
     path = "/v2/items",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),

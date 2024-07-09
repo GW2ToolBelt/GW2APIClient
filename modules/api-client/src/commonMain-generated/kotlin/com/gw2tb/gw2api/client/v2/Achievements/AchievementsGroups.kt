@@ -55,6 +55,7 @@ public fun gw2v2AchievementsGroupsById(id: String, configure: RequestConfigurer?
 )
 
 @JvmSynthetic
+@JvmName("gw2v2AchievementsGroupsById-Alias")
 public fun gw2v2AchievementsGroupsById(id: GW2AchievementGroupId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2AchievementGroups> = RequestTemplate(
     path = "/v2/achievements/groups",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
@@ -66,6 +67,18 @@ public fun gw2v2AchievementsGroupsById(id: GW2AchievementGroupId, configure: Req
 )
 
 @JvmOverloads
+public fun gw2v2AchievementsGroupsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AchievementGroups>> = RequestTemplate(
+    path = "/v2/achievements/groups",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2AchievementGroups.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2AchievementsGroupsByIds-Alias")
 public fun gw2v2AchievementsGroupsByIds(ids: List<GW2AchievementGroupId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AchievementGroups>> = RequestTemplate(
     path = "/v2/achievements/groups",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),

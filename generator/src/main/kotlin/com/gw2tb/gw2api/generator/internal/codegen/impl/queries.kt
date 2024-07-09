@@ -100,7 +100,9 @@ private fun APIQuery.printQueryFunctions(
     val dataType = schema.toKotlinType(apiVersion, titleCaseName = (schemaClass?.name as? QualifiedTypeName.Declaration)?.let { "GW2v$apiVersion${it.joinToString(transform = Name::toTitleCase)}" })
 
     val requiresJvmOverload = pathParameters.values.any { it.type is SchemaTypeReference }
+        || pathParameters.values.any { it.type is SchemaArray && (it.type as SchemaArray).elements is SchemaTypeReference }
         || queryParameters.values.any { it.type is SchemaTypeReference }
+        || queryParameters.values.any { it.type is SchemaArray && (it.type as SchemaArray).elements is SchemaTypeReference }
 
     return buildList {
         if (requiresJvmOverload) {
@@ -111,13 +113,20 @@ private fun APIQuery.printQueryFunctions(
                 returnType = dataType,
                 parameters = buildList {
                     pathParameters.forEach { (_, param) ->
-                        val type = if (param.type is SchemaTypeReference) {
-                            val name = (param.type as SchemaTypeReference).name as QualifiedTypeName.Alias
-                            val alias = lookupAlias(name)
+                        val type = when {
+                            param.type is SchemaTypeReference -> {
+                                val name = (param.type as SchemaTypeReference).name as QualifiedTypeName.Alias
+                                val alias = lookupAlias(name)
 
-                            alias.type
-                        } else {
-                            param.type
+                                alias.type
+                            }
+                            param.type is SchemaArray && (param.type as SchemaArray).elements is SchemaTypeReference -> {
+                                val name = ((param.type as SchemaArray).elements as SchemaTypeReference).name as QualifiedTypeName.Alias
+                                val alias = lookupAlias(name)
+
+                                (param.type as SchemaArray).copy(elements = alias.type)
+                            }
+                            else -> param.type
                         }
 
                         add(FunctionParameter(
@@ -127,13 +136,20 @@ private fun APIQuery.printQueryFunctions(
                     }
 
                     queryParameters.forEach { (_, param) ->
-                        val type = if (param.type is SchemaTypeReference) {
-                            val name = (param.type as SchemaTypeReference).name as QualifiedTypeName.Alias
-                            val alias = lookupAlias(name)
+                        val type = when {
+                            param.type is SchemaTypeReference -> {
+                                val name = (param.type as SchemaTypeReference).name as QualifiedTypeName.Alias
+                                val alias = lookupAlias(name)
 
-                            alias.type
-                        } else {
-                            param.type
+                                alias.type
+                            }
+                            param.type is SchemaArray && (param.type as SchemaArray).elements is SchemaTypeReference -> {
+                                val name = ((param.type as SchemaArray).elements as SchemaTypeReference).name as QualifiedTypeName.Alias
+                                val alias = lookupAlias(name)
+
+                                (param.type as SchemaArray).copy(elements = alias.type)
+                            }
+                            else -> param.type
                         }
 
                         add(FunctionParameter(
@@ -197,8 +213,10 @@ private fun APIQuery.printFunction(
     return buildString {
         if (canHaveJvmOverloads)
             appendLine("@JvmOverloads")
-        else
+        else {
             appendLine("@JvmSynthetic")
+            appendLine("@JvmName(\"${name}-Alias\")")
+        }
 
         append(
             """

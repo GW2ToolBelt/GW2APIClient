@@ -44,6 +44,7 @@ public fun gw2v1WvWMatchDetails(matchId: String, configure: RequestConfigurer? =
 )
 
 @JvmSynthetic
+@JvmName("gw2v1WvWMatchDetails-Alias")
 public fun gw2v1WvWMatchDetails(matchId: GW2WvwMatchId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1WvwMatchDetails> = RequestTemplate(
     path = "/v1/wvw/match_details",
     parameters = mapOfNonNullValues("match_id" to matchId),

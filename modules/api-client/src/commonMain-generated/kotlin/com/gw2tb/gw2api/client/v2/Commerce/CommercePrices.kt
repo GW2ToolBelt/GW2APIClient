@@ -55,6 +55,7 @@ public fun gw2v2CommercePricesById(id: Int, configure: RequestConfigurer? = null
 )
 
 @JvmSynthetic
+@JvmName("gw2v2CommercePricesById-Alias")
 public fun gw2v2CommercePricesById(id: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommercePrices> = RequestTemplate(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
@@ -66,6 +67,18 @@ public fun gw2v2CommercePricesById(id: GW2ItemId, configure: RequestConfigurer? 
 )
 
 @JvmOverloads
+public fun gw2v2CommercePricesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommercePrices>> = RequestTemplate(
+    path = "/v2/commerce/prices",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2CommercePrices.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2CommercePricesByIds-Alias")
 public fun gw2v2CommercePricesByIds(ids: List<GW2ItemId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommercePrices>> = RequestTemplate(
     path = "/v2/commerce/prices",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),

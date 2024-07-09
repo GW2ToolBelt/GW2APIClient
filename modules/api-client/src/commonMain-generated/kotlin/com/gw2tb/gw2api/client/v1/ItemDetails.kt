@@ -44,6 +44,7 @@ public fun gw2v1ItemDetails(itemId: Int, configure: RequestConfigurer? = null): 
 )
 
 @JvmSynthetic
+@JvmName("gw2v1ItemDetails-Alias")
 public fun gw2v1ItemDetails(itemId: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1ItemDetails> = RequestTemplate(
     path = "/v1/item_details",
     parameters = mapOfNonNullValues("item_id" to itemId),

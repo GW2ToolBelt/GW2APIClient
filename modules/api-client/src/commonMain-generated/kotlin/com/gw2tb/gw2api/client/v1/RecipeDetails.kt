@@ -44,6 +44,7 @@ public fun gw2v1RecipeDetails(recipeId: Int, configure: RequestConfigurer? = nul
 )
 
 @JvmSynthetic
+@JvmName("gw2v1RecipeDetails-Alias")
 public fun gw2v1RecipeDetails(recipeId: GW2RecipeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1RecipeDetails> = RequestTemplate(
     path = "/v1/recipe_details",
     parameters = mapOfNonNullValues("recipe_id" to recipeId),

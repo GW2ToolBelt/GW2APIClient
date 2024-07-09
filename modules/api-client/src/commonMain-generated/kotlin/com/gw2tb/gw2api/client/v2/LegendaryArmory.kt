@@ -55,6 +55,7 @@ public fun gw2v2LegendaryArmoryById(id: Int, configure: RequestConfigurer? = nul
 )
 
 @JvmSynthetic
+@JvmName("gw2v2LegendaryArmoryById-Alias")
 public fun gw2v2LegendaryArmoryById(id: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2LegendaryArmorySlot> = RequestTemplate(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
@@ -66,6 +67,18 @@ public fun gw2v2LegendaryArmoryById(id: GW2ItemId, configure: RequestConfigurer?
 )
 
 @JvmOverloads
+public fun gw2v2LegendaryArmoryByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2LegendaryArmorySlot>> = RequestTemplate(
+    path = "/v2/legendaryarmory",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2LegendaryArmorySlot.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2LegendaryArmoryByIds-Alias")
 public fun gw2v2LegendaryArmoryByIds(ids: List<GW2ItemId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2LegendaryArmorySlot>> = RequestTemplate(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),

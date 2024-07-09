@@ -44,6 +44,7 @@ public fun gw2v1SkinDetails(skinId: Int, configure: RequestConfigurer? = null): 
 )
 
 @JvmSynthetic
+@JvmName("gw2v1SkinDetails-Alias")
 public fun gw2v1SkinDetails(skinId: GW2SkinId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1SkinDetails> = RequestTemplate(
     path = "/v1/skin_details",
     parameters = mapOfNonNullValues("skin_id" to skinId),
