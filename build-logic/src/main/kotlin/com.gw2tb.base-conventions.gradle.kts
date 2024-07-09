@@ -21,4 +21,5 @@
  */
 repositories {
     mavenCentral()
+    maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
 }

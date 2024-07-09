@@ -61,6 +61,10 @@ kotlin {
                 runtimeOnly(libs.junit.jupiter.engine)
             }
         }
+
+        named("wasmJsMain") {
+            dependsOn(nonJvmMain)
+        }
     }
 }
 
