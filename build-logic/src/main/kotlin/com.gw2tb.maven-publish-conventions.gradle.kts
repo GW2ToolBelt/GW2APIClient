@@ -68,7 +68,7 @@ publishing {
             scm {
                 connection = "scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git"
                 developerConnection = "scm:git:git://github.com/GW2ToolBelt/GW2APIClient.git"
-                url = "https://github.com/GW2ToolBelt/GW2APIClient.git"
+                url = "https://github.com/GW2ToolBelt/GW2APIClient"
             }
         }
     }
