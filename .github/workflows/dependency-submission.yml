@@ -1,0 +1,34 @@
+name: Dependency Submission
+on:
+  push:
+    branches:
+      - master
+
+
+env:
+  JDK_VERSION: "22"
+
+
+jobs:
+  submit-dependencies:
+    name: Update Dependency Graph
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: ${{ env.JDK_VERSION }}
+
+      - name: Generate and submit dependency graph
+        uses: gradle/actions/dependency-submission@v3
+        with:
+          build-scan-publish: true
+          build-scan-terms-of-use-url: "https://gradle.com/help/legal-terms-of-use"
+          build-scan-terms-of-use-agree: "yes"
