@@ -5,6 +5,10 @@ on:
       - master
 
 
+permissions:
+  contents: write
+
+
 env:
   JDK_VERSION: "22"
 
