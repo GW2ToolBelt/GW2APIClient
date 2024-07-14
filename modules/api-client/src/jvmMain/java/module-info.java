@@ -29,6 +29,9 @@ module com.gw2tb.gw2api.client {
     requires transitive kotlinx.coroutines.core;
 
     exports com.gw2tb.gw2api.client;
+    exports com.gw2tb.gw2api.client.exceptions;
+    exports com.gw2tb.gw2api.client.v1;
+    exports com.gw2tb.gw2api.client.v2;
 
     exports com.gw2tb.gw2api.client.internal to
         com.gw2tb.gw2api.client.jdk11,
