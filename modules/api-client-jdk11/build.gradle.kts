@@ -24,9 +24,9 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(libs.plugins.dokkatoo.javadoc)
-    alias(libs.plugins.dokkatoo.html)
-    alias(libs.plugins.kotlin.jvm)
+    alias(buildDeps.plugins.dokkatoo.javadoc)
+    alias(buildDeps.plugins.dokkatoo.html)
+    alias(buildDeps.plugins.kotlin.jvm)
     id("com.gw2tb.java-library-conventions")
     id("com.gw2tb.maven-publish-conventions")
 }
@@ -89,6 +89,6 @@ publishing {
 dependencies {
     api(projects.apiClient)
 
-    testImplementation(libs.junit.jupiter.api)
-    testRuntimeOnly(libs.junit.jupiter.engine)
+    testImplementation(buildDeps.junit.jupiter.api)
+    testRuntimeOnly(buildDeps.junit.jupiter.engine)
 }

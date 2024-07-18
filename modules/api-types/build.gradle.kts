@@ -22,8 +22,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(libs.plugins.dokkatoo.html)
-    alias(libs.plugins.kotlin.plugin.serialization)
+    alias(buildDeps.plugins.dokkatoo.html)
+    alias(buildDeps.plugins.kotlin.plugin.serialization)
     id("com.gw2tb.multiplatform-module")
 }
 
@@ -47,13 +47,13 @@ kotlin {
             kotlin.srcDir(files("src/commonTest-generated/kotlin").builtBy(project(":").tasks["generate"]))
 
             dependencies {
-                api(libs.kotlin.test)
+                api(buildDeps.kotlin.test)
             }
         }
 
         named("jvmTest") {
             dependencies {
-                api(libs.kotlin.test.junit5)
+                api(buildDeps.kotlin.test.junit5)
             }
         }
     }

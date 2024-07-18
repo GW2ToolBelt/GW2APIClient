@@ -64,5 +64,5 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.gw2api.generator)
+    implementation(buildDeps.gw2api.generator)
 }

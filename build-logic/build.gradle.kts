@@ -29,5 +29,5 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.kotlin.gradle.plugin)
+    implementation(buildDeps.kotlin.gradle.plugin)
 }

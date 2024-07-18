@@ -41,7 +41,7 @@ publishing {
 
 dependencies {
     constraints {
-        api(libs.gw2api.generator)
+        api(buildDeps.gw2api.generator)
 
         parent!!.subprojects.filter { it.name.startsWith("api-") && it != project }.forEach { module ->
             api(module)

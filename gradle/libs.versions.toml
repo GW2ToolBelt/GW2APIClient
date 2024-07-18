@@ -1,31 +1,15 @@
 [versions]
-api-generator = "0.7.0"
-dokka = "1.9.20"
-dokkatoo = "2.3.1"
-junit = "5.10.3"
-kotlin = "2.0.0"
 kotlinx-coroutines = "1.8.1"
 kotlinx-serialization = "1.7.1"
 ktor = "2.3.12"
 
 
 [libraries]
-# com.gw2tb.api-generator:api-generator - api-generator
-# https://github.com/GW2ToolBelt/api-generator
-gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version.ref = "api-generator" }
-
 # io.ktor - Ktor
 # https://github.com/ktorio/ktor
 ktor-client-apache = { module = "io.ktor:ktor-client-apache", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
-
-# org.jetbrains.kotlin - Kotlin
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
-
-# org.jetbrains.kotlin:kotlin-gradle-plugin  - Kotlin Gradle Plugin
-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin ", version.ref = "kotlin" }
 
 # org.jetbrains.kotlinx:kotlinx-coroutines-[...] - kotlinx.coroutines
 # https://github.com/Kotlin/kotlinx.coroutines
@@ -36,21 +20,3 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 # https://github.com/Kotlin/kotlinx.serialization
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-
-# org.junit - JUnit
-# https://github.com/junit-team/junit5
-junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
-
-
-[plugins]
-# dev.adamko.dokkatoo - Dokkatoo
-# https://github.com/adamko-dev/dokkatoo
-dokkatoo-html = { id = "dev.adamko.dokkatoo-html", version.ref = "dokkatoo" }
-dokkatoo-javadoc = { id = "dev.adamko.dokkatoo-javadoc", version.ref = "dokkatoo" }
-
-# org.jetbrains.kotlin - Kotlin Gradle plugin
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

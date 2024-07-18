@@ -23,10 +23,10 @@ import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.gw2api.generator.tasks.Generate
 
 plugins {
-    alias(libs.plugins.dokkatoo.html)
-    alias(libs.plugins.dokkatoo.javadoc) apply false
-    alias(libs.plugins.kotlin.jvm) apply false
-    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(buildDeps.plugins.dokkatoo.html)
+    alias(buildDeps.plugins.dokkatoo.javadoc) apply false
+    alias(buildDeps.plugins.kotlin.jvm) apply false
+    alias(buildDeps.plugins.kotlin.multiplatform) apply false
     id("com.gw2tb.base-conventions") // Required by the Kotlin Multiplatform plugin to download native tools
     id("com.gw2tb.gw2api.generator")
 }
@@ -60,7 +60,7 @@ dokkatoo {
     }
 
     versions {
-        jetbrainsDokka = libs.versions.dokka
+        jetbrainsDokka = buildDeps.versions.dokka
     }
 }
 

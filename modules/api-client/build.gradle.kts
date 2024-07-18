@@ -22,7 +22,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(libs.plugins.dokkatoo.html)
+    alias(buildDeps.plugins.dokkatoo.html)
     id("com.gw2tb.multiplatform-module")
 }
 
@@ -42,7 +42,7 @@ kotlin {
 
             dependencies {
                 implementation(projects.apiClientKtor)
-                implementation(libs.kotlin.test)
+                implementation(buildDeps.kotlin.test)
                 implementation(libs.kotlinx.coroutines.test)
             }
         }
@@ -61,7 +61,7 @@ kotlin {
 
         named("jvmTest") {
             dependencies {
-                api(libs.kotlin.test.junit5)
+                api(buildDeps.kotlin.test.junit5)
                 implementation(libs.ktor.client.apache)
             }
         }

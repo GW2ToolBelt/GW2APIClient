@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 plugins {
-    alias(libs.plugins.dokkatoo.html)
+    alias(buildDeps.plugins.dokkatoo.html)
     id("com.gw2tb.multiplatform-module")
 }
 
@@ -35,7 +35,7 @@ kotlin {
 
         commonTest {
             dependencies {
-                implementation(libs.kotlin.test)
+                implementation(buildDeps.kotlin.test)
                 implementation(libs.ktor.client.mock)
             }
         }
@@ -54,11 +54,11 @@ kotlin {
 
         named("jvmTest") {
             dependencies {
-                implementation(libs.junit.jupiter.api)
-                implementation(libs.kotlin.test.junit5)
+                implementation(buildDeps.junit.jupiter.api)
+                implementation(buildDeps.kotlin.test.junit5)
                 implementation(libs.ktor.client.apache)
 
-                runtimeOnly(libs.junit.jupiter.engine)
+                runtimeOnly(buildDeps.junit.jupiter.engine)
             }
         }
     }

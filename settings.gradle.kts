@@ -34,6 +34,14 @@ plugins {
 
 rootProject.name = "GW2APIClient"
 
+dependencyResolutionManagement {
+    versionCatalogs {
+        register("buildDeps") {
+            from(files("./gradle/build.versions.toml"))
+        }
+    }
+}
+
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
