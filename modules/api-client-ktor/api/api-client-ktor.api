@@ -1,0 +1,10 @@
+public final class com/gw2tb/gw2api/client/ktor/Gw2ApiClientFactory {
+	public static final fun buildGw2ApiClient (Lcom/gw2tb/gw2api/client/Gw2ApiClientConfigurer;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+	public static final fun buildGw2ApiClient (Lio/ktor/client/engine/HttpClientEngine;Lcom/gw2tb/gw2api/client/Gw2ApiClientConfigurer;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+}
+
+public final class com/gw2tb/gw2api/client/ktor/KtorGw2ApiClientFactory {
+	public static final fun newGw2ApiClient ()Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+	public static final fun newGw2ApiClient (Lio/ktor/client/engine/HttpClientEngine;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+}
+

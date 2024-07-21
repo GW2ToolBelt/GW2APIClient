@@ -1,0 +1,9 @@
+public final class com/gw2tb/gw2api/client/jdk11/JdkGw2ApiClientFactory {
+	public static final fun buildGw2ApiClient (Lcom/gw2tb/gw2api/client/Gw2ApiClientConfigurer;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+	public static final fun buildGw2ApiClient (Ljava/net/http/HttpClient;Lcom/gw2tb/gw2api/client/Gw2ApiClientConfigurer;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+	public static synthetic fun buildGw2ApiClient$default (Ljava/net/http/HttpClient;Lcom/gw2tb/gw2api/client/Gw2ApiClientConfigurer;ILjava/lang/Object;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+	public static final fun newGw2ApiClient ()Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+	public static final fun newGw2ApiClient (Ljava/net/http/HttpClient;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+	public static synthetic fun newGw2ApiClient$default (Ljava/net/http/HttpClient;ILjava/lang/Object;)Lcom/gw2tb/gw2api/client/Gw2ApiClient;
+}
+

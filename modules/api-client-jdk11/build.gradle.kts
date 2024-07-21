@@ -24,6 +24,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    alias(buildDeps.plugins.binary.compatibility.validator)
     alias(buildDeps.plugins.dokkatoo.javadoc)
     alias(buildDeps.plugins.dokkatoo.html)
     alias(buildDeps.plugins.kotlin.jvm)

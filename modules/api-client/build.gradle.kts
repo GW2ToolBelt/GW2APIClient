@@ -22,6 +22,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    alias(buildDeps.plugins.binary.compatibility.validator)
     alias(buildDeps.plugins.dokkatoo.html)
     id("com.gw2tb.multiplatform-module")
 }
