@@ -139,7 +139,7 @@ suspend fun main() {
     val client = Gw2ApiClient()
     val buildId = client.executeAsync(gw2v2Build()).dataOrNull?.id ?: error("Failed to fetch build ID.")
     
-    println("Build ID: ${buildId}")    
+    println("Build ID: $buildId")    
 }
 ```
 
