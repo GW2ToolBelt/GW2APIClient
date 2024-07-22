@@ -109,9 +109,3 @@ kotlin {
         }
     }
 }
-
-tasks {
-    withType<KotlinNpmInstallTask>().configureEach {
-        args += "--ignore-engines"
-    }
-}
