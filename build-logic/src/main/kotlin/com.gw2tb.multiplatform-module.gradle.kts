@@ -19,10 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinWithJavaTarget
-import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
 import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 
@@ -39,7 +39,7 @@ kotlin {
     explicitApi()
     applyDefaultHierarchyTemplate()
 
-    @Suppress("OPT_IN_USAGE")
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
     compilerOptions {
         apiVersion = KotlinVersion.KOTLIN_2_0
         languageVersion = KotlinVersion.KOTLIN_2_0
@@ -55,7 +55,7 @@ kotlin {
     jvm {
         withJava()
 
-        @Suppress("OPT_IN_USAGE")
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget = JvmTarget.JVM_11
             freeCompilerArgs.add("-Xjdk-release=11")
