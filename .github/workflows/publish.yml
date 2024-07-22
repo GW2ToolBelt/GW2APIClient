@@ -234,7 +234,7 @@ jobs:
           ORG_GRADLE_PROJECT_stagingRepositoryId: ${{ needs.create-staging-repository.outputs.staging-repository-id }}
         # Running this on linux and macOS means that we might overwrite some artifacts but that's not an issue since
         # they should be identical anyway.
-        run: ./gradlew publishAllPublicationsToMavenRepository --info -S --show-version
+        run: ./gradlew publishAllPublicationsToMavenRepository --info -S --show-version --no-config-cache
 
 
   close-staging-repository:
