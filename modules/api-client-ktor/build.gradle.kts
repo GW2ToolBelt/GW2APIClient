@@ -92,8 +92,6 @@ publishing {
         pom {
             name = "GW2APIClient Ktor Implementation"
             description = "Ktor HttpClient implementation for GW2APIClient."
-
-            packaging = "jar"
         }
     }
 }

@@ -93,8 +93,6 @@ publishing {
         pom {
             name = "Guild Wars 2 API Type Definitions"
             description = "Definitions for the objects returned by the official Guild Wars 2 API."
-
-            packaging = "jar"
         }
     }
 }

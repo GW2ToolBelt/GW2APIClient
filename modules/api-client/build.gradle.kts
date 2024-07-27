@@ -102,8 +102,6 @@ publishing {
         pom {
             name = "Guild Wars 2 API Query Definitions"
             description = "Definitions for the queries supported by the official Guild Wars 2 API."
-
-            packaging = "jar"
         }
     }
 }
