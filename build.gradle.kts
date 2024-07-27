@@ -78,7 +78,7 @@ tasks {
     }
 
     dokkatooGeneratePublicationHtml {
-        outputDirectory = layout.buildDirectory.dir("docs/site/api")
+        outputDirectory = layout.projectDirectory.dir("docs/site/api")
     }
 }
 
