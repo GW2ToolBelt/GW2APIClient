@@ -65,6 +65,20 @@ jobs:
           tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
           rm ${{ env.WORKSPACE_ARCHIVE }}
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: ${{ env.JDK_VERSION }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-home-cache-cleanup: true
+
+      - name: Dokka Generate
+        run: ./gradlew :dokkatooGenerate --info -S --show-version
+
       - name: Setup Python
         uses: actions/setup-python@v5
 
