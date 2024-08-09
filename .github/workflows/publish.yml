@@ -31,9 +31,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate Gradle wrapper
-        uses: gradle/actions/wrapper-validation@v3
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -41,9 +38,7 @@ jobs:
           java-version: ${{ env.JDK_VERSION }}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-home-cache-cleanup: true
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Gradle Assemble
         run: ./gradlew assemble --info -S --show-version
@@ -85,9 +80,7 @@ jobs:
           java-version: ${{ env.JDK_VERSION }}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-home-cache-cleanup: true
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Gradle Check
         run: ./gradlew check --info -S --show-version
@@ -119,9 +112,7 @@ jobs:
           java-version: ${{ env.JDK_VERSION }}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-home-cache-cleanup: true
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Dokka Generate
         run: ./gradlew :dokkatooGenerate --info -S --show-version
@@ -234,9 +225,7 @@ jobs:
           java-version: ${{ env.JDK_VERSION }}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-home-cache-cleanup: true
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Gradle Publish
         env:
