@@ -2,7 +2,7 @@
 api-generator = "0.7.0"
 binary-compatibility-validator = "0.16.3"
 dokka = "1.9.20"
-dokkatoo = "2.3.1"
+dokkatoo = "2.4.0"
 junit = "5.11.0"
 kotlin = "2.0.20"
 
