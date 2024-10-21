@@ -33,11 +33,14 @@ internal fun <T> RequestTemplate(
     configure: RequestConfigurer?
 ): RequestTemplate<T> {
     @Suppress("NAME_SHADOWING")
-    val path = path.let {
-        var res = it
-        replaceInPath.forEach { (k, v) -> res = res.replace(k, v) }
-        return@let res
-    }
+    val path = path.split('/')
+        .joinToString(separator = "/") {
+            if (it.startsWith(':')) {
+                replaceInPath[it.substring(1)] ?: error("Missing value for path parameter $it")
+            } else {
+                it
+            }
+        }
 
     val template = RequestTemplate(
         path = path,
