@@ -1,0 +1,318 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>GW2v2Profession</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            GW2APIClient
+                    </a>            </div>
+            <div class="library-version">0.6.0
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":api-types/commonMain">common</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="api-types::com.gw2tb.gw2api.types.v2/GW2v2Profession///PointingToDeclaration//1187091007">
+  <div class="breadcrumbs"><a href="../../index.html">api-types</a><span class="delimiter">/</span><a href="../index.html">com.gw2tb.gw2api.types.v2</a><span class="delimiter">/</span><span class="current">GW2v2Profession</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>GW2v2Profession</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">GW2v2Profession</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>code<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>icon<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>bigIcon<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>specializations<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>weapons<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="-weapon/index.html">GW2v2Profession.Weapon</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>flags<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>skills<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-skill/index.html">GW2v2Profession.Skill</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>training<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-training/index.html">GW2v2Profession.Training</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>skillsByPalette<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Information about a playable profession.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>id</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the profession's ID</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>name</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the profession's localized name</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>code</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the profession's palette code</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>icon</span></span></u></div></span></div><div><div class="title"><p class="paragraph">a render service URL for the profession's icon</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>big</span><wbr><span><span>Icon</span></span></u></div></span></div><div><div class="title"><p class="paragraph">a render service URL for a big version of the profession's icon</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>specializations</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the IDs of the profession's specializations</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>weapons</span></span></u></div></span></div><div><div class="title"><p class="paragraph">information about the weapons usable by this profession</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>flags</span></span></u></div></span></div><div><div class="title"><p class="paragraph">additional flags describing this profession's properties (e.g. NoRacialSkills)</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>skills</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the profession specific skills</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>training</span></span></u></div></span></div><div><div class="title"><p class="paragraph">array of trainings of this profession</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>skills</span><wbr><span>By</span><wbr><span><span>Palette</span></span></u></div></span></div><div><div class="title"><p class="paragraph">mappings from palette IDs to skill IDs</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1964166858%2FConstructors%2F1187091007" anchor-label="GW2v2Profession" id="-1964166858%2FConstructors%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-g-w2v2-profession.html"><span><span>GW2v2Profession</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1964166858%2FConstructors%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">code<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">icon<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">bigIcon<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">specializations<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">weapons<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="-weapon/index.html">GW2v2Profession.Weapon</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">flags<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">skills<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-skill/index.html">GW2v2Profession.Skill</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">training<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-training/index.html">GW2v2Profession.Training</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">skillsByPalette<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="2050222311%2FClasslikes%2F1187091007" anchor-label="Skill" id="2050222311%2FClasslikes%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-skill/index.html"><span><span>Skill</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2050222311%2FClasslikes%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-skill/index.html">Skill</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>slot<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>type<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>attunement<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>source<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Information about a profession skill.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1630595408%2FClasslikes%2F1187091007" anchor-label="Training" id="1630595408%2FClasslikes%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-training/index.html"><span><span>Training</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1630595408%2FClasslikes%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-training/index.html">Training</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>category<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>track<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-training/-track/index.html">GW2v2Profession.Training.Track</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Information about training track.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="847517838%2FClasslikes%2F1187091007" anchor-label="Weapon" id="847517838%2FClasslikes%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-weapon/index.html"><span><span>Weapon</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="847517838%2FClasslikes%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-weapon/index.html">Weapon</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>specialization<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>flags<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>skills<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-weapon/-skill/index.html">GW2v2Profession.Weapon.Skill</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Information about a profession's weapon and it's skills.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1815450036%2FProperties%2F1187091007" anchor-label="bigIcon" id="-1815450036%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="big-icon.html"><span>big</span><wbr><span><span>Icon</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1815450036%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"icon_big"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="big-icon.html">bigIcon</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">This field holds a render service URL for a big version of the profession's icon.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1918754152%2FProperties%2F1187091007" anchor-label="code" id="1918754152%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="code.html"><span><span>code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1918754152%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="code.html">code</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">This field holds the profession's palette code.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1560172318%2FProperties%2F1187091007" anchor-label="flags" id="1560172318%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="flags.html"><span><span>flags</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1560172318%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="flags.html">flags</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This field holds additional flags describing this profession's properties (e.g. NoRacialSkills).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1483701156%2FProperties%2F1187091007" anchor-label="icon" id="-1483701156%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="icon.html"><span><span>icon</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1483701156%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="icon.html">icon</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">This field holds a render service URL for the profession's icon.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-814044166%2FProperties%2F1187091007" anchor-label="id" id="-814044166%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-814044166%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">This field holds the profession's ID.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="288874122%2FProperties%2F1187091007" anchor-label="name" id="288874122%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="name.html"><span><span>name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="288874122%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="name.html">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">This field holds the profession's localized name.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="480904883%2FProperties%2F1187091007" anchor-label="skills" id="480904883%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="skills.html"><span><span>skills</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="480904883%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="skills.html">skills</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-skill/index.html">GW2v2Profession.Skill</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This field holds the profession specific skills.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1356546045%2FProperties%2F1187091007" anchor-label="skillsByPalette" id="-1356546045%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="skills-by-palette.html"><span>skills</span><wbr><span>By</span><wbr><span><span>Palette</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1356546045%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/SerialName///PointingToDeclaration/"><span class="token annotation builtin">SerialName</span></span><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"skills_by_palette"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">val </span><a href="skills-by-palette.html">skillsByPalette</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This field holds mappings from palette IDs to skill IDs.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="137258621%2FProperties%2F1187091007" anchor-label="specializations" id="137258621%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="specializations.html"><span><span>specializations</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="137258621%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="specializations.html">specializations</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This field holds the IDs of the profession's specializations.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1992983781%2FProperties%2F1187091007" anchor-label="training" id="-1992983781%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="training.html"><span><span>training</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1992983781%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="training.html">training</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-training/index.html">GW2v2Profession.Training</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This field holds array of trainings of this profession.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-856278066%2FProperties%2F1187091007" anchor-label="weapons" id="-856278066%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="weapons.html"><span><span>weapons</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-856278066%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="weapons.html">weapons</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="-weapon/index.html">GW2v2Profession.Weapon</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This field holds information about the weapons usable by this profession.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
