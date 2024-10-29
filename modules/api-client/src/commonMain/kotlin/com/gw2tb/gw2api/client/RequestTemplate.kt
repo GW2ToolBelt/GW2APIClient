@@ -64,6 +64,7 @@ internal fun <T> RequestTemplate(
  *
  * @since   0.5.0
  */
+@ConsistentCopyVisibility
 public data class RequestTemplate<T> internal constructor(
     val path: String,
     internal val parameters: Map<String, String> = emptyMap(),

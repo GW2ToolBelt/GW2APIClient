@@ -220,8 +220,6 @@ public final class com/gw2tb/gw2api/client/RequestTemplate {
 	public final fun component6 ()Ljava/util/Map;
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Lcom/gw2tb/gw2api/client/Language;
-	public final fun copy (Ljava/lang/String;Ljava/util/Map;Ljava/util/Collection;Ljava/util/Set;Lkotlinx/serialization/KSerializer;Ljava/util/Map;Ljava/lang/String;Lcom/gw2tb/gw2api/client/Language;)Lcom/gw2tb/gw2api/client/RequestTemplate;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/client/RequestTemplate;Ljava/lang/String;Ljava/util/Map;Ljava/util/Collection;Ljava/util/Set;Lkotlinx/serialization/KSerializer;Ljava/util/Map;Ljava/lang/String;Lcom/gw2tb/gw2api/client/Language;ILjava/lang/Object;)Lcom/gw2tb/gw2api/client/RequestTemplate;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getApiKey ()Ljava/lang/String;
 	public final fun getHeaders ()Ljava/util/Map;
