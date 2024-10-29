@@ -28,7 +28,7 @@ import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 
 plugins {
-    id("com.gw2tb.java-library-conventions")
+    id("com.gw2tb.java-base-conventions")
     id("com.gw2tb.maven-publish-conventions")
     kotlin("multiplatform")
 }

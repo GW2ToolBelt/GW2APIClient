@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 plugins {
-    `java-library`
+    java
 }
 
 java {
