@@ -66,6 +66,10 @@ kotlin {
                 implementation(libs.ktor.client.apache)
             }
         }
+
+        named("wasmJsMain") {
+            dependsOn(nonJvmMain)
+        }
     }
 }
 
