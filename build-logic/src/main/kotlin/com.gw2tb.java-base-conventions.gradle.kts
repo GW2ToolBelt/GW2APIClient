@@ -27,8 +27,6 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(22)
     }
-
-    withSourcesJar()
 }
 
 tasks {

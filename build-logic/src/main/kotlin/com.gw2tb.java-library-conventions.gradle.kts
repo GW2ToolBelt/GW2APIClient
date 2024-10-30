@@ -20,30 +20,10 @@
  * SOFTWARE.
  */
 plugins {
+    id("com.gw2tb.java-base-conventions")
     `java-library`
 }
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(22)
-    }
-
     withSourcesJar()
-}
-
-tasks {
-    withType<JavaCompile>().configureEach {
-        options.release = 11
-    }
-
-    withType<Jar>().configureEach {
-        isPreserveFileTimestamps = false
-        isReproducibleFileOrder = true
-
-        includeEmptyDirs = false
-    }
-
-    withType<Test> {
-        useJUnitPlatform()
-    }
 }
