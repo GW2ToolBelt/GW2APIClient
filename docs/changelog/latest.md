@@ -1,12 +1,11 @@
-### 0.6.0
+### 0.7.0
 
-_Released 2024 Oct 25_
+_Released 2024 Oct 30_
 
-#### Fixes
+#### Improvements
 
-- Fixed a critical bug in the path parameter substitution logic that caused
-  requests with path parameters to target invalid endpoints.
+- Build Kotlin/Wasm (`wasmJs`) binaries for all Kotlin multiplatform modules.
 
 #### Breaking Changes
 
-- `api-client-ktor` now requires Ktor 3.
+- The `copy` function of `RequestTemplate` is no longer accessible.
