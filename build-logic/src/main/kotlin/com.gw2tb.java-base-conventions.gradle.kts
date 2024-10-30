@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 plugins {
-    java
+    `java-base`
 }
 
 java {
@@ -43,7 +43,7 @@ tasks {
         includeEmptyDirs = false
     }
 
-    withType<Test> {
+    withType<Test>().configureEach {
         useJUnitPlatform()
     }
 }
