@@ -29,6 +29,7 @@ import kotlinx.serialization.json.Json
 public actual class Gw2ApiClient @InternalGw2ApiClientApi actual constructor(
     private val httpClient: IHttpClient,
     private val host: String,
+    private val authenticationStrategy: AuthenticationStrategy,
     private val cacheAccess: CacheAccess?,
     private val rateLimiter: RateLimiter?,
     private val json: Json,
@@ -39,6 +40,7 @@ public actual class Gw2ApiClient @InternalGw2ApiClientApi actual constructor(
     public actual constructor(httpClient: IHttpClient, builder: Gw2ApiClientBuilder): this(
         httpClient = httpClient,
         host = builder.host,
+        authenticationStrategy = builder.authenticationStrategy,
         cacheAccess = builder.cacheAccess,
         rateLimiter = builder.rateLimiter,
         json = builder.json,
@@ -56,19 +58,32 @@ public actual class Gw2ApiClient @InternalGw2ApiClientApi actual constructor(
             res
         }
 
+        val parameters = buildMap {
+            putAll(template.parameters)
+
+            @OptIn(UnsafeQueryAuthentication::class)
+            if (authenticationStrategy == AuthenticationStrategy.QUERY && template.apiKey != null) {
+                put("access_token", template.apiKey)
+            }
+
+            if (template.language != null) {
+                put("lang", template.language.code)
+            }
+        }
+
+        val headers = buildMap {
+            putAll(template.headers)
+
+            if (authenticationStrategy == AuthenticationStrategy.HEADER && template.apiKey != null) {
+                put("Authorization", "Bearer ${template.apiKey}")
+            }
+        }
+
         val request = Gw2ApiRequest(
             baseUrl = host,
             path = template.path,
-            parameters = if (template.language != null) {
-                template.parameters + ("lang" to template.language.code)
-            } else {
-                template.parameters
-            },
-            headers = if (template.apiKey != null) {
-                template.headers + ("Authorization" to "Bearer ${template.apiKey}")
-            } else {
-                template.headers
-            },
+            parameters = parameters,
+            headers = headers,
             apiKey = template.apiKey,
             language = template.language,
             serializer = template.serializer

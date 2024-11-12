@@ -40,6 +40,15 @@ public class Gw2ApiClientBuilder internal constructor() {
     public var host: String = Gw2ApiClientDefaults.host
 
     /**
+     * The strategy to use for authentication.
+     *
+     * The value defaults to [AuthenticationStrategy.HEADER].
+     *
+     * @since   0.8.0
+     */
+    public var authenticationStrategy: AuthenticationStrategy = AuthenticationStrategy.HEADER
+
+    /**
      * The cache access object to use for caching API responses.
      *
      * This value is optional and defaults to `null`.

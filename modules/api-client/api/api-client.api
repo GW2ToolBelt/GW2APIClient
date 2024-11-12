@@ -1,3 +1,11 @@
+public final class com/gw2tb/gw2api/client/AuthenticationStrategy : java/lang/Enum {
+	public static final field HEADER Lcom/gw2tb/gw2api/client/AuthenticationStrategy;
+	public static final field QUERY Lcom/gw2tb/gw2api/client/AuthenticationStrategy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/gw2tb/gw2api/client/AuthenticationStrategy;
+	public static fun values ()[Lcom/gw2tb/gw2api/client/AuthenticationStrategy;
+}
+
 public abstract interface class com/gw2tb/gw2api/client/CacheAccess {
 	public abstract fun memoize (Lcom/gw2tb/gw2api/client/Gw2ApiResponse;)V
 	public abstract fun query (Lcom/gw2tb/gw2api/client/Gw2ApiRequest;)Lcom/gw2tb/gw2api/client/Gw2ApiResponse;
@@ -54,7 +62,7 @@ public final class com/gw2tb/gw2api/client/DecodingResultKt {
 
 public final class com/gw2tb/gw2api/client/Gw2ApiClient : java/lang/AutoCloseable {
 	public fun <init> (Lcom/gw2tb/gw2api/client/internal/http/IHttpClient;Lcom/gw2tb/gw2api/client/Gw2ApiClientBuilder;)V
-	public fun <init> (Lcom/gw2tb/gw2api/client/internal/http/IHttpClient;Ljava/lang/String;Lcom/gw2tb/gw2api/client/CacheAccess;Lcom/gw2tb/gw2api/client/RateLimiter;Lkotlinx/serialization/json/Json;Ljava/util/List;)V
+	public fun <init> (Lcom/gw2tb/gw2api/client/internal/http/IHttpClient;Ljava/lang/String;Lcom/gw2tb/gw2api/client/AuthenticationStrategy;Lcom/gw2tb/gw2api/client/CacheAccess;Lcom/gw2tb/gw2api/client/RateLimiter;Lkotlinx/serialization/json/Json;Ljava/util/List;)V
 	public fun close ()V
 	public final fun execute (Lcom/gw2tb/gw2api/client/RequestTemplate;)Lcom/gw2tb/gw2api/client/Gw2ApiResponse;
 	public final fun executeAsync (Lcom/gw2tb/gw2api/client/RequestTemplate;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -62,10 +70,12 @@ public final class com/gw2tb/gw2api/client/Gw2ApiClient : java/lang/AutoCloseabl
 
 public final class com/gw2tb/gw2api/client/Gw2ApiClientBuilder {
 	public final fun configureRequest (Lcom/gw2tb/gw2api/client/RequestConfigurer;)V
+	public final fun getAuthenticationStrategy ()Lcom/gw2tb/gw2api/client/AuthenticationStrategy;
 	public final fun getCacheAccess ()Lcom/gw2tb/gw2api/client/CacheAccess;
 	public final fun getHost ()Ljava/lang/String;
 	public final fun getJson ()Lkotlinx/serialization/json/Json;
 	public final fun getRateLimiter ()Lcom/gw2tb/gw2api/client/RateLimiter;
+	public final fun setAuthenticationStrategy (Lcom/gw2tb/gw2api/client/AuthenticationStrategy;)V
 	public final fun setCacheAccess (Lcom/gw2tb/gw2api/client/CacheAccess;)V
 	public final fun setHost (Ljava/lang/String;)V
 	public final fun setJson (Lkotlinx/serialization/json/Json;)V
@@ -303,6 +313,9 @@ public final class com/gw2tb/gw2api/client/TokenBucketRateLimiter : com/gw2tb/gw
 	public fun acquire (I)Lkotlinx/coroutines/flow/Flow;
 	public fun acquire (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun penalize (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface annotation class com/gw2tb/gw2api/client/UnsafeQueryAuthentication : java/lang/annotation/Annotation {
 }
 
 public abstract class com/gw2tb/gw2api/client/exceptions/ClientValidationException : java/lang/Exception {

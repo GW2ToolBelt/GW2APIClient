@@ -57,6 +57,7 @@ public fun Gw2ApiClient(httpClient: IHttpClient, block: Gw2ApiClientConfigurer):
 public expect class Gw2ApiClient @InternalGw2ApiClientApi constructor(
     httpClient: IHttpClient,
     host: String,
+    authenticationStrategy: AuthenticationStrategy,
     cacheAccess: CacheAccess?,
     rateLimiter: RateLimiter?,
     json: Json,
