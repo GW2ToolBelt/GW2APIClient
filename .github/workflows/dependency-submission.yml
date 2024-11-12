@@ -10,7 +10,7 @@ permissions:
 
 
 env:
-  JDK_VERSION: "22"
+  JDK_VERSION: "23"
 
 
 jobs:

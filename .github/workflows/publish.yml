@@ -13,7 +13,7 @@ concurrency:
 
 
 env:
-  JDK_VERSION: "22"
+  JDK_VERSION: "23"
   DOCS_BUNDLE: docs.bundle
   DOCS_BUNDLE_ARTIFACT: docs-bundle
   WORKSPACE_ARCHIVE: workspace.tar
