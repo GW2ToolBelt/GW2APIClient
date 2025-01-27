@@ -4,7 +4,7 @@ binary-compatibility-validator = "0.17.0"
 dokka = "1.9.20"
 dokkatoo = "2.4.0"
 junit = "5.11.4"
-kotlin = "2.1.0"
+kotlin = "2.1.10"
 
 
 [libraries]
