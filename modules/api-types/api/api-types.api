@@ -21,7 +21,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2AchievementCategoryId$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-J_NdidA (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2AchievementCategoryId$Companion {
@@ -51,7 +50,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2AchievementGroupId$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-_TwzOyc (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/String;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2AchievementGroupId$Companion {
@@ -81,7 +79,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2AchievementId$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-6hEmsOM (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2AchievementId$Companion {
@@ -111,7 +108,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2BuildId$$serializer : kotlinx/s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-NLdIfhE (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2BuildId$Companion {
@@ -141,7 +137,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2ColorId$$serializer : kotlinx/s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-WlMpECg (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2ColorId$Companion {
@@ -171,7 +166,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2ContinentId$$serializer : kotli
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-DMRiaIw (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2ContinentId$Companion {
@@ -201,7 +195,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2EventId$$serializer : kotlinx/s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-FeIA5sQ (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/String;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2EventId$Companion {
@@ -231,7 +224,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2FloorId$$serializer : kotlinx/s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-g9KH56U (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2FloorId$Companion {
@@ -261,7 +253,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2GuildId$$serializer : kotlinx/s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-vH-nq4A (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/String;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2GuildId$Companion {
@@ -291,7 +282,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2GuildUpgradeId$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-TYkQk6I (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2GuildUpgradeId$Companion {
@@ -321,7 +311,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2ItemId$$serializer : kotlinx/se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-k5HiZ_0 (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2ItemId$Companion {
@@ -351,7 +340,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2ItemStatId$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-8ULmse0 (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2ItemStatId$Companion {
@@ -381,7 +369,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2MapId$$serializer : kotlinx/ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-USi3u4E (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2MapId$Companion {
@@ -411,7 +398,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2MiniId$$serializer : kotlinx/se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-bzLUb3w (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2MiniId$Companion {
@@ -441,7 +427,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2ProfessionId$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-QY9sW0g (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2ProfessionId$Companion {
@@ -471,7 +456,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2RaceId$$serializer : kotlinx/se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-xtCBfa0 (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2RaceId$Companion {
@@ -501,7 +485,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2RecipeId$$serializer : kotlinx/
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-umrVRfU (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2RecipeId$Companion {
@@ -531,7 +514,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2RegionId$$serializer : kotlinx/
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-yePVVxc (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2RegionId$Companion {
@@ -561,7 +543,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2SkillId$$serializer : kotlinx/s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-HF_0HGQ (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2SkillId$Companion {
@@ -591,7 +572,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2SkinId$$serializer : kotlinx/se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-4VYZ2zg (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2SkinId$Companion {
@@ -621,7 +601,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2SpecializationId$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-_97qwSE (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2SpecializationId$Companion {
@@ -651,7 +630,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2WorldId$$serializer : kotlinx/s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-DIB7U2w (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2WorldId$Companion {
@@ -681,7 +659,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2WvwMatchId$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-gTBVfk0 (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/String;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2WvwMatchId$Companion {
@@ -711,7 +688,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2WvwObjectiveId$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-n2RXsAY (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/String;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2WvwObjectiveId$Companion {
@@ -741,7 +717,6 @@ public synthetic class com/gw2tb/gw2api/types/GW2WvwRankId$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public final fun serialize-6ZZw_N4 (Lkotlinx/serialization/encoding/Encoder;I)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/GW2WvwRankId$Companion {
@@ -788,7 +763,6 @@ public synthetic class com/gw2tb/gw2api/types/mumble/MumbleLink$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/mumble/MumbleLink;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/mumble/MumbleLink$Companion {
@@ -815,7 +789,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Build$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Build;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Build$Companion {
@@ -842,7 +815,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Colors$$serializer : kotli
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Colors;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Colors$Color {
@@ -882,7 +854,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Colors$Color$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Colors$Color;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Colors$Color$Appearance {
@@ -915,7 +886,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Colors$Color$Appearance$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Colors$Color$Appearance;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Colors$Color$Appearance$Companion {
@@ -950,7 +920,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Continents$$serializer : k
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Continents;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Continents$Companion {
@@ -985,7 +954,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Continents$Continent$$seri
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Continents$Continent;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Continents$Continent$Companion {
@@ -1012,7 +980,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1EventDetails$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1EventDetails;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1EventDetails$Companion {
@@ -1047,7 +1014,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1EventDetails$EventDetails$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1EventDetails$EventDetails;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1EventDetails$EventDetails$Companion {
@@ -1153,7 +1119,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1File$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1File;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1File$Companion {
@@ -1186,7 +1151,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1GuildDetails$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1GuildDetails;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1GuildDetails$Companion {
@@ -1223,7 +1187,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1GuildDetails$Emblem$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1GuildDetails$Emblem;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1GuildDetails$Emblem$Companion {
@@ -1326,7 +1289,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Armor$Armor$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Armor$Armor;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Armor$Armor$Companion {
@@ -1409,7 +1371,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Back$Back$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Back$Back;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Back$Back$Companion {
@@ -1483,7 +1444,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Bag$Bag$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Bag$Bag;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Bag$Bag$Companion {
@@ -1586,7 +1546,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Consumable$Con
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Consumable$Consumable;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Consumable$Consumable$Companion {
@@ -1658,7 +1617,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Container$Cont
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Container$Container;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Container$Container$Companion {
@@ -1730,7 +1688,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$GatheringTool$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$GatheringTool$GatheringTool;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$GatheringTool$GatheringTool$Companion {
@@ -1807,7 +1764,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Gizmo$Gizmo$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Gizmo$Gizmo;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Gizmo$Gizmo$Companion {
@@ -1839,7 +1795,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$Attribute {
@@ -1864,7 +1819,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$A
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$Attribute;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$Attribute$Companion {
@@ -1894,7 +1848,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$B
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$Buff;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfixUpgrade$Buff$Companion {
@@ -1928,7 +1881,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfusionSlot$$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfusionSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$InfusionSlot$Companion {
@@ -2000,7 +1952,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$MiniPet$MiniPe
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$MiniPet$MiniPet;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$MiniPet$MiniPet$Companion {
@@ -2074,7 +2025,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Tool$Tool$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Tool$Tool;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Tool$Tool$Companion {
@@ -2159,7 +2109,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Trinket$Trinke
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Trinket$Trinket;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Trinket$Trinket$Companion {
@@ -2191,7 +2140,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Upgrade$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Upgrade;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Upgrade$Companion {
@@ -2276,7 +2224,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$UpgradeCompone
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$UpgradeComponent$UpgradeComponent;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$UpgradeComponent$UpgradeComponent$Companion {
@@ -2369,7 +2316,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Weapon$Weapon$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Weapon$Weapon;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemDetails$Weapon$Weapon$Companion {
@@ -2396,7 +2342,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ItemIds$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ItemIds;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ItemIds$Companion {
@@ -2428,7 +2373,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Companion {
@@ -2461,7 +2405,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$Companion {
@@ -2515,7 +2458,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Adventure {
@@ -2544,7 +2486,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Ad
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Adventure;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Adventure$Companion {
@@ -2575,7 +2516,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Ad
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Adventure$Leaderboard;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Adventure$Leaderboard$Companion {
@@ -2619,7 +2559,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Go
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$GodShrine;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$GodShrine$Companion {
@@ -2654,7 +2593,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Ma
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$MasteryPoint;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$MasteryPoint$Companion {
@@ -2692,7 +2630,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Po
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$PointOfInterest;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$PointOfInterest$Companion {
@@ -2721,7 +2658,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Po
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$PointOfInterest$Marker;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$PointOfInterest$Marker$Companion {
@@ -2757,7 +2693,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Sector;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Sector$Companion {
@@ -2788,7 +2723,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Sk
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$SkillChallenge;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$SkillChallenge$Companion {
@@ -2823,7 +2757,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Ta
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Task;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapFloor$Region$GameMap$Task$Companion {
@@ -2852,7 +2785,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1MapName$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1MapName;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1MapName$Companion {
@@ -2879,7 +2811,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Maps$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Maps;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Maps$Companion {
@@ -2929,7 +2860,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1Maps$GameMap$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1Maps$GameMap;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1Maps$GameMap$Companion {
@@ -2958,7 +2888,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1ObjectiveName$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1ObjectiveName;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1ObjectiveName$Companion {
@@ -3001,7 +2930,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1RecipeDetails$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1RecipeDetails;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1RecipeDetails$Companion {
@@ -3030,7 +2958,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1RecipeDetails$Ingredient$$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1RecipeDetails$Ingredient;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1RecipeDetails$Ingredient$Companion {
@@ -3057,7 +2984,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1RecipeIds$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1RecipeIds;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1RecipeIds$Companion {
@@ -3128,7 +3054,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$Armor$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$Armor;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$Armor$Companion {
@@ -3177,7 +3102,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$DyeSlots
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$DyeSlots;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$DyeSlots$Companion {
@@ -3206,7 +3130,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$DyeSlots
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$DyeSlots$DyeSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Armor$DyeSlots$DyeSlot$Companion {
@@ -3351,7 +3274,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Weapon$Weapon$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Weapon$Weapon;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1SkinDetails$Weapon$Weapon$Companion {
@@ -3378,7 +3300,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1SkinIds$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1SkinIds;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1SkinIds$Companion {
@@ -3407,7 +3328,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1WorldName$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1WorldName;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WorldName$Companion {
@@ -3438,7 +3358,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$Companion {
@@ -3471,7 +3390,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$Bonus {
@@ -3496,7 +3414,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$Bo
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$Bonus;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$Bonus$Companion {
@@ -3532,7 +3449,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$Ob
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$Objective;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatchDetails$GameMap$Objective$Companion {
@@ -3559,7 +3475,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1WvwMatches$$serializer : k
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatches$Companion {
@@ -3596,7 +3511,6 @@ public synthetic class com/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch$Companion {
@@ -3652,7 +3566,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Account$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Account;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Account$Companion {
@@ -3692,7 +3605,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountAchievement$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountAchievement;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountAchievement$Companion {
@@ -3740,7 +3652,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Companion {
@@ -3769,7 +3680,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes {
@@ -3808,7 +3718,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attr
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes$Companion {
@@ -3852,7 +3761,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$AuqaticSkills {
@@ -3880,7 +3788,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$Au
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$AuqaticSkills;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$AuqaticSkills$Companion {
@@ -3916,7 +3823,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$Sk
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$Skills;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$Skills$Companion {
@@ -3945,7 +3851,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$Sp
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$Specialization;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBuildStorageSlot$Specialization$Companion {
@@ -3977,7 +3882,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountFinisher$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountFinisher;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountFinisher$Companion {
@@ -4019,7 +3923,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$$seri
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Companion {
@@ -4063,7 +3966,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats$Companion {
@@ -4092,7 +3994,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountLegendaryArmoryUnlo
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountLegendaryArmoryUnlock;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountLegendaryArmoryUnlock$Companion {
@@ -4122,7 +4023,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountMastery$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountMastery;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountMastery$Companion {
@@ -4151,7 +4051,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountMasteryPoint$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountMasteryPoint;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountMasteryPoint$Companion {
@@ -4182,7 +4081,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountMasteryPoint$Total$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountMasteryPoint$Total;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountMasteryPoint$Total$Companion {
@@ -4216,7 +4114,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountMaterial$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountMaterial;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountMaterial$Companion {
@@ -4245,7 +4142,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountWalletCurrency$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountWalletCurrency;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountWalletCurrency$Companion {
@@ -4282,7 +4178,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultDaily$$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultDaily;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultDaily$Companion {
@@ -4322,7 +4217,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultListing
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultListing;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultListing$Companion {
@@ -4396,7 +4290,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultSpecial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultSpecial;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultSpecial$Companion {
@@ -4433,7 +4326,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultWeekly$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultWeekly;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountWizardsVaultWeekly$Companion {
@@ -4485,7 +4377,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Achievement$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit {
@@ -4513,7 +4404,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Companion {
@@ -4631,7 +4521,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Tier$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Tier;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Tier$Companion {
@@ -4671,7 +4560,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AchievementCategory;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$Companion {
@@ -4705,7 +4593,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$Entry$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$Entry;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$Entry$AccessConstraint {
@@ -4730,7 +4617,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$Entry$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$Entry$AccessConstraint;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AchievementCategory$Entry$AccessConstraint$Companion {
@@ -4825,7 +4711,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AchievementGroups$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AchievementGroups;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AchievementGroups$Companion {
@@ -4860,7 +4745,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AchievementsDaily$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AchievementsDaily;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AchievementsDaily$Companion {
@@ -4895,7 +4779,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2AchievementsDailyTomorrow$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2AchievementsDailyTomorrow;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AchievementsDailyTomorrow$Companion {
@@ -4935,7 +4818,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2BackstoryAnswer$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2BackstoryAnswer;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2BackstoryAnswer$Companion {
@@ -4975,7 +4857,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2BackstoryQuestion$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2BackstoryQuestion;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2BackstoryQuestion$Companion {
@@ -5002,7 +4883,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Build$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Build;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Build$Companion {
@@ -5078,7 +4958,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$Bag {
@@ -5105,7 +4984,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$Bag$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$Bag;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$Bag$Companion {
@@ -5151,7 +5029,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$Bag$Item$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$Bag$Item;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$Bag$Item$Companion {
@@ -5195,7 +5072,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$Bag$Item$Stats$$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$Bag$Item$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$Bag$Item$Stats$Companion {
@@ -5230,7 +5106,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipm
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$Companion {
@@ -5276,7 +5151,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipm
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$Equipment;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$Equipment$Companion {
@@ -5320,7 +5194,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipm
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$Equipment$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$Equipment$Stats$Companion {
@@ -5351,7 +5224,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipm
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment$Companion {
@@ -5386,7 +5258,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$Discipline$$seri
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$Discipline;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$Discipline$Companion {
@@ -5436,7 +5307,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$Companion {
@@ -5465,7 +5335,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$St
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$Stats$Attributes {
@@ -5506,7 +5375,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$St
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$Stats$Attributes;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$EquipmentSlot$Stats$Attributes$Companion {
@@ -5541,7 +5409,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$Training$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$Training;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$Training$Companion {
@@ -5570,7 +5437,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Character$WvwAbility$$seri
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Character$WvwAbility;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$WvwAbility$Companion {
@@ -5597,7 +5463,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersBackstory$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersBackstory;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersBackstory$Companion {
@@ -5628,7 +5493,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build {
@@ -5664,7 +5528,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$Companion {
@@ -5696,7 +5559,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$S
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$Skills;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$Skills$Companion {
@@ -5726,7 +5588,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$S
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$Specialization;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Build$Specialization$Companion {
@@ -5778,7 +5639,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersCore$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersCore$Companion {
@@ -5805,7 +5665,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersCrafting$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCrafting;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersCrafting$Companion {
@@ -5836,7 +5695,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersCrafting$Discipl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCrafting$Discipline;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersCrafting$Discipline$Companion {
@@ -5863,7 +5721,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$Companion {
@@ -5913,7 +5770,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$Equipm
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$EquipmentSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$EquipmentSlot$Companion {
@@ -5942,7 +5798,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$Equipm
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$EquipmentSlot$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$EquipmentSlot$Stats$Attributes {
@@ -5983,7 +5838,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$Equipm
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$EquipmentSlot$Stats$Attributes;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipment$EquipmentSlot$Stats$Attributes$Companion {
@@ -6022,7 +5876,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$$se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Companion {
@@ -6068,7 +5921,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Equ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Equipment;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Equipment$Companion {
@@ -6112,7 +5964,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Equ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Equipment$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Equipment$Stats$Companion {
@@ -6144,7 +5995,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$Pvp
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$PvpEquipment;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersEquipmentTab$PvpEquipment$Companion {
@@ -6171,7 +6021,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Bag {
@@ -6198,7 +6047,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Ba
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Bag;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Bag$Companion {
@@ -6244,7 +6092,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Ba
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Bag$Item;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Bag$Item$Companion {
@@ -6288,7 +6135,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Ba
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Bag$Item$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersInventorySlot$Bag$Item$Stats$Companion {
@@ -6319,7 +6165,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersRecipes$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersRecipes;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersRecipes$Companion {
@@ -6350,7 +6195,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersSAB;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Companion {
@@ -6380,7 +6224,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Song$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Song;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Song$Companion {
@@ -6410,7 +6253,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Unlock$$seri
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Unlock;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Unlock$Companion {
@@ -6443,7 +6285,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Zone$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Zone;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersSAB$Zone$Companion {
@@ -6470,7 +6311,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersTraining$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersTraining;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersTraining$Companion {
@@ -6501,7 +6341,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CharactersTraining$Trainin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersTraining$Training;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersTraining$Training$Companion {
@@ -6545,7 +6384,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Color$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Color;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Color$Appearance {
@@ -6578,7 +6416,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Color$Appearance$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Color$Appearance;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Color$Appearance$Companion {
@@ -6835,7 +6672,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommerceDelivery$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceDelivery;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommerceDelivery$Companion {
@@ -6864,7 +6700,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommerceDelivery$Item$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceDelivery$Item;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommerceDelivery$Item$Companion {
@@ -6893,7 +6728,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommerceExchange$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceExchange;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommerceExchange$Companion {
@@ -6924,7 +6758,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommerceListing$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceListing;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommerceListing$Companion {
@@ -6957,7 +6790,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommercePrices$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommercePrices;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommercePrices$BuyListing {
@@ -6982,7 +6814,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommercePrices$BuyListing$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommercePrices$BuyListing;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommercePrices$BuyListing$Companion {
@@ -7015,7 +6846,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommercePrices$SellListing
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommercePrices$SellListing;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommercePrices$SellListing$Companion {
@@ -7053,7 +6883,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction$Companion {
@@ -7090,7 +6919,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Continent$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Continent;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Continent$Companion {
@@ -7124,7 +6952,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Companion {
@@ -7159,7 +6986,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Companion {
@@ -7215,7 +7041,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$Adventure {
@@ -7244,7 +7069,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$Adventure;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$Adventure$Companion {
@@ -7288,7 +7112,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$GodShrine;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$GodShrine$Companion {
@@ -7319,7 +7142,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$MasteryPoint;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$MasteryPoint$Companion {
@@ -7359,7 +7181,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$PointOfInterest;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$PointOfInterest$Companion {
@@ -7397,7 +7218,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$Sector;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$Sector$Companion {
@@ -7426,7 +7246,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$SkillChallenge;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$SkillChallenge$Companion {
@@ -7463,7 +7282,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$Game
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$Task;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ContinentFloor$Region$GameMap$Task$Companion {
@@ -7498,7 +7316,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Currency$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Currency;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Currency$Companion {
@@ -7529,7 +7346,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2DailyAchievement$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2DailyAchievement;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2DailyAchievement$Companion {
@@ -7558,7 +7374,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2DailyAchievement$LevelRequ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2DailyAchievement$LevelRequirement;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2DailyAchievement$LevelRequirement$Companion {
@@ -7585,7 +7400,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2DailyCrafting$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2DailyCrafting;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2DailyCrafting$Companion {
@@ -7614,7 +7428,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Dungeon$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Dungeon;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Dungeon$Companion {
@@ -7643,7 +7456,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Dungeon$Path$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Dungeon$Path;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Dungeon$Path$Companion {
@@ -7672,7 +7484,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2EmblemPart$$serializer : k
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2EmblemPart;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2EmblemPart$Companion {
@@ -7703,7 +7514,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Emote$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Emote;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Emote$Companion {
@@ -7732,7 +7542,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2File$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2File;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2File$Companion {
@@ -7769,7 +7578,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Finisher$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Finisher;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Finisher$Companion {
@@ -7808,7 +7616,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Glider$$serializer : kotli
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Glider;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Glider$Companion {
@@ -7858,7 +7665,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Guild$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Guild;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Guild$Companion {
@@ -7889,7 +7695,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Background {
@@ -7914,7 +7719,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Background$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Background;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Background$Companion {
@@ -7947,7 +7751,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Foreground$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Foreground;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Foreground$Companion {
@@ -8206,7 +8009,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildMember$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildMember$Companion {
@@ -8237,7 +8039,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildPermission$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildPermission;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildPermission$Companion {
@@ -8270,7 +8071,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildRank$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildRank;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildRank$Companion {
@@ -8305,7 +8105,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildStashSection$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildStashSection;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildStashSection$Companion {
@@ -8334,7 +8133,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildStashSection$GuildSta
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildStashSection$GuildStashSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildStashSection$GuildStashSlot$Companion {
@@ -8363,7 +8161,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildStorageSlot$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildStorageSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildStorageSlot$Companion {
@@ -8402,7 +8199,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Companion {
@@ -8431,7 +8227,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Member$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Member;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Member$Companion {
@@ -8477,7 +8272,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Companion {
@@ -8506,7 +8300,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores$$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores$Companion {
@@ -8539,7 +8332,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$SeasonStats$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$SeasonStats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$SeasonStats$Companion {
@@ -8574,7 +8366,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Stats$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Stats$Companion {
@@ -8605,7 +8396,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTreasurySlot$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTreasurySlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTreasurySlot$Companion {
@@ -8634,7 +8424,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildTreasurySlot$UpgradeR
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTreasurySlot$UpgradeRequirement;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTreasurySlot$UpgradeRequirement$Companion {
@@ -8860,7 +8649,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2GuildUpgrade$Cost$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildUpgrade$Cost;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildUpgrade$Cost$Companion {
@@ -9093,7 +8881,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2HomeInstanceCat$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2HomeInstanceCat;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2HomeInstanceCat$Companion {
@@ -9120,7 +8907,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2HomeInstanceNode$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2HomeInstanceNode;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2HomeInstanceNode$Companion {
@@ -9355,7 +9141,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$Attribute {
@@ -9380,7 +9165,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$Attribute;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$Attribute$Companion {
@@ -9410,7 +9194,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$Buff;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$InfixUpgrade$Buff$Companion {
@@ -9533,7 +9316,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$Upgrades$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Item$Details$Upgrades;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$Upgrades$Companion {
@@ -9563,7 +9345,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$Upgrades$Infu
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Item$Details$Upgrades$InfusionSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Item$Details$Upgrades$InfusionSlot$Companion {
@@ -9618,7 +9399,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Item$Precursor$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Item$Precursor;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Item$Precursor$Companion {
@@ -9647,7 +9427,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Item$Upgrade$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Item$Upgrade;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Item$Upgrade$Companion {
@@ -9678,7 +9457,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ItemStatSet$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ItemStatSet;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ItemStatSet$Attribute {
@@ -9705,7 +9483,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2ItemStatSet$Attribute$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2ItemStatSet$Attribute;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2ItemStatSet$Attribute$Companion {
@@ -9742,7 +9519,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2JadeBot$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2JadeBot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2JadeBot$Companion {
@@ -9779,7 +9555,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Legend$$serializer : kotli
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Legend;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Legend$Companion {
@@ -9808,7 +9583,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2LegendaryArmorySlot$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2LegendaryArmorySlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2LegendaryArmorySlot$Companion {
@@ -9839,7 +9613,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Listing$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Listing;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Listing$Companion {
@@ -9868,7 +9641,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Luck$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Luck;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Luck$Companion {
@@ -9905,7 +9677,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Mailcarrier$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Mailcarrier;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Mailcarrier$Companion {
@@ -9957,7 +9728,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Map$$serializer : kotlinx/
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Map;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Map$Companion {
@@ -9984,7 +9754,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2MapChest$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2MapChest;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2MapChest$Companion {
@@ -10023,7 +9792,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Mastery$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Mastery;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Mastery$Companion {
@@ -10060,7 +9828,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Mastery$Level$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Mastery$Level;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Mastery$Level$Companion {
@@ -10093,7 +9860,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2MaterialCategory$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2MaterialCategory;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2MaterialCategory$Companion {
@@ -10131,7 +9897,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Mini$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Mini;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Mini$Companion {
@@ -10166,7 +9931,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2MountSkin$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2MountSkin;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2MountSkin$Companion {
@@ -10195,7 +9959,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2MountSkin$DyeSlot$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2MountSkin$DyeSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2MountSkin$DyeSlot$Companion {
@@ -10230,7 +9993,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2MountType$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2MountType;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2MountType$Companion {
@@ -10259,7 +10021,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2MountType$Skill$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2MountType$Skill;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2MountType$Skill$Companion {
@@ -10296,7 +10057,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Novelty$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Novelty;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Novelty$Companion {
@@ -10329,7 +10089,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Outfit$$serializer : kotli
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Outfit;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Outfit$Companion {
@@ -10364,7 +10123,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Pet$$serializer : kotlinx/
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Pet;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Pet$Companion {
@@ -10391,7 +10149,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Pet$Skill$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Pet$Skill;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Pet$Skill$Companion {
@@ -10438,7 +10195,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Profession$$serializer : k
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Profession;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Profession$Companion {
@@ -10474,7 +10230,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Profession$Skill$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Profession$Skill;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Profession$Skill$Companion {
@@ -10507,7 +10262,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Profession$Training$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Profession$Training;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Profession$Training$Companion {
@@ -10541,7 +10295,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Profession$Training$Track$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Profession$Training$Track;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Profession$Training$Track$Companion {
@@ -10573,7 +10326,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Profession$Weapon$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Profession$Weapon;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Profession$Weapon$Companion {
@@ -10607,7 +10359,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Profession$Weapon$Skill$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Profession$Weapon$Skill;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Profession$Weapon$Skill$Companion {
@@ -10640,7 +10391,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpAmulet$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpAmulet;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpAmulet$Companion {
@@ -10687,7 +10437,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpAmulet$Stats$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpAmulet$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpAmulet$Stats$Companion {
@@ -10735,7 +10484,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpGame$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpGame$Companion {
@@ -10764,7 +10512,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores$Companion {
@@ -10805,7 +10552,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpHero$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpHero;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpHero$Companion {
@@ -10840,7 +10586,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpHero$Skin$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpHero$Skin;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpHero$Skin$Companion {
@@ -10871,7 +10616,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpHero$Stats$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpHero$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpHero$Stats$Companion {
@@ -10910,7 +10654,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpRank$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpRank;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpRank$Companion {
@@ -10941,7 +10684,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpRank$Level$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpRank$Level;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpRank$Level$Companion {
@@ -10983,7 +10725,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Companion {
@@ -11020,7 +10761,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Division$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Division;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Division$Companion {
@@ -11047,7 +10787,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Division$Tier$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Division$Tier;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Division$Tier$Companion {
@@ -11080,7 +10819,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$$se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Companion {
@@ -11109,7 +10847,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Lea
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard$Companion {
@@ -11144,7 +10881,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Lea
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard$Scoring;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard$Scoring$Companion {
@@ -11178,7 +10914,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Lea
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard$Settings;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard$Settings$Companion {
@@ -11212,7 +10947,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Lea
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard$Settings$Tier;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards$Leaderboard$Settings$Tier$Companion {
@@ -11249,7 +10983,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Ranks$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Ranks;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Ranks$Companion {
@@ -11276,7 +11009,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Ranks$Tier$$seri
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Ranks$Tier;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Ranks$Tier$Companion {
@@ -11316,7 +11048,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeasonsLeaderboardEntry
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeasonsLeaderboardEntry;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeasonsLeaderboardEntry$Companion {
@@ -11345,7 +11076,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpSeasonsLeaderboardEntry
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeasonsLeaderboardEntry$Scoring;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeasonsLeaderboardEntry$Scoring$Companion {
@@ -11376,7 +11106,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpStandings$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpStandings;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpStandings$Best {
@@ -11407,7 +11136,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpStandings$Best$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpStandings$Best;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpStandings$Best$Companion {
@@ -11451,7 +11179,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpStandings$Current$$seri
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpStandings$Current;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpStandings$Current$Companion {
@@ -11488,7 +11215,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpStats$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpStats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpStats$Companion {
@@ -11523,7 +11249,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2PvpStats$Stats$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpStats$Stats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpStats$Stats$Companion {
@@ -11552,7 +11277,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Quaggan$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Quaggan;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Quaggan$Companion {
@@ -11587,7 +11311,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Quest$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Quest;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Quest$Companion {
@@ -11616,7 +11339,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Quest$Goal$$serializer : k
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Quest$Goal;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Quest$Goal$Companion {
@@ -11647,7 +11369,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Race$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Race;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Race$Companion {
@@ -11676,7 +11397,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Raid$$serializer : kotlinx
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Raid;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Raid$Companion {
@@ -11705,7 +11425,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Raid$Wing$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Raid$Wing;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Raid$Wing$Companion {
@@ -11734,7 +11453,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Raid$Wing$Event$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Raid$Wing$Event;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Raid$Wing$Event$Companion {
@@ -11782,7 +11500,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Recipe$$serializer : kotli
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Recipe;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Recipe$Companion {
@@ -11886,7 +11603,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skiff$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skiff;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skiff$Companion {
@@ -11915,7 +11631,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skiff$DyeSlot$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skiff$DyeSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skiff$DyeSlot$Companion {
@@ -11989,7 +11704,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skill$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skill;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skill$Companion {
@@ -12309,7 +12023,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skill$Fact$PrefixedBuff$Pr
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skill$Fact$PrefixedBuff$Prefix;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skill$Fact$PrefixedBuff$Prefix$Companion {
@@ -12813,7 +12526,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skill$TraitedFact$Prefixed
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skill$TraitedFact$PrefixedBuff$Prefix;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skill$TraitedFact$PrefixedBuff$Prefix$Companion {
@@ -13061,7 +12773,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlots;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlots$Companion {
@@ -13090,7 +12801,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlots$DyeSlot;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlots$DyeSlot$Companion {
@@ -13137,7 +12847,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlots$Overrides;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Skin$Details$Armor$DyeSlots$Overrides$Companion {
@@ -13223,7 +12932,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Specialization$$serializer
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Specialization;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Specialization$Companion {
@@ -13269,7 +12977,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Story$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Story;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Story$Chapter {
@@ -13292,7 +12999,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Story$Chapter$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Story$Chapter;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Story$Chapter$Companion {
@@ -13329,7 +13035,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2StorySeason$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2StorySeason;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2StorySeason$Companion {
@@ -13356,7 +13061,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2SubToken$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2SubToken;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2SubToken$Companion {
@@ -13392,7 +13096,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Title$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Title;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Title$Companion {
@@ -13448,7 +13151,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails$
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails$Companion {
@@ -13496,7 +13198,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Trait$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Trait;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Trait$Companion {
@@ -13816,7 +13517,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Trait$Fact$PrefixedBuff$Pr
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Trait$Fact$PrefixedBuff$Prefix;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Trait$Fact$PrefixedBuff$Prefix$Companion {
@@ -13998,7 +13698,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$$serializer : 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Trait$Skill;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$Companion {
@@ -14318,7 +14017,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$Fact$PrefixedB
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$Fact$PrefixedBuff$Prefix;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$Fact$PrefixedBuff$Prefix$Companion {
@@ -14822,7 +14520,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$TraitedFact$Pr
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$TraitedFact$PrefixedBuff$Prefix;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Trait$Skill$TraitedFact$PrefixedBuff$Prefix$Companion {
@@ -15350,7 +15047,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2Trait$TraitedFact$Prefixed
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Trait$TraitedFact$PrefixedBuff$Prefix;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Trait$TraitedFact$PrefixedBuff$Prefix$Companion {
@@ -15547,7 +15243,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultListing$$seria
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultListing;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultListing$Companion {
@@ -15627,7 +15322,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultObjective$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultObjective;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultObjective$Companion {
@@ -15713,7 +15407,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultObjectiveProgr
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultObjectiveProgress;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultObjectiveProgress$Companion {
@@ -15748,7 +15441,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason$$serial
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason$Companion {
@@ -15779,7 +15471,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2World$$serializer : kotlin
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2World;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2World$Companion {
@@ -15806,7 +15497,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WorldBoss$$serializer : ko
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WorldBoss;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WorldBoss$Companion {
@@ -15841,7 +15531,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwAbility$$serializer : k
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwAbility;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwAbility$Companion {
@@ -15870,7 +15559,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwAbility$Rank$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwAbility$Rank;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwAbility$Rank$Companion {
@@ -15917,7 +15605,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$$serializer : kot
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Companion {
@@ -15956,7 +15643,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Bonus {
@@ -15981,7 +15667,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Bonus$$se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Bonus;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Bonus$Companion {
@@ -16031,7 +15716,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective$Companion {
@@ -16062,7 +15746,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Skirmish$$seriali
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Skirmish;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Skirmish$Companion {
@@ -16091,7 +15774,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Skirmish$MapScore
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Skirmish$MapScores;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Skirmish$MapScores$Companion {
@@ -16126,7 +15808,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview$$serializ
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview$Companion {
@@ -16161,7 +15842,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$Companion {
@@ -16192,7 +15872,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$GameMap$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$GameMap;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$GameMap$Companion {
@@ -16223,7 +15902,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$Skirmish$$se
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$Skirmish;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$Skirmish$Companion {
@@ -16252,7 +15930,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$Skirmish$Map
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$Skirmish$MapScores;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchScore$Skirmish$MapScores$Companion {
@@ -16285,7 +15962,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchStats$$serializer 
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchStats;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchStats$Companion {
@@ -16318,7 +15994,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchStats$GameMap$$ser
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchStats$GameMap;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchStats$GameMap$Companion {
@@ -16366,7 +16041,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwObjective$$serializer :
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwObjective;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwObjective$Companion {
@@ -16397,7 +16071,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwRank$$serializer : kotl
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwRank;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwRank$Companion {
@@ -16426,7 +16099,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$$serializer : k
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$Companion {
@@ -16457,7 +16129,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$Tier$$serialize
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$Tier;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$Tier$Companion {
@@ -16488,7 +16159,6 @@ public synthetic class com/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$Tier$Upgrade$$s
 	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$Tier$Upgrade;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwUpgrade$Tier$Upgrade$Companion {
