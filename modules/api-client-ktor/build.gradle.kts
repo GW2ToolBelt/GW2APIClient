@@ -21,7 +21,7 @@
  */
 plugins {
     alias(buildDeps.plugins.binary.compatibility.validator)
-    alias(buildDeps.plugins.dokkatoo.html)
+    alias(buildDeps.plugins.dokka)
     id("com.gw2tb.multiplatform-module")
 }
 

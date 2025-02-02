@@ -1,8 +1,7 @@
 [versions]
 api-generator = "0.7.0"
 binary-compatibility-validator = "0.17.0"
-dokka = "1.9.20"
-dokkatoo = "2.4.0"
+dokka = "2.0.0"
 junit = "5.11.4"
 kotlin = "2.1.10"
 
@@ -27,10 +26,10 @@ junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", vers
 
 
 [plugins]
-# dev.adamko.dokkatoo - Dokkatoo
-# https://github.com/adamko-dev/dokkatoo
-dokkatoo-html = { id = "dev.adamko.dokkatoo-html", version.ref = "dokkatoo" }
-dokkatoo-javadoc = { id = "dev.adamko.dokkatoo-javadoc", version.ref = "dokkatoo" }
+# org.jetbrains.dokka - Dokka Gradle Plugin
+# https://github.com/Kotlin/dokka
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+dokka-javadoc = { id = "org.jetbrains.dokka-javadoc", version.ref = "dokka" }
 
 # org.jetbrains.kotlin - Kotlin Gradle plugin
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

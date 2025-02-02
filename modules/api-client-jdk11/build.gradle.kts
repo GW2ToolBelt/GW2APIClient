@@ -25,8 +25,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(buildDeps.plugins.binary.compatibility.validator)
-    alias(buildDeps.plugins.dokkatoo.javadoc)
-    alias(buildDeps.plugins.dokkatoo.html)
+    alias(buildDeps.plugins.dokka)
+    alias(buildDeps.plugins.dokka.javadoc)
     alias(buildDeps.plugins.kotlin.jvm)
     id("com.gw2tb.java-library-conventions")
     id("com.gw2tb.maven-publish-conventions")
@@ -67,7 +67,7 @@ tasks {
     register<Jar>("javadocJar") {
         archiveClassifier.set("javadoc")
 
-        from(dokkatooGenerateModuleJavadoc.get().outputs)
+        from(dokkaGenerateModuleJavadoc.get().outputs)
     }
 }
 

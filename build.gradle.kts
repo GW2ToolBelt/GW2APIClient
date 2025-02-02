@@ -23,20 +23,20 @@ import com.gw2tb.apigen.model.v2.*
 import com.gw2tb.gw2api.generator.tasks.Generate
 
 plugins {
-    alias(buildDeps.plugins.dokkatoo.html)
-    alias(buildDeps.plugins.dokkatoo.javadoc) apply false
+    alias(buildDeps.plugins.dokka)
+    alias(buildDeps.plugins.dokka.javadoc) apply false
     alias(buildDeps.plugins.kotlin.jvm) apply false
     alias(buildDeps.plugins.kotlin.multiplatform) apply false
     id("com.gw2tb.base-conventions") // Required by the Kotlin Multiplatform plugin to download native tools
     id("com.gw2tb.gw2api.generator")
 }
 
-dokkatoo {
+dokka {
     dokkaGeneratorIsolation = ProcessIsolation {
         maxHeapSize = "4G"
     }
 
-    dokkatooSourceSets.configureEach {
+    dokkaSourceSets.configureEach sourceSet@{
         reportUndocumented = true
         skipEmptyPackages = true
         jdkVersion = 11
@@ -47,20 +47,16 @@ dokkatoo {
         sourceLink {
             localDirectory = localKotlinSourceDir
 
-            remoteUrl("https://github.com/GW2ToolBelt/GW2APIClient/tree/v${version}/src/main/kotlin")
+            remoteUrl("https://github.com/GW2ToolBelt/GW2APIClient/tree/v${version}/src/${this@sourceSet.name}/kotlin")
             remoteLineSuffix = "#L"
         }
     }
 
-    dokkatooPublications.configureEach {
+    dokkaPublications.configureEach {
         moduleName = "GW2APIClient"
 
         // TODO Remaining warnings are silly atm. Reevaluate this flag in the future.
 //        failOnWarning = true
-    }
-
-    versions {
-        jetbrainsDokka = buildDeps.versions.dokka
     }
 }
 
@@ -77,14 +73,14 @@ tasks {
         typesTestDirectory = file("modules/api-types/src/commonTest-generated/kotlin")
     }
 
-    dokkatooGeneratePublicationHtml {
+    dokkaGeneratePublicationHtml {
         outputDirectory = layout.projectDirectory.dir("docs/site/api")
     }
 }
 
 dependencies {
-    dokkatoo(projects.apiClient)
-    dokkatoo(projects.apiClientJdk11)
-    dokkatoo(projects.apiClientKtor)
-    dokkatoo(projects.apiTypes)
+    dokka(projects.apiClient)
+    dokka(projects.apiClientJdk11)
+    dokka(projects.apiClientKtor)
+    dokka(projects.apiTypes)
 }
