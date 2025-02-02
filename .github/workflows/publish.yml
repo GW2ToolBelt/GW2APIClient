@@ -115,7 +115,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Dokka Generate
-        run: ./gradlew :dokkatooGenerate --info -S --show-version
+        run: ./gradlew :dokkaGenerate --info -S --show-version
 
       - name: Setup Python
         uses: actions/setup-python@v5
