@@ -64,6 +64,7 @@ nav:
     - 'Changelog': changelog.md
     - 'Contributing': contributing.md
     - 'License': license.md
+  - 'Guild Wars 2 API': 'https://gw2toolbelt.github.io/api-generator/latest/gw2api/general/'
   - 'API Documentation': 'api/'
 
 plugins:
