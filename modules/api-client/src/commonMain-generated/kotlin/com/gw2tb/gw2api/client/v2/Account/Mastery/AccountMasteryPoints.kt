@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2024 Leon Linhart
+ * Copyright (c) 2018-2025 Leon Linhart
  * MACHINE GENERATED FILE, DO NOT EDIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy

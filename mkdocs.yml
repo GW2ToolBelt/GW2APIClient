@@ -2,7 +2,7 @@ site_name: "GW2APIClient"
 site_description: "A Kotlin multi-platform client for the official Guild Wars 2 API with pluggable support for client-side caching and rate-limiting."
 site_author: "GW2ToolBelt"
 site_url: "https://gw2toolbelt.github.io/GW2APIClient"
-copyright: Copyright &copy; 2018 - 2024 Leon Linhart
+copyright: Copyright &copy; 2018 - 2025 Leon Linhart
 
 repo_name: "GW2APIClient"
 repo_url: "https://github.com/GW2ToolBelt/GW2APIClient"
