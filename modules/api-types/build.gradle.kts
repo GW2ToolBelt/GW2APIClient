@@ -54,7 +54,12 @@ kotlin {
 
         named("jvmTest") {
             dependencies {
-                api(buildDeps.kotlin.test.junit5)
+                implementation(project.dependencies.platform(buildDeps.junit.bom))
+                implementation(buildDeps.junit.jupiter.api)
+                implementation(buildDeps.kotlin.test.junit5)
+
+                runtimeOnly(buildDeps.junit.jupiter.engine)
+                runtimeOnly(buildDeps.junit.platform.launcher)
             }
         }
     }

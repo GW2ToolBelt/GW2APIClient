@@ -90,6 +90,8 @@ publishing {
 dependencies {
     api(projects.apiClient)
 
+    testImplementation(platform(buildDeps.junit.bom))
     testImplementation(buildDeps.junit.jupiter.api)
     testRuntimeOnly(buildDeps.junit.jupiter.engine)
+    testRuntimeOnly(buildDeps.junit.platform.launcher)
 }
