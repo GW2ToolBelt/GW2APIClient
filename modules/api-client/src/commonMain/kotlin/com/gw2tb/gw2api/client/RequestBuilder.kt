@@ -35,6 +35,7 @@ public class RequestBuilder<T> internal constructor(
     private val requiredPermissions: Collection<String>,
     private val supportedLanguages: Set<Language>,
     private val serializer: KSerializer<T>,
+    private val finalizer: RequestConfigurer?,
     private val headers: Map<String, String>,
     apiKey: String?,
     language: Language?
@@ -87,6 +88,7 @@ public class RequestBuilder<T> internal constructor(
         requiredPermissions = requiredPermissions,
         supportedLanguages = supportedLanguages,
         serializer = serializer,
+        finalizer = finalizer,
 
         headers = headers,
         apiKey = apiKey,

@@ -42,22 +42,20 @@ internal fun <T> RequestTemplate(
             }
         }
 
-    val template = RequestTemplate(
+    return RequestTemplate(
         path = path,
         serializer = serializer,
         requiredPermissions = requiredPermissions,
         supportedLanguages = supportedLanguages,
+        finalizer = configure,
         parameters = parameters
     )
-
-    return template.let { if (configure != null) it.configure(configure) else it }
 }
 
 /**
  * A template for a request that can be [executed][Gw2ApiClient.executeAsync] by an API client.
  *
  * @param path          the path segment of the URL (relative to the API client's base URL)
- * @param parameters    the query parameters of the request
  * @param headers       the headers of the request
  * @param apiKey        the API key to use for the request
  * @param language      the language to specify for the request
@@ -71,10 +69,11 @@ public data class RequestTemplate<T> internal constructor(
     internal val requiredPermissions: Collection<String>,
     internal val supportedLanguages: Set<Language>,
     internal val serializer: KSerializer<T>,
+    internal val finalizer: RequestConfigurer?,
 
     val headers: Map<String, String> = emptyMap(),
     val apiKey: String? = null,
-    val language: Language? = null
+    val language: Language? = null,
 )
 
 internal fun <T> RequestTemplate<T>.configure(block: RequestConfigurer): RequestTemplate<T> {
@@ -90,6 +89,7 @@ internal fun <T> RequestTemplate<T>.toBuilder(): RequestBuilder<T> = RequestBuil
     requiredPermissions = requiredPermissions,
     supportedLanguages = supportedLanguages,
     serializer = serializer,
+    finalizer = finalizer,
     headers = headers,
     apiKey = apiKey,
     language = language

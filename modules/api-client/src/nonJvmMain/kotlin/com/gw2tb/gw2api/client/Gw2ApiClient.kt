@@ -55,6 +55,7 @@ public actual class Gw2ApiClient @InternalGw2ApiClientApi actual constructor(
                 res = template.configure(requestConfigurer)
             }
 
+            res.finalizer?.let { configurer -> res = res.configure(configurer) }
             res
         }
 
