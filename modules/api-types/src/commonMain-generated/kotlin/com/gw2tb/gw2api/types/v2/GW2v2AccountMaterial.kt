@@ -47,7 +47,7 @@ public data class GW2v2AccountMaterial(
     /** This field holds the material's item ID. */
     val id: GW2ItemId,
     /** This field holds the material category the item belongs to. */
-    val category: Int,
+    val category: GW2MaterialId,
     /** This field holds the number of the material that is stored in the player's vault. */
     val count: Int,
     /** This field holds the binding of the material. */

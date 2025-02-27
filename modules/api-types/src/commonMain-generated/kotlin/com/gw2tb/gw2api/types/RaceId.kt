@@ -32,18 +32,12 @@ import kotlinx.serialization.json.*
 
 // Generated for type: RaceId
 
-@Suppress("unused")
-internal object LenientGW2RaceIdSerializer : LenientSerializer<GW2RaceId?>(
-    { GW2RaceId(it.toInt()) },
-    GW2RaceId.serializer().nullable
-)
-
 /** TODO */
 @Serializable
 @JvmInline
 public value class GW2RaceId(
     /** The raw (type-unsafe) value. */
-    public val raw: Int
+    public val raw: String
 ) {
     override fun toString(): String = raw.toString()
 }

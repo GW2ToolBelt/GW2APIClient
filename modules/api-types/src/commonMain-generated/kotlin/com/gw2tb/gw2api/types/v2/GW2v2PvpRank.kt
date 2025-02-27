@@ -48,10 +48,10 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2PvpRank(
     /** This field holds the PvP rank's ID. */
-    val id: Int,
+    val id: GW2PvpRankId,
     /** This field holds the rank finisher's ID. */
     @SerialName("finisher_id")
-    val finisherId: Int,
+    val finisherId: GW2FinisherId,
     /** This field holds the rank's localized name. */
     val name: String,
     /** This field holds a render service URL for the rank's icon. */

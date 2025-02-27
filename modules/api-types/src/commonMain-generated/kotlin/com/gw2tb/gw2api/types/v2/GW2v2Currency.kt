@@ -46,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Currency(
     /** This field holds the currency's ID. */
-    val id: Int,
+    val id: GW2CurrencyId,
     /** This field holds the currency's name. */
     val name: String,
     /** This field holds a description of the currency. */

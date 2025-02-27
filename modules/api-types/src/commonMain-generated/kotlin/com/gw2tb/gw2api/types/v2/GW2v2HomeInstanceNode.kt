@@ -42,5 +42,5 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2HomeInstanceNode(
     /** This field holds the node's ID. */
-    val id: String
+    val id: GW2HomeInstanceNodeId
 )

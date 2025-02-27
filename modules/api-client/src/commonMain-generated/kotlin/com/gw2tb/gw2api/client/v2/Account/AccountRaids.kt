@@ -33,12 +33,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2AccountRaids(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
+public fun gw2v2AccountRaids(configure: RequestConfigurer? = null): RequestTemplate<List<GW2RaidId>> = RequestTemplate(
     path = "/v2/account/raids",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "progression"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(GW2RaidId.serializer()),
     configure = configure
 )

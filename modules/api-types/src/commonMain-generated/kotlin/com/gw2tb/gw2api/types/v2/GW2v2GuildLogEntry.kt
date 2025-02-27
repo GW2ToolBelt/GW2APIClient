@@ -220,7 +220,7 @@ public sealed class GW2v2GuildLogEntry {
         override val type: String,
         /** This field holds the item's ID. */
         @SerialName("item_id")
-        val itemId: Int,
+        val itemId: GW2ItemId,
         /** This field holds how many of the item was deposited. */
         val count: Int
     ) : GW2v2GuildLogEntry()
@@ -257,7 +257,7 @@ public sealed class GW2v2GuildLogEntry {
         val operation: String,
         /** This field holds the item's ID. */
         @SerialName("item_id")
-        val itemId: Int,
+        val itemId: GW2ItemId,
         /** This field holds how many of the item was deposited. */
         val count: Int,
         /** This field holds the amount of deposited coins. */
@@ -327,10 +327,10 @@ public sealed class GW2v2GuildLogEntry {
         val count: Int? = null,
         /** This field holds the ID of the completed upgrade. */
         @SerialName("upgrade_id")
-        val upgradeId: Int,
+        val upgradeId: GW2GuildUpgradeId,
         /** This field holds the recipe that generated the upgrade. */
         @SerialName("recipe_id")
-        val recipeId: Int? = null
+        val recipeId: GW2RecipeId? = null
     ) : GW2v2GuildLogEntry()
 
 }

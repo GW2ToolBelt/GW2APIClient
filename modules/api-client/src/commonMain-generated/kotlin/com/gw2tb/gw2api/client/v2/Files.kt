@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2FilesIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
+public fun gw2v2FilesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2FileId>> = RequestTemplate(
     path = "/v2/files",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(GW2FileId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2FilesById(id: String, configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2FilesById-Alias")
+public fun gw2v2FilesById(id: GW2FileId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2File> = RequestTemplate(
+    path = "/v2/files",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2File.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2FilesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2File>> = RequestTemplate(
+    path = "/v2/files",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2File.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2FilesByIds-Alias")
+public fun gw2v2FilesByIds(ids: List<GW2FileId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2File>> = RequestTemplate(
     path = "/v2/files",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

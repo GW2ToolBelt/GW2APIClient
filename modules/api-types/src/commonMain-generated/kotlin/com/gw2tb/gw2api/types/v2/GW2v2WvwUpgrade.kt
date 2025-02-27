@@ -43,7 +43,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvwUpgrade(
     /** This field holds the upgrade's ID. */
-    val id: Int,
+    val id: GW2WvwUpgradeId,
     /** This field holds the different tiers of the upgrade. */
     val tiers: List<Tier>
 ) {

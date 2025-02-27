@@ -50,7 +50,7 @@ public data class GW2v2PvpSeasonsLeaderboardEntry(
     /** This field holds the account's name. */
     val name: String? = null,
     /** This field holds the guild's ID. */
-    val id: String? = null,
+    val id: GW2GuildId? = null,
     /** This field holds the account's rank. */
     val rank: Int,
     /** This field holds the guild team's name. */

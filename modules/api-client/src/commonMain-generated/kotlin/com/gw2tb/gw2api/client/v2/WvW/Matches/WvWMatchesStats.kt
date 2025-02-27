@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2WvWMatchesStatsIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
+public fun gw2v2WvWMatchesStatsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WvwMatchId>> = RequestTemplate(
     path = "/v2/wvw/matches/stats",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(GW2WvwMatchId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2WvWMatchesStatsById(id: String, configure: RequestConfigurer? = 
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2WvWMatchesStatsById-Alias")
+public fun gw2v2WvWMatchesStatsById(id: GW2WvwMatchId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwMatchStats> = RequestTemplate(
+    path = "/v2/wvw/matches/stats",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2WvwMatchStats.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2WvWMatchesStatsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatchStats>> = RequestTemplate(
+    path = "/v2/wvw/matches/stats",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2WvwMatchStats.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2WvWMatchesStatsByIds-Alias")
+public fun gw2v2WvWMatchesStatsByIds(ids: List<GW2WvwMatchId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatchStats>> = RequestTemplate(
     path = "/v2/wvw/matches/stats",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

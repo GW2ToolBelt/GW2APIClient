@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2JadeBot(
     /** This field holds the skin's ID. */
-    val id: Int,
+    val id: GW2JadeBotId,
     /** This field holds the skin's name. */
     val name: String,
     /** This field holds the skin's description. */

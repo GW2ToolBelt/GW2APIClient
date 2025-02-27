@@ -33,12 +33,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2AccountSkiffs(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2AccountSkiffs(configure: RequestConfigurer? = null): RequestTemplate<List<GW2SkiffId>> = RequestTemplate(
     path = "/v2/account/skiffs",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "unlocks"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2SkiffId.serializer()),
     configure = configure
 )

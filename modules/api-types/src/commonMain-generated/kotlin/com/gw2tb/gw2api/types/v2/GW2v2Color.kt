@@ -50,7 +50,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Color(
     /** This field holds the color's ID. */
-    val id: Int,
+    val id: GW2ColorId,
     /** This field holds the color's name. */
     val name: String,
     /** This field holds the base RGB values. */
@@ -65,7 +65,7 @@ public data class GW2v2Color(
     /** This field holds detailed information on its appearance when applied on fur armor. */
     val fur: Appearance? = null,
     /** This field holds the ID of the dye item. */
-    val item: Int? = null,
+    val item: GW2ItemId? = null,
     /** This field holds the categories of the color. */
     val categories: Categories? = null
 ) {

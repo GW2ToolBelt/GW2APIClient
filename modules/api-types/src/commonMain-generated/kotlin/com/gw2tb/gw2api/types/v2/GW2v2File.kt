@@ -43,7 +43,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2File(
     /** This field holds the file identifier. */
-    val id: String,
+    val id: GW2FileId,
     /** This field holds the URL to the image. */
     val icon: String
 )

@@ -44,7 +44,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2World(
     /** This field holds the ID of the world. */
-    val id: Int,
+    val id: GW2WorldId,
     /** This field holds the name of the world. */
     val name: String,
     /** This field holds the population level of the world. */

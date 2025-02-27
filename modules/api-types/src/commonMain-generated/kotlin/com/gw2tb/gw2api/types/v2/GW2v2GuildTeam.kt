@@ -117,10 +117,10 @@ public data class GW2v2GuildTeam(
     @Serializable
     public data class PvpGame(
         /** This field holds the game's ID. */
-        val id: String,
+        val id: GW2PvpGameId,
         /** This field holds the map's ID. */
         @SerialName("map_id")
-        val mapId: Int,
+        val mapId: GW2MapId,
         /** This field holds the ISO-8601 standard timestamp of when the game started. */
         val started: String,
         /** This field holds the ISO-8601 standard timestamp of when the game ended. */
@@ -168,7 +168,7 @@ public data class GW2v2GuildTeam(
     @Serializable
     public data class SeasonStats(
         /** This field holds the season's ID. */
-        val id: String,
+        val id: GW2PvpSeasonId,
         /** This field holds the amount of wins. */
         val wins: Int,
         /** This field holds the amount of losses. */

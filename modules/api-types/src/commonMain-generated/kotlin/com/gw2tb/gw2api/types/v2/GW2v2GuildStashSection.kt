@@ -47,7 +47,7 @@ import kotlinx.serialization.json.*
 public data class GW2v2GuildStashSection(
     /** This field holds the ID of the guild upgrade that granted access to this section of the guild's vault. */
     @SerialName("upgrade_id")
-    val upgradeId: Int,
+    val upgradeId: GW2GuildUpgradeId,
     /** This field holds the number of slots in this section of the guild's vault. */
     val size: Int,
     /** This field holds the number of coins deposited in this section of the guild's vault. */

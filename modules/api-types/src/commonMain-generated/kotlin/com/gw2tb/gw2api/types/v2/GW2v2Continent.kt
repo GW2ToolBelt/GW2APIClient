@@ -47,7 +47,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Continent(
     /** This field holds the continent's ID. */
-    val id: Int,
+    val id: GW2ContinentId,
     /** This field holds the continent's name. */
     val name: String,
     /** This field holds the width and height of the continent. */
@@ -60,5 +60,5 @@ public data class GW2v2Continent(
     @SerialName("max_zoom")
     val maxZoom: Int,
     /** This field holds the IDs of the continent's floors. */
-    val floors: List<Int>
+    val floors: List<GW2FloorId>
 )

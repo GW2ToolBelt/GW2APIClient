@@ -50,7 +50,7 @@ public data class GW2v2AccountBuildStorageSlot(
     /** This field holds the build's name. */
     val name: String,
     /** This field holds the profession's ID. */
-    val profession: String,
+    val profession: GW2ProfessionId,
     /** This field holds the build's specializations. */
     val specializations: List<Specialization?>,
     /** This field holds the build's skills. */
@@ -59,10 +59,10 @@ public data class GW2v2AccountBuildStorageSlot(
     @SerialName("aquatic_skills")
     val aquaticSkills: AuqaticSkills? = null,
     /** This field holds the build's legend IDs. */
-    val legends: List<String?>? = null,
+    val legends: List<GW2LegendId?>? = null,
     /** This field holds the build's aquatic legend IDs. */
     @SerialName("aquatic_legends")
-    val aquaticLegends: List<String?>? = null
+    val aquaticLegends: List<GW2LegendId?>? = null
 ) {
 
     /**
@@ -74,9 +74,9 @@ public data class GW2v2AccountBuildStorageSlot(
     @Serializable
     public data class Specialization(
         /** This field holds the specializations ID. */
-        val id: Int,
+        val id: GW2SpecializationId,
         /** This field holds the trait IDs. */
-        val traits: List<Int?>
+        val traits: List<GW2TraitId?>
     )
 
     /**
@@ -89,11 +89,11 @@ public data class GW2v2AccountBuildStorageSlot(
     @Serializable
     public data class Skills(
         /** This field holds the heal skill's ID. */
-        val heal: Int? = null,
+        val heal: GW2SkillId? = null,
         /** This field holds the IDs of the utility skills. */
-        val utilities: List<Int?>,
+        val utilities: List<GW2SkillId?>,
         /** This field holds the elite skill's ID. */
-        val elite: Int? = null
+        val elite: GW2SkillId? = null
     )
 
     /**
@@ -106,11 +106,11 @@ public data class GW2v2AccountBuildStorageSlot(
     @Serializable
     public data class AuqaticSkills(
         /** This field holds the heal skill's ID. */
-        val heal: Int? = null,
+        val heal: GW2SkillId? = null,
         /** This field holds the IDs of the utility skills. */
-        val utilities: List<Int?>,
+        val utilities: List<GW2SkillId?>,
         /** This field holds the elite skill's ID. */
-        val elite: Int? = null
+        val elite: GW2SkillId? = null
     )
 
 }

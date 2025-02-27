@@ -48,7 +48,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Glider(
     /** This field holds the glider's ID. */
-    val id: Int,
+    val id: GW2GliderId,
     /** This field holds the glider's name. */
     val name: String,
     /** This field holds the glider's description. */
@@ -59,7 +59,7 @@ public data class GW2v2Glider(
     val order: Int,
     /** This field holds the IDs of the dyes that are applied to the glider by default. */
     @SerialName("default_dyes")
-    val defaultDyes: List<Int>,
+    val defaultDyes: List<GW2DyeId>,
     /** This field holds an array of item IDs used to unlock the glider. */
     @SerialName("unlock_items")
     val unlockItems: List<GW2ItemId>

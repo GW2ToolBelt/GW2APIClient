@@ -52,7 +52,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Profession(
     /** This field holds the profession's ID. */
-    val id: String,
+    val id: GW2ProfessionId,
     /** This field holds the profession's localized name. */
     val name: String,
     /** This field holds the profession's palette code. */
@@ -63,7 +63,7 @@ public data class GW2v2Profession(
     @SerialName("icon_big")
     val bigIcon: String,
     /** This field holds the IDs of the profession's specializations. */
-    val specializations: List<Int>,
+    val specializations: List<GW2SpecializationId>,
     /** This field holds information about the weapons usable by this profession. */
     val weapons: Map<String, Weapon>,
     /** This field holds additional flags describing this profession's properties (e.g. NoRacialSkills). */
@@ -87,7 +87,7 @@ public data class GW2v2Profession(
     @Serializable
     public data class Weapon(
         /** This field holds the ID of the profession's specializations required for this weapon. */
-        val specialization: Int? = null,
+        val specialization: GW2SpecializationId? = null,
         /** This field holds additional flags describing this weapon's properties (e.g. MainHand, OffHand, TwoHand, Aquatic). */
         val flags: List<String>,
         /** This field holds the skills for the weapon if wielded by this profession. */
@@ -105,7 +105,7 @@ public data class GW2v2Profession(
         @Serializable
         public data class Skill(
             /** This field holds the skill's ID. */
-            val id: Int,
+            val id: GW2SkillId,
             /** This field holds the skill's slot. */
             val slot: String,
             /** This field holds the elementalist attunement for this skill. */
@@ -128,7 +128,7 @@ public data class GW2v2Profession(
     @Serializable
     public data class Skill(
         /** This field holds the skill's ID. */
-        val id: Int,
+        val id: GW2SkillId,
         /** This field holds the skill's slot. */
         val slot: String,
         /** This field holds the skill's type. */
@@ -175,10 +175,10 @@ public data class GW2v2Profession(
             val type: String,
             /** This field holds the ID of the skill unlocked by this step. */
             @SerialName("skill_id")
-            val skillId: Int? = null,
+            val skillId: GW2SkillId? = null,
             /** This field holds the ID of the trait unlocked by this step. */
             @SerialName("trait_id")
-            val traitId: Int? = null
+            val traitId: GW2TraitId? = null
         )
 
     }

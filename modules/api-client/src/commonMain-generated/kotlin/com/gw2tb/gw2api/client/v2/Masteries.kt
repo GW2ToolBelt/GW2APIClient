@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2MasteriesIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2MasteriesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2MasteryId>> = RequestTemplate(
     path = "/v2/masteries",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2MasteryId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2MasteriesById(id: Int, configure: RequestConfigurer? = null): Re
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2MasteriesById-Alias")
+public fun gw2v2MasteriesById(id: GW2MasteryId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Mastery> = RequestTemplate(
+    path = "/v2/masteries",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = GW2v2Mastery.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2MasteriesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mastery>> = RequestTemplate(
+    path = "/v2/masteries",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2Mastery.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2MasteriesByIds-Alias")
+public fun gw2v2MasteriesByIds(ids: List<GW2MasteryId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mastery>> = RequestTemplate(
     path = "/v2/masteries",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

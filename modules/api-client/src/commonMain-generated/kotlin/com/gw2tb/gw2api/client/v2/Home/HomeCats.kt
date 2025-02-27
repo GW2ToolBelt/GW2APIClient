@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2HomeCatsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2HomeCatsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2HomeInstanceCatId>> = RequestTemplate(
     path = "/v2/home/cats",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2HomeInstanceCatId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2HomeCatsById(id: Int, configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2HomeCatsById-Alias")
+public fun gw2v2HomeCatsById(id: GW2HomeInstanceCatId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomeInstanceCat> = RequestTemplate(
+    path = "/v2/home/cats",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2HomeInstanceCat.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2HomeCatsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
+    path = "/v2/home/cats",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2HomeInstanceCat.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2HomeCatsByIds-Alias")
+public fun gw2v2HomeCatsByIds(ids: List<GW2HomeInstanceCatId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
     path = "/v2/home/cats",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

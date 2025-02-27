@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2ContinentFloor(
     /** This field holds the floor's ID. */
-    val id: Int,
+    val id: GW2FloorId,
     /** This field holds the width and height of the texture. */
     @SerialName("texture_dims")
     val textureDims: List<Int>,

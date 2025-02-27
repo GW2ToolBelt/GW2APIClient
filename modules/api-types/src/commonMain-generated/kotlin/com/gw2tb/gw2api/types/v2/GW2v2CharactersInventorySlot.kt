@@ -118,7 +118,7 @@ public data class GW2v2CharactersInventorySlot(
             @Serializable
             public data class Stats(
                 /** This field holds the itemstat ID. */
-                val id: Int,
+                val id: GW2ItemStatId,
                 /** This field holds the amount of power given by the item. */
                 @SerialName("Power")
                 val power: Int? = null,

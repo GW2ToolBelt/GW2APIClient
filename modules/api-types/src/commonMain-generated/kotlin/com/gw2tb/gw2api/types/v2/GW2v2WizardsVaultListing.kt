@@ -46,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WizardsVaultListing(
     /** This field holds the listing's ID. */
-    val id: Int,
+    val id: GW2WizardsVaultListingId,
     /** This field holds the item's ID. */
     @SerialName("item_id")
     val itemId: GW2ItemId,

@@ -43,7 +43,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2HomeInstanceCat(
     /** This field holds the cat's ID. */
-    val id: Int,
+    val id: GW2HomeInstanceCatId,
     /** This field holds the unlock hint. */
     val hint: String
 )

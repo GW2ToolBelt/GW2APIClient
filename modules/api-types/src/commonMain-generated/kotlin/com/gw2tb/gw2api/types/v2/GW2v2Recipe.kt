@@ -52,7 +52,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Recipe(
     /** This field holds the recipe's ID. */
-    val id: Int,
+    val id: GW2RecipeId,
     /** This field holds the recipe's type. */
     val type: String,
     /** This field holds the ID of the produced item. */
@@ -75,7 +75,7 @@ public data class GW2v2Recipe(
     val ingredients: List<Ingredient>,
     /** This field holds the ID of the produced guild upgrade. */
     @SerialName("output_upgrade_id")
-    val outputUpgradeId: Int? = null,
+    val outputUpgradeId: GW2GuildUpgradeId? = null,
     /** This field holds the recipe's chat code. */
     @SerialName("chat_link")
     val chatLink: String

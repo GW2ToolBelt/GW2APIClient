@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2PvPRanksIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2PvPRanksIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2PvpRankId>> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2PvpRankId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2PvPRanksById(id: Int, configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2PvPRanksById-Alias")
+public fun gw2v2PvPRanksById(id: GW2PvpRankId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpRank> = RequestTemplate(
+    path = "/v2/pvp/ranks",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = GW2v2PvpRank.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2PvPRanksByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
+    path = "/v2/pvp/ranks",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2PvpRank.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2PvPRanksByIds-Alias")
+public fun gw2v2PvPRanksByIds(ids: List<GW2PvpRankId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

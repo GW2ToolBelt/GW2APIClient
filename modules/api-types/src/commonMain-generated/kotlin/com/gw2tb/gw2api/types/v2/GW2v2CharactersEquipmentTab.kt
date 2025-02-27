@@ -76,17 +76,17 @@ public data class GW2v2CharactersEquipmentTab(
     @Serializable
     public data class Equipment(
         /** This field holds the equipped item's ID. */
-        val id: Int,
+        val id: GW2ItemId,
         /** This field holds the slot in which the equipment piece is slotted into. */
         val slot: String,
         /** This field holds the ID of the skin transmuted onto the equipment piece. */
         val skin: GW2SkinId? = null,
         /** This field holds the IDs of the dyes applied to the item. */
-        val dyes: List<Int?>? = null,
+        val dyes: List<GW2DyeId?>? = null,
         /** This field holds the IDs of the upgrade components slotted into the item. */
-        val upgrades: List<Int>? = null,
+        val upgrades: List<GW2ItemId>? = null,
         /** This field holds the IDs of the infusions slotted into the item. */
-        val infusions: List<Int>? = null,
+        val infusions: List<GW2ItemId>? = null,
         /** This field holds the binding of the item. */
         val binding: String? = null,
         /** This field holds name of the character the item is bound to. */
@@ -114,7 +114,7 @@ public data class GW2v2CharactersEquipmentTab(
         @Serializable
         public data class Stats(
             /** This field holds the itemstat ID. */
-            val id: Int,
+            val id: GW2ItemStatId,
             /** This field holds the amount of power given by the item. */
             @SerialName("Power")
             val power: Int? = null,

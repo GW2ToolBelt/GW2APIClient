@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvwMatchStats(
     /** This field holds the match's ID. */
-    val id: String,
+    val id: GW2WvwMatchId,
     /** This field holds the deaths by team color. */
     val deaths: Map<String, Int>,
     /** This field holds the deaths by team color. */

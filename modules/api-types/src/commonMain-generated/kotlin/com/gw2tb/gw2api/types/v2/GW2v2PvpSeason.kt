@@ -49,7 +49,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2PvpSeason(
     /** This field holds the PvP season's ID. */
-    val id: String,
+    val id: GW2PvpSeasonId,
     /** This field holds the season's localized name. */
     val name: String,
     /** This field holds the ISO-8601 standard timestamp of when the season started. */

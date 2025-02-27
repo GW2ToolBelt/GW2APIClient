@@ -60,7 +60,7 @@ private object __JsonParametricSerializer_GW2v2GuildUpgrade : JsonContentPolymor
 public sealed class GW2v2GuildUpgrade {
 
     /** This field holds the upgrade's ID. */
-    public abstract val id: Int
+    public abstract val id: GW2GuildUpgradeId
 
     /** This field holds the upgrade's name. */
     public abstract val name: String
@@ -146,7 +146,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __AccumulatingCurrencySerializer0::class)
     public data class AccumulatingCurrency(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -188,7 +188,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __BankBagSerializer0::class)
     public data class BankBag(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -234,7 +234,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __BoostSerializer0::class)
     public data class Boost(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -274,7 +274,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __ClaimableSerializer0::class)
     public data class Claimable(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -314,7 +314,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __ConsumableSerializer0::class)
     public data class Consumable(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -354,7 +354,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __DecorationSerializer0::class)
     public data class Decoration(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -394,7 +394,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __GuildHallSerializer0::class)
     public data class GuildHall(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -434,7 +434,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __GuildHallExpeditionSerializer0::class)
     public data class GuildHallExpedition(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -474,7 +474,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __HubSerializer0::class)
     public data class Hub(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -514,7 +514,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __QueueSerializer0::class)
     public data class Queue(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,
@@ -554,7 +554,7 @@ public sealed class GW2v2GuildUpgrade {
      */
     @Serializable(with = __UnlockSerializer0::class)
     public data class Unlock(
-        override val id: Int,
+        override val id: GW2GuildUpgradeId,
         override val name: String,
         override val description: String,
         override val type: String,

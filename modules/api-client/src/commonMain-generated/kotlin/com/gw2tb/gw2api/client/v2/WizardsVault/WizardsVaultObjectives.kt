@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2WizardsVaultObjectivesIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2WizardsVaultObjectivesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WizardsVaultObjectiveId>> = RequestTemplate(
     path = "/v2/wizardsvault/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2WizardsVaultObjectiveId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2WizardsVaultObjectivesById(id: Int, configure: RequestConfigurer
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2WizardsVaultObjectivesById-Alias")
+public fun gw2v2WizardsVaultObjectivesById(id: GW2WizardsVaultObjectiveId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WizardsVaultObjective> = RequestTemplate(
+    path = "/v2/wizardsvault/objectives",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2WizardsVaultObjective.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2WizardsVaultObjectivesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultObjective>> = RequestTemplate(
+    path = "/v2/wizardsvault/objectives",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2WizardsVaultObjective.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2WizardsVaultObjectivesByIds-Alias")
+public fun gw2v2WizardsVaultObjectivesByIds(ids: List<GW2WizardsVaultObjectiveId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultObjective>> = RequestTemplate(
     path = "/v2/wizardsvault/objectives",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

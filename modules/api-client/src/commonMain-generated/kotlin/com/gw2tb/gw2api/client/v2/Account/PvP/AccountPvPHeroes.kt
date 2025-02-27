@@ -33,12 +33,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2AccountPvPHeroes(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2AccountPvPHeroes(configure: RequestConfigurer? = null): RequestTemplate<List<GW2PvpHeroId>> = RequestTemplate(
     path = "/v2/account/pvp/heroes",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "unlocks"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2PvpHeroId.serializer()),
     configure = configure
 )

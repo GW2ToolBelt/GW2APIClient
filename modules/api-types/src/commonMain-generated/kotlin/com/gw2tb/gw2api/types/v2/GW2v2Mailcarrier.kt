@@ -47,7 +47,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Mailcarrier(
     /** This field holds the mailcarrier's ID. */
-    val id: Int,
+    val id: GW2MailCarrierId,
     /** This field holds the URL for the mailcarrier's icon. */
     val icon: String,
     /** This field holds the mailcarrier's name. */

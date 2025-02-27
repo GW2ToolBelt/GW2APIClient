@@ -46,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Title(
     /** This field holds the ID of the title. */
-    val id: Int,
+    val id: GW2TitleId,
     /** This field holds the display name of the title. */
     val name: String,
     /** This field holds the ID of the achievement that grants this title. */

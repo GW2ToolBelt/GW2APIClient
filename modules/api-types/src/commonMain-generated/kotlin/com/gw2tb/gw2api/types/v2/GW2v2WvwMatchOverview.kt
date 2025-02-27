@@ -46,9 +46,9 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvwMatchOverview(
     /** This field holds the match's ID. */
-    val id: String,
+    val id: GW2WvwMatchId,
     /** This field holds the IDs of the three primary servers by team color. */
-    val worlds: Map<String, Int>,
+    val worlds: Map<String, GW2WorldId>,
     /** This field holds the IDs of the servers by team color. */
     @SerialName("all_worlds")
     val allWorlds: Map<String, List<Int>>,

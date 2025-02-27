@@ -44,7 +44,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2ItemStatSet(
     /** This field holds the stat set's ID. */
-    val id: Int,
+    val id: GW2ItemStatId,
     /** This field holds the name of the stat set. */
     val name: String,
     /** This field holds the list of attribute bonuses. */

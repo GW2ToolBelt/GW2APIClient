@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Skiff(
     /** This field holds the skin's ID. */
-    val id: Int,
+    val id: GW2SkiffId,
     /** This field holds the skin's name. */
     val name: String,
     /** This field holds a render service URL for the skin's icon. */
@@ -65,7 +65,7 @@ public data class GW2v2Skiff(
     public data class DyeSlot(
         /** This field holds the ID of the color. */
         @SerialName("color_id")
-        val colorId: Int,
+        val colorId: GW2ColorId,
         /** This field holds the slot's material. */
         val material: String
     )

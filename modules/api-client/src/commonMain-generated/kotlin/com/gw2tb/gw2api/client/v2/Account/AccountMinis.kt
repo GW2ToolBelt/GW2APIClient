@@ -33,12 +33,12 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2AccountMinis(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2AccountMinis(configure: RequestConfigurer? = null): RequestTemplate<List<GW2MiniId>> = RequestTemplate(
     path = "/v2/account/minis",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "unlocks"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2MiniId.serializer()),
     configure = configure
 )

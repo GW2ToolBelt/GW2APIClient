@@ -68,15 +68,15 @@ public data class GW2v2Character(
     /** This field holds the character's name. */
     val name: String,
     /** This field holds the ID of the character's race. */
-    val race: String,
+    val race: GW2RaceId,
     /** This field holds the character's gender. */
     val gender: String,
     /** This field holds the ID of the character's profession. */
-    val profession: String,
+    val profession: GW2ProfessionId,
     /** This field holds the character's level. */
     val level: Int,
     /** This field holds the ID of the character's represented guild. */
-    val guild: String? = null,
+    val guild: GW2GuildId? = null,
     /** This field holds the amount of seconds the character was played. */
     val age: Int,
     /** This field holds the ISO-8601 standard timestamp of when the character was created. */
@@ -87,10 +87,10 @@ public data class GW2v2Character(
     /** This field holds the amount of times the character has been defeated. */
     val deaths: Int,
     /** This field holds the ID of the character's selected title. */
-    val title: Int? = null,
+    val title: GW2TitleId? = null,
     /** This field holds information about the WvW abilities of the character. */
     @SerialName("wvw_abilities")
-    val wvwAbilities: List<WvwAbility>,
+    val wvwAbilities: List<WvwAbility>? = null,
     /** This field holds various additional flags. */
     val flags: List<String>,
     /** This field holds the number of build tabs unlocked for the character. */
@@ -106,23 +106,23 @@ public data class GW2v2Character(
     @SerialName("active_equipment_tab")
     val activeEquipmentTab: Int,
     /** This field holds the IDs of the character's backstory answers. */
-    val backstory: List<String>,
+    val backstory: List<GW2BackstoryAnswerId>,
     /** This field holds the character's build tabs. */
     @SerialName("build_tabs")
-    val buildTabs: List<GW2v2CharactersBuildTab>,
+    val buildTabs: List<GW2v2CharactersBuildTab>? = null,
     /** This field holds the character's crafting disciplines. */
     val crafting: List<Discipline>,
     /** This field holds the character's equipment. */
-    val equipment: List<EquipmentSlot>,
+    val equipment: List<EquipmentSlot>? = null,
     /** This field holds the character's equipment tabs. */
     @SerialName("equipment_tabs")
-    val equipmentTabs: List<CharactersEquipmentTab>,
+    val equipmentTabs: List<CharactersEquipmentTab>? = null,
     /** This field holds the character's inventory bags. */
-    val bags: List<Bag>,
+    val bags: List<Bag>? = null,
     /** This field holds the IDs of the character's crafting recipes. */
-    val recipes: List<Int>,
+    val recipes: List<GW2RecipeId>? = null,
     /** This field holds the training information for a character's trained skill-trees. */
-    val training: List<Training>
+    val training: List<Training>? = null
 ) {
 
     /**
@@ -134,7 +134,7 @@ public data class GW2v2Character(
     @Serializable
     public data class WvwAbility(
         /** This field holds the ability's ID. */
-        val id: Int,
+        val id: GW2WvwAbilityId,
         /** This field holds the ability's rank. */
         val rank: Int
     )
@@ -181,7 +181,7 @@ public data class GW2v2Character(
         /** This field holds the ID of the skin transmuted onto the equipment piece. */
         val skin: GW2SkinId? = null,
         /** This field holds the IDs of the dyes applied to the item. */
-        val dyes: List<Int?>? = null,
+        val dyes: List<GW2DyeId?>? = null,
         /** This field holds the IDs of the upgrade components slotted into the item. */
         val upgrades: List<GW2ItemId>? = null,
         /** This field holds the IDs of the infusions slotted into the item. */
@@ -210,7 +210,7 @@ public data class GW2v2Character(
         @Serializable
         public data class Stats(
             /** This field holds the itemstat ID. */
-            val id: Int,
+            val id: GW2ItemStatId,
             /** This field holds the item's attributes. */
             val attributes: Attributes
         ) {
@@ -336,7 +336,7 @@ public data class GW2v2Character(
             @Serializable
             public data class Stats(
                 /** This field holds the itemstat ID. */
-                val id: Int,
+                val id: GW2ItemStatId,
                 /** This field holds the amount of power given by the item. */
                 @SerialName("Power")
                 val power: Int? = null,
@@ -432,7 +432,7 @@ public data class GW2v2Character(
             /** This field holds the ID of the skin transmuted onto the equipment piece. */
             val skin: GW2SkinId? = null,
             /** This field holds the IDs of the dyes applied to the item. */
-            val dyes: List<Int?>? = null,
+            val dyes: List<GW2DyeId?>? = null,
             /** This field holds the IDs of the upgrade components slotted into the item. */
             val upgrades: List<GW2ItemId>? = null,
             /** This field holds the IDs of the infusions slotted into the item. */
@@ -464,7 +464,7 @@ public data class GW2v2Character(
             @Serializable
             public data class Stats(
                 /** This field holds the itemstat ID. */
-                val id: Int,
+                val id: GW2ItemStatId,
                 /** This field holds the amount of power given by the item. */
                 @SerialName("Power")
                 val power: Int? = null,
@@ -503,11 +503,11 @@ public data class GW2v2Character(
         @Serializable
         public data class PvpEquipment(
             /** This field holds the ID of the selected amulet. */
-            val amulet: Int,
+            val amulet: GW2PvpAmuletId,
             /** This field holds the ID of the selected rune. */
-            val rune: Int,
+            val rune: GW2ItemId,
             /** This field holds the IDs of the selected sigils. */
-            val sigils: List<Int?>
+            val sigils: List<GW2ItemId?>
         )
 
     }

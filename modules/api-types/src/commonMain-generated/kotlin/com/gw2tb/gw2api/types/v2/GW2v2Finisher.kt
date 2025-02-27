@@ -47,7 +47,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Finisher(
     /** This field holds the finisher's ID. */
-    val id: Int,
+    val id: GW2FinisherId,
     /** This field holds the finisher's name. */
     val name: String,
     /** This field holds the URL for the finisher's icon. */

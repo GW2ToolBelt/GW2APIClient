@@ -48,7 +48,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Mastery(
     /** This field holds the mastery's ID. */
-    val id: Int,
+    val id: GW2MasteryId,
     /** This field holds the mastery's name. */
     val name: String,
     /** This field holds the written out requirement to unlock the mastery track. */

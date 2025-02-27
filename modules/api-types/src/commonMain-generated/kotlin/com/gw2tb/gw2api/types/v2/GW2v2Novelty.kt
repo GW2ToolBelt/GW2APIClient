@@ -47,7 +47,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Novelty(
     /** This field holds the novelty's ID. */
-    val id: Int,
+    val id: GW2NoveltyId,
     /** This field holds the novelty's name. */
     val name: String,
     /** This field holds a render service URL for the novelty's icon. */

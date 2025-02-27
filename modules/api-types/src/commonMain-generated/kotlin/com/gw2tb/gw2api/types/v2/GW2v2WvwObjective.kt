@@ -52,7 +52,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvwObjective(
     /** This field holds the ID of the objective. */
-    val id: String,
+    val id: GW2WvwObjectiveId,
     /** This field holds the name of the objective. */
     val name: String,
     /** This field holds the type of the objective. */
@@ -62,7 +62,7 @@ public data class GW2v2WvwObjective(
     val sectorId: Int,
     /** This field holds the ID of the map the objective can be found on. */
     @SerialName("map_id")
-    val mapId: Int,
+    val mapId: GW2MapId,
     /** This field holds the type of the map the objective can be found on. */
     @SerialName("map_type")
     val mapType: String,
@@ -78,5 +78,5 @@ public data class GW2v2WvwObjective(
     val chatLink: String,
     /** This field holds the ID of the upgrades available for the objective. */
     @SerialName("upgrade_id")
-    val upgradeId: Int? = null
+    val upgradeId: GW2WvwUpgradeId? = null
 )

@@ -42,5 +42,5 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2CharactersRecipes(
     /** This field holds the IDs of the character's crafting recipes. */
-    val recipes: List<Int>
+    val recipes: List<GW2RecipeId>
 )

@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WizardsVaultObjective(
     /** This field holds the objective's ID. */
-    val id: Int,
+    val id: GW2WizardsVaultObjectiveId,
     /** This field holds the objective's title. */
     val title: String,
     /** This field holds the objective's track. */

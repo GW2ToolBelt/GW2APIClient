@@ -54,15 +54,15 @@ public data class GW2v2CharactersCore(
     /** This field holds the character's name. */
     val name: String,
     /** This field holds the ID of the character's race. */
-    val race: String,
+    val race: GW2RaceId,
     /** This field holds the character's gender. */
     val gender: String,
     /** This field holds the ID of the character's profession. */
-    val profession: String,
+    val profession: GW2ProfessionId,
     /** This field holds the character's level. */
     val level: Int,
     /** This field holds the ID of the character's represented guild. */
-    val guild: String? = null,
+    val guild: GW2GuildId? = null,
     /** This field holds the amount of seconds the character was played. */
     val age: Int,
     /** This field holds the ISO-8601 standard timestamp of when the character was created. */
@@ -73,5 +73,5 @@ public data class GW2v2CharactersCore(
     /** This field holds the amount of times the character has been defeated. */
     val deaths: Int,
     /** This field holds the ID of the character's selected title. */
-    val title: Int? = null
+    val title: GW2TitleId? = null
 )

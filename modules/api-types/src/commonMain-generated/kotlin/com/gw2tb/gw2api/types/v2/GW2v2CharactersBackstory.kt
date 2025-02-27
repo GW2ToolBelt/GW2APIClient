@@ -42,5 +42,5 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2CharactersBackstory(
     /** This field holds the IDs of the character's backstory answers. */
-    val backstory: List<String>
+    val backstory: List<GW2BackstoryAnswerId>
 )

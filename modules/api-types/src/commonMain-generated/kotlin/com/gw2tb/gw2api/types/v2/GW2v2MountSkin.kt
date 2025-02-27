@@ -46,13 +46,13 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2MountSkin(
     /** This field holds the mount skin's ID. */
-    val id: Int,
+    val id: GW2MountSkinId,
     /** This field holds the mount skin's name. */
     val name: String,
     /** This field holds a render service URL for the mount skin's icon. */
     val icon: String,
     /** This field holds the mount type id for the mount skin. */
-    val mount: String,
+    val mount: GW2MountTypeId,
     /** This field holds the mount skin's dye slots. */
     @SerialName("dye_slots")
     val dyeSlots: List<DyeSlot>
@@ -68,7 +68,7 @@ public data class GW2v2MountSkin(
     public data class DyeSlot(
         /** This field holds the ID of the color. */
         @SerialName("color_id")
-        val colorId: Int,
+        val colorId: GW2ColorId,
         /** This field holds the slot's material. */
         val material: String
     )

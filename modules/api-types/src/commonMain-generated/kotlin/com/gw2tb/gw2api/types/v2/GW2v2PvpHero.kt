@@ -49,7 +49,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2PvpHero(
     /** This field holds the PvP hero's ID. */
-    val id: String,
+    val id: GW2PvpHeroId,
     /** This field holds the hero's localized name. */
     val name: String,
     /** This field holds the hero's localized description. */

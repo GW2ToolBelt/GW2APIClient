@@ -70,7 +70,7 @@ public data class GW2v2CharactersEquipment(
         /** This field holds the ID of the skin transmuted onto the equipment piece. */
         val skin: GW2SkinId? = null,
         /** This field holds the IDs of the dyes applied to the item. */
-        val dyes: List<Int?>? = null,
+        val dyes: List<GW2DyeId?>? = null,
         /** This field holds the IDs of the upgrade components slotted into the item. */
         val upgrades: List<GW2ItemId>? = null,
         /** This field holds the IDs of the infusions slotted into the item. */
@@ -99,7 +99,7 @@ public data class GW2v2CharactersEquipment(
         @Serializable
         public data class Stats(
             /** This field holds the itemstat ID. */
-            val id: Int,
+            val id: GW2ItemStatId,
             /** This field holds the item's attributes. */
             val attributes: Attributes
         ) {

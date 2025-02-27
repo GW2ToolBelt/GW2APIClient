@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2ColorsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2ColorsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2ColorId>> = RequestTemplate(
     path = "/v2/colors",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2ColorId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2ColorsById(id: Int, configure: RequestConfigurer? = null): Reque
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2ColorsById-Alias")
+public fun gw2v2ColorsById(id: GW2ColorId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Color> = RequestTemplate(
+    path = "/v2/colors",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = GW2v2Color.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2ColorsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Color>> = RequestTemplate(
+    path = "/v2/colors",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2Color.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2ColorsByIds-Alias")
+public fun gw2v2ColorsByIds(ids: List<GW2ColorId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Color>> = RequestTemplate(
     path = "/v2/colors",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

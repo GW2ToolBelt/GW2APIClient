@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2MountsSkinsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2MountsSkinsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2MountSkinId>> = RequestTemplate(
     path = "/v2/mounts/skins",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2MountSkinId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2MountsSkinsById(id: Int, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2MountsSkinsById-Alias")
+public fun gw2v2MountsSkinsById(id: GW2MountSkinId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MountSkin> = RequestTemplate(
+    path = "/v2/mounts/skins",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = GW2v2MountSkin.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2MountsSkinsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
+    path = "/v2/mounts/skins",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2MountSkin.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2MountsSkinsByIds-Alias")
+public fun gw2v2MountsSkinsByIds(ids: List<GW2MountSkinId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
     path = "/v2/mounts/skins",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

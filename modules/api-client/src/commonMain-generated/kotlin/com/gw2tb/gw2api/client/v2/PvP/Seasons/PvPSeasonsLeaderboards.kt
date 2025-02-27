@@ -64,3 +64,15 @@ public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: 
     serializer = ListSerializer(GW2v2PvpSeasonsLeaderboardEntry.serializer()),
     configure = configure
 )
+
+@JvmSynthetic
+@JvmName("gw2v2PvPSeasonsLeaderboardsByPage-Alias")
+public fun gw2v2PvPSeasonsLeaderboardsByPage(id: GW2PvpSeasonId, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
+    path = "/v2/pvp/seasons/:id/leaderboards",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    replaceInPath = mapOfNonNullValues("id" to id, "board" to board, "region" to region),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2PvpSeasonsLeaderboardEntry.serializer()),
+    configure = configure
+)

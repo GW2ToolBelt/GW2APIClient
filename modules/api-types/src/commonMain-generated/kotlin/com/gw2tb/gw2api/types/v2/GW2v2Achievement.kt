@@ -188,7 +188,7 @@ public data class GW2v2Achievement(
         public data class Mastery(
             override val type: String,
             /** This field holds the mastery point's ID. */
-            val id: Int,
+            val id: GW2MasteryId,
             /** This field holds the mastery point's region. */
             val region: String
         ) : Reward()
@@ -213,7 +213,7 @@ public data class GW2v2Achievement(
         public data class Title(
             override val type: String,
             /** This field holds the title's ID. */
-            val id: Int
+            val id: GW2TitleId
         ) : Reward()
 
     }

@@ -44,13 +44,13 @@ public fun gw2v2Emblem(configure: RequestConfigurer? = null): RequestTemplate<Li
 )
 
 @JvmOverloads
-public fun gw2v2EmblemIds(type: String, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2EmblemIds(type: String, configure: RequestConfigurer? = null): RequestTemplate<List<GW2EmblemId>> = RequestTemplate(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("type" to type),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2EmblemId.serializer()),
     configure = configure
 )
 
@@ -65,8 +65,32 @@ public fun gw2v2EmblemById(type: String, id: Int, configure: RequestConfigurer? 
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2EmblemById-Alias")
+public fun gw2v2EmblemById(type: String, id: GW2EmblemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2EmblemPart> = RequestTemplate(
+    path = "/v2/emblem",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues("type" to type),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2EmblemPart.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2EmblemByIds(type: String, ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
+    path = "/v2/emblem",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues("type" to type),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2EmblemPart.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2EmblemByIds-Alias")
+public fun gw2v2EmblemByIds(type: String, ids: List<GW2EmblemId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("type" to type),

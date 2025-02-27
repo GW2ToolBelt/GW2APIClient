@@ -54,7 +54,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Map(
     /** This field holds the map's ID. */
-    val id: Int,
+    val id: GW2MapId,
     /** This field holds the map's name. */
     val name: String,
     /** This field holds the type of map. */
@@ -67,18 +67,18 @@ public data class GW2v2Map(
     val maxLevel: Int,
     /** This field holds the ID of the map's default floor. */
     @SerialName("default_floor")
-    val defaultFloor: Int,
+    val defaultFloor: GW2FloorId,
     /** This field holds the IDs of the floors available on the map. */
-    val floors: List<Int>,
+    val floors: List<GW2FloorId>,
     /** This field holds the ID of the region the map belongs to. */
     @SerialName("region_id")
-    val regionId: Int,
+    val regionId: GW2RegionId,
     /** This field holds the name of the region the map belongs to. */
     @SerialName("region_name")
     val regionName: String? = null,
     /** This field holds the ID of the continent the map belongs to. */
     @SerialName("continent_id")
-    val continentId: Int,
+    val continentId: GW2ContinentId,
     /** This field holds the name of the continent the map belongs to. */
     @SerialName("continent_name")
     val continentName: String? = null,

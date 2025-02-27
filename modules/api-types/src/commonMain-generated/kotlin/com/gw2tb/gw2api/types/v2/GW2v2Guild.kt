@@ -53,7 +53,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Guild(
     /** This field holds the guild's ID. */
-    val id: String,
+    val id: GW2GuildId,
     /** This field holds the guild's name. */
     val name: String,
     /** This field holds the guild's tag. */
@@ -106,9 +106,9 @@ public data class GW2v2Guild(
         @Serializable
         public data class Background(
             /** This field holds the background's ID. */
-            val id: Int,
+            val id: GW2EmblemId,
             /** This field holds the background's colors. */
-            val colors: List<Int>
+            val colors: List<GW2DyeId>
         )
 
         /**
@@ -120,9 +120,9 @@ public data class GW2v2Guild(
         @Serializable
         public data class Foreground(
             /** This field holds the foreground's ID. */
-            val id: Int,
+            val id: GW2EmblemId,
             /** This field holds the foreground's colors. */
-            val colors: List<Int>
+            val colors: List<GW2DyeId>
         )
 
     }

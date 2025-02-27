@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Outfit(
     /** This field holds the outfit's ID. */
-    val id: Int,
+    val id: GW2OutfitId,
     /** This field holds the outfit's name. */
     val name: String,
     /** This field holds the outfit's icon. */

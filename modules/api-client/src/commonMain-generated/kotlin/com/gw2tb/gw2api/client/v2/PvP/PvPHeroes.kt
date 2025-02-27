@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2PvPHeroesIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
+public fun gw2v2PvPHeroesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2PvpHeroId>> = RequestTemplate(
     path = "/v2/pvp/heroes",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(GW2PvpHeroId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2PvPHeroesById(id: String, configure: RequestConfigurer? = null):
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2PvPHeroesById-Alias")
+public fun gw2v2PvPHeroesById(id: GW2PvpHeroId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpHero> = RequestTemplate(
+    path = "/v2/pvp/heroes",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = GW2v2PvpHero.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2PvPHeroesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpHero>> = RequestTemplate(
+    path = "/v2/pvp/heroes",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2PvpHero.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2PvPHeroesByIds-Alias")
+public fun gw2v2PvPHeroesByIds(ids: List<GW2PvpHeroId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpHero>> = RequestTemplate(
     path = "/v2/pvp/heroes",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

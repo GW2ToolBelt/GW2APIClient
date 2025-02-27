@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2FinishersIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2FinishersIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2FinisherId>> = RequestTemplate(
     path = "/v2/finishers",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2FinisherId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2FinishersById(id: Int, configure: RequestConfigurer? = null): Re
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2FinishersById-Alias")
+public fun gw2v2FinishersById(id: GW2FinisherId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Finisher> = RequestTemplate(
+    path = "/v2/finishers",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = GW2v2Finisher.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2FinishersByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Finisher>> = RequestTemplate(
+    path = "/v2/finishers",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = Language.API_V2,
+    serializer = ListSerializer(GW2v2Finisher.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2FinishersByIds-Alias")
+public fun gw2v2FinishersByIds(ids: List<GW2FinisherId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Finisher>> = RequestTemplate(
     path = "/v2/finishers",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

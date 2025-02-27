@@ -46,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvwAbility(
     /** This field holds the ID of the ability. */
-    val id: Int,
+    val id: GW2WvwAbilityId,
     /** This field holds the ability's localized name. */
     val name: String,
     /** This field holds the ability's localized description. */

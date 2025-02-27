@@ -51,9 +51,9 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Story(
     /** This field holds the ID of the story. */
-    val id: Int,
+    val id: GW2StoryId,
     /** This field holds the ID of the story's season. */
-    val season: String,
+    val season: GW2StorySeasonId,
     /** This field holds the localized name of the story. */
     val name: String,
     /** This field holds the localized description of the story. */
@@ -67,7 +67,7 @@ public data class GW2v2Story(
     /** This field holds the story's chapters. */
     val chapters: List<Chapter>,
     /** This field holds the races eligible to participate in the story. */
-    val races: List<String>? = null,
+    val races: List<GW2RaceId>? = null,
     /** This field holds additional requirements for a character to participate in the story. */
     val flags: List<String>? = null
 ) {

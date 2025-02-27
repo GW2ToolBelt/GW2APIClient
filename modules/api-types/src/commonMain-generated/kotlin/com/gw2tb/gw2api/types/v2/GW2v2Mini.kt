@@ -47,7 +47,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Mini(
     /** This field holds the mini's ID. */
-    val id: Int,
+    val id: GW2MiniId,
     /** This field holds the mini's name. */
     val name: String,
     /** This field holds the description of how to unlock the mini. */

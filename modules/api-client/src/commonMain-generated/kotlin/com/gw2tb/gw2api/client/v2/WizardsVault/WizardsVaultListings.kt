@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2WizardsVaultListingsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2WizardsVaultListingsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WizardsVaultListingId>> = RequestTemplate(
     path = "/v2/wizardsvault/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(GW2WizardsVaultListingId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2WizardsVaultListingsById(id: Int, configure: RequestConfigurer? 
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2WizardsVaultListingsById-Alias")
+public fun gw2v2WizardsVaultListingsById(id: GW2WizardsVaultListingId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WizardsVaultListing> = RequestTemplate(
+    path = "/v2/wizardsvault/listings",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2WizardsVaultListing.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2WizardsVaultListingsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultListing>> = RequestTemplate(
+    path = "/v2/wizardsvault/listings",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2WizardsVaultListing.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2WizardsVaultListingsByIds-Alias")
+public fun gw2v2WizardsVaultListingsByIds(ids: List<GW2WizardsVaultListingId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultListing>> = RequestTemplate(
     path = "/v2/wizardsvault/listings",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

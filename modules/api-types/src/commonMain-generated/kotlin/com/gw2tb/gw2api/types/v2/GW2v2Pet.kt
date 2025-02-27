@@ -46,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Pet(
     /** This field holds the pet's ID. */
-    val id: Int,
+    val id: GW2PetId,
     /** This field holds the pet's name. */
     val name: String,
     /** This field holds the pet's description. */
@@ -65,7 +65,7 @@ public data class GW2v2Pet(
     @Serializable
     public data class Skill(
         /** This field holds the skill's ID. */
-        val id: Int
+        val id: GW2SkillId
     )
 
 }

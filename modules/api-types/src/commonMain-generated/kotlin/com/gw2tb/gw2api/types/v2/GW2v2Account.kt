@@ -62,12 +62,12 @@ public data class GW2v2Account(
     /** This field holds the unique account name. */
     val name: String,
     /** This field holds the ID of the home world the account is assigned to. */
-    val world: Int,
+    val world: GW2WorldId,
     /** This field holds an array containing the IDs of all guilds the account is a member in. */
-    val guilds: List<String>,
+    val guilds: List<GW2GuildId>,
     /** This field holds an array containing the IDs of all guilds the account is a leader of. */
     @SerialName("guild_leader")
-    val guildLeader: List<String>? = null,
+    val guildLeader: List<GW2GuildId>? = null,
     /** This field holds the ISO-8601 standard timestamp of when the account was created. */
     val created: String,
     /** This field holds an array of what content this account has access to. */

@@ -52,7 +52,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Trait(
     /** This field holds the trait's ID. */
-    val id: Int,
+    val id: GW2TraitId,
     /** This field holds the trait's tier. */
     val tier: Int,
     /** This field holds the trait's order. */
@@ -71,7 +71,7 @@ public data class GW2v2Trait(
     /** This field holds a list of skills related to this trait. */
     val skills: List<Skill>? = null,
     /** This field holds the specialization that this trait is part of. */
-    val specialization: Int,
+    val specialization: GW2SpecializationId,
     /** This field holds the URL for the trait's icon. */
     val icon: String
 ) {
@@ -679,7 +679,7 @@ public data class GW2v2Trait(
         public abstract val text: String?
 
         /** This field holds specifies which trait has to be selected in order for this fact to take effect. */
-        public abstract val requiresTrait: Int
+        public abstract val requiresTrait: GW2TraitId
 
         /** This field holds the array index of the facts object it will override, if the trait specified in requires_trait is selected. */
         public abstract val overrides: Int?
@@ -711,7 +711,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the amount 'target' gets adjusted, based on a level 80 character at base stats. */
             val value: Int? = null,
@@ -748,7 +748,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the boon, condition, or effect referred to by the fact. */
             val status: String,
@@ -789,7 +789,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the attribute that is used to calculate the attribute gain. */
             val source: String,
@@ -825,7 +825,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the type of the field. */
             @SerialName("field_type")
@@ -859,7 +859,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the type of finisher. */
             @SerialName("finisher_type")
@@ -895,7 +895,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the amount of times the damage hits. */
             @SerialName("hit_count")
@@ -931,7 +931,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the distance value. */
             val distance: Int
@@ -962,7 +962,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null
         ) : TraitedFact()
 
@@ -992,7 +992,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the number value as referenced by text. */
             val value: Int
@@ -1024,7 +1024,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the percentage value as referenced by text. */
             val percent: Double
@@ -1060,7 +1060,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the boon, condition, or effect referred to by the fact. */
             val status: String? = null,
@@ -1123,7 +1123,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the radius value. */
             val distance: Int
@@ -1155,7 +1155,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the range of the trait/skill. */
             val value: Int
@@ -1187,7 +1187,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the recharge time in seconds. */
             val value: Double
@@ -1219,7 +1219,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds always true. */
             val value: Boolean
@@ -1251,7 +1251,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds the time value in seconds. */
             val duration: Int
@@ -1283,7 +1283,7 @@ public data class GW2v2Trait(
             override val icon: String? = null,
             override val text: String? = null,
             @SerialName("requires_trait")
-            override val requiresTrait: Int,
+            override val requiresTrait: GW2TraitId,
             override val overrides: Int? = null,
             /** This field holds always true. */
             val value: Boolean
@@ -1307,7 +1307,7 @@ public data class GW2v2Trait(
     @Serializable
     public data class Skill(
         /** This field holds the skill's ID. */
-        val id: Int,
+        val id: GW2SkillId,
         /** This field holds the skill's localized name. */
         val name: String,
         /** This field holds the skill's localized description. */
@@ -1931,7 +1931,7 @@ public data class GW2v2Trait(
             public abstract val text: String?
 
             /** This field holds specifies which trait has to be selected in order for this fact to take effect. */
-            public abstract val requiresTrait: Int
+            public abstract val requiresTrait: GW2TraitId
 
             /** This field holds the array index of the facts object it will override, if the trait specified in requires_trait is selected. */
             public abstract val overrides: Int?
@@ -1963,7 +1963,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the amount 'target' gets adjusted, based on a level 80 character at base stats. */
                 val value: Int? = null,
@@ -2000,7 +2000,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the boon, condition, or effect referred to by the fact. */
                 val status: String,
@@ -2041,7 +2041,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the attribute that is used to calculate the attribute gain. */
                 val source: String,
@@ -2077,7 +2077,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the type of the field. */
                 @SerialName("field_type")
@@ -2111,7 +2111,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the type of finisher. */
                 @SerialName("finisher_type")
@@ -2147,7 +2147,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the amount of times the damage hits. */
                 @SerialName("hit_count")
@@ -2183,7 +2183,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the distance value. */
                 val distance: Int
@@ -2214,7 +2214,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null
             ) : TraitedFact()
 
@@ -2244,7 +2244,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the number value as referenced by text. */
                 val value: Int
@@ -2276,7 +2276,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the percentage value as referenced by text. */
                 val percent: Double
@@ -2312,7 +2312,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the boon, condition, or effect referred to by the fact. */
                 val status: String? = null,
@@ -2375,7 +2375,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the radius value. */
                 val distance: Int
@@ -2407,7 +2407,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the range of the trait/skill. */
                 val value: Int
@@ -2439,7 +2439,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the recharge time in seconds. */
                 val value: Double
@@ -2471,7 +2471,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds always true. */
                 val value: Boolean
@@ -2503,7 +2503,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds the time value in seconds. */
                 val duration: Int
@@ -2535,7 +2535,7 @@ public data class GW2v2Trait(
                 override val icon: String? = null,
                 override val text: String? = null,
                 @SerialName("requires_trait")
-                override val requiresTrait: Int,
+                override val requiresTrait: GW2TraitId,
                 override val overrides: Int? = null,
                 /** This field holds always true. */
                 val value: Boolean

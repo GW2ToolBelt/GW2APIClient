@@ -48,17 +48,17 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2BackstoryQuestion(
     /** This field holds the question's ID. */
-    val id: Int,
+    val id: GW2BackstoryQuestionId,
     /** This field holds the question's localized title. */
     val title: String,
     /** This field holds the question's localized description. */
     val description: String,
     /** This field holds the IDs of the possible answers to the question. */
-    val answers: List<String>,
+    val answers: List<GW2BackstoryAnswerId>,
     /** This field holds a number that can be used to sort the list of questions. */
     val order: Int,
     /** This field holds the IDs of the professions that the question is presented to. */
-    val professions: List<String>? = null,
+    val professions: List<GW2ProfessionId>? = null,
     /** This field holds the IDs of the races that the question is presented to. */
-    val races: List<String>? = null
+    val races: List<GW2RaceId>? = null
 )

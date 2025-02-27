@@ -33,13 +33,13 @@ import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
 @JvmOverloads
-public fun gw2v2QuaggansIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
+public fun gw2v2QuaggansIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2QuagganId>> = RequestTemplate(
     path = "/v2/quaggans",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(String.serializer()),
+    serializer = ListSerializer(GW2QuagganId.serializer()),
     configure = configure
 )
 
@@ -54,8 +54,32 @@ public fun gw2v2QuaggansById(id: String, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+@JvmSynthetic
+@JvmName("gw2v2QuaggansById-Alias")
+public fun gw2v2QuaggansById(id: GW2QuagganId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Quaggan> = RequestTemplate(
+    path = "/v2/quaggans",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = GW2v2Quaggan.serializer(),
+    configure = configure
+)
+
 @JvmOverloads
 public fun gw2v2QuaggansByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quaggan>> = RequestTemplate(
+    path = "/v2/quaggans",
+    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    replaceInPath = mapOfNonNullValues(),
+    requiredPermissions = setOf(),
+    supportedLanguages = emptySet(),
+    serializer = ListSerializer(GW2v2Quaggan.serializer()),
+    configure = configure
+)
+
+@JvmSynthetic
+@JvmName("gw2v2QuaggansByIds-Alias")
+public fun gw2v2QuaggansByIds(ids: List<GW2QuagganId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quaggan>> = RequestTemplate(
     path = "/v2/quaggans",
     parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),

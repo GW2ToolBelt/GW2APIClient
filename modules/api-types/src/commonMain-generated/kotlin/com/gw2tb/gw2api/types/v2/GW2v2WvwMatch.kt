@@ -52,7 +52,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvwMatch(
     /** This field holds the match's ID. */
-    val id: String,
+    val id: GW2WvwMatchId,
     /** This field holds the ISO-8601 standard timestamp of when the match's start. */
     @SerialName("start_time")
     val startTime: String,
@@ -62,10 +62,10 @@ public data class GW2v2WvwMatch(
     /** This field holds the total scores by team color. */
     val scores: Map<String, Int>,
     /** This field holds the IDs of the three primary servers by team color. */
-    val worlds: Map<String, Int>,
+    val worlds: Map<String, GW2WorldId>,
     /** This field holds the IDs of the servers by team color. */
     @SerialName("all_worlds")
-    val allWorlds: Map<String, List<Int>>,
+    val allWorlds: Map<String, List<GW2WorldId>>,
     /** This field holds the total deaths by team color. */
     val deaths: Map<String, Int>,
     /** This field holds the total kills by team color. */

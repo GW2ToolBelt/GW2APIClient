@@ -47,15 +47,15 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Legend(
     /** This field holds the legend's ID. */
-    val id: String,
+    val id: GW2LegendId,
     /** This field holds the build template ID of the legend. */
     val code: Int,
     /** This field holds the ID of the profession (swap Legend) skill. */
-    val swap: Int,
+    val swap: GW2SkillId,
     /** This field holds the ID of the heal skill. */
-    val heal: Int,
+    val heal: GW2SkillId,
     /** This field holds the ID of the elite skills. */
-    val elite: Int,
+    val elite: GW2SkillId,
     /** This field holds the IDs of the utility skills. */
-    val utilities: List<Int>
+    val utilities: List<GW2SkillId>
 )

@@ -154,7 +154,7 @@ public data class GW2v2Skin(
                 public data class DyeSlot(
                     /** This field holds the default color's ID. */
                     @SerialName("color_id")
-                    val colorId: Int,
+                    val colorId: GW2ColorId,
                     /** This field holds the material type. */
                     val material: String
                 )

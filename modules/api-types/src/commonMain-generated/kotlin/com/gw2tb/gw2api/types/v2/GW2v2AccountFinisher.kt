@@ -44,7 +44,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2AccountFinisher(
     /** This field holds the finisher's ID. */
-    val id: Int,
+    val id: GW2FinisherId,
     /** This field holds whether the finisher is unlock permanently. */
     val permanent: Boolean,
     /** This field holds the remaining uses. */

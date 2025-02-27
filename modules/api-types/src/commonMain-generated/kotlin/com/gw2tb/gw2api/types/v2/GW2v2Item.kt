@@ -177,7 +177,7 @@ public data class GW2v2Item(
         @Serializable
         public data class InfixUpgrade(
             /** This field holds the itemstat ID. */
-            val id: Int,
+            val id: GW2ItemStatId,
             /** This field holds the list of attribute bonuses granted by this item. */
             val attributes: List<Attribute>,
             /** This field holds object containing an additional effect. */
@@ -208,7 +208,7 @@ public data class GW2v2Item(
             public data class Buff(
                 /** This field holds the skill ID of the effect. */
                 @SerialName("skill_id")
-                val skillId: Int,
+                val skillId: GW2SkillId,
                 /** This field holds the effect's description. */
                 val description: String? = null
             )
@@ -235,13 +235,13 @@ public data class GW2v2Item(
             val infixUpgrade: InfixUpgrade? = null,
             /** This field holds the suffix item ID. */
             @SerialName("suffix_item_id")
-            val suffixItemId: Int? = null,
+            val suffixItemId: GW2ItemId? = null,
             /** This field holds the secondary suffix item ID. */
             @SerialName("secondary_suffix_item_id")
             val secondarySuffixItemId: GW2ItemId? = null,
             /** This field holds a list of selectable stat IDs which are visible in /v2/itemstats. */
             @SerialName("stat_choices")
-            val statChoices: List<Int>? = null,
+            val statChoices: List<GW2ItemStatId>? = null,
             /** This field holds The value to be combined with the gradient multiplier and offset value to calculate the value of an attribute using the itemstats. */
             @SerialName("attribute_adjustment")
             val attributeAdjustment: Double? = null
@@ -282,9 +282,9 @@ public data class GW2v2Item(
                 element("defense", Int.serializer().descriptor, isOptional = false)
                 element("infusion_slots", ListSerializer(GW2v2Item.Details.Upgrades.InfusionSlot.serializer()).descriptor, isOptional = false)
                 element("infix_upgrade", GW2v2Item.Details.InfixUpgrade.serializer().descriptor, isOptional = true)
-                element("suffix_item_id", Int.serializer().descriptor, isOptional = true)
+                element("suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
                 element("secondary_suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
-                element("stat_choices", ListSerializer(Int.serializer()).descriptor, isOptional = true)
+                element("stat_choices", ListSerializer(GW2ItemStatId.serializer()).descriptor, isOptional = true)
                 element("attribute_adjustment", Double.serializer().descriptor, isOptional = true)
             }
             override fun transformDeserialize(element: JsonElement): JsonElement {
@@ -351,9 +351,9 @@ public data class GW2v2Item(
             override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.Back") {
                 element("infusion_slots", ListSerializer(GW2v2Item.Details.Upgrades.InfusionSlot.serializer()).descriptor, isOptional = false)
                 element("infix_upgrade", GW2v2Item.Details.InfixUpgrade.serializer().descriptor, isOptional = true)
-                element("suffix_item_id", Int.serializer().descriptor, isOptional = true)
+                element("suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
                 element("secondary_suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
-                element("stat_choices", ListSerializer(Int.serializer()).descriptor, isOptional = true)
+                element("stat_choices", ListSerializer(GW2ItemStatId.serializer()).descriptor, isOptional = true)
                 element("attribute_adjustment", Double.serializer().descriptor, isOptional = true)
             }
             override fun transformDeserialize(element: JsonElement): JsonElement {
@@ -457,16 +457,16 @@ public data class GW2v2Item(
             val unlockType: String? = null,
             /** This field holds the dye ID for dye unlocks. */
             @SerialName("color_id")
-            val colorId: Int? = null,
+            val colorId: GW2ColorId? = null,
             /** This field holds the recipe ID for recipe unlocks. */
             @SerialName("recipe_id")
-            val recipeId: Int? = null,
+            val recipeId: GW2RecipeId? = null,
             /** This field holds additional recipe IDs for recipe unlocks. */
             @SerialName("extra_recipe_ids")
-            val extraRecipeIds: List<Int>? = null,
+            val extraRecipeIds: List<GW2RecipeId>? = null,
             /** This field holds the guild upgrade ID for the item. */
             @SerialName("guild_upgrade_id")
-            val guildUpgradeId: Int? = null,
+            val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the number of stacks of the effect applied by this item. */
             @SerialName("apply_count")
             val applyCount: Int? = null,
@@ -475,7 +475,7 @@ public data class GW2v2Item(
             /** This field holds the icon of the effect. */
             val icon: String? = null,
             /** This field holds a list of skin ids which this item unlocks. */
-            val skins: List<Int>? = null
+            val skins: List<GW2SkinId>? = null
         ) : Details()
 
         @Suppress("ClassName")
@@ -543,7 +543,7 @@ public data class GW2v2Item(
             val type: String,
             /** This field holds the guild upgrade ID for the item. */
             @SerialName("guild_upgrade_id")
-            val guildUpgradeId: Int? = null,
+            val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the vendor IDs. */
             @SerialName("vendor_ids")
             val vendorIds: List<Int>? = null
@@ -568,7 +568,7 @@ public data class GW2v2Item(
         public data class MiniPet(
             /** This field holds the miniature it unlocks. */
             @SerialName("minipet_id")
-            val minipetId: Int
+            val minipetId: GW2MiniId
         ) : Details()
 
         @Suppress("ClassName")
@@ -611,9 +611,9 @@ public data class GW2v2Item(
                 element("type", String.serializer().descriptor, isOptional = false)
                 element("infusion_slots", ListSerializer(GW2v2Item.Details.Upgrades.InfusionSlot.serializer()).descriptor, isOptional = false)
                 element("infix_upgrade", GW2v2Item.Details.InfixUpgrade.serializer().descriptor, isOptional = true)
-                element("suffix_item_id", Int.serializer().descriptor, isOptional = true)
+                element("suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
                 element("secondary_suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
-                element("stat_choices", ListSerializer(Int.serializer()).descriptor, isOptional = true)
+                element("stat_choices", ListSerializer(GW2ItemStatId.serializer()).descriptor, isOptional = true)
                 element("attribute_adjustment", Double.serializer().descriptor, isOptional = true)
             }
             override fun transformDeserialize(element: JsonElement): JsonElement {
@@ -718,9 +718,9 @@ public data class GW2v2Item(
                 element("defense", Int.serializer().descriptor, isOptional = false)
                 element("infusion_slots", ListSerializer(GW2v2Item.Details.Upgrades.InfusionSlot.serializer()).descriptor, isOptional = false)
                 element("infix_upgrade", GW2v2Item.Details.InfixUpgrade.serializer().descriptor, isOptional = true)
-                element("suffix_item_id", Int.serializer().descriptor, isOptional = true)
+                element("suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
                 element("secondary_suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
-                element("stat_choices", ListSerializer(Int.serializer()).descriptor, isOptional = true)
+                element("stat_choices", ListSerializer(GW2ItemStatId.serializer()).descriptor, isOptional = true)
                 element("attribute_adjustment", Double.serializer().descriptor, isOptional = true)
             }
             override fun transformDeserialize(element: JsonElement): JsonElement {
