@@ -1,5 +1,5 @@
 [versions]
-api-generator = "0.7.0"
+api-generator = "0.8.0"
 binary-compatibility-validator = "0.17.0"
 dokka = "2.0.0"
 junit = "5.11.4"
