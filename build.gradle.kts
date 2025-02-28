@@ -62,7 +62,7 @@ dokka {
 
 tasks {
     register<Generate>("generate") {
-        schemaVersion = SchemaVersion.V2_SCHEMA_2022_03_23T19_00_00_000Z
+        schemaVersion = SchemaVersion.V2_SCHEMA_2024_07_20T01_00_00_000Z
 
         licenseHeader = file("docs/LICENSE_HEADER_GEN").readText()
 

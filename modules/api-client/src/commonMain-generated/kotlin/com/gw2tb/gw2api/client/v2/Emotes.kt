@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2EmotesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2EmoteId>> = RequestTemplate(
     path = "/v2/emotes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2EmotesIds(configure: RequestConfigurer? = null): RequestTemplate
 @JvmOverloads
 public fun gw2v2EmotesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Emote> = RequestTemplate(
     path = "/v2/emotes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -58,7 +58,7 @@ public fun gw2v2EmotesById(id: String, configure: RequestConfigurer? = null): Re
 @JvmName("gw2v2EmotesById-Alias")
 public fun gw2v2EmotesById(id: GW2EmoteId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Emote> = RequestTemplate(
     path = "/v2/emotes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -69,7 +69,7 @@ public fun gw2v2EmotesById(id: GW2EmoteId, configure: RequestConfigurer? = null)
 @JvmOverloads
 public fun gw2v2EmotesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Emote>> = RequestTemplate(
     path = "/v2/emotes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -81,7 +81,7 @@ public fun gw2v2EmotesByIds(ids: List<String>, configure: RequestConfigurer? = n
 @JvmName("gw2v2EmotesByIds-Alias")
 public fun gw2v2EmotesByIds(ids: List<GW2EmoteId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Emote>> = RequestTemplate(
     path = "/v2/emotes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -92,7 +92,7 @@ public fun gw2v2EmotesByIds(ids: List<GW2EmoteId>, configure: RequestConfigurer?
 @JvmOverloads
 public fun gw2v2EmotesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Emote>> = RequestTemplate(
     path = "/v2/emotes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2StoriesSeasonsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2StorySeasonId>> = RequestTemplate(
     path = "/v2/stories/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2StoriesSeasonsIds(configure: RequestConfigurer? = null): Request
 @JvmOverloads
 public fun gw2v2StoriesSeasonsById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2StorySeason> = RequestTemplate(
     path = "/v2/stories/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -58,7 +58,7 @@ public fun gw2v2StoriesSeasonsById(id: String, configure: RequestConfigurer? = n
 @JvmName("gw2v2StoriesSeasonsById-Alias")
 public fun gw2v2StoriesSeasonsById(id: GW2StorySeasonId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2StorySeason> = RequestTemplate(
     path = "/v2/stories/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -69,7 +69,7 @@ public fun gw2v2StoriesSeasonsById(id: GW2StorySeasonId, configure: RequestConfi
 @JvmOverloads
 public fun gw2v2StoriesSeasonsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2StorySeason>> = RequestTemplate(
     path = "/v2/stories/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -81,7 +81,7 @@ public fun gw2v2StoriesSeasonsByIds(ids: List<String>, configure: RequestConfigu
 @JvmName("gw2v2StoriesSeasonsByIds-Alias")
 public fun gw2v2StoriesSeasonsByIds(ids: List<GW2StorySeasonId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2StorySeason>> = RequestTemplate(
     path = "/v2/stories/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -92,7 +92,7 @@ public fun gw2v2StoriesSeasonsByIds(ids: List<GW2StorySeasonId>, configure: Requ
 @JvmOverloads
 public fun gw2v2StoriesSeasonsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2StorySeason>> = RequestTemplate(
     path = "/v2/stories/seasons",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,

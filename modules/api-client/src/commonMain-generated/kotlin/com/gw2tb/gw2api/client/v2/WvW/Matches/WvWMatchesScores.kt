@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2WvWMatchesScoresIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WvwMatchId>> = RequestTemplate(
     path = "/v2/wvw/matches/scores",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2WvWMatchesScoresIds(configure: RequestConfigurer? = null): Reque
 @JvmOverloads
 public fun gw2v2WvWMatchesScoresById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwMatchScore> = RequestTemplate(
     path = "/v2/wvw/matches/scores",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -58,7 +58,7 @@ public fun gw2v2WvWMatchesScoresById(id: String, configure: RequestConfigurer? =
 @JvmName("gw2v2WvWMatchesScoresById-Alias")
 public fun gw2v2WvWMatchesScoresById(id: GW2WvwMatchId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwMatchScore> = RequestTemplate(
     path = "/v2/wvw/matches/scores",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -69,7 +69,7 @@ public fun gw2v2WvWMatchesScoresById(id: GW2WvwMatchId, configure: RequestConfig
 @JvmOverloads
 public fun gw2v2WvWMatchesScoresByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatchScore>> = RequestTemplate(
     path = "/v2/wvw/matches/scores",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -81,7 +81,7 @@ public fun gw2v2WvWMatchesScoresByIds(ids: List<String>, configure: RequestConfi
 @JvmName("gw2v2WvWMatchesScoresByIds-Alias")
 public fun gw2v2WvWMatchesScoresByIds(ids: List<GW2WvwMatchId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatchScore>> = RequestTemplate(
     path = "/v2/wvw/matches/scores",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -92,7 +92,7 @@ public fun gw2v2WvWMatchesScoresByIds(ids: List<GW2WvwMatchId>, configure: Reque
 @JvmOverloads
 public fun gw2v2WvWMatchesScoresByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatchScore>> = RequestTemplate(
     path = "/v2/wvw/matches/scores",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

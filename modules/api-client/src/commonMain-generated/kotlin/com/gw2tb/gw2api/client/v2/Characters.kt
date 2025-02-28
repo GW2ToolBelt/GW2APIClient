@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2CharactersIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/characters",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "characters"),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2CharactersIds(configure: RequestConfigurer? = null): RequestTemp
 @JvmOverloads
 public fun gw2v2CharactersById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Character> = RequestTemplate(
     path = "/v2/characters",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "characters"),
     supportedLanguages = emptySet(),
@@ -57,7 +57,7 @@ public fun gw2v2CharactersById(id: String, configure: RequestConfigurer? = null)
 @JvmOverloads
 public fun gw2v2CharactersByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Character>> = RequestTemplate(
     path = "/v2/characters",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "characters"),
     supportedLanguages = emptySet(),
@@ -68,7 +68,7 @@ public fun gw2v2CharactersByIds(ids: List<String>, configure: RequestConfigurer?
 @JvmOverloads
 public fun gw2v2CharactersByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Character>> = RequestTemplate(
     path = "/v2/characters",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "characters"),
     supportedLanguages = emptySet(),

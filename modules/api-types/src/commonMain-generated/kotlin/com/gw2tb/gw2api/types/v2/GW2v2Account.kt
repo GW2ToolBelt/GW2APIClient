@@ -49,7 +49,7 @@ import kotlinx.serialization.json.*
  * @param fractalLevel the account's personal fractal level
  * @param dailyAP the daily AP the account has
  * @param monthlyAP the monthly AP the account has
- * @param wvwRank the account's personal wvw rank
+ * @param wvw information about the account's WvW progression and team
  * @param lastModified the ISO-8601 standard timestamp of when the account information last changed (as perceived by the API)
  * @param buildStorageSlots the number of the account's account-wide build storage slots unlocked
  */
@@ -83,13 +83,30 @@ public data class GW2v2Account(
     /** This field holds the monthly AP the account has. */
     @SerialName("monthly_ap")
     val monthlyAP: Int? = null,
-    /** This field holds the account's personal wvw rank. */
-    @SerialName("wvw_rank")
-    val wvwRank: Int? = null,
+    /** This field holds information about the account's WvW progression and team. */
+    val wvw: AccountWvw? = null,
     /** This field holds the ISO-8601 standard timestamp of when the account information last changed (as perceived by the API). */
     @SerialName("last_modified")
     val lastModified: String,
     /** This field holds the number of the account's account-wide build storage slots unlocked. */
     @SerialName("build_storage_slots")
     val buildStorageSlots: Int? = null
-)
+) {
+
+    /**
+     * Information about an account's WvW progression and team.
+     *
+     * @param wvwRank the account's personal wvw rank
+     * @param teamId the ID of the WvW team the account is assigned to
+     */
+    @Serializable
+    public data class AccountWvw(
+        /** This field holds the account's personal wvw rank. */
+        @SerialName("wvw_rank")
+        val wvwRank: Int? = null,
+        /** This field holds the ID of the WvW team the account is assigned to. */
+        @SerialName("team_id")
+        val teamId: Int
+    )
+
+}

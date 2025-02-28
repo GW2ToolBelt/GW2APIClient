@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "input" to input),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "input" to input),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -47,7 +47,7 @@ public fun gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurer? =
 @JvmName("gw2v2RecipesSearchByInput-Alias")
 public fun gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "input" to input),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "input" to input),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -58,7 +58,7 @@ public fun gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigu
 @JvmOverloads
 public fun gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "output" to output),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "output" to output),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -70,7 +70,7 @@ public fun gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurer?
 @JvmName("gw2v2RecipesSearchByOutput-Alias")
 public fun gw2v2RecipesSearchByOutput(output: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "output" to output),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "output" to output),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

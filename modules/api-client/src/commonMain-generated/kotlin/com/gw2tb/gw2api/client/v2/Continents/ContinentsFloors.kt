@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2ContinentsFloorsIds(continentId: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2FloorId>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to continentId),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2ContinentsFloorsIds(continentId: Int, configure: RequestConfigur
 @JvmOverloads
 public fun gw2v2ContinentsFloorsById(continentId: Int, id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2ContinentFloor> = RequestTemplate(
     path = "/v2/continents/:id/floors",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues("id" to continentId),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -58,7 +58,7 @@ public fun gw2v2ContinentsFloorsById(continentId: Int, id: Int, configure: Reque
 @JvmName("gw2v2ContinentsFloorsById-Alias")
 public fun gw2v2ContinentsFloorsById(continentId: Int, id: GW2FloorId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2ContinentFloor> = RequestTemplate(
     path = "/v2/continents/:id/floors",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues("id" to continentId),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -69,7 +69,7 @@ public fun gw2v2ContinentsFloorsById(continentId: Int, id: GW2FloorId, configure
 @JvmOverloads
 public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("id" to continentId),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -81,7 +81,7 @@ public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<Int>, configur
 @JvmName("gw2v2ContinentsFloorsByIds-Alias")
 public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<GW2FloorId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("id" to continentId),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -92,7 +92,7 @@ public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<GW2FloorId>, c
 @JvmOverloads
 public fun gw2v2ContinentsFloorsByPage(continentId: Int, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to continentId),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,

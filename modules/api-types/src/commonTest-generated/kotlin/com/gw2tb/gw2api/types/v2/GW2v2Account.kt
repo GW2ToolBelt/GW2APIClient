@@ -39,8 +39,8 @@ class GW2v2AccountTest {
             {
                 "id": "123E4567-E89B-12D3-A456-426614174000",
                 "name": "Shooterking.1234",
-                "age": 10744800,
-                "last_modified": "2021-01-06T14:14:00Z",
+                "age": 16230600,
+                "last_modified": "2025-02-25T11:33:00Z",
                 "world": 2201,
                 "guilds": [
                     "123E4567-E89B-12D3-A456-426614174000",
@@ -54,14 +54,20 @@ class GW2v2AccountTest {
                     "GuildWars2",
                     "HeartOfThorns",
                     "PlayForFree",
-                    "PathOfFire"
+                    "PathOfFire",
+                    "EndOfDragons",
+                    "SecretsOfTheObscure",
+                    "JanthirWilds"
                 ],
                 "commander": true,
+                "wvw": {
+                    "team_id": 12008,
+                    "rank": 1234
+                },
                 "fractal_level": 100,
-                "daily_ap": 3225,
+                "daily_ap": 6975,
                 "monthly_ap": 0,
-                "wvw_rank": 370,
-                "build_storage_slots": 6
+                "build_storage_slots": 9
             }
             """.trimIndent()
         )

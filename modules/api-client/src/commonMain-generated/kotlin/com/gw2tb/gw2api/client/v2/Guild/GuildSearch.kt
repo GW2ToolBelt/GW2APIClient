@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2GuildSearch(name: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/guild/search",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "name" to name),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "name" to name),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -47,7 +47,7 @@ public fun gw2v2GuildSearch(name: String, configure: RequestConfigurer? = null):
 @JvmName("gw2v2GuildSearch-Alias")
 public fun gw2v2GuildSearch(name: GW2GuildId, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/guild/search",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "name" to name),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "name" to name),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

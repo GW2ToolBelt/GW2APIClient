@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2PvPSeasonsLeaderboards(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2PvPSeasonsLeaderboards(id: String, configure: RequestConfigurer?
 @JvmOverloads
 public fun gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to id, "board" to board),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -57,7 +57,7 @@ public fun gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: Req
 @JvmOverloads
 public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to id, "board" to board, "region" to region),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -69,7 +69,7 @@ public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: 
 @JvmName("gw2v2PvPSeasonsLeaderboardsByPage-Alias")
 public fun gw2v2PvPSeasonsLeaderboardsByPage(id: GW2PvpSeasonId, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to id, "board" to board, "region" to region),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

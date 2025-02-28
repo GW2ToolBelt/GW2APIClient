@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2HomesteadDecorationCategoryId>> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2HomesteadDecorationsCategoriesIds(configure: RequestConfigurer? 
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomesteadDecorationCategory> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -58,7 +58,7 @@ public fun gw2v2HomesteadDecorationsCategoriesById(id: Int, configure: RequestCo
 @JvmName("gw2v2HomesteadDecorationsCategoriesById-Alias")
 public fun gw2v2HomesteadDecorationsCategoriesById(id: GW2HomesteadDecorationCategoryId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomesteadDecorationCategory> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -69,7 +69,7 @@ public fun gw2v2HomesteadDecorationsCategoriesById(id: GW2HomesteadDecorationCat
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadDecorationCategory>> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -81,7 +81,7 @@ public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<Int>, configure: R
 @JvmName("gw2v2HomesteadDecorationsCategoriesByIds-Alias")
 public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<GW2HomesteadDecorationCategoryId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadDecorationCategory>> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -92,7 +92,7 @@ public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<GW2HomesteadDecora
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadDecorationCategory>> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,

@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2RecipesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2RecipesIds(configure: RequestConfigurer? = null): RequestTemplat
 @JvmOverloads
 public fun gw2v2RecipesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Recipe> = RequestTemplate(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -58,7 +58,7 @@ public fun gw2v2RecipesById(id: Int, configure: RequestConfigurer? = null): Requ
 @JvmName("gw2v2RecipesById-Alias")
 public fun gw2v2RecipesById(id: GW2RecipeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Recipe> = RequestTemplate(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -69,7 +69,7 @@ public fun gw2v2RecipesById(id: GW2RecipeId, configure: RequestConfigurer? = nul
 @JvmOverloads
 public fun gw2v2RecipesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Recipe>> = RequestTemplate(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -81,7 +81,7 @@ public fun gw2v2RecipesByIds(ids: List<Int>, configure: RequestConfigurer? = nul
 @JvmName("gw2v2RecipesByIds-Alias")
 public fun gw2v2RecipesByIds(ids: List<GW2RecipeId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Recipe>> = RequestTemplate(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -92,7 +92,7 @@ public fun gw2v2RecipesByIds(ids: List<GW2RecipeId>, configure: RequestConfigure
 @JvmOverloads
 public fun gw2v2RecipesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Recipe>> = RequestTemplate(
     path = "/v2/recipes",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),

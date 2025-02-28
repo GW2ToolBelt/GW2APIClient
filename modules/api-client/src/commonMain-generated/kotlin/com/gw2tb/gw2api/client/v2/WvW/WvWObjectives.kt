@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2WvWObjectivesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WvwObjectiveId>> = RequestTemplate(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
@@ -46,7 +46,7 @@ public fun gw2v2WvWObjectivesIds(configure: RequestConfigurer? = null): RequestT
 @JvmOverloads
 public fun gw2v2WvWObjectivesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwObjective> = RequestTemplate(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -58,7 +58,7 @@ public fun gw2v2WvWObjectivesById(id: String, configure: RequestConfigurer? = nu
 @JvmName("gw2v2WvWObjectivesById-Alias")
 public fun gw2v2WvWObjectivesById(id: GW2WvwObjectiveId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwObjective> = RequestTemplate(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "id" to id),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -69,7 +69,7 @@ public fun gw2v2WvWObjectivesById(id: GW2WvwObjectiveId, configure: RequestConfi
 @JvmOverloads
 public fun gw2v2WvWObjectivesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -81,7 +81,7 @@ public fun gw2v2WvWObjectivesByIds(ids: List<String>, configure: RequestConfigur
 @JvmName("gw2v2WvWObjectivesByIds-Alias")
 public fun gw2v2WvWObjectivesByIds(ids: List<GW2WvwObjectiveId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "ids" to ids),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,
@@ -92,7 +92,7 @@ public fun gw2v2WvWObjectivesByIds(ids: List<GW2WvwObjectiveId>, configure: Requ
 @JvmOverloads
 public fun gw2v2WvWObjectivesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z", "page" to page, "page_size" to pageSize),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = Language.API_V2,

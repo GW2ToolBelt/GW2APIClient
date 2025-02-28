@@ -35,7 +35,7 @@ import kotlin.jvm.*
 @JvmOverloads
 public fun gw2v2AccountLegendaryArmory(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountLegendaryArmoryUnlock>> = RequestTemplate(
     path = "/v2/account/legendaryarmory",
-    parameters = mapOfNonNullValues("v" to "2022-03-23T19:00:00.000Z"),
+    parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "inventories", "unlocks"),
     supportedLanguages = emptySet(),
