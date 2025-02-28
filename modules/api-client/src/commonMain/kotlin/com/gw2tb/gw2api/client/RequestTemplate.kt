@@ -69,11 +69,11 @@ public data class RequestTemplate<T> internal constructor(
     internal val requiredPermissions: Collection<String>,
     internal val supportedLanguages: Set<Language>,
     internal val serializer: KSerializer<T>,
-    internal val finalizer: RequestConfigurer?,
 
     val headers: Map<String, String> = emptyMap(),
     val apiKey: String? = null,
     val language: Language? = null,
+    internal val finalizer: RequestConfigurer?
 )
 
 internal fun <T> RequestTemplate<T>.configure(block: RequestConfigurer): RequestTemplate<T> {
