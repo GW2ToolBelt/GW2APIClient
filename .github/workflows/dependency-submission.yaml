@@ -9,10 +9,6 @@ permissions:
   contents: write
 
 
-env:
-  JDK_VERSION: "23"
-
-
 jobs:
   submit-dependencies:
     name: Update Dependency Graph
@@ -25,7 +21,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
-          java-version: ${{ env.JDK_VERSION }}
+          java-version-file: .github/workflows/.java-version
 
       - name: Generate and submit dependency graph
         uses: gradle/actions/dependency-submission@v4
