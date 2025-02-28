@@ -96,14 +96,13 @@ public data class GW2v2Account(
     /**
      * Information about an account's WvW progression and team.
      *
-     * @param wvwRank the account's personal wvw rank
+     * @param rank the account's personal wvw rank
      * @param teamId the ID of the WvW team the account is assigned to
      */
     @Serializable
     public data class AccountWvw(
         /** This field holds the account's personal wvw rank. */
-        @SerialName("wvw_rank")
-        val wvwRank: Int? = null,
+        val rank: Int? = null,
         /** This field holds the ID of the WvW team the account is assigned to. */
         @SerialName("team_id")
         val teamId: Int

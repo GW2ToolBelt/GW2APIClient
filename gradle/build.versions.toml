@@ -1,9 +1,10 @@
 [versions]
-api-generator = "0.8.0"
+api-generator = "0.8.1"
 binary-compatibility-validator = "0.17.0"
 dokka = "2.0.0"
 junit = "5.11.4"
 kotlin = "2.1.10"
+kotlinx-datetime = "0.6.1"
 
 
 [libraries]
@@ -18,11 +19,16 @@ kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", versi
 # org.jetbrains.kotlin:kotlin-gradle-plugin  - Kotlin Gradle Plugin
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin ", version.ref = "kotlin" }
 
+# org.jetbrains.kotlinx:kotlinx-datetime - kotlinx-datetime
+# https://github.com/Kotlin/kotlinx-datetime
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
 # org.junit - JUnit
 # https://github.com/junit-team/junit5
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 
 
 [plugins]
