@@ -25,6 +25,7 @@ import com.gw2tb.gw2api.client.v2.gw2v2Build
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable
 
 class JdkGw2ApiClientFactoryTest {
 
@@ -39,6 +40,7 @@ class JdkGw2ApiClientFactoryTest {
     }
 
     @Test
+    @DisabledIfEnvironmentVariable(named = "CI", matches = ".*")
     fun testExecute() {
         val client = Gw2ApiClient()
         val c = client.execute(gw2v2Build()).statusCode
@@ -46,6 +48,7 @@ class JdkGw2ApiClientFactoryTest {
     }
 
     @Test
+    @DisabledIfEnvironmentVariable(named = "CI", matches = ".*")
     fun testExecuteAsync() = runBlocking {
         val client = Gw2ApiClient()
         val c = client.executeAsync(gw2v2Build()).statusCode
