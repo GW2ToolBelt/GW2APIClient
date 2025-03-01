@@ -188,6 +188,7 @@ library:
 |------------------------------------------|-----------------------------------------------------------------------|
 | Kotlin/JVM (can also be used on Android) | `jvm`                                                                 |
 | Kotlin/JS                                | `js`                                                                  |
+| Kotlin/Wasm                              | `wasmJs`                                                              |
 | iOS                                      | `iosArm64`, `iosX64`, `iosSimulatorArm64`                             |
 | watchOS                                  | `watchosArm32`, `watchosArm64`, `watchosX64`, `watchosSimulatorArm64` |
 | tvOS                                     | `tvosArm64`, `tvosX64`, `tvosSimulatorArm64`                          |
