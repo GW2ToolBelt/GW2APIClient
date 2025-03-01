@@ -28,6 +28,9 @@ module com.gw2tb.gw2api.client {
     requires transitive com.gw2tb.gw2api.types;
     requires transitive kotlinx.coroutines.core;
 
+    requires kotlinx.atomicfu;
+    requires kotlinx.datetime;
+
     exports com.gw2tb.gw2api.client;
     exports com.gw2tb.gw2api.client.exceptions;
     exports com.gw2tb.gw2api.client.v1;

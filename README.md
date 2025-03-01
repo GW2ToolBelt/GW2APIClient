@@ -69,8 +69,12 @@ val client = buildGw2ApiClient {
 }
 ```
 
-This library does not provide a cache implementation. Thus, by default no
-caching is configured.
+The `SimpleInMemoryCache` implementation may be used in some cases. However, it
+is **not used by default** because the implementation is very basic and does not
+scale particularly well.
+
+For advanced uses, it is recommended to set up caching in the respective HTTP
+client and/or implementing a custom `CacheAccess` tailored to the requirements.
 
 
 #### Configuring Rate Limiting

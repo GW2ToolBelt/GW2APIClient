@@ -307,6 +307,12 @@ public final class com/gw2tb/gw2api/client/ResponseHeaders : java/util/Map, kotl
 public final class com/gw2tb/gw2api/client/ResponseHeaders$Companion {
 }
 
+public final class com/gw2tb/gw2api/client/SimpleInMemoryCache : com/gw2tb/gw2api/client/CacheAccess {
+	public fun <init> ()V
+	public fun memoize (Lcom/gw2tb/gw2api/client/Gw2ApiResponse;)V
+	public fun query (Lcom/gw2tb/gw2api/client/Gw2ApiRequest;)Lcom/gw2tb/gw2api/client/Gw2ApiResponse;
+}
+
 public final class com/gw2tb/gw2api/client/TokenBucketRateLimiter : com/gw2tb/gw2api/client/RateLimiter {
 	public synthetic fun <init> (IJILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (IJLkotlin/jvm/internal/DefaultConstructorMarker;)V

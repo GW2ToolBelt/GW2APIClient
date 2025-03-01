@@ -21,6 +21,13 @@
  */
 package com.gw2tb.gw2api.client
 
+import kotlinx.atomicfu.locks.SynchronizedObject
+import kotlinx.atomicfu.locks.synchronized
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlinx.datetime.format.DateTimeComponents
+import kotlin.time.Duration.Companion.seconds
+
 /**
  * Provides basic access to a response caching implementation.
  *
@@ -50,5 +57,62 @@ public interface CacheAccess {
      * @since   0.1.0
      */
     public fun <T> query(request: Gw2ApiRequest<T>): Gw2ApiResponse<T>?
+
+}
+
+/**
+ * A simple in-memory cache implementation.
+ *
+ * @since   0.9.0
+ */
+public class SimpleInMemoryCache : CacheAccess {
+
+    private val lock = SynchronizedObject()
+    private val cachedResponses = mutableMapOf<Gw2ApiRequest<*>, CachedEntry>()
+    private val timeSource = Clock.System
+
+    override fun <T> memoize(response: Gw2ApiResponse<T>) {
+        val expiresAt = response.extractExpirationHeader() ?: return
+
+        synchronized(lock) {
+            cachedResponses[response.request] = CachedEntry(response, expiresAt)
+            cachedResponses.entries.removeAll { it.value.expiresAt <= timeSource.now() }
+        }
+    }
+
+    override fun <T> query(request: Gw2ApiRequest<T>): Gw2ApiResponse<T>? {
+        synchronized(lock) {
+            val entry = cachedResponses[request] ?: return null
+
+            if (entry.expiresAt <= timeSource.now()) {
+                cachedResponses.remove(request)
+                return null
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            return entry.response as Gw2ApiResponse<T>
+        }
+    }
+
+    private data class CachedEntry(
+        val response: Gw2ApiResponse<*>,
+        val expiresAt: Instant
+    )
+
+    private fun <T> Gw2ApiResponse<T>.extractExpirationHeader(): Instant? {
+        val cacheControl = headers["Cache-Control"]
+
+        when {
+            cacheControl == null -> {}
+            "no-store" in cacheControl -> return null
+            "no-cache" in cacheControl -> return null
+            else -> {
+                val maxAge = cacheControl.find { it.startsWith("max-age=") }?.removePrefix("max-age=")
+                if (maxAge != null) return timeSource.now() + maxAge.toLong().seconds
+            }
+        }
+
+        return headers["Expires"]?.singleOrNull()?.let(DateTimeComponents.Formats.RFC_1123::parse)?.toInstantUsingOffset()
+    }
 
 }

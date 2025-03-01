@@ -24,6 +24,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     alias(buildDeps.plugins.binary.compatibility.validator)
     alias(buildDeps.plugins.dokka)
+    alias(buildDeps.plugins.kotlinx.atomicfu)
     id("com.gw2tb.multiplatform-module")
 }
 
