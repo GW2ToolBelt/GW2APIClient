@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about available upgrades for objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWUpgradesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WvwUpgradeId>> = RequestTemplate(
     path = "/v2/wvw/upgrades",
@@ -43,6 +60,24 @@ public fun gw2v2WvWUpgradesIds(configure: RequestConfigurer? = null): RequestTem
     configure = configure
 )
 
+/**
+ * Returns information about available upgrades for objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWUpgradesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwUpgrade> = RequestTemplate(
     path = "/v2/wvw/upgrades",
@@ -54,6 +89,24 @@ public fun gw2v2WvWUpgradesById(id: Int, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+/**
+ * Returns information about available upgrades for objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WvWUpgradesById-Alias")
 public fun gw2v2WvWUpgradesById(id: GW2WvwUpgradeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwUpgrade> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2WvWUpgradesById(id: GW2WvwUpgradeId, configure: RequestConfigure
     configure = configure
 )
 
+/**
+ * Returns information about available upgrades for objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWUpgradesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwUpgrade>> = RequestTemplate(
     path = "/v2/wvw/upgrades",
@@ -77,6 +148,24 @@ public fun gw2v2WvWUpgradesByIds(ids: List<Int>, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns information about available upgrades for objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WvWUpgradesByIds-Alias")
 public fun gw2v2WvWUpgradesByIds(ids: List<GW2WvwUpgradeId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwUpgrade>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2WvWUpgradesByIds(ids: List<GW2WvwUpgradeId>, configure: RequestC
     configure = configure
 )
 
+/**
+ * Returns information about available upgrades for objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/upgrades]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWUpgradesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwUpgrade>> = RequestTemplate(
     path = "/v2/wvw/upgrades",

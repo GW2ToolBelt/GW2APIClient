@@ -25,6 +25,7 @@ import com.gw2tb.apigen.model.*
 import com.gw2tb.apigen.model.v2.SchemaVersion
 import com.gw2tb.apigen.schema.*
 import com.gw2tb.apigen.schema.model.APIQuery
+import com.gw2tb.gw2api.generator.internal.codegen.*
 import com.gw2tb.gw2api.generator.internal.codegen.KotlinTypeInfo
 import com.gw2tb.gw2api.generator.internal.codegen.PrintableFile
 import com.gw2tb.gw2api.generator.internal.codegen.n
@@ -73,13 +74,14 @@ private fun Iterable<APIQuery>.printToString(
     lookupAlias: (QualifiedTypeName.Alias) -> SchemaAlias
 ): String =
     flatMap { query ->
-        query.printQueryFunctions(apiVersion, schemaVersion, lookupAlias)
+        query.printQueryFunctions(apiVersion, schemaVersion, lookupAlias, this@printToString)
     }.joinToString(separator = "$n$n")
 
 private fun APIQuery.printQueryFunctions(
     apiVersion: Int,
     schemaVersion: SchemaVersion?,
-    lookupAlias: (QualifiedTypeName.Alias) -> SchemaAlias
+    lookupAlias: (QualifiedTypeName.Alias) -> SchemaAlias,
+    siblings: Iterable<APIQuery>
 ): List<String> {
     val functionName = buildString {
         append("gw2v$apiVersion")
@@ -163,7 +165,8 @@ private fun APIQuery.printQueryFunctions(
                         name = "configure"
                     ))
                 },
-                canHaveJvmOverloads = true
+                canHaveJvmOverloads = true,
+                siblings = siblings
             ))
         }
 
@@ -192,7 +195,8 @@ private fun APIQuery.printQueryFunctions(
                     name = "configure"
                 ))
             },
-            canHaveJvmOverloads = !requiresJvmOverload
+            canHaveJvmOverloads = !requiresJvmOverload,
+            siblings = siblings
         ))
     }
 }
@@ -203,7 +207,8 @@ private fun APIQuery.printFunction(
     name: String,
     returnType: KotlinTypeInfo,
     parameters: List<FunctionParameter>,
-    canHaveJvmOverloads: Boolean
+    canHaveJvmOverloads: Boolean,
+    siblings: Iterable<APIQuery>
 ): String {
     val queryParameterMappings = buildList {
         if (schemaVersion?.identifier != null) add("\"v\" to \"${schemaVersion.identifier}\"")
@@ -211,6 +216,8 @@ private fun APIQuery.printFunction(
     }.joinToString(separator = ", ")
 
     return buildString {
+        appendLine(dokka(siblings))
+
         if (canHaveJvmOverloads)
             appendLine("@JvmOverloads")
         else {

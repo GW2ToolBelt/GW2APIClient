@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the titles that are in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/titles]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2TitlesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2TitleId>> = RequestTemplate(
     path = "/v2/titles",
@@ -43,6 +60,24 @@ public fun gw2v2TitlesIds(configure: RequestConfigurer? = null): RequestTemplate
     configure = configure
 )
 
+/**
+ * Returns information about the titles that are in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/titles]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2TitlesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Title> = RequestTemplate(
     path = "/v2/titles",
@@ -54,6 +89,24 @@ public fun gw2v2TitlesById(id: Int, configure: RequestConfigurer? = null): Reque
     configure = configure
 )
 
+/**
+ * Returns information about the titles that are in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/titles]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2TitlesById-Alias")
 public fun gw2v2TitlesById(id: GW2TitleId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Title> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2TitlesById(id: GW2TitleId, configure: RequestConfigurer? = null)
     configure = configure
 )
 
+/**
+ * Returns information about the titles that are in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/titles]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2TitlesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Title>> = RequestTemplate(
     path = "/v2/titles",
@@ -77,6 +148,24 @@ public fun gw2v2TitlesByIds(ids: List<Int>, configure: RequestConfigurer? = null
     configure = configure
 )
 
+/**
+ * Returns information about the titles that are in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/titles]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2TitlesByIds-Alias")
 public fun gw2v2TitlesByIds(ids: List<GW2TitleId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Title>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2TitlesByIds(ids: List<GW2TitleId>, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about the titles that are in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/titles]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2TitlesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Title>> = RequestTemplate(
     path = "/v2/titles",

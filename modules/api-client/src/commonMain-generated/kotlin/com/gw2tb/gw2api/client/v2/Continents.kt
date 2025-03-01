@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about continents.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ContinentsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2ContinentId>> = RequestTemplate(
     path = "/v2/continents",
@@ -43,6 +60,24 @@ public fun gw2v2ContinentsIds(configure: RequestConfigurer? = null): RequestTemp
     configure = configure
 )
 
+/**
+ * Returns information about continents.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ContinentsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Continent> = RequestTemplate(
     path = "/v2/continents",
@@ -54,6 +89,24 @@ public fun gw2v2ContinentsById(id: Int, configure: RequestConfigurer? = null): R
     configure = configure
 )
 
+/**
+ * Returns information about continents.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2ContinentsById-Alias")
 public fun gw2v2ContinentsById(id: GW2ContinentId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Continent> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2ContinentsById(id: GW2ContinentId, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about continents.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ContinentsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Continent>> = RequestTemplate(
     path = "/v2/continents",
@@ -77,6 +148,24 @@ public fun gw2v2ContinentsByIds(ids: List<Int>, configure: RequestConfigurer? = 
     configure = configure
 )
 
+/**
+ * Returns information about continents.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2ContinentsByIds-Alias")
 public fun gw2v2ContinentsByIds(ids: List<GW2ContinentId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Continent>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2ContinentsByIds(ids: List<GW2ContinentId>, configure: RequestCon
     configure = configure
 )
 
+/**
+ * Returns information about continents.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/continents]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ContinentsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Continent>> = RequestTemplate(
     path = "/v2/continents",

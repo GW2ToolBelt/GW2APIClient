@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the categories in the material storage.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MaterialsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2MaterialId>> = RequestTemplate(
     path = "/v2/materials",
@@ -43,6 +60,24 @@ public fun gw2v2MaterialsIds(configure: RequestConfigurer? = null): RequestTempl
     configure = configure
 )
 
+/**
+ * Returns information about the categories in the material storage.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MaterialsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MaterialCategory> = RequestTemplate(
     path = "/v2/materials",
@@ -54,6 +89,24 @@ public fun gw2v2MaterialsById(id: Int, configure: RequestConfigurer? = null): Re
     configure = configure
 )
 
+/**
+ * Returns information about the categories in the material storage.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MaterialsById-Alias")
 public fun gw2v2MaterialsById(id: GW2MaterialId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MaterialCategory> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2MaterialsById(id: GW2MaterialId, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns information about the categories in the material storage.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MaterialsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MaterialCategory>> = RequestTemplate(
     path = "/v2/materials",
@@ -77,6 +148,24 @@ public fun gw2v2MaterialsByIds(ids: List<Int>, configure: RequestConfigurer? = n
     configure = configure
 )
 
+/**
+ * Returns information about the categories in the material storage.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MaterialsByIds-Alias")
 public fun gw2v2MaterialsByIds(ids: List<GW2MaterialId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MaterialCategory>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2MaterialsByIds(ids: List<GW2MaterialId>, configure: RequestConfi
     configure = configure
 )
 
+/**
+ * Returns information about the categories in the material storage.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/materials]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MaterialsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MaterialCategory>> = RequestTemplate(
     path = "/v2/materials",

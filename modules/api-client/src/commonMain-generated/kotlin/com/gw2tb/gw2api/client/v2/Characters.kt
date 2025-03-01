@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about characters.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/characters",
@@ -43,6 +60,24 @@ public fun gw2v2CharactersIds(configure: RequestConfigurer? = null): RequestTemp
     configure = configure
 )
 
+/**
+ * Returns information about characters.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Character> = RequestTemplate(
     path = "/v2/characters",
@@ -54,6 +89,24 @@ public fun gw2v2CharactersById(id: String, configure: RequestConfigurer? = null)
     configure = configure
 )
 
+/**
+ * Returns information about characters.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Character>> = RequestTemplate(
     path = "/v2/characters",
@@ -65,6 +118,25 @@ public fun gw2v2CharactersByIds(ids: List<String>, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about characters.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Character>> = RequestTemplate(
     path = "/v2/characters",

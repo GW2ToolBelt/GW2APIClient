@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about current Wizard's Vault season.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wizardsvault]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WizardsVault(configure: RequestConfigurer? = null): RequestTemplate<GW2v2WizardsVaultSeason> = RequestTemplate(
     path = "/v2/wizardsvault",

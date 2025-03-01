@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns an array of guild IDs for a given guild name.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/search]
+ *
+ * @param name the guild name to search for
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2GuildSearch(name: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/guild/search",
@@ -43,6 +61,24 @@ public fun gw2v2GuildSearch(name: String, configure: RequestConfigurer? = null):
     configure = configure
 )
 
+/**
+ * Returns an array of guild IDs for a given guild name.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/search]
+ *
+ * @param name the guild name to search for
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2GuildSearch-Alias")
 public fun gw2v2GuildSearch(name: GW2GuildId, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(

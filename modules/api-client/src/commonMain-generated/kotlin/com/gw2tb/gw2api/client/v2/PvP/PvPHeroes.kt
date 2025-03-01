@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about available PvP heroes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPHeroesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2PvpHeroId>> = RequestTemplate(
     path = "/v2/pvp/heroes",
@@ -43,6 +60,24 @@ public fun gw2v2PvPHeroesIds(configure: RequestConfigurer? = null): RequestTempl
     configure = configure
 )
 
+/**
+ * Returns information about available PvP heroes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPHeroesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpHero> = RequestTemplate(
     path = "/v2/pvp/heroes",
@@ -54,6 +89,24 @@ public fun gw2v2PvPHeroesById(id: String, configure: RequestConfigurer? = null):
     configure = configure
 )
 
+/**
+ * Returns information about available PvP heroes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPHeroesById-Alias")
 public fun gw2v2PvPHeroesById(id: GW2PvpHeroId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpHero> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2PvPHeroesById(id: GW2PvpHeroId, configure: RequestConfigurer? = 
     configure = configure
 )
 
+/**
+ * Returns information about available PvP heroes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPHeroesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpHero>> = RequestTemplate(
     path = "/v2/pvp/heroes",
@@ -77,6 +148,24 @@ public fun gw2v2PvPHeroesByIds(ids: List<String>, configure: RequestConfigurer? 
     configure = configure
 )
 
+/**
+ * Returns information about available PvP heroes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPHeroesByIds-Alias")
 public fun gw2v2PvPHeroesByIds(ids: List<GW2PvpHeroId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpHero>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2PvPHeroesByIds(ids: List<GW2PvpHeroId>, configure: RequestConfig
     configure = configure
 )
 
+/**
+ * Returns information about available PvP heroes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/heroes]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPHeroesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpHero>> = RequestTemplate(
     path = "/v2/pvp/heroes",

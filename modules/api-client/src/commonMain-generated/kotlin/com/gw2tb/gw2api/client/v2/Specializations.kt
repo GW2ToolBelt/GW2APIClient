@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the specializations in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/specializations]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2SpecializationsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2SpecializationId>> = RequestTemplate(
     path = "/v2/specializations",
@@ -43,6 +60,24 @@ public fun gw2v2SpecializationsIds(configure: RequestConfigurer? = null): Reques
     configure = configure
 )
 
+/**
+ * Returns information about the specializations in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/specializations]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2SpecializationsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Specialization> = RequestTemplate(
     path = "/v2/specializations",
@@ -54,6 +89,24 @@ public fun gw2v2SpecializationsById(id: Int, configure: RequestConfigurer? = nul
     configure = configure
 )
 
+/**
+ * Returns information about the specializations in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/specializations]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2SpecializationsById-Alias")
 public fun gw2v2SpecializationsById(id: GW2SpecializationId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Specialization> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2SpecializationsById(id: GW2SpecializationId, configure: RequestC
     configure = configure
 )
 
+/**
+ * Returns information about the specializations in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/specializations]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2SpecializationsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Specialization>> = RequestTemplate(
     path = "/v2/specializations",
@@ -77,6 +148,24 @@ public fun gw2v2SpecializationsByIds(ids: List<Int>, configure: RequestConfigure
     configure = configure
 )
 
+/**
+ * Returns information about the specializations in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/specializations]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2SpecializationsByIds-Alias")
 public fun gw2v2SpecializationsByIds(ids: List<GW2SpecializationId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Specialization>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2SpecializationsByIds(ids: List<GW2SpecializationId>, configure: 
     configure = configure
 )
 
+/**
+ * Returns information about the specializations in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/specializations]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2SpecializationsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Specialization>> = RequestTemplate(
     path = "/v2/specializations",

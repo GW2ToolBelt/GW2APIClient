@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the available sub-endpoints.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          INFINITE
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons/:id/leaderboards]
+ *
+ * @param id the season's ID
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPSeasonsLeaderboards(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
@@ -43,6 +61,25 @@ public fun gw2v2PvPSeasonsLeaderboards(id: String, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about the available sub-endpoints.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          INFINITE
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons/:id/leaderboards/:board]
+ *
+ * @param id the season's ID
+ * @param board the board
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
@@ -54,6 +91,28 @@ public fun gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: Req
     configure = configure
 )
 
+/**
+ * Returns information about a PvP leaderboard.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons/:id/leaderboards/:board/:region]
+ *
+ * @param id the season's ID
+ * @param board the board
+ * @param region the region
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
@@ -65,6 +124,28 @@ public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: 
     configure = configure
 )
 
+/**
+ * Returns information about a PvP leaderboard.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons/:id/leaderboards/:board/:region]
+ *
+ * @param id the season's ID
+ * @param board the board
+ * @param region the region
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPSeasonsLeaderboardsByPage-Alias")
 public fun gw2v2PvPSeasonsLeaderboardsByPage(id: GW2PvpSeasonId, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(

@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about glyphs storable in the homestead.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/glyphs]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadGlyphsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2HomesteadGlyphId>> = RequestTemplate(
     path = "/v2/homestead/glyphs",
@@ -43,6 +60,24 @@ public fun gw2v2HomesteadGlyphsIds(configure: RequestConfigurer? = null): Reques
     configure = configure
 )
 
+/**
+ * Returns information about glyphs storable in the homestead.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/glyphs]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadGlyphsById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomesteadGlyph> = RequestTemplate(
     path = "/v2/homestead/glyphs",
@@ -54,6 +89,24 @@ public fun gw2v2HomesteadGlyphsById(id: String, configure: RequestConfigurer? = 
     configure = configure
 )
 
+/**
+ * Returns information about glyphs storable in the homestead.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/glyphs]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomesteadGlyphsById-Alias")
 public fun gw2v2HomesteadGlyphsById(id: GW2HomesteadGlyphId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomesteadGlyph> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2HomesteadGlyphsById(id: GW2HomesteadGlyphId, configure: RequestC
     configure = configure
 )
 
+/**
+ * Returns information about glyphs storable in the homestead.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/glyphs]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadGlyphsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadGlyph>> = RequestTemplate(
     path = "/v2/homestead/glyphs",
@@ -77,6 +148,24 @@ public fun gw2v2HomesteadGlyphsByIds(ids: List<String>, configure: RequestConfig
     configure = configure
 )
 
+/**
+ * Returns information about glyphs storable in the homestead.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/glyphs]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomesteadGlyphsByIds-Alias")
 public fun gw2v2HomesteadGlyphsByIds(ids: List<GW2HomesteadGlyphId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadGlyph>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2HomesteadGlyphsByIds(ids: List<GW2HomesteadGlyphId>, configure: 
     configure = configure
 )
 
+/**
+ * Returns information about glyphs storable in the homestead.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/glyphs]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadGlyphsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadGlyph>> = RequestTemplate(
     path = "/v2/homestead/glyphs",

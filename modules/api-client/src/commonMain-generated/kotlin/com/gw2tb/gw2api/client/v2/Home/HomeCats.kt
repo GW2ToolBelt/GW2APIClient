@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about home-instance cats.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeCatsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2HomeInstanceCatId>> = RequestTemplate(
     path = "/v2/home/cats",
@@ -43,6 +60,24 @@ public fun gw2v2HomeCatsIds(configure: RequestConfigurer? = null): RequestTempla
     configure = configure
 )
 
+/**
+ * Returns information about home-instance cats.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeCatsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomeInstanceCat> = RequestTemplate(
     path = "/v2/home/cats",
@@ -54,6 +89,24 @@ public fun gw2v2HomeCatsById(id: Int, configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+/**
+ * Returns information about home-instance cats.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomeCatsById-Alias")
 public fun gw2v2HomeCatsById(id: GW2HomeInstanceCatId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomeInstanceCat> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2HomeCatsById(id: GW2HomeInstanceCatId, configure: RequestConfigu
     configure = configure
 )
 
+/**
+ * Returns information about home-instance cats.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeCatsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
     path = "/v2/home/cats",
@@ -77,6 +148,24 @@ public fun gw2v2HomeCatsByIds(ids: List<Int>, configure: RequestConfigurer? = nu
     configure = configure
 )
 
+/**
+ * Returns information about home-instance cats.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomeCatsByIds-Alias")
 public fun gw2v2HomeCatsByIds(ids: List<GW2HomeInstanceCatId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2HomeCatsByIds(ids: List<GW2HomeInstanceCatId>, configure: Reques
     configure = configure
 )
 
+/**
+ * Returns information about home-instance cats.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/cats]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeCatsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
     path = "/v2/home/cats",

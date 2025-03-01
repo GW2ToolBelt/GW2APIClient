@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the items in a guild's vault.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, GUILDS)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/:id/stash]
+ *
+ * @param id the guild's ID
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2GuildStash(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2GuildStashSection>> = RequestTemplate(
     path = "/v2/guild/:id/stash",

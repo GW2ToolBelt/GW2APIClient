@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about maps.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           Yes
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/maps]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v1Maps(configure: RequestConfigurer? = null): RequestTemplate<GW2v1Maps> = RequestTemplate(
     path = "/v1/maps",

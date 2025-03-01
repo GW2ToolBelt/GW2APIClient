@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about biography questions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2BackstoryQuestionsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2BackstoryQuestionId>> = RequestTemplate(
     path = "/v2/backstory/questions",
@@ -43,6 +60,24 @@ public fun gw2v2BackstoryQuestionsIds(configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+/**
+ * Returns information about biography questions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2BackstoryQuestionsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2BackstoryQuestion> = RequestTemplate(
     path = "/v2/backstory/questions",
@@ -54,6 +89,24 @@ public fun gw2v2BackstoryQuestionsById(id: Int, configure: RequestConfigurer? = 
     configure = configure
 )
 
+/**
+ * Returns information about biography questions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2BackstoryQuestionsById-Alias")
 public fun gw2v2BackstoryQuestionsById(id: GW2BackstoryQuestionId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2BackstoryQuestion> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2BackstoryQuestionsById(id: GW2BackstoryQuestionId, configure: Re
     configure = configure
 )
 
+/**
+ * Returns information about biography questions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2BackstoryQuestionsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2BackstoryQuestion>> = RequestTemplate(
     path = "/v2/backstory/questions",
@@ -77,6 +148,24 @@ public fun gw2v2BackstoryQuestionsByIds(ids: List<Int>, configure: RequestConfig
     configure = configure
 )
 
+/**
+ * Returns information about biography questions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2BackstoryQuestionsByIds-Alias")
 public fun gw2v2BackstoryQuestionsByIds(ids: List<GW2BackstoryQuestionId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2BackstoryQuestion>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2BackstoryQuestionsByIds(ids: List<GW2BackstoryQuestionId>, confi
     configure = configure
 )
 
+/**
+ * Returns information about biography questions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/backstory/questions]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2BackstoryQuestionsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2BackstoryQuestion>> = RequestTemplate(
     path = "/v2/backstory/questions",

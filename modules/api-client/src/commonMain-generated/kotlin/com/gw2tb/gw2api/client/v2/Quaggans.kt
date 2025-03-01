@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns images of quaggans.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2QuaggansIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2QuagganId>> = RequestTemplate(
     path = "/v2/quaggans",
@@ -43,6 +60,24 @@ public fun gw2v2QuaggansIds(configure: RequestConfigurer? = null): RequestTempla
     configure = configure
 )
 
+/**
+ * Returns images of quaggans.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2QuaggansById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Quaggan> = RequestTemplate(
     path = "/v2/quaggans",
@@ -54,6 +89,24 @@ public fun gw2v2QuaggansById(id: String, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+/**
+ * Returns images of quaggans.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2QuaggansById-Alias")
 public fun gw2v2QuaggansById(id: GW2QuagganId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Quaggan> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2QuaggansById(id: GW2QuagganId, configure: RequestConfigurer? = n
     configure = configure
 )
 
+/**
+ * Returns images of quaggans.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2QuaggansByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quaggan>> = RequestTemplate(
     path = "/v2/quaggans",
@@ -77,6 +148,24 @@ public fun gw2v2QuaggansByIds(ids: List<String>, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns images of quaggans.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2QuaggansByIds-Alias")
 public fun gw2v2QuaggansByIds(ids: List<GW2QuagganId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quaggan>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2QuaggansByIds(ids: List<GW2QuagganId>, configure: RequestConfigu
     configure = configure
 )
 
+/**
+ * Returns images of quaggans.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/quaggans]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2QuaggansByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quaggan>> = RequestTemplate(
     path = "/v2/quaggans",

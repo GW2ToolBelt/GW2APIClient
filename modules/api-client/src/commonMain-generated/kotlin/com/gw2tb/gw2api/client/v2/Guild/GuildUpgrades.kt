@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about available guild hall upgrades.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2GuildUpgradesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2GuildUpgradeId>> = RequestTemplate(
     path = "/v2/guild/upgrades",
@@ -43,6 +60,24 @@ public fun gw2v2GuildUpgradesIds(configure: RequestConfigurer? = null): RequestT
     configure = configure
 )
 
+/**
+ * Returns information about available guild hall upgrades.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2GuildUpgradesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2GuildUpgrade> = RequestTemplate(
     path = "/v2/guild/upgrades",
@@ -54,6 +89,24 @@ public fun gw2v2GuildUpgradesById(id: Int, configure: RequestConfigurer? = null)
     configure = configure
 )
 
+/**
+ * Returns information about available guild hall upgrades.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2GuildUpgradesById-Alias")
 public fun gw2v2GuildUpgradesById(id: GW2GuildUpgradeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2GuildUpgrade> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2GuildUpgradesById(id: GW2GuildUpgradeId, configure: RequestConfi
     configure = configure
 )
 
+/**
+ * Returns information about available guild hall upgrades.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2GuildUpgradesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2GuildUpgrade>> = RequestTemplate(
     path = "/v2/guild/upgrades",
@@ -77,6 +148,24 @@ public fun gw2v2GuildUpgradesByIds(ids: List<Int>, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about available guild hall upgrades.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2GuildUpgradesByIds-Alias")
 public fun gw2v2GuildUpgradesByIds(ids: List<GW2GuildUpgradeId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2GuildUpgrade>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2GuildUpgradesByIds(ids: List<GW2GuildUpgradeId>, configure: Requ
     configure = configure
 )
 
+/**
+ * Returns information about available guild hall upgrades.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/guild/upgrades]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2GuildUpgradesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2GuildUpgrade>> = RequestTemplate(
     path = "/v2/guild/upgrades",

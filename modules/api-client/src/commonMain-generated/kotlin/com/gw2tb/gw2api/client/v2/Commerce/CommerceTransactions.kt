@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about an account's transactions.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, TRADING_POST)
+ * Paginated:           Yes
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          INFINITE
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommerceTransactions(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/commerce/transactions",
@@ -43,6 +60,24 @@ public fun gw2v2CommerceTransactions(configure: RequestConfigurer? = null): Requ
     configure = configure
 )
 
+/**
+ * Returns information about an account's transactions.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, TRADING_POST)
+ * Paginated:           Yes
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          INFINITE
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions/:relevance]
+ *
+ * @param relevance the temporal relevance
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommerceTransactions(relevance: String, configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/commerce/transactions",
@@ -54,6 +89,27 @@ public fun gw2v2CommerceTransactions(relevance: String, configure: RequestConfig
     configure = configure
 )
 
+/**
+ * Returns information about an account's transactions.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, TRADING_POST)
+ * Paginated:           Yes
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          1.0m
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/transactions/:relevance/:type]
+ *
+ * @param relevance the temporal relevance
+ * @param type the transaction type
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceTransaction>> = RequestTemplate(
     path = "/v2/commerce/transactions",

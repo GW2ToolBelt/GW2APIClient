@@ -32,6 +32,25 @@ import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about a map floor.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           Yes
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/map_floor]
+ *
+ * @param continentId the ID of the continent
+ * @param floorId the ID of the floor
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v1MapFloor(continentId: Int, floorId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1MapFloor> = RequestTemplate(
     path = "/v1/map_floor",
@@ -43,6 +62,25 @@ public fun gw2v1MapFloor(continentId: Int, floorId: Int, configure: RequestConfi
     configure = configure
 )
 
+/**
+ * Returns information about a map floor.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           Yes
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/map_floor]
+ *
+ * @param continentId the ID of the continent
+ * @param floorId the ID of the floor
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v1MapFloor-Alias")
 public fun gw2v1MapFloor(continentId: GW2ContinentId, floorId: GW2FloorId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1MapFloor> = RequestTemplate(

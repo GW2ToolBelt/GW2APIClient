@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about maps.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MapsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2MapId>> = RequestTemplate(
     path = "/v2/maps",
@@ -43,6 +60,24 @@ public fun gw2v2MapsIds(configure: RequestConfigurer? = null): RequestTemplate<L
     configure = configure
 )
 
+/**
+ * Returns information about maps.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MapsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Map> = RequestTemplate(
     path = "/v2/maps",
@@ -54,6 +89,24 @@ public fun gw2v2MapsById(id: Int, configure: RequestConfigurer? = null): Request
     configure = configure
 )
 
+/**
+ * Returns information about maps.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MapsById-Alias")
 public fun gw2v2MapsById(id: GW2MapId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Map> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2MapsById(id: GW2MapId, configure: RequestConfigurer? = null): Re
     configure = configure
 )
 
+/**
+ * Returns information about maps.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MapsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Map>> = RequestTemplate(
     path = "/v2/maps",
@@ -77,6 +148,24 @@ public fun gw2v2MapsByIds(ids: List<Int>, configure: RequestConfigurer? = null):
     configure = configure
 )
 
+/**
+ * Returns information about maps.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MapsByIds-Alias")
 public fun gw2v2MapsByIds(ids: List<GW2MapId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Map>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2MapsByIds(ids: List<GW2MapId>, configure: RequestConfigurer? = n
     configure = configure
 )
 
+/**
+ * Returns information about maps.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/maps]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MapsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Map>> = RequestTemplate(
     path = "/v2/maps",

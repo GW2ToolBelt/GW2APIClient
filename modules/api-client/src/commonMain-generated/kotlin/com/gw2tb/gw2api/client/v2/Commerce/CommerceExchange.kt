@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the gem exchange.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          INFINITE
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/exchange]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommerceExchange(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/commerce/exchange",
@@ -43,6 +60,25 @@ public fun gw2v2CommerceExchange(configure: RequestConfigurer? = null): RequestT
     configure = configure
 )
 
+/**
+ * Returns information about the gem exchange.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/exchange/:type]
+ *
+ * @param type the exchange type
+ * @param quantity the amount to exchange
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceExchange> = RequestTemplate(
     path = "/v2/commerce/exchange",

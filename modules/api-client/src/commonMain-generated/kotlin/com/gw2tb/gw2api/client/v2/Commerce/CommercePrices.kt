@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns current aggregated buy and sell listing information from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/prices]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommercePricesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2ItemId>> = RequestTemplate(
     path = "/v2/commerce/prices",
@@ -43,6 +60,24 @@ public fun gw2v2CommercePricesIds(configure: RequestConfigurer? = null): Request
     configure = configure
 )
 
+/**
+ * Returns current aggregated buy and sell listing information from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/prices]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommercePricesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommercePrices> = RequestTemplate(
     path = "/v2/commerce/prices",
@@ -54,6 +89,24 @@ public fun gw2v2CommercePricesById(id: Int, configure: RequestConfigurer? = null
     configure = configure
 )
 
+/**
+ * Returns current aggregated buy and sell listing information from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/prices]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2CommercePricesById-Alias")
 public fun gw2v2CommercePricesById(id: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommercePrices> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2CommercePricesById(id: GW2ItemId, configure: RequestConfigurer? 
     configure = configure
 )
 
+/**
+ * Returns current aggregated buy and sell listing information from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/prices]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommercePricesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommercePrices>> = RequestTemplate(
     path = "/v2/commerce/prices",
@@ -77,6 +148,24 @@ public fun gw2v2CommercePricesByIds(ids: List<Int>, configure: RequestConfigurer
     configure = configure
 )
 
+/**
+ * Returns current aggregated buy and sell listing information from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/prices]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2CommercePricesByIds-Alias")
 public fun gw2v2CommercePricesByIds(ids: List<GW2ItemId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommercePrices>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2CommercePricesByIds(ids: List<GW2ItemId>, configure: RequestConf
     configure = configure
 )
 
+/**
+ * Returns current aggregated buy and sell listing information from the trading post.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/commerce/prices]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CommercePricesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommercePrices>> = RequestTemplate(
     path = "/v2/commerce/prices",

@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about a guild.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/guild_details]
+ *
+ * @param guildId the ID of the guild
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v1GuildDetailsByID(guildId: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v1GuildDetails> = RequestTemplate(
     path = "/v1/guild_details",
@@ -43,6 +61,24 @@ public fun gw2v1GuildDetailsByID(guildId: String, configure: RequestConfigurer? 
     configure = configure
 )
 
+/**
+ * Returns information about a guild.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/guild_details]
+ *
+ * @param guildName the name of the guild
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v1GuildDetailsByName(guildName: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v1GuildDetails> = RequestTemplate(
     path = "/v1/guild_details",

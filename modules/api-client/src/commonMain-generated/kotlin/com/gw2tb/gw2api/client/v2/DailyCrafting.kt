@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the items that can be crafted once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2DailyCraftingIds(configure: RequestConfigurer? = null): RequestTemplate<List<String>> = RequestTemplate(
     path = "/v2/dailycrafting",
@@ -43,6 +60,24 @@ public fun gw2v2DailyCraftingIds(configure: RequestConfigurer? = null): RequestT
     configure = configure
 )
 
+/**
+ * Returns information about the items that can be crafted once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2DailyCraftingById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2DailyCrafting> = RequestTemplate(
     path = "/v2/dailycrafting",
@@ -54,6 +89,24 @@ public fun gw2v2DailyCraftingById(id: String, configure: RequestConfigurer? = nu
     configure = configure
 )
 
+/**
+ * Returns information about the items that can be crafted once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2DailyCraftingByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2DailyCrafting>> = RequestTemplate(
     path = "/v2/dailycrafting",
@@ -65,6 +118,25 @@ public fun gw2v2DailyCraftingByIds(ids: List<String>, configure: RequestConfigur
     configure = configure
 )
 
+/**
+ * Returns information about the items that can be crafted once per day.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/dailycrafting]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2DailyCraftingByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2DailyCrafting>> = RequestTemplate(
     path = "/v2/dailycrafting",

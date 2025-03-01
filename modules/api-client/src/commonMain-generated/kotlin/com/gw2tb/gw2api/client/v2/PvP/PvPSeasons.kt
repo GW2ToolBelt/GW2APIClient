@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about PvP seasons.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPSeasonsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2PvpSeasonId>> = RequestTemplate(
     path = "/v2/pvp/seasons",
@@ -43,6 +60,24 @@ public fun gw2v2PvPSeasonsIds(configure: RequestConfigurer? = null): RequestTemp
     configure = configure
 )
 
+/**
+ * Returns information about PvP seasons.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPSeasonsById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpSeason> = RequestTemplate(
     path = "/v2/pvp/seasons",
@@ -54,6 +89,24 @@ public fun gw2v2PvPSeasonsById(id: String, configure: RequestConfigurer? = null)
     configure = configure
 )
 
+/**
+ * Returns information about PvP seasons.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPSeasonsById-Alias")
 public fun gw2v2PvPSeasonsById(id: GW2PvpSeasonId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpSeason> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2PvPSeasonsById(id: GW2PvpSeasonId, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about PvP seasons.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPSeasonsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeason>> = RequestTemplate(
     path = "/v2/pvp/seasons",
@@ -77,6 +148,24 @@ public fun gw2v2PvPSeasonsByIds(ids: List<String>, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about PvP seasons.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPSeasonsByIds-Alias")
 public fun gw2v2PvPSeasonsByIds(ids: List<GW2PvpSeasonId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeason>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2PvPSeasonsByIds(ids: List<GW2PvpSeasonId>, configure: RequestCon
     configure = configure
 )
 
+/**
+ * Returns information about PvP seasons.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/seasons]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPSeasonsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeason>> = RequestTemplate(
     path = "/v2/pvp/seasons",

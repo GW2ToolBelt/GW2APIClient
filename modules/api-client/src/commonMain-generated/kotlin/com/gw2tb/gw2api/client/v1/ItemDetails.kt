@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information an item.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           Yes
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/item_details]
+ *
+ * @param itemId the ID of the item
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v1ItemDetails(itemId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1ItemDetails> = RequestTemplate(
     path = "/v1/item_details",
@@ -43,6 +61,24 @@ public fun gw2v1ItemDetails(itemId: Int, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+/**
+ * Returns information an item.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           Yes
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/item_details]
+ *
+ * @param itemId the ID of the item
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v1ItemDetails-Alias")
 public fun gw2v1ItemDetails(itemId: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1ItemDetails> = RequestTemplate(

@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about a character's equipped specializations.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, BUILDS, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters/:id/buildtabs]
+ *
+ * @param id the character's ID
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersBuildTabsIds(id: String, configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",
@@ -43,6 +61,25 @@ public fun gw2v2CharactersBuildTabsIds(id: String, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about a character's equipped specializations.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, BUILDS, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters/:id/buildtabs]
+ *
+ * @param id the character's ID
+ * @param tab the ID of the requested tab
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersBuildTabsById(id: String, tab: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CharactersBuildTab> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",
@@ -54,6 +91,25 @@ public fun gw2v2CharactersBuildTabsById(id: String, tab: Int, configure: Request
     configure = configure
 )
 
+/**
+ * Returns information about a character's equipped specializations.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, BUILDS, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters/:id/buildtabs]
+ *
+ * @param id the character's ID
+ * @param tabs the IDs of the requested tabs
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersBuildTabsByIds(id: String, tabs: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CharactersBuildTab>> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",
@@ -65,6 +121,26 @@ public fun gw2v2CharactersBuildTabsByIds(id: String, tabs: List<Int>, configure:
     configure = configure
 )
 
+/**
+ * Returns information about a character's equipped specializations.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, BUILDS, CHARACTERS)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters/:id/buildtabs]
+ *
+ * @param id the character's ID
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersBuildTabsByPage(id: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CharactersBuildTab>> = RequestTemplate(
     path = "/v2/characters/:id/buildtabs",

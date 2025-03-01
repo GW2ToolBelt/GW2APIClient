@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about home-instance nodes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/nodes]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeNodesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2HomeInstanceNodeId>> = RequestTemplate(
     path = "/v2/home/nodes",
@@ -43,6 +60,24 @@ public fun gw2v2HomeNodesIds(configure: RequestConfigurer? = null): RequestTempl
     configure = configure
 )
 
+/**
+ * Returns information about home-instance nodes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/nodes]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeNodesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomeInstanceNode> = RequestTemplate(
     path = "/v2/home/nodes",
@@ -54,6 +89,24 @@ public fun gw2v2HomeNodesById(id: String, configure: RequestConfigurer? = null):
     configure = configure
 )
 
+/**
+ * Returns information about home-instance nodes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/nodes]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomeNodesById-Alias")
 public fun gw2v2HomeNodesById(id: GW2HomeInstanceNodeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomeInstanceNode> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2HomeNodesById(id: GW2HomeInstanceNodeId, configure: RequestConfi
     configure = configure
 )
 
+/**
+ * Returns information about home-instance nodes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/nodes]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeNodesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceNode>> = RequestTemplate(
     path = "/v2/home/nodes",
@@ -77,6 +148,24 @@ public fun gw2v2HomeNodesByIds(ids: List<String>, configure: RequestConfigurer? 
     configure = configure
 )
 
+/**
+ * Returns information about home-instance nodes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/nodes]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomeNodesByIds-Alias")
 public fun gw2v2HomeNodesByIds(ids: List<GW2HomeInstanceNodeId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceNode>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2HomeNodesByIds(ids: List<GW2HomeInstanceNodeId>, configure: Requ
     configure = configure
 )
 
+/**
+ * Returns information about home-instance nodes.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/home/nodes]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomeNodesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceNode>> = RequestTemplate(
     path = "/v2/home/nodes",

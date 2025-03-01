@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the Wizard's Vault's objectives.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wizardsvault/objectives]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WizardsVaultObjectivesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WizardsVaultObjectiveId>> = RequestTemplate(
     path = "/v2/wizardsvault/objectives",
@@ -43,6 +60,24 @@ public fun gw2v2WizardsVaultObjectivesIds(configure: RequestConfigurer? = null):
     configure = configure
 )
 
+/**
+ * Returns information about the Wizard's Vault's objectives.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wizardsvault/objectives]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WizardsVaultObjectivesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WizardsVaultObjective> = RequestTemplate(
     path = "/v2/wizardsvault/objectives",
@@ -54,6 +89,24 @@ public fun gw2v2WizardsVaultObjectivesById(id: Int, configure: RequestConfigurer
     configure = configure
 )
 
+/**
+ * Returns information about the Wizard's Vault's objectives.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wizardsvault/objectives]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WizardsVaultObjectivesById-Alias")
 public fun gw2v2WizardsVaultObjectivesById(id: GW2WizardsVaultObjectiveId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WizardsVaultObjective> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2WizardsVaultObjectivesById(id: GW2WizardsVaultObjectiveId, confi
     configure = configure
 )
 
+/**
+ * Returns information about the Wizard's Vault's objectives.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wizardsvault/objectives]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WizardsVaultObjectivesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultObjective>> = RequestTemplate(
     path = "/v2/wizardsvault/objectives",
@@ -77,6 +148,24 @@ public fun gw2v2WizardsVaultObjectivesByIds(ids: List<Int>, configure: RequestCo
     configure = configure
 )
 
+/**
+ * Returns information about the Wizard's Vault's objectives.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wizardsvault/objectives]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WizardsVaultObjectivesByIds-Alias")
 public fun gw2v2WizardsVaultObjectivesByIds(ids: List<GW2WizardsVaultObjectiveId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultObjective>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2WizardsVaultObjectivesByIds(ids: List<GW2WizardsVaultObjectiveId
     configure = configure
 )
 
+/**
+ * Returns information about the Wizard's Vault's objectives.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wizardsvault/objectives]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WizardsVaultObjectivesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WizardsVaultObjective>> = RequestTemplate(
     path = "/v2/wizardsvault/objectives",

@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/recipe_details]
+ *
+ * @param recipeId the recipe's ID
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v1RecipeDetails(recipeId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1RecipeDetails> = RequestTemplate(
     path = "/v1/recipe_details",
@@ -43,6 +61,24 @@ public fun gw2v1RecipeDetails(recipeId: Int, configure: RequestConfigurer? = nul
     configure = configure
 )
 
+/**
+ * Returns information about the recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/recipe_details]
+ *
+ * @param recipeId the recipe's ID
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v1RecipeDetails-Alias")
 public fun gw2v1RecipeDetails(recipeId: GW2RecipeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1RecipeDetails> = RequestTemplate(

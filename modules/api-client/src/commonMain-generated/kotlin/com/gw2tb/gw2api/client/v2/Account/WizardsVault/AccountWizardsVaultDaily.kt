@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about a player's current daily Wizard's Vault objectives.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/wizardsvault/daily]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2AccountWizardsVaultDaily(configure: RequestConfigurer? = null): RequestTemplate<GW2v2AccountWizardsVaultDaily> = RequestTemplate(
     path = "/v2/account/wizardsvault/daily",

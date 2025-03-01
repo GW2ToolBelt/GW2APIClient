@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the PvP ranks.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPRanksIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2PvpRankId>> = RequestTemplate(
     path = "/v2/pvp/ranks",
@@ -43,6 +60,24 @@ public fun gw2v2PvPRanksIds(configure: RequestConfigurer? = null): RequestTempla
     configure = configure
 )
 
+/**
+ * Returns information about the PvP ranks.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPRanksById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpRank> = RequestTemplate(
     path = "/v2/pvp/ranks",
@@ -54,6 +89,24 @@ public fun gw2v2PvPRanksById(id: Int, configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+/**
+ * Returns information about the PvP ranks.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPRanksById-Alias")
 public fun gw2v2PvPRanksById(id: GW2PvpRankId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpRank> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2PvPRanksById(id: GW2PvpRankId, configure: RequestConfigurer? = n
     configure = configure
 )
 
+/**
+ * Returns information about the PvP ranks.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPRanksByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
     path = "/v2/pvp/ranks",
@@ -77,6 +148,24 @@ public fun gw2v2PvPRanksByIds(ids: List<Int>, configure: RequestConfigurer? = nu
     configure = configure
 )
 
+/**
+ * Returns information about the PvP ranks.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPRanksByIds-Alias")
 public fun gw2v2PvPRanksByIds(ids: List<GW2PvpRankId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2PvPRanksByIds(ids: List<GW2PvpRankId>, configure: RequestConfigu
     configure = configure
 )
 
+/**
+ * Returns information about the PvP ranks.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/ranks]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
     path = "/v2/pvp/ranks",

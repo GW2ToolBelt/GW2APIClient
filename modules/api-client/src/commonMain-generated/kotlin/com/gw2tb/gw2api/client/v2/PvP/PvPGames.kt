@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about an account's recent PvP games.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PVP)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/games]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPGamesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2PvpGameId>> = RequestTemplate(
     path = "/v2/pvp/games",
@@ -43,6 +60,24 @@ public fun gw2v2PvPGamesIds(configure: RequestConfigurer? = null): RequestTempla
     configure = configure
 )
 
+/**
+ * Returns information about an account's recent PvP games.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PVP)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/games]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPGamesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpGame> = RequestTemplate(
     path = "/v2/pvp/games",
@@ -54,6 +89,24 @@ public fun gw2v2PvPGamesById(id: String, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+/**
+ * Returns information about an account's recent PvP games.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PVP)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/games]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPGamesById-Alias")
 public fun gw2v2PvPGamesById(id: GW2PvpGameId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpGame> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2PvPGamesById(id: GW2PvpGameId, configure: RequestConfigurer? = n
     configure = configure
 )
 
+/**
+ * Returns information about an account's recent PvP games.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PVP)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/games]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPGamesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpGame>> = RequestTemplate(
     path = "/v2/pvp/games",
@@ -77,6 +148,24 @@ public fun gw2v2PvPGamesByIds(ids: List<String>, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns information about an account's recent PvP games.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PVP)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/games]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2PvPGamesByIds-Alias")
 public fun gw2v2PvPGamesByIds(ids: List<GW2PvpGameId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpGame>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2PvPGamesByIds(ids: List<GW2PvpGameId>, configure: RequestConfigu
     configure = configure
 )
 
+/**
+ * Returns information about an account's recent PvP games.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PVP)
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/pvp/games]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2PvPGamesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpGame>> = RequestTemplate(
     path = "/v2/pvp/games",

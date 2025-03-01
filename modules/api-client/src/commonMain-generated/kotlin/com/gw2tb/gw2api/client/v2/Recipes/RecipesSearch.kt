@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns an array of item IDs for recipes using a given item as ingredient.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes/search]
+ *
+ * @param input the item ID of the crafting ingredient
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
@@ -43,6 +61,24 @@ public fun gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns an array of item IDs for recipes using a given item as ingredient.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes/search]
+ *
+ * @param input the item ID of the crafting ingredient
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2RecipesSearchByInput-Alias")
 public fun gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
@@ -55,6 +91,24 @@ public fun gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigu
     configure = configure
 )
 
+/**
+ * Returns an array of item IDs for recipes to craft a given item.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes/search]
+ *
+ * @param output the item ID of the crafting result
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
@@ -66,6 +120,24 @@ public fun gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns an array of item IDs for recipes to craft a given item.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes/search]
+ *
+ * @param output the item ID of the crafting result
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2RecipesSearchByOutput-Alias")
 public fun gw2v2RecipesSearchByOutput(output: GW2ItemId, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(

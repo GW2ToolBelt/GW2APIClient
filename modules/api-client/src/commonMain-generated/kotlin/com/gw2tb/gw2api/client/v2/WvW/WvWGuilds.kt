@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about WvW team assignments.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          INFINITE
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/guilds/:region]
+ *
+ * @param region the region to query
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWGuilds(region: String, configure: RequestConfigurer? = null): RequestTemplate<Map<GW2GuildId, String>> = RequestTemplate(
     path = "/v2/wvw/guilds/:region",

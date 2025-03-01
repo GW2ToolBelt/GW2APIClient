@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns which raid encounter a player has cleared since the most recent raid reset.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, PROGRESSION)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/raids]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2AccountRaids(configure: RequestConfigurer? = null): RequestTemplate<List<GW2RaidId>> = RequestTemplate(
     path = "/v2/account/raids",

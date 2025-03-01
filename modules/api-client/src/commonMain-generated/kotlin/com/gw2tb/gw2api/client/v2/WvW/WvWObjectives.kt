@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWObjectivesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WvwObjectiveId>> = RequestTemplate(
     path = "/v2/wvw/objectives",
@@ -43,6 +60,24 @@ public fun gw2v2WvWObjectivesIds(configure: RequestConfigurer? = null): RequestT
     configure = configure
 )
 
+/**
+ * Returns information about the objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWObjectivesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwObjective> = RequestTemplate(
     path = "/v2/wvw/objectives",
@@ -54,6 +89,24 @@ public fun gw2v2WvWObjectivesById(id: String, configure: RequestConfigurer? = nu
     configure = configure
 )
 
+/**
+ * Returns information about the objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WvWObjectivesById-Alias")
 public fun gw2v2WvWObjectivesById(id: GW2WvwObjectiveId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwObjective> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2WvWObjectivesById(id: GW2WvwObjectiveId, configure: RequestConfi
     configure = configure
 )
 
+/**
+ * Returns information about the objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWObjectivesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",
@@ -77,6 +148,24 @@ public fun gw2v2WvWObjectivesByIds(ids: List<String>, configure: RequestConfigur
     configure = configure
 )
 
+/**
+ * Returns information about the objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WvWObjectivesByIds-Alias")
 public fun gw2v2WvWObjectivesByIds(ids: List<GW2WvwObjectiveId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2WvWObjectivesByIds(ids: List<GW2WvwObjectiveId>, configure: Requ
     configure = configure
 )
 
+/**
+ * Returns information about the objectives in the World versus World game mode.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/objectives]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWObjectivesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",

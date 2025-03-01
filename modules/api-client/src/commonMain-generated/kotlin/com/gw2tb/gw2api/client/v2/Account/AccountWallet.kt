@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about a player's wallet.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, WALLET)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/account/wallet]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2AccountWallet(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountWalletCurrency>> = RequestTemplate(
     path = "/v2/account/wallet",

@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about mount skins.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MountsSkinsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2MountSkinId>> = RequestTemplate(
     path = "/v2/mounts/skins",
@@ -43,6 +60,24 @@ public fun gw2v2MountsSkinsIds(configure: RequestConfigurer? = null): RequestTem
     configure = configure
 )
 
+/**
+ * Returns information about mount skins.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MountsSkinsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MountSkin> = RequestTemplate(
     path = "/v2/mounts/skins",
@@ -54,6 +89,24 @@ public fun gw2v2MountsSkinsById(id: Int, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+/**
+ * Returns information about mount skins.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MountsSkinsById-Alias")
 public fun gw2v2MountsSkinsById(id: GW2MountSkinId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MountSkin> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2MountsSkinsById(id: GW2MountSkinId, configure: RequestConfigurer
     configure = configure
 )
 
+/**
+ * Returns information about mount skins.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MountsSkinsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
     path = "/v2/mounts/skins",
@@ -77,6 +148,24 @@ public fun gw2v2MountsSkinsByIds(ids: List<Int>, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns information about mount skins.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MountsSkinsByIds-Alias")
 public fun gw2v2MountsSkinsByIds(ids: List<GW2MountSkinId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2MountsSkinsByIds(ids: List<GW2MountSkinId>, configure: RequestCo
     configure = configure
 )
 
+/**
+ * Returns information about mount skins.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/mounts/skins]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MountsSkinsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
     path = "/v2/mounts/skins",

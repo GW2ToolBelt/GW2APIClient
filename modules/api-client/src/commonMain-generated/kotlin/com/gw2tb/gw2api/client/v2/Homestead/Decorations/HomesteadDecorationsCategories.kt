@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about homestead decoration categories.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/decorations/categories]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2HomesteadDecorationCategoryId>> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
@@ -43,6 +60,24 @@ public fun gw2v2HomesteadDecorationsCategoriesIds(configure: RequestConfigurer? 
     configure = configure
 )
 
+/**
+ * Returns information about homestead decoration categories.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/decorations/categories]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomesteadDecorationCategory> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
@@ -54,6 +89,24 @@ public fun gw2v2HomesteadDecorationsCategoriesById(id: Int, configure: RequestCo
     configure = configure
 )
 
+/**
+ * Returns information about homestead decoration categories.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/decorations/categories]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomesteadDecorationsCategoriesById-Alias")
 public fun gw2v2HomesteadDecorationsCategoriesById(id: GW2HomesteadDecorationCategoryId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomesteadDecorationCategory> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2HomesteadDecorationsCategoriesById(id: GW2HomesteadDecorationCat
     configure = configure
 )
 
+/**
+ * Returns information about homestead decoration categories.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/decorations/categories]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadDecorationCategory>> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",
@@ -77,6 +148,24 @@ public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<Int>, configure: R
     configure = configure
 )
 
+/**
+ * Returns information about homestead decoration categories.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/decorations/categories]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2HomesteadDecorationsCategoriesByIds-Alias")
 public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<GW2HomesteadDecorationCategoryId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadDecorationCategory>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2HomesteadDecorationsCategoriesByIds(ids: List<GW2HomesteadDecora
     configure = configure
 )
 
+/**
+ * Returns information about homestead decoration categories.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/homestead/decorations/categories]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2HomesteadDecorationsCategoriesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomesteadDecorationCategory>> = RequestTemplate(
     path = "/v2/homestead/decorations/categories",

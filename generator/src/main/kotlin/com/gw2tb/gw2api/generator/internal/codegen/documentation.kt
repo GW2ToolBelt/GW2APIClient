@@ -21,7 +21,10 @@
  */
 package com.gw2tb.gw2api.generator.internal.codegen
 
+import com.gw2tb.apigen.model.APIv2Endpoint
+import com.gw2tb.apigen.model.QueryType
 import com.gw2tb.apigen.schema.*
+import com.gw2tb.apigen.schema.model.APIQuery
 import kotlin.time.*
 
 private fun Duration.normalizeCacheTime(): String {
@@ -60,28 +63,29 @@ private inline fun comment(action: StringBuilder.() -> Unit, isDocComment: Boole
 @Suppress("NOTHING_TO_INLINE")
 private inline fun docComment(noinline action: StringBuilder.() -> Unit): String = comment(action, isDocComment = true)
 
-//internal fun APIQuery.dokka(queryType: String): String = docComment {
-//    val siblings = API_V2.supportedQueries.filter { it.endpoint == endpoint }
-//    val isPaginated = siblings.any { it.queryDetails?.queryType is QueryType.ByPage }
-//    val isBulkSupported = siblings.any { it.queryDetails?.queryType?.let { queryType -> queryType is QueryType.ByIDs } ?: false }
-//    val isLocalized = siblings.any { it[V2SchemaVersion.V2_SCHEMA_2021_04_06T21_00_00_000Z].data.isLocalized } // TODO
-//
-//    append("$queryType$n$n")
-//    append("$summary$n$n")
-//    append("""
-//                |```
-//                |Authenticated:       ${if (security.isNotEmpty()) "Yes (${security.joinToString()})" else "No"}
-//                |Paginated:           ${if (isPaginated) "Yes" else "No"}
-//                |Bulk expanded:       ${if (isBulkSupported) "Yes" else "No"}
-//                |Localized:           ${if (isLocalized) "Yes" else "No"}
-//                |Cache time:          ${cache?.normalizeCacheTime() ?: "N/A"}
-//                |```
-//            """.trimMargin() + n + n)
-//    append("Read more: [https://wiki.guildwars2.com/wiki/API:2/${route.lowercase().removePrefix("/")}]$n$n")
-//    append("@receiver        the client instance used to make the request$n")
-//    append("@param configure configure action for the request$n$n")
-//    append("@return  the request that can be executed to query the API")
-//}
+internal fun APIQuery.dokka(siblings: Iterable<APIQuery>): String = docComment {
+    val isPaginated = siblings.any { it.details?.queryType is QueryType.ByPage }
+    val isBulkSupported = siblings.any { it.details?.queryType?.let { queryType -> queryType is QueryType.ByIDs } ?: false }
+    val isLocalized = siblings.any { it.schema.isLocalized }
+
+    append("$summary$n$n")
+    append("""
+                |```
+                |Authenticated:       ${if (security.isNotEmpty()) "Yes (${security.joinToString()})" else "No"}
+                |Paginated:           ${if (isPaginated) "Yes" else "No"}
+                |Bulk expanded:       ${if (isBulkSupported) "Yes" else "No"}
+                |Localized:           ${if (isLocalized) "Yes" else "No"}
+                |Cache time:          ${cache?.normalizeCacheTime() ?: "N/A"}
+                |```
+            """.trimMargin() + n + n)
+    append("Read more: [https://wiki.guildwars2.com/wiki/API:${if (endpoint is APIv2Endpoint) "2" else "1"}/${path.lowercase().removePrefix("/")}]$n$n")
+
+    pathParameters.forEach { (_, param) -> appendLine("@param ${param.name.toCamelCase()} ${param.description}") }
+    queryParameters.forEach { (_, param) -> appendLine("@param ${param.name.toCamelCase()} ${param.description}") }
+
+    append("@param configure configure action for the request$n$n")
+    append("@return  the request that can be executed to query the API")
+}
 
 internal fun SchemaRecord.dokka(
     sharedProperties: Collection<SchemaProperty>,

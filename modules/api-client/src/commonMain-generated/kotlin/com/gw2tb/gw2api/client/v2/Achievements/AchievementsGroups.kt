@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about achievement groups.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2AchievementsGroupsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2AchievementGroupId>> = RequestTemplate(
     path = "/v2/achievements/groups",
@@ -43,6 +60,24 @@ public fun gw2v2AchievementsGroupsIds(configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+/**
+ * Returns information about achievement groups.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2AchievementsGroupsById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2AchievementGroups> = RequestTemplate(
     path = "/v2/achievements/groups",
@@ -54,6 +89,24 @@ public fun gw2v2AchievementsGroupsById(id: String, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about achievement groups.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2AchievementsGroupsById-Alias")
 public fun gw2v2AchievementsGroupsById(id: GW2AchievementGroupId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2AchievementGroups> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2AchievementsGroupsById(id: GW2AchievementGroupId, configure: Req
     configure = configure
 )
 
+/**
+ * Returns information about achievement groups.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2AchievementsGroupsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AchievementGroups>> = RequestTemplate(
     path = "/v2/achievements/groups",
@@ -77,6 +148,24 @@ public fun gw2v2AchievementsGroupsByIds(ids: List<String>, configure: RequestCon
     configure = configure
 )
 
+/**
+ * Returns information about achievement groups.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2AchievementsGroupsByIds-Alias")
 public fun gw2v2AchievementsGroupsByIds(ids: List<GW2AchievementGroupId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AchievementGroups>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2AchievementsGroupsByIds(ids: List<GW2AchievementGroupId>, config
     configure = configure
 )
 
+/**
+ * Returns information about achievement groups.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/achievements/groups]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2AchievementsGroupsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AchievementGroups>> = RequestTemplate(
     path = "/v2/achievements/groups",

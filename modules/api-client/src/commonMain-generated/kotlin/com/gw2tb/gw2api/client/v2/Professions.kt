@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the game's playable professions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ProfessionsIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2ProfessionId>> = RequestTemplate(
     path = "/v2/professions",
@@ -43,6 +60,24 @@ public fun gw2v2ProfessionsIds(configure: RequestConfigurer? = null): RequestTem
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable professions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ProfessionsById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Profession> = RequestTemplate(
     path = "/v2/professions",
@@ -54,6 +89,24 @@ public fun gw2v2ProfessionsById(id: String, configure: RequestConfigurer? = null
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable professions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2ProfessionsById-Alias")
 public fun gw2v2ProfessionsById(id: GW2ProfessionId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Profession> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2ProfessionsById(id: GW2ProfessionId, configure: RequestConfigure
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable professions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ProfessionsByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Profession>> = RequestTemplate(
     path = "/v2/professions",
@@ -77,6 +148,24 @@ public fun gw2v2ProfessionsByIds(ids: List<String>, configure: RequestConfigurer
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable professions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2ProfessionsByIds-Alias")
 public fun gw2v2ProfessionsByIds(ids: List<GW2ProfessionId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Profession>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2ProfessionsByIds(ids: List<GW2ProfessionId>, configure: RequestC
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable professions.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/professions]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2ProfessionsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Profession>> = RequestTemplate(
     path = "/v2/professions",

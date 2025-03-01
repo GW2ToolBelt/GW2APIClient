@@ -32,6 +32,26 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Creates a new subtoken.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/createsubtoken]
+ *
+ * @param expire an ISO-8601 datetime specifying when the generated subtoken will expire
+ * @param permissions a comma separated list of permissions to inherit
+ * @param urls a comma separated list of endpoints that will be accessible using this subtoken
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: RequestConfigurer? = null): RequestTemplate<GW2v2SubToken> = RequestTemplate(
     path = "/v2/createsubtoken",

@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about currencies contained in the account wallet.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CurrenciesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2CurrencyId>> = RequestTemplate(
     path = "/v2/currencies",
@@ -43,6 +60,24 @@ public fun gw2v2CurrenciesIds(configure: RequestConfigurer? = null): RequestTemp
     configure = configure
 )
 
+/**
+ * Returns information about currencies contained in the account wallet.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CurrenciesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Currency> = RequestTemplate(
     path = "/v2/currencies",
@@ -54,6 +89,24 @@ public fun gw2v2CurrenciesById(id: Int, configure: RequestConfigurer? = null): R
     configure = configure
 )
 
+/**
+ * Returns information about currencies contained in the account wallet.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2CurrenciesById-Alias")
 public fun gw2v2CurrenciesById(id: GW2CurrencyId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Currency> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2CurrenciesById(id: GW2CurrencyId, configure: RequestConfigurer? 
     configure = configure
 )
 
+/**
+ * Returns information about currencies contained in the account wallet.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CurrenciesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Currency>> = RequestTemplate(
     path = "/v2/currencies",
@@ -77,6 +148,24 @@ public fun gw2v2CurrenciesByIds(ids: List<Int>, configure: RequestConfigurer? = 
     configure = configure
 )
 
+/**
+ * Returns information about currencies contained in the account wallet.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2CurrenciesByIds-Alias")
 public fun gw2v2CurrenciesByIds(ids: List<GW2CurrencyId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Currency>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2CurrenciesByIds(ids: List<GW2CurrencyId>, configure: RequestConf
     configure = configure
 )
 
+/**
+ * Returns information about currencies contained in the account wallet.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/currencies]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CurrenciesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Currency>> = RequestTemplate(
     path = "/v2/currencies",

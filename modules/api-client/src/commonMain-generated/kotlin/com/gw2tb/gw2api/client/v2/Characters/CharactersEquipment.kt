@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about a character's equipment.
+ *
+ * ```
+ * Authenticated:       Yes (ACCOUNT, BUILDS, CHARACTERS, INVENTORIES)
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/characters/:id/equipment]
+ *
+ * @param id the character's ID
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2CharactersEquipment(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CharactersEquipment> = RequestTemplate(
     path = "/v2/characters/:id/equipment",

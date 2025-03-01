@@ -32,6 +32,24 @@ import com.gw2tb.gw2api.types.v1.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns detailed information about a WvW match.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/wvw/match_details]
+ *
+ * @param matchId the ID of the match
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v1WvWMatchDetails(matchId: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v1WvwMatchDetails> = RequestTemplate(
     path = "/v1/wvw/match_details",
@@ -43,6 +61,24 @@ public fun gw2v1WvWMatchDetails(matchId: String, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns detailed information about a WvW match.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           No
+ * Bulk expanded:       No
+ * Localized:           No
+ * Cache time:          N/A
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:1/wvw/match_details]
+ *
+ * @param matchId the ID of the match
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v1WvWMatchDetails-Alias")
 public fun gw2v1WvWMatchDetails(matchId: GW2WvwMatchId, configure: RequestConfigurer? = null): RequestTemplate<GW2v1WvwMatchDetails> = RequestTemplate(

@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the active WvW matches.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1s
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/matches]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWMatchesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2WvwMatchId>> = RequestTemplate(
     path = "/v2/wvw/matches",
@@ -43,6 +60,24 @@ public fun gw2v2WvWMatchesIds(configure: RequestConfigurer? = null): RequestTemp
     configure = configure
 )
 
+/**
+ * Returns information about the active WvW matches.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1s
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/matches]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWMatchesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwMatch> = RequestTemplate(
     path = "/v2/wvw/matches",
@@ -54,6 +89,24 @@ public fun gw2v2WvWMatchesById(id: String, configure: RequestConfigurer? = null)
     configure = configure
 )
 
+/**
+ * Returns information about the active WvW matches.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1s
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/matches]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WvWMatchesById-Alias")
 public fun gw2v2WvWMatchesById(id: GW2WvwMatchId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwMatch> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2WvWMatchesById(id: GW2WvwMatchId, configure: RequestConfigurer? 
     configure = configure
 )
 
+/**
+ * Returns information about the active WvW matches.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1s
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/matches]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWMatchesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatch>> = RequestTemplate(
     path = "/v2/wvw/matches",
@@ -77,6 +148,24 @@ public fun gw2v2WvWMatchesByIds(ids: List<String>, configure: RequestConfigurer?
     configure = configure
 )
 
+/**
+ * Returns information about the active WvW matches.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1s
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/matches]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2WvWMatchesByIds-Alias")
 public fun gw2v2WvWMatchesByIds(ids: List<GW2WvwMatchId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatch>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2WvWMatchesByIds(ids: List<GW2WvwMatchId>, configure: RequestConf
     configure = configure
 )
 
+/**
+ * Returns information about the active WvW matches.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1s
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/wvw/matches]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2WvWMatchesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatch>> = RequestTemplate(
     path = "/v2/wvw/matches",

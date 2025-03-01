@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the game's playable races.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RacesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2RaceId>> = RequestTemplate(
     path = "/v2/races",
@@ -43,6 +60,24 @@ public fun gw2v2RacesIds(configure: RequestConfigurer? = null): RequestTemplate<
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable races.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RacesById(id: String, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Race> = RequestTemplate(
     path = "/v2/races",
@@ -54,6 +89,24 @@ public fun gw2v2RacesById(id: String, configure: RequestConfigurer? = null): Req
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable races.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2RacesById-Alias")
 public fun gw2v2RacesById(id: GW2RaceId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Race> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2RacesById(id: GW2RaceId, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable races.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RacesByIds(ids: List<String>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Race>> = RequestTemplate(
     path = "/v2/races",
@@ -77,6 +148,24 @@ public fun gw2v2RacesByIds(ids: List<String>, configure: RequestConfigurer? = nu
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable races.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2RacesByIds-Alias")
 public fun gw2v2RacesByIds(ids: List<GW2RaceId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Race>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2RacesByIds(ids: List<GW2RaceId>, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns information about the game's playable races.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/races]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RacesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Race>> = RequestTemplate(
     path = "/v2/races",

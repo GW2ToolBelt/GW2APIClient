@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about minis.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MinisIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2MiniId>> = RequestTemplate(
     path = "/v2/minis",
@@ -43,6 +60,24 @@ public fun gw2v2MinisIds(configure: RequestConfigurer? = null): RequestTemplate<
     configure = configure
 )
 
+/**
+ * Returns information about minis.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MinisById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Mini> = RequestTemplate(
     path = "/v2/minis",
@@ -54,6 +89,24 @@ public fun gw2v2MinisById(id: Int, configure: RequestConfigurer? = null): Reques
     configure = configure
 )
 
+/**
+ * Returns information about minis.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MinisById-Alias")
 public fun gw2v2MinisById(id: GW2MiniId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Mini> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2MinisById(id: GW2MiniId, configure: RequestConfigurer? = null): 
     configure = configure
 )
 
+/**
+ * Returns information about minis.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MinisByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mini>> = RequestTemplate(
     path = "/v2/minis",
@@ -77,6 +148,24 @@ public fun gw2v2MinisByIds(ids: List<Int>, configure: RequestConfigurer? = null)
     configure = configure
 )
 
+/**
+ * Returns information about minis.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2MinisByIds-Alias")
 public fun gw2v2MinisByIds(ids: List<GW2MiniId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mini>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2MinisByIds(ids: List<GW2MiniId>, configure: RequestConfigurer? =
     configure = configure
 )
 
+/**
+ * Returns information about minis.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           Yes
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/minis]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2MinisByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mini>> = RequestTemplate(
     path = "/v2/minis",

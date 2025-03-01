@@ -32,6 +32,23 @@ import com.gw2tb.gw2api.types.v2.*
 import kotlinx.serialization.builtins.*
 import kotlin.jvm.*
 
+/**
+ * Returns information about the crafting recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
+ *
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RecipesIds(configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes",
@@ -43,6 +60,24 @@ public fun gw2v2RecipesIds(configure: RequestConfigurer? = null): RequestTemplat
     configure = configure
 )
 
+/**
+ * Returns information about the crafting recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RecipesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Recipe> = RequestTemplate(
     path = "/v2/recipes",
@@ -54,6 +89,24 @@ public fun gw2v2RecipesById(id: Int, configure: RequestConfigurer? = null): Requ
     configure = configure
 )
 
+/**
+ * Returns information about the crafting recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
+ *
+ * @param id the ID of the requested object
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2RecipesById-Alias")
 public fun gw2v2RecipesById(id: GW2RecipeId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Recipe> = RequestTemplate(
@@ -66,6 +119,24 @@ public fun gw2v2RecipesById(id: GW2RecipeId, configure: RequestConfigurer? = nul
     configure = configure
 )
 
+/**
+ * Returns information about the crafting recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RecipesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Recipe>> = RequestTemplate(
     path = "/v2/recipes",
@@ -77,6 +148,24 @@ public fun gw2v2RecipesByIds(ids: List<Int>, configure: RequestConfigurer? = nul
     configure = configure
 )
 
+/**
+ * Returns information about the crafting recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
+ *
+ * @param ids the IDs of the requested objects
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmSynthetic
 @JvmName("gw2v2RecipesByIds-Alias")
 public fun gw2v2RecipesByIds(ids: List<GW2RecipeId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Recipe>> = RequestTemplate(
@@ -89,6 +178,25 @@ public fun gw2v2RecipesByIds(ids: List<GW2RecipeId>, configure: RequestConfigure
     configure = configure
 )
 
+/**
+ * Returns information about the crafting recipes in the game.
+ *
+ * ```
+ * Authenticated:       No
+ * Paginated:           Yes
+ * Bulk expanded:       Yes
+ * Localized:           No
+ * Cache time:          1h
+ * ```
+ *
+ * Read more: [https://wiki.guildwars2.com/wiki/API:2/recipes]
+ *
+ * @param page the index of the requested page
+ * @param pageSize the size of the requested page
+ * @param configure configure action for the request
+ *
+ * @return  the request that can be executed to query the API
+ */
 @JvmOverloads
 public fun gw2v2RecipesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Recipe>> = RequestTemplate(
     path = "/v2/recipes",
