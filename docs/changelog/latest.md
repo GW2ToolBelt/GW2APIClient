@@ -1,20 +1,17 @@
-### 0.8.0
+### 0.9.0
 
-_Released 2024 Nov 12_
-
-#### Overview
-
-This release was specifically crafted to address a critical bug in the Guild
-Wars 2 API which caused header-based authorization to fail. Thus, this release
-introduces a mechanism to configure how requests are authenticated:
-
-- `AuthenticationStrategy.HEADER` will remain the default authentication
-  strategy and is recommended for most use cases.
-- `AuthenticationStrategy.QUERY` is a new authentication strategy that appends
-  the API key as a query parameter to the request URL. This strategy is
-  considered unsafe outside of server environments. Use with caution.
+_Released 2025 Mar 01_
 
 #### Improvements
 
-- It is now possible to configure how requests are authenticated by configuring
-  the `AuthenticationStrategy` for a client.
+- Updated to [api-generator](https://github.com/GW2ToolBelt/api-generator) to [0.8.1](https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.8.1).
+- Migrated to schema version `2024-07-20T01:00:00.000Z`.
+- Introduced a basic in-memory `CacheAccess` implementation.
+  - This is **not used by default.**
+
+#### Fixes
+
+- Fixed a bug that caused request configuration to be applied in an unexpected
+  order.
+  - The `RequestConfigurer` that may be passed to factory functions is now run
+    after configurations from the client.
