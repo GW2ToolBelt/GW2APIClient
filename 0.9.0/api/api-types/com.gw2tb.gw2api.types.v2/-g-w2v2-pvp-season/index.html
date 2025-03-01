@@ -1,0 +1,311 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>GW2v2PvpSeason</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    GW2APIClient
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">0.9.0
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":api-types/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":api-types/commonMain" data-filter=":api-types/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    GW2APIClient
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="api-types::com.gw2tb.gw2api.types.v2/GW2v2PvpSeason///PointingToDeclaration//1187091007">
+  <div class="breadcrumbs"><a href="../../index.html">api-types</a><span class="delimiter">/</span><a href="../index.html">com.gw2tb.gw2api.types.v2</a><span class="delimiter">/</span><span class="current">GW2v2PvpSeason</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>GW2v2Pvp</span><wbr><span><span>Season</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">GW2v2PvpSeason</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>id<span class="token operator">: </span><a href="../../com.gw2tb.gw2api.types/-g-w2-pvp-season-id/index.html">GW2PvpSeasonId</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>start<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>end<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>active<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>divisions<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-division/index.html">GW2v2PvpSeason.Division</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ranks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-ranks/index.html">GW2v2PvpSeason.Ranks</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>leaderboards<span class="token operator">: </span><a href="-leaderboards/index.html">GW2v2PvpSeason.Leaderboards</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">Information about a PvP season.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>id</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the PvP season's ID</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>name</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the season's localized name</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>start</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the ISO-8601 standard timestamp of when the season started</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>end</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the ISO-8601 standard timestamp of when the season ended</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>active</span></span></u></div></span></div><div><div class="title"><p class="paragraph">whether the season is currently active</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>divisions</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the season's divisions</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>ranks</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the season's ranks</p></div></div></div></div><div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>leaderboards</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the season's leaderboards</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1808672063%2FConstructors%2F1187091007" anchor-label="GW2v2PvpSeason" id="-1808672063%2FConstructors%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-g-w2v2-pvp-season.html"><span>GW2v2Pvp</span><wbr><span><span>Season</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1808672063%2FConstructors%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="../../com.gw2tb.gw2api.types/-g-w2-pvp-season-id/index.html">GW2PvpSeasonId</a><span class="token punctuation">, </span></span><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">start<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">end<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">active<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">divisions<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-division/index.html">GW2v2PvpSeason.Division</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ranks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-ranks/index.html">GW2v2PvpSeason.Ranks</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">leaderboards<span class="token operator">: </span><a href="-leaderboards/index.html">GW2v2PvpSeason.Leaderboards</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1391271512%2FClasslikes%2F1187091007" anchor-label="Division" id="1391271512%2FClasslikes%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-division/index.html"><span><span>Division</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1391271512%2FClasslikes%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-division/index.html">Division</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>flags<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>largeIcon<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>smallIcon<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pipIcon<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>tiers<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-division/-tier/index.html">GW2v2PvpSeason.Division.Tier</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Information about a division.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="649073807%2FClasslikes%2F1187091007" anchor-label="Leaderboards" id="649073807%2FClasslikes%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-leaderboards/index.html"><span><span>Leaderboards</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="649073807%2FClasslikes%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-leaderboards/index.html">Leaderboards</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>guild<span class="token operator">: </span><a href="-leaderboards/-leaderboard/index.html">GW2v2PvpSeason.Leaderboards.Leaderboard</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>ladder<span class="token operator">: </span><a href="-leaderboards/-leaderboard/index.html">GW2v2PvpSeason.Leaderboards.Leaderboard</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>legendary<span class="token operator">: </span><a href="-leaderboards/-leaderboard/index.html">GW2v2PvpSeason.Leaderboards.Leaderboard</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Information about a seasons leaderboards.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-955934058%2FClasslikes%2F1187091007" anchor-label="Ranks" id="-955934058%2FClasslikes%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ranks/index.html"><span><span>Ranks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-955934058%2FClasslikes%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-ranks/index.html">Ranks</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>description<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>icon<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>overlay<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>overlaySmall<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>tiers<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-ranks/-tier/index.html">GW2v2PvpSeason.Ranks.Tier</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Information about a season's ranks.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1337947990%2FProperties%2F1187091007" anchor-label="active" id="-1337947990%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="active.html"><span><span>active</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1337947990%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="active.html">active</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">This field holds whether the season is currently active.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1084193540%2FProperties%2F1187091007" anchor-label="divisions" id="1084193540%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="divisions.html"><span><span>divisions</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1084193540%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="divisions.html">divisions</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-division/index.html">GW2v2PvpSeason.Division</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This field holds the season's divisions.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1407412975%2FProperties%2F1187091007" anchor-label="end" id="1407412975%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="end.html"><span><span>end</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1407412975%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="end.html">end</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">This field holds the ISO-8601 standard timestamp of when the season ended.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-194634315%2FProperties%2F1187091007" anchor-label="id" id="-194634315%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-194634315%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><a href="../../com.gw2tb.gw2api.types/-g-w2-pvp-season-id/index.html">GW2PvpSeasonId</a></div><div class="brief "><p class="paragraph">This field holds the PvP season's ID.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="753561306%2FProperties%2F1187091007" anchor-label="leaderboards" id="753561306%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="leaderboards.html"><span><span>leaderboards</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="753561306%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="leaderboards.html">leaderboards</a><span class="token operator">: </span><a href="-leaderboards/index.html">GW2v2PvpSeason.Leaderboards</a></div><div class="brief "><p class="paragraph">This field holds the season's leaderboards.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1458713211%2FProperties%2F1187091007" anchor-label="name" id="-1458713211%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="name.html"><span><span>name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1458713211%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="name.html">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">This field holds the season's localized name.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="561062979%2FProperties%2F1187091007" anchor-label="ranks" id="561062979%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ranks.html"><span><span>ranks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="561062979%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="ranks.html">ranks</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-ranks/index.html">GW2v2PvpSeason.Ranks</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><p class="paragraph">This field holds the season's ranks.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1954599416%2FProperties%2F1187091007" anchor-label="start" id="-1954599416%2FProperties%2F1187091007" data-filterable-set=":api-types/commonMain"></a>
+          <div class="table-row" data-filterable-current=":api-types/commonMain" data-filterable-set=":api-types/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start.html"><span><span>start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1954599416%2FProperties%2F1187091007"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":api-types/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="start.html">start</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">This field holds the ISO-8601 standard timestamp of when the season started.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
