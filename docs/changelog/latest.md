@@ -1,17 +1,7 @@
-### 0.9.0
+### 0.10.0
 
-_Released 2025 Mar 01_
+_Released 2025 May 13_
 
 #### Improvements
 
-- Updated to [api-generator](https://github.com/GW2ToolBelt/api-generator) to [0.8.1](https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.8.1).
-- Migrated to schema version `2024-07-20T01:00:00.000Z`.
-- Introduced a basic in-memory `CacheAccess` implementation.
-  - This is **not used by default.**
-
-#### Fixes
-
-- Fixed a bug that caused request configuration to be applied in an unexpected
-  order.
-  - The `RequestConfigurer` that may be passed to factory functions is now run
-    after configurations from the client.
+- Updated to [api-generator](https://github.com/GW2ToolBelt/api-generator) to [0.9.0](https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.9.0).
