@@ -39,7 +39,22 @@ class GW2v2GuildMemberTest {
             {
                 "name": "Blubbelino.1234",
                 "rank": "Kohl Kopf",
-                "joined": "2016-04-11T15:59:20.000Z"
+                "joined": "2016-04-11T15:59:20.000Z",
+                "wvw_member": false
+            }
+            """.trimIndent()
+        )
+    }
+    
+    @Test
+    fun testType_01() {
+        json.decodeFromString<GW2v2GuildMember>(
+            """
+            {
+                "name": "Samen.1234",
+                "rank": "Lauch",
+                "joined": "2016-12-11T15:59:20.000Z",
+                "wvw_member": true
             }
             """.trimIndent()
         )

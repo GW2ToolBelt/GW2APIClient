@@ -40,6 +40,7 @@ import kotlinx.serialization.json.*
  * @param name the member's account name
  * @param rank the member's rank
  * @param joined the ISO-8601 timestamp of when the member joined the guild
+ * @param wvwMember whether the member has selected the guild as their WvW guild
  */
 @Serializable
 public data class GW2v2GuildMember(
@@ -48,5 +49,8 @@ public data class GW2v2GuildMember(
     /** This field holds the member's rank. */
     val rank: String,
     /** This field holds the ISO-8601 timestamp of when the member joined the guild. */
-    val joined: String
+    val joined: String,
+    /** This field holds whether the member has selected the guild as their WvW guild. */
+    @SerialName("wvw_member")
+    val wvwMember: Boolean
 )

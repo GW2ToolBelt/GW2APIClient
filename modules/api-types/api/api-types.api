@@ -9320,16 +9320,18 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade$Companio
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildMember {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
+	public final fun component4 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getJoined ()Ljava/lang/String;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getRank ()Ljava/lang/String;
+	public final fun getWvwMember ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
