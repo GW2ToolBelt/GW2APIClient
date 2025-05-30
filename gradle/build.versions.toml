@@ -2,7 +2,7 @@
 api-generator = "0.9.0"
 binary-compatibility-validator = "0.17.0"
 dokka = "2.0.0"
-junit = "5.12.2"
+junit = "5.13.0"
 kotlin = "2.1.21"
 kotlinx-atomicfu = "0.27.0"
 kotlinx-datetime = "0.6.2"
