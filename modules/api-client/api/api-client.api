@@ -148,7 +148,6 @@ public final class com/gw2tb/gw2api/client/Gw2ApiResponse$Headers : java/util/Ma
 	public static fun getEntries-impl (Ljava/util/Map;)Ljava/util/Set;
 	public fun getKeys ()Ljava/util/Set;
 	public static fun getKeys-impl (Ljava/util/Map;)Ljava/util/Set;
-	public static fun getOrDefault-impl (Ljava/util/Map;Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
 	public static final fun getPageSize-impl (Ljava/util/Map;)Ljava/lang/Integer;
 	public static final fun getPageTotal-impl (Ljava/util/Map;)Ljava/lang/Integer;
 	public static final fun getResultCount-impl (Ljava/util/Map;)Ljava/lang/Integer;
@@ -270,7 +269,6 @@ public final class com/gw2tb/gw2api/client/ResponseHeaders : java/util/Map, kotl
 	public static fun getEntries-impl (Ljava/util/Map;)Ljava/util/Set;
 	public fun getKeys ()Ljava/util/Set;
 	public static fun getKeys-impl (Ljava/util/Map;)Ljava/util/Set;
-	public static fun getOrDefault-impl (Ljava/util/Map;Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
 	public static final fun getPageSizeOrNull-impl (Ljava/util/Map;)Ljava/lang/Integer;
 	public static final fun getPageTotalOrNull-impl (Ljava/util/Map;)Ljava/lang/Integer;
 	public fun getSize ()I
