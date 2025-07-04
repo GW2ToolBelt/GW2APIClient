@@ -23,7 +23,6 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinWithJavaTarget
-import org.jetbrains.kotlin.gradle.targets.js.yarn.yarn
 import org.jetbrains.kotlin.gradle.targets.jvm.KotlinJvmTarget
 
 plugins {
@@ -31,9 +30,6 @@ plugins {
     id("com.gw2tb.maven-publish-conventions")
     kotlin("multiplatform")
 }
-
-yarn.lockFileName = "kotlin-yarn.lock"
-yarn.lockFileDirectory = rootProject.projectDir
 
 kotlin {
     explicitApi()
