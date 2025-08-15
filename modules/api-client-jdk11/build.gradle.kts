@@ -46,10 +46,12 @@ kotlin {
 
 tasks {
     withType<JavaCompile>().configureEach {
-        options.javaModuleVersion = "$version"
+        options.release = 11
     }
 
     named<JavaCompile>("compileJava") {
+        options.javaModuleVersion = "$version"
+
         options.compilerArgumentProviders += object : CommandLineArgumentProvider {
 
             @InputFiles

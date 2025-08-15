@@ -1,3 +1,6 @@
+import org.gradle.kotlin.dsl.named
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 /*
  * Copyright (c) 2018-2025 Leon Linhart
  *

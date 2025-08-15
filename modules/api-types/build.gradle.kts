@@ -29,6 +29,28 @@ plugins {
 }
 
 kotlin {
+    jvm {
+        compilations.named("main") {
+            compileJavaTaskProvider!!.configure {
+                options.javaModuleVersion = "$version"
+                options.release = 11
+
+                options.compilerArgumentProviders += object : CommandLineArgumentProvider {
+
+                    @InputFiles
+                    @PathSensitive(PathSensitivity.RELATIVE)
+                    val kotlinClasses = project.tasks.named<KotlinCompile>("compileKotlinJvm").flatMap(KotlinCompile::destinationDirectory)
+
+                    override fun asArguments() = listOf(
+                        "--patch-module",
+                        "com.gw2tb.gw2api.types=${kotlinClasses.get().asFile.absolutePath}"
+                    )
+
+                }
+            }
+        }
+    }
+
     sourceSets {
         configureEach {
             languageSettings {
@@ -61,27 +83,6 @@ kotlin {
                 runtimeOnly(buildDeps.junit.jupiter.engine)
                 runtimeOnly(buildDeps.junit.platform.launcher)
             }
-        }
-    }
-}
-
-tasks {
-    withType<JavaCompile>().configureEach {
-        options.javaModuleVersion = "$version"
-    }
-
-    named<JavaCompile>("compileJava") {
-        options.compilerArgumentProviders += object : CommandLineArgumentProvider {
-
-            @InputFiles
-            @PathSensitive(PathSensitivity.RELATIVE)
-            val kotlinClasses = this@tasks.named<KotlinCompile>("compileKotlinJvm").flatMap(KotlinCompile::destinationDirectory)
-
-            override fun asArguments() = listOf(
-                "--patch-module",
-                "com.gw2tb.gw2api.types=${kotlinClasses.get().asFile.absolutePath}"
-            )
-
         }
     }
 }

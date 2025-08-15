@@ -29,6 +29,28 @@ plugins {
 }
 
 kotlin {
+    jvm {
+        compilations.named("main") {
+            compileJavaTaskProvider!!.configure {
+                options.javaModuleVersion = "$version"
+                options.release = 11
+
+                options.compilerArgumentProviders += object : CommandLineArgumentProvider {
+
+                    @InputFiles
+                    @PathSensitive(PathSensitivity.RELATIVE)
+                    val kotlinClasses = project.tasks.named<KotlinCompile>("compileKotlinJvm").flatMap(KotlinCompile::destinationDirectory)
+
+                    override fun asArguments() = listOf(
+                        "--patch-module",
+                        "com.gw2tb.gw2api.client=${kotlinClasses.get().asFile.absolutePath}"
+                    )
+
+                }
+            }
+        }
+    }
+
     sourceSets {
         commonMain {
             kotlin.srcDir(files("src/commonMain-generated/kotlin").builtBy(project(":").tasks["generate"]))
@@ -77,27 +99,6 @@ kotlin {
 
         named("wasmJsMain") {
             dependsOn(nonJvmMain)
-        }
-    }
-}
-
-tasks {
-    withType<JavaCompile>().configureEach {
-        options.javaModuleVersion = "$version"
-    }
-
-    named<JavaCompile>("compileJava") {
-        options.compilerArgumentProviders += object : CommandLineArgumentProvider {
-
-            @InputFiles
-            @PathSensitive(PathSensitivity.RELATIVE)
-            val kotlinClasses = this@tasks.named<KotlinCompile>("compileKotlinJvm").flatMap(KotlinCompile::destinationDirectory)
-
-            override fun asArguments() = listOf(
-                "--patch-module",
-                "com.gw2tb.gw2api.client=${kotlinClasses.get().asFile.absolutePath}"
-            )
-
         }
     }
 }
