@@ -23,10 +23,11 @@ package com.gw2tb.gw2api.client
 
 import kotlinx.atomicfu.locks.SynchronizedObject
 import kotlinx.atomicfu.locks.synchronized
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import kotlinx.datetime.format.DateTimeComponents
+import kotlin.time.Clock
 import kotlin.time.Duration.Companion.seconds
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 /**
  * Provides basic access to a response caching implementation.
@@ -65,6 +66,7 @@ public interface CacheAccess {
  *
  * @since   0.9.0
  */
+@OptIn(ExperimentalTime::class)
 public class SimpleInMemoryCache : CacheAccess {
 
     private val lock = SynchronizedObject()
