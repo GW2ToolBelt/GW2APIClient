@@ -33,7 +33,7 @@ kotlin {
         compilations.named("main") {
             compileJavaTaskProvider!!.configure {
                 options.javaModuleVersion = "$version"
-                options.release = 11
+                options.release = 17
 
                 options.compilerArgumentProviders += object : CommandLineArgumentProvider {
 
