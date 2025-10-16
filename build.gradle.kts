@@ -39,7 +39,7 @@ dokka {
     dokkaSourceSets.configureEach sourceSet@{
         reportUndocumented = true
         skipEmptyPackages = true
-        jdkVersion = 11
+        jdkVersion = 17
 
         val localKotlinSourceDir = layout.projectDirectory.dir("src/$name/kotlin")
         val version = project.version

@@ -4,7 +4,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=for-the-badge&label=Maven%20Central)](https://maven-badges.herokuapp.com/maven-central/com.gw2tb.gw2api/api-client)
 [![Documentation](https://img.shields.io/maven-central/v/com.gw2tb.gw2api/api-client.svg?style=for-the-badge&label=Documentation&color=blue)](https://gw2toolbelt.github.io/GW2APIClient)
 ![Kotlin](https://img.shields.io/badge/Kotlin-2%2E2-green.svg?style=for-the-badge&color=a97bff&logo=Kotlin)
-![Java](https://img.shields.io/badge/Java-11-green.svg?style=for-the-badge&color=b07219&logo=Java)
+![Java](https://img.shields.io/badge/Java-17-green.svg?style=for-the-badge&color=b07219&logo=Java)
 
 A Kotlin Multiplatform library for working with the official [Guild Wars 2](https://www.guildwars2.com)
 API.
