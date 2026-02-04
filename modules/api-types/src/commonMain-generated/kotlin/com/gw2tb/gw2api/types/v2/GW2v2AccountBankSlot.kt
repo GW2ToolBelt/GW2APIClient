@@ -96,6 +96,7 @@ public data class GW2v2AccountBankSlot(
          *
          * @param power the amount of power given by the item
          * @param precision the amount of precision given by the item
+         * @param critDamage the amount of crit damage given by the item
          * @param toughness the amount of toughness given by the item
          * @param vitality the amount of vitality given by the item
          * @param conditionDamage the amount of condition damage given by the item
@@ -111,6 +112,9 @@ public data class GW2v2AccountBankSlot(
             /** This field holds the amount of precision given by the item. */
             @SerialName("Precision")
             val precision: Long? = null,
+            /** This field holds the amount of crit damage given by the item. */
+            @SerialName("CritDamage")
+            val critDamage: Long? = null,
             /** This field holds the amount of toughness given by the item. */
             @SerialName("Toughness")
             val toughness: Long? = null,

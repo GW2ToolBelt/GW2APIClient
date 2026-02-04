@@ -96,5 +96,24 @@ class GW2v2AccountInventorySlotTest {
             """.trimIndent()
         )
     }
+    
+    @Test
+    fun testType_05() {
+        json.decodeFromString<GW2v2AccountInventorySlot>(
+            """
+            {
+                "id": 102031,
+                "count": 1,
+                "upgrades": [
+                    87698
+                ],
+                "upgrade_slot_indices": [
+                    0
+                ],
+                "binding": "Account"
+            }
+            """.trimIndent()
+        )
+    }
 
 }

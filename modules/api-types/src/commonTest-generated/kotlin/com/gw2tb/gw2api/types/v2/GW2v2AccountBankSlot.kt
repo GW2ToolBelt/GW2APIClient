@@ -162,5 +162,59 @@ class GW2v2AccountBankSlotTest {
             """.trimIndent()
         )
     }
+    
+    @Test
+    fun testType_08() {
+        json.decodeFromString<GW2v2AccountBankSlot>(
+            """
+            {
+                "id": 94975,
+                "count": 1,
+                "infusions": [
+                    49431
+                ],
+                "binding": "Account",
+                "stats": {
+                    "id": 588,
+                    "attributes": {
+                        "Power": 50,
+                        "Precision": 50,
+                        "Toughness": 50,
+                        "Vitality": 50,
+                        "CritDamage": 50,
+                        "Healing": 50,
+                        "ConditionDamage": 50,
+                        "BoonDuration": 50,
+                        "ConditionDuration": 50
+                    }
+                }
+            }
+            """.trimIndent()
+        )
+    }
+    
+    @Test
+    fun testType_09() {
+        json.decodeFromString<GW2v2AccountBankSlot>(
+            """
+            {
+                "id": 104392,
+                "count": 1,
+                "infusions": [
+                    104435
+                ],
+                "binding": "Account",
+                "stats": {
+                    "id": 584,
+                    "attributes": {
+                        "Power": 110,
+                        "Precision": 74,
+                        "CritDamage": 74
+                    }
+                }
+            }
+            """.trimIndent()
+        )
+    }
 
 }

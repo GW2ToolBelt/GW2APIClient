@@ -218,21 +218,128 @@ public data class GW2v2Achievement(
 
     }
 
-    /**
-     * Information about an achievement bit.
-     *
-     * @param type the bit's type
-     * @param id the ID of the bit's object
-     * @param text the bit's text
-     */
-    @Serializable
-    public data class Bit(
-        /** This field holds the bit's type. */
-        val type: String,
-        /** This field holds the ID of the bit's object. */
-        val id: Long? = null,
-        /** This field holds the bit's text. */
-        val text: String? = null
-    )
+    @Suppress("ClassName")
+    private object __JsonParametricSerializer_Bit : JsonContentPolymorphicSerializer<Bit>(Bit::class) {
+        override fun selectDeserializer(element: JsonElement): DeserializationStrategy<Bit> {
+            return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
+                "Item" -> Bit.Item.serializer()
+                "MiniPet" -> Bit.MiniPet.serializer()
+                "Skin" -> Bit.Skin.serializer()
+                "Text" -> Bit.Text.serializer()
+                null -> throw SerializationException("Disambiguator property not found")
+                else -> throw SerializationException("Invalid disambiguator value for Bit: $type")
+            }
+        }
+    }
+
+    /** Information about an achievement bit. */
+    @Serializable(with = __JsonParametricSerializer_Bit::class)
+    public sealed class Bit {
+
+        /** This field holds the type of bit. */
+        public abstract val type: String
+
+        /** This field holds the bit's textual description. */
+        public abstract val text: String?
+
+        @Suppress("ClassName")
+        @Serializer(forClass = Item::class)
+        private object __ItemGeneratedSerializer : KSerializer<Item>
+
+        @Suppress("ClassName")
+        private object __ItemSerializer0 : JsonTransformingSerializer<Item>(__ItemGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Information about an achievement bit tied to an item.
+         *
+         * @param type the type of bit
+         * @param text the bit's textual description
+         * @param id the item's ID
+         */
+        @Serializable(with = __ItemSerializer0::class)
+        public data class Item(
+            override val type: String,
+            override val text: String? = null,
+            /** This field holds the item's ID. */
+            val id: GW2ItemId
+        ) : Bit()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = MiniPet::class)
+        private object __MiniPetGeneratedSerializer : KSerializer<MiniPet>
+
+        @Suppress("ClassName")
+        private object __MiniPetSerializer0 : JsonTransformingSerializer<MiniPet>(__MiniPetGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Information about an achievement bit tied to a mini pet.
+         *
+         * @param type the type of bit
+         * @param text the bit's textual description
+         * @param id the mini pet's ID
+         */
+        @Serializable(with = __MiniPetSerializer0::class)
+        public data class MiniPet(
+            override val type: String,
+            override val text: String? = null,
+            /** This field holds the mini pet's ID. */
+            val id: GW2MiniId
+        ) : Bit()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = Skin::class)
+        private object __SkinGeneratedSerializer : KSerializer<Skin>
+
+        @Suppress("ClassName")
+        private object __SkinSerializer0 : JsonTransformingSerializer<Skin>(__SkinGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Information about an achievement bit tied to a skin.
+         *
+         * @param type the type of bit
+         * @param text the bit's textual description
+         * @param id the skin's ID
+         */
+        @Serializable(with = __SkinSerializer0::class)
+        public data class Skin(
+            override val type: String,
+            override val text: String? = null,
+            /** This field holds the skin's ID. */
+            val id: GW2SkinId
+        ) : Bit()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = Text::class)
+        private object __TextGeneratedSerializer : KSerializer<Text>
+
+        @Suppress("ClassName")
+        private object __TextSerializer0 : JsonTransformingSerializer<Text>(__TextGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Information about a text-only achievement bit.
+         *
+         * @param type the type of bit
+         * @param text the bit's textual description
+         * @param text the bit's textual description
+         */
+        @Serializable(with = __TextSerializer0::class)
+        public data class Text(
+            override val type: String,
+            override val text: String
+        ) : Bit()
+
+    }
 
 }

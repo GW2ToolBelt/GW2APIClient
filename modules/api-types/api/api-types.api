@@ -868,6 +868,36 @@ public final class com/gw2tb/gw2api/types/GW2LegendId$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/gw2tb/gw2api/types/GW2LogoId {
+	public static final field Companion Lcom/gw2tb/gw2api/types/GW2LogoId$Companion;
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/gw2tb/gw2api/types/GW2LogoId;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getRaw ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final synthetic class com/gw2tb/gw2api/types/GW2LogoId$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/gw2tb/gw2api/types/GW2LogoId$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize-A0622Oc (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/String;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize-FOzn0YM (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/String;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/gw2tb/gw2api/types/GW2LogoId$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/gw2tb/gw2api/types/GW2MailCarrierId {
 	public static final field Companion Lcom/gw2tb/gw2api/types/GW2MailCarrierId$Companion;
 	public static final synthetic fun box-impl (J)Lcom/gw2tb/gw2api/types/GW2MailCarrierId;
@@ -5065,8 +5095,8 @@ public final synthetic class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stat
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Long;
@@ -5075,12 +5105,14 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attribut
 	public final fun component6 ()Ljava/lang/Long;
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes;
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountBankSlot$Stats$Attributes;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBoonDuration ()Ljava/lang/Long;
 	public final fun getConditionDamage ()Ljava/lang/Long;
 	public final fun getConditionDuration ()Ljava/lang/Long;
+	public final fun getCritDamage ()Ljava/lang/Long;
 	public final fun getHealing ()Ljava/lang/Long;
 	public final fun getPower ()Ljava/lang/Long;
 	public final fun getPrecision ()Ljava/lang/Long;
@@ -5305,18 +5337,19 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2AccountHomesteadDecoration$Com
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Companion;
-	public synthetic fun <init> (JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-mW0Mufk ()J
 	public final fun component2 ()J
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4-HkyndGY ()Lcom/gw2tb/gw2api/types/GW2SkinId;
 	public final fun component5 ()Ljava/util/List;
 	public final fun component6 ()Ljava/util/List;
-	public final fun component7 ()Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun copy-FsB7xWk (JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot;
-	public static synthetic fun copy-FsB7xWk$default (Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot;JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-BU-II_I (JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot;
+	public static synthetic fun copy-BU-II_I$default (Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot;JJLjava/lang/Long;Lcom/gw2tb/gw2api/types/GW2SkinId;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBinding ()Ljava/lang/String;
 	public final fun getCharges ()Ljava/lang/Long;
@@ -5325,6 +5358,7 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot {
 	public final fun getInfusions ()Ljava/util/List;
 	public final fun getSkin-HkyndGY ()Lcom/gw2tb/gw2api/types/GW2SkinId;
 	public final fun getStats ()Lcom/gw2tb/gw2api/types/v2/GW2v2AccountInventorySlot$Stats;
+	public final fun getUpgradeSlotIndices ()Ljava/util/List;
 	public final fun getUpgrades ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -5837,35 +5871,94 @@ public final synthetic class com/gw2tb/gw2api/types/v2/GW2v2Achievement$$seriali
 	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit {
+public abstract class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public abstract fun getText ()Ljava/lang/String;
+	public abstract fun getType ()Ljava/lang/String;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Item : com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit {
+	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Item$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/Long;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3-mW0Mufk ()J
+	public final fun copy-Blz7ckU (Ljava/lang/String;Ljava/lang/String;J)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Item;
+	public static synthetic fun copy-Blz7ckU$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Item;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Item;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getId ()Ljava/lang/Long;
-	public final fun getText ()Ljava/lang/String;
-	public final fun getType ()Ljava/lang/String;
+	public final fun getId-mW0Mufk ()J
+	public fun getText ()Ljava/lang/String;
+	public fun getType ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final synthetic class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
-	public static final field INSTANCE Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$$serializer;
-	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
-	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit;)V
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Item$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Companion {
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$MiniPet : com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit {
+	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$MiniPet$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3-8VYxfk8 ()J
+	public final fun copy-9EHaXYQ (Ljava/lang/String;Ljava/lang/String;J)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$MiniPet;
+	public static synthetic fun copy-9EHaXYQ$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$MiniPet;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$MiniPet;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId-8VYxfk8 ()J
+	public fun getText ()Ljava/lang/String;
+	public fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$MiniPet$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Skin : com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit {
+	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Skin$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3-U8VtU0Q ()J
+	public final fun copy-bef8RYo (Ljava/lang/String;Ljava/lang/String;J)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Skin;
+	public static synthetic fun copy-bef8RYo$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Skin;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Skin;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId-U8VtU0Q ()J
+	public fun getText ()Ljava/lang/String;
+	public fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Skin$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Text : com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit {
+	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Text$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Text;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Text;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Text;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getText ()Ljava/lang/String;
+	public fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Achievement$Bit$Text$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -6708,15 +6801,16 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentT
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment$Companion;
-	public synthetic fun <init> (JJLjava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-0NtP2D8 ()J
-	public final fun component2-mW0Mufk ()J
+	public synthetic fun <init> (Lcom/gw2tb/gw2api/types/GW2PvpAmuletId;Lcom/gw2tb/gw2api/types/GW2ItemId;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/gw2tb/gw2api/types/GW2PvpAmuletId;Lcom/gw2tb/gw2api/types/GW2ItemId;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-3b92Nw4 ()Lcom/gw2tb/gw2api/types/GW2PvpAmuletId;
+	public final fun component2-Hh-yhaI ()Lcom/gw2tb/gw2api/types/GW2ItemId;
 	public final fun component3 ()Ljava/util/List;
-	public final fun copy-aqDT_y8 (JJLjava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment;
-	public static synthetic fun copy-aqDT_y8$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment;JJLjava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment;
+	public final fun copy-bJuXdRM (Lcom/gw2tb/gw2api/types/GW2PvpAmuletId;Lcom/gw2tb/gw2api/types/GW2ItemId;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment;
+	public static synthetic fun copy-bJuXdRM$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment;Lcom/gw2tb/gw2api/types/GW2PvpAmuletId;Lcom/gw2tb/gw2api/types/GW2ItemId;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character$CharactersEquipmentTab$PvpEquipment;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAmulet-0NtP2D8 ()J
-	public final fun getRune-mW0Mufk ()J
+	public final fun getAmulet-3b92Nw4 ()Lcom/gw2tb/gw2api/types/GW2PvpAmuletId;
+	public final fun getRune-Hh-yhaI ()Lcom/gw2tb/gw2api/types/GW2ItemId;
 	public final fun getSigils ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -11368,6 +11462,35 @@ public final synthetic class com/gw2tb/gw2api/types/v2/GW2v2Listing$$serializer 
 }
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Listing$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Logo {
+	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Logo$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-hiACMkk ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy-zWCOlTs (Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2Logo;
+	public static synthetic fun copy-zWCOlTs$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Logo;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Logo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId-hiACMkk ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class com/gw2tb/gw2api/types/v2/GW2v2Logo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/gw2tb/gw2api/types/v2/GW2v2Logo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/gw2tb/gw2api/types/v2/GW2v2Logo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/gw2tb/gw2api/types/v2/GW2v2Logo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/gw2tb/gw2api/types/v2/GW2v2Logo$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 

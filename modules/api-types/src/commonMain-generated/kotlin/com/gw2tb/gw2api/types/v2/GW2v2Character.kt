@@ -520,9 +520,9 @@ public data class GW2v2Character(
         @Serializable
         public data class PvpEquipment(
             /** This field holds the ID of the selected amulet. */
-            val amulet: GW2PvpAmuletId,
+            val amulet: GW2PvpAmuletId? = null,
             /** This field holds the ID of the selected rune. */
-            val rune: GW2ItemId,
+            val rune: GW2ItemId? = null,
             /** This field holds the IDs of the selected sigils. */
             val sigils: List<GW2ItemId?>
         )

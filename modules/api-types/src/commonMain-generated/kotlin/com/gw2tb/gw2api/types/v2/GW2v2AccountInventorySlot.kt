@@ -42,6 +42,7 @@ import kotlinx.serialization.json.*
  * @param charges the amount of charges remaining on the item
  * @param skin the ID of the skin applied to the item
  * @param upgrades the array of item IDs of runes or sigils applied to the item
+ * @param upgradeSlotIndices the slot of the corresponding upgrade
  * @param infusions the array of item IDs of infusions applied to the item
  * @param stats information about the stats chosen for the item (if the item offers the option to select stats/prefix)
  * @param binding the binding of the item
@@ -58,6 +59,9 @@ public data class GW2v2AccountInventorySlot(
     val skin: GW2SkinId? = null,
     /** This field holds the array of item IDs of runes or sigils applied to the item. */
     val upgrades: List<GW2ItemId>? = null,
+    /** This field holds the slot of the corresponding upgrade. */
+    @SerialName("upgrade_slot_indices")
+    val upgradeSlotIndices: List<Long>? = null,
     /** This field holds the array of item IDs of infusions applied to the item. */
     val infusions: List<GW2ItemId>? = null,
     /** This field holds information about the stats chosen for the item (if the item offers the option to select stats/prefix). */
