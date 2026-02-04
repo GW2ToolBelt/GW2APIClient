@@ -287,13 +287,22 @@ private fun SchemaRecord.printRecordToString(
 
     val propertyStrings = buildList {
         if (interpretationHint != null) {
-            addAll(inheritedProperties.map { it.printToString(apiVersion, isOverride = true) })
+            addAll(inheritedProperties
+                .filter { inheritedProperty ->
+                    interpretationHint.interpretationNestProperty != null
+                        || properties.none { (_, property) -> property.serialName == inheritedProperty.serialName }
+                }
+                .map { it.printToString(apiVersion, isOverride = true) }
+            )
         }
 
         if (interpretationHint?.interpretationNestProperty != null) {
             add("public val ${interpretationHint.interpretationNestProperty}: $typeName")
         } else {
-            addAll(properties.values.map { it.printToString(apiVersion) })
+            addAll(properties.values.map { property ->
+                val isOverride = (interpretationHint != null) && inheritedProperties.any { it.serialName == property.serialName }
+                property.printToString(apiVersion, isOverride = isOverride)
+            })
         }
     }
 
