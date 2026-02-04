@@ -198,7 +198,7 @@ public fun gw2v2DungeonsByIds(ids: List<GW2DungeonId>, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2DungeonsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Dungeon>> = RequestTemplate(
+public fun gw2v2DungeonsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Dungeon>> = RequestTemplate(
     path = "/v2/dungeons",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

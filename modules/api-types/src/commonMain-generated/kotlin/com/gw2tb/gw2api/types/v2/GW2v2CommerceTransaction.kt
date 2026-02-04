@@ -47,14 +47,14 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2CommerceTransaction(
     /** This field holds the transaction's ID. */
-    val id: Int,
+    val id: Long,
     /** This field holds the item's ID. */
     @SerialName("item_id")
     val itemId: GW2ItemId,
     /** This field holds the price in coins. */
-    val price: Int,
+    val price: Long,
     /** This field holds the quantity of the item. */
-    val quantity: Int,
+    val quantity: Long,
     /** This field holds the ISO-8601 standard timestamp of when the transaction was created. */
     val created: String,
     /** This field holds the ISO-8601 standard timestamp of when the transaction was completed. */

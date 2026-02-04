@@ -53,7 +53,7 @@ public data class GW2v2Finisher(
     /** This field holds the URL for the finisher's icon. */
     val icon: String,
     /** This field holds a (non-unique) number that can be used as basis to sort the list of finishers. */
-    val order: Int,
+    val order: Long,
     /** This field holds a description explaining how to acquire the finisher. */
     @SerialName("unlock_details")
     val unlockDetails: String,

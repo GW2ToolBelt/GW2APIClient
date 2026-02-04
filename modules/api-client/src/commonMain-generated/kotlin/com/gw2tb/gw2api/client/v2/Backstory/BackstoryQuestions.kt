@@ -79,7 +79,7 @@ public fun gw2v2BackstoryQuestionsIds(configure: RequestConfigurer? = null): Req
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2BackstoryQuestionsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2BackstoryQuestion> = RequestTemplate(
+public fun gw2v2BackstoryQuestionsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2BackstoryQuestion> = RequestTemplate(
     path = "/v2/backstory/questions",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2BackstoryQuestionsById(id: GW2BackstoryQuestionId, configure: Re
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2BackstoryQuestionsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2BackstoryQuestion>> = RequestTemplate(
+public fun gw2v2BackstoryQuestionsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2BackstoryQuestion>> = RequestTemplate(
     path = "/v2/backstory/questions",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2BackstoryQuestionsByIds(ids: List<GW2BackstoryQuestionId>, confi
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2BackstoryQuestionsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2BackstoryQuestion>> = RequestTemplate(
+public fun gw2v2BackstoryQuestionsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2BackstoryQuestion>> = RequestTemplate(
     path = "/v2/backstory/questions",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

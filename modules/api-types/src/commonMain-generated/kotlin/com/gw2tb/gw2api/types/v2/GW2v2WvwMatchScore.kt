@@ -48,10 +48,10 @@ public data class GW2v2WvwMatchScore(
     /** This field holds the match's ID. */
     val id: GW2WvwMatchId,
     /** This field holds the total scores by team color. */
-    val scores: Map<String, Int>,
+    val scores: Map<String, Long>,
     /** This field holds the victory points by team color. */
     @SerialName("victory_points")
-    val victoryPoints: Map<String, Int>,
+    val victoryPoints: Map<String, Long>,
     /** This field holds the match's skirmishes. */
     val skirmishes: List<Skirmish>,
     /** This field holds the total scores by map. */
@@ -68,9 +68,9 @@ public data class GW2v2WvwMatchScore(
     @Serializable
     public data class Skirmish(
         /** This field holds the skirmish's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the scores by team color. */
-        val scores: Map<String, Int>,
+        val scores: Map<String, Long>,
         /** This field holds the scores by map. */
         @SerialName("map_scores")
         val mapScores: List<MapScores>
@@ -87,7 +87,7 @@ public data class GW2v2WvwMatchScore(
             /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
             val type: String,
             /** This field holds the scores by team color. */
-            val scores: Map<String, Int>
+            val scores: Map<String, Long>
         )
 
     }
@@ -102,11 +102,11 @@ public data class GW2v2WvwMatchScore(
     @Serializable
     public data class GameMap(
         /** This field holds the map's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
         val type: String,
         /** This field holds the scores by team color. */
-        val scores: Map<String, Int>
+        val scores: Map<String, Long>
     )
 
 }

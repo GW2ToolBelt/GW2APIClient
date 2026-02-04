@@ -80,7 +80,7 @@ public fun gw2v2CommerceExchange(configure: RequestConfigurer? = null): RequestT
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CommerceExchange(type: String, quantity: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceExchange> = RequestTemplate(
+public fun gw2v2CommerceExchange(type: String, quantity: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceExchange> = RequestTemplate(
     path = "/v2/commerce/exchange",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "quantity" to quantity),
     replaceInPath = mapOfNonNullValues("type" to type),

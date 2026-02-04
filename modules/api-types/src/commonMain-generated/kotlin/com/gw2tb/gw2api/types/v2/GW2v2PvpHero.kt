@@ -76,11 +76,11 @@ public data class GW2v2PvpHero(
     @Serializable
     public data class Stats(
         /** This field holds the offense stat. */
-        val offense: Int,
+        val offense: Long,
         /** This field holds the defense stat. */
-        val defense: Int,
+        val defense: Long,
         /** This field holds the speed stat. */
-        val speed: Int
+        val speed: Long
     )
 
     /**
@@ -95,7 +95,7 @@ public data class GW2v2PvpHero(
     @Serializable
     public data class Skin(
         /** This field holds the PvP hero skin's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the hero skin's localized name. */
         val name: String,
         /** This field holds a render service URL for the skin's icon. */

@@ -70,21 +70,21 @@ public data class GW2v1GuildDetails(
     public data class Emblem(
         /** This field holds the background's ID. */
         @SerialName("background_id")
-        val backgroundId: Int,
+        val backgroundId: Long,
         /** This field holds the foreground's ID. */
         @SerialName("foreground_id")
-        val foregroundId: Int,
+        val foregroundId: Long,
         /** This field holds the manipulations applied to the emblem. */
         val flags: List<String>,
         /** This field holds the background color's ID. */
         @SerialName("background_color_id")
-        val backgroundColorId: Int,
+        val backgroundColorId: Long,
         /** This field holds the foreground primary color's ID. */
         @SerialName("foreground_primary_color_id")
-        val foregroundPrimaryColorId: Int,
+        val foregroundPrimaryColorId: Long,
         /** This field holds the foreground secondary color's ID. */
         @SerialName("foreground_secondary_color_id")
-        val foregroundSecondaryColorId: Int
+        val foregroundSecondaryColorId: Long
     )
 
 }

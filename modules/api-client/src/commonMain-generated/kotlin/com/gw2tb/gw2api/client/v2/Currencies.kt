@@ -79,7 +79,7 @@ public fun gw2v2CurrenciesIds(configure: RequestConfigurer? = null): RequestTemp
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CurrenciesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Currency> = RequestTemplate(
+public fun gw2v2CurrenciesById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Currency> = RequestTemplate(
     path = "/v2/currencies",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2CurrenciesById(id: GW2CurrencyId, configure: RequestConfigurer? 
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CurrenciesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Currency>> = RequestTemplate(
+public fun gw2v2CurrenciesByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Currency>> = RequestTemplate(
     path = "/v2/currencies",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2CurrenciesByIds(ids: List<GW2CurrencyId>, configure: RequestConf
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CurrenciesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Currency>> = RequestTemplate(
+public fun gw2v2CurrenciesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Currency>> = RequestTemplate(
     path = "/v2/currencies",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

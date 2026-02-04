@@ -57,7 +57,7 @@ public data class GW2v2CharactersCrafting(
         /** This field holds the name of the discipline. */
         val discipline: String,
         /** This field holds the character's crafting level for the discipline. */
-        val rating: Int,
+        val rating: Long,
         /** This field holds a flag indicating whether the discipline is currently active on the character. */
         val active: Boolean
     )

@@ -59,7 +59,7 @@ public data class GW2v1EventDetails(
         /** This field holds the event's name. */
         val name: String,
         /** This field holds the event's level. */
-        val level: Int,
+        val level: Long,
         /** This field holds the ID of the map where the event takes place. */
         @SerialName("map_id")
         val mapId: GW2MapId,

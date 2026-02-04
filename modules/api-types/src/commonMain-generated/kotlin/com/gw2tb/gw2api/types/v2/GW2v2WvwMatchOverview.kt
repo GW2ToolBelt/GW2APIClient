@@ -51,7 +51,7 @@ public data class GW2v2WvwMatchOverview(
     val worlds: Map<String, GW2WorldId>,
     /** This field holds the IDs of the servers by team color. */
     @SerialName("all_worlds")
-    val allWorlds: Map<String, List<Int>>,
+    val allWorlds: Map<String, List<Long>>,
     /** This field holds the ISO-8601 standard timestamp of when the match's start. */
     @SerialName("start_time")
     val startTime: String,

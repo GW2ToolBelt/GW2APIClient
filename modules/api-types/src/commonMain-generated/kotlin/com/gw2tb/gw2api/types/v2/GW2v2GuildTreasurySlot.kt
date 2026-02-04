@@ -47,7 +47,7 @@ public data class GW2v2GuildTreasurySlot(
     @SerialName("item_id")
     val itemId: GW2ItemId,
     /** This field holds the amount of the item in the guild's treasury. */
-    val count: Int,
+    val count: Long,
     /** This field holds the currently in-progress upgrades requiring the item. */
     @SerialName("needed_by")
     val neededBy: List<UpgradeRequirement>
@@ -63,9 +63,9 @@ public data class GW2v2GuildTreasurySlot(
     public data class UpgradeRequirement(
         /** This field holds the guild upgrade's ID. */
         @SerialName("upgrade_id")
-        val upgradeId: Int,
+        val upgradeId: Long,
         /** This field holds the total amount of the item required for the upgrade. */
-        val count: Int
+        val count: Long
     )
 
 }

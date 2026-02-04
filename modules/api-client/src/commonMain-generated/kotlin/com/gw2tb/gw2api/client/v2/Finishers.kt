@@ -79,7 +79,7 @@ public fun gw2v2FinishersIds(configure: RequestConfigurer? = null): RequestTempl
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2FinishersById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Finisher> = RequestTemplate(
+public fun gw2v2FinishersById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Finisher> = RequestTemplate(
     path = "/v2/finishers",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2FinishersById(id: GW2FinisherId, configure: RequestConfigurer? =
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2FinishersByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Finisher>> = RequestTemplate(
+public fun gw2v2FinishersByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Finisher>> = RequestTemplate(
     path = "/v2/finishers",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2FinishersByIds(ids: List<GW2FinisherId>, configure: RequestConfi
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2FinishersByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Finisher>> = RequestTemplate(
+public fun gw2v2FinishersByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Finisher>> = RequestTemplate(
     path = "/v2/finishers",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

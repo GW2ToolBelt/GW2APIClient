@@ -198,7 +198,7 @@ public fun gw2v2MountsTypesByIds(ids: List<GW2MountTypeId>, configure: RequestCo
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MountsTypesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountType>> = RequestTemplate(
+public fun gw2v2MountsTypesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountType>> = RequestTemplate(
     path = "/v2/mounts/types",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

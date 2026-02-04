@@ -79,7 +79,7 @@ public fun gw2v2HomeCatsIds(configure: RequestConfigurer? = null): RequestTempla
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2HomeCatsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomeInstanceCat> = RequestTemplate(
+public fun gw2v2HomeCatsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2HomeInstanceCat> = RequestTemplate(
     path = "/v2/home/cats",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2HomeCatsById(id: GW2HomeInstanceCatId, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2HomeCatsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
+public fun gw2v2HomeCatsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
     path = "/v2/home/cats",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2HomeCatsByIds(ids: List<GW2HomeInstanceCatId>, configure: Reques
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2HomeCatsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
+public fun gw2v2HomeCatsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2HomeInstanceCat>> = RequestTemplate(
     path = "/v2/home/cats",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

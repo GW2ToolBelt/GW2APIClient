@@ -198,7 +198,7 @@ public fun gw2v2RaidsByIds(ids: List<GW2RaidId>, configure: RequestConfigurer? =
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2RaidsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Raid>> = RequestTemplate(
+public fun gw2v2RaidsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Raid>> = RequestTemplate(
     path = "/v2/raids",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

@@ -59,7 +59,7 @@ public data class GW2v2WvwObjective(
     val type: String,
     /** This field holds the map sector the objective can be found in. */
     @SerialName("sector_id")
-    val sectorId: Int,
+    val sectorId: Long,
     /** This field holds the ID of the map the objective can be found on. */
     @SerialName("map_id")
     val mapId: GW2MapId,

@@ -55,7 +55,7 @@ public data class GW2v2Mini(
     /** This field holds the URL for the mini's icon. */
     val icon: String,
     /** This field holds a (non-unique) number that can be used as basis to sort the list of minis. */
-    val order: Int,
+    val order: Long,
     /** This field holds the ID of the item that can be used to unlock the mini. */
     @SerialName("item_id")
     val itemId: GW2ItemId

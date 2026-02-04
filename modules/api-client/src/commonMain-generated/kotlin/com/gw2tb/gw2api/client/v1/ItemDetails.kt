@@ -51,7 +51,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v1ItemDetails(itemId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1ItemDetails> = RequestTemplate(
+public fun gw2v1ItemDetails(itemId: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v1ItemDetails> = RequestTemplate(
     path = "/v1/item_details",
     parameters = mapOfNonNullValues("item_id" to itemId),
     replaceInPath = mapOfNonNullValues(),

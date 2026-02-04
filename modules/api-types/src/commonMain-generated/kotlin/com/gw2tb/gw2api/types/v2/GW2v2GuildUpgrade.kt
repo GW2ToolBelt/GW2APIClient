@@ -75,16 +75,16 @@ public sealed class GW2v2GuildUpgrade {
     public abstract val icon: String
 
     /** This field holds the time it takes to build the upgrade. */
-    public abstract val buildTime: Int
+    public abstract val buildTime: Long
 
     /** This field holds the prerequisite level the guild must be at to build the upgrade. */
-    public abstract val requiredLevel: Int
+    public abstract val requiredLevel: Long
 
     /** This field holds the amount of guild experience that will be awarded upon building the upgrade. */
-    public abstract val experience: Int
+    public abstract val experience: Long
 
     /** This field holds an array of upgrade IDs that must be completed before this can be built. */
-    public abstract val prerequisites: List<Int>
+    public abstract val prerequisites: List<Long>
 
     /** This field holds an array of objects describing the upgrade's cost. */
     public abstract val costs: List<Cost>
@@ -114,7 +114,7 @@ public sealed class GW2v2GuildUpgrade {
         /** This field holds the cost's name. */
         val name: String,
         /** This field holds the amount needed. */
-        val count: Int,
+        val count: Long,
         /** This field holds the ID of the cost's item. */
         @SerialName("item_id")
         val itemId: GW2ItemId? = null
@@ -152,11 +152,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -194,18 +194,18 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>,
         /** This field holds the maximum item slots of the guild bank tab. */
         @SerialName("bag_max_items")
-        val bagMaxItems: Int,
+        val bagMaxItems: Long,
         /** This field holds the maximum amount of coins that can be stored in the bank tab. */
         @SerialName("bag_max_coins")
-        val bagMaxCoins: Int
+        val bagMaxCoins: Long
     ) : GW2v2GuildUpgrade()
 
     @Suppress("ClassName")
@@ -240,11 +240,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -280,11 +280,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -320,11 +320,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -360,11 +360,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -400,11 +400,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -440,11 +440,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -480,11 +480,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -520,11 +520,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 
@@ -560,11 +560,11 @@ public sealed class GW2v2GuildUpgrade {
         override val type: String,
         override val icon: String,
         @SerialName("build_time")
-        override val buildTime: Int,
+        override val buildTime: Long,
         @SerialName("required_level")
-        override val requiredLevel: Int,
-        override val experience: Int,
-        override val prerequisites: List<Int>,
+        override val requiredLevel: Long,
+        override val experience: Long,
+        override val prerequisites: List<Long>,
         override val costs: List<Cost>
     ) : GW2v2GuildUpgrade()
 

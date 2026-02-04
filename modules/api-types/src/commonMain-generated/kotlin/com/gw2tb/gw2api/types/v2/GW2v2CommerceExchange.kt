@@ -44,7 +44,7 @@ import kotlinx.serialization.json.*
 public data class GW2v2CommerceExchange(
     /** This field holds the number of coins received/required for a single gem. */
     @SerialName("coins_per_gem")
-    val coinsPerGem: Int,
+    val coinsPerGem: Long,
     /** This field holds the number of coins/gems for received for the specified quantity of gems/coins. */
-    val quantity: Int
+    val quantity: Long
 )

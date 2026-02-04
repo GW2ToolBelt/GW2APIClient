@@ -54,7 +54,7 @@ public data class GW2v2Mastery(
     /** This field holds the written out requirement to unlock the mastery track. */
     val requirement: String,
     /** This field holds the order in which the mastery track appears in a list. */
-    val order: Int,
+    val order: Long,
     /** This field holds the URL for the mastery track's background graphic. */
     val background: String,
     /** This field holds the mastery region the track belongs to. */
@@ -85,10 +85,10 @@ public data class GW2v2Mastery(
         val icon: String,
         /** This field holds the amount of mastery points required to unlock the level. */
         @SerialName("point_cost")
-        val pointCost: Int,
+        val pointCost: Long,
         /** This field holds the amount of experience required to unlock the level. */
         @SerialName("exp_cost")
-        val expCost: Int
+        val expCost: Long
     )
 
 }

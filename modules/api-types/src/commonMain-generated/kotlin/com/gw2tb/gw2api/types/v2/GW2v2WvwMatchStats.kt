@@ -47,9 +47,9 @@ public data class GW2v2WvwMatchStats(
     /** This field holds the match's ID. */
     val id: GW2WvwMatchId,
     /** This field holds the deaths by team color. */
-    val deaths: Map<String, Int>,
+    val deaths: Map<String, Long>,
     /** This field holds the deaths by team color. */
-    val kills: Map<String, Int>,
+    val kills: Map<String, Long>,
     /** This field holds the stats by map. */
     val maps: List<GameMap>
 ) {
@@ -65,13 +65,13 @@ public data class GW2v2WvwMatchStats(
     @Serializable
     public data class GameMap(
         /** This field holds the map's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
         val type: String,
         /** This field holds the deaths by team color. */
-        val deaths: Map<String, Int>,
+        val deaths: Map<String, Long>,
         /** This field holds the deaths by team color. */
-        val kills: Map<String, Int>
+        val kills: Map<String, Long>
     )
 
 }

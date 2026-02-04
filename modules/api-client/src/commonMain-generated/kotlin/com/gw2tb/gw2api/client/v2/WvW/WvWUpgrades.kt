@@ -79,7 +79,7 @@ public fun gw2v2WvWUpgradesIds(configure: RequestConfigurer? = null): RequestTem
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWUpgradesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwUpgrade> = RequestTemplate(
+public fun gw2v2WvWUpgradesById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwUpgrade> = RequestTemplate(
     path = "/v2/wvw/upgrades",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2WvWUpgradesById(id: GW2WvwUpgradeId, configure: RequestConfigure
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWUpgradesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwUpgrade>> = RequestTemplate(
+public fun gw2v2WvWUpgradesByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwUpgrade>> = RequestTemplate(
     path = "/v2/wvw/upgrades",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2WvWUpgradesByIds(ids: List<GW2WvwUpgradeId>, configure: RequestC
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWUpgradesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwUpgrade>> = RequestTemplate(
+public fun gw2v2WvWUpgradesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwUpgrade>> = RequestTemplate(
     path = "/v2/wvw/upgrades",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

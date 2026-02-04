@@ -53,7 +53,7 @@ public data class GW2v2Mailcarrier(
     /** This field holds the mailcarrier's name. */
     val name: String,
     /** This field holds a number that can be used to sort the list of mailcarriers. */
-    val order: Int,
+    val order: Long,
     /** This field holds the IDs of the items that can be used to unlock the mailcarrier. */
     @SerialName("unlock_items")
     val unlockItems: List<GW2ItemId>,

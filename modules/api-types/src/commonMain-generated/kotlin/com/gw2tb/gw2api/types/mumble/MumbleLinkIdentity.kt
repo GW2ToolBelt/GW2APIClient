@@ -59,7 +59,7 @@ public data class MumbleLink(
     val worldID: ULong,
     /** This field holds the ID of the current team. */
     @SerialName("team_color_id")
-    val teamColorId: Int,
+    val teamColorId: Long,
     /** This field holds a flag indicating whether the player currently is commanding a squad. */
     val commander: Boolean,
     /** This field holds the ID of the current map. */
@@ -68,5 +68,5 @@ public data class MumbleLink(
     val fov: Double,
     /** This field holds the selected UI size. */
     @SerialName("uisz")
-    val uISize: Int
+    val uISize: Long
 )

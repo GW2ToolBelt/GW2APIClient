@@ -114,7 +114,7 @@ public fun gw2v2PvPSeasonsLeaderboards(id: String, board: String, configure: Req
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
+public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: String, page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to id, "board" to board, "region" to region),
@@ -148,7 +148,7 @@ public fun gw2v2PvPSeasonsLeaderboardsByPage(id: String, board: String, region: 
  */
 @JvmSynthetic
 @JvmName("gw2v2PvPSeasonsLeaderboardsByPage-Alias")
-public fun gw2v2PvPSeasonsLeaderboardsByPage(id: GW2PvpSeasonId, board: String, region: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
+public fun gw2v2PvPSeasonsLeaderboardsByPage(id: GW2PvpSeasonId, board: String, region: String, page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpSeasonsLeaderboardEntry>> = RequestTemplate(
     path = "/v2/pvp/seasons/:id/leaderboards",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to id, "board" to board, "region" to region),

@@ -79,7 +79,7 @@ public fun gw2v2MapsIds(configure: RequestConfigurer? = null): RequestTemplate<L
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MapsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Map> = RequestTemplate(
+public fun gw2v2MapsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Map> = RequestTemplate(
     path = "/v2/maps",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2MapsById(id: GW2MapId, configure: RequestConfigurer? = null): Re
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MapsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Map>> = RequestTemplate(
+public fun gw2v2MapsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Map>> = RequestTemplate(
     path = "/v2/maps",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2MapsByIds(ids: List<GW2MapId>, configure: RequestConfigurer? = n
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MapsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Map>> = RequestTemplate(
+public fun gw2v2MapsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Map>> = RequestTemplate(
     path = "/v2/maps",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

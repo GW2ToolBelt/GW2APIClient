@@ -45,5 +45,5 @@ public data class GW2v2AccountLegendaryArmoryUnlock(
     /** This field holds the item's ID. */
     val id: GW2ItemId,
     /** This field holds the number of copies unlocked. */
-    val count: Int
+    val count: Long
 )

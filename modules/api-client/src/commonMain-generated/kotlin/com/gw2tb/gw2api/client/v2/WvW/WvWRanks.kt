@@ -79,7 +79,7 @@ public fun gw2v2WvWRanksIds(configure: RequestConfigurer? = null): RequestTempla
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWRanksById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwRank> = RequestTemplate(
+public fun gw2v2WvWRanksById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwRank> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2WvWRanksById(id: GW2WvwRankId, configure: RequestConfigurer? = n
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWRanksByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
+public fun gw2v2WvWRanksByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2WvWRanksByIds(ids: List<GW2WvwRankId>, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
+public fun gw2v2WvWRanksByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwRank>> = RequestTemplate(
     path = "/v2/wvw/ranks",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

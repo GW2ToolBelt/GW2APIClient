@@ -51,7 +51,7 @@ public data class GW2v2WizardsVaultObjective(
     /** This field holds the objective's track. */
     val track: Track,
     /** This field holds the amount of Astral Acclaim the player receives for completing the objective. */
-    val acclaim: Int
+    val acclaim: Long
 ) {
 
     @Suppress("ClassName")

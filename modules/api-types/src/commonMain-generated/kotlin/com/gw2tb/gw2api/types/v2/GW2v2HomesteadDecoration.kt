@@ -56,7 +56,7 @@ public data class GW2v2HomesteadDecoration(
     val categories: List<GW2HomesteadDecorationCategoryId>,
     /** This field holds the maximum number of this decoration that can be placed in the homestead. */
     @SerialName("max_count")
-    val maxCount: Int,
+    val maxCount: Long,
     /** This field holds the URL for the decoration's icon. */
     val icon: String
 )

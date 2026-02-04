@@ -47,7 +47,7 @@ public data class GW2v2GuildRank(
     /** This field holds the rank's ID. */
     val id: String,
     /** This field holds a number that can be used to sort the list of ranks. */
-    val order: Int,
+    val order: Long,
     /** This field holds the rank's permissions. */
     val permissions: List<String>,
     /** This field holds a render service URL for the rank's icon. */

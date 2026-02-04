@@ -45,5 +45,5 @@ public data class GW2v2AccountWvw(
     /** This field holds the ID of the WvW guild the account is assigned to. */
     val guild: GW2GuildId? = null,
     /** This field holds the ID of the WvW team the account is assigned to. */
-    val team: Int
+    val team: Long
 )

@@ -49,9 +49,9 @@ public data class GW2v2GuildStashSection(
     @SerialName("upgrade_id")
     val upgradeId: GW2GuildUpgradeId,
     /** This field holds the number of slots in this section of the guild's vault. */
-    val size: Int,
+    val size: Long,
     /** This field holds the number of coins deposited in this section of the guild's vault. */
-    val coins: Int,
+    val coins: Long,
     /** This field holds the description set for this section of the guild's vault. */
     val note: String,
     /** This field holds the items in this section of the guild's vault. */
@@ -69,7 +69,7 @@ public data class GW2v2GuildStashSection(
         /** This field holds the item's ID. */
         val id: GW2ItemId,
         /** This field holds the amount of items in the stack. */
-        val count: Int
+        val count: Long
     )
 
 }

@@ -51,7 +51,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v1SkinDetails(skinId: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v1SkinDetails> = RequestTemplate(
+public fun gw2v1SkinDetails(skinId: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v1SkinDetails> = RequestTemplate(
     path = "/v1/skin_details",
     parameters = mapOfNonNullValues("skin_id" to skinId),
     replaceInPath = mapOfNonNullValues(),

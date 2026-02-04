@@ -61,9 +61,9 @@ public data class GW2v2DailyAchievement(
     @Serializable
     public data class LevelRequirement(
         /** This field holds the minimum level for a character to the daily achievement. */
-        val min: Int,
+        val min: Long,
         /** This field holds the maximum level for a character to the daily achievement. */
-        val max: Int
+        val max: Long
     )
 
 }

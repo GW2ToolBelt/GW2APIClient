@@ -59,23 +59,23 @@ public data class GW2v2Guild(
     /** This field holds the guild's tag. */
     val tag: String,
     /** This field holds the guild's level. */
-    val level: Int,
+    val level: Long,
     /** This field holds the guild's message of the day. */
     val motd: String? = null,
     /** This field holds the guild's current influence. */
-    val influence: Int? = null,
+    val influence: Long? = null,
     /** This field holds the guild's current aetherium. */
-    val aetherium: Int? = null,
+    val aetherium: Long? = null,
     /** This field holds the guild's current favor. */
-    val favor: Int? = null,
+    val favor: Long? = null,
     /** This field holds the guild's current resonance. */
-    val resonance: Int? = null,
+    val resonance: Long? = null,
     /** This field holds the guild's current member count. */
     @SerialName("member_count")
-    val memberCount: Int? = null,
+    val memberCount: Long? = null,
     /** This field holds the guild's current member capacity. */
     @SerialName("member_capacity")
-    val memberCapacity: Int? = null,
+    val memberCapacity: Long? = null,
     /** This field holds the guild's emblem. */
     val emblem: Emblem
 ) {

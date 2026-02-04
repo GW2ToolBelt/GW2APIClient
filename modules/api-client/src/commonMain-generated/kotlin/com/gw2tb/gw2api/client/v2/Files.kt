@@ -198,7 +198,7 @@ public fun gw2v2FilesByIds(ids: List<GW2FileId>, configure: RequestConfigurer? =
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2FilesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2File>> = RequestTemplate(
+public fun gw2v2FilesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2File>> = RequestTemplate(
     path = "/v2/files",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

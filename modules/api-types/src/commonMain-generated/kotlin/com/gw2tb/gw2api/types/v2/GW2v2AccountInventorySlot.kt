@@ -51,9 +51,9 @@ public data class GW2v2AccountInventorySlot(
     /** This field holds the item's ID. */
     val id: GW2ItemId,
     /** This field holds the amount of items in the stack. */
-    val count: Int,
+    val count: Long,
     /** This field holds the amount of charges remaining on the item. */
-    val charges: Int? = null,
+    val charges: Long? = null,
     /** This field holds the ID of the skin applied to the item. */
     val skin: GW2SkinId? = null,
     /** This field holds the array of item IDs of runes or sigils applied to the item. */
@@ -85,28 +85,28 @@ public data class GW2v2AccountInventorySlot(
         val id: GW2ItemStatId,
         /** This field holds the amount of power given by the item. */
         @SerialName("Power")
-        val power: Int? = null,
+        val power: Long? = null,
         /** This field holds the amount of precision given by the item. */
         @SerialName("Precision")
-        val precision: Int? = null,
+        val precision: Long? = null,
         /** This field holds the amount of toughness given by the item. */
         @SerialName("Toughness")
-        val toughness: Int? = null,
+        val toughness: Long? = null,
         /** This field holds the amount of vitality given by the item. */
         @SerialName("Vitality")
-        val vitality: Int? = null,
+        val vitality: Long? = null,
         /** This field holds the amount of condition damage given by the item. */
         @SerialName("ConditionDamage")
-        val conditionDamage: Int? = null,
+        val conditionDamage: Long? = null,
         /** This field holds the amount of condition duration given by the item. */
         @SerialName("ConditionDuration")
-        val conditionDuration: Int? = null,
+        val conditionDuration: Long? = null,
         /** This field holds the amount of healing given by the item. */
         @SerialName("Healing")
-        val healing: Int? = null,
+        val healing: Long? = null,
         /** This field holds the amount of boon duration given by the item. */
         @SerialName("BoonDuration")
-        val boonDuration: Int? = null
+        val boonDuration: Long? = null
     )
 
 }

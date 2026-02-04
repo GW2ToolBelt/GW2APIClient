@@ -48,12 +48,12 @@ public data class GW2v2ContinentFloor(
     val id: GW2FloorId,
     /** This field holds the width and height of the texture. */
     @SerialName("texture_dims")
-    val textureDims: List<Int>,
+    val textureDims: List<Long>,
     /** This field holds a rectangle of downloadable textures (Every tile coordinate outside this rectangle is not available on the tile server.). */
     @SerialName("clamped_view")
-    val clampedView: List<List<Int>>? = null,
+    val clampedView: List<List<Long>>? = null,
     /** This field holds the floor's regions. */
-    val regions: Map<Int, Region>
+    val regions: Map<Long, Region>
 ) {
 
     /**
@@ -68,7 +68,7 @@ public data class GW2v2ContinentFloor(
     @Serializable
     public data class Region(
         /** This field holds the region's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the region's localized name. */
         val name: String,
         /** This field holds the coordinate of the region's label. */
@@ -76,9 +76,9 @@ public data class GW2v2ContinentFloor(
         val labelCoord: List<Double>,
         /** This field holds the dimensions of the region, given as the coordinates of the upper-left (NW) and lower-right (SE) corners. */
         @SerialName("continent_rect")
-        val continentRect: List<List<Int>>,
+        val continentRect: List<List<Long>>,
         /** This field holds the region's maps. */
-        val maps: Map<Int, GameMap>
+        val maps: Map<Long, GameMap>
     ) {
 
         /**
@@ -103,40 +103,40 @@ public data class GW2v2ContinentFloor(
         @Serializable
         public data class GameMap(
             /** This field holds the map's ID. */
-            val id: Int,
+            val id: Long,
             /** This field holds the map's localized name. */
             val name: String,
             /** This field holds the minimum level of the map. */
             @SerialName("min_level")
-            val minLevel: Int,
+            val minLevel: Long,
             /** This field holds the maximum level of the map. */
             @SerialName("max_level")
-            val maxLevel: Int,
+            val maxLevel: Long,
             /** This field holds the ID of the map's default floor. */
             @SerialName("default_floor")
-            val defaultFloor: Int,
+            val defaultFloor: Long,
             /** This field holds the dimensions of the map, given as the coordinates of the lower-left (SW) and upper-right (NE) corners. */
             @SerialName("map_rect")
-            val mapRect: List<List<Int>>,
+            val mapRect: List<List<Long>>,
             /** This field holds the dimensions of the map within the continent coordinate system, given as the coordinates of the upper-left (NW) and lower-right (SE) corners. */
             @SerialName("continent_rect")
-            val continentRect: List<List<Int>>,
+            val continentRect: List<List<Long>>,
             /** This field holds the coordinate of the map's label. */
             @SerialName("label_coord")
             val labelCoord: List<Double>,
             /** This field holds the points of interest on the floor (i.e. landmarks, vistas and waypoints). */
             @SerialName("points_of_interest")
-            val pointsOfInterest: Map<Int, PointOfInterest>,
+            val pointsOfInterest: Map<Long, PointOfInterest>,
             /** This field holds the god shrines on the floor. */
             @SerialName("god_shrines")
             val godShrines: List<GodShrine>? = null,
             /** This field holds the tasks on the floor. */
-            val tasks: Map<Int, Task>,
+            val tasks: Map<Long, Task>,
             /** This field holds the skill challenges on the floor. */
             @SerialName("skill_challenges")
             val skillChallenges: List<SkillChallenge>,
             /** This field holds the sectors on the floor. */
-            val sectors: Map<Int, Sector>,
+            val sectors: Map<Long, Sector>,
             /** This field holds the adventures on the floor. */
             val adventures: List<Adventure>,
             /** This field holds the mastery points on the floor. */
@@ -158,7 +158,7 @@ public data class GW2v2ContinentFloor(
             @Serializable
             public data class PointOfInterest(
                 /** This field holds the PoI's ID. */
-                val id: Int,
+                val id: Long,
                 /** This field holds the PoI's localized name. */
                 val name: String? = null,
                 /** This field holds the type of the PoI (landmark, vista, or waypoint). */
@@ -167,7 +167,7 @@ public data class GW2v2ContinentFloor(
                 @SerialName("chat_link")
                 val chatLink: String,
                 /** This field holds the PoI's floor. */
-                val floor: Int,
+                val floor: Long,
                 /** This field holds the PoI's coordinates. */
                 val coord: List<Double>,
                 /** This field holds the PoI's icon. */
@@ -188,7 +188,7 @@ public data class GW2v2ContinentFloor(
             @Serializable
             public data class GodShrine(
                 /** This field holds the god shrine's ID. */
-                val id: Int,
+                val id: Long,
                 /** This field holds the god shrine's localized name. */
                 val name: String,
                 /** This field holds the god shrine's localized name (when contested). */
@@ -201,7 +201,7 @@ public data class GW2v2ContinentFloor(
                 val iconContested: String? = null,
                 /** This field holds the god shrine's PoI ID. */
                 @SerialName("poi_id")
-                val poiId: Int,
+                val poiId: Long,
                 /** This field holds the god shrine's coordinates. */
                 val coord: List<Double>
             )
@@ -219,11 +219,11 @@ public data class GW2v2ContinentFloor(
             @Serializable
             public data class Task(
                 /** This field holds the task's ID. */
-                val id: Int,
+                val id: Long,
                 /** This field holds the adventure's localized objective. */
                 val objective: String,
                 /** This field holds the task's level. */
-                val level: Int,
+                val level: Long,
                 /** This field holds the chat link. */
                 @SerialName("chat_link")
                 val chatLink: String,
@@ -260,11 +260,11 @@ public data class GW2v2ContinentFloor(
             @Serializable
             public data class Sector(
                 /** This field holds the sector's ID. */
-                val id: Int,
+                val id: Long,
                 /** This field holds the sector's localized name. */
                 val name: String? = null,
                 /** This field holds the sector's level. */
-                val level: Int,
+                val level: Long,
                 /** This field holds the sector's coordinates. */
                 val coord: List<Double>,
                 /** This field holds the sector's bounds. */
@@ -304,7 +304,7 @@ public data class GW2v2ContinentFloor(
             @Serializable
             public data class MasteryPoint(
                 /** This field holds the mastery point's ID. */
-                val id: Int,
+                val id: Long,
                 /** This field holds the mastery region. */
                 val region: String,
                 /** This field holds the mastery point's coordinates. */

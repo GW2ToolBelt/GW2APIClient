@@ -198,7 +198,7 @@ public fun gw2v2EmotesByIds(ids: List<GW2EmoteId>, configure: RequestConfigurer?
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2EmotesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Emote>> = RequestTemplate(
+public fun gw2v2EmotesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Emote>> = RequestTemplate(
     path = "/v2/emotes",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

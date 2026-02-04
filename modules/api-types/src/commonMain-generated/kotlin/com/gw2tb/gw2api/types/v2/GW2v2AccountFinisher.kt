@@ -48,5 +48,5 @@ public data class GW2v2AccountFinisher(
     /** This field holds whether the finisher is unlock permanently. */
     val permanent: Boolean,
     /** This field holds the remaining uses. */
-    val quantity: Int? = null
+    val quantity: Long? = null
 )

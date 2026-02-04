@@ -34,7 +34,7 @@ import kotlinx.serialization.json.*
 
 @Suppress("unused")
 internal object LenientGW2AchievementCategoryIdSerializer : LenientSerializer<GW2AchievementCategoryId?>(
-    { GW2AchievementCategoryId(it.toInt()) },
+    { GW2AchievementCategoryId(it.toLong()) },
     GW2AchievementCategoryId.serializer().nullable
 )
 
@@ -43,7 +43,7 @@ internal object LenientGW2AchievementCategoryIdSerializer : LenientSerializer<GW
 @JvmInline
 public value class GW2AchievementCategoryId(
     /** The raw (type-unsafe) value. */
-    public val raw: Int
+    public val raw: Long
 ) {
     override fun toString(): String = raw.toString()
 }

@@ -198,7 +198,7 @@ public fun gw2v2WvWObjectivesByIds(ids: List<GW2WvwObjectiveId>, configure: Requ
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWObjectivesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
+public fun gw2v2WvWObjectivesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwObjective>> = RequestTemplate(
     path = "/v2/wvw/objectives",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

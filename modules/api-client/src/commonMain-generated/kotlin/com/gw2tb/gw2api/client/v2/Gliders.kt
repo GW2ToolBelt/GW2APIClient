@@ -79,7 +79,7 @@ public fun gw2v2GlidersIds(configure: RequestConfigurer? = null): RequestTemplat
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2GlidersById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Glider> = RequestTemplate(
+public fun gw2v2GlidersById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Glider> = RequestTemplate(
     path = "/v2/gliders",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2GlidersById(id: GW2GliderId, configure: RequestConfigurer? = nul
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2GlidersByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Glider>> = RequestTemplate(
+public fun gw2v2GlidersByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Glider>> = RequestTemplate(
     path = "/v2/gliders",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2GlidersByIds(ids: List<GW2GliderId>, configure: RequestConfigure
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2GlidersByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Glider>> = RequestTemplate(
+public fun gw2v2GlidersByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Glider>> = RequestTemplate(
     path = "/v2/gliders",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

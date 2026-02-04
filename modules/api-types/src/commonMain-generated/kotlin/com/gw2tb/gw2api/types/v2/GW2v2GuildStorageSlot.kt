@@ -45,5 +45,5 @@ public data class GW2v2GuildStorageSlot(
     /** This field holds the guild upgrade's ID. */
     val id: GW2GuildUpgradeId,
     /** This field holds the amount of the upgrade in the guild's treasury. */
-    val count: Int
+    val count: Long
 )

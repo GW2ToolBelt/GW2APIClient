@@ -44,10 +44,10 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2Listing(
     /** This field holds the number of individual listings this object refers to (e.g. two players selling at the same price will end up in the same listing). */
-    val listings: Int,
+    val listings: Long,
     /** This field holds the sell offer or buy order price in coins. */
     @SerialName("unit_price")
-    val unitPrice: Int,
+    val unitPrice: Long,
     /** This field holds the amount of items being sold/bought in this listing. */
-    val quantity: Int
+    val quantity: Long
 )

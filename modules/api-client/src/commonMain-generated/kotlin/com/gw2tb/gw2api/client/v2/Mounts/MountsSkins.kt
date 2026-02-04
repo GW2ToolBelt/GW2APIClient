@@ -79,7 +79,7 @@ public fun gw2v2MountsSkinsIds(configure: RequestConfigurer? = null): RequestTem
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MountsSkinsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MountSkin> = RequestTemplate(
+public fun gw2v2MountsSkinsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2MountSkin> = RequestTemplate(
     path = "/v2/mounts/skins",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2MountsSkinsById(id: GW2MountSkinId, configure: RequestConfigurer
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MountsSkinsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
+public fun gw2v2MountsSkinsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
     path = "/v2/mounts/skins",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2MountsSkinsByIds(ids: List<GW2MountSkinId>, configure: RequestCo
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MountsSkinsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
+public fun gw2v2MountsSkinsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2MountSkin>> = RequestTemplate(
     path = "/v2/mounts/skins",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

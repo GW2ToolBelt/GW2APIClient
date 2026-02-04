@@ -32,7 +32,7 @@ internal fun SchemaPrimitiveOrAlias.toKotlinType(): KotlinTypeInfo = when (this)
     is SchemaBitfield -> "ULong"
     is SchemaBoolean -> "Boolean"
     is SchemaDecimal -> "Double"
-    is SchemaInteger -> "Int"
+    is SchemaInteger -> "Long"
     is SchemaString -> "String"
     is SchemaTypeReference -> name.toKotlinName()
 }.let { name -> KotlinTypeInfo(name, "$name.serializer()") }

@@ -45,5 +45,5 @@ public data class GW2v2AccountMastery(
     /** This field holds the mastery's ID. */
     val id: GW2MasteryId,
     /** This field holds the index of the unlocked mastery level. */
-    val level: Int? = null
+    val level: Long? = null
 )

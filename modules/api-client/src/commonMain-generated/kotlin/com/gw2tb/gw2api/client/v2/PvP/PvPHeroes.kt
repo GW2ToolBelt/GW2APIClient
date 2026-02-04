@@ -198,7 +198,7 @@ public fun gw2v2PvPHeroesByIds(ids: List<GW2PvpHeroId>, configure: RequestConfig
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2PvPHeroesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpHero>> = RequestTemplate(
+public fun gw2v2PvPHeroesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpHero>> = RequestTemplate(
     path = "/v2/pvp/heroes",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

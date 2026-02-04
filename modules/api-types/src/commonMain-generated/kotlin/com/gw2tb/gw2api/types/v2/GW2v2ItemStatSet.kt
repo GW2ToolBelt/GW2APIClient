@@ -65,7 +65,7 @@ public data class GW2v2ItemStatSet(
         /** This field holds the multiplier for that attribute. */
         val multiplier: Double,
         /** This field holds the default value for that attribute. */
-        val value: Int
+        val value: Long
     )
 
 }

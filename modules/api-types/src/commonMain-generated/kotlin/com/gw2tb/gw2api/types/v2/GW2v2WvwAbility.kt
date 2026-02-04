@@ -66,7 +66,7 @@ public data class GW2v2WvwAbility(
     @Serializable
     public data class Rank(
         /** This field holds the WvW experience points required to unlock the rank. */
-        val cost: Int,
+        val cost: Long,
         /** This field holds the rank's localized effect. */
         val effect: String
     )

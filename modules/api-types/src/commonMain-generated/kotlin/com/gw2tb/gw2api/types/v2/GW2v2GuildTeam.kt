@@ -48,7 +48,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2GuildTeam(
     /** This field holds the team's ID (only unique within the guild). */
-    val id: Int,
+    val id: Long,
     /** This field holds the team's members. */
     val members: List<Member>,
     /** This field holds the team's name. */
@@ -89,15 +89,15 @@ public data class GW2v2GuildTeam(
     @Serializable
     public data class Stats(
         /** This field holds the amount of wins. */
-        val wins: Int,
+        val wins: Long,
         /** This field holds the amount of losses. */
-        val losses: Int,
+        val losses: Long,
         /** This field holds the amount desertions. */
-        val desertions: Int,
+        val desertions: Long,
         /** This field holds the amount of byes. */
-        val byes: Int,
+        val byes: Long,
         /** This field holds the amount of forfeits. */
-        val forfeits: Int
+        val forfeits: Long
     )
 
     /**
@@ -134,7 +134,7 @@ public data class GW2v2GuildTeam(
         val ratingType: String,
         /** This field holds the change in rating for the team. */
         @SerialName("rating_change")
-        val ratingChange: Int? = null,
+        val ratingChange: Long? = null,
         /** This field holds the ID of the game's PvP season. */
         val season: String? = null,
         /** This field holds the game's final scores. */
@@ -150,9 +150,9 @@ public data class GW2v2GuildTeam(
         @Serializable
         public data class Scores(
             /** This field holds the red team's score. */
-            val red: Int,
+            val red: Long,
             /** This field holds the blue team's score. */
-            val blue: Int
+            val blue: Long
         )
 
     }
@@ -170,11 +170,11 @@ public data class GW2v2GuildTeam(
         /** This field holds the season's ID. */
         val id: GW2PvpSeasonId,
         /** This field holds the amount of wins. */
-        val wins: Int,
+        val wins: Long,
         /** This field holds the amount of losses. */
-        val losses: Int,
+        val losses: Long,
         /** This field holds the team's rating. */
-        val rating: Int
+        val rating: Long
     )
 
 }

@@ -45,7 +45,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2PvpAmulet(
     /** This field holds the amulet's ID. */
-    val id: Int,
+    val id: Long,
     /** This field holds the amulet's localized name. */
     val name: String,
     /** This field holds a render service URL for the amulet's icon. */
@@ -72,34 +72,34 @@ public data class GW2v2PvpAmulet(
     public data class Stats(
         /** This field holds the amount of agony resistance given by the amulet. */
         @SerialName("AgonyResistance")
-        val agonyResistance: Int? = null,
+        val agonyResistance: Long? = null,
         /** This field holds the amount of boon duration given by the amulet. */
         @SerialName("BoonDuration")
-        val boonDuration: Int? = null,
+        val boonDuration: Long? = null,
         /** This field holds the amount of condition damage given by the amulet. */
         @SerialName("ConditionDamage")
-        val conditionDamage: Int? = null,
+        val conditionDamage: Long? = null,
         /** This field holds the amount of condition duration given by the amulet. */
         @SerialName("ConditionDuration")
-        val conditionDuration: Int? = null,
+        val conditionDuration: Long? = null,
         /** This field holds the amount of crit damage given by the amulet. */
         @SerialName("CritDamage")
-        val critDamage: Int? = null,
+        val critDamage: Long? = null,
         /** This field holds the amount of healing given by the amulet. */
         @SerialName("Healing")
-        val healing: Int? = null,
+        val healing: Long? = null,
         /** This field holds the amount of power given by the amulet. */
         @SerialName("Power")
-        val power: Int? = null,
+        val power: Long? = null,
         /** This field holds the amount of precision given by the amulet. */
         @SerialName("Precision")
-        val precision: Int? = null,
+        val precision: Long? = null,
         /** This field holds the amount of toughness given by the amulet. */
         @SerialName("Toughness")
-        val toughness: Int? = null,
+        val toughness: Long? = null,
         /** This field holds the amount of vitality given by the amulet. */
         @SerialName("Vitality")
-        val vitality: Int? = null
+        val vitality: Long? = null
     )
 
 }

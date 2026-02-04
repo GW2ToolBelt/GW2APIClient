@@ -103,7 +103,7 @@ public data class GW2v2PvpSeason(
         @Serializable
         public data class Tier(
             /** This field holds the number of pips in the tier. */
-            val points: Int
+            val points: Long
         )
 
     }
@@ -143,7 +143,7 @@ public data class GW2v2PvpSeason(
         @Serializable
         public data class Tier(
             /** This field holds the rating required for the tier. */
-            val rating: Int
+            val rating: Long
         )
 
     }

@@ -52,11 +52,11 @@ public data class GW2v2WizardsVaultListing(
     val itemId: GW2ItemId,
     /** This field holds the amount of items the player receives. */
     @SerialName("item_count")
-    val itemCount: Int,
+    val itemCount: Long,
     /** This field holds the type of the listing. */
     val type: Type,
     /** This field holds the cost of this listing (in Astral Acclaim). */
-    val cost: Int
+    val cost: Long
 ) {
 
     @Suppress("ClassName")

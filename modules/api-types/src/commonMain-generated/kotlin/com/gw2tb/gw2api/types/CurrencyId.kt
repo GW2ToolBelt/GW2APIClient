@@ -34,7 +34,7 @@ import kotlinx.serialization.json.*
 
 @Suppress("unused")
 internal object LenientGW2CurrencyIdSerializer : LenientSerializer<GW2CurrencyId?>(
-    { GW2CurrencyId(it.toInt()) },
+    { GW2CurrencyId(it.toLong()) },
     GW2CurrencyId.serializer().nullable
 )
 
@@ -43,7 +43,7 @@ internal object LenientGW2CurrencyIdSerializer : LenientSerializer<GW2CurrencyId
 @JvmInline
 public value class GW2CurrencyId(
     /** The raw (type-unsafe) value. */
-    public val raw: Int
+    public val raw: Long
 ) {
     override fun toString(): String = raw.toString()
 }

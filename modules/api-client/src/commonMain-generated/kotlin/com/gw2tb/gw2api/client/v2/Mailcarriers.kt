@@ -79,7 +79,7 @@ public fun gw2v2MailcarriersIds(configure: RequestConfigurer? = null): RequestTe
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MailcarriersById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Mailcarrier> = RequestTemplate(
+public fun gw2v2MailcarriersById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Mailcarrier> = RequestTemplate(
     path = "/v2/mailcarriers",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2MailcarriersById(id: GW2MailCarrierId, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MailcarriersByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mailcarrier>> = RequestTemplate(
+public fun gw2v2MailcarriersByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mailcarrier>> = RequestTemplate(
     path = "/v2/mailcarriers",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2MailcarriersByIds(ids: List<GW2MailCarrierId>, configure: Reques
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2MailcarriersByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mailcarrier>> = RequestTemplate(
+public fun gw2v2MailcarriersByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Mailcarrier>> = RequestTemplate(
     path = "/v2/mailcarriers",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

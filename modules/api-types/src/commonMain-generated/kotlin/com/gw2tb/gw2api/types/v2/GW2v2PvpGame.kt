@@ -71,7 +71,7 @@ public data class GW2v2PvpGame(
     val ratingType: String,
     /** This field holds the change in rating for the account. */
     @SerialName("rating_change")
-    val ratingChange: Int? = null,
+    val ratingChange: Long? = null,
     /** This field holds the ID of the game's PvP season. */
     val season: GW2PvpSeasonId? = null,
     /** This field holds the game's final scores. */
@@ -87,9 +87,9 @@ public data class GW2v2PvpGame(
     @Serializable
     public data class Scores(
         /** This field holds the red team's score. */
-        val red: Int,
+        val red: Long,
         /** This field holds the blue team's score. */
-        val blue: Int
+        val blue: Long
     )
 
 }

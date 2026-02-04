@@ -111,7 +111,7 @@ public fun gw2v2CommerceTransactions(relevance: String, configure: RequestConfig
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceTransaction>> = RequestTemplate(
+public fun gw2v2CommerceTransactionsByPage(relevance: String, type: String, page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceTransaction>> = RequestTemplate(
     path = "/v2/commerce/transactions",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("relevance" to relevance, "type" to type),

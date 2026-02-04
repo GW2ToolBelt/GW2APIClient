@@ -34,7 +34,7 @@ import kotlinx.serialization.json.*
 
 @Suppress("unused")
 internal object LenientGW2HomesteadDecorationCategoryIdSerializer : LenientSerializer<GW2HomesteadDecorationCategoryId?>(
-    { GW2HomesteadDecorationCategoryId(it.toInt()) },
+    { GW2HomesteadDecorationCategoryId(it.toLong()) },
     GW2HomesteadDecorationCategoryId.serializer().nullable
 )
 
@@ -43,7 +43,7 @@ internal object LenientGW2HomesteadDecorationCategoryIdSerializer : LenientSeria
 @JvmInline
 public value class GW2HomesteadDecorationCategoryId(
     /** The raw (type-unsafe) value. */
-    public val raw: Int
+    public val raw: Long
 ) {
     override fun toString(): String = raw.toString()
 }

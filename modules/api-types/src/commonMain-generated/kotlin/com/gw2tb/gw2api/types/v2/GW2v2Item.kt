@@ -87,10 +87,10 @@ public data class GW2v2Item(
     /** This field holds the item's rarity. */
     val rarity: String,
     /** This field holds the level required to use the item. */
-    val level: Int,
+    val level: Long,
     /** This field holds the value in coins when selling the item to a vendor. */
     @SerialName("vendor_value")
-    val vendorValue: Int,
+    val vendorValue: Long,
     /** This field holds the ID of the item's default skin. */
     @SerialName("default_skin")
     val defaultSkin: GW2SkinId? = null,
@@ -195,7 +195,7 @@ public data class GW2v2Item(
                 /** This field holds the attribute this bonus applies to. */
                 val attribute: String,
                 /** This field holds the modifier value. */
-                val modifier: Int
+                val modifier: Long
             )
 
             /**
@@ -279,7 +279,7 @@ public data class GW2v2Item(
             override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.Armor") {
                 element("type", String.serializer().descriptor, isOptional = false)
                 element("weight_class", String.serializer().descriptor, isOptional = false)
-                element("defense", Int.serializer().descriptor, isOptional = false)
+                element("defense", Long.serializer().descriptor, isOptional = false)
                 element("infusion_slots", ListSerializer(GW2v2Item.Details.Upgrades.InfusionSlot.serializer()).descriptor, isOptional = false)
                 element("infix_upgrade", GW2v2Item.Details.InfixUpgrade.serializer().descriptor, isOptional = true)
                 element("suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
@@ -330,7 +330,7 @@ public data class GW2v2Item(
             @SerialName("weight_class")
             val weightClass: String,
             /** This field holds the defense value of the armor piece. */
-            val defense: Int,
+            val defense: Long,
             /** This field holds the item's upgrades. */
             @SerializeInline
             val upgrades: Upgrades
@@ -411,7 +411,7 @@ public data class GW2v2Item(
         @Serializable(with = __BagSerializer0::class)
         public data class Bag(
             /** This field holds the number of bag slots. */
-            val size: Int,
+            val size: Long,
             /** This field holds whether the bag is invisible. */
             @SerialName("no_sell_or_sort")
             val noSellOrSort: Boolean
@@ -451,7 +451,7 @@ public data class GW2v2Item(
             val description: String? = null,
             /** This field holds effect duration in milliseconds. */
             @SerialName("duration_ms")
-            val durationMs: Int? = null,
+            val durationMs: Long? = null,
             /** This field holds unlock type for unlock consumables. */
             @SerialName("unlock_type")
             val unlockType: String? = null,
@@ -469,7 +469,7 @@ public data class GW2v2Item(
             val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the number of stacks of the effect applied by this item. */
             @SerialName("apply_count")
-            val applyCount: Int? = null,
+            val applyCount: Long? = null,
             /** This field holds the effect type name of the consumable. */
             val name: String? = null,
             /** This field holds the icon of the effect. */
@@ -546,7 +546,7 @@ public data class GW2v2Item(
             val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the vendor IDs. */
             @SerialName("vendor_ids")
-            val vendorIds: List<Int>? = null
+            val vendorIds: List<Long>? = null
         ) : Details()
 
         @Suppress("ClassName")
@@ -592,7 +592,7 @@ public data class GW2v2Item(
             /** This field holds the tool type. */
             val type: String,
             /** This field holds the available charges. */
-            val charges: Int
+            val charges: Long
         ) : Details()
 
         @Suppress("ClassName")
@@ -712,10 +712,10 @@ public data class GW2v2Item(
         private object __WeaponSerializer1 : JsonInlineSerializer<Weapon>(__WeaponSerializer0) {
             override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.Weapon") {
                 element("type", String.serializer().descriptor, isOptional = false)
-                element("min_power", Int.serializer().descriptor, isOptional = false)
-                element("max_power", Int.serializer().descriptor, isOptional = false)
+                element("min_power", Long.serializer().descriptor, isOptional = false)
+                element("max_power", Long.serializer().descriptor, isOptional = false)
                 element("damage_type", String.serializer().descriptor, isOptional = false)
-                element("defense", Int.serializer().descriptor, isOptional = false)
+                element("defense", Long.serializer().descriptor, isOptional = false)
                 element("infusion_slots", ListSerializer(GW2v2Item.Details.Upgrades.InfusionSlot.serializer()).descriptor, isOptional = false)
                 element("infix_upgrade", GW2v2Item.Details.InfixUpgrade.serializer().descriptor, isOptional = true)
                 element("suffix_item_id", GW2ItemId.serializer().descriptor, isOptional = true)
@@ -768,15 +768,15 @@ public data class GW2v2Item(
             val type: String,
             /** This field holds minimum weapon strength. */
             @SerialName("min_power")
-            val minPower: Int,
+            val minPower: Long,
             /** This field holds maximum weapon strength. */
             @SerialName("max_power")
-            val maxPower: Int,
+            val maxPower: Long,
             /** This field holds the damage type. */
             @SerialName("damage_type")
             val damageType: String,
             /** This field holds the defense value of the weapon. */
-            val defense: Int,
+            val defense: Long,
             /** This field holds the item's upgrades. */
             @SerializeInline
             val upgrades: Upgrades

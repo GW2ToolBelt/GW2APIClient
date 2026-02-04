@@ -60,15 +60,15 @@ public data class GW2v2Recipe(
     val outputItemId: GW2ItemId,
     /** This field holds the amount of items produced. */
     @SerialName("output_item_count")
-    val outputItemCount: Int,
+    val outputItemCount: Long,
     /** This field holds the time in milliseconds it takes to craft the item. */
     @SerialName("time_to_craft_ms")
-    val craftTimeMillis: Int,
+    val craftTimeMillis: Long,
     /** This field holds the crafting disciplines that can use the recipe. */
     val disciplines: List<String>,
     /** This field holds the minimum rating required to use the recipe. */
     @SerialName("min_rating")
-    val minRating: Int,
+    val minRating: Long,
     /** This field holds the flags applying to the recipe. */
     val flags: List<String>,
     /** This field holds the recipe's ingredients. */
@@ -102,10 +102,10 @@ public data class GW2v2Recipe(
         public abstract val type: String
 
         /** This field holds the ingredient's ID. */
-        public abstract val id: Int
+        public abstract val id: Long
 
         /** This field holds the amount. */
-        public abstract val count: Int
+        public abstract val count: Long
 
         @Suppress("ClassName")
         @Serializer(forClass = Currency::class)
@@ -127,8 +127,8 @@ public data class GW2v2Recipe(
         @Serializable(with = __CurrencySerializer0::class)
         public data class Currency(
             override val type: String,
-            override val id: Int,
-            override val count: Int
+            override val id: Long,
+            override val count: Long
         ) : Ingredient()
 
         @Suppress("ClassName")
@@ -151,8 +151,8 @@ public data class GW2v2Recipe(
         @Serializable(with = __GuildUpgradeSerializer0::class)
         public data class GuildUpgrade(
             override val type: String,
-            override val id: Int,
-            override val count: Int
+            override val id: Long,
+            override val count: Long
         ) : Ingredient()
 
         @Suppress("ClassName")
@@ -175,8 +175,8 @@ public data class GW2v2Recipe(
         @Serializable(with = __ItemSerializer0::class)
         public data class Item(
             override val type: String,
-            override val id: Int,
-            override val count: Int
+            override val id: Long,
+            override val count: Long
         ) : Ingredient()
 
     }

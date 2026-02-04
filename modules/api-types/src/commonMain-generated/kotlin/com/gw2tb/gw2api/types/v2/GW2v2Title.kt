@@ -56,5 +56,5 @@ public data class GW2v2Title(
     val achievements: List<GW2AchievementId>? = null,
     /** This field holds the amount of AP required to unlock this title. */
     @SerialName("ap_required")
-    val apRequired: Int? = null
+    val apRequired: Long? = null
 )

@@ -51,7 +51,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2ContinentsFloorsIds(continentId: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2FloorId>> = RequestTemplate(
+public fun gw2v2ContinentsFloorsIds(continentId: Long, configure: RequestConfigurer? = null): RequestTemplate<List<GW2FloorId>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues("id" to continentId),
@@ -81,7 +81,7 @@ public fun gw2v2ContinentsFloorsIds(continentId: Int, configure: RequestConfigur
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2ContinentsFloorsById(continentId: Int, id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2ContinentFloor> = RequestTemplate(
+public fun gw2v2ContinentsFloorsById(continentId: Long, id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2ContinentFloor> = RequestTemplate(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues("id" to continentId),
@@ -112,7 +112,7 @@ public fun gw2v2ContinentsFloorsById(continentId: Int, id: Int, configure: Reque
  */
 @JvmSynthetic
 @JvmName("gw2v2ContinentsFloorsById-Alias")
-public fun gw2v2ContinentsFloorsById(continentId: Int, id: GW2FloorId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2ContinentFloor> = RequestTemplate(
+public fun gw2v2ContinentsFloorsById(continentId: Long, id: GW2FloorId, configure: RequestConfigurer? = null): RequestTemplate<GW2v2ContinentFloor> = RequestTemplate(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues("id" to continentId),
@@ -142,7 +142,7 @@ public fun gw2v2ContinentsFloorsById(continentId: Int, id: GW2FloorId, configure
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
+public fun gw2v2ContinentsFloorsByIds(continentId: Long, ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("id" to continentId),
@@ -173,7 +173,7 @@ public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<Int>, configur
  */
 @JvmSynthetic
 @JvmName("gw2v2ContinentsFloorsByIds-Alias")
-public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<GW2FloorId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
+public fun gw2v2ContinentsFloorsByIds(continentId: Long, ids: List<GW2FloorId>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("id" to continentId),
@@ -204,7 +204,7 @@ public fun gw2v2ContinentsFloorsByIds(continentId: Int, ids: List<GW2FloorId>, c
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2ContinentsFloorsByPage(continentId: Int, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
+public fun gw2v2ContinentsFloorsByPage(continentId: Long, page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2ContinentFloor>> = RequestTemplate(
     path = "/v2/continents/:id/floors",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("id" to continentId),

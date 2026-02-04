@@ -79,7 +79,7 @@ public fun gw2v2WvWAbilitiesIds(configure: RequestConfigurer? = null): RequestTe
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWAbilitiesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwAbility> = RequestTemplate(
+public fun gw2v2WvWAbilitiesById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2WvwAbility> = RequestTemplate(
     path = "/v2/wvw/abilities",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2WvWAbilitiesById(id: GW2WvwAbilityId, configure: RequestConfigur
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWAbilitiesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwAbility>> = RequestTemplate(
+public fun gw2v2WvWAbilitiesByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwAbility>> = RequestTemplate(
     path = "/v2/wvw/abilities",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2WvWAbilitiesByIds(ids: List<GW2WvwAbilityId>, configure: Request
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWAbilitiesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwAbility>> = RequestTemplate(
+public fun gw2v2WvWAbilitiesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwAbility>> = RequestTemplate(
     path = "/v2/wvw/abilities",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

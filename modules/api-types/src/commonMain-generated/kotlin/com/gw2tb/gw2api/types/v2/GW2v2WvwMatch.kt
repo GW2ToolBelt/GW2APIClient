@@ -60,19 +60,19 @@ public data class GW2v2WvwMatch(
     @SerialName("end_time")
     val endTime: String,
     /** This field holds the total scores by team color. */
-    val scores: Map<String, Int>,
+    val scores: Map<String, Long>,
     /** This field holds the IDs of the three primary servers by team color. */
     val worlds: Map<String, GW2WorldId>,
     /** This field holds the IDs of the servers by team color. */
     @SerialName("all_worlds")
     val allWorlds: Map<String, List<GW2WorldId>>,
     /** This field holds the total deaths by team color. */
-    val deaths: Map<String, Int>,
+    val deaths: Map<String, Long>,
     /** This field holds the total kills by team color. */
-    val kills: Map<String, Int>,
+    val kills: Map<String, Long>,
     /** This field holds the victory points by team color. */
     @SerialName("victory_points")
-    val victoryPoints: Map<String, Int>,
+    val victoryPoints: Map<String, Long>,
     /** This field holds the match's skirmishes. */
     val skirmishes: List<Skirmish>,
     /** This field holds the total scores by map. */
@@ -89,9 +89,9 @@ public data class GW2v2WvwMatch(
     @Serializable
     public data class Skirmish(
         /** This field holds the skirmish's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the scores by team color. */
-        val scores: Map<String, Int>,
+        val scores: Map<String, Long>,
         /** This field holds the scores by map. */
         @SerialName("map_scores")
         val mapScores: List<MapScores>
@@ -108,7 +108,7 @@ public data class GW2v2WvwMatch(
             /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
             val type: String,
             /** This field holds the scores by team color. */
-            val scores: Map<String, Int>
+            val scores: Map<String, Long>
         )
 
     }
@@ -127,15 +127,15 @@ public data class GW2v2WvwMatch(
     @Serializable
     public data class GameMap(
         /** This field holds the map's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
         val type: String,
         /** This field holds the scores by team color. */
-        val scores: Map<String, Int>,
+        val scores: Map<String, Long>,
         /** This field holds the deaths by team color. */
-        val deaths: Map<String, Int>,
+        val deaths: Map<String, Long>,
         /** This field holds the kills by team color. */
-        val kills: Map<String, Int>,
+        val kills: Map<String, Long>,
         /** This field holds the list of the map's objective. */
         val objectives: List<Objective>,
         /** This field holds the bonuses granted by this map. */
@@ -175,16 +175,16 @@ public data class GW2v2WvwMatch(
             val claimedAt: String? = null,
             /** This field holds the amount of points per tick given by the objective. */
             @SerialName("points_tick")
-            val pointsTick: Int,
+            val pointsTick: Long,
             /** This field holds the amount of points awarded for capturing the objective. */
             @SerialName("points_capture")
-            val pointsCapture: Int,
+            val pointsCapture: Long,
             /** This field holds the IDs of the currently slotted guild upgrades. */
             @SerialName("guild_upgrades")
-            val guildUpgrades: List<Int>? = null,
+            val guildUpgrades: List<Long>? = null,
             /** This field holds the total number of shipments delivered to the objective. */
             @SerialName("yaks_delivered")
-            val yaksDelivered: Int? = null
+            val yaksDelivered: Long? = null
         )
 
         /**

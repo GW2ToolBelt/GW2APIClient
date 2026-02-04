@@ -52,7 +52,7 @@ public data class GW2v2WizardsVaultSeason(
     /** This field holds the ISO-8601 standard timestamp of the end of the season. */
     val end: String,
     /** This field holds the IDs of the available listings. */
-    val listings: List<Int>,
+    val listings: List<Long>,
     /** This field holds the IDs of the available objectives. */
-    val objectives: List<Int>
+    val objectives: List<Long>
 )

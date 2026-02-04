@@ -56,7 +56,7 @@ public data class GW2v2BackstoryQuestion(
     /** This field holds the IDs of the possible answers to the question. */
     val answers: List<GW2BackstoryAnswerId>,
     /** This field holds a number that can be used to sort the list of questions. */
-    val order: Int,
+    val order: Long,
     /** This field holds the IDs of the professions that the question is presented to. */
     val professions: List<GW2ProfessionId>? = null,
     /** This field holds the IDs of the races that the question is presented to. */

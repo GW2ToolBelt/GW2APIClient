@@ -51,7 +51,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2RecipesSearchByInput(input: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
+public fun gw2v2RecipesSearchByInput(input: Long, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "input" to input),
     replaceInPath = mapOfNonNullValues(),
@@ -110,7 +110,7 @@ public fun gw2v2RecipesSearchByInput(input: GW2ItemId, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2RecipesSearchByOutput(output: Int, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
+public fun gw2v2RecipesSearchByOutput(output: Long, configure: RequestConfigurer? = null): RequestTemplate<List<GW2RecipeId>> = RequestTemplate(
     path = "/v2/recipes/search",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "output" to output),
     replaceInPath = mapOfNonNullValues(),

@@ -47,7 +47,7 @@ public data class GW2v1WvwMatchDetails(
     @SerialName("match_id")
     val matchId: GW2WvwMatchId,
     /** This field holds the total scores. */
-    val scores: List<Int>,
+    val scores: List<Long>,
     /** This field holds the map information. */
     val maps: List<GameMap>
 ) {
@@ -65,7 +65,7 @@ public data class GW2v1WvwMatchDetails(
         /** This field holds the map's type (i.e. "Center", "RedHome", "BlueHome", or "GreenHome"). */
         val type: String,
         /** This field holds the scores. */
-        val scores: List<Int>,
+        val scores: List<Long>,
         /** This field holds the map's objectives. */
         val objectives: List<Objective>,
         /** This field holds the bonuses granted by this map. */
@@ -82,7 +82,7 @@ public data class GW2v1WvwMatchDetails(
         @Serializable
         public data class Objective(
             /** This field holds the objective's ID. */
-            val id: Int,
+            val id: Long,
             /** This field holds the objective's owner (i.e. "Red", "Green", "Blue", or "Neutral"). */
             val owner: String,
             /** This field holds the guild ID of the guild that currently has claimed this objective. */

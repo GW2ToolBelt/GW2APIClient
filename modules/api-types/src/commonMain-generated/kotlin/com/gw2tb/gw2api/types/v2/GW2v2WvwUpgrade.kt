@@ -61,7 +61,7 @@ public data class GW2v2WvwUpgrade(
         val name: String,
         /** This field holds the amount of dolyaks required to reach this upgrade tier. */
         @SerialName("yaks_required")
-        val yaksRequired: Int,
+        val yaksRequired: Long,
         /** This field holds the upgrades available at the tier. */
         val upgrades: List<Upgrade>
     ) {

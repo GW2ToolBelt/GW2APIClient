@@ -79,7 +79,7 @@ public fun gw2v2CommerceListingsIds(configure: RequestConfigurer? = null): Reque
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CommerceListingsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceListing> = RequestTemplate(
+public fun gw2v2CommerceListingsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2CommerceListing> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2CommerceListingsById(id: GW2ItemId, configure: RequestConfigurer
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CommerceListingsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceListing>> = RequestTemplate(
+public fun gw2v2CommerceListingsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceListing>> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2CommerceListingsByIds(ids: List<GW2ItemId>, configure: RequestCo
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CommerceListingsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceListing>> = RequestTemplate(
+public fun gw2v2CommerceListingsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2CommerceListing>> = RequestTemplate(
     path = "/v2/commerce/listings",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

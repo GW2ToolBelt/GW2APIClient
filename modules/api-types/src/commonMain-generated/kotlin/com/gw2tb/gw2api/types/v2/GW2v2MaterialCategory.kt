@@ -51,5 +51,5 @@ public data class GW2v2MaterialCategory(
     /** This field holds the IDs of the items in this category. */
     val items: List<GW2ItemId>,
     /** This field holds the category's sorting key. */
-    val order: Int
+    val order: Long
 )

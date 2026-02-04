@@ -52,13 +52,13 @@ public data class GW2v2Continent(
     val name: String,
     /** This field holds the width and height of the continent. */
     @SerialName("continent_dims")
-    val continentDims: List<Int>,
+    val continentDims: List<Long>,
     /** This field holds the minimal zoom level for use with the map tile service. */
     @SerialName("min_zoom")
-    val minZoom: Int,
+    val minZoom: Long,
     /** This field holds the maximum zoom level for use with the map tile service. */
     @SerialName("max_zoom")
-    val maxZoom: Int,
+    val maxZoom: Long,
     /** This field holds the IDs of the continent's floors. */
     val floors: List<GW2FloorId>
 )

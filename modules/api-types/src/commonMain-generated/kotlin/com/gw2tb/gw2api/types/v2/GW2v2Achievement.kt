@@ -73,14 +73,14 @@ public data class GW2v2Achievement(
     /** This field holds the achievement's tiers. */
     val tiers: List<Tier>,
     /** This field holds the IDs of the achievements that are required to progress this achievement. */
-    val prerequisites: List<Int>? = null,
+    val prerequisites: List<Long>? = null,
     /** This field holds the achievement's rewards. */
     val rewards: List<Reward>? = null,
     /** This field holds the achievement's bits. */
     val bits: List<Bit>? = null,
     /** This field holds the maximum number of AP that can be rewarded by an achievement flagged as "Repeatable". */
     @SerialName("point_cap")
-    val pointCap: Int? = null
+    val pointCap: Long? = null
 ) {
 
     /**
@@ -92,9 +92,9 @@ public data class GW2v2Achievement(
     @Serializable
     public data class Tier(
         /** This field holds the number of "things" (achievement-specific) that must be completed to achieve this tier. */
-        val count: Int,
+        val count: Long,
         /** This field holds the amount of AP awarded for completing this tier. */
-        val points: Int
+        val points: Long
     )
 
     @Suppress("ClassName")
@@ -138,7 +138,7 @@ public data class GW2v2Achievement(
         public data class Coins(
             override val type: String,
             /** This field holds the amount of coins. */
-            val count: Int
+            val count: Long
         ) : Reward()
 
         @Suppress("ClassName")
@@ -164,7 +164,7 @@ public data class GW2v2Achievement(
             /** This field holds the item's ID. */
             val id: GW2ItemId,
             /** This field holds the amount of the item. */
-            val count: Int
+            val count: Long
         ) : Reward()
 
         @Suppress("ClassName")
@@ -230,7 +230,7 @@ public data class GW2v2Achievement(
         /** This field holds the bit's type. */
         val type: String,
         /** This field holds the ID of the bit's object. */
-        val id: Int? = null,
+        val id: Long? = null,
         /** This field holds the bit's text. */
         val text: String? = null
     )

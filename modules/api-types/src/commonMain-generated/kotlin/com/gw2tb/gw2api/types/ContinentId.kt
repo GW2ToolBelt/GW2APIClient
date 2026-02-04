@@ -34,7 +34,7 @@ import kotlinx.serialization.json.*
 
 @Suppress("unused")
 internal object LenientGW2ContinentIdSerializer : LenientSerializer<GW2ContinentId?>(
-    { GW2ContinentId(it.toInt()) },
+    { GW2ContinentId(it.toLong()) },
     GW2ContinentId.serializer().nullable
 )
 
@@ -43,7 +43,7 @@ internal object LenientGW2ContinentIdSerializer : LenientSerializer<GW2Continent
 @JvmInline
 public value class GW2ContinentId(
     /** The raw (type-unsafe) value. */
-    public val raw: Int
+    public val raw: Long
 ) {
     override fun toString(): String = raw.toString()
 }

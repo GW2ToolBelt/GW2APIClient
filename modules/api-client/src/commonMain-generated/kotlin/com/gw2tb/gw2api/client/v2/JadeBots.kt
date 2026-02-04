@@ -79,7 +79,7 @@ public fun gw2v2JadeBotsIds(configure: RequestConfigurer? = null): RequestTempla
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2JadeBotsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2JadeBot> = RequestTemplate(
+public fun gw2v2JadeBotsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2JadeBot> = RequestTemplate(
     path = "/v2/jadebots",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2JadeBotsById(id: GW2JadeBotId, configure: RequestConfigurer? = n
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2JadeBotsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2JadeBot>> = RequestTemplate(
+public fun gw2v2JadeBotsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2JadeBot>> = RequestTemplate(
     path = "/v2/jadebots",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2JadeBotsByIds(ids: List<GW2JadeBotId>, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2JadeBotsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2JadeBot>> = RequestTemplate(
+public fun gw2v2JadeBotsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2JadeBot>> = RequestTemplate(
     path = "/v2/jadebots",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

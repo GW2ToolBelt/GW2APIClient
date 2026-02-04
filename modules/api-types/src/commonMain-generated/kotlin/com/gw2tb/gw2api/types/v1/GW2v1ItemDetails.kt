@@ -82,13 +82,13 @@ public sealed class GW2v1ItemDetails {
     public abstract val rarity: String
 
     /** This field holds the level required to use the item. */
-    public abstract val level: Int
+    public abstract val level: Long
 
     /** This field holds the value in coins when selling the item to a vendor. */
-    public abstract val vendorValue: Int
+    public abstract val vendorValue: Long
 
     /** This field holds the ID of the item's default skin. */
-    public abstract val defaultSkin: Int?
+    public abstract val defaultSkin: Long?
 
     /** This field holds flags applying to the item. */
     public abstract val flags: List<String>
@@ -204,7 +204,7 @@ public sealed class GW2v1ItemDetails {
             /** This field holds the attribute this bonus applies to. */
             val attribute: String,
             /** This field holds the modifier value. */
-            val modifier: Int
+            val modifier: Long
         )
 
         /**
@@ -264,11 +264,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -299,7 +299,7 @@ public sealed class GW2v1ItemDetails {
             @SerialName("weight_class")
             val weightClass: String,
             /** This field holds the defense value of the armor piece. */
-            val defense: Int,
+            val defense: Long,
             /** This field holds infusion slots of the armor piece. */
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlot>,
@@ -364,11 +364,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -454,11 +454,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -477,7 +477,7 @@ public sealed class GW2v1ItemDetails {
         @Serializable
         public data class Bag(
             /** This field holds the number of bag slots. */
-            val size: Int,
+            val size: Long,
             /** This field holds whether the bag is invisible. */
             @SerialName("no_sell_or_sort")
             val noSellOrSort: Boolean
@@ -525,11 +525,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -563,7 +563,7 @@ public sealed class GW2v1ItemDetails {
             val description: String? = null,
             /** This field holds effect duration in milliseconds. */
             @SerialName("duration_ms")
-            val durationMs: Int? = null,
+            val durationMs: Long? = null,
             /** This field holds unlock type for unlock consumables. */
             @SerialName("unlock_type")
             val unlockType: String? = null,
@@ -581,7 +581,7 @@ public sealed class GW2v1ItemDetails {
             val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the number of stacks of the effect applied by this item. */
             @SerialName("apply_count")
-            val applyCount: Int? = null,
+            val applyCount: Long? = null,
             /** This field holds the effect type name of the consumable. */
             val name: String? = null,
             /** This field holds the icon of the effect. */
@@ -632,11 +632,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -699,11 +699,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -766,11 +766,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -796,7 +796,7 @@ public sealed class GW2v1ItemDetails {
             val guildUpgradeId: GW2GuildUpgradeId? = null,
             /** This field holds the vendor IDs. */
             @SerialName("vendor_ids")
-            val vendorIds: List<Int>? = null
+            val vendorIds: List<Long>? = null
         )
 
     }
@@ -841,11 +841,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -909,11 +909,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -934,7 +934,7 @@ public sealed class GW2v1ItemDetails {
             /** This field holds the tool type. */
             val type: String,
             /** This field holds the available charges. */
-            val charges: Int
+            val charges: Long
         )
 
     }
@@ -979,11 +979,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -1072,11 +1072,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -1160,11 +1160,11 @@ public sealed class GW2v1ItemDetails {
         override val iconFileSignature: String,
         override val description: String? = null,
         override val rarity: String,
-        override val level: Int,
+        override val level: Long,
         @SerialName("vendor_value")
-        override val vendorValue: Int,
+        override val vendorValue: Long,
         @SerialName("default_skin")
-        override val defaultSkin: Int? = null,
+        override val defaultSkin: Long? = null,
         override val flags: List<String>,
         @SerialName("game_types")
         override val gameTypes: List<String>,
@@ -1195,15 +1195,15 @@ public sealed class GW2v1ItemDetails {
             val type: String,
             /** This field holds minimum weapon strength. */
             @SerialName("min_power")
-            val minPower: Int,
+            val minPower: Long,
             /** This field holds maximum weapon strength. */
             @SerialName("max_power")
-            val maxPower: Int,
+            val maxPower: Long,
             /** This field holds the damage type. */
             @SerialName("damage_type")
             val damageType: String,
             /** This field holds the defense value of the weapon. */
-            val defense: Int,
+            val defense: Long,
             /** This field holds infusion slots of the weapon. */
             @SerialName("infusion_slots")
             val infusionSlots: List<InfusionSlot>,

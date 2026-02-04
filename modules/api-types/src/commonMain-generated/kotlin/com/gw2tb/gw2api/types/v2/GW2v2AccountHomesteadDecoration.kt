@@ -45,5 +45,5 @@ public data class GW2v2AccountHomesteadDecoration(
     /** This field holds the decoration's ID. */
     val id: GW2HomesteadDecorationId,
     /** This field holds the amount of the decoration. */
-    val count: Int
+    val count: Long
 )

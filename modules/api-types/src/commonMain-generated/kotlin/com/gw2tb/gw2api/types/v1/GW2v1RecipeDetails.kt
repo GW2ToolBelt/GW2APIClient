@@ -59,15 +59,15 @@ public data class GW2v1RecipeDetails(
     val outputItemId: GW2ItemId,
     /** This field holds the amount of items produced. */
     @SerialName("output_item_count")
-    val outputItemCount: Int,
+    val outputItemCount: Long,
     /** This field holds the time in milliseconds it takes to craft the item. */
     @SerialName("time_to_craft_ms")
-    val craftTimeMillis: Int,
+    val craftTimeMillis: Long,
     /** This field holds the crafting disciplines that can use the recipe. */
     val disciplines: List<String>,
     /** This field holds the minimum rating required to use the recipe. */
     @SerialName("min_rating")
-    val minRating: Int,
+    val minRating: Long,
     /** This field holds the flags applying to the recipe. */
     val flags: List<String>,
     /** This field holds the recipe's ingredients. */
@@ -86,7 +86,7 @@ public data class GW2v1RecipeDetails(
         @SerialName("item_id")
         val itemId: GW2ItemId,
         /** This field holds the quantity of this ingredient. */
-        val count: Int
+        val count: Long
     )
 
 }

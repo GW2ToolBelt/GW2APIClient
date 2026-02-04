@@ -74,18 +74,18 @@ public data class GW2v2Character(
     /** This field holds the ID of the character's profession. */
     val profession: GW2ProfessionId,
     /** This field holds the character's level. */
-    val level: Int,
+    val level: Long,
     /** This field holds the ID of the character's represented guild. */
     val guild: GW2GuildId? = null,
     /** This field holds the amount of seconds the character was played. */
-    val age: Int,
+    val age: Long,
     /** This field holds the ISO-8601 standard timestamp of when the character was created. */
     val created: String,
     /** This field holds the ISO-8601 standard timestamp of when the API record of the character was last modified. */
     @SerialName("last_modified")
     val lastModified: String,
     /** This field holds the amount of times the character has been defeated. */
-    val deaths: Int,
+    val deaths: Long,
     /** This field holds the ID of the character's selected title. */
     val title: GW2TitleId? = null,
     /** This field holds information about the WvW abilities of the character. */
@@ -95,16 +95,16 @@ public data class GW2v2Character(
     val flags: List<String>,
     /** This field holds the number of build tabs unlocked for the character. */
     @SerialName("build_tabs_unlocked")
-    val buildTabsUnlocked: Int,
+    val buildTabsUnlocked: Long,
     /** This field holds the ID of the character's active build tab. */
     @SerialName("active_build_tab")
-    val activeBuildTab: Int,
+    val activeBuildTab: Long,
     /** This field holds the number of equipment tabs unlocked for the character. */
     @SerialName("equipment_tabs_unlocked")
-    val equipmentTabsUnlocked: Int,
+    val equipmentTabsUnlocked: Long,
     /** This field holds the ID of the character's active equipment tab. */
     @SerialName("active_equipment_tab")
-    val activeEquipmentTab: Int,
+    val activeEquipmentTab: Long,
     /** This field holds the IDs of the character's backstory answers. */
     val backstory: List<GW2BackstoryAnswerId>,
     /** This field holds the character's build tabs. */
@@ -136,7 +136,7 @@ public data class GW2v2Character(
         /** This field holds the ability's ID. */
         val id: GW2WvwAbilityId,
         /** This field holds the ability's rank. */
-        val rank: Int
+        val rank: Long
     )
 
     /**
@@ -151,7 +151,7 @@ public data class GW2v2Character(
         /** This field holds the name of the discipline. */
         val discipline: String,
         /** This field holds the character's crafting level for the discipline. */
-        val rating: Int,
+        val rating: Long,
         /** This field holds a flag indicating whether the discipline is currently active on the character. */
         val active: Boolean
     )
@@ -187,7 +187,7 @@ public data class GW2v2Character(
         /** This field holds the IDs of the infusions slotted into the item. */
         val infusions: List<GW2ItemId>? = null,
         /** This field holds the amount of charges remaining on the item. */
-        val charges: Int? = null,
+        val charges: Long? = null,
         /** This field holds the binding of the item. */
         val binding: String? = null,
         /** This field holds name of the character the item is bound to. */
@@ -198,7 +198,7 @@ public data class GW2v2Character(
         /** This field holds the storage location of the equipment piece. */
         val location: String,
         /** This field holds the IDs of the tabs in which this item is used. */
-        val tabs: List<Int>? = null
+        val tabs: List<Long>? = null
     ) {
 
         /**
@@ -232,31 +232,31 @@ public data class GW2v2Character(
             public data class Attributes(
                 /** This field holds the amount of power given by the item. */
                 @SerialName("Power")
-                val power: Int? = null,
+                val power: Long? = null,
                 /** This field holds the amount of precision given by the item. */
                 @SerialName("Precision")
-                val precision: Int? = null,
+                val precision: Long? = null,
                 /** This field holds the amount of crit damage given by the item. */
                 @SerialName("CritDamage")
-                val critDamage: Int? = null,
+                val critDamage: Long? = null,
                 /** This field holds the amount of toughness given by the item. */
                 @SerialName("Toughness")
-                val toughness: Int? = null,
+                val toughness: Long? = null,
                 /** This field holds the amount of vitality given by the item. */
                 @SerialName("Vitality")
-                val vitality: Int? = null,
+                val vitality: Long? = null,
                 /** This field holds the amount of condition damage given by the item. */
                 @SerialName("ConditionDamage")
-                val conditionDamage: Int? = null,
+                val conditionDamage: Long? = null,
                 /** This field holds the amount of condition duration given by the item. */
                 @SerialName("ConditionDuration")
-                val conditionDuration: Int? = null,
+                val conditionDuration: Long? = null,
                 /** This field holds the amount of healing given by the item. */
                 @SerialName("Healing")
-                val healing: Int? = null,
+                val healing: Long? = null,
                 /** This field holds the amount of boon duration given by the item. */
                 @SerialName("BoonDuration")
-                val boonDuration: Int? = null
+                val boonDuration: Long? = null
             )
 
         }
@@ -275,7 +275,7 @@ public data class GW2v2Character(
         /** This field holds the bag's item ID. */
         val id: GW2ItemId,
         /** This field holds the bag's size. */
-        val size: Int,
+        val size: Long,
         /** This field holds the bag's content. */
         val inventory: List<Item?>
     ) {
@@ -299,16 +299,16 @@ public data class GW2v2Character(
             /** This field holds the item's ID. */
             val id: GW2ItemId,
             /** This field holds the amount of items in the stack. */
-            val count: Int,
+            val count: Long,
             /** This field holds the amount of charges remaining on the item. */
-            val charges: Int? = null,
+            val charges: Long? = null,
             /** This field holds the ID of the skin applied to the item. */
             val skin: GW2SkinId? = null,
             /** This field holds an array of item IDs for each rune or signet applied to the item. */
             val upgrades: List<GW2ItemId>? = null,
             /** This field holds the slot of the corresponding upgrade. */
             @SerialName("upgrade_slot_indices")
-            val upgradeSlotIndices: List<Int>? = null,
+            val upgradeSlotIndices: List<Long>? = null,
             /** This field holds an array of item IDs for each infusion applied to the item. */
             val infusions: List<GW2ItemId>? = null,
             /** This field holds contains information on the stats chosen if the item offers an option for stats/prefix. */
@@ -339,28 +339,28 @@ public data class GW2v2Character(
                 val id: GW2ItemStatId,
                 /** This field holds the amount of power given by the item. */
                 @SerialName("Power")
-                val power: Int? = null,
+                val power: Long? = null,
                 /** This field holds the amount of precision given by the item. */
                 @SerialName("Precision")
-                val precision: Int? = null,
+                val precision: Long? = null,
                 /** This field holds the amount of toughness given by the item. */
                 @SerialName("Toughness")
-                val toughness: Int? = null,
+                val toughness: Long? = null,
                 /** This field holds the amount of vitality given by the item. */
                 @SerialName("Vitality")
-                val vitality: Int? = null,
+                val vitality: Long? = null,
                 /** This field holds the amount of condition damage given by the item. */
                 @SerialName("ConditionDamage")
-                val conditionDamage: Int? = null,
+                val conditionDamage: Long? = null,
                 /** This field holds the amount of condition duration given by the item. */
                 @SerialName("ConditionDuration")
-                val conditionDuration: Int? = null,
+                val conditionDuration: Long? = null,
                 /** This field holds the amount of healing given by the item. */
                 @SerialName("Healing")
-                val healing: Int? = null,
+                val healing: Long? = null,
                 /** This field holds the amount of boon duration given by the item. */
                 @SerialName("BoonDuration")
-                val boonDuration: Int? = null
+                val boonDuration: Long? = null
             )
 
         }
@@ -377,9 +377,9 @@ public data class GW2v2Character(
     @Serializable
     public data class Training(
         /** This field holds the skill tree's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the amount of hero points spent in the tree. */
-        val spent: Int,
+        val spent: Long,
         /** This field holds a flag indicating whether the tree is fully trained. */
         val done: Boolean
     )
@@ -396,7 +396,7 @@ public data class GW2v2Character(
     @Serializable
     public data class CharactersEquipmentTab(
         /** This field holds the tab's ID. */
-        val tab: Int,
+        val tab: Long,
         /** This field holds the equipment configuration's name. */
         val name: String,
         /** This field holds a flag indicating whether this tab is the active tab. */
@@ -479,31 +479,31 @@ public data class GW2v2Character(
                 public data class Attributes(
                     /** This field holds the amount of power given by the item. */
                     @SerialName("Power")
-                    val power: Int? = null,
+                    val power: Long? = null,
                     /** This field holds the amount of precision given by the item. */
                     @SerialName("Precision")
-                    val precision: Int? = null,
+                    val precision: Long? = null,
                     /** This field holds the amount of crit damage given by the item. */
                     @SerialName("CritDamage")
-                    val critDamage: Int? = null,
+                    val critDamage: Long? = null,
                     /** This field holds the amount of toughness given by the item. */
                     @SerialName("Toughness")
-                    val toughness: Int? = null,
+                    val toughness: Long? = null,
                     /** This field holds the amount of vitality given by the item. */
                     @SerialName("Vitality")
-                    val vitality: Int? = null,
+                    val vitality: Long? = null,
                     /** This field holds the amount of condition damage given by the item. */
                     @SerialName("ConditionDamage")
-                    val conditionDamage: Int? = null,
+                    val conditionDamage: Long? = null,
                     /** This field holds the amount of condition duration given by the item. */
                     @SerialName("ConditionDuration")
-                    val conditionDuration: Int? = null,
+                    val conditionDuration: Long? = null,
                     /** This field holds the amount of healing given by the item. */
                     @SerialName("Healing")
-                    val healing: Int? = null,
+                    val healing: Long? = null,
                     /** This field holds the amount of boon duration given by the item. */
                     @SerialName("BoonDuration")
-                    val boonDuration: Int? = null
+                    val boonDuration: Long? = null
                 )
 
             }

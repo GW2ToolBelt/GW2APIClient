@@ -49,7 +49,7 @@ public data class GW2v2Legend(
     /** This field holds the legend's ID. */
     val id: GW2LegendId,
     /** This field holds the build template ID of the legend. */
-    val code: Int,
+    val code: Long,
     /** This field holds the ID of the profession (swap Legend) skill. */
     val swap: GW2SkillId,
     /** This field holds the ID of the heal skill. */

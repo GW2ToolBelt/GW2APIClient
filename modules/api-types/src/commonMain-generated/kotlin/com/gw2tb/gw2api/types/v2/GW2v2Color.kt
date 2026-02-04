@@ -55,7 +55,7 @@ public data class GW2v2Color(
     val name: String,
     /** This field holds the base RGB values. */
     @SerialName("base_rgb")
-    val baseRgb: List<Int>,
+    val baseRgb: List<Long>,
     /** This field holds detailed information on its appearance when applied on cloth armor. */
     val cloth: Appearance,
     /** This field holds detailed information on its appearance when applied on leather armor. */
@@ -83,17 +83,17 @@ public data class GW2v2Color(
     @Serializable
     public data class Appearance(
         /** This field holds the brightness. */
-        val brightness: Int,
+        val brightness: Long,
         /** This field holds the contrast. */
         val contrast: Double,
         /** This field holds the hue in HSL colorspace. */
-        val hue: Int,
+        val hue: Long,
         /** This field holds the saturation in HSL colorspace. */
         val saturation: Double,
         /** This field holds the lightness in HSL colorspace. */
         val lightness: Double,
         /** This field holds a list containing precalculated RGB values. */
-        val rgb: List<Int>
+        val rgb: List<Long>
     )
 
     @Suppress("ClassName")

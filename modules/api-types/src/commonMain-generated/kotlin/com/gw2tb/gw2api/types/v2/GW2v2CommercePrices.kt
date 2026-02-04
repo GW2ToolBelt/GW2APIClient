@@ -64,9 +64,9 @@ public data class GW2v2CommercePrices(
     public data class BuyListing(
         /** This field holds the highest buy order price in coins. */
         @SerialName("unit_price")
-        val unitPrice: Int,
+        val unitPrice: Long,
         /** This field holds the amount of items being bought. */
-        val quantity: Int
+        val quantity: Long
     )
 
     /**
@@ -79,9 +79,9 @@ public data class GW2v2CommercePrices(
     public data class SellListing(
         /** This field holds the lowest sell order price in coins. */
         @SerialName("unit_price")
-        val unitPrice: Int,
+        val unitPrice: Long,
         /** This field holds the amount of items being sold. */
-        val quantity: Int
+        val quantity: Long
     )
 
 }

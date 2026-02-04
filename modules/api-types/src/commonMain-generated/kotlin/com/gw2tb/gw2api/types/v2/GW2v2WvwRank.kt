@@ -49,5 +49,5 @@ public data class GW2v2WvwRank(
     val title: String,
     /** This field holds the WvW level required to unlock this rank. */
     @SerialName("min_rank")
-    val minRank: Int
+    val minRank: Long
 )

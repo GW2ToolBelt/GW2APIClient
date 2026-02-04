@@ -55,9 +55,9 @@ public data class GW2v2CharactersTraining(
     @Serializable
     public data class Training(
         /** This field holds the skill tree's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the amount of hero points spent in the tree. */
-        val spent: Int,
+        val spent: Long,
         /** This field holds a flag indicating whether the tree is fully trained. */
         val done: Boolean
     )

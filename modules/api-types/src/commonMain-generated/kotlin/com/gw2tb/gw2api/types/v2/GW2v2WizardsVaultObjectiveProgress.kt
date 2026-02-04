@@ -54,13 +54,13 @@ public data class GW2v2WizardsVaultObjectiveProgress(
     /** This field holds the objective's track. */
     val track: String,
     /** This field holds the amount of Astral Acclaim rewarded by the objective. */
-    val acclaim: Int,
+    val acclaim: Long,
     /** This field holds the current progress towards the objective. */
     @SerialName("progress_current")
-    val progressCurrent: Int,
+    val progressCurrent: Long,
     /** This field holds the treshold for the objective to be considered complete. */
     @SerialName("progress_complete")
-    val progressComplete: Int,
+    val progressComplete: Long,
     /** This field holds a flag indicating whether the objective has been claimed. */
     val claimed: Boolean
 )

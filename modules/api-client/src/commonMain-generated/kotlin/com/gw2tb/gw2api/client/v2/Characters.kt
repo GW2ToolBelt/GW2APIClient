@@ -138,7 +138,7 @@ public fun gw2v2CharactersByIds(ids: List<String>, configure: RequestConfigurer?
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CharactersByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Character>> = RequestTemplate(
+public fun gw2v2CharactersByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Character>> = RequestTemplate(
     path = "/v2/characters",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

@@ -79,7 +79,7 @@ public fun gw2v2TitlesIds(configure: RequestConfigurer? = null): RequestTemplate
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2TitlesById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Title> = RequestTemplate(
+public fun gw2v2TitlesById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Title> = RequestTemplate(
     path = "/v2/titles",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2TitlesById(id: GW2TitleId, configure: RequestConfigurer? = null)
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2TitlesByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Title>> = RequestTemplate(
+public fun gw2v2TitlesByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Title>> = RequestTemplate(
     path = "/v2/titles",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2TitlesByIds(ids: List<GW2TitleId>, configure: RequestConfigurer?
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2TitlesByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Title>> = RequestTemplate(
+public fun gw2v2TitlesByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Title>> = RequestTemplate(
     path = "/v2/titles",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

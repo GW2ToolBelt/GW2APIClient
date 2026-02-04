@@ -60,18 +60,18 @@ public data class GW2v2CharactersCore(
     /** This field holds the ID of the character's profession. */
     val profession: GW2ProfessionId,
     /** This field holds the character's level. */
-    val level: Int,
+    val level: Long,
     /** This field holds the ID of the character's represented guild. */
     val guild: GW2GuildId? = null,
     /** This field holds the amount of seconds the character was played. */
-    val age: Int,
+    val age: Long,
     /** This field holds the ISO-8601 standard timestamp of when the character was created. */
     val created: String,
     /** This field holds the ISO-8601 standard timestamp of when the API record of the character was last modified. */
     @SerialName("last_modified")
     val lastModified: String,
     /** This field holds the amount of times the character has been defeated. */
-    val deaths: Int,
+    val deaths: Long,
     /** This field holds the ID of the character's selected title. */
     val title: GW2TitleId? = null
 )

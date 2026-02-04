@@ -50,13 +50,13 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2QuestsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Int>> = RequestTemplate(
+public fun gw2v2QuestsIds(configure: RequestConfigurer? = null): RequestTemplate<List<Long>> = RequestTemplate(
     path = "/v2/quests",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf(),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(Int.serializer()),
+    serializer = ListSerializer(Long.serializer()),
     configure = configure
 )
 
@@ -79,7 +79,7 @@ public fun gw2v2QuestsIds(configure: RequestConfigurer? = null): RequestTemplate
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2QuestsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Quest> = RequestTemplate(
+public fun gw2v2QuestsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Quest> = RequestTemplate(
     path = "/v2/quests",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -108,7 +108,7 @@ public fun gw2v2QuestsById(id: Int, configure: RequestConfigurer? = null): Reque
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2QuestsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quest>> = RequestTemplate(
+public fun gw2v2QuestsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quest>> = RequestTemplate(
     path = "/v2/quests",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2QuestsByIds(ids: List<Int>, configure: RequestConfigurer? = null
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2QuestsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quest>> = RequestTemplate(
+public fun gw2v2QuestsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Quest>> = RequestTemplate(
     path = "/v2/quests",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

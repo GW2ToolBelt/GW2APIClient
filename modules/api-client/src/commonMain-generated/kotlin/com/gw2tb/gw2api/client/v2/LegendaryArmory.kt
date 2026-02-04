@@ -79,7 +79,7 @@ public fun gw2v2LegendaryArmoryIds(configure: RequestConfigurer? = null): Reques
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2LegendaryArmoryById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2LegendaryArmorySlot> = RequestTemplate(
+public fun gw2v2LegendaryArmoryById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2LegendaryArmorySlot> = RequestTemplate(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2LegendaryArmoryById(id: GW2ItemId, configure: RequestConfigurer?
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2LegendaryArmoryByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2LegendaryArmorySlot>> = RequestTemplate(
+public fun gw2v2LegendaryArmoryByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2LegendaryArmorySlot>> = RequestTemplate(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2LegendaryArmoryByIds(ids: List<GW2ItemId>, configure: RequestCon
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2LegendaryArmoryByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2LegendaryArmorySlot>> = RequestTemplate(
+public fun gw2v2LegendaryArmoryByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2LegendaryArmorySlot>> = RequestTemplate(
     path = "/v2/legendaryarmory",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

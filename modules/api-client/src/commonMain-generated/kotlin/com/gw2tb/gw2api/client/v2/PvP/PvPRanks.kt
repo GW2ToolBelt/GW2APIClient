@@ -79,7 +79,7 @@ public fun gw2v2PvPRanksIds(configure: RequestConfigurer? = null): RequestTempla
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2PvPRanksById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpRank> = RequestTemplate(
+public fun gw2v2PvPRanksById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2PvpRank> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2PvPRanksById(id: GW2PvpRankId, configure: RequestConfigurer? = n
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2PvPRanksByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
+public fun gw2v2PvPRanksByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2PvPRanksByIds(ids: List<GW2PvpRankId>, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2PvPRanksByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
+public fun gw2v2PvPRanksByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2PvpRank>> = RequestTemplate(
     path = "/v2/pvp/ranks",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

@@ -46,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2CharactersEquipmentTab(
     /** This field holds the tab's ID. */
-    val tab: Int,
+    val tab: Long,
     /** This field holds the equipment configuration's name. */
     val name: String,
     /** This field holds a flag indicating whether this tab is the active tab. */
@@ -117,28 +117,28 @@ public data class GW2v2CharactersEquipmentTab(
             val id: GW2ItemStatId,
             /** This field holds the amount of power given by the item. */
             @SerialName("Power")
-            val power: Int? = null,
+            val power: Long? = null,
             /** This field holds the amount of precision given by the item. */
             @SerialName("Precision")
-            val precision: Int? = null,
+            val precision: Long? = null,
             /** This field holds the amount of toughness given by the item. */
             @SerialName("Toughness")
-            val toughness: Int? = null,
+            val toughness: Long? = null,
             /** This field holds the amount of vitality given by the item. */
             @SerialName("Vitality")
-            val vitality: Int? = null,
+            val vitality: Long? = null,
             /** This field holds the amount of condition damage given by the item. */
             @SerialName("ConditionDamage")
-            val conditionDamage: Int? = null,
+            val conditionDamage: Long? = null,
             /** This field holds the amount of condition duration given by the item. */
             @SerialName("ConditionDuration")
-            val conditionDuration: Int? = null,
+            val conditionDuration: Long? = null,
             /** This field holds the amount of healing given by the item. */
             @SerialName("Healing")
-            val healing: Int? = null,
+            val healing: Long? = null,
             /** This field holds the amount of boon duration given by the item. */
             @SerialName("BoonDuration")
-            val boonDuration: Int? = null
+            val boonDuration: Long? = null
         )
 
     }
@@ -153,11 +153,11 @@ public data class GW2v2CharactersEquipmentTab(
     @Serializable
     public data class PvpEquipment(
         /** This field holds the ID of the selected amulet. */
-        val amulet: Int? = null,
+        val amulet: Long? = null,
         /** This field holds the ID of the selected rune. */
-        val rune: Int? = null,
+        val rune: Long? = null,
         /** This field holds the IDs of the selected sigils. */
-        val sigils: List<Int?>
+        val sigils: List<Long?>
     )
 
 }

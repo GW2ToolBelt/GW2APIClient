@@ -34,7 +34,7 @@ import kotlinx.serialization.json.*
 
 @Suppress("unused")
 internal object LenientGW2MailCarrierIdSerializer : LenientSerializer<GW2MailCarrierId?>(
-    { GW2MailCarrierId(it.toInt()) },
+    { GW2MailCarrierId(it.toLong()) },
     GW2MailCarrierId.serializer().nullable
 )
 
@@ -43,7 +43,7 @@ internal object LenientGW2MailCarrierIdSerializer : LenientSerializer<GW2MailCar
 @JvmInline
 public value class GW2MailCarrierId(
     /** The raw (type-unsafe) value. */
-    public val raw: Int
+    public val raw: Long
 ) {
     override fun toString(): String = raw.toString()
 }

@@ -44,7 +44,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2CharactersBuildTab(
     /** This field holds the tab's ID. */
-    val tab: Int,
+    val tab: Long,
     /** This field holds a flag indicating whether this tab is the active tab. */
     @SerialName("is_active")
     val isActive: Boolean,

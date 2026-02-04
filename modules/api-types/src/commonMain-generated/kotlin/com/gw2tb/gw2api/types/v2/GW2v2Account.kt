@@ -58,7 +58,7 @@ public data class GW2v2Account(
     /** This field holds the unique persistent account GUID. */
     val id: String,
     /** This field holds the age of the account in seconds. */
-    val age: Int,
+    val age: Long,
     /** This field holds the unique account name. */
     val name: String,
     /** This field holds the ID of the home world the account is assigned to. */
@@ -76,13 +76,13 @@ public data class GW2v2Account(
     val commander: Boolean,
     /** This field holds the account's personal fractal level. */
     @SerialName("fractal_level")
-    val fractalLevel: Int? = null,
+    val fractalLevel: Long? = null,
     /** This field holds the daily AP the account has. */
     @SerialName("daily_ap")
-    val dailyAP: Int? = null,
+    val dailyAP: Long? = null,
     /** This field holds the monthly AP the account has. */
     @SerialName("monthly_ap")
-    val monthlyAP: Int? = null,
+    val monthlyAP: Long? = null,
     /** This field holds information about the account's WvW progression and team. */
     val wvw: AccountWvw? = null,
     /** This field holds the ISO-8601 standard timestamp of when the account information last changed (as perceived by the API). */
@@ -90,7 +90,7 @@ public data class GW2v2Account(
     val lastModified: String,
     /** This field holds the number of the account's account-wide build storage slots unlocked. */
     @SerialName("build_storage_slots")
-    val buildStorageSlots: Int? = null
+    val buildStorageSlots: Long? = null
 ) {
 
     /**
@@ -102,10 +102,10 @@ public data class GW2v2Account(
     @Serializable
     public data class AccountWvw(
         /** This field holds the account's personal wvw rank. */
-        val rank: Int? = null,
+        val rank: Long? = null,
         /** This field holds the ID of the WvW team the account is assigned to. */
         @SerialName("team_id")
-        val teamId: Int
+        val teamId: Long
     )
 
 }

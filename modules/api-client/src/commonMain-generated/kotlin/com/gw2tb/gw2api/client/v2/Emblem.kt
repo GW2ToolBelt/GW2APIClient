@@ -109,7 +109,7 @@ public fun gw2v2EmblemIds(type: String, configure: RequestConfigurer? = null): R
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2EmblemById(type: String, id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2EmblemPart> = RequestTemplate(
+public fun gw2v2EmblemById(type: String, id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2EmblemPart> = RequestTemplate(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues("type" to type),
@@ -170,7 +170,7 @@ public fun gw2v2EmblemById(type: String, id: GW2EmblemId, configure: RequestConf
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2EmblemByIds(type: String, ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
+public fun gw2v2EmblemByIds(type: String, ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues("type" to type),
@@ -232,7 +232,7 @@ public fun gw2v2EmblemByIds(type: String, ids: List<GW2EmblemId>, configure: Req
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2EmblemByPage(type: String, page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
+public fun gw2v2EmblemByPage(type: String, page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2EmblemPart>> = RequestTemplate(
     path = "/v2/emblem",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues("type" to type),

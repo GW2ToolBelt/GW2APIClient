@@ -70,15 +70,15 @@ public data class GW2v1Maps(
         val type: String,
         /** This field holds the minimum level of the map. */
         @SerialName("min_level")
-        val minLevel: Int,
+        val minLevel: Long,
         /** This field holds the maximum level of the map. */
         @SerialName("max_level")
-        val maxLevel: Int,
+        val maxLevel: Long,
         /** This field holds the ID of the map's default floor. */
         @SerialName("default_floor")
         val defaultFloor: GW2FloorId,
         /** This field holds the IDs of the floors available on the map. */
-        val floors: List<Int>,
+        val floors: List<Long>,
         /** This field holds the ID of the region the map belongs to. */
         @SerialName("region_id")
         val regionId: GW2RegionId,
@@ -93,10 +93,10 @@ public data class GW2v1Maps(
         val continentName: String? = null,
         /** This field holds the dimensions of the map, given as the coordinates of the lower-left (SW) and upper-right (NE) corners. */
         @SerialName("map_rect")
-        val mapRect: List<List<Int>>,
+        val mapRect: List<List<Long>>,
         /** This field holds the dimensions of the map within the continent coordinate system, given as the coordinates of the upper-left (NW) and lower-right (SE) corners. */
         @SerialName("continent_rect")
-        val continentRect: List<List<Int>>
+        val continentRect: List<List<Long>>
     )
 
 }

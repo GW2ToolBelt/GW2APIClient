@@ -58,10 +58,10 @@ public data class GW2v2PvpRank(
     val icon: String,
     /** This field holds the minimum PvP level required for the rank. */
     @SerialName("min_rank")
-    val minRank: Int,
+    val minRank: Long,
     /** This field holds the maximum PvP level for the rank. */
     @SerialName("max_rank")
-    val maxRank: Int,
+    val maxRank: Long,
     /** This field holds the rank's levels. */
     val levels: List<Level>
 ) {
@@ -77,12 +77,12 @@ public data class GW2v2PvpRank(
     public data class Level(
         /** This field holds the minimum PvP level required for the level. */
         @SerialName("min_rank")
-        val minRank: Int,
+        val minRank: Long,
         /** This field holds the maximum PvP level for the level. */
         @SerialName("max_rank")
-        val maxRank: Int,
+        val maxRank: Long,
         /** This field holds the amount of PvP experience needed to go from the given minimum rank to maximum rank. */
-        val points: Int
+        val points: Long
     )
 
 }

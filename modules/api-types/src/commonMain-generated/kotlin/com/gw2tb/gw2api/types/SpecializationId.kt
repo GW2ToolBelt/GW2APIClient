@@ -34,7 +34,7 @@ import kotlinx.serialization.json.*
 
 @Suppress("unused")
 internal object LenientGW2SpecializationIdSerializer : LenientSerializer<GW2SpecializationId?>(
-    { GW2SpecializationId(it.toInt()) },
+    { GW2SpecializationId(it.toLong()) },
     GW2SpecializationId.serializer().nullable
 )
 
@@ -43,7 +43,7 @@ internal object LenientGW2SpecializationIdSerializer : LenientSerializer<GW2Spec
 @JvmInline
 public value class GW2SpecializationId(
     /** The raw (type-unsafe) value. */
-    public val raw: Int
+    public val raw: Long
 ) {
     override fun toString(): String = raw.toString()
 }

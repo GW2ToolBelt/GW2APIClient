@@ -67,19 +67,19 @@ public data class GW2v2PvpStandings(
     public data class Current(
         /** This field holds the total number of points. */
         @SerialName("total_points")
-        val totalPoints: Int,
+        val totalPoints: Long,
         /** This field holds the index of the reached division. */
-        val division: Int,
+        val division: Long,
         /** This field holds the index of the reached tier. */
-        val tier: Int,
+        val tier: Long,
         /** This field holds the number of pips towards the next tier. */
-        val points: Int,
+        val points: Long,
         /** This field holds the number of times the account maxed out the repeat division. */
-        val repeats: Int,
+        val repeats: Long,
         /** This field holds the rating level. */
-        val rating: Int? = null,
+        val rating: Long? = null,
         /** This field holds the decay value. */
-        val decay: Int? = null
+        val decay: Long? = null
     )
 
     /**
@@ -95,15 +95,15 @@ public data class GW2v2PvpStandings(
     public data class Best(
         /** This field holds the total number of points. */
         @SerialName("total_points")
-        val totalPoints: Int,
+        val totalPoints: Long,
         /** This field holds the index of the reached division. */
-        val division: Int,
+        val division: Long,
         /** This field holds the index of the reached tier. */
-        val tier: Int,
+        val tier: Long,
         /** This field holds the number of pips towards the next tier. */
-        val points: Int,
+        val points: Long,
         /** This field holds the number of times the account maxed out the repeat division. */
-        val repeats: Int
+        val repeats: Long
     )
 
 }

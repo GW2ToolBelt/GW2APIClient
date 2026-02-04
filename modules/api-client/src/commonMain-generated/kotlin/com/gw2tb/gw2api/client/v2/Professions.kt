@@ -198,7 +198,7 @@ public fun gw2v2ProfessionsByIds(ids: List<GW2ProfessionId>, configure: RequestC
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2ProfessionsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Profession>> = RequestTemplate(
+public fun gw2v2ProfessionsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Profession>> = RequestTemplate(
     path = "/v2/professions",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

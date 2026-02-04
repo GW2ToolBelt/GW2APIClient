@@ -198,7 +198,7 @@ public fun gw2v2WvWMatchesOverviewByIds(ids: List<GW2WvwMatchId>, configure: Req
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2WvWMatchesOverviewByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatchOverview>> = RequestTemplate(
+public fun gw2v2WvWMatchesOverviewByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2WvwMatchOverview>> = RequestTemplate(
     path = "/v2/wvw/matches/overview",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

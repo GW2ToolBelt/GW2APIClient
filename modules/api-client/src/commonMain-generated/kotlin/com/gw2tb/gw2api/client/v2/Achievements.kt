@@ -79,7 +79,7 @@ public fun gw2v2AchievementsIds(configure: RequestConfigurer? = null): RequestTe
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2AchievementsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Achievement> = RequestTemplate(
+public fun gw2v2AchievementsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Achievement> = RequestTemplate(
     path = "/v2/achievements",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2AchievementsById(id: GW2AchievementId, configure: RequestConfigu
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2AchievementsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Achievement>> = RequestTemplate(
+public fun gw2v2AchievementsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Achievement>> = RequestTemplate(
     path = "/v2/achievements",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2AchievementsByIds(ids: List<GW2AchievementId>, configure: Reques
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2AchievementsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Achievement>> = RequestTemplate(
+public fun gw2v2AchievementsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Achievement>> = RequestTemplate(
     path = "/v2/achievements",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

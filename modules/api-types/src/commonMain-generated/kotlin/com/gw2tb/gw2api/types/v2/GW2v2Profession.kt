@@ -56,7 +56,7 @@ public data class GW2v2Profession(
     /** This field holds the profession's localized name. */
     val name: String,
     /** This field holds the profession's palette code. */
-    val code: Int,
+    val code: Long,
     /** This field holds a render service URL for the profession's icon. */
     val icon: String,
     /** This field holds a render service URL for a big version of the profession's icon. */
@@ -74,7 +74,7 @@ public data class GW2v2Profession(
     val training: List<Training>,
     /** This field holds mappings from palette IDs to skill IDs. */
     @SerialName("skills_by_palette")
-    val skillsByPalette: List<List<Int>>
+    val skillsByPalette: List<List<Long>>
 ) {
 
     /**
@@ -150,7 +150,7 @@ public data class GW2v2Profession(
     @Serializable
     public data class Training(
         /** This field holds the training's ID. */
-        val id: Int,
+        val id: Long,
         /** This field holds the training's category. */
         val category: String,
         /** This field holds the training's localized name. */
@@ -170,7 +170,7 @@ public data class GW2v2Profession(
         @Serializable
         public data class Track(
             /** This field holds the amount of skill points required to unlock this step. */
-            val cost: Int,
+            val cost: Long,
             /** This field holds the type of the step (e.g. Skill, Trait). */
             val type: String,
             /** This field holds the ID of the skill unlocked by this step. */

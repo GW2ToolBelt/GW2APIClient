@@ -52,7 +52,7 @@ public data class GW2v2AchievementGroups(
     /** This field holds the achievement group's localized description. */
     val description: String,
     /** This field holds a number that can be used to sort the list of groups. */
-    val order: Int,
+    val order: Long,
     /** This field holds an array containing the IDs of the categories that this group contains. */
     val categories: List<GW2AchievementCategoryId>
 )

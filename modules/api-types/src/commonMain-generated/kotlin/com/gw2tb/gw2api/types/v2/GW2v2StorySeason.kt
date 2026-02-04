@@ -49,7 +49,7 @@ public data class GW2v2StorySeason(
     /** This field holds the localized name of the season. */
     val name: String,
     /** This field holds a number that can be used to sort the list of seasons. */
-    val order: Int,
+    val order: Long,
     /** This field holds the IDs of the stories in the season. */
     val stories: List<GW2StoryId>
 )

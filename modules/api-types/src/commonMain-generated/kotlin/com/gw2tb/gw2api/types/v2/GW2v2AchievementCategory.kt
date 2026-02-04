@@ -56,7 +56,7 @@ public data class GW2v2AchievementCategory(
     /** This field holds the achievement category's localized description. */
     val description: String,
     /** This field holds a number that can be used to sort the list of categories. */
-    val order: Int,
+    val order: Long,
     /** This field holds an array containing information about the achievements that this category contains. */
     val achievements: List<Entry>,
     /** This field holds an array containing information about the achievements that this category will contain the next day. */
@@ -152,9 +152,9 @@ public data class GW2v2AchievementCategory(
         @Serializable(with = __LevelConstraintSerializer::class)
         public data class LevelConstraint(
             /** This field holds the minimum level for the achievement. */
-            public val minimum: Int,
+            public val minimum: Long,
             /** This field holds the maximum level for the achievement. */
-            public val maximum: Int
+            public val maximum: Long
         )
 
     }

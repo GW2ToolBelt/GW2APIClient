@@ -48,16 +48,16 @@ import kotlinx.serialization.json.*
 public data class GW2v2AccountWizardsVaultWeekly(
     /** This field holds the current progress towards the weekly meta achievement. */
     @SerialName("meta_progress_current")
-    val metaProgressCurrent: Int,
+    val metaProgressCurrent: Long,
     /** This field holds the threshold for the weekly meta achievement to be considered complete. */
     @SerialName("meta_progress_complete")
-    val metaProgressComplete: Int,
+    val metaProgressComplete: Long,
     /** This field holds the item ID of the weekly meta achievement reward. */
     @SerialName("meta_reward_item_id")
     val metaRewardItemId: GW2ItemId,
     /** This field holds the amount of Astral Acclaim rewarded by the weekly meta achievement. */
     @SerialName("meta_reward_astral")
-    val metaRewardAstral: Int,
+    val metaRewardAstral: Long,
     /** This field holds a flag indicating whether the weekly meta achievement reward has been claimed. */
     @SerialName("meta_reward_claimed")
     val metaRewardClaimed: Boolean,

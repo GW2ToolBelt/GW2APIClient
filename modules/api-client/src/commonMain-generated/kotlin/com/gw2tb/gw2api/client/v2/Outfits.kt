@@ -79,7 +79,7 @@ public fun gw2v2OutfitsIds(configure: RequestConfigurer? = null): RequestTemplat
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2OutfitsById(id: Int, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Outfit> = RequestTemplate(
+public fun gw2v2OutfitsById(id: Long, configure: RequestConfigurer? = null): RequestTemplate<GW2v2Outfit> = RequestTemplate(
     path = "/v2/outfits",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "id" to id),
     replaceInPath = mapOfNonNullValues(),
@@ -138,7 +138,7 @@ public fun gw2v2OutfitsById(id: GW2OutfitId, configure: RequestConfigurer? = nul
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2OutfitsByIds(ids: List<Int>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Outfit>> = RequestTemplate(
+public fun gw2v2OutfitsByIds(ids: List<Long>, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Outfit>> = RequestTemplate(
     path = "/v2/outfits",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "ids" to ids),
     replaceInPath = mapOfNonNullValues(),
@@ -198,7 +198,7 @@ public fun gw2v2OutfitsByIds(ids: List<GW2OutfitId>, configure: RequestConfigure
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2OutfitsByPage(page: Int, pageSize: Int? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Outfit>> = RequestTemplate(
+public fun gw2v2OutfitsByPage(page: Long, pageSize: Long? = null, configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2Outfit>> = RequestTemplate(
     path = "/v2/outfits",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "page" to page, "page_size" to pageSize),
     replaceInPath = mapOfNonNullValues(),

@@ -39,7 +39,7 @@ internal fun Map<QualifiedTypeName.Alias, SchemaAlias>.asPrintableFileSequence()
                     """
                     |@Suppress("unused")
                     |internal object LenientGW2${type.name.toTitleCase()}Serializer : LenientSerializer<GW2${type.name.toTitleCase()}?>(
-                    |    { GW2${type.name.toTitleCase()}(it.toInt()) },
+                    |    { GW2${type.name.toTitleCase()}(it.toLong()) },
                     |    GW2${type.name.toTitleCase()}.serializer().nullable
                     |)
                     """.trimMargin()

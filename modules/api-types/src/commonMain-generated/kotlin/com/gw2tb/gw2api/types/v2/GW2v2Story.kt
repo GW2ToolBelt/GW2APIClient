@@ -61,9 +61,9 @@ public data class GW2v2Story(
     /** This field holds the in-game date of the story. */
     val timeline: String,
     /** This field holds the minimum level required to start to begin the story. */
-    val level: Int,
+    val level: Long,
     /** This field holds a number that can be used to sort the list of stories. */
-    val order: Int,
+    val order: Long,
     /** This field holds the story's chapters. */
     val chapters: List<Chapter>,
     /** This field holds the races eligible to participate in the story. */
