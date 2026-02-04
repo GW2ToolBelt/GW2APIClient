@@ -66,7 +66,6 @@ internal fun SchemaTypeUse.toKotlinType(
         )
     }
     is SchemaTypeReference -> KotlinTypeInfo(name.toKotlinName(apiVersion, qualified = qualified))
-    else -> error("Unsupported SchemaType: $this")
 }
 
 internal fun QualifiedTypeName.toKotlinName(apiVersion: Int? = null, qualified: Boolean = false): String {
@@ -81,9 +80,9 @@ internal fun QualifiedTypeName.toKotlinName(apiVersion: Int? = null, qualified: 
 
     val name = name.toTitleCase()
 
-    return qualifier + when {
-        this is QualifiedTypeName.Alias -> "GW2$name"
-        this is QualifiedTypeName.Declaration && nest == null -> "GW2v$apiVersion$name"
+    return qualifier + when (this) {
+        is QualifiedTypeName.Alias -> "GW2$name"
+        is QualifiedTypeName.Declaration if nest == null -> "GW2v$apiVersion$name"
         else -> when (name) {
             "Map" -> "GameMap"
             else -> name

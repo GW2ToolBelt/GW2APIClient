@@ -36,11 +36,11 @@ kotlin {
     explicitApi()
 
     compilerOptions {
-        apiVersion = KotlinVersion.KOTLIN_1_8
-        languageVersion = KotlinVersion.KOTLIN_1_8
+        apiVersion = KotlinVersion.KOTLIN_2_2
+        languageVersion = KotlinVersion.KOTLIN_2_2
 
-        jvmTarget = JvmTarget.JVM_1_8
-        freeCompilerArgs.add("-Xjdk-release=1.8")
+        jvmTarget = JvmTarget.JVM_17
+        freeCompilerArgs.add("-Xjdk-release=17")
     }
 }
 
@@ -55,7 +55,7 @@ gradlePlugin {
 
 tasks {
     withType<JavaCompile>().configureEach {
-        options.release = 8
+        options.release = 17
     }
 }
 

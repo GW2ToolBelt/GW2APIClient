@@ -25,11 +25,9 @@ internal const val t = "    "
 internal const val n = "\n"
 
 internal fun String.prependIndentNonEmpty(indent: String = "    "): String =
-    lineSequence()
-        .map {
-            when {
-                it.isBlank() -> it
-                else -> indent + it
-            }
+    lineSequence().joinToString("\n") {
+        when {
+            it.isBlank() -> it
+            else -> indent + it
         }
-        .joinToString("\n")
+    }

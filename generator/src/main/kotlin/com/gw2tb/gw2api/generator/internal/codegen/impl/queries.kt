@@ -115,20 +115,20 @@ private fun APIQuery.printQueryFunctions(
                 returnType = dataType,
                 parameters = buildList {
                     pathParameters.forEach { (_, param) ->
-                        val type = when {
-                            param.type is SchemaTypeReference -> {
-                                val name = (param.type as SchemaTypeReference).name as QualifiedTypeName.Alias
+                        val type = when (val paramType = param.type) {
+                            is SchemaTypeReference -> {
+                                val name = paramType.name as QualifiedTypeName.Alias
                                 val alias = lookupAlias(name)
 
                                 alias.type
                             }
-                            param.type is SchemaArray && (param.type as SchemaArray).elements is SchemaTypeReference -> {
-                                val name = ((param.type as SchemaArray).elements as SchemaTypeReference).name as QualifiedTypeName.Alias
+                            is SchemaArray if paramType.elements is SchemaTypeReference -> {
+                                val name = (paramType.elements as SchemaTypeReference).name as QualifiedTypeName.Alias
                                 val alias = lookupAlias(name)
 
-                                (param.type as SchemaArray).copy(elements = alias.type)
+                                paramType.copy(elements = alias.type)
                             }
-                            else -> param.type
+                            else -> paramType
                         }
 
                         add(FunctionParameter(
@@ -138,20 +138,20 @@ private fun APIQuery.printQueryFunctions(
                     }
 
                     queryParameters.forEach { (_, param) ->
-                        val type = when {
-                            param.type is SchemaTypeReference -> {
-                                val name = (param.type as SchemaTypeReference).name as QualifiedTypeName.Alias
+                        val type = when (val paramType = param.type) {
+                            is SchemaTypeReference -> {
+                                val name = paramType.name as QualifiedTypeName.Alias
                                 val alias = lookupAlias(name)
 
                                 alias.type
                             }
-                            param.type is SchemaArray && (param.type as SchemaArray).elements is SchemaTypeReference -> {
-                                val name = ((param.type as SchemaArray).elements as SchemaTypeReference).name as QualifiedTypeName.Alias
+                            is SchemaArray if paramType.elements is SchemaTypeReference -> {
+                                val name = (paramType.elements as SchemaTypeReference).name as QualifiedTypeName.Alias
                                 val alias = lookupAlias(name)
 
-                                (param.type as SchemaArray).copy(elements = alias.type)
+                                paramType.copy(elements = alias.type)
                             }
-                            else -> param.type
+                            else -> paramType
                         }
 
                         add(FunctionParameter(

@@ -120,7 +120,7 @@ public open class Generate @Inject constructor(
                 | * @since   0.1.0
                 | */
                 |public enum class Language(public val code: String) {
-                |${Language.values().map { language -> """${language.name}("${language.language}")""" }.joinToString(separator = ",$n") { "$t$it" }};
+                |${Language.entries.map { language -> """${language.name}("${language.language}")""" }.joinToString(separator = ",$n") { "$t$it" }};
                 |
                 |    public companion object {
                 |        /**
