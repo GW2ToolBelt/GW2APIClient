@@ -44,28 +44,37 @@ internal data class KotlinTypeInfo(
 
 internal fun SchemaTypeUse.toKotlinType(
     apiVersion: Int?,
+    lookupAlias: ((QualifiedTypeName.Alias) -> SchemaAlias)? = null,
     titleCaseName: String? = null,
     qualified: Boolean = false
-): KotlinTypeInfo = when (this) {
-    is SchemaPrimitive -> toKotlinType()
-    is SchemaArray -> {
-        val itemType = elements.toKotlinType(apiVersion, titleCaseName, qualified = qualified)
+): KotlinTypeInfo {
+    return when (this) {
+        is SchemaPrimitive -> toKotlinType()
+        is SchemaArray -> {
+            val itemType = elements.toKotlinType(apiVersion, lookupAlias = lookupAlias, titleCaseName = titleCaseName, qualified = qualified)
 
-        KotlinTypeInfo(
-            name = "List<${itemType.name}${if (nullableElements) "?" else ""}>",
-            serializer = if (nullableElements) itemType.nullableListSerializer else itemType.listSerializer
-        )
-    }
-    is SchemaMap -> {
-        val keyType = keys.toKotlinType()
-        val valueType = values.toKotlinType(apiVersion, titleCaseName, qualified = qualified)
+            KotlinTypeInfo(
+                name = "List<${itemType.name}${if (nullableElements) "?" else ""}>",
+                serializer = if (nullableElements) itemType.nullableListSerializer else itemType.listSerializer
+            )
+        }
+        is SchemaMap -> {
+            val keyType = keys.toKotlinType()
+            val valueType = values.toKotlinType(apiVersion, lookupAlias = lookupAlias, titleCaseName = titleCaseName, qualified = qualified)
 
-        KotlinTypeInfo(
-            name = "Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>",
-            serializer = "MapSerializer(${keyType.serializer}, ${valueType.serializer})"
-        )
+            KotlinTypeInfo(
+                name = "Map<${keyType.name}, ${valueType.name}${if (nullableValues) "?" else ""}>",
+                serializer = "MapSerializer(${keyType.serializer}, ${valueType.serializer})"
+            )
+        }
+        is SchemaTypeReference -> {
+            if (lookupAlias != null && name is QualifiedTypeName.Alias) {
+                return lookupAlias(name as QualifiedTypeName.Alias).type.toKotlinType(apiVersion, lookupAlias = lookupAlias, titleCaseName = titleCaseName, qualified = qualified)
+            }
+
+            KotlinTypeInfo(name.toKotlinName(apiVersion, qualified = qualified))
+        }
     }
-    is SchemaTypeReference -> KotlinTypeInfo(name.toKotlinName(apiVersion, qualified = qualified))
 }
 
 internal fun QualifiedTypeName.toKotlinName(apiVersion: Int? = null, qualified: Boolean = false): String {

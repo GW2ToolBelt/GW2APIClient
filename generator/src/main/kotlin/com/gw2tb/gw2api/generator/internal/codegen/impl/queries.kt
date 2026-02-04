@@ -115,47 +115,15 @@ private fun APIQuery.printQueryFunctions(
                 returnType = dataType,
                 parameters = buildList {
                     pathParameters.forEach { (_, param) ->
-                        val type = when (val paramType = param.type) {
-                            is SchemaTypeReference -> {
-                                val name = paramType.name as QualifiedTypeName.Alias
-                                val alias = lookupAlias(name)
-
-                                alias.type
-                            }
-                            is SchemaArray if paramType.elements is SchemaTypeReference -> {
-                                val name = (paramType.elements as SchemaTypeReference).name as QualifiedTypeName.Alias
-                                val alias = lookupAlias(name)
-
-                                paramType.copy(elements = alias.type)
-                            }
-                            else -> paramType
-                        }
-
                         add(FunctionParameter(
-                            type = type.toKotlinType(apiVersion).name,
+                            type = param.type.toKotlinType(apiVersion, lookupAlias).name,
                             name = param.name.toCamelCase()
                         ))
                     }
 
                     queryParameters.forEach { (_, param) ->
-                        val type = when (val paramType = param.type) {
-                            is SchemaTypeReference -> {
-                                val name = paramType.name as QualifiedTypeName.Alias
-                                val alias = lookupAlias(name)
-
-                                alias.type
-                            }
-                            is SchemaArray if paramType.elements is SchemaTypeReference -> {
-                                val name = (paramType.elements as SchemaTypeReference).name as QualifiedTypeName.Alias
-                                val alias = lookupAlias(name)
-
-                                paramType.copy(elements = alias.type)
-                            }
-                            else -> paramType
-                        }
-
                         add(FunctionParameter(
-                            type = "${type.toKotlinType(apiVersion).name}${if (param.isOptional) "? = null" else ""}",
+                            type = "${param.type.toKotlinType(apiVersion, lookupAlias).name}${if (param.isOptional) "? = null" else ""}",
                             name = param.name.toCamelCase()
                         ))
                     }
