@@ -192,7 +192,7 @@ jobs:
         with:
           username: ${{ secrets.CENTRAL_PORTAL_USERNAME }}
           password: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
-          bundle: ./maven-artifact-bundle.tgz
+          bundle: ./artifact-bundle.tgz
           publishing-type: "user-managed"
     outputs:
       deployment-id: ${{ steps.upload.outputs.deployment-id }}
