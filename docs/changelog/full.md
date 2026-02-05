@@ -5,7 +5,7 @@ _Released 2026 Feb 05_
 #### Improvements
 
 - All integer numbers are exposed by the API types are now `Long`s (to store up to 64bit of data). [[GH-402](https://github.com/GW2ToolBelt/GW2APIClient/issues/402)]
-- Updated to [api-generator](https://github.com/GW2ToolBelt/api-generator) to [0.10.0](https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.10.0).
+- Updated to [api-generator](https://github.com/GW2ToolBelt/api-generator) to [0.10.1](https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.10.1).
 
 #### Breaking Changes
 
