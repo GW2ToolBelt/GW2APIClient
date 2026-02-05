@@ -1,23 +1,18 @@
 name: Publish
-on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: The environment to publish to
-        type: environment
 
+on:
+  - workflow_dispatch
+
+permissions:
+  contents: read
 
 concurrency:
   group: "publish"
   cancel-in-progress: false
 
-
 env:
   DOCS_BUNDLE: docs.bundle
   DOCS_BUNDLE_ARTIFACT: docs-bundle
-  WORKSPACE_ARCHIVE: workspace.tar
-  WORKSPACE_ARTIFACT: build-results
-
 
 jobs:
   build:
@@ -42,16 +37,6 @@ jobs:
       - name: Gradle Assemble
         run: ./gradlew assemble --info -S --show-version
 
-      - name: Tar files
-        run: tar --exclude='.git' --exclude=${{ env.WORKSPACE_ARCHIVE }} -cvf ${{ env.WORKSPACE_ARCHIVE }} .
-
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: ${{ matrix.os }}-${{ env.WORKSPACE_ARTIFACT }}
-          path: ${{ env.WORKSPACE_ARCHIVE }}
-          retention-days: 1
-
-
   check:
     name: Check
     strategy:
@@ -61,16 +46,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        with:
-          # https://github.com/actions/runner/issues/409#issuecomment-752775072
-          name: ${{ matrix.os == 'windows-latest' && 'ubuntu-latest' || matrix.os }}-${{ env.WORKSPACE_ARTIFACT }}
-          path: .
-
-      - name: Untar
-        run: |
-          tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
-          rm ${{ env.WORKSPACE_ARCHIVE }}
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Setup Java
         uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
@@ -84,7 +60,6 @@ jobs:
       - name: Gradle Check
         run: ./gradlew check --info -S --show-version
 
-
   build-docs:
     name: Build Documentation
     needs: build
@@ -92,17 +67,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-
-      - name: Checkout
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        with:
-          name: ubuntu-latest-${{ env.WORKSPACE_ARTIFACT }}
-          path: .
-
-      - name: Untar
-        run: |
-          tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
-          rm ${{ env.WORKSPACE_ARCHIVE }}
 
       - name: Setup Java
         uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
@@ -148,10 +112,94 @@ jobs:
           path: ${{ env.DOCS_BUNDLE }}
           retention-days: 1
 
+  build-artifact-bundles:
+    name: Build Artifact Bundles
+    needs: check
+    strategy:
+      matrix:
+        os: [ macos-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Java
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
+        with:
+          distribution: "temurin"
+          java-version-file: .github/workflows/.java-version
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
+
+      - name: Build Artifact Bundle
+        env:
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+        run: ./gradlew --init-script ./.github/init.gradle.kts artifactBundle --info -S --show-version
+
+      - name: Upload Artifact Bundle
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: ${{ matrix.os }}
+          path: "./build/libs/maven-artifact-bundle.tgz"
+          retention-days: 1
+
+  merge-artifact-bundles:
+    name: Merge Bundles
+    needs: build-artifact-bundles
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Linux Artifact Bundle
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: ubuntu-latest
+          path: artifacts
+
+      - name: Download MacOS Artifact Bundle
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: macos-latest
+          path: artifacts
+
+      - name: Merge
+        id: merge
+        uses: TheMrMilchmann/merge-tarballs@master
+        with:
+          glob: artifacts/**
+          archive: ./artifact-bundle.tgz
+
+      - name: Upload Artifact Bundle
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: "artifact-bundle"
+          path: ${{ steps.merge.outputs.archive }}
+
+  central-upload:
+    name: Upload to Central Portal
+    needs: [build-docs, merge-artifact-bundles]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact Bundle
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: "artifact-bundle"
+          path: .
+
+      - id: upload
+        name: Upload to Central Portal
+        uses: TheMrMilchmann/central-portal-actions/upload-deployment@49408323afaf26e74be8e9df84a7a4ca81615e3a # v1.0.0
+        with:
+          username: ${{ secrets.CENTRAL_PORTAL_USERNAME }}
+          password: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
+          bundle: ./maven-artifact-bundle.tgz
+          publishing-type: "user-managed"
+    outputs:
+      deployment-id: ${{ steps.upload.outputs.deployment-id }}
 
   ghp-release:
     name: Release Documentation to GitHub Pages
-    needs: [build-docs, close-staging-repository]
+    needs: [build-docs, central-upload]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -178,129 +226,14 @@ jobs:
       - name: Push to GH Pages
         run: git push origin gh-pages
 
-
-  create-staging-repository:
-    name: Create Staging Repository
-    needs: check
+  central-release:
+    name: Release to Central Portal
+    needs: [central-upload, ghp-release]
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
     steps:
-      - id: create
-        uses: TheMrMilchmann/nexus-actions/create-staging-repo@v2
+      - name: Release to Central Portal
+        uses: TheMrMilchmann/central-portal-actions/publish-deployment@49408323afaf26e74be8e9df84a7a4ca81615e3a # v1.0.0
         with:
-          base-url: ${{ vars.SONATYPE_BASE_URL }}
-          username: ${{ secrets.SONATYPE_USERNAME }}
-          password: ${{ secrets.SONATYPE_PASSWORD }}
-          staging-profile-id: ${{ secrets.SONATYPE_STAGING_PROFILE_ID }}
-          description: ${{ github.repository }}/${{ github.workflow }}#${{ github.run_number }}
-    outputs:
-      staging-repository-id: ${{ steps.create.outputs.staging-repository-id }}
-
-
-  nexus-upload:
-    name: Upload to Nexus
-    needs: create-staging-repository
-    strategy:
-      matrix:
-        os: [ macos-latest, ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
-    environment: ${{ inputs.environment }}
-    steps:
-      - name: Checkout
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        with:
-          name: ${{ matrix.os }}-${{ env.WORKSPACE_ARTIFACT }}
-          path: .
-
-      - name: Untar
-        run: |
-          tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
-          rm ${{ env.WORKSPACE_ARCHIVE }}
-
-      - name: Setup Java
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
-        with:
-          distribution: "temurin"
-          java-version-file: .github/workflows/.java-version
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@f29f5a9d7b09a7c6b29859002d29d24e1674c884 # v5.0.1
-
-      - name: Gradle Publish
-        env:
-          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
-          ORG_GRADLE_PROJECT_sonatypeBaseUrl: ${{ vars.SONATYPE_BASE_URL }}
-          ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.SONATYPE_USERNAME }}
-          ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_PASSWORD }}
-          ORG_GRADLE_PROJECT_stagingRepositoryId: ${{ needs.create-staging-repository.outputs.staging-repository-id }}
-        # Running this on linux and macOS means that we might overwrite some artifacts but that's not an issue since
-        # they should be identical anyway.
-        run: ./gradlew publishAllPublicationsToMavenRepository --info -S --show-version --no-configuration-cache
-
-
-  close-staging-repository:
-    name: Close Staging Repository
-    needs: [create-staging-repository, nexus-upload]
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
-    steps:
-      - uses: TheMrMilchmann/nexus-actions/close-staging-repo@v2
-        with:
-          base-url: ${{ vars.SONATYPE_BASE_URL }}
-          username: ${{ secrets.SONATYPE_USERNAME }}
-          password: ${{ secrets.SONATYPE_PASSWORD }}
-          staging-repository-id: ${{ needs.create-staging-repository.outputs.staging-repository-id }}
-          description: ${{ github.repository }}/${{ github.workflow }}#${{ github.run_number }}
-
-
-  nexus-release:
-    name: Release to Nexus
-    needs: [create-staging-repository, close-staging-repository, ghp-release]
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
-    steps:
-      - name: Release Staging Repository
-        uses: TheMrMilchmann/nexus-actions/release-staging-repo@v2
-        with:
-          base-url: ${{ vars.SONATYPE_BASE_URL }}
-          username: ${{ secrets.SONATYPE_USERNAME }}
-          password: ${{ secrets.SONATYPE_PASSWORD }}
-          staging-repository-id: ${{ needs.create-staging-repository.outputs.staging-repository-id }}
-          description: ${{ github.repository }}/${{ github.workflow }}#${{ github.run_number }}
-
-
-  # So, what's happening here?
-  #
-  # Basically, restoring the workspace state between jobs is incredibly annoying.
-  # We can get reasonable support by using the upload-/download-artifact
-  # actions, but they suffer from a severe limitation:
-  # GH Actions has a storage limit and the minimum retention is 24 hours...
-  #
-  # Since the storage quota is limited, we have to make sure that the artifact
-  # is removed. Unfortunately, there is no official way to do this, so we resort
-  # to a third party action for now.
-  #
-  # See also: https://github.com/actions/upload-artifact/issues/290
-  cleanup:
-    name: Cleanup
-    if: ${{ always() }}
-    needs: nexus-release
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - name: Cleanup
-        uses: GeekyEggo/delete-artifact@f275313e70c08f6120db482d7a6b98377786765b
-        with:
-          name: macos-latest-${{ env.WORKSPACE_ARTIFACT }}
-
-      - name: Cleanup
-        uses: GeekyEggo/delete-artifact@f275313e70c08f6120db482d7a6b98377786765b
-        with:
-          name: ubuntu-latest-${{ env.WORKSPACE_ARTIFACT }}
-
-      - name: Cleanup
-        uses: GeekyEggo/delete-artifact@f275313e70c08f6120db482d7a6b98377786765b
-        with:
-          name: ubuntu-latest-${{ env.DOCS_BUNDLE_ARTIFACT }}
+          username: ${{ secrets.CENTRAL_PORTAL_USERNAME }}
+          password: ${{ secrets.CENTRAL_PORTAL_PASSWORD }}
+          deployment-id: ${{ needs.central-upload.outputs.deployment-id }}

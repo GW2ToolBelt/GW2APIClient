@@ -18,12 +18,6 @@ concurrency:
 permissions:
   contents: read
 
-
-env:
-  WORKSPACE_ARCHIVE: workspace.tar
-  WORKSPACE_ARTIFACT: build-results
-
-
 jobs:
   build:
     name: Build
@@ -47,31 +41,13 @@ jobs:
       - name: Gradle Assemble
         run: ./gradlew assemble --info -S --show-version
 
-      - name: Tar files
-        run: tar --exclude='.git' --exclude=${{ env.WORKSPACE_ARCHIVE }} -cvf ${{ env.WORKSPACE_ARCHIVE }} .
-
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
-        with:
-          name: ${{ matrix.os }}-${{ env.WORKSPACE_ARTIFACT }}
-          path: ${{ env.WORKSPACE_ARCHIVE }}
-          retention-days: 1
-
-
   build-docs:
     name: Build Documentation
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        with:
-          name: ubuntu-latest-${{ env.WORKSPACE_ARTIFACT }}
-          path: .
-
-      - name: Untar
-        run: |
-          tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
-          rm ${{ env.WORKSPACE_ARCHIVE }}
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Setup Java
         uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
@@ -100,7 +76,6 @@ jobs:
           path: ./build/site
           retention-days: 3
 
-
   check:
     name: Check
     strategy:
@@ -110,18 +85,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
-        with:
-          # https://github.com/actions/runner/issues/409#issuecomment-752775072
-          name: ${{ matrix.os == 'windows-latest' && 'ubuntu-latest' || matrix.os }}-${{ env.WORKSPACE_ARTIFACT }}
-          path: .
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Untar
-        run: |
-          tar -xvf ${{ env.WORKSPACE_ARCHIVE }}
-          rm ${{ env.WORKSPACE_ARCHIVE }}
-
-      - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
+      - name: Setup Java
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
         with:
           distribution: "temurin"
           java-version-file: .github/workflows/.java-version
@@ -131,34 +98,3 @@ jobs:
 
       - name: Gradle Check
         run: ./gradlew check --info -S --show-version
-
-
-  # So, what's happening here?
-  #
-  # Basically, restoring the workspace state between jobs is incredibly annoying.
-  # We can get reasonable support by using the upload-/download-artifact
-  # actions, but they suffer from a severe limitation:
-  # GH Actions has a storage limit and the minimum retention is 24 hours...
-  #
-  # Since the storage quota is limited, we have to make sure that the artifact
-  # is removed. Unfortunately, there is no official way to do this, so we resort
-  # to a third party action for now.
-  #
-  # See also: https://github.com/actions/upload-artifact/issues/290
-  cleanup:
-    name: Cleanup
-    if: ${{ always() }}
-    needs: [build-docs, check]
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - name: Cleanup
-        uses: GeekyEggo/delete-artifact@f275313e70c08f6120db482d7a6b98377786765b
-        with:
-          name: macos-latest-${{ env.WORKSPACE_ARTIFACT }}
-
-      - name: Cleanup
-        uses: GeekyEggo/delete-artifact@f275313e70c08f6120db482d7a6b98377786765b
-        with:
-          name: ubuntu-latest-${{ env.WORKSPACE_ARTIFACT }}
