@@ -36,8 +36,8 @@ kotlin {
     explicitApi()
 
     compilerOptions {
-        apiVersion = KotlinVersion.KOTLIN_2_2
-        languageVersion = KotlinVersion.KOTLIN_2_2
+        apiVersion = KotlinVersion.KOTLIN_2_3
+        languageVersion = KotlinVersion.KOTLIN_2_3
 
         jvmTarget = JvmTarget.JVM_17
         freeCompilerArgs.add("-Xjdk-release=17")
