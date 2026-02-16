@@ -4888,21 +4888,21 @@ public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatches$Companion {
 
 public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch$Companion;
-	public synthetic fun <init> (Ljava/lang/String;JJJLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JJJLkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-vwDGptY ()Ljava/lang/String;
 	public final fun component2-jhViMgg ()J
 	public final fun component3-jhViMgg ()J
 	public final fun component4-jhViMgg ()J
-	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Ljava/lang/String;
-	public final fun copy-IvC87Hc (Ljava/lang/String;JJJLjava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch;
-	public static synthetic fun copy-IvC87Hc$default (Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch;Ljava/lang/String;JJJLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun copy-IvC87Hc (Ljava/lang/String;JJJLkotlin/time/Instant;Lkotlin/time/Instant;)Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch;
+	public static synthetic fun copy-IvC87Hc$default (Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch;Ljava/lang/String;JJJLkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBlueWorldId-jhViMgg ()J
-	public final fun getEndTime ()Ljava/lang/String;
+	public final fun getEndTime ()Lkotlin/time/Instant;
 	public final fun getGreenWorldId-jhViMgg ()J
 	public final fun getRedWorldId-jhViMgg ()J
-	public final fun getStartTime ()Ljava/lang/String;
+	public final fun getStartTime ()Lkotlin/time/Instant;
 	public final fun getWvwMatchId-vwDGptY ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -4925,37 +4925,37 @@ public final class com/gw2tb/gw2api/types/v1/GW2v1WvwMatches$WvwMatch$Companion 
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Account {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Account$Companion;
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Ljava/lang/String;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Lkotlin/time/Instant;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Lkotlin/time/Instant;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Ljava/lang/Long;
 	public final fun component11 ()Ljava/lang/Long;
 	public final fun component12 ()Ljava/lang/Long;
 	public final fun component13 ()Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;
-	public final fun component14 ()Ljava/lang/String;
+	public final fun component14 ()Lkotlin/time/Instant;
 	public final fun component15 ()Ljava/lang/Long;
 	public final fun component2 ()J
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4-jhViMgg ()J
 	public final fun component5 ()Ljava/util/List;
 	public final fun component6 ()Ljava/util/List;
-	public final fun component7 ()Ljava/lang/String;
+	public final fun component7 ()Lkotlin/time/Instant;
 	public final fun component8 ()Ljava/util/List;
 	public final fun component9 ()Z
-	public final fun copy-qwS-TbU (Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Ljava/lang/String;Ljava/lang/Long;)Lcom/gw2tb/gw2api/types/v2/GW2v2Account;
-	public static synthetic fun copy-qwS-TbU$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Account;Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Account;
+	public final fun copy-qwS-TbU (Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Lkotlin/time/Instant;Ljava/lang/Long;)Lcom/gw2tb/gw2api/types/v2/GW2v2Account;
+	public static synthetic fun copy-qwS-TbU$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Account;Ljava/lang/String;JLjava/lang/String;JLjava/util/List;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lcom/gw2tb/gw2api/types/v2/GW2v2Account$AccountWvw;Lkotlin/time/Instant;Ljava/lang/Long;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Account;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccess ()Ljava/util/List;
 	public final fun getAge ()J
 	public final fun getBuildStorageSlots ()Ljava/lang/Long;
 	public final fun getCommander ()Z
-	public final fun getCreated ()Ljava/lang/String;
+	public final fun getCreated ()Lkotlin/time/Instant;
 	public final fun getDailyAP ()Ljava/lang/Long;
 	public final fun getFractalLevel ()Ljava/lang/Long;
 	public final fun getGuildLeader ()Ljava/util/List;
 	public final fun getGuilds ()Ljava/util/List;
 	public final fun getId ()Ljava/lang/String;
-	public final fun getLastModified ()Ljava/lang/String;
+	public final fun getLastModified ()Lkotlin/time/Instant;
 	public final fun getMonthlyAP ()Ljava/lang/Long;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getWorld-jhViMgg ()J
@@ -6483,8 +6483,8 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2Build$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2Character {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2Character$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()J
 	public final fun component11-4zi_q6c ()Lcom/gw2tb/gw2api/types/GW2TitleId;
@@ -6508,10 +6508,10 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2Character {
 	public final fun component5 ()J
 	public final fun component6-kVe4lMQ ()Ljava/lang/String;
 	public final fun component7 ()J
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9 ()Ljava/lang/String;
-	public final fun copy-v2yM3EE (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character;
-	public static synthetic fun copy-v2yM3EE$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Character;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character;
+	public final fun component8 ()Lkotlin/time/Instant;
+	public final fun component9 ()Lkotlin/time/Instant;
+	public final fun copy-v2yM3EE (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character;
+	public static synthetic fun copy-v2yM3EE$default (Lcom/gw2tb/gw2api/types/v2/GW2v2Character;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;Ljava/util/List;Ljava/util/List;JJJJLjava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2Character;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActiveBuildTab ()J
 	public final fun getActiveEquipmentTab ()J
@@ -6521,7 +6521,7 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2Character {
 	public final fun getBuildTabs ()Ljava/util/List;
 	public final fun getBuildTabsUnlocked ()J
 	public final fun getCrafting ()Ljava/util/List;
-	public final fun getCreated ()Ljava/lang/String;
+	public final fun getCreated ()Lkotlin/time/Instant;
 	public final fun getDeaths ()J
 	public final fun getEquipment ()Ljava/util/List;
 	public final fun getEquipmentTabs ()Ljava/util/List;
@@ -6529,7 +6529,7 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2Character {
 	public final fun getFlags ()Ljava/util/List;
 	public final fun getGender ()Ljava/lang/String;
 	public final fun getGuild-kVe4lMQ ()Ljava/lang/String;
-	public final fun getLastModified ()Ljava/lang/String;
+	public final fun getLastModified ()Lkotlin/time/Instant;
 	public final fun getLevel ()J
 	public final fun getName ()Ljava/lang/String;
 	public final fun getProfession-yhRiPBg ()Ljava/lang/String;
@@ -7244,8 +7244,8 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersBuildTab$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersCore {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()J
 	public final fun component11-4zi_q6c ()Lcom/gw2tb/gw2api/types/GW2TitleId;
@@ -7255,17 +7255,17 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2CharactersCore {
 	public final fun component5 ()J
 	public final fun component6-kVe4lMQ ()Ljava/lang/String;
 	public final fun component7 ()J
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9 ()Ljava/lang/String;
-	public final fun copy-fWqXi9Y (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;)Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore;
-	public static synthetic fun copy-fWqXi9Y$default (Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLjava/lang/String;Ljava/lang/String;JLcom/gw2tb/gw2api/types/GW2TitleId;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore;
+	public final fun component8 ()Lkotlin/time/Instant;
+	public final fun component9 ()Lkotlin/time/Instant;
+	public final fun copy-fWqXi9Y (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;)Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore;
+	public static synthetic fun copy-fWqXi9Y$default (Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;JLcom/gw2tb/gw2api/types/GW2TitleId;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2CharactersCore;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAge ()J
-	public final fun getCreated ()Ljava/lang/String;
+	public final fun getCreated ()Lkotlin/time/Instant;
 	public final fun getDeaths ()J
 	public final fun getGender ()Ljava/lang/String;
 	public final fun getGuild-kVe4lMQ ()Ljava/lang/String;
-	public final fun getLastModified ()Ljava/lang/String;
+	public final fun getLastModified ()Lkotlin/time/Instant;
 	public final fun getLevel ()J
 	public final fun getName ()Ljava/lang/String;
 	public final fun getProfession-yhRiPBg ()Ljava/lang/String;
@@ -8531,22 +8531,22 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2CommercePrices$SellListing$Com
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction$Companion;
-	public synthetic fun <init> (JJJJLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JJJJLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJJJLkotlin/time/Instant;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJJJLkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-1EL6QfQ ()J
 	public final fun component2-mW0Mufk ()J
 	public final fun component3 ()J
 	public final fun component4 ()J
-	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Ljava/lang/String;
-	public final fun copy-N61vhdY (JJJJLjava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction;
-	public static synthetic fun copy-N61vhdY$default (Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction;JJJJLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun copy-N61vhdY (JJJJLkotlin/time/Instant;Lkotlin/time/Instant;)Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction;
+	public static synthetic fun copy-N61vhdY$default (Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction;JJJJLkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2CommerceTransaction;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCreated ()Ljava/lang/String;
+	public final fun getCreated ()Lkotlin/time/Instant;
 	public final fun getId-1EL6QfQ ()J
 	public final fun getItemId-mW0Mufk ()J
 	public final fun getPrice ()J
-	public final fun getPurchased ()Ljava/lang/String;
+	public final fun getPurchased ()Lkotlin/time/Instant;
 	public final fun getQuantity ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -9464,7 +9464,7 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2Guild$Emblem$Foreground$Compan
 public abstract class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Companion;
 	public abstract fun getId ()J
-	public abstract fun getTime ()Ljava/lang/String;
+	public abstract fun getTime ()Lkotlin/time/Instant;
 	public abstract fun getType ()Ljava/lang/String;
 	public abstract fun getUser ()Ljava/lang/String;
 }
@@ -9475,19 +9475,19 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited$Companion;
-	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
-	public final fun copy (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited;
+	public final fun copy (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getId ()J
 	public final fun getInvitedBy ()Ljava/lang/String;
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public fun getUser ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -9500,17 +9500,17 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Invited$Companio
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined$Companion;
-	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun copy (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined;
+	public final fun copy (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getId ()J
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public fun getUser ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -9523,19 +9523,19 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Joined$Companion
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick$Companion;
-	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
-	public final fun copy (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick;
+	public final fun copy (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getId ()J
 	public final fun getKickedBy ()Ljava/lang/String;
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public fun getUser ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -9548,19 +9548,19 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Kick$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd$Companion;
-	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
-	public final fun copy (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd;
+	public final fun copy (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun getId ()J
 	public final fun getMotd ()Ljava/lang/String;
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public fun getUser ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -9573,23 +9573,23 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Motd$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange$Companion;
-	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Ljava/lang/String;
-	public final fun copy (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange;
+	public final fun copy (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getChangedBy ()Ljava/lang/String;
 	public fun getId ()J
 	public final fun getNewRank ()Ljava/lang/String;
 	public final fun getOldRank ()Ljava/lang/String;
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public fun getUser ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -9602,25 +9602,25 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$RankChange$Compa
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6-mW0Mufk ()J
 	public final fun component7 ()J
 	public final fun component8 ()J
-	public final fun copy-NgIbk1M (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJ)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash;
-	public static synthetic fun copy-NgIbk1M$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash;
+	public final fun copy-NgIbk1M (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJ)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash;
+	public static synthetic fun copy-NgIbk1M$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJJILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCoins ()J
 	public final fun getCount ()J
 	public fun getId ()J
 	public final fun getItemId-mW0Mufk ()J
 	public final fun getOperation ()Ljava/lang/String;
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public fun getUser ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -9633,21 +9633,21 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Stash$Companion 
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5-mW0Mufk ()J
 	public final fun component6 ()J
-	public final fun copy-dqK9fh8 (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;JJ)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury;
-	public static synthetic fun copy-dqK9fh8$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;JJILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury;
+	public final fun copy-dqK9fh8 (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;JJ)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury;
+	public static synthetic fun copy-dqK9fh8$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;JJILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCount ()J
 	public fun getId ()J
 	public final fun getItemId-mW0Mufk ()J
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public fun getUser ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -9660,24 +9660,24 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Treasury$Compani
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade : com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/Long;
 	public final fun component7-Q33tylk ()J
 	public final fun component8-H1GZjcM ()Lcom/gw2tb/gw2api/types/GW2RecipeId;
-	public final fun copy-MxaV0iM (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade;
-	public static synthetic fun copy-MxaV0iM$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade;
+	public final fun copy-MxaV0iM (JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade;
+	public static synthetic fun copy-MxaV0iM$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;JLcom/gw2tb/gw2api/types/GW2RecipeId;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAction ()Ljava/lang/String;
 	public final fun getCount ()Ljava/lang/Long;
 	public fun getId ()J
 	public final fun getRecipeId-H1GZjcM ()Lcom/gw2tb/gw2api/types/GW2RecipeId;
-	public fun getTime ()Ljava/lang/String;
+	public fun getTime ()Lkotlin/time/Instant;
 	public fun getType ()Ljava/lang/String;
 	public final fun getUpgradeId-Q33tylk ()J
 	public fun getUser ()Ljava/lang/String;
@@ -9691,15 +9691,15 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildLogEntry$Upgrade$Companio
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildMember {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Z)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/time/Instant;
 	public final fun component4 ()Z
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Z)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;ZILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildMember;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getJoined ()Ljava/lang/String;
+	public final fun getJoined ()Lkotlin/time/Instant;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getRank ()Ljava/lang/String;
 	public final fun getWvwMember ()Z
@@ -9949,22 +9949,22 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$Member$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Companion;
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-g98Bp5Y ()Ljava/lang/String;
 	public final fun component10 ()Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;
 	public final fun component2-kjVmVaI ()J
-	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Lkotlin/time/Instant;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/String;
-	public final fun copy-Z-0Q4e0 (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame;
-	public static synthetic fun copy-Z-0Q4e0$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame;
+	public final fun copy-Z-0Q4e0 (Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame;
+	public static synthetic fun copy-Z-0Q4e0$default (Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame;Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getEnded ()Ljava/lang/String;
+	public final fun getEnded ()Lkotlin/time/Instant;
 	public final fun getId-g98Bp5Y ()Ljava/lang/String;
 	public final fun getMapId-kjVmVaI ()J
 	public final fun getRatingChange ()Ljava/lang/Long;
@@ -9972,7 +9972,7 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame {
 	public final fun getResult ()Ljava/lang/String;
 	public final fun getScores ()Lcom/gw2tb/gw2api/types/v2/GW2v2GuildTeam$PvpGame$Scores;
 	public final fun getSeason ()Ljava/lang/String;
-	public final fun getStarted ()Ljava/lang/String;
+	public final fun getStarted ()Lkotlin/time/Instant;
 	public final fun getTeam ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -12378,23 +12378,23 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2PvpAmulet$Stats$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpGame {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Companion;
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-g98Bp5Y ()Ljava/lang/String;
 	public final fun component10-nSo_zG8 ()Ljava/lang/String;
 	public final fun component11 ()Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;
 	public final fun component2-kjVmVaI ()J
-	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Lkotlin/time/Instant;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7-yhRiPBg ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-2bo23JM (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame;
-	public static synthetic fun copy-2bo23JM$default (Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame;
+	public final fun copy-2bo23JM (Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame;
+	public static synthetic fun copy-2bo23JM$default (Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame;Ljava/lang/String;JLkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getEnded ()Ljava/lang/String;
+	public final fun getEnded ()Lkotlin/time/Instant;
 	public final fun getId-g98Bp5Y ()Ljava/lang/String;
 	public final fun getMapId-kjVmVaI ()J
 	public final fun getProfession-yhRiPBg ()Ljava/lang/String;
@@ -12403,7 +12403,7 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2PvpGame {
 	public final fun getResult ()Ljava/lang/String;
 	public final fun getScores ()Lcom/gw2tb/gw2api/types/v2/GW2v2PvpGame$Scores;
 	public final fun getSeason-nSo_zG8 ()Ljava/lang/String;
-	public final fun getStarted ()Ljava/lang/String;
+	public final fun getStarted ()Lkotlin/time/Instant;
 	public final fun getTeam ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -12632,27 +12632,27 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2PvpRank$Level$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2PvpSeason {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-uWHkn_8 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Lkotlin/time/Instant;
 	public final fun component5 ()Z
 	public final fun component6 ()Ljava/util/List;
 	public final fun component7 ()Ljava/util/List;
 	public final fun component8 ()Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;
-	public final fun copy-sDojI3c (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason;
-	public static synthetic fun copy-sDojI3c$default (Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason;
+	public final fun copy-sDojI3c (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason;
+	public static synthetic fun copy-sDojI3c$default (Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLjava/util/List;Ljava/util/List;Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActive ()Z
 	public final fun getDivisions ()Ljava/util/List;
-	public final fun getEnd ()Ljava/lang/String;
+	public final fun getEnd ()Lkotlin/time/Instant;
 	public final fun getId-uWHkn_8 ()Ljava/lang/String;
 	public final fun getLeaderboards ()Lcom/gw2tb/gw2api/types/v2/GW2v2PvpSeason$Leaderboards;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getRanks ()Ljava/util/List;
-	public final fun getStart ()Ljava/lang/String;
+	public final fun getStart ()Lkotlin/time/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -15108,15 +15108,15 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2TokenInfo$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
+	public fun <init> (Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;)V
+	public final fun component1 ()Lkotlin/time/Instant;
+	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails;
+	public final fun copy (Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2TokenInfo$SubtokenDetails;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getExpiresAt ()Ljava/lang/String;
-	public final fun getIssuedAt ()Ljava/lang/String;
+	public final fun getExpiresAt ()Lkotlin/time/Instant;
+	public final fun getIssuedAt ()Lkotlin/time/Instant;
 	public final fun getUrls ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -17404,19 +17404,19 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultObjectiveProgress$
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
+	public fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Lkotlin/time/Instant;
 	public final fun component4 ()Ljava/util/List;
 	public final fun component5 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason;
+	public final fun copy (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WizardsVaultSeason;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getEnd ()Ljava/lang/String;
+	public final fun getEnd ()Lkotlin/time/Instant;
 	public final fun getListings ()Ljava/util/List;
 	public final fun getObjectives ()Ljava/util/List;
-	public final fun getStart ()Ljava/lang/String;
+	public final fun getStart ()Lkotlin/time/Instant;
 	public final fun getTitle ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -17561,30 +17561,30 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2WvwAbility$Rank$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-vwDGptY ()Ljava/lang/String;
 	public final fun component10 ()Ljava/util/List;
 	public final fun component11 ()Ljava/util/List;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Lkotlin/time/Instant;
 	public final fun component4 ()Ljava/util/Map;
 	public final fun component5 ()Ljava/util/Map;
 	public final fun component6 ()Ljava/util/Map;
 	public final fun component7 ()Ljava/util/Map;
 	public final fun component8 ()Ljava/util/Map;
 	public final fun component9 ()Ljava/util/Map;
-	public final fun copy-J9lU_M4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/List;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch;
-	public static synthetic fun copy-J9lU_M4$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch;
+	public final fun copy-J9lU_M4 (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/List;Ljava/util/List;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch;
+	public static synthetic fun copy-J9lU_M4$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAllWorlds ()Ljava/util/Map;
 	public final fun getDeaths ()Ljava/util/Map;
-	public final fun getEndTime ()Ljava/lang/String;
+	public final fun getEndTime ()Lkotlin/time/Instant;
 	public final fun getId-vwDGptY ()Ljava/lang/String;
 	public final fun getKills ()Ljava/util/Map;
 	public final fun getMaps ()Ljava/util/List;
 	public final fun getScores ()Ljava/util/Map;
 	public final fun getSkirmishes ()Ljava/util/List;
-	public final fun getStartTime ()Ljava/lang/String;
+	public final fun getStartTime ()Lkotlin/time/Instant;
 	public final fun getVictoryPoints ()Ljava/util/Map;
 	public final fun getWorlds ()Ljava/util/Map;
 	public fun hashCode ()I
@@ -17676,26 +17676,26 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJLjava/util/List;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJLjava/util/List;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JJLjava/util/List;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JJLjava/util/List;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
 	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Ljava/lang/String;
+	public final fun component6 ()Lkotlin/time/Instant;
 	public final fun component7 ()J
 	public final fun component8 ()J
 	public final fun component9 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJLjava/util/List;Ljava/lang/Long;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJLjava/util/List;Ljava/lang/Long;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JJLjava/util/List;Ljava/lang/Long;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JJLjava/util/List;Ljava/lang/Long;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatch$GameMap$Objective;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getClaimedAt ()Ljava/lang/String;
+	public final fun getClaimedAt ()Lkotlin/time/Instant;
 	public final fun getClaimedBy ()Ljava/lang/String;
 	public final fun getGuildUpgrades ()Ljava/util/List;
 	public final fun getId ()Ljava/lang/String;
-	public final fun getLastFlipped ()Ljava/lang/String;
+	public final fun getLastFlipped ()Lkotlin/time/Instant;
 	public final fun getOwner ()Ljava/lang/String;
 	public final fun getPointsCapture ()J
 	public final fun getPointsTick ()J
@@ -17782,19 +17782,19 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatch$Skirmish$MapScores$Co
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-vwDGptY ()Ljava/lang/String;
 	public final fun component2 ()Ljava/util/Map;
 	public final fun component3 ()Ljava/util/Map;
-	public final fun component4 ()Ljava/lang/String;
-	public final fun component5 ()Ljava/lang/String;
-	public final fun copy-dXi1ElI (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview;
-	public static synthetic fun copy-dXi1ElI$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun copy-dXi1ElI (Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/time/Instant;Lkotlin/time/Instant;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview;
+	public static synthetic fun copy-dXi1ElI$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview;Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;Lkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwMatchOverview;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAllWorlds ()Ljava/util/Map;
-	public final fun getEndTime ()Ljava/lang/String;
+	public final fun getEndTime ()Lkotlin/time/Instant;
 	public final fun getId-vwDGptY ()Ljava/lang/String;
-	public final fun getStartTime ()Ljava/lang/String;
+	public final fun getStartTime ()Lkotlin/time/Instant;
 	public final fun getWorlds ()Ljava/util/Map;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -18088,14 +18088,14 @@ public final class com/gw2tb/gw2api/types/v2/GW2v2WvwRank$Companion {
 
 public final class com/gw2tb/gw2api/types/v2/GW2v2WvwTimers {
 	public static final field Companion Lcom/gw2tb/gw2api/types/v2/GW2v2WvwTimers$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwTimers;
-	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwTimers;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwTimers;
+	public fun <init> (Lkotlin/time/Instant;Lkotlin/time/Instant;)V
+	public final fun component1 ()Lkotlin/time/Instant;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun copy (Lkotlin/time/Instant;Lkotlin/time/Instant;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwTimers;
+	public static synthetic fun copy$default (Lcom/gw2tb/gw2api/types/v2/GW2v2WvwTimers;Lkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Lcom/gw2tb/gw2api/types/v2/GW2v2WvwTimers;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getEu ()Ljava/lang/String;
-	public final fun getNa ()Ljava/lang/String;
+	public final fun getEu ()Lkotlin/time/Instant;
+	public final fun getNa ()Lkotlin/time/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

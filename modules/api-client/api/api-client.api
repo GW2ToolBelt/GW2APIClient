@@ -836,10 +836,10 @@ public final class com/gw2tb/gw2api/client/v2/GW2v2 {
 	public static final fun gw2v2ContinentsIds ()Lcom/gw2tb/gw2api/client/RequestTemplate;
 	public static final fun gw2v2ContinentsIds (Lcom/gw2tb/gw2api/client/RequestConfigurer;)Lcom/gw2tb/gw2api/client/RequestTemplate;
 	public static synthetic fun gw2v2ContinentsIds$default (Lcom/gw2tb/gw2api/client/RequestConfigurer;ILjava/lang/Object;)Lcom/gw2tb/gw2api/client/RequestTemplate;
-	public static final fun gw2v2CreateSubToken (Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/client/RequestTemplate;
-	public static final fun gw2v2CreateSubToken (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/client/RequestTemplate;
-	public static final fun gw2v2CreateSubToken (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/gw2tb/gw2api/client/RequestConfigurer;)Lcom/gw2tb/gw2api/client/RequestTemplate;
-	public static synthetic fun gw2v2CreateSubToken$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/gw2tb/gw2api/client/RequestConfigurer;ILjava/lang/Object;)Lcom/gw2tb/gw2api/client/RequestTemplate;
+	public static final fun gw2v2CreateSubToken (Lkotlin/time/Instant;Ljava/lang/String;)Lcom/gw2tb/gw2api/client/RequestTemplate;
+	public static final fun gw2v2CreateSubToken (Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;)Lcom/gw2tb/gw2api/client/RequestTemplate;
+	public static final fun gw2v2CreateSubToken (Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Lcom/gw2tb/gw2api/client/RequestConfigurer;)Lcom/gw2tb/gw2api/client/RequestTemplate;
+	public static synthetic fun gw2v2CreateSubToken$default (Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Lcom/gw2tb/gw2api/client/RequestConfigurer;ILjava/lang/Object;)Lcom/gw2tb/gw2api/client/RequestTemplate;
 	public static final fun gw2v2CurrenciesById (J)Lcom/gw2tb/gw2api/client/RequestTemplate;
 	public static final fun gw2v2CurrenciesById (JLcom/gw2tb/gw2api/client/RequestConfigurer;)Lcom/gw2tb/gw2api/client/RequestTemplate;
 	public static synthetic fun gw2v2CurrenciesById$default (JLcom/gw2tb/gw2api/client/RequestConfigurer;ILjava/lang/Object;)Lcom/gw2tb/gw2api/client/RequestTemplate;
