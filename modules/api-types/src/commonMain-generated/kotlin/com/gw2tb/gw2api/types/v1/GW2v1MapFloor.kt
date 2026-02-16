@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v1
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*

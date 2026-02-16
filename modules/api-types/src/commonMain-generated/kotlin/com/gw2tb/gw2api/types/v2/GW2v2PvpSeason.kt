@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -53,9 +56,9 @@ public data class GW2v2PvpSeason(
     /** This field holds the season's localized name. */
     val name: String,
     /** This field holds the ISO-8601 standard timestamp of when the season started. */
-    val start: String,
+    val start: Instant,
     /** This field holds the ISO-8601 standard timestamp of when the season ended. */
-    val end: String,
+    val end: Instant,
     /** This field holds whether the season is currently active. */
     val active: Boolean,
     /** This field holds the season's divisions. */

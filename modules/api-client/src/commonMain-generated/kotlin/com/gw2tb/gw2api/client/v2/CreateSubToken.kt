@@ -29,8 +29,12 @@ import com.gw2tb.gw2api.client.*
 import com.gw2tb.gw2api.client.internal.*
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.v2.*
-import kotlinx.serialization.builtins.*
+
 import kotlin.jvm.*
+import kotlin.uuid.*
+import kotlin.time.*
+
+import kotlinx.serialization.builtins.*
 
 /**
  * Creates a new subtoken.
@@ -53,7 +57,7 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2CreateSubToken(expire: String, permissions: String, urls: String? = null, configure: RequestConfigurer? = null): RequestTemplate<GW2v2SubToken> = RequestTemplate(
+public fun gw2v2CreateSubToken(expire: Instant, permissions: String, urls: String? = null, configure: RequestConfigurer? = null): RequestTemplate<GW2v2SubToken> = RequestTemplate(
     path = "/v2/createsubtoken",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z", "expire" to expire, "permissions" to permissions, "urls" to urls),
     replaceInPath = mapOfNonNullValues(),

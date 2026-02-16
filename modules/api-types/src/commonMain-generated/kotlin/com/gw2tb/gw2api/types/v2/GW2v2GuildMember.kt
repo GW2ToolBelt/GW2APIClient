@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -49,7 +52,7 @@ public data class GW2v2GuildMember(
     /** This field holds the member's rank. */
     val rank: String,
     /** This field holds the ISO-8601 timestamp of when the member joined the guild. */
-    val joined: String,
+    val joined: Instant,
     /** This field holds whether the member has selected the guild as their WvW guild. */
     @SerialName("wvw_member")
     val wvwMember: Boolean

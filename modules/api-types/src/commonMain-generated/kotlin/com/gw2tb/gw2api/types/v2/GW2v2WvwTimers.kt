@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -43,7 +46,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2WvwTimers(
     /** This field holds the ISO-8601 standard timestamp for the next tick in the EU region. */
-    val eu: String,
+    val eu: Instant,
     /** This field holds the ISO-8601 standard timestamp for the next tick in the NA region. */
-    val na: String
+    val na: Instant
 )

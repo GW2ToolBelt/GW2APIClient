@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -60,7 +63,7 @@ public sealed class GW2v2GuildLogEntry {
     public abstract val id: Long
 
     /** This field holds ISO-8601 timestamp for when the log entry was created. */
-    public abstract val time: String
+    public abstract val time: Instant
 
     /** This field holds the account name of the guild member who generated this log entry. */
     public abstract val user: String?
@@ -89,7 +92,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __JoinedSerializer0::class)
     public data class Joined(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String
     ) : GW2v2GuildLogEntry()
@@ -116,7 +119,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __InvitedSerializer0::class)
     public data class Invited(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String,
         /** This field holds the account name of the guild member who invited the user. */
@@ -146,7 +149,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __KickSerializer0::class)
     public data class Kick(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String,
         /** This field holds the account name of the guild member who kicked the user. */
@@ -178,7 +181,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __RankChangeSerializer0::class)
     public data class RankChange(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String,
         /** This field holds the account name of the guild member who changed the rank of the user. */
@@ -215,7 +218,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __TreasurySerializer0::class)
     public data class Treasury(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String,
         /** This field holds the item's ID. */
@@ -250,7 +253,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __StashSerializer0::class)
     public data class Stash(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String,
         /** This field holds the action (may be "deposit", "withdraw" or "move". */
@@ -286,7 +289,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __MotdSerializer0::class)
     public data class Motd(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String,
         /** This field holds the new message of the day. */
@@ -318,7 +321,7 @@ public sealed class GW2v2GuildLogEntry {
     @Serializable(with = __UpgradeSerializer0::class)
     public data class Upgrade(
         override val id: Long,
-        override val time: String,
+        override val time: Instant,
         override val user: String? = null,
         override val type: String,
         /** This field holds the action (may be "queued", "cancelled", "completed" or "sped_up". */

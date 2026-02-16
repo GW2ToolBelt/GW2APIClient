@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -66,10 +69,10 @@ public data class GW2v2CharactersCore(
     /** This field holds the amount of seconds the character was played. */
     val age: Long,
     /** This field holds the ISO-8601 standard timestamp of when the character was created. */
-    val created: String,
+    val created: Instant,
     /** This field holds the ISO-8601 standard timestamp of when the API record of the character was last modified. */
     @SerialName("last_modified")
-    val lastModified: String,
+    val lastModified: Instant,
     /** This field holds the amount of times the character has been defeated. */
     val deaths: Long,
     /** This field holds the ID of the character's selected title. */

@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -57,9 +60,9 @@ public data class GW2v2PvpGame(
     @SerialName("map_id")
     val mapId: GW2MapId,
     /** This field holds the ISO-8601 standard timestamp of when the game started. */
-    val started: String,
+    val started: Instant,
     /** This field holds the ISO-8601 standard timestamp of when the game ended. */
-    val ended: String,
+    val ended: Instant,
     /** This field holds the game's result for the account ("Victory" or "Defeat"). */
     val result: String,
     /** This field holds the player's team ("Blue" or "Red"). */

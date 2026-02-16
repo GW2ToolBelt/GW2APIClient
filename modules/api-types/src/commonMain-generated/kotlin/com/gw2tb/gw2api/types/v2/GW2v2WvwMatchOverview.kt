@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -54,8 +57,8 @@ public data class GW2v2WvwMatchOverview(
     val allWorlds: Map<String, List<Long>>,
     /** This field holds the ISO-8601 standard timestamp of when the match's start. */
     @SerialName("start_time")
-    val startTime: String,
+    val startTime: Instant,
     /** This field holds the ISO-8601 standard timestamp of when the match's end. */
     @SerialName("end_time")
-    val endTime: String
+    val endTime: Instant
 )

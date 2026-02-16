@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -69,7 +72,7 @@ public data class GW2v2Account(
     @SerialName("guild_leader")
     val guildLeader: List<GW2GuildId>? = null,
     /** This field holds the ISO-8601 standard timestamp of when the account was created. */
-    val created: String,
+    val created: Instant,
     /** This field holds an array of what content this account has access to. */
     val access: List<String>,
     /** This field holds a flag indicating whether the commander tag is unlocked for the account. */
@@ -87,7 +90,7 @@ public data class GW2v2Account(
     val wvw: AccountWvw? = null,
     /** This field holds the ISO-8601 standard timestamp of when the account information last changed (as perceived by the API). */
     @SerialName("last_modified")
-    val lastModified: String,
+    val lastModified: Instant,
     /** This field holds the number of the account's account-wide build storage slots unlocked. */
     @SerialName("build_storage_slots")
     val buildStorageSlots: Long? = null

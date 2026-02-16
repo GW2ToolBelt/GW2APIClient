@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -55,10 +58,10 @@ public data class GW2v2WvwMatch(
     val id: GW2WvwMatchId,
     /** This field holds the ISO-8601 standard timestamp of when the match's start. */
     @SerialName("start_time")
-    val startTime: String,
+    val startTime: Instant,
     /** This field holds the ISO-8601 standard timestamp of when the match's end. */
     @SerialName("end_time")
-    val endTime: String,
+    val endTime: Instant,
     /** This field holds the total scores by team color. */
     val scores: Map<String, Long>,
     /** This field holds the IDs of the three primary servers by team color. */
@@ -166,13 +169,13 @@ public data class GW2v2WvwMatch(
             val owner: String,
             /** This field holds the ISO-8601 standard timestamp of when the objective was last flipped. */
             @SerialName("last_flipped")
-            val lastFlipped: String,
+            val lastFlipped: Instant,
             /** This field holds the guild ID of the guild that currently has claimed this objective. */
             @SerialName("claimed_by")
             val claimedBy: String? = null,
             /** This field holds the ISO-8601 standard timestamp of when the objective was claimed. */
             @SerialName("claimed_at")
-            val claimedAt: String? = null,
+            val claimedAt: Instant? = null,
             /** This field holds the amount of points per tick given by the objective. */
             @SerialName("points_tick")
             val pointsTick: Long,

@@ -58,6 +58,9 @@ internal fun Map<QualifiedTypeName.Declaration, APIType>.asPrintableFileSequence
             |import com.gw2tb.gw2api.types.*
             |import com.gw2tb.gw2api.types.internal.*
             |
+            |import kotlin.uuid.*
+            |import kotlin.time.*
+            |
             |import kotlinx.serialization.*
             |import kotlinx.serialization.builtins.*
             |import kotlinx.serialization.descriptors.*
@@ -433,6 +436,7 @@ private fun SchemaRecord.printRecordToString(
             add { index ->
                 """
                 |@Suppress("ClassName")
+                |@OptIn(ExperimentalTime::class)
                 |private object ${serializerName(index)} : JsonInlineSerializer<$typeName>(${serializerName(index - 1)}) {
                 |    override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v${apiVersion}.$typeName") {
                 |        $elements

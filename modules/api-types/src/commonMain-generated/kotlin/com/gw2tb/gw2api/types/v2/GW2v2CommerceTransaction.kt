@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -56,7 +59,7 @@ public data class GW2v2CommerceTransaction(
     /** This field holds the quantity of the item. */
     val quantity: Long,
     /** This field holds the ISO-8601 standard timestamp of when the transaction was created. */
-    val created: String,
+    val created: Instant,
     /** This field holds the ISO-8601 standard timestamp of when the transaction was completed. */
-    val purchased: String? = null
+    val purchased: Instant? = null
 )

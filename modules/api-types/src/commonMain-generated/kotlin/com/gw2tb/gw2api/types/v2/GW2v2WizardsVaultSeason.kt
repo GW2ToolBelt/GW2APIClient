@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -48,9 +51,9 @@ public data class GW2v2WizardsVaultSeason(
     /** This field holds current season's title. */
     val title: String,
     /** This field holds the ISO-8601 standard timestamp of the start of the season. */
-    val start: String,
+    val start: Instant,
     /** This field holds the ISO-8601 standard timestamp of the end of the season. */
-    val end: String,
+    val end: Instant,
     /** This field holds the IDs of the available listings. */
     val listings: List<Long>,
     /** This field holds the IDs of the available objectives. */

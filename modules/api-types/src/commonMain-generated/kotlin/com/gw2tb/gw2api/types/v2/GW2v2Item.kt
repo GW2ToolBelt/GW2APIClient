@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -275,6 +278,7 @@ public data class GW2v2Item(
         }
 
         @Suppress("ClassName")
+        @OptIn(ExperimentalTime::class)
         private object __ArmorSerializer1 : JsonInlineSerializer<Armor>(__ArmorSerializer0) {
             override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.Armor") {
                 element("type", String.serializer().descriptor, isOptional = false)
@@ -347,6 +351,7 @@ public data class GW2v2Item(
         }
 
         @Suppress("ClassName")
+        @OptIn(ExperimentalTime::class)
         private object __BackSerializer1 : JsonInlineSerializer<Back>(__BackSerializer0) {
             override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.Back") {
                 element("infusion_slots", ListSerializer(GW2v2Item.Details.Upgrades.InfusionSlot.serializer()).descriptor, isOptional = false)
@@ -606,6 +611,7 @@ public data class GW2v2Item(
         }
 
         @Suppress("ClassName")
+        @OptIn(ExperimentalTime::class)
         private object __TrinketSerializer1 : JsonInlineSerializer<Trinket>(__TrinketSerializer0) {
             override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.Trinket") {
                 element("type", String.serializer().descriptor, isOptional = false)
@@ -709,6 +715,7 @@ public data class GW2v2Item(
         }
 
         @Suppress("ClassName")
+        @OptIn(ExperimentalTime::class)
         private object __WeaponSerializer1 : JsonInlineSerializer<Weapon>(__WeaponSerializer0) {
             override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.Weapon") {
                 element("type", String.serializer().descriptor, isOptional = false)

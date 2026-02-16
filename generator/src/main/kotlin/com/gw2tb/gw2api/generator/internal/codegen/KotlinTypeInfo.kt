@@ -33,7 +33,10 @@ internal fun SchemaPrimitiveOrAlias.toKotlinType(): KotlinTypeInfo = when (this)
     is SchemaBoolean -> "Boolean"
     is SchemaDecimal -> "Double"
     is SchemaInteger -> "Long"
-    is SchemaString -> "String"
+    is SchemaString -> when (format) {
+        SchemaString.Format.UUID, null -> "String" // TODO Map to kotlin.uuid.Uuid once that's stable
+        SchemaString.Format.TIMESTAMP -> "Instant"
+    }
     is SchemaTypeReference -> name.toKotlinName()
 }.let { name -> KotlinTypeInfo(name, "$name.serializer()") }
 

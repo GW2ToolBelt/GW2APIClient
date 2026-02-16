@@ -58,6 +58,9 @@ internal fun Map<QualifiedTypeName.Alias, SchemaAlias>.asPrintableFileSequence()
             |import com.gw2tb.gw2api.types.internal.*
             |
             |import kotlin.jvm.JvmInline
+            |import kotlin.uuid.*
+            |import kotlin.time.*
+            |
             |import kotlinx.serialization.*
             |import kotlinx.serialization.builtins.*
             |import kotlinx.serialization.json.*

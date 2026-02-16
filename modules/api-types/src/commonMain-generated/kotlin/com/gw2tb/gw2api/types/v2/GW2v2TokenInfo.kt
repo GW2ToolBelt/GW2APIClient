@@ -26,6 +26,9 @@ package com.gw2tb.gw2api.types.v2
 import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.uuid.*
+import kotlin.time.*
+
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
@@ -39,14 +42,15 @@ import kotlinx.serialization.json.*
 private object __GW2v2TokenInfoGeneratedSerializer : KSerializer<GW2v2TokenInfo>
 
 @Suppress("ClassName")
+@OptIn(ExperimentalTime::class)
 private object __GW2v2TokenInfoSerializer0 : JsonInlineSerializer<GW2v2TokenInfo>(__GW2v2TokenInfoGeneratedSerializer) {
     override val descriptor: SerialDescriptor = buildClassSerialDescriptor("com.gw2tb.gw2api.types.v2.GW2v2TokenInfo") {
         element("id", String.serializer().descriptor, isOptional = false)
         element("name", String.serializer().descriptor, isOptional = false)
         element("permissions", ListSerializer(String.serializer()).descriptor, isOptional = false)
         element("type", String.serializer().descriptor, isOptional = false)
-        element("expires_at", String.serializer().descriptor, isOptional = false)
-        element("issued_at", String.serializer().descriptor, isOptional = false)
+        element("expires_at", Instant.serializer().descriptor, isOptional = false)
+        element("issued_at", Instant.serializer().descriptor, isOptional = false)
         element("urls", ListSerializer(String.serializer()).descriptor, isOptional = false)
     }
     override fun transformDeserialize(element: JsonElement): JsonElement {
@@ -110,10 +114,10 @@ public data class GW2v2TokenInfo(
     public data class SubtokenDetails(
         /** This field holds if a subtoken is given, ISO-8601 timestamp indicating when the given subtoken expires. */
         @SerialName("expires_at")
-        val expiresAt: String,
+        val expiresAt: Instant,
         /** This field holds if a subtoken is given, ISO-8601 timestamp indicating when the given subtoken was created. */
         @SerialName("issued_at")
-        val issuedAt: String,
+        val issuedAt: Instant,
         /** This field holds an array of strings describing what endpoints are available to this token (if the given subtoken is restricted to a list of URLs). */
         val urls: List<String>
     )
