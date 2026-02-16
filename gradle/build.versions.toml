@@ -1,5 +1,4 @@
 [versions]
-api-generator = "0.10.1"
 binary-compatibility-validator = "0.18.1"
 dokka = "2.1.0"
 junit = "6.0.3"
@@ -11,7 +10,7 @@ kotlinx-datetime = "0.7.1"
 [libraries]
 # com.gw2tb.api-generator:api-generator - api-generator
 # https://github.com/GW2ToolBelt/api-generator
-gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version.ref = "api-generator" }
+gw2api-generator = { module = "com.gw2tb.api-generator:api-generator", version = "0.11.0" }
 
 # org.jetbrains.kotlin - Kotlin
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

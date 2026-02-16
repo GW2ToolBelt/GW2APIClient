@@ -42,7 +42,7 @@ import kotlinx.serialization.json.*
 @Serializable
 public data class GW2v2CharactersInventorySlot(
     /** This field holds the character's inventory bags. */
-    val bags: List<Bag>
+    val bags: List<Bag?>
 ) {
 
     /**

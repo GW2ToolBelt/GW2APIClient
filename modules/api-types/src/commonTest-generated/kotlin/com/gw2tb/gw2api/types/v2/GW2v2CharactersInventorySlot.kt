@@ -482,7 +482,8 @@ class GW2v2CharactersInventorySlotTest {
                                 "binding": "Account"
                             }
                         ]
-                    }
+                    },
+                    null
                 ]
             }
             """.trimIndent()

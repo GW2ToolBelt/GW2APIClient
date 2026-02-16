@@ -118,7 +118,7 @@ public data class GW2v2Character(
     @SerialName("equipment_tabs")
     val equipmentTabs: List<CharactersEquipmentTab>? = null,
     /** This field holds the character's inventory bags. */
-    val bags: List<Bag>? = null,
+    val bags: List<Bag?>? = null,
     /** This field holds the IDs of the character's crafting recipes. */
     val recipes: List<GW2RecipeId>? = null,
     /** This field holds the training information for a character's trained skill-trees. */
@@ -170,6 +170,7 @@ public data class GW2v2Character(
      * @param boundTo name of the character the item is bound to
      * @param stats contains information on the stats chosen if the item offers an option for stats/prefix
      * @param location the storage location of the equipment piece
+     * @param count the amount of the item
      * @param tabs the IDs of the tabs in which this item is used
      */
     @Serializable
@@ -197,6 +198,8 @@ public data class GW2v2Character(
         val stats: Stats? = null,
         /** This field holds the storage location of the equipment piece. */
         val location: String,
+        /** This field holds the amount of the item. */
+        val count: Long? = null,
         /** This field holds the IDs of the tabs in which this item is used. */
         val tabs: List<Long>? = null
     ) {

@@ -50,12 +50,12 @@ import kotlin.jvm.*
  * @return  the request that can be executed to query the API
  */
 @JvmOverloads
-public fun gw2v2AccountInventory(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountInventorySlot>> = RequestTemplate(
+public fun gw2v2AccountInventory(configure: RequestConfigurer? = null): RequestTemplate<List<GW2v2AccountInventorySlot?>> = RequestTemplate(
     path = "/v2/account/inventory",
     parameters = mapOfNonNullValues("v" to "2024-07-20T01:00:00.000Z"),
     replaceInPath = mapOfNonNullValues(),
     requiredPermissions = setOf("account", "inventories"),
     supportedLanguages = emptySet(),
-    serializer = ListSerializer(GW2v2AccountInventorySlot.serializer()),
+    serializer = ListSerializer(GW2v2AccountInventorySlot.serializer().nullable),
     configure = configure
 )

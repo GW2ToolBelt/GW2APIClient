@@ -102,16 +102,16 @@ public data class GW2v2TokenInfo(
     /**
      * Additional information about a subtoken
      *
-     * @param expiresAt if a subtoken is given, ISO8601 timestamp indicating when the given subtoken expires
-     * @param issuedAt if a subtoken is given, ISO8601 timestamp indicating when the given subtoken was created
+     * @param expiresAt if a subtoken is given, ISO-8601 timestamp indicating when the given subtoken expires
+     * @param issuedAt if a subtoken is given, ISO-8601 timestamp indicating when the given subtoken was created
      * @param urls an array of strings describing what endpoints are available to this token (if the given subtoken is restricted to a list of URLs)
      */
     @Serializable
     public data class SubtokenDetails(
-        /** This field holds if a subtoken is given, ISO8601 timestamp indicating when the given subtoken expires. */
+        /** This field holds if a subtoken is given, ISO-8601 timestamp indicating when the given subtoken expires. */
         @SerialName("expires_at")
         val expiresAt: String,
-        /** This field holds if a subtoken is given, ISO8601 timestamp indicating when the given subtoken was created. */
+        /** This field holds if a subtoken is given, ISO-8601 timestamp indicating when the given subtoken was created. */
         @SerialName("issued_at")
         val issuedAt: String,
         /** This field holds an array of strings describing what endpoints are available to this token (if the given subtoken is restricted to a list of URLs). */

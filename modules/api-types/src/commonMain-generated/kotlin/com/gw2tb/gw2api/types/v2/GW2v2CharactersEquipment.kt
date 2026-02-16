@@ -59,6 +59,7 @@ public data class GW2v2CharactersEquipment(
      * @param boundTo name of the character the item is bound to
      * @param stats contains information on the stats chosen if the item offers an option for stats/prefix
      * @param location the storage location of the equipment piece
+     * @param count the amount of the item
      * @param tabs the IDs of the tabs in which this item is used
      */
     @Serializable
@@ -86,6 +87,8 @@ public data class GW2v2CharactersEquipment(
         val stats: Stats? = null,
         /** This field holds the storage location of the equipment piece. */
         val location: String,
+        /** This field holds the amount of the item. */
+        val count: Long? = null,
         /** This field holds the IDs of the tabs in which this item is used. */
         val tabs: List<Long>? = null
     ) {

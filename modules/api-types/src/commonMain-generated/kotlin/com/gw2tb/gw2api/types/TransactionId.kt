@@ -21,42 +21,29 @@
  * SOFTWARE.
  */
 @file:Suppress("PackageDirectoryMismatch", "UnusedImport")
-package com.gw2tb.gw2api.types.v2
+package com.gw2tb.gw2api.types
 
-import com.gw2tb.gw2api.types.*
 import com.gw2tb.gw2api.types.internal.*
 
+import kotlin.jvm.JvmInline
 import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
 
-// Generated for type: CommerceTransaction
+// Generated for type: TransactionId
 
-/**
- * Information about a transaction.
- *
- * @param id the transaction's ID
- * @param itemId the item's ID
- * @param price the price in coins
- * @param quantity the quantity of the item
- * @param created the ISO-8601 standard timestamp of when the transaction was created
- * @param purchased the ISO-8601 standard timestamp of when the transaction was completed
- */
-@Serializable
-public data class GW2v2CommerceTransaction(
-    /** This field holds the transaction's ID. */
-    val id: GW2TransactionId,
-    /** This field holds the item's ID. */
-    @SerialName("item_id")
-    val itemId: GW2ItemId,
-    /** This field holds the price in coins. */
-    val price: Long,
-    /** This field holds the quantity of the item. */
-    val quantity: Long,
-    /** This field holds the ISO-8601 standard timestamp of when the transaction was created. */
-    val created: String,
-    /** This field holds the ISO-8601 standard timestamp of when the transaction was completed. */
-    val purchased: String? = null
+@Suppress("unused")
+internal object LenientGW2TransactionIdSerializer : LenientSerializer<GW2TransactionId?>(
+    { GW2TransactionId(it.toLong()) },
+    GW2TransactionId.serializer().nullable
 )
+
+/** TODO */
+@Serializable
+@JvmInline
+public value class GW2TransactionId(
+    /** The raw (type-unsafe) value. */
+    public val raw: Long
+) {
+    override fun toString(): String = raw.toString()
+}

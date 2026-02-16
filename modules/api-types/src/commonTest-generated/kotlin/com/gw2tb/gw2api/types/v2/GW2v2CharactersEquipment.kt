@@ -357,6 +357,14 @@ class GW2v2CharactersEquipmentTest {
                         "slot": "Pick",
                         "binding": "Account",
                         "location": "Equipped"
+                    },
+                    {
+                        "id": 49434,
+                        "count": 3,
+                        "location": "Armory",
+                        "tabs": [
+                            2
+                        ]
                     }
                 ]
             }
