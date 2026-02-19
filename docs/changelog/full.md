@@ -1,3 +1,19 @@
+### 0.12.0
+
+_Released 2026 Feb 19_
+
+#### Improvements
+
+- Updated to [api-generator](https://github.com/GW2ToolBelt/api-generator) to [0.11.0](https://github.com/GW2ToolBelt/api-generator/releases/tag/v0.11.0).
+- Timestamps are now mapped to Kotlin's `Instant`.
+
+#### Breaking Changes
+
+- The minimum required Kotlin version is now 2.3 (from 2.2).
+
+
+---
+
 ### 0.11.0
 
 _Released 2026 Feb 05_
