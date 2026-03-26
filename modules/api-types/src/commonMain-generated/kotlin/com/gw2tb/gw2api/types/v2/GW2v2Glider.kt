@@ -65,5 +65,5 @@ public data class GW2v2Glider(
     val defaultDyes: List<GW2DyeId>,
     /** This field holds an array of item IDs used to unlock the glider. */
     @SerialName("unlock_items")
-    val unlockItems: List<GW2ItemId>
+    val unlockItems: List<GW2ItemId>? = null
 )

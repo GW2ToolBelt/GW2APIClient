@@ -105,7 +105,7 @@ public data class GW2v2Achievement(
         override fun selectDeserializer(element: JsonElement): DeserializationStrategy<Reward> {
             return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "Coins" -> Reward.Coins.serializer()
-                "Items" -> Reward.Items.serializer()
+                "Item" -> Reward.Item.serializer()
                 "Mastery" -> Reward.Mastery.serializer()
                 "Title" -> Reward.Title.serializer()
                 null -> throw SerializationException("Disambiguator property not found")
@@ -145,11 +145,11 @@ public data class GW2v2Achievement(
         ) : Reward()
 
         @Suppress("ClassName")
-        @Serializer(forClass = Items::class)
-        private object __ItemsGeneratedSerializer : KSerializer<Items>
+        @Serializer(forClass = Item::class)
+        private object __ItemGeneratedSerializer : KSerializer<Item>
 
         @Suppress("ClassName")
-        private object __ItemsSerializer0 : JsonTransformingSerializer<Items>(__ItemsGeneratedSerializer) {
+        private object __ItemSerializer0 : JsonTransformingSerializer<Item>(__ItemGeneratedSerializer) {
             override fun transformDeserialize(element: JsonElement): JsonElement =
                 JsonObject(element.jsonObject - "__virtualType")
         }
@@ -161,8 +161,8 @@ public data class GW2v2Achievement(
          * @param id the item's ID
          * @param count the amount of the item
          */
-        @Serializable(with = __ItemsSerializer0::class)
-        public data class Items(
+        @Serializable(with = __ItemSerializer0::class)
+        public data class Item(
             override val type: String,
             /** This field holds the item's ID. */
             val id: GW2ItemId,
@@ -226,7 +226,7 @@ public data class GW2v2Achievement(
         override fun selectDeserializer(element: JsonElement): DeserializationStrategy<Bit> {
             return when (val type = element.jsonObject["type"]?.jsonPrimitive?.content) {
                 "Item" -> Bit.Item.serializer()
-                "MiniPet" -> Bit.MiniPet.serializer()
+                "Minipet" -> Bit.MiniPet.serializer()
                 "Skin" -> Bit.Skin.serializer()
                 "Text" -> Bit.Text.serializer()
                 null -> throw SerializationException("Disambiguator property not found")

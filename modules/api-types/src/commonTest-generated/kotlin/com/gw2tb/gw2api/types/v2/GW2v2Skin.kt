@@ -221,5 +221,28 @@ class GW2v2SkinTest {
             """.trimIndent()
         )
     }
+    
+    @Test
+    fun testType_03() {
+        json.decodeFromString<GW2v2Skin>(
+            """
+            {
+                "name": "Glacial Eye",
+                "type": "Armor",
+                "flags": [
+                    "ShowInWardrobe"
+                ],
+                "restrictions": [],
+                "rarity": "Basic",
+                "id": 2048,
+                "icon": "https://render.guildwars2.com/file/FC61E5E445ABE0CE636B76B7FC7968CB43584973/61636.png",
+                "details": {
+                    "type": "Helm",
+                    "weight_class": "Light"
+                }
+            }
+            """.trimIndent()
+        )
+    }
 
 }

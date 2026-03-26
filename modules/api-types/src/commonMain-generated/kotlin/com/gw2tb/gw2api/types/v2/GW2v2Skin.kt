@@ -130,7 +130,7 @@ public data class GW2v2Skin(
             val weightClass: String,
             /** This field holds the skin's dye slots. */
             @SerialName("dye_slots")
-            val dyeSlots: DyeSlots
+            val dyeSlots: DyeSlots? = null
         ) : Details() {
 
             /**

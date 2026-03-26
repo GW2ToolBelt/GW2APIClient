@@ -74,7 +74,7 @@ public data class GW2v2Skill(
     /** This field holds the skill's localized description. */
     val description: String,
     /** This field holds a render service URL for the skill's icon. */
-    val icon: String,
+    val icon: String? = null,
     /** This field holds the skill's chat code. */
     @SerialName("chat_link")
     val chatLink: String,
@@ -104,7 +104,7 @@ public data class GW2v2Skill(
     val cost: Long? = null,
     /** This field holds the type of off-hand weapon that must be equipped for this dual-wield skill to appear. */
     @SerialName("dual_wield")
-    val dualWield: GW2SkillId? = null,
+    val dualWield: String? = null,
     /** This field holds the ID of the skill that the skill flips over into. */
     @SerialName("flip_skill")
     val flipSkill: GW2SkillId? = null,
@@ -138,6 +138,8 @@ public data class GW2v2Skill(
                 "ComboFinisher" -> Fact.ComboFinisher.serializer()
                 "Damage" -> Fact.Damage.serializer()
                 "Distance" -> Fact.Distance.serializer()
+                "Duration" -> Fact.Duration.serializer()
+                "HealingAdjust" -> Fact.HealingAdjust.serializer()
                 "NoData" -> Fact.NoData.serializer()
                 "Number" -> Fact.Number.serializer()
                 "Percent" -> Fact.Percent.serializer()
@@ -383,6 +385,61 @@ public data class GW2v2Skill(
             override val text: String? = null,
             /** This field holds the distance value. */
             val distance: Long
+        ) : Fact()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = Duration::class)
+        private object __DurationGeneratedSerializer : KSerializer<Duration>
+
+        @Suppress("ClassName")
+        private object __DurationSerializer0 : JsonTransformingSerializer<Duration>(__DurationGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Additional information about a duration.
+         *
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param duration the duration in seconds
+         */
+        @Serializable(with = __DurationSerializer0::class)
+        public data class Duration(
+            override val type: String,
+            override val icon: String? = null,
+            override val text: String? = null,
+            /** This field holds the duration in seconds. */
+            val duration: Long
+        ) : Fact()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = HealingAdjust::class)
+        private object __HealingAdjustGeneratedSerializer : KSerializer<HealingAdjust>
+
+        @Suppress("ClassName")
+        private object __HealingAdjustSerializer0 : JsonTransformingSerializer<HealingAdjust>(__HealingAdjustGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Additional information about conditional healing.
+         *
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param hitCount a hit count (unknown purpose)
+         */
+        @Serializable(with = __HealingAdjustSerializer0::class)
+        public data class HealingAdjust(
+            override val type: String,
+            override val icon: String? = null,
+            override val text: String? = null,
+            /** This field holds a hit count (unknown purpose). */
+            @SerialName("hit_count")
+            val hitCount: Long
         ) : Fact()
 
         @Suppress("ClassName")
@@ -700,6 +757,8 @@ public data class GW2v2Skill(
                 "ComboFinisher" -> TraitedFact.ComboFinisher.serializer()
                 "Damage" -> TraitedFact.Damage.serializer()
                 "Distance" -> TraitedFact.Distance.serializer()
+                "Duration" -> TraitedFact.Duration.serializer()
+                "HealingAdjust" -> TraitedFact.HealingAdjust.serializer()
                 "NoData" -> TraitedFact.NoData.serializer()
                 "Number" -> TraitedFact.Number.serializer()
                 "Percent" -> TraitedFact.Percent.serializer()
@@ -986,6 +1045,71 @@ public data class GW2v2Skill(
             override val overrides: Long? = null,
             /** This field holds the distance value. */
             val distance: Long
+        ) : TraitedFact()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = Duration::class)
+        private object __DurationGeneratedSerializer : KSerializer<Duration>
+
+        @Suppress("ClassName")
+        private object __DurationSerializer0 : JsonTransformingSerializer<Duration>(__DurationGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Additional information about a duration.
+         *
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
+         * @param duration the duration in seconds
+         */
+        @Serializable(with = __DurationSerializer0::class)
+        public data class Duration(
+            override val type: String,
+            override val icon: String? = null,
+            override val text: String? = null,
+            @SerialName("requires_trait")
+            override val requiresTrait: GW2TraitId,
+            override val overrides: Long? = null,
+            /** This field holds the duration in seconds. */
+            val duration: Long
+        ) : TraitedFact()
+
+        @Suppress("ClassName")
+        @Serializer(forClass = HealingAdjust::class)
+        private object __HealingAdjustGeneratedSerializer : KSerializer<HealingAdjust>
+
+        @Suppress("ClassName")
+        private object __HealingAdjustSerializer0 : JsonTransformingSerializer<HealingAdjust>(__HealingAdjustGeneratedSerializer) {
+            override fun transformDeserialize(element: JsonElement): JsonElement =
+                JsonObject(element.jsonObject - "__virtualType")
+        }
+
+        /**
+         * Additional information about conditional healing.
+         *
+         * @param type the type of the fact
+         * @param icon the URL for the fact's icon
+         * @param text an arbitrary localized string describing the fact
+         * @param requiresTrait specifies which trait has to be selected in order for this fact to take effect
+         * @param overrides the array index of the facts object it will override, if the trait specified in requires_trait is selected
+         * @param hitCount a hit count (unknown purpose)
+         */
+        @Serializable(with = __HealingAdjustSerializer0::class)
+        public data class HealingAdjust(
+            override val type: String,
+            override val icon: String? = null,
+            override val text: String? = null,
+            @SerialName("requires_trait")
+            override val requiresTrait: GW2TraitId,
+            override val overrides: Long? = null,
+            /** This field holds a hit count (unknown purpose). */
+            @SerialName("hit_count")
+            val hitCount: Long
         ) : TraitedFact()
 
         @Suppress("ClassName")

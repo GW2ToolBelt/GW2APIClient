@@ -1589,5 +1589,144 @@ class GW2v2SkillTest {
             """.trimIndent()
         )
     }
+    
+    @Test
+    fun testType_50() {
+        json.decodeFromString<GW2v2Skill>(
+            """
+            {
+                "name": "Vanish in the Deep",
+                "facts": [
+                    {
+                        "text": "Recharge",
+                        "type": "Recharge",
+                        "icon": "https://render.guildwars2.com/file/D767B963D120F077C3B163A05DC05A7317D7DB70/156651.png",
+                        "value": 20
+                    },
+                    {
+                        "text": "Apply Buff/Condition",
+                        "type": "Buff",
+                        "icon": "https://render.guildwars2.com/file/3BD4670638470439F3325B444FAF7D5FA620CCE5/62777.png",
+                        "duration": 2,
+                        "status": "Stealth",
+                        "description": "Currently invisible. Ends if you deal damage.",
+                        "apply_count": 1
+                    }
+                ],
+                "description": "Stealth into the depths.",
+                "icon": "https://render.guildwars2.com/file/317BE10A960E59E65F341518792F71101422E8B4/103762.png",
+                "type": "Weapon",
+                "weapon_type": "None",
+                "professions": [
+                    "Thief"
+                ],
+                "slot": "Downed_3",
+                "dual_wield": "None",
+                "flags": [],
+                "id": 13080,
+                "chat_link": "[&BhgzAAA=]"
+            }
+            """.trimIndent()
+        )
+    }
+    
+    @Test
+    fun testType_51() {
+        json.decodeFromString<GW2v2Skill>(
+            """
+            {
+                "name": "Flamewall",
+                "facts": [
+                    {
+                        "text": "Range",
+                        "type": "Range",
+                        "icon": "https://render.guildwars2.com/file/0AAB34BEB1C9F4A25EC612DDBEACF3E20B2810FA/156666.png",
+                        "value": 900
+                    },
+                    {
+                        "text": "Recharge",
+                        "type": "Recharge",
+                        "icon": "https://render.guildwars2.com/file/D767B963D120F077C3B163A05DC05A7317D7DB70/156651.png",
+                        "value": 20
+                    },
+                    {
+                        "text": "Damage",
+                        "type": "Damage",
+                        "icon": "https://render.guildwars2.com/file/61AA4919C4A7990903241B680A69530121E994C7/156657.png",
+                        "hit_count": 1,
+                        "dmg_multiplier": 0.1
+                    },
+                    {
+                        "text": "Apply Buff/Condition",
+                        "type": "Buff",
+                        "icon": "https://render.guildwars2.com/file/B47BF5803FED2718D7474EAF9617629AD068EE10/102849.png",
+                        "duration": 3,
+                        "status": "Burning",
+                        "description": "Deals damage every second; stacks intensity.",
+                        "apply_count": 1
+                    },
+                    {
+                        "text": "Duration",
+                        "type": "Duration",
+                        "icon": "https://render.guildwars2.com/file/7B2193ACCF77E56C13E608191B082D68AA0FAA71/156659.png",
+                        "duration": 8
+                    },
+                    {
+                        "text": "Number of Targets",
+                        "type": "Number",
+                        "icon": "https://render.guildwars2.com/file/BBE8191A494B0352259C10EADFDACCE177E6DA5B/1770208.png",
+                        "value": 5
+                    },
+                    {
+                        "text": "Combo Field",
+                        "type": "ComboField",
+                        "icon": "https://render.guildwars2.com/file/59E0DB6A699810641C959926ADFEF73E08CC255B/156655.png",
+                        "field_type": "Fire"
+                    }
+                ],
+                "description": "Create a wall of flame at the target area that burns foes.",
+                "icon": "https://render.guildwars2.com/file/B84B697E69B44D5EC3A0306AA2FB3128BBF30F78/103271.png",
+                "type": "Weapon",
+                "weapon_type": "Focus",
+                "professions": [
+                    "Elementalist"
+                ],
+                "slot": "Weapon_4",
+                "flags": [
+                    "GroundTargeted",
+                    "NoUnderwater"
+                ],
+                "specialization": 56,
+                "id": 5497,
+                "chat_link": "[&BnkVAAA=]",
+                "traited_facts": [
+                    {
+                        "text": "Duration",
+                        "type": "Time",
+                        "icon": "https://render.guildwars2.com/file/7B2193ACCF77E56C13E608191B082D68AA0FAA71/156659.png",
+                        "duration": 10,
+                        "requires_trait": 1510,
+                        "overrides": 4
+                    }
+                ]
+            }
+            """.trimIndent()
+        )
+    }
+    
+    @Test
+    fun testType_52() {
+        json.decodeFromString<GW2v2Skill>(
+            """
+            {
+                "name": "Corrosive Residue",
+                "description": "",
+                "flags": [],
+                "id": 34569,
+                "chat_link": "[&BgmHAAA=]"
+            }
+            """.trimIndent()
+        )
+    }
 
 }
