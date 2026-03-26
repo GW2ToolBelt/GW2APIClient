@@ -88,7 +88,7 @@ private fun SchemaAlias.printToString(): String {
                 /** The raw (type-unsafe) value. */
                 public val raw: ${typeInfo.name}
             ) {
-                override fun toString(): String = raw.toString()
+                override fun toString(): String = raw${if (typeInfo.name == "String") "" else ".toString()"}
             }""".trimIndent()
         )
     }

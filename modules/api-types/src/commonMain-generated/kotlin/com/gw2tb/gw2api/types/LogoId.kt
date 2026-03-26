@@ -42,5 +42,5 @@ public value class GW2LogoId(
     /** The raw (type-unsafe) value. */
     public val raw: String
 ) {
-    override fun toString(): String = raw.toString()
+    override fun toString(): String = raw
 }
