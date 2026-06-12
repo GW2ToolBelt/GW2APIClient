@@ -23,7 +23,6 @@ import org.gradle.kotlin.dsl.named
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(buildDeps.plugins.binary.compatibility.validator)
     alias(buildDeps.plugins.dokka)
     id("com.gw2tb.multiplatform-module")
 }

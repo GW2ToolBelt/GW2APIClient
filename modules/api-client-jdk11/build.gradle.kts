@@ -21,10 +21,10 @@
  */
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(buildDeps.plugins.binary.compatibility.validator)
     alias(buildDeps.plugins.dokka)
     alias(buildDeps.plugins.dokka.javadoc)
     alias(buildDeps.plugins.kotlin.jvm)
@@ -34,6 +34,9 @@ plugins {
 
 kotlin {
     explicitApi()
+
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation()
 
     compilerOptions {
         apiVersion = KotlinVersion.KOTLIN_2_3
