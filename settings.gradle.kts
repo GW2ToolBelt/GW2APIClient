@@ -35,6 +35,10 @@ plugins {
 rootProject.name = "GW2APIClient"
 
 dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+
     versionCatalogs {
         register("buildDeps") {
             from(files("./gradle/build.versions.toml"))

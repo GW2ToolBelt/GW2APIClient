@@ -23,11 +23,6 @@ plugins {
     `kotlin-dsl`
 }
 
-repositories {
-    mavenCentral()
-    gradlePluginPortal()
-}
-
 dependencies {
     implementation(buildDeps.kotlin.gradle.plugin)
 }

@@ -22,6 +22,13 @@
 rootProject.name = "build-logic"
 
 dependencyResolutionManagement {
+    repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
+
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+
     versionCatalogs {
         register("buildDeps") {
             from(files("../gradle/build.versions.toml"))

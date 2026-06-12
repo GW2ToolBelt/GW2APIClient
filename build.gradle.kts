@@ -27,7 +27,6 @@ plugins {
     alias(buildDeps.plugins.dokka.javadoc) apply false
     alias(buildDeps.plugins.kotlin.jvm) apply false
     alias(buildDeps.plugins.kotlin.multiplatform) apply false
-    id("com.gw2tb.base-conventions") // Required by the Kotlin Multiplatform plugin to download native tools
     id("com.gw2tb.gw2api.generator")
 }
 
